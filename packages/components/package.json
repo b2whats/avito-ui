@@ -1,0 +1,44 @@
+{
+  "name": "@avito/components",
+  "version": "0.0.1",
+  "private": false,
+  "description": "components",
+  "main": "build/index.js",
+  "module": "src/index.ts",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn build:js && yarn build:types",
+    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
+    "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
+    "clean": "rm -rf ./build && rm -rf tsconfig.tsbuildinfo",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "yarn build",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@avito/icons": "^0.0.1",
+    "@avito/tokens": "^0.0.1",
+    "@emotion/core": "^10.0.15",
+    "@emotion/is-prop-valid": "^0.8.2",
+    "@emotion/styled": "^10.0.15",
+    "create-emotion-server": "^10.0.14",
+    "deepmerge": "^4.0.0",
+    "emotion-theming": "^10.0.14",
+    "fast-memoize": "^2.5.1"
+  },
+  "devDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

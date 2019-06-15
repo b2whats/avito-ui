@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "lib": ["es6", "dom"],
+    "moduleResolution": "node",
+    "jsx": "react",
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noEmitOnError": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": ["node_modules/@types"],
+    "baseUrl": "./packages",
+    "paths": {
+      "@avito/*": ["../node_modules/@avito/*/src"],
+    },
+  },
+  "exclude": ["node_modules", "packages/**/build"]
+}
