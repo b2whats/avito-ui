@@ -9,18 +9,21 @@ const ANALYZE = process.env.ANALYZE;
 
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: './src/index.tsx'
   },
   output: {
     filename: '[name].js',
     path: path.resolve('./dist'),
     publicPath: '/'
   },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js', '.json' ]
+  },
   mode: isProduction ? 'production' : 'development',
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },

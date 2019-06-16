@@ -4,6 +4,7 @@ const isTest = NODE_ENV === 'test';
 
 const config = {
   presets: [
+    '@babel/preset-typescript',
     [
       '@babel/preset-env',
       {
