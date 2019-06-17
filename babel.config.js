@@ -38,13 +38,6 @@ const config = {
       plugins.push('dynamic-import-node');
     }
 
-    if (isProduction) {
-      plugins.push(
-        '@babel/plugin-transform-react-constant-elements',
-        '@babel/plugin-transform-react-inline-elements',
-      );
-    }
-
     return plugins;
   })()
 };

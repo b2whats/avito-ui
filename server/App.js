@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ThemeProvider } from 'emotion-theming'
-import { Button } from './components/Button'
-import { theme } from './theme/'
+import { Button } from '../dist'
+import { theme } from '../src/theme'
 
 class App extends Component {
   render() {

@@ -3,13 +3,11 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const isProduction = NODE_ENV === 'production';
 const ANALYZE = process.env.ANALYZE;
 
 module.exports = {
   entry: {
-    index: './src/index.tsx'
+    index: './server/index.jx'
   },
   output: {
     filename: '[name].js',
@@ -19,7 +17,7 @@ module.exports = {
   resolve: {
     extensions: [ '.tsx', '.ts', '.js', '.json' ]
   },
-  mode: isProduction ? 'production' : 'development',
+  mode: 'development',
   module: {
     rules: [
       {
@@ -38,17 +36,11 @@ module.exports = {
       index: '/'
     }
   },
-  devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
-  optimization: {
-    runtimeChunk: true,
-    splitChunks: {
-      chunks: 'all'
-    }
-  },
+  devtool: 'cheap-module-eval-source-map',
   plugins: (() => {
     let plugins = [
       new HtmlWebpackPlugin({
-        template: './src/index.html'
+        template: './server/index.html'
       }),
       new CircularDependencyPlugin({
         exclude: /node_modules/,
