@@ -1,11 +1,15 @@
-import { Tokens } from '../../theme/tokens/'
-
 export type ButtonTheme = {
   backgroundColor: string,
   fontSize: string,
 }
 
-export const buttonTheme = ({ palette }: Tokens): ButtonTheme => ({
+type Palette = {
+  red: {
+    50: string
+  }
+}
+
+export const buttonTheme = ({ palette }: { palette: Palette }): ButtonTheme => ({
   fontSize: '16px',
   backgroundColor: palette.red[50],
 })
