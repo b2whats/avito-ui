@@ -19,6 +19,7 @@ const ButtonBox = styled('button')<ButtonProps>`
 
   ${props => (`
     font-size: ${props.theme.button.fontSize};
+    background-color: ${props.theme.button.backgroundColor};
   `)}
 `
 
@@ -27,5 +28,9 @@ const Button: FunctionComponent<ButtonProps> = ({ children }) => (
     { children }
   </ButtonBox>
 )
+
+Button.defaultProps = {
+  size: 's'
+}
 
 export default Button
