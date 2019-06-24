@@ -49,3 +49,5 @@ npm-run-all - для запуска линтинга параллельно
 
 #Readme
 https://itnext.io/how-to-set-up-a-typescript-monorepo-with-lerna-c6acda7d4559
+https://medium.com/mitterio/multirepo-to-lerna-js-monorepo-80f6657cb443
+https://airbnb.io/enzyme/CONTRIBUTING.html

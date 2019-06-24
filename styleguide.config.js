@@ -9,10 +9,7 @@ module.exports = {
   webpackConfig: {
     resolve: {
       extensions: [ '.tsx', '.ts', '.js', '.json' ],
-      alias: {
-        "@avito/components": path.resolve(__dirname, 'packages/components/src'),
-        "@avito/tokens": path.resolve(__dirname, 'packages/tokens/src'),
-      },
+      mainFields: ['browser', 'module', 'main']
     },
     module: {
       rules: [
