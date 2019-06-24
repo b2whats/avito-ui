@@ -3,7 +3,7 @@ import { sizes } from './sizes'
 import { variance } from './variance'
 
 export const tokens = {
-  fontSize: '14px',
+  fontSize: '15px',
   variance,
   palette,
   sizes,
