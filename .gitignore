@@ -1,2 +1,5 @@
 node_modules
-dist
+build
+lerna-debug.log
+npm-debug.log
+*.tsbuildinfo

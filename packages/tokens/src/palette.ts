@@ -16,7 +16,7 @@ export type Palette = {
   red: PaletteColor,
   green: PaletteColor,
   yellow: PaletteColor,
-  grey: PaletteColor,
+  gray: PaletteColor,
   black: string,
   white: string,
 }
@@ -70,7 +70,7 @@ export const palette: Palette = {
     80: '#ca840e',
     90: '#a47019',
   },
-  grey: {
+  gray: {
     5: '#fafafa',
     10: '#F3F4F5',
     20: '#ECEEEF',
