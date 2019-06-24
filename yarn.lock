@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@avito/tokens@0.0.1":
+  version "0.0.1"
+  resolved "http://localhost:4873/@avito%2ftokens/-/tokens-0.0.1.tgz#4330edafc8ae7725ef336d4b83ea8ee39ba51349"
+
 "@babel/cli@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.4.4.tgz#5454bb7112f29026a4069d8e6f0e1794e651966c"
