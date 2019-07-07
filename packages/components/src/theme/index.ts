@@ -6,7 +6,8 @@ export type ComponentTheme<T> = (baseToken: Tokens) => T
 export const createTheme = (baseToken: Tokens) => {
   return {
     ...baseToken,
-    button: components.buttonTheme(baseToken)
+    button: components.buttonTheme(baseToken),
+    text: components.textTheme(baseToken),
   }
 }
 
