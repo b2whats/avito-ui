@@ -2,7 +2,7 @@ type Variance = {
   primary: string,
   secondary: string,
   error: string,
-  sucess: string,
+  success: string,
   danger: string,
 }
 
@@ -10,6 +10,6 @@ export const variance: Variance = {
   primary: 'blue',
   secondary: 'gray',
   error: 'red',
-  sucess: 'green',
+  success: 'green',
   danger: 'yellow',
 }

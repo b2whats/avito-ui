@@ -12,3 +12,4 @@ export const createTheme = (baseToken: Tokens) => {
 }
 
 export const theme = createTheme(tokens)
+export type Theme = typeof theme

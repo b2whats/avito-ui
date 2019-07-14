@@ -10,6 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "./packages",
     "paths": {

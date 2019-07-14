@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { Theme } from '../../theme/'
 
 export interface TextProps {
   /** Текстовое содержание */
@@ -12,16 +13,26 @@ export interface TextProps {
   /** Текст в верхнем регистре */
   uppercase: boolean,
   /** Перечеркнутый текст */
-  strike: boolean | string,
+  strike: keyof Theme['palette'] | boolean,
+  /** Подчеркнутый текст текст */
+  underline?: 'solid' | 'dashed' | 'dotted',
+  /** Обрезка высоты строки у текста сверху и снизу */
+  crop: boolean,
   /** Горизонтальное выравнивание текста */
   align: 'start' | 'end' | 'center' | 'justify',
   /** Вы можете обрезать текст с помощью многоточия. При передачи этого параметра текст становится однострочный.
       Установив значение в true строка текста будет равна 100%
-      При передачи числа оно будет конвертировано в пиксели 
-      Передача строки ('50%', '15em') передаются напрямую
+      Передача строки ('50%', '15em', '100px') передаются напрямую
   */
-  truncate: boolean | number | string,
+  truncate: boolean | string,
+  /** Цветовые варианты текста */
+  variance?: 'primary' | 'secondary' | 'success' | 'dunger' | 'error',
+  /** Размер текста */
+  size: 's' | 'm' | 'l',
   /** Текстовая нода */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div' | 'em' | 'strong',
-  appearance?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p',
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'em' | 'strong' | 'caption',
+  /** Внешний вид текста */
+  appearance?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption',
+  color?: keyof Theme['palette'],
+  noMargin: boolean,
 }

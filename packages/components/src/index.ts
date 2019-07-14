@@ -1,2 +1,2 @@
 export { Button } from './components/Button/'
-export { Text } from './components/Text/'
+export { Text, Article } from './components/Text/'

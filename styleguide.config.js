@@ -4,6 +4,7 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguide/Wrapper')
   },
+  require: [path.resolve(__dirname, 'styleguide/setup.ts')],
   components: 'packages/components/src/components/**/[A-Z]*.tsx',
   propsParser: require('react-docgen-typescript').parse,
   webpackConfig: {

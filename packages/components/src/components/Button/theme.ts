@@ -7,5 +7,5 @@ export type ButtonTheme = {
 
 export const buttonTheme: ComponentTheme<ButtonTheme> = ({ palette }) => ({
   fontSize: '17px',
-  backgroundColor: palette.red[10],
+  backgroundColor: palette.red10,
 })

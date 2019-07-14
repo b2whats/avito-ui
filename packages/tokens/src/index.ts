@@ -1,10 +1,12 @@
 import { palette } from './palette'
 import { sizes } from './sizes'
 import { variance } from './variance'
+import { font } from './font'
+import { spaces } from './spaces'
 
 export const tokens = {
-  fontSize: '14px',
-  fontFamily: 'Arial',
+  font,
+  spaces,
   variance,
   palette,
   sizes,
