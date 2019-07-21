@@ -15,5 +15,5 @@ export const spaces: Spaces = {
   m: '16px',
   l: '24px',
   xl: '32px',
-  xxl: '64px',
+  xxl: '40px',
 }

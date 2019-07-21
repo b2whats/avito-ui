@@ -1,27 +1,47 @@
 import React from 'react'
+import { withTheme } from 'emotion-theming'
 import { styled } from '../../utils/'
+import { space } from '../../styled-system/'
 import { TextProps } from './contract'
 
-const TextBox = styled('span')<TextProps>`
+const Text = styled('span')<TextProps>`
   box-sizing: border-box;
   margin: 0;
-
-  ${({ appearance, bold, light, variance, color, noMargin, size, theme: { text, palette } }) => (`
+  
+  ${({ size, lineHeight, inherit, variant, color, theme: { text, palette, variants } }) => (!inherit ? `
     font-family: ${text.fontFamily};
-    font-size: ${appearance && appearance !== 'p' ? text[`appearance_${appearance}_fontSize`] : text[`size_${size}_fontSize`]};
-    line-height: ${appearance ? text[`appearance_${appearance}_lineHeight`] : text.lineHeight};
-    font-weight: ${bold ? 700 : light ? 300 : appearance ? text[`appearance_${appearance}_fontWeight`] : text.fontWeight};
+    font-size: ${text[`size_${size}_fontSize`]};
+    line-height: ${text[`lineHeight_${lineHeight}`]};
     color: ${
       color ? palette[color] : 
-      variance ? text[`variance_${variance}_color`] :
-      text[`appearance_${appearance}_color`] || text.color
+      variant ? variants[`${variant}_color_normal`] :
+      text.color
     };
-    article > & {
-      margin-bottom: ${noMargin || !appearance ? 0 : text[`appearance_${appearance}_marginBottom`]};
-    }
+  ` : `
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
   `)}
 
-  &:last-child {
+  ${({ bold, light, align, valign, uppercase, italic, inline, block, theme: { text } }) => (`
+    font-weight: ${bold ? 700 : light ? 300 : text.fontWeight};
+    ${uppercase ? 'text-transform: uppercase;' : ''}
+    ${italic ? 'font-style: italic;' : ''}
+    ${align ? `text-align: ${align};` : ''}
+    ${valign ? `vertical-align: ${valign};` : ''}
+    ${inline ? 'display: inline;' : block ? 'display: block;' : ''}
+  `)}
+
+  article > & {
+    ${space}
+  }
+
+  article > &:first-child {
+    margin-top: 0;
+  }
+
+  article > &:last-child {
     margin-bottom: 0;
   }
 
@@ -29,20 +49,26 @@ const TextBox = styled('span')<TextProps>`
     display: block;
   }
 
-  ${({ underline }) => underline && `
-    display: inline-block;
+  ${({ underline, theme: { text }}) => underline && `
     cursor: pointer;
-    border-bottom: 1px ${underline} currentColor;
+    padding-bottom: ${text.underline_offset};
+    border-bottom: ${text.underline_height} ${typeof underline === 'string' ? underline : 'solid'} currentColor;
   `}
 
-  ${({ uppercase, italic, strike, align }) => `
-    text-align: ${align};
-    text-transform: ${uppercase ? 'uppercase' : 'none'};
-    font-style: ${italic ? 'italic' : 'normal'};
-    ${strike ? `
-      position: relative;
-      display: inline-block;
-    ` : ''}
+  ${({ strike, theme: { text, palette } }) => strike && `
+    position: relative;
+
+    & > svg {
+      position: absolute;
+      height: 5px;
+      top: 50%;
+      margin-top: -2px;
+      stroke-linecap: round;
+      stroke-width: ${text.strike_height};
+      left: -${text.strike_offset};
+      width: calc(100% + ${text.strike_offset} * 2);
+      stroke: ${typeof strike === 'string' ? palette[strike] : 'currentcolor'};
+    }
   `}
 
   ${({ truncate, crop }) => truncate && !crop && `
@@ -55,9 +81,7 @@ const TextBox = styled('span')<TextProps>`
     overflow: hidden;
   `}
 
-  ${({ crop, theme: { text } }) => crop && `
-    vertical-align: top;
-
+  ${({ crop, lineHeight, theme: { text } }) => crop && `
     &::before, &::after {
       content: '';
       display: block;
@@ -65,24 +89,15 @@ const TextBox = styled('span')<TextProps>`
       width: 0;
     }
 
-    &::before { margin-top: -${text.crop_top} }
-    &::after { margin-bottom: -${text.crop_bottom} }
+    &::before { margin-bottom: -${text[`crop_${lineHeight}_top`]}em }
+    &::after { margin-top: -${text[`crop_${lineHeight}_bottom`]}em }
   `}
-
-  & > svg {
-    position: absolute;
-    height: 8px;
-    top: 50%;
-    margin-top: -4px;
-    stroke-linecap: round;
-    ${({ strike, theme: { text, palette } }) => `
-      stroke-width: ${text.strike_height};
-      left: -${text.strike_offset};
-      width: calc(100% + ${text.strike_offset} * 2);
-      stroke: ${typeof strike === 'string' ? palette[strike] : 'currentcolor'};
-    `}
-  }
 `
+
+Text.defaultProps = {
+  size: 'm',
+  lineHeight: 'm',
+}
 
 const Line = () => (
   <svg viewBox='0 0 100 5' preserveAspectRatio='none'>
@@ -90,37 +105,11 @@ const Line = () => (
   </svg>
 )
 
-const appearanceMapTag: { [key: string]: TextProps['as'] } = {
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  h4: 'h4',
-  h5: 'h5',
-  h6: 'h6',
-  p: 'p',
-  caption: 'p',
-}
-
-const Text = ({ children, as, ...props }: TextProps) => (
-  <TextBox as={as || appearanceMapTag[props.appearance!]} {...props}>
+const PresetWrapper = ({ children, preset, theme, ...props }: Partial<TextProps>) => (
+  <Text {...preset && theme!.text[`preset_${preset}`] } {...props}>
     {props.strike && <Line />}
     { children }
-  </TextBox>
+  </Text>
 )
 
-Text.defaultProps = {
-  size: 'm',
-  align: 'start',
-  bold: false,
-  light: false,
-  uppercase: false,
-  italic: false,
-  strike: false,
-  truncate: false,
-  crop: false,
-  noMargin: false,
-}
-
-export default Text
-
-var a = <Text /> 
+export default withTheme(PresetWrapper)

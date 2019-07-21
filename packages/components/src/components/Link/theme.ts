@@ -1,29 +1,31 @@
 import { ComponentTheme } from '../../theme/'
 
 export type LinkTheme = {
-  size_s_fontSize: string,
-  size_m_fontSize: string,
-  size_l_fontSize: string,
-
   fontFamily: string,
-  lineHeight: number,
-  fontWeight: number,
 
   color_normal: string,
   color_hover: string,
   color_active: string,
+  color_visited: string,
+
+  underline_offset: string,
+  underline_height: string,
+  underline_normal: boolean,
+  underline_hover: boolean,
 }
 
-export const linkTheme: ComponentTheme<LinkTheme> = ({ font, palette }) => ({
-  size_s_fontSize: '12px',
-  size_m_fontSize: font.fontSize_m,
-  size_l_fontSize: '18px',
-
+export const linkTheme: ComponentTheme<LinkTheme> = ({ font, palette }, override) => ({
   fontFamily: font.fontFamily,
-  lineHeight: font.lineHeight,
-  fontWeight: font.fontWeight,
 
   color_normal: palette.blue50,
   color_hover: palette.blue70,
-  color_active: palette.blue50,
+  color_active: palette.blue40,
+  color_visited: palette.red50,
+
+  underline_offset: '1px',
+  underline_height: '1px',
+  underline_normal: false,
+  underline_hover: true,
+
+  ...override,
 })

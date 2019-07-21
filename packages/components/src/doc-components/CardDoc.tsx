@@ -18,6 +18,7 @@ const insetMap = {
 
 const CardDoc = styled('div')<CardProps>`
   box-sizing: border-box;
+  line-height: 0;
   ${({ inset, width }) => `
     box-shadow: inset ${insetMap[inset].x} ${insetMap[inset].y} 0 #c7dcbf, inset -${insetMap[inset].x} -${insetMap[inset].y} #c7dcbf;
     padding: ${insetMap[inset].y} ${insetMap[inset].x};

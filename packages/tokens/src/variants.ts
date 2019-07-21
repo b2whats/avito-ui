@@ -1,4 +1,4 @@
-type Variance = {
+type Variants = {
   primary: string,
   secondary: string,
   error: string,
@@ -6,7 +6,7 @@ type Variance = {
   danger: string,
 }
 
-export const variance: Variance = {
+export const variants: Variants = {
   primary: 'blue',
   secondary: 'gray',
   error: 'red',

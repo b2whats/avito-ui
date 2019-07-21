@@ -1,127 +1,175 @@
 import { ComponentTheme } from '../../theme/'
+import { TextProps } from './contract'
+
+type Preset = Partial<TextProps>
 
 export type TextTheme = {
-  size_s_fontSize: string,
-  size_m_fontSize: string,
+  size_xxxxxl_fontSize: string,
+  size_xxxxl_fontSize: string,
+  size_xxxl_fontSize: string,
+  size_xxl_fontSize: string,
+  size_xl_fontSize: string,
   size_l_fontSize: string,
+  size_m_fontSize: string,
+  size_s_fontSize: string,
 
+  lineHeight_l: number,
+  lineHeight_m: number,
+  lineHeight_s: number,
+  
   fontFamily: string,
-  lineHeight: number,
   fontWeight: number,
   color: string,
 
   strike_offset: string,
   strike_height: string,
 
-  crop_top: string,
-  crop_bottom: string,
+  underline_offset: string,
+  underline_height: string,
 
-  appearance_h1_fontSize: string,
-  appearance_h1_lineHeight: number,
-  appearance_h1_marginBottom: string,
-  appearance_h1_fontWeight: number,
+  crop_top: number,
+  crop_bottom: number,
 
-  appearance_h2_fontSize: string,
-  appearance_h2_lineHeight: number,
-  appearance_h2_marginBottom: string,
-  appearance_h2_fontWeight: number,
-
-  appearance_h3_fontSize: string,
-  appearance_h3_lineHeight: number,
-  appearance_h3_marginBottom: string,
-  appearance_h3_fontWeight: number,
-
-  appearance_h4_fontSize: string,
-  appearance_h4_lineHeight: number,
-  appearance_h4_marginBottom: string,
-  appearance_h4_fontWeight: number,
-
-  appearance_h5_fontSize: string,
-  appearance_h5_lineHeight: number,
-  appearance_h5_marginBottom: string,
-  appearance_h5_fontWeight: number,
-
-  appearance_h6_fontSize: string,
-  appearance_h6_lineHeight: number,
-  appearance_h6_marginBottom: string,
-  appearance_h6_fontWeight: number,
-
-  appearance_caption_fontSize: string,
-  appearance_caption_lineHeight: number,
-  appearance_caption_marginBottom: string,
-  appearance_caption_fontWeight: number,
-  appearance_caption_color: string,
-
-  appearance_p_lineHeight: number,
-  appearance_p_marginBottom: string,
-  appearance_p_fontWeight: number,
-
-  variance_primary_color: string,
-  variance_secondary_color: string,
-  variance_error_color: string,
-  variance_success_color: string,
-  variance_danger_color: string,
+  preset_h1: Preset,
+  preset_h2: Preset,
+  preset_h3: Preset,
+  preset_h4: Preset,
+  preset_h5: Preset,
+  preset_h6: Preset,
+  preset_caption: Preset,
+  preset_p: Preset,
+  preset_label: Preset,
 }
 
-export const textTheme: ComponentTheme<TextTheme> = ({ font, variance, palette }) => ({
-  size_s_fontSize: font.fontSize_s,
-  size_m_fontSize: font.fontSize_m,
-  size_l_fontSize: font.fontSize_l,
+type ComputedTextTheme = {
+  crop_s_top: number,
+  crop_s_bottom: number,
+  crop_m_top: number,
+  crop_m_bottom: number,
+  crop_l_top: number,
+  crop_l_bottom: number,
+}
 
-  fontFamily: font.fontFamily,
-  lineHeight: font.lineHeight,
-  fontWeight: font.fontWeight,
-  color: palette.gray90,
-
-  strike_offset: '4px',
-  strike_height: '1px',
-
-  crop_top: '0.22em',
-  crop_bottom: '0.28em',
-
-  appearance_h1_fontSize: '42px',
-  appearance_h1_lineHeight: 1.25,
-  appearance_h1_marginBottom: '32px',
-  appearance_h1_fontWeight: 700,
-
-  appearance_h2_fontSize: '36px',
-  appearance_h2_lineHeight: 1.25,
-  appearance_h2_marginBottom: '14px',
-  appearance_h2_fontWeight: 700,
-
-  appearance_h3_fontSize: '28px',
-  appearance_h3_lineHeight: 1.25,
-  appearance_h3_marginBottom: '12px',
-  appearance_h3_fontWeight: 400,
-
-  appearance_h4_fontSize: '22px',
-  appearance_h4_lineHeight: 1.25,
-  appearance_h4_marginBottom: '8px',
-  appearance_h4_fontWeight: 400,
-
-  appearance_h5_fontSize: '18px',
-  appearance_h5_lineHeight: 1.25,
-  appearance_h5_marginBottom: '8px',
-  appearance_h5_fontWeight: 400,
-
-  appearance_h6_fontSize: '14px',
-  appearance_h6_lineHeight: 1.25,
-  appearance_h6_marginBottom: '6px',
-  appearance_h6_fontWeight: 700,
-
-  appearance_caption_fontSize: '12px',
-  appearance_caption_lineHeight: 1.25,
-  appearance_caption_marginBottom: '1.2em',
-  appearance_caption_fontWeight: 400,
-  appearance_caption_color: palette.gray50,
-
-  appearance_p_lineHeight: font.lineHeight,
-  appearance_p_marginBottom: '1.25em',
-  appearance_p_fontWeight: 300,
-
-  variance_primary_color: palette[`${variance.primary}50`],
-  variance_secondary_color: palette[`${variance.secondary}50`],
-  variance_error_color: palette[`${variance.error}50`],
-  variance_success_color: palette[`${variance.success}50`],
-  variance_danger_color: palette[`${variance.danger}50`],
+const computedFontSize = (base: number, ratio: number) => ({
+  size_xxxxxl_fontSize: `${Math.ceil(base * ratio ** 6)}px`,
+  size_xxxxl_fontSize: `${Math.ceil(base * ratio ** 5)}px`,
+  size_xxxl_fontSize: `${Math.ceil(base * ratio ** 4)}px`,
+  size_xxl_fontSize: `${Math.ceil(base * ratio ** 3)}px`,
+  size_xl_fontSize: `${Math.ceil(base * ratio ** 2)}px`,
+  size_l_fontSize: `${Math.ceil(base * ratio)}px`,
+  size_m_fontSize: `${base}px`,
+  size_s_fontSize: `${Math.ceil(base / ratio)}px`,
 })
+
+const computedCrop = (crop: number, targetHeight: number) => {
+  const value = (crop + (targetHeight - 1) * 16) / 32 
+
+  return Math.round(value * 1000) / 1000
+}
+
+export const textTheme: ComponentTheme<TextTheme & ComputedTextTheme> = ({ font, variants, palette }, override) => {
+
+  const defaultTheme: TextTheme = {
+    ...computedFontSize(font.fontSize, font.sizeScale),
+  
+    fontFamily: font.fontFamily,
+    fontWeight: font.fontWeight,
+    color: palette.gray90,
+
+    lineHeight_l: 1.6,
+    lineHeight_m: font.lineHeight,
+    lineHeight_s: 1.25,
+  
+    strike_offset: '4px',
+    strike_height: '2px',
+
+    underline_offset: '1px',
+    underline_height: '1px',
+  
+    crop_top: 4,
+    crop_bottom: 5,
+
+    preset_h1: {
+      as: 'h1',
+      size: 'xxxxxl',
+      bold: true,
+      mb: 'xl',
+      lineHeight: 's',
+    },
+
+    preset_h2: {
+      as: 'h2',
+      size: 'xxxxl',
+      bold: true,
+      mb: 'xl',
+      lineHeight: 's',
+    },
+
+    preset_h3: {
+      as: 'h3',
+      size: 'xxl',
+      mb: 'm',
+      lineHeight: 's',
+    },
+
+    preset_h4: {
+      as: 'h4',
+      size: 'xl',
+      mb: 's',
+      lineHeight: 's',
+    },
+
+    preset_h5: {
+      as: 'h5',
+      size: 'l',
+      mb: 's',
+      lineHeight: 's',
+    },
+  
+    preset_h6: {
+      as: 'h6',
+      size: 'm',
+      mb: 's',
+      lineHeight: 's',
+    },
+
+    preset_caption: {
+      as: 'div',
+      size: 'm',
+      mb: 's',
+      lineHeight: 'm',
+      color: 'gray50',
+    },
+
+    preset_p: {
+      as: 'p',
+      size: 'm',
+      mb: 's',
+      lineHeight: 'm',
+      light: true,
+    },
+
+    preset_label: {
+      as: 'label',
+      size: 'm',
+      lineHeight: 'm',
+      light: true,
+    },
+
+    ...override,
+  }
+
+  const computedTheme = () => ({
+    crop_s_top: computedCrop(defaultTheme.crop_top, defaultTheme.lineHeight_s),
+    crop_s_bottom: computedCrop(defaultTheme.crop_bottom, defaultTheme.lineHeight_s),
+    crop_m_top: computedCrop(defaultTheme.crop_top, defaultTheme.lineHeight_m),
+    crop_m_bottom: computedCrop(defaultTheme.crop_bottom, defaultTheme.lineHeight_m),
+    crop_l_top: computedCrop(defaultTheme.crop_top, defaultTheme.lineHeight_l),
+    crop_l_bottom: computedCrop(defaultTheme.crop_bottom, defaultTheme.lineHeight_l),
+  })
+
+  return {
+    ...defaultTheme,
+    ...computedTheme()
+  }
+}

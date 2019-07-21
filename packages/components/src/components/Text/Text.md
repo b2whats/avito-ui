@@ -1,27 +1,28 @@
 ```jsx
-import Article from './Article.tsx';
+import Article from './Article.tsx'
+import { Link } from '../../';
 
 <div>
-  <Text appearance='p'>Push Me</Text>
-  <Text appearance='p' align='center'>Push Me</Text>
-  <Text appearance='p' align='end'>Push Me</Text>
-  <Text appearance='p' align='justify'>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
+  <Text mx='xxl' preset='p'>Push Me</Text>
+  <Text preset='p' align='center'>Push Me</Text>
+  <Text preset='p' align='end'>Push Me</Text>
+  <Text preset='p' align='justify'>
+    Lorem ipsum dolor sit amet, <Link href='#'>consectetur</Link> adipiscing elit. Sed non purus
     id dolor maximus eleifend nec in nunc. Integer quis lacinia leo Me
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
     id dolor maximus eleifend nec in nunc. Integer quis lacinia leo Me
   </Text>
 
-  <Text appearance='p' size='s'>Push Me</Text>
-  <Text appearance='p'>Push Me</Text>
-  <Text appearance='p' size='l'>Push Me</Text>
-  <Text appearance='h1'>Push Me</Text>
-  <Text appearance='h2'>Push Me</Text>
-  <Text appearance='h3'>Push Me</Text>
-  <Text appearance='h4'>Push Me</Text>
-  <Text appearance='h5'>Push Me</Text>
-  <Text appearance='h6'>Push Me</Text>
-  <Text appearance='caption'>
+  <Text preset='p' size='s'>Push Me</Text>
+  <Text preset='p'>Push Me</Text>
+  <Text preset='p' size='l'>Push Me</Text>
+  <Text preset='h1'>Push Me</Text>
+  <Text preset='h2'>Push Me</Text>
+  <Text preset='h3'>Push Me</Text>
+  <Text preset='h4'>Push Me</Text>
+  <Text preset='h5'>Push Me</Text>
+  <Text preset='h6'>Push Me</Text>
+  <Text preset='caption'>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
     id dolor maximus eleifend nec in nunc. Integer quis lacinia leo
   </Text>
@@ -30,11 +31,11 @@ import Article from './Article.tsx';
   <Text underline='dashed'>Push Me</Text>
   <Text underline='dotted'>Push Me</Text>
 
-  <Text variance='primary'>Push Me</Text>
-  <Text variance='secondary'>Push Me</Text>
-  <Text variance='success'>Push Me</Text>
-  <Text variance='danger'>Push Me</Text>
-  <Text variance='error'>Push Me</Text>
+  <Text variant='primary'>Push Me</Text>
+  <Text variant='secondary'>Push Me</Text>
+  <Text variant='success'>Push Me</Text>
+  <Text variant='danger'>Push Me</Text>
+  <Text variant='error'>Push Me</Text>
 
   <Text color='green80'>Push Me</Text>
   <Text color='red70'>Push Me</Text>
@@ -69,7 +70,31 @@ import Article from './Article.tsx';
     id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
   </Text>
   <CardDoc width='50%'>
-    <Text crop>
+    <Text crop lineHeight='s' size='s'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
+      id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
+    </Text>
+  </CardDoc>
+  <CardDoc width='50%'>
+    <Text crop lineHeight='m'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
+      id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
+    </Text>
+  </CardDoc>
+  <CardDoc width='50%'>
+    <Text crop lineHeight='l' size='l'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
+      id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
+    </Text>
+  </CardDoc>
+  <CardDoc width='50%'>
+    <Text crop preset='h1'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
+      id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
+    </Text>
+  </CardDoc>
+  <CardDoc width='50%'>
+    <Text crop preset='h3'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
       id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
     </Text>
@@ -81,7 +106,7 @@ import Article from './Article.tsx';
     </Text>
   </CardDoc>
   <CardDoc>
-    <Text crop appearance='h1'>
+    <Text crop truncate>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
       id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
     </Text>
@@ -93,5 +118,16 @@ import Article from './Article.tsx';
 
   https://medium.com/@marcintreder/design-system-sprint-4-managing-typography-303e335894ee
 
+  https://styleguide.pivotal.io/modifiers/typography/
+
+  https://type-scale.com/
+
+  https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd
+  
+  https://uxdesign.cc/a-better-way-to-create-typography-design-systems-689c851dc616
+
+  https://archetypeapp.com/#
+
+  https://design-system.pluralsight.com/core/typography/
 </div> 
 ```

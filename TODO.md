@@ -17,7 +17,8 @@
 https://material.io/design/typography/the-type-system.html#applying-the-type-scale
 
 
-
+про размеры
+https://medium.com/eightshapes-llc/size-in-design-systems-64f234aec519
 
 про иконки 
 https://material.io/design/color/text-legibility.html#text-types

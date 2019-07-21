@@ -1,38 +1,56 @@
 import React from 'react'
-import { Theme } from '../../theme/'
+import { Theme, Tokens } from '../../theme/'
+import { Space } from '../../styled-system/'
 
-export interface TextProps {
+export interface TextProps extends Space {
+  /** Размер текста
+   * @default m
+  */
+  size: 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl',
+  /** Коэффициент для высоты строки
+   * @default m
+  */
+  lineHeight: 's' | 'm' | 'l',
+  /** Горизонтальное выравнивание текста */
+  align?: 'start' | 'end' | 'center' | 'justify',
+  /** Вертикальное выравнивание текста */
+  valign?: 'top' | 'middle' | 'bottom',
+  /** Расстояние между буквами */
+  letterSpacing?: string,
   /** Текстовое содержание */
   children?: React.ReactNode,
   /** Жирное начертание */
-  bold: boolean,
+  bold?: boolean,
   /** Легкое начертание */
-  light: boolean,
+  light?: boolean,
   /** Курсивное начертание */
-  italic: boolean,
+  italic?: boolean,
+  /** Наследование стиля от родителя */
+  inherit?: boolean,
   /** Текст в верхнем регистре */
-  uppercase: boolean,
+  uppercase?: boolean,
   /** Перечеркнутый текст */
-  strike: keyof Theme['palette'] | boolean,
-  /** Подчеркнутый текст текст */
-  underline?: 'solid' | 'dashed' | 'dotted',
+  strike?: keyof Theme['palette'] | boolean,
+  /** Подчеркнутый текст */
+  underline?: 'dashed' | 'dotted' | boolean,
   /** Обрезка высоты строки у текста сверху и снизу */
-  crop: boolean,
-  /** Горизонтальное выравнивание текста */
-  align: 'start' | 'end' | 'center' | 'justify',
+  crop?: boolean,
   /** Вы можете обрезать текст с помощью многоточия. При передачи этого параметра текст становится однострочный.
       Установив значение в true строка текста будет равна 100%
       Передача строки ('50%', '15em', '100px') передаются напрямую
   */
-  truncate: boolean | string,
+  truncate?: boolean | string,
   /** Цветовые варианты текста */
-  variance?: 'primary' | 'secondary' | 'success' | 'dunger' | 'error',
-  /** Размер текста */
-  size: 's' | 'm' | 'l',
+  variant?: keyof Tokens['variants'],
   /** Текстовая нода */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'em' | 'strong' | 'caption',
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'em' | 'strong' | 'caption' | 'div' | 'label',
   /** Внешний вид текста */
-  appearance?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption',
+  preset?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption',
+  /** Цвет текста */
   color?: keyof Theme['palette'],
-  noMargin: boolean,
+  /** Инлайновое поведение */
+  inline?: boolean,
+  /** Блочное поведение */
+  block?: boolean,
+  theme: Theme,
 }
