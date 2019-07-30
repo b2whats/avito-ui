@@ -44,3 +44,29 @@ const target = palette[`${color}50` as keyof typeof palette]
 
 Еще один способ прекратить вывод ошибок в вычисляемых ключах объекта это включить ключ suppressImplicitAnyIndexErrors
 или создать хелпер https://medium.com/@_achou/dont-give-up-and-use-suppressimplicitanyindexerrors-ca6b208b9365
+
+## Проблема с динамическим добавлением значений в объект
+```ts
+  type VariantsTheme = {
+    a: number
+  }
+
+  const defaultTheme: VariantsTheme = {} // error Type '{}' is missing the following properties from type 'VariantsTheme': a  ....
+
+  for (const variant in variants) {
+    defaultTheme[variant] = 1
+  }
+```
+
+Как обойти
+```ts
+  type VariantsTheme = {
+    a: number
+  }
+
+  const defaultTheme = {} as VariantsTheme
+
+  for (const variant in variants) {
+    defaultTheme[variant] = 1
+  }
+```

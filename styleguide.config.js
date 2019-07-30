@@ -5,6 +5,7 @@ module.exports = {
     Wrapper: path.join(__dirname, 'styleguide/Wrapper')
   },
   require: [path.resolve(__dirname, 'styleguide/setup.ts')],
+  skipComponentsWithoutExample: true,
   components: 'packages/components/src/components/**/[A-Z]*.tsx',
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
     // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию

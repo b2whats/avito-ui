@@ -1,6 +1,5 @@
 import React from 'react'
-import { withTheme } from 'emotion-theming'
-import { styled } from '../../utils/'
+import { styled, withTheme } from '../../utils/'
 import { space } from '../../styled-system/'
 import { TextProps } from './contract'
 
@@ -8,7 +7,12 @@ const Text = styled('span')<TextProps>`
   box-sizing: border-box;
   margin: 0;
   
-  ${({ size, lineHeight, inherit, variant, color, theme: { text, palette, variants } }) => (!inherit ? `
+  ${({ size, lineHeight, inherit, variant, color, theme: { text, palette, variants } }) => (inherit ? `
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  ` : `
     font-family: ${text.fontFamily};
     font-size: ${text[`size_${size}_fontSize`]};
     line-height: ${text[`lineHeight_${lineHeight}`]};
@@ -17,11 +21,6 @@ const Text = styled('span')<TextProps>`
       variant ? variants[`${variant}_color_normal`] :
       text.color
     };
-  ` : `
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
   `)}
 
   ${({ bold, light, align, valign, uppercase, italic, inline, block, theme: { text } }) => (`

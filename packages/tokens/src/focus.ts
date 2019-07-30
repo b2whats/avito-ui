@@ -1,1 +1,1 @@
-export const focus: string = '0px 0px 3px 2px'
+export const focus: string = '0px 0px 2px 3px'

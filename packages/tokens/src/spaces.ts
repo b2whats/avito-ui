@@ -6,6 +6,8 @@ type Spaces = {
   l: string,
   xl: string,
   xxl: string,
+  none: string,
+  auto: string,
 }
 
 export const spaces: Spaces = {
@@ -16,4 +18,6 @@ export const spaces: Spaces = {
   l: '24px',
   xl: '32px',
   xxl: '40px',
+  none: '0px',
+  auto: 'auto',
 }

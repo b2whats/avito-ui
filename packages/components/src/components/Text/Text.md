@@ -76,6 +76,11 @@ import { Link } from '../../';
     </Text>
   </CardDoc>
   <CardDoc width='50%'>
+    <Text crop lineHeight='s' size='s'>
+      2<br/>line
+    </Text>
+  </CardDoc>
+  <CardDoc width='50%'>
     <Text crop lineHeight='m'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
       id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.

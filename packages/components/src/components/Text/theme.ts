@@ -67,7 +67,7 @@ const computedCrop = (crop: number, targetHeight: number) => {
   return Math.round(value * 1000) / 1000
 }
 
-export const textTheme: ComponentTheme<TextTheme & ComputedTextTheme> = ({ font, variants, palette }, override) => {
+export const textTheme: ComponentTheme<TextTheme & ComputedTextTheme> = ({ font, palette }, override) => {
 
   const defaultTheme: TextTheme = {
     ...computedFontSize(font.fontSize, font.sizeScale),
@@ -86,8 +86,8 @@ export const textTheme: ComponentTheme<TextTheme & ComputedTextTheme> = ({ font,
     underline_offset: '1px',
     underline_height: '1px',
   
-    crop_top: 4,
-    crop_bottom: 5,
+    crop_top: 3,
+    crop_bottom: 5.5,
 
     preset_h1: {
       as: 'h1',

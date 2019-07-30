@@ -11,16 +11,18 @@ const Link = styled('a')<LinkProps>`
 
   ${({ underline, inherit, noVisited, variant, theme: { link, variants } }) => {
     const underlineStyle = (visible?: boolean | string) => visible ? `
-      padding-bottom: ${link.underline_offset};
-      border-bottom: ${link.underline_height} ${typeof underline === 'string' ? underline : 'solid'} currentColor;
+      border-bottom-color: currentColor;
+      border-bottom-style: ${typeof underline === 'string' ? underline : 'solid'} 
     ` : ''
     
     return `
       font-family: ${link.fontFamily};
+      padding-bottom: ${link.underline_offset};
       color: inherit;
+      border-bottom: ${link.underline_height} solid transparent;
 
       &:link {
-        color: ${variant ? variants[`${variant}_color_normal`] : inherit ? 'currentColor' : link.color_normal};
+        color: ${inherit ? 'currentColor' : variants[`${variant}_color_normal`]};
         ${underlineStyle(link.underline_normal)}
       }
 
@@ -29,21 +31,19 @@ const Link = styled('a')<LinkProps>`
       }
 
       &:hover {
-        color: ${variant ? variants[`${variant}_color_hover`] : link.color_hover};
+        color: ${variants[`${variant}_color_hover`]};
         ${underlineStyle(link.underline_hover)}
       }
 
       &:active {
-        color: ${variant ? variants[`${variant}_color_active`] : link.color_active};
+        color: ${variants[`${variant}_color_active`]};
       }
 
       ${underlineStyle(underline)}
     `
   }}
 
-  &:focus {
-    ${focus}
-  }
+  ${focus}
 `
 
 Link.defaultProps = {

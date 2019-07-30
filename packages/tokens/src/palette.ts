@@ -56,6 +56,8 @@ export type Palette = {
 
   black: string,
   white: string,
+
+  inherit: string,
 }
 
 export const palette: Palette = {
@@ -116,4 +118,6 @@ export const palette: Palette = {
 
   white: '#FFFFFF',
   black: '#13293f',
+
+  inherit: 'inherit',
 }

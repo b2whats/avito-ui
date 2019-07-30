@@ -1,67 +1,61 @@
+import { Theme, Tokens } from '../theme/'
 
-import { Theme } from '../theme/'
-
-type SpaceValue = 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | 'xxxxxxl' | 'auto' | 'none'
+export type SpaceValues = keyof Tokens['spaces']
 
 export type Space = Partial<{
   /** Внешний отступ со всех сторон */
-  m: SpaceValue,
+  m: SpaceValues,
   /** Внешний отступ слува и справа */
-  mx: SpaceValue,
+  mx: SpaceValues,
   /** Внешний отступ сверху и снизу */
-  my: SpaceValue,
+  my: SpaceValues,
   /** Внешний отступ сверху */
-  mt: SpaceValue,
+  mt: SpaceValues,
   /** Внешний отступ справа */
-  mr: SpaceValue,
+  mr: SpaceValues,
   /** Внешний отступ снизу */
-  mb: SpaceValue,
+  mb: SpaceValues,
   /** Внешний отступ слева */
-  ml: SpaceValue,
+  ml: SpaceValues,
 
   /** Внутренний отступ */
-  p: SpaceValue,
+  p: SpaceValues,
   /** Внутренний отступ слева и справа */
-  px: SpaceValue,
+  px: SpaceValues,
   /** Внутренний отступ сверху и снизу */
-  py: SpaceValue,
+  py: SpaceValues,
   /** Внутренний отступ сверху */
-  pt: SpaceValue,
+  pt: SpaceValues,
   /** Внутренний отступ справа */
-  pr: SpaceValue,
+  pr: SpaceValues,
   /** Внутренний отступ снизу */
-  pb: SpaceValue,
+  pb: SpaceValues,
   /** Внутренний отступ слева */
-  pl: SpaceValue,
+  pl: SpaceValues,
 }>
 
-type SpacesProps = {
+type SpaceProps = {
   theme: Theme,
 } & Space
 
-export const space = ({ m, mx, my, mt, mr, mb, ml, p, px, py, pt, pr, pb, pl, theme: { spaces } }: SpacesProps ): string => {
-  let css = ''
-  const spaceMap = {
-    ...spaces,
-    auto: 'auto',
-    none: '0'
-  }
+export const space = ({ m, mx, my, mt, mr, mb, ml, p, px, py, pt, pr, pb, pl, theme: { spaces } }: SpaceProps ): string => {
+  let css = '&& {'
 
-  m && (css += `margin: ${spaceMap[m]};`)
-  mx && (css += `margin: 0 ${spaceMap[mx]};`)
-  my && (css += `margin: ${spaceMap[my]} 0;`)
-  mt && (css += `margin-top: ${spaceMap[mt]};`)
-  mr && (css += `margin-right: ${spaceMap[mr]};`)
-  mb && (css += `margin-bottom: ${spaceMap[mb]};`)
-  ml && (css += `margin-left: ${spaceMap[ml]};`)
+  m && (css += `margin: ${spaces[m]};`)
+  mx && (css += `margin-left: ${spaces[mx]}; margin-right: ${spaces[mx]};`)
+  my && (css += `margin-top: ${spaces[my]}; margin-bottom: ${spaces[my]};`)
+  mt && (css += `margin-top: ${spaces[mt]};`)
+  mr && (css += `margin-right: ${spaces[mr]};`)
+  mb && (css += `margin-bottom: ${spaces[mb]};`)
+  ml && (css += `margin-left: ${spaces[ml]};`)
 
-  p && (css += `padding: ${spaceMap[p]};`)
-  px && (css += `padding: 0 ${spaceMap[px]};`)
-  py && (css += `padding: ${spaceMap[py]} 0;`)
-  pt && (css += `padding-top: ${spaceMap[pt]};`)
-  pr && (css += `padding-right: ${spaceMap[pr]};`)
-  pb && (css += `padding-bottom: ${spaceMap[pb]};`)
-  pl && (css += `padding-left: ${spaceMap[pl]};`)
+  p && (css += `padding: ${spaces[p]};`)
+  px && (css += `padding-left: ${spaces[px]}; padding-right: ${spaces[px]};`)
+  py && (css += `padding-top: ${spaces[py]}; padding-bottom: ${spaces[py]};`)
+  pt && (css += `padding-top: ${spaces[pt]};`)
+  pr && (css += `padding-right: ${spaces[pr]};`)
+  pb && (css += `padding-bottom: ${spaces[pb]};`)
+  pl && (css += `padding-left: ${spaces[pl]};`)
 
-  return css
+  return css + '}'
 }

@@ -1,4 +1,3 @@
-
 import { Theme, Tokens } from '../theme/'
 
 type VariantKeys = keyof Tokens['variants']
@@ -9,6 +8,9 @@ type FocusProps = {
 }
 
 export const focus = ({ variant = 'primary', theme: { variants, focus } }: FocusProps): string => (`
-  box-shadow: ${focus} ${variants[`${variant}_color_focus`]};
-  position: relative;
+  outline: none;
+  &:focus {
+    box-shadow: white 0px 0px 0px 1px, ${focus} ${variants[`${variant}_focus`]};
+    position: relative;
+  }
 `)

@@ -14,7 +14,7 @@ export interface TextProps extends Space {
   /** Горизонтальное выравнивание текста */
   align?: 'start' | 'end' | 'center' | 'justify',
   /** Вертикальное выравнивание текста */
-  valign?: 'top' | 'middle' | 'bottom',
+  valign?: 'top' | 'middle' | 'bottom' | 'baseline',
   /** Расстояние между буквами */
   letterSpacing?: string,
   /** Текстовое содержание */
@@ -52,5 +52,8 @@ export interface TextProps extends Space {
   inline?: boolean,
   /** Блочное поведение */
   block?: boolean,
+  /** @ignore */
   theme: Theme,
 }
+
+//https://evergreen.segment.com/components/typography/ 

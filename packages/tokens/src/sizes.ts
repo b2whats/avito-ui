@@ -1,21 +1,11 @@
-type SizeOptions = {
-  height: string,
-}
-
 type Sizes = {
-  s: SizeOptions,
-  m: SizeOptions,
-  l: SizeOptions,
+  s_height: string,
+  m_height: string,
+  l_height: string,
 }
 
 export const sizes: Sizes = {
-  s: {
-    height: '22px',
-  },
-  m: {
-    height: '30px',
-  },
-  l: {
-    height: '42px',
-  },
+  s_height: '26px',
+  m_height: '34px',
+  l_height: '42px',
 }

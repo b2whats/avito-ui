@@ -3,7 +3,7 @@ type Variants = {
   secondary: string,
   error: string,
   success: string,
-  danger: string,
+  warning: string,
 }
 
 export const variants: Variants = {
@@ -11,5 +11,5 @@ export const variants: Variants = {
   secondary: 'gray',
   error: 'red',
   success: 'green',
-  danger: 'yellow',
+  warning: 'yellow',
 }
