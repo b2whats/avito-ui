@@ -4,12 +4,15 @@ import { Stack } from './'
 
 type GroupContext = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
-  checked: (string | number | null | undefined)[],
+  onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void,
+  checked?: (string | number | undefined)[],
   block?: boolean,
   mode?: string,
   elements: React.MutableRefObject<any[]>,
   orientation: 'horizontal' | 'vertical'
 }
+
+
 
 export const GroupContext = React.createContext<GroupContext | null>(null)
 
@@ -42,11 +45,37 @@ const Group = ({ children, block, mode, value, name, onChange, ...props }: Group
     onChange(update)
   }
 
+  const onKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    const node = event.currentTarget
+    const currentIndex = elements.current.findIndex(element => element === node)
+    const count = elements.current.length
+    let next: HTMLElement | null = null
+
+    switch (event.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+        next = currentIndex === count - 1 ? elements.current[0] : elements.current[currentIndex + 1]
+        break
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        next = currentIndex === 0 ? elements.current[count - 1] : elements.current[currentIndex - 1]
+        break  
+    }
+
+    if (next) {
+      next.focus()
+      next.click()
+    }
+  }
+
   const orientation = props.column ? 'vertical' : 'horizontal' as 'vertical' | 'horizontal'
   
   const context: GroupContext = {
     onClick: onChange ? onClick : undefined,
-    checked: Array.isArray(value) ? value : [value],
+    onKeyDown: mode === 'radio' ? onKeyDown : undefined,
+    checked: value !== null && value !== undefined
+      ? Array.isArray(value) ? value : [value]
+      : undefined,
     block,
     mode,
     elements,

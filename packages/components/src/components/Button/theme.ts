@@ -15,6 +15,10 @@ export type ButtonTheme = {
   size_m_height: string,
   size_l_height: string,
 
+  default_shadow: boolean,
+  outline_shadow: boolean,
+  flat_shadow: boolean,
+
   preset: {
     size: {
       s: Preset,
@@ -100,7 +104,7 @@ export type ButtonTheme = {
 }
 
 export const buttonTheme: ComponentTheme<ButtonTheme> = ({ palette, sizes, variants }, override) => {
-  const defaultTheme = {
+  const defaultTheme: ButtonTheme = {
     borderRadius: '3px',
     borderWidth: '1px',
 
@@ -111,6 +115,10 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = ({ palette, sizes, varia
     default_press_offset: '1px',
     flat_press_offset: '1px',
     outline_press_offset: '1px',
+
+    default_shadow: false,
+    outline_shadow: false,
+    flat_shadow: false,
 
     default_primary_color_normal: palette.white,
     default_primary_color_disabled: palette.white,
@@ -219,10 +227,10 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = ({ palette, sizes, varia
         },
       },
     },
-  } as ButtonTheme
+  }
 
   return {
     ...defaultTheme,
     ...override,
-  }
+  } as ButtonTheme
 }

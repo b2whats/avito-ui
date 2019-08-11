@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "yarn clean && yarn build:js && yarn build:types",
-    "build:types": "tsc -b tsconfig.json",
+    "build:types": "tsc -b tsconfig.json --emitDeclarationOnly",
     "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
     "clean": "rm -rf ./build && rm -rf tsconfig.tsbuildinfo",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,7 +25,8 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.15",
-    "@emotion/styled": "^10.0.15"
+    "@emotion/styled": "^10.0.15",
+    "deepmerge": "^4.0.0"
   },
   "devDependencies": {
     "react": "^16.8.6",

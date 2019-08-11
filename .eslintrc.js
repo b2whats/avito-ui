@@ -16,7 +16,7 @@ module.exports =  {
     },
   },
   rules:  {
-    "indent": ['error', 2, { "flatTernaryExpressions": true, "ignoredNodes": ["ConditionalExpression"] }],
+    "indent": ['error', 2, { "SwitchCase": 1, "flatTernaryExpressions": true, "ignoredNodes": ["ConditionalExpression"] }],
     "comma-dangle": ["error", "always-multiline"],
     "quotes": ["error", "single"],
     "jsx-quotes": ["error", "prefer-single"],

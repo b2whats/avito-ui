@@ -1,5 +1,5 @@
 import { Spaces, SpaceValues, Dimensions } from '../../styled-system'
-import { Theme } from '../../theme'
+import { Theme, Tokens } from '../../theme'
 import { ReactText } from 'react'
 
 type Align = 'start' | 'center' | 'end' | 'baseline' | 'stretch'
@@ -27,13 +27,21 @@ export interface BoxProps extends Spaces, Dimensions {
   /** Содержание */
   children?: React.ReactNode,
   /** Вертикальное выравнивание */
-  alignSelf: Align,
+  alignSelf?: Align,
   /** Уменьшать при нехватке пространства */
-  shrink: boolean,
+  shrink?: boolean,
   /** Занять все возможзное пространство */
-  grow: boolean,
+  grow?: boolean,
   /** Определяет, как элемент должен быть показан в документе */
-  display: Display,
+  display?: Display,
+  /** Тень блока */
+  shadow?: keyof Tokens['shadows'],
+  /** Цвет текста */
+  color?: keyof Tokens['palette'],
+  /** Цвет фона */
+  bgColor?: keyof Tokens['palette'],
+  /** Радиус */
+  radius?: string,
   /** @ignore */
   theme: Theme,
 }

@@ -29,9 +29,10 @@ const ButtonBox = styled('button', {
     border: ${button.borderWidth} solid transparent;
   `)}
 
-  ${({ kind, variant, theme: { button, variants } }) => kind === 'default' ? `
+  ${({ kind, variant, theme: { button, variants, shadows } }) => kind === 'default' ? `
     color: ${button[`default_${variant}_color_normal`]};
     background-color: ${variants[`${variant}_backgroundColor_normal`]};
+    ${button.default_shadow ? `box-shadow:  ${shadows['1']};` : ''}
 
     &[aria-checked=true], &&:active {
       background-color: ${variants[`${variant}_backgroundColor_active`]};
@@ -53,6 +54,8 @@ const ButtonBox = styled('button', {
     color: ${variants[`${variant}_color_normal`]};
     background-color: ${button[`${kind}_${variant}_backgroundColor_normal`]};
     border-color: ${kind === 'outline' ? button[`outline_${variant}_borderColor_normal`] : 'transparent'};
+    ${button.outline_shadow && kind === 'outline' ? `box-shadow:  ${shadows['1']};` : ''}
+    ${button.flat_shadow && kind === 'flat' ? `box-shadow:  ${shadows['1']};` : ''}
 
     &[aria-checked=true], &&:active {
       color: ${variants[`${variant}_color_active`]};
@@ -77,6 +80,10 @@ const ButtonBox = styled('button', {
   `}
 
   ${({ theme: { button } }) => (`
+    &[data-group] {
+      box-shadow: none;
+    }
+
     &[data-group~='horizontal']:not([data-group~='last']) {
       margin-right: -${button.borderWidth};
       border-bottom-right-radius: 0px;
@@ -88,15 +95,13 @@ const ButtonBox = styled('button', {
       border-top-left-radius: 0px;
     }
 
-    [role*='group'][aria-orientation='vertical'] > &:not(:last-child),
-    [role*='group'][aria-orientation='vertical'] > :not(:last-child) & {
+    &[data-group~='vertical']:not([data-group~='last']) {
       margin-bottom: -${button.borderWidth};
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
 
-    [role*='group'][aria-orientation='vertical'] > &:not(:first-child),
-    [role*='group'][aria-orientation='vertical'] > :not(:first-child) & {
+    &[data-group~='vertical']:not([data-group~='first']) {
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
     }
@@ -180,12 +185,14 @@ const Button = ({ children, ...props }: ButtonProps & { ref: ButtonProps['innerR
   }
 
   if (groupContext && groupContext.onClick) {
-    const checked = groupContext.checked.includes(props.value)
+    const checked = groupContext.checked && groupContext.checked.includes(props.value)
+    const isFirstChecked = !groupContext.checked && positions.includes('first')
 
     aria['aria-checked'] = checked
     aria.role = groupContext.mode
-    aria.tabIndex = checked && !props.disabled ? 0 : -1
+    aria.tabIndex = (checked && !props.disabled) || isFirstChecked || groupContext.mode !== 'radio' ? 0 : -1
     props.onClick = groupContext.onClick || props.onClick
+    props.onKeyDown = groupContext.onKeyDown
   }
 
   return (
@@ -204,14 +211,3 @@ Button.defaultProps = {
 }
 
 export default Button
-
-// &[data-inGroup='horizontal'] > &:not(:last-child), [role*='group'] > :not(:last-child) & {
-//   margin-right: -${button.borderWidth};
-//   border-bottom-right-radius: 0px;
-//   border-top-right-radius: 0px;
-// }
-
-// [role*='group'] > &:not(:first-child), [role*='group'] > :not(:first-child) & {
-//   border-bottom-left-radius: 0px;
-//   border-top-left-radius: 0px;
-// }

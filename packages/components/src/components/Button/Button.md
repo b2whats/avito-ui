@@ -1,4 +1,11 @@
-```js { "props": { "className": "checks" } }
+```js
+import { Stack, Icon } from '../../';
+
+<Button variant='primary' size='s'><Icon name='search'/>Push Me</Button>
+
+```
+
+```js
 import { Stack, Icon } from '../../';
 
 <Stack space='m' column>
@@ -132,12 +139,28 @@ import { Stack } from '../../';
 ```js
 import { Stack } from '../../';
 
-<Stack space='m'>
-  <Button variant='primary' rounded>Push Me</Button>
-  <Button variant='secondary' rounded>Push Me</Button>
-  <Button variant='success' rounded>Push Me</Button>
-  <Button variant='warning' rounded>Push Me</Button>
-  <Button variant='error' rounded>Push Me</Button>
+<Stack space='m' column>
+  <Stack space='m'>
+    <Button variant='primary' rounded>Push Me</Button>
+    <Button variant='secondary' rounded>Push Me</Button>
+    <Button variant='success' rounded>Push Me</Button>
+    <Button variant='warning' rounded>Push Me</Button>
+    <Button variant='error' rounded>Push Me</Button>
+  </Stack>
+  <Stack space='m'>
+    <Button kind='outline' variant='primary' rounded>Push Me</Button>
+    <Button kind='outline' variant='secondary' rounded>Push Me</Button>
+    <Button kind='outline' variant='success' rounded>Push Me</Button>
+    <Button kind='outline' variant='warning' rounded>Push Me</Button>
+    <Button kind='outline' variant='error' rounded>Push Me</Button>
+  </Stack>
+  <Stack space='m'>
+    <Button kind='flat' variant='primary' rounded>Push Me</Button>
+    <Button kind='flat' variant='secondary' rounded>Push Me</Button>
+    <Button kind='flat' variant='success' rounded>Push Me</Button>
+    <Button kind='flat' variant='warning' rounded>Push Me</Button>
+    <Button kind='flat' variant='error' rounded>Push Me</Button>
+  </Stack>
 </Stack>
 ```
 

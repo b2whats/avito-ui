@@ -28,7 +28,7 @@ const CardDoc = styled('div')<CardProps>`
 
 CardDoc.defaultProps = {
   inset: 'squish',
-  width: 'auto'
+  width: 'auto',
 }
 
 export default CardDoc

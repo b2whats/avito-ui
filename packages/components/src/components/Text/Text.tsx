@@ -28,7 +28,7 @@ const Text = styled('span', {
     };
   `)}
 
-  ${({ bold, light, align, valign, uppercase, italic, inline, block, letterSpacing, theme: { text } }) => (`
+  ${({ bold, light, align, valign, uppercase, italic, inline, block, letterSpacing, noWrap, theme: { text } }) => (`
     font-weight: ${bold ? 700 : light ? 300 : text.fontWeight};
     ${uppercase ? 'text-transform: uppercase;' : ''}
     ${letterSpacing ? `letter-spacing: ${letterSpacing};` : ''}
@@ -36,6 +36,7 @@ const Text = styled('span', {
     ${align ? `text-align: ${align};` : ''}
     ${valign ? `vertical-align: ${valign};` : ''}
     ${inline ? 'display: inline;' : block ? 'display: block;' : ''}
+    ${noWrap ? 'white-space: nowrap;' : ''}
   `)}
 
   article > ${space}
@@ -69,7 +70,7 @@ const Text = styled('span', {
   ${({ strike, theme: { text, palette } }) => strike && `
     position: relative;
 
-    & > .text-strike {
+    & > .strike-line {
       position: absolute;
       height: 5px;
       top: 50%;
@@ -113,7 +114,7 @@ Text.defaultProps = {
 }
 
 const Line = () => (
-  <svg className='text-strike' viewBox='0 0 100 5' preserveAspectRatio='none'>
+  <svg className='strike-line' viewBox='0 0 100 5' preserveAspectRatio='none'>
     <line x1='1' x2='99' y1='4' y2='2' />
   </svg>
 )

@@ -1,23 +1,9 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'emotion-theming'
 import styled from '@emotion/styled'
-import { theme, createTheme, Icon, Stack } from '@avito/components'
-import { tokens, Tokens } from '@avito/tokens'
+import { Icon, Stack } from '@avito/components'
 
-const merge = require('deepmerge')
-
-const themes = {
-  default: theme,
-  user: createTheme(merge(tokens, {
-    variants: {
-      primary: 'blue',
-      secondary: 'blue',
-      error: 'blue',
-      success: 'blue',
-      warning: 'blue',
-    },
-  })) as Tokens,
-}
+import * as themes from './themes/'
 
 const ThemeToggle = styled('div')`
   position: absolute;
@@ -26,16 +12,17 @@ const ThemeToggle = styled('div')`
   transform: translateY(-120%);
 `
 
-export default function Preview(props) {
-  const [state, update] = useState('default')
+export default function Preview(props: { children: React.ReactNode }) {
+  const [state, update] = useState('custom')
 
   return (
     <ThemeProvider theme={themes[state]}>
       <div>
         <ThemeToggle>
           <Stack space='m'>
-            <Icon name='avito' onClick={() => update('default')}/>
-            <Icon name='autoteka' onClick={() => update('user')}/>
+            <Icon name='avito' onClick={() => update('custom')}/>
+            <Icon name='autoteka' onClick={() => update('autoteka')}/>
+            <Icon name='mav' onClick={() => update('mav')}/>
           </Stack>
         </ThemeToggle>
         {props.children}

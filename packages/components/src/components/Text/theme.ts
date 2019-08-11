@@ -213,10 +213,8 @@ export const textTheme: ComponentTheme<TextTheme & ComputedTextTheme> = ({ font,
         Point: {},
       },
     },
-
-
     ...override,
-  }
+  } as TextTheme
 
   const computedTheme = () => ({
     crop_s_top: computedCrop(defaultTheme.crop_top, defaultTheme.lineHeight_s),
