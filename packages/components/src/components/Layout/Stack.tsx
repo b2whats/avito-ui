@@ -6,15 +6,17 @@ import { StackProps } from './contract'
 const Stack = styled('div')<StackProps>`
   box-sizing: border-box;
 
-  ${({ column, align, justify, inline, width, maxWidth, height, maxHeight }) => `
+  ${({ column, align, justify, inline, scroll }) => `
     display: ${inline ? 'inline-flex' : 'flex'};
+    width: ${inline ? 'auto' : '100%'};
     flex-direction: ${column ? 'column' : 'row'};
-    align-items: ${align};
+    align-items: ${align ? align : !column ? 'baseline' : 'normal'};
     ${justify ? `justify-content: ${justify};` : ''}
-    overflow: ${width || maxWidth || height || maxHeight ? 'auto' : 'visible' };
+    overflow-y: ${scroll && column ? 'scroll' : 'visible'};
+    overflow-x: ${scroll && !column ? 'scroll' : 'visible'};
   `}
 
-  ${({ space, column, theme: { spaces } }) => `
+  ${({ space, column, theme: { spaces } }) => space && `
     & > :not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${spaces[space]}; }
   `}
 
@@ -33,9 +35,7 @@ const Stack = styled('div')<StackProps>`
   `}
 `
 
-Stack.defaultProps = {
-  space: 'none',
-  align: 'baseline',
-}
-
 export default Stack
+
+
+var a = <Stack>fff</Stack>

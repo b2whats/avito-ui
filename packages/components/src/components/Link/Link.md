@@ -4,7 +4,7 @@ import { Text, Stack } from '../../'
 const rand = () => parseInt(Math.random() * 1000000);
 
 <Stack space='m'>
-  <Link href={`http://example.com?${rand()}`}>Click</Link>
+  <Link href={`http://example.com?${rand()}`} disabled>Click</Link>
   <Link href={`http://example.com?${rand()}`} variant='secondary'>Click</Link>
   <Link href={`http://example.com?${rand()}`} variant='success'>Click</Link>
   <Link href={`http://example.com?${rand()}`} variant='warning'>Click</Link>

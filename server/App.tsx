@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { ThemeProvider } from 'emotion-theming'
-import { theme } from '../packages/components/src/theme'
+import { Button, Stack, Icon, theme } from '@avito/components'
 
 class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        {this.props.children}
+        <Button>SSR button</Button>
       </ThemeProvider>
     )
   }

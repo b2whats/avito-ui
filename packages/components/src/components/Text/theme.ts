@@ -1,7 +1,11 @@
 import { ComponentTheme } from '../../theme/'
 import { TextProps } from './contract'
+import { IconProps } from '../Icon/contract'
 
-type Preset = Partial<TextProps>
+type Preset = {
+  Text: Partial<TextProps>,
+  Point: Partial<IconProps>,
+}
 
 export type TextTheme = {
   size_xxxxxl_fontSize: string,
@@ -30,15 +34,19 @@ export type TextTheme = {
   crop_top: number,
   crop_bottom: number,
 
-  preset_h1: Preset,
-  preset_h2: Preset,
-  preset_h3: Preset,
-  preset_h4: Preset,
-  preset_h5: Preset,
-  preset_h6: Preset,
-  preset_caption: Preset,
-  preset_p: Preset,
-  preset_label: Preset,
+  preset: {
+    h1: Preset,
+    h2: Preset,
+    h3: Preset,
+    h4: Preset,
+    h5: Preset,
+    h6: Preset,
+    caption: Preset,
+    p: Preset,
+    li: Preset,
+    label: Preset,
+    none: Preset,
+  },
 }
 
 type ComputedTextTheme = {
@@ -64,7 +72,7 @@ const computedFontSize = (base: number, ratio: number) => ({
 const computedCrop = (crop: number, targetHeight: number) => {
   const value = (crop + (targetHeight - 1) * 16) / 32 
 
-  return Math.round(value * 1000) / 1000
+  return Math.round(value * 10) / 10
 }
 
 export const textTheme: ComponentTheme<TextTheme & ComputedTextTheme> = ({ font, palette }, override) => {
@@ -87,74 +95,125 @@ export const textTheme: ComponentTheme<TextTheme & ComputedTextTheme> = ({ font,
     underline_height: '1px',
   
     crop_top: 3,
-    crop_bottom: 5.5,
+    crop_bottom: 5,
 
-    preset_h1: {
-      as: 'h1',
-      size: 'xxxxxl',
-      bold: true,
-      mb: 'xl',
-      lineHeight: 's',
+    preset: {
+      h1: {
+        Text: {
+          as: 'h1',
+          size: 'xxxxxl',
+          bold: true,
+          mb: 'xl',
+          lineHeight: 's',
+        },
+        Point: {
+          mr: 's',
+        },
+      },
+      h2: {
+        Text: {
+          as: 'h2',
+          size: 'xxxxl',
+          bold: true,
+          mb: 'xl',
+          lineHeight: 's',
+        },
+        Point: {
+          mr: 's',
+        },
+      },
+      h3: {
+        Text: {
+          as: 'h3',
+          size: 'xxl',
+          mb: 'm',
+          lineHeight: 's',
+        },
+        Point: {
+          mr: 's',
+        },
+      },
+      h4: {
+        Text: {
+          as: 'h4',
+          size: 'xl',
+          mb: 's',
+          lineHeight: 's',
+        },
+        Point: {
+          mr: 's',
+        },
+      },
+      h5: {
+        Text: {
+          as: 'h5',
+          size: 'l',
+          mb: 's',
+          lineHeight: 's',
+        },
+        Point: {
+          mr: 's',
+        },
+      },
+      h6: {
+        Text: {
+          as: 'h6',
+          size: 'm',
+          mb: 's',
+          lineHeight: 's',
+        },
+        Point: {
+          mr: 's',
+        },
+      },
+      caption: {
+        Text: {
+          as: 'div',
+          size: 'm',
+          mb: 's',
+          lineHeight: 'm',
+          color: 'gray50',
+        },
+        Point: {},
+      },
+      p: {
+        Text: {
+          as: 'p',
+          size: 'm',
+          mb: 's',
+          lineHeight: 'm',
+          light: true,
+        },
+        Point: {
+          mr: 's',
+        },
+      },
+      li: {
+        Text: {
+          as: 'li',
+          size: 'm',
+          lineHeight: 'm',
+          light: true,
+        },
+        Point: {
+          mr: 'm',
+        },
+      },
+      label: {
+        Text: {
+          as: 'label',
+          size: 'm',
+          lineHeight: 'm',
+          light: true,
+        },
+        Point: {},
+      },
+      none: {
+        Text: {},
+        Point: {},
+      },
     },
 
-    preset_h2: {
-      as: 'h2',
-      size: 'xxxxl',
-      bold: true,
-      mb: 'xl',
-      lineHeight: 's',
-    },
-
-    preset_h3: {
-      as: 'h3',
-      size: 'xxl',
-      mb: 'm',
-      lineHeight: 's',
-    },
-
-    preset_h4: {
-      as: 'h4',
-      size: 'xl',
-      mb: 's',
-      lineHeight: 's',
-    },
-
-    preset_h5: {
-      as: 'h5',
-      size: 'l',
-      mb: 's',
-      lineHeight: 's',
-    },
-  
-    preset_h6: {
-      as: 'h6',
-      size: 'm',
-      mb: 's',
-      lineHeight: 's',
-    },
-
-    preset_caption: {
-      as: 'div',
-      size: 'm',
-      mb: 's',
-      lineHeight: 'm',
-      color: 'gray50',
-    },
-
-    preset_p: {
-      as: 'p',
-      size: 'm',
-      mb: 's',
-      lineHeight: 'm',
-      light: true,
-    },
-
-    preset_label: {
-      as: 'label',
-      size: 'm',
-      lineHeight: 'm',
-      light: true,
-    },
 
     ...override,
   }
@@ -170,6 +229,6 @@ export const textTheme: ComponentTheme<TextTheme & ComputedTextTheme> = ({ font,
 
   return {
     ...defaultTheme,
-    ...computedTheme()
+    ...computedTheme(),
   }
 }

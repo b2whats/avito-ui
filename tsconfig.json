@@ -10,13 +10,13 @@
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
+    "noEmitOnError": true,
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "./packages",
     "paths": {
-      "@avito/*": ["*/src"],
+      "@avito/*": ["../node_modules/@avito/*/src"],
     },
   },
-  "include": ["packages"],
   "exclude": ["node_modules", "packages/**/build"]
 }

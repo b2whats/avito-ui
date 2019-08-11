@@ -42,7 +42,7 @@ import { Box } from './';
 ```jsx
 import { Box } from './';
 
-<Stack space='m' height={50} debug>
+<Stack space='m' scroll debug>
   <Box height={50} width={1/3} p='s'>1</Box>
   <Box width={1/3}>2</Box>
   <Box width={1/3}>3</Box>
@@ -67,7 +67,7 @@ import { Box } from './';
 ```jsx
 import { Box } from './';
 
-<Stack space='m' column height={200} debug>
+<Stack space='m' column height={200} scroll debug>
   <Box height={50}>1</Box>
   <Box height={50}>2</Box>
   <Box height={50}>3</Box>

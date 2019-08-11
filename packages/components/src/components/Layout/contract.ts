@@ -1,11 +1,12 @@
-import { Space, SpaceValues, Dimensions } from '../../styled-system'
+import { Spaces, SpaceValues, Dimensions } from '../../styled-system'
 import { Theme } from '../../theme'
+import { ReactText } from 'react'
 
 type Align = 'start' | 'center' | 'end' | 'baseline' | 'stretch'
 type Justify = 'start' | 'center' | 'end' | 'space-between' | 'space-around'
 type Display = 'inline' | 'block' | 'flex' | 'inline-flex'
 
-export interface GridProps extends Space, Dimensions {
+export interface GridProps extends Spaces, Dimensions {
   /** Отступ между дочерними блоками */
   space: SpaceValues,
   /** Отступ между дочерними блоками по вертикали */
@@ -22,7 +23,7 @@ export interface GridProps extends Space, Dimensions {
   debug?: boolean,
 }
 
-export interface BoxProps extends Space, Dimensions {
+export interface BoxProps extends Spaces, Dimensions {
   /** Содержание */
   children?: React.ReactNode,
   /** Вертикальное выравнивание */
@@ -37,13 +38,15 @@ export interface BoxProps extends Space, Dimensions {
   theme: Theme,
 }
 
-export interface StackProps extends Space, Dimensions {
+export interface StackProps extends Spaces, Dimensions {
   /** Содержание */
   children?: React.ReactNode,
   /** Отступ между дочерними блоками */
-  space: SpaceValues,
+  space?: SpaceValues,
   /** Вертикальный ритм */
   column?: boolean,
+  /** Добавляет скролл */
+  scroll?: boolean,
   /** Вертикальное выравнивание дочерних блоков */
   align?: Align,
   /** Горизонтальное выравнивание дочерних блоков */
@@ -54,4 +57,28 @@ export interface StackProps extends Space, Dimensions {
   theme?: Theme,
   /** @ignore */
   debug?: boolean,
+}
+
+type onChangeProps = {
+  name?: string,
+  type: string,
+  value?: ReactText | ReactText[] | null,
+}
+
+export interface GroupProps extends Spaces, Dimensions {
+  /** Содержание */
+  children?: React.ReactNode,
+  /** Блочное поведение */
+  block?: boolean,
+  /** Вертикальный ритм */
+  column?: boolean,
+  /** Имя группы */
+  name?: string,
+  /** Режим для события onClick */
+  mode?: 'checkbox' | 'radio',
+  /** Выбранные элементы */
+  value?: ReactText | ReactText[] | null,
+
+  /** Событие изменения значения */
+  onChange?: (props: onChangeProps) => void,
 }

@@ -1,8 +1,8 @@
-import { Theme, Tokens } from '../theme/'
+import { Theme, Tokens } from '../theme'
 
 export type SpaceValues = keyof Tokens['spaces']
 
-export type Space = Partial<{
+export type Spaces = Partial<{
   /** Внешний отступ со всех сторон */
   m: SpaceValues,
   /** Внешний отступ слува и справа */
@@ -36,7 +36,7 @@ export type Space = Partial<{
 
 type SpaceProps = {
   theme: Theme,
-} & Space
+} & Spaces
 
 export const space = ({ m, mx, my, mt, mr, mb, ml, p, px, py, pt, pr, pb, pl, theme: { spaces } }: SpaceProps ): string => {
   let css = '&& {'

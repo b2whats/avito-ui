@@ -7,6 +7,7 @@ export type ComponentsTheme = {
   text: components.TextTheme,
   button: components.ButtonTheme,
   link: components.LinkTheme,
+  icon: components.IconTheme,
 }
 
 export interface ComputedsTheme extends Tokens {
@@ -25,6 +26,7 @@ export const createTheme = (baseToken: Tokens, overrides: Partial<ComponentsThem
     button: components.buttonTheme(computed, overrides.button),
     text: components.textTheme(computed, overrides.text),
     link: components.linkTheme(computed, overrides.link),
+    icon: components.iconTheme(computed, overrides.icon),
   } 
 
   return tokens

@@ -1,12 +1,17 @@
-import React from 'react'
-import { styled, withTheme } from '../../utils/'
+import React, { useContext } from 'react'
+import { styled, ThemeContext, isPropValid } from '../../utils/'
 import { space } from '../../styled-system/'
 import { TextProps } from './contract'
+import { Icon } from '../../'
 
-const Text = styled('span')<TextProps>`
+const Text = styled('span', {
+  target: 'Text',
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'kind',
+})<TextProps>`
   box-sizing: border-box;
   margin: 0;
-  
+  -webkit-font-smoothing: antialiased;
+
   ${({ size, lineHeight, inherit, variant, color, theme: { text, palette, variants } }) => (inherit ? `
     font-family: inherit;
     font-size: inherit;
@@ -23,18 +28,17 @@ const Text = styled('span')<TextProps>`
     };
   `)}
 
-  ${({ bold, light, align, valign, uppercase, italic, inline, block, theme: { text } }) => (`
+  ${({ bold, light, align, valign, uppercase, italic, inline, block, letterSpacing, theme: { text } }) => (`
     font-weight: ${bold ? 700 : light ? 300 : text.fontWeight};
     ${uppercase ? 'text-transform: uppercase;' : ''}
+    ${letterSpacing ? `letter-spacing: ${letterSpacing};` : ''}
     ${italic ? 'font-style: italic;' : ''}
     ${align ? `text-align: ${align};` : ''}
     ${valign ? `vertical-align: ${valign};` : ''}
     ${inline ? 'display: inline;' : block ? 'display: block;' : ''}
   `)}
 
-  article > & {
-    ${space}
-  }
+  article > ${space}
 
   article > &:first-child {
     margin-top: 0;
@@ -44,8 +48,16 @@ const Text = styled('span')<TextProps>`
     margin-bottom: 0;
   }
 
+  li& {
+    list-style: none;
+  }
+
   caption& {
     display: block;
+  }
+
+  & > [data-name='point'] {
+    margin-top: -1px;
   }
 
   ${({ underline, theme: { text }}) => underline && `
@@ -57,7 +69,7 @@ const Text = styled('span')<TextProps>`
   ${({ strike, theme: { text, palette } }) => strike && `
     position: relative;
 
-    & > svg {
+    & > .text-strike {
       position: absolute;
       height: 5px;
       top: 50%;
@@ -81,6 +93,8 @@ const Text = styled('span')<TextProps>`
   `}
 
   ${({ crop, lineHeight, theme: { text } }) => crop && `
+    display: inline-block;
+    
     &::before, &::after {
       content: '';
       display: block;
@@ -99,16 +113,29 @@ Text.defaultProps = {
 }
 
 const Line = () => (
-  <svg viewBox='0 0 100 5' preserveAspectRatio='none'>
+  <svg className='text-strike' viewBox='0 0 100 5' preserveAspectRatio='none'>
     <line x1='1' x2='99' y1='4' y2='2' />
   </svg>
 )
 
-const PresetWrapper = ({ children, preset, theme, ...props }: Partial<TextProps>) => (
-  <Text {...preset && theme!.text[`preset_${preset}`] } {...props}>
-    {props.strike && <Line />}
-    { children }
-  </Text>
-)
+const TextWrapper = ({ children, point, ...props }: TextProps) => {
+  const theme = props.theme || useContext(ThemeContext)
 
-export default withTheme(PresetWrapper)
+  const { preset: {
+    [props.kind]: presetKind,
+  } } = theme.text
+
+  return (
+    <Text {...presetKind.Text} {...props}>
+      {point && <Icon name='point' size='0.57em' {...presetKind.Point} />}
+      {props.strike && <Line />}
+      { children }
+    </Text> 
+  )
+}
+
+TextWrapper.defaultProps = {
+  kind: 'none',
+}
+
+export default TextWrapper

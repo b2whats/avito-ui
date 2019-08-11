@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Theme, Tokens } from '../../theme/'
-import { Space } from '../../styled-system/'
+import { Spaces } from '../../styled-system/'
 
-export interface ButtonProps extends Space {
+export interface ButtonProps extends Spaces {
   children?: React.ReactNode,
   /** Размер кнопки */
   size: 's' | 'm' | 'l',
+  /** Имя кнопки */
+  name?: string,
+  /** Значение кнопки */
+  value?: string | number,
   /** Внешний вид кнопки */
   kind: 'default' | 'outline' | 'flat',
   /** Кнопка как текст */
@@ -17,9 +21,15 @@ export interface ButtonProps extends Space {
   /** Блочное поведение */
   block?: boolean,
   /** Действие которое совершает кнопка */
-  type: 'button' | 'submit' | 'reset',
+  type?: 'button' | 'submit' | 'reset',
+  /** Кнопка со спиннером */
+  loading: boolean,
   /** Тег компонента */
   as?: 'a' | 'button',
+  /** Ссылка на дом ноду */
+  innerRef?: (node: HTMLButtonElement | HTMLLinkElement | null) => void,
+
+  onClick?(event: React.MouseEvent<HTMLButtonElement | HTMLLinkElement>): void,
   /** @ignore */
-  theme: Theme,
+  theme?: Theme,
 }

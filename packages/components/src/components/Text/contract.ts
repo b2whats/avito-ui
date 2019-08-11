@@ -1,16 +1,16 @@
 import React from 'react'
 import { Theme, Tokens } from '../../theme/'
-import { Space } from '../../styled-system/'
+import { Spaces } from '../../styled-system/'
 
-export interface TextProps extends Space {
+export interface TextProps extends Spaces {
   /** Размер текста
-   * @default m
+  * @default m
   */
-  size: 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl',
+  size?: 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl',
   /** Коэффициент для высоты строки
    * @default m
   */
-  lineHeight: 's' | 'm' | 'l',
+  lineHeight?: 's' | 'm' | 'l',
   /** Горизонтальное выравнивание текста */
   align?: 'start' | 'end' | 'center' | 'justify',
   /** Вертикальное выравнивание текста */
@@ -43,17 +43,19 @@ export interface TextProps extends Space {
   /** Цветовые варианты текста */
   variant?: keyof Tokens['variants'],
   /** Текстовая нода */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'em' | 'strong' | 'caption' | 'div' | 'label',
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'em' | 'strong' | 'caption' | 'div' | 'label' | 'li',
   /** Внешний вид текста */
-  preset?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption',
+  kind: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption' | 'label' | 'li' | 'none',
   /** Цвет текста */
   color?: keyof Theme['palette'],
   /** Инлайновое поведение */
   inline?: boolean,
+  /** Круглая метка */
+  point?: boolean,
   /** Блочное поведение */
   block?: boolean,
   /** @ignore */
-  theme: Theme,
+  theme?: Theme,
 }
 
 //https://evergreen.segment.com/components/typography/ 

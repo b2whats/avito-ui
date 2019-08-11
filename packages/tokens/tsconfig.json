@@ -2,7 +2,6 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "outDir": "./build",
-    "baseUrl": "./src",
   },
   "include": ["./src"]
 }

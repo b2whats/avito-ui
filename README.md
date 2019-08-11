@@ -1,7 +1,7 @@
 Установить зависимости после клонирования
 ```sh
   yarn install
-  lerna bootstrap
+  # lerna bootstrap
 ```
 Выполнить скрипты во всех пакетах
 ```sh
@@ -20,7 +20,7 @@
   OR
   lerna add lodash --scope @avito/components
   OR
-  yarn workspace @avito/tokens add @avito/components
+  # yarn workspace @avito/tokens add @avito/components
 ```
 
 Установить зависимость в корень рабочей области (флаг -W)

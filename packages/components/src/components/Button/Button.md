@@ -1,27 +1,34 @@
-```js
-import { Stack } from '../../';
+```js { "props": { "className": "checks" } }
+import { Stack, Icon } from '../../';
 
 <Stack space='m' column>
   <Stack space='m'>
-    <Button variant='primary' size='s'>Push Me</Button>
-    <Button variant='secondary' size='s'>Push Me</Button>
-    <Button variant='success' size='s'>Push Me</Button>
-    <Button variant='warning' size='s'>Push Me</Button>
-    <Button variant='error' size='s'>Push Me</Button>
+    <Button variant='primary' size='s'><Icon name='search'/>Push Me</Button>
+    <Button variant='secondary' size='s'><Icon name='search'/>Push Me</Button>
+    <Button variant='success' size='s'><Icon name='search'/>Push Me</Button>
+    <Button variant='warning' size='s'><Icon name='search'/>Push Me</Button>
+    <Button variant='error' size='s'><Icon name='search'/>Push Me</Button>
   </Stack>
   <Stack space='m'>
-    <Button variant='primary'>Push Me</Button>
-    <Button variant='secondary'>Push Me</Button>
-    <Button variant='success'>Push Me</Button>
-    <Button variant='warning'>Push Me</Button>
-    <Button variant='error'>Push Me</Button>
+    <Button as='a' href={`http://example.com`} variant='primary' size='s'><Icon name='search'/>Push Me</Button>
+    <Button as='a' variant='secondary' size='s'><Icon name='search'/>Push Me</Button>
+    <Button as='a' variant='success' size='s'><Icon name='search'/>Push Me</Button>
+    <Button as='a' variant='warning' size='s'><Icon name='search'/>Push Me</Button>
+    <Button as='a' variant='error' size='s'><Icon name='search'/>Push Me</Button>
   </Stack>
   <Stack space='m'>
-    <Button variant='primary' size='l'>Push Me</Button>
-    <Button variant='secondary' size='l'>Push Me</Button>
-    <Button variant='success' size='l'>Push Me</Button>
-    <Button variant='warning' size='l'>Push Me</Button>
-    <Button variant='error' size='l'>Push Me</Button>
+    <Button variant='primary'><Icon name='search'/>Push Me</Button>
+    <Button variant='secondary'><Icon name='search'/>Push Me</Button>
+    <Button variant='success'><Icon name='search'/>Push Me</Button>
+    <Button variant='warning'><Icon name='search'/>Push Me</Button>
+    <Button variant='error'><Icon name='search'/>Push Me</Button>
+  </Stack>
+  <Stack space='m'>
+    <Button variant='primary' size='l'><Icon name='search'/>Push Me</Button>
+    <Button variant='secondary' size='l'><Icon name='search'/>Push Me</Button>
+    <Button variant='success' size='l'><Icon name='search'/>Push Me</Button>
+    <Button variant='warning' size='l'><Icon name='search'/>Push Me</Button>
+    <Button variant='error' size='l'><Icon name='search'/>Push Me</Button>
   </Stack>
 </Stack>
 ```
@@ -85,12 +92,40 @@ import { Stack } from '../../';
 ```js
 import { Stack } from '../../';
 
+<Stack space='m' column>
+  <Stack space='m'>
+    <Button variant='primary' disabled>Push Me</Button>
+    <Button variant='secondary' disabled>Push Me</Button>
+    <Button variant='success' disabled>Push Me</Button>
+    <Button variant='warning' disabled>Push Me</Button>
+    <Button variant='error' disabled>Push Me</Button>
+  </Stack>
+  <Stack space='m'>
+    <Button kind='flat' variant='primary' disabled>Push Me</Button>
+    <Button kind='flat' variant='secondary' disabled>Push Me</Button>
+    <Button kind='flat' variant='success' disabled>Push Me</Button>
+    <Button kind='flat' variant='warning' disabled>Push Me</Button>
+    <Button kind='flat' variant='error' disabled>Push Me</Button>
+  </Stack>
+  <Stack space='m'>
+    <Button kind='outline' variant='primary' disabled>Push Me</Button>
+    <Button kind='outline' variant='secondary' disabled>Push Me</Button>
+    <Button kind='outline' variant='success' disabled>Push Me</Button>
+    <Button kind='outline' variant='warning' disabled>Push Me</Button>
+    <Button kind='outline' variant='error' disabled>Push Me</Button>
+  </Stack>
+</Stack>
+```
+
+```js
+import { Stack } from '../../';
+
 <Stack space='m'>
-  <Button variant='primary' disabled>Push Me</Button>
-  <Button variant='secondary' disabled>Push Me</Button>
-  <Button variant='success' disabled>Push Me</Button>
-  <Button variant='warning' disabled>Push Me</Button>
-  <Button variant='error' disabled>Push Me</Button>
+  <Button variant='primary'>Push Me<br/>2</Button>
+  <Button variant='secondary'>Push Me<br/>2</Button>
+  <Button variant='success'>Push Me<br/>2</Button>
+  <Button variant='warning'>Push Me<br/>2</Button>
+  <Button variant='error'>Push Me<br/>2</Button>
 </Stack>
 ```
 
@@ -103,5 +138,17 @@ import { Stack } from '../../';
   <Button variant='success' rounded>Push Me</Button>
   <Button variant='warning' rounded>Push Me</Button>
   <Button variant='error' rounded>Push Me</Button>
+</Stack>
+```
+
+```js
+import { Stack } from '../../';
+
+<Stack space='m' column>
+  <Button variant='primary' block>Push Me</Button>
+  <Button variant='secondary' block>Push Me</Button>
+  <Button variant='success' block>Push Me</Button>
+  <Button variant='warning' block>Push Me</Button>
+  <Button variant='error' block>Push Me</Button>
 </Stack>
 ```

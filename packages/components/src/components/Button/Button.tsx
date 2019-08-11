@@ -1,100 +1,195 @@
-import React from 'react'
-import { styled, withTheme } from '../../utils/'
+import React, { useContext, useRef, useEffect, useState } from 'react'
+import { styled, ThemeContext, isPropValid, functionRef } from '../../utils/'
 import { focus, space } from '../../styled-system/'
 import { ButtonProps } from './contract'
 import { Text } from '../../'
+import { GroupContext } from '../Layout/Group'
 
-const ButtonBox = styled('button')<ButtonProps>`
+const ButtonBox = styled('button', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'loading' && prop !== 'kind',
+})<ButtonProps>`
   box-sizing: border-box;
   border: none;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   margin: 0;
+  line-height: 1;
+  position: relative;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
 
   ${({ block, size, rounded, theme: { button } }) => (`
     border-radius: ${rounded ? '100px' : button.borderRadius};
     display: ${block ? 'block' : 'inline-block'};
+    width: ${block ? '100%' : 'auto'};
     min-height: ${button[`size_${size}_height`]};
+    border: ${button.borderWidth} solid transparent;
   `)}
 
-  ${({ kind, variant, theme: { button, variants } }) => {
+  ${({ kind, variant, theme: { button, variants } }) => kind === 'default' ? `
+    color: ${button[`default_${variant}_color_normal`]};
+    background-color: ${variants[`${variant}_backgroundColor_normal`]};
 
-    return kind === 'outline' ? `
-      color: ${variants[`${variant}_color_normal`]};
-      background-color: ${button[`flat_${variant}_backgroundColor_normal`]};
-      border-width: 1px;
-      border-style: solid;
-      border-color: ${variants[`${variant}_borderColor_normal`]};
+    &[aria-checked=true], &&:active {
+      background-color: ${variants[`${variant}_backgroundColor_active`]};
+    }
 
-      &:hover {
-        color: ${variants[`${variant}_color_hover`]};
-        background-color: ${button[`flat_${variant}_backgroundColor_hover`]};
-        border-color: ${variants[`${variant}_borderColor_hover`]};
-      }
+    &:hover {
+      background-color: ${variants[`${variant}_backgroundColor_hover`]};
+    }
 
-      &:active {
-        color: ${variants[`${variant}_color_active`]};
-        background-color: ${button[`flat_${variant}_backgroundColor_active`]};
-        border-color: ${variants[`${variant}_borderColor_active`]};
-      }
+    &:active > span:first-child {
+      transform: translateY(${button[`${kind}_press_offset`]});
+    }
 
-      &:disabled {
-        color: ${variants[`${variant}_color_disabled`]};
-        border-color: ${variants[`${variant}_borderColor_disabled`]};
-      }
-    ` : kind === 'flat' ? `
-      color: ${variants[`${variant}_color_normal`]};
-      background-color: ${button[`flat_${variant}_backgroundColor_normal`]};
+    &[disabled] {
+      color: ${button[`default_${variant}_color_disabled`]};
+      background-color: ${variants[`${variant}_backgroundColor_disabled`]};
+    }
+  ` : `
+    color: ${variants[`${variant}_color_normal`]};
+    background-color: ${button[`${kind}_${variant}_backgroundColor_normal`]};
+    border-color: ${kind === 'outline' ? button[`outline_${variant}_borderColor_normal`] : 'transparent'};
 
-      &:hover {
-        color: ${variants[`${variant}_color_hover`]};
-        background-color: ${button[`flat_${variant}_backgroundColor_hover`]};
-      }
+    &[aria-checked=true], &&:active {
+      color: ${variants[`${variant}_color_active`]};
+      background-color: ${button[`${kind}_${variant}_backgroundColor_active`]};
+      border-color: ${kind === 'outline' ? button[`outline_${variant}_borderColor_active`] : 'transparent'};
+    }
 
-      &:active {
-        color: ${variants[`${variant}_color_active`]};
-        background-color: ${button[`flat_${variant}_backgroundColor_active`]};
-      }
+    &:hover {
+      color: ${variants[`${variant}_color_hover`]};
+      background-color: ${button[`${kind}_${variant}_backgroundColor_hover`]};
+      border-color: ${kind === 'outline' ? button[`outline_${variant}_borderColor_hover`] : 'transparent'};
+    }
 
-      &:disabled {
-        color: ${variants[`${variant}_color_disabled`]};
-      }
-    ` : `
-      color: ${button[`default_${variant}_color_normal`]};
-      background-color: ${variants[`${variant}_backgroundColor_normal`]};
+    &:active > span:first-child {
+      transform: translateY(${button[`${kind}_press_offset`]});
+    }
 
-      &:hover {
-        background-color: ${variants[`${variant}_backgroundColor_hover`]};
-      }
+    &[disabled] {
+      color: ${variants[`${variant}_color_disabled`]};
+      border-color: ${kind === 'outline' ? button[`outline_${variant}_borderColor_disabled`] : 'transparent'};
+    }
+  `}
 
-      &:active {
-        background-color: ${variants[`${variant}_backgroundColor_active`]};
-      }
+  ${({ theme: { button } }) => (`
+    &[data-group~='horizontal']:not([data-group~='last']) {
+      margin-right: -${button.borderWidth};
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px;
+    }
 
-      &:disabled {
-        color: ${button[`default_${variant}_color_disabled`]};
-        background-color: ${variants[`${variant}_backgroundColor_disabled`]};
-      }
-    `
-  }}
+    &[data-group~='horizontal']:not([data-group~='first']) {
+      border-bottom-left-radius: 0px;
+      border-top-left-radius: 0px;
+    }
 
-  &:disabled {
-    cursor: not-allowed;
+    [role*='group'][aria-orientation='vertical'] > &:not(:last-child),
+    [role*='group'][aria-orientation='vertical'] > :not(:last-child) & {
+      margin-bottom: -${button.borderWidth};
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    [role*='group'][aria-orientation='vertical'] > &:not(:first-child),
+    [role*='group'][aria-orientation='vertical'] > :not(:first-child) & {
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+    }
+  `)}
+
+  &:hover {
+    z-index: 1;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+  }
+
+  a& {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
 
   ${space}
   ${focus}
 `
 
-const Button = ({ children, ...props }: ButtonProps) => {
+type buttonNode = HTMLButtonElement | HTMLLinkElement
+
+const Button = ({ children, ...props }: ButtonProps & { ref: ButtonProps['innerRef'] }) => {
+  const theme = props.theme || useContext(ThemeContext)
+
   const { preset: {
     size : { [props.size]: presetSize },
-    kind: { [props.kind]: presetKind }
-  } } = props.theme.button
+    kind: { [props.kind]: presetKind },
+  } } = theme.button
+
+  const [buttonRef, setRef] = functionRef<buttonNode>(props.innerRef)
+  const groupContext = useContext(GroupContext)
+
+  const [positions, setPositions] = useState<string>('')
+
+  useEffect(() => {
+    if (groupContext && buttonRef !== null) {
+      groupContext.elements.current.push(buttonRef)
+      
+      let node: HTMLElement | null = buttonRef
+      let prevNode: HTMLElement | null = null
+  
+      while (node) { 
+        if (node.matches('[role*=group]')) {
+          let pos = []
+          node.firstElementChild === prevNode && (pos.push('first'))
+          node.lastElementChild === prevNode && (pos.push('last'))
+          
+          setPositions(pos.join(' '))
+          break
+        } else {
+          prevNode = node
+          node = node.parentElement
+        }
+      } 
+    }
+  }, [buttonRef])
+
+  // Necessary when rendering an `a` element, which doesn't use `disabled`
+  const aria: {[key: string]: any} = {
+    'aria-disabled': props.disabled,
+    'aria-busy': props.loading,
+    tabIndex: props.disabled ? -1 : undefined,
+  }
+
+  if (props.as === 'a') {
+    props.type = undefined
+  }
+
+  if (props.innerRef) {
+    props.ref = setRef
+  }
+
+  if (groupContext) {
+    props.block = groupContext.block
+    props.ref = setRef
+    props['data-group'] = (`${groupContext.orientation} ${positions}`).trim()
+  }
+
+  if (groupContext && groupContext.onClick) {
+    const checked = groupContext.checked.includes(props.value)
+
+    aria['aria-checked'] = checked
+    aria.role = groupContext.mode
+    aria.tabIndex = checked && !props.disabled ? 0 : -1
+    props.onClick = groupContext.onClick || props.onClick
+  }
 
   return (
-    <ButtonBox {...presetKind.Button} {...presetSize.Button} {...props}>
+    <ButtonBox {...presetKind.Button} {...presetSize.Button} {...props} {...aria}>
       <Text {...presetKind.Text} {...presetSize.Text} crop color='inherit'>{ children }</Text>
     </ButtonBox>
   )
@@ -105,6 +200,18 @@ Button.defaultProps = {
   kind: 'default',
   variant: 'primary',
   type: 'button',
+  loading: false,
 }
 
-export default withTheme(Button)
+export default Button
+
+// &[data-inGroup='horizontal'] > &:not(:last-child), [role*='group'] > :not(:last-child) & {
+//   margin-right: -${button.borderWidth};
+//   border-bottom-right-radius: 0px;
+//   border-top-right-radius: 0px;
+// }
+
+// [role*='group'] > &:not(:first-child), [role*='group'] > :not(:first-child) & {
+//   border-bottom-left-radius: 0px;
+//   border-top-left-radius: 0px;
+// }

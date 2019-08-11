@@ -1,0 +1,7 @@
+POST http://staging.k.avito.ru/service-clickstream-admin-gateway/v1/getEvents/ HTTP/1.1
+content-type: application/json
+
+{
+  "size": 10,
+  "page": 1
+}

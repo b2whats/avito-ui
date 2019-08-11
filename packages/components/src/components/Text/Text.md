@@ -1,28 +1,39 @@
 ```jsx
+
+  <Text kind='h1' point>Push Me</Text>
+  <Text kind='h2' point>Push Me</Text>
+  <Text kind='h3' point>Push Me</Text>
+  <Text kind='h4' point>Push Me</Text>
+  <Text kind='h5' point>Push Me</Text>
+  <Text kind='p' point>Push Me</Text>
+  <Text kind='li' point>Push Me</Text>
+```
+
+```jsx
 import Article from './Article.tsx'
 import { Link } from '../../';
 
 <div>
-  <Text mx='xxl' preset='p'>Push Me</Text>
-  <Text preset='p' align='center'>Push Me</Text>
-  <Text preset='p' align='end'>Push Me</Text>
-  <Text preset='p' align='justify'>
+  <Text mx='xxl' kind='p'>Push Me</Text>
+  <Text kind='p' align='center'>Push Me</Text>
+  <Text kind='p' align='end'>Push Me</Text>
+  <Text kind='p' align='justify'>
     Lorem ipsum dolor sit amet, <Link href='#'>consectetur</Link> adipiscing elit. Sed non purus
     id dolor maximus eleifend nec in nunc. Integer quis lacinia leo Me
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
     id dolor maximus eleifend nec in nunc. Integer quis lacinia leo Me
   </Text>
 
-  <Text preset='p' size='s'>Push Me</Text>
-  <Text preset='p'>Push Me</Text>
-  <Text preset='p' size='l'>Push Me</Text>
-  <Text preset='h1'>Push Me</Text>
-  <Text preset='h2'>Push Me</Text>
-  <Text preset='h3'>Push Me</Text>
-  <Text preset='h4'>Push Me</Text>
-  <Text preset='h5'>Push Me</Text>
-  <Text preset='h6'>Push Me</Text>
-  <Text preset='caption'>
+  <Text kind='p' size='s'>Push Me</Text>
+  <Text kind='p'>Push Me</Text>
+  <Text kind='p' size='l'>Push Me</Text>
+  <Text kind='h1'>Push Me</Text>
+  <Text kind='h2'>Push Me</Text>
+  <Text kind='h3'>Push Me</Text>
+  <Text kind='h4'>Push Me</Text>
+  <Text kind='h5'>Push Me</Text>
+  <Text kind='h6'>Push Me</Text>
+  <Text kind='caption'>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
     id dolor maximus eleifend nec in nunc. Integer quis lacinia leo
   </Text>
@@ -93,13 +104,13 @@ import { Link } from '../../';
     </Text>
   </CardDoc>
   <CardDoc width='50%'>
-    <Text crop preset='h1'>
+    <Text crop kind='h1'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
       id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
     </Text>
   </CardDoc>
   <CardDoc width='50%'>
-    <Text crop preset='h3'>
+    <Text crop kind='h3'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
       id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
     </Text>
