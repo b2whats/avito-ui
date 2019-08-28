@@ -8,18 +8,22 @@ export type ComponentsTheme = {
   button: components.ButtonTheme,
   link: components.LinkTheme,
   icon: components.IconTheme,
+  toggle: components.ToggleTheme,
+  checkbox: components.CheckboxTheme,
+  variants: components.VariantsTheme,
 }
 
 type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
 
 export interface ComputedsTheme extends Tokens {
-  variants: components.VariantsTheme,
+  // variants: components.VariantsTheme,
 }
 
-export const createTheme = (baseToken: Tokens, overrides: DeepPartial<ComponentsTheme> & DeepPartial<ComputedsTheme> = {}) => {
+// export const createTheme = (baseToken: Tokens, overrides: DeepPartial<ComponentsTheme> & DeepPartial<ComputedsTheme> = {}) => {
+export const createTheme = (baseToken: Tokens, overrides: DeepPartial<ComponentsTheme> = {}) => {
   const computed: ComputedsTheme = {
     ...baseToken,
-    variants: components.variantsTheme(baseToken, overrides.variants),
+    // variants: components.variantsTheme(baseToken, overrides.variants),
   }
 
   const tokens = {
@@ -28,6 +32,9 @@ export const createTheme = (baseToken: Tokens, overrides: DeepPartial<Components
     text: components.textTheme(computed, overrides.text),
     link: components.linkTheme(computed, overrides.link),
     icon: components.iconTheme(computed, overrides.icon),
+    toggle: components.toggleTheme(computed, overrides.toggle),
+    checkbox: components.checkboxTheme(computed, overrides.checkbox),
+    variants: components.variantsTheme(computed, overrides.variants),
   } 
 
   return tokens

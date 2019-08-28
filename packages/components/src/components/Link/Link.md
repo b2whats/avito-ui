@@ -19,10 +19,11 @@ const rand = () => parseInt(Math.random() * 1000000);
 
 <Text as='div'>
   <Link href={`http://example.com?${rand()}`} underline>Click</Link>
+  <Link underline variant='success'>Click</Link>
   <Text underline>
     Underline
   </Text>
-  <Text preset='h3'>
+  <Text kind='h1'>
     <Link href={`http://example.com?${rand()}`}>H3 link</Link>
   </Text>
 </Text>

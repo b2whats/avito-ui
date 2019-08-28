@@ -1,4 +1,3 @@
-import React from 'react'
 import { styled } from '../../utils/'
 import { focus } from '../../styled-system/'
 import { LinkProps } from './contract'
@@ -6,13 +5,12 @@ import { LinkProps } from './contract'
 const Link = styled('a')<LinkProps>`
   box-sizing: border-box;
   text-decoration: none;
-  outline: none;
   cursor: pointer;
 
   ${({ underline, inherit, noVisited, variant, theme: { link, variants } }) => {
     const underlineStyle = (visible?: boolean | string) => visible ? `
       border-bottom-color: currentColor;
-      border-bottom-style: ${typeof underline === 'string' ? underline : 'solid'} 
+      border-bottom-style: ${typeof underline === 'string' ? underline : 'solid'};
     ` : ''
     
     return `

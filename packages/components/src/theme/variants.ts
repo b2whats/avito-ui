@@ -138,8 +138,8 @@ export const variantsTheme: ComputedTheme<VariantsTheme> = ({ variants, palette 
     primary_borderColor_disabled: palette[`${variants.primary}20`],
 
   
-    secondary_color_normal: palette[`${variants.secondary}80`],
-    secondary_color_hover: palette[`${variants.secondary}90`],
+    secondary_color_normal: palette[`${variants.secondary}50`],
+    secondary_color_hover: palette[`${variants.secondary}70`],
     secondary_color_active: palette[`${variants.secondary}90`],
     secondary_color_disabled: palette[`${variants.secondary}30`],
 

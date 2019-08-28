@@ -2,7 +2,6 @@
 import { Stack, Icon } from '../../';
 
 <Button variant='primary' size='s'><Icon name='search'/>Push Me</Button>
-
 ```
 
 ```js

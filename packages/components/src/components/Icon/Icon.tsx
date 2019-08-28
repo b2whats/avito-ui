@@ -9,14 +9,13 @@ const Icon = styled(IconBase,{
 })<IconProps>`
   ${({ size, color, variant, onClick, theme: { icon, palette, variants }}) => (`
     font-size: ${icon[`size_${size}`] || size};
+    
     ${
       color ? `fill: ${palette[color]};` : 
       variant ? `fill: ${variants[`${variant}_color_normal`]};` : ''
     }
 
-    &:hover {
-      fill: ${onClick && variant ? variants[`${variant}_color_hover`] : 'currentColor'};
-    }
+    ${onClick && variant ? `&:hover { fill: ${variants[`${variant}_color_hover`]}; }` : ''};
   `)}
 
   ${focus}

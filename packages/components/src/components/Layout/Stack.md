@@ -3,7 +3,7 @@ import { Box } from './';
 
 <Stack space='m' debug>
   <Box p='s'>1</Box>
-  <Box mr='l' p='s'>2</Box>
+  <Box mr='xl' p='s'>2</Box>
   <Box p='s'>3</Box>
   <Box p='s'>4</Box>
 </Stack>

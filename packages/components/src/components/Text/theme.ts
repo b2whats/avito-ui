@@ -84,14 +84,14 @@ export const textTheme: ComponentTheme<TextTheme & ComputedTextTheme> = ({ font,
     fontWeight: font.fontWeight,
     color: palette.gray90,
 
-    lineHeight_l: 1.6,
+    lineHeight_l: font.lineHeight + 0.1,
     lineHeight_m: font.lineHeight,
-    lineHeight_s: 1.25,
+    lineHeight_s: font.lineHeight - 0.15,
   
     strike_offset: '4px',
     strike_height: '2px',
 
-    underline_offset: '1px',
+    underline_offset: '0px',
     underline_height: '1px',
   
     crop_top: 3,

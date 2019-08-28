@@ -15,3 +15,10 @@ export const focus = ({ variant = 'primary', theme: { variants, focus } }: Focus
     z-index: 2;
   }
 `)
+
+export const focusProp = ({ variant = 'primary', theme: { variants, focus } }: FocusProps): string => (`
+  outline: none;
+  box-shadow: ${focus} ${variants[`${variant}_focus`]};
+  position: relative;
+  z-index: 2;
+`)

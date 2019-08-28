@@ -47,7 +47,7 @@ export interface TextProps extends Spaces {
   /** Текстовая нода */
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'em' | 'strong' | 'caption' | 'div' | 'label' | 'li',
   /** Внешний вид текста */
-  kind: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption' | 'label' | 'li' | 'none',
+  kind?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption' | 'label' | 'li' | 'none',
   /** Цвет текста */
   color?: keyof Theme['palette'],
   /** Инлайновое поведение */
@@ -56,6 +56,8 @@ export interface TextProps extends Spaces {
   point?: boolean,
   /** Блочное поведение */
   block?: boolean,
+  /** Позволяет задавать тексту отступы когда компонент находится вне статьи */
+  withSpace?: boolean,
   /** @ignore */
   theme?: Theme,
 }

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { styled, ThemeContext, isPropValid } from '../../utils/'
+import React from 'react'
+import { styled, useTheme, isPropValid } from '../../utils/'
 import { space } from '../../styled-system/'
 import { TextProps } from './contract'
 import { Icon } from '../../'
@@ -12,18 +12,14 @@ const Text = styled('span', {
   margin: 0;
   -webkit-font-smoothing: antialiased;
 
-  ${({ size, lineHeight, inherit, variant, color, theme: { text, palette, variants } }) => (inherit ? `
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
-  ` : `
+  ${({ size, lineHeight, inherit, variant, color, theme: { text, palette, variants } }) => (`
     font-family: ${text.fontFamily};
-    font-size: ${text[`size_${size}_fontSize`]};
-    line-height: ${text[`lineHeight_${lineHeight}`]};
+    font-size: ${inherit ? 'inherit' : text[`size_${size}_fontSize`]};
+    line-height: ${inherit ? 'inherit' : text[`lineHeight_${lineHeight}`]};
     color: ${
       color ? palette[color] : 
       variant ? variants[`${variant}_color_normal`] :
+      inherit ? 'inherit' :
       text.color
     };
   `)}
@@ -40,6 +36,7 @@ const Text = styled('span', {
   `)}
 
   article > ${space}
+  span${space}
 
   article > &:first-child {
     margin-top: 0;
@@ -108,11 +105,6 @@ const Text = styled('span', {
   `}
 `
 
-Text.defaultProps = {
-  size: 'm',
-  lineHeight: 'm',
-}
-
 const Line = () => (
   <svg className='strike-line' viewBox='0 0 100 5' preserveAspectRatio='none'>
     <line x1='1' x2='99' y1='4' y2='2' />
@@ -120,23 +112,26 @@ const Line = () => (
 )
 
 const TextWrapper = ({ children, point, ...props }: TextProps) => {
-  const theme = props.theme || useContext(ThemeContext)
+  const theme = useTheme()
+
+  props = {
+    kind: 'none',
+    size: 'm',
+    lineHeight: 'm',
+    ...props,
+  }
 
   const { preset: {
-    [props.kind]: presetKind,
+    [props.kind!]: presetKind,
   } } = theme.text
 
   return (
-    <Text {...presetKind.Text} {...props}>
+    <Text theme={theme} {...presetKind.Text} {...props}>
       {point && <Icon name='point' size='0.57em' {...presetKind.Point} />}
       {props.strike && <Line />}
       { children }
     </Text> 
   )
-}
-
-TextWrapper.defaultProps = {
-  kind: 'none',
 }
 
 export default TextWrapper
