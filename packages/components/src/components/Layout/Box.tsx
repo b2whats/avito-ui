@@ -1,8 +1,8 @@
-import { styled } from '../../utils'
+import { styled, isPropValid } from '../../utils'
 import { space, dimension, shadows, colors } from '../../styled-system'
 import { BoxProps } from './contract'
 
-const Box = styled('div', { shouldForwardProp: prop => prop === 'children' })<BoxProps>`
+const Box = styled('div', { shouldForwardProp: isPropValid })<BoxProps>`
   box-sizing: border-box;
 
   ${({ grow, shrink, alignSelf, display, radius }) => `

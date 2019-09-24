@@ -1,11 +1,11 @@
 ```jsx
 import { Box } from './';
 
-<Stack space='m' debug>
-  <Box p='s'>1</Box>
-  <Box mr='xl' p='s'>2</Box>
-  <Box p='s'>3</Box>
-  <Box p='s'>4</Box>
+<Stack space='m' debug onMouseUp={() => console.log('up stack')}>
+  <Box p='s' onMouseUp={() => console.log('up1')}>1</Box>
+  <Box mr='xl' p='s' onMouseUp={() => console.log('up2')}>2</Box>
+  <Box p='s' onMouseUp={() => console.log('up3')}>3</Box>
+  <Box p='s' onMouseUp={() => console.log('up4')}>4</Box>
 </Stack>
 ```
 

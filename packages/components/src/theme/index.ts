@@ -8,7 +8,8 @@ export type ComponentsTheme = {
   button: components.ButtonTheme,
   link: components.LinkTheme,
   icon: components.IconTheme,
-  toggle: components.ToggleTheme,
+  toggleBox: components.ToggleBoxTheme,
+  inputBox: components.InputBoxTheme,
   checkbox: components.CheckboxTheme,
   variants: components.VariantsTheme,
 }
@@ -32,7 +33,8 @@ export const createTheme = (baseToken: Tokens, overrides: DeepPartial<Components
     text: components.textTheme(computed, overrides.text),
     link: components.linkTheme(computed, overrides.link),
     icon: components.iconTheme(computed, overrides.icon),
-    toggle: components.toggleTheme(computed, overrides.toggle),
+    toggleBox: components.toggleBoxTheme(computed, overrides.toggleBox),
+    inputBox: components.inputBoxTheme(computed, overrides.inputBox),
     checkbox: components.checkboxTheme(computed, overrides.checkbox),
     variants: components.variantsTheme(computed, overrides.variants),
   } 

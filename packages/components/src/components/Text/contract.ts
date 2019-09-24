@@ -10,7 +10,7 @@ export interface TextProps extends Spaces {
   /** Коэффициент для высоты строки
    * @default m
   */
-  lineHeight?: 's' | 'm' | 'l',
+  lineHeight?: 'none' | 's' | 'm' | 'l',
   /** Горизонтальное выравнивание текста */
   align?: 'start' | 'end' | 'center' | 'justify',
   /** Вертикальное выравнивание текста */
@@ -47,17 +47,13 @@ export interface TextProps extends Spaces {
   /** Текстовая нода */
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'em' | 'strong' | 'caption' | 'div' | 'label' | 'li',
   /** Внешний вид текста */
-  kind?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption' | 'label' | 'li' | 'none',
+  kind?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption' | 'label' | 'li',
   /** Цвет текста */
   color?: keyof Theme['palette'],
   /** Инлайновое поведение */
   inline?: boolean,
-  /** Круглая метка */
-  point?: boolean,
   /** Блочное поведение */
   block?: boolean,
-  /** Позволяет задавать тексту отступы когда компонент находится вне статьи */
-  withSpace?: boolean,
   /** @ignore */
   theme?: Theme,
 }

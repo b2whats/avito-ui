@@ -1,13 +1,15 @@
 import React from 'react'
-import { Theme, Tokens } from '../../theme/'
-import { Spaces } from '../../styled-system/'
+import { Theme, Tokens } from '../../theme'
+import { Spaces } from '../../styled-system'
 
-export interface ToggleProps extends Spaces {
+export interface ToggleBoxProps extends Spaces {
   children?(checked: boolean | 'mixed'): React.ReactNode,
   /** Размер */
-  size: 's' | 'm' | 'l',
+  size?: 's' | 'm' | 'l',
   /** Поведение */
   mode: 'checkbox' | 'radio',
+  /** Поведение */
+  kind?: 'checkbox' | 'radio' | 'switch',
   /** Имя елемента */
   name?: string,
   /** Значение елемента */
@@ -28,6 +30,8 @@ export interface ToggleProps extends Spaces {
   id?: string,
   /** Класс елемента */
   className?: string,
+  /** Позиция элемента при фокусе */
+  tabIndex?: number,
   /** Ссылка на дом ноду */
   innerRef?: (node: HTMLInputElement | null) => void,
 
@@ -35,7 +39,8 @@ export interface ToggleProps extends Spaces {
   onChange?(event: React.ChangeEvent<HTMLInputElement>): void,
   onFocus?(event: React.FocusEvent<HTMLInputElement>): void,
   onBlur?(event: React.FocusEvent<HTMLInputElement>): void,
-  
+  onKeyDown?(event: React.KeyboardEvent<HTMLInputElement>): void,
+
   /** @ignore */
   theme?: Theme,
 }

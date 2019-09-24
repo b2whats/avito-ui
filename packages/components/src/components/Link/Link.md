@@ -24,7 +24,7 @@ const rand = () => parseInt(Math.random() * 1000000);
     Underline
   </Text>
   <Text kind='h1'>
-    <Link href={`http://example.com?${rand()}`}>H3 link</Link>
+    <Link href={`http://example.com?${rand()}`}>H1 link</Link>
   </Text>
 </Text>
 ```

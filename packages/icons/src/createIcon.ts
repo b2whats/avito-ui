@@ -1,9 +1,5 @@
-import { IconProps } from './contract'
-
 type Icons = {
   [key: string]: {
-    width: string,
-    height: string,
     viewBox: string,
     svg: React.ReactNode
   }
@@ -25,14 +21,8 @@ export const createIcon = ({ name, originalWidth, originalHeight, svg }: Create)
     return
   }
 
-  const viewBox = `0 0 ${originalWidth} ${originalHeight}`
-  const width = originalWidth > originalHeight ? '1em' : `${1 / (originalHeight / originalWidth)}em`
-  const height = originalWidth > originalHeight ? `${1 / (originalWidth / originalHeight)}em` : '1em'
-
   icons[name] = {
-    width,
-    height,
-    viewBox,
+    viewBox: `0 0 ${originalWidth} ${originalHeight}`,
     svg,
   }
 }

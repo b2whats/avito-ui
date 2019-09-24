@@ -1,8 +1,7 @@
 import React from 'react'
-import { styled, useTheme, isPropValid } from '../../utils/'
+import { styled, useTheme, isPropValid, foldPreset } from '../../utils/'
 import { space } from '../../styled-system/'
 import { TextProps } from './contract'
-import { Icon } from '../../'
 
 const Text = styled('span', {
   target: 'Text',
@@ -35,16 +34,7 @@ const Text = styled('span', {
     ${noWrap ? 'white-space: nowrap;' : ''}
   `)}
 
-  article > ${space}
-  span${space}
-
-  article > &:first-child {
-    margin-top: 0;
-  }
-
-  article > &:last-child {
-    margin-bottom: 0;
-  }
+  ${space}
 
   li& {
     list-style: none;
@@ -52,10 +42,6 @@ const Text = styled('span', {
 
   caption& {
     display: block;
-  }
-
-  & > [data-name='point'] {
-    margin-top: -1px;
   }
 
   ${({ underline, theme: { text }}) => underline && `
@@ -91,7 +77,11 @@ const Text = styled('span', {
   `}
 
   ${({ crop, lineHeight, theme: { text } }) => crop && `
-    display: inline-block;
+    && {
+      margin-top: 0;
+      margin-bottom: 0;
+      display: inline-block;
+    }
     
     &::before, &::after {
       content: '';
@@ -111,23 +101,18 @@ const Line = () => (
   </svg>
 )
 
-const TextWrapper = ({ children, point, ...props }: TextProps) => {
+const defaultProps = {
+  size: 'm',
+  lineHeight: 'm',
+}
+
+const TextWrapper = ({ children, ...props }: TextProps) => {
   const theme = useTheme()
 
-  props = {
-    kind: 'none',
-    size: 'm',
-    lineHeight: 'm',
-    ...props,
-  }
-
-  const { preset: {
-    [props.kind!]: presetKind,
-  } } = theme.text
+  const presetTextProps = foldPreset(theme.text.preset.Text, props)
 
   return (
-    <Text theme={theme} {...presetKind.Text} {...props}>
-      {point && <Icon name='point' size='0.57em' {...presetKind.Point} />}
+    <Text theme={theme} {...defaultProps} {...presetTextProps} {...props}>
       {props.strike && <Line />}
       { children }
     </Text> 

@@ -11,6 +11,7 @@ type Spaces = {
 }
 
 export const spaces: Spaces = {
+  none: '0px',
   xxs: '2px',
   xs: '4px',
   s: '8px',
@@ -18,6 +19,5 @@ export const spaces: Spaces = {
   l: '16px',
   xl: '24px',
   xxl: '36px',
-  none: '0px',
   auto: 'auto',
 }
