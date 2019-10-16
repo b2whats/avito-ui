@@ -65,14 +65,22 @@ import { Button, Stack } from '../../';
 ```
 
 ```jsx
-import { Button } from '../../'
+import { Button, Checkbox } from '../../'
 initialState = { value: undefined };
 
-<Group name='radio' mode='radio' value={state.value} onChange={(props) => setState({ value: props.value })}>
-  <Button value={0}>One</Button>
-  <Button value={1}>Two</Button>
-  <Button value={2}>Three</Button>
-</Group>
+<div>
+  <Group name='radio' mode='radio' value={state.value} onChange={(props) => setState({ value: props.value })}>
+    <Button value={0}>One</Button>
+    <Button value={1}>Two</Button>
+    <Button value={2}>Three</Button>
+  </Group>
+
+  <Group name='radio' mode='radio' value={state.value} onChange={(props) => setState({ value: props.value })}>
+    <Checkbox value={0} label='One' />
+    <Checkbox value={1} label='Two' />
+    <Checkbox value={2} label='Three' />
+  </Group>
+</div>
 ```
 
 ```jsx

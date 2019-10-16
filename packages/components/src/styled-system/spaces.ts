@@ -34,12 +34,10 @@ export type Spaces = Partial<{
   pl: SpaceValues,
 }>
 
-type SpaceProps = {
-  theme: Theme,
-} & Spaces
+type Space = (props: { theme: Theme } & Spaces) => string | undefined
 
-export const space = ({ m, mx, my, mt, mr, mb, ml, p, px, py, pt, pr, pb, pl, theme: { spaces } }: SpaceProps ): string => {
-  let css = '&& {'
+export const space: Space = ({ m, mx, my, mt, mr, mb, ml, p, px, py, pt, pr, pb, pl, theme: { spaces } }) => {
+  let css = ''
 
   m && (css += `margin: ${spaces[m]};`)
   mx && (css += `margin-left: ${spaces[mx]}; margin-right: ${spaces[mx]};`)
@@ -57,5 +55,5 @@ export const space = ({ m, mx, my, mt, mr, mb, ml, p, px, py, pt, pr, pb, pl, th
   pb && (css += `padding-bottom: ${spaces[pb]};`)
   pl && (css += `padding-left: ${spaces[pl]};`)
 
-  return css + '}'
+  return css.length > 0 ? `&& {${css}}` : undefined
 }

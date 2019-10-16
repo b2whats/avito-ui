@@ -1,15 +1,10 @@
 import React from 'react'
 import { styled, useTheme, isPropValid, foldPreset } from '../../utils/'
 import { space } from '../../styled-system/'
-import { TextProps } from './contract'
 
-const Text = styled('span', {
-  target: 'Text',
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'kind',
-})<TextProps>`
+const StyledBox = styled('span')<TextProps>`
   box-sizing: border-box;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
+
 
   ${({ size, lineHeight, inherit, variant, color, theme: { text, palette, variants } }) => (`
     font-family: ${text.fontFamily};

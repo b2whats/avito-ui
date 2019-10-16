@@ -1,3 +1,3 @@
-import { ToggleProps } from '../Toggle/contract'
+import { ToggleBoxProps } from '../ToggleBox/contract'
 
-export interface CheckboxProps extends Omit<ToggleProps, 'children'> {}
+export interface CheckboxProps extends Omit<ToggleBoxProps, 'children'> {}

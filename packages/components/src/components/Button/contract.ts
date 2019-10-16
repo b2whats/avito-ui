@@ -1,8 +1,8 @@
 import React from 'react'
 import { Theme, Tokens } from '../../theme/'
-import { Spaces } from '../../styled-system/'
+import { Spaces, Dimensions } from '../../styled-system/'
 
-export interface ButtonProps extends Spaces {
+export interface ButtonProps extends Spaces, Dimensions {
   children?: React.ReactNode,
   /** Размер кнопки */
   size: 's' | 'm' | 'l',
@@ -18,8 +18,6 @@ export interface ButtonProps extends Spaces {
   disabled?: boolean,
   /** Цветовые варианты кнопки */
   variant: keyof Tokens['variants'],
-  /** Блочное поведение */
-  block?: boolean,
   /** Действие которое совершает кнопка */
   type?: 'button' | 'submit' | 'reset',
   /** Кнопка со спиннером */

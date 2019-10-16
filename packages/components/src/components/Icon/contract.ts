@@ -6,11 +6,9 @@ export interface IconProps extends IconBaseProps, Spaces {
   /** Цвет иконки */
   color?: keyof Theme['palette'],
   /** Размер иконки */
-  size?: 's' | 'm' | 'l' | string,
+  size?: 's' | 'm' | 'l' | 'auto' | string,
   /** Цветовые варианты иконок */
   variant?: keyof Tokens['variants'],
   /** Событие клика */
   onClick?(event: React.MouseEvent<SVGSVGElement>): void,
-  /** @ignore */
-  theme?: Theme,
 }

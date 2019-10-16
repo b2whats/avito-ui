@@ -62,8 +62,6 @@ export interface StackProps extends Spaces, Dimensions {
   /** Инлайновое поведение */
   inline?: boolean,
   /** @ignore */
-  theme?: Theme,
-  /** @ignore */
   debug?: boolean,
 }
 

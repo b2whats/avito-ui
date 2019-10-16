@@ -1,9 +1,12 @@
 import { Theme, Tokens } from '../theme'
 
+export type Shadows = {
+  shadow?: keyof Tokens['shadows']
+}
+
 type ShadowsProps = {
   theme: Theme,
-  shadow?: keyof Tokens['shadows'] 
-}
+} & Shadows
 
 export const shadows = ({ shadow, theme: { shadows } }: ShadowsProps)=> (shadow && `
   box-shadow: ${shadows[shadow]};
