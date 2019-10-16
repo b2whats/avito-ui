@@ -22,9 +22,8 @@ export interface ComputedsTheme extends Tokens {
 
 // export const createTheme = (baseToken: Tokens, overrides: DeepPartial<ComponentsTheme> & DeepPartial<ComputedsTheme> = {}) => {
 export const createTheme = (baseToken: Tokens, overrides: DeepPartial<ComponentsTheme> = {}) => {
-  const computed: ComputedsTheme = {
+  const computed: Tokens = {
     ...baseToken,
-    // variants: components.variantsTheme(baseToken, overrides.variants),
   }
 
   const tokens = {
