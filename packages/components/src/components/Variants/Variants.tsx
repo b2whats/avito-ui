@@ -1,98 +1,168 @@
 import React from 'react'
-import memoize from 'fast-memoize'
-import { styled, useTheme } from '../../utils'
-import { space, focus } from '../../styled-system'
-import { VariantsProps } from './contract'
-import { VariantsTheme } from './theme'
-
-import { StyledComponent } from '@emotion/styled-base'
-
-type States = 'hover' | 'active' | 'selected' | 'focus'
-type UnionToObject <T extends string, V> = {
-  [key in T]?: V
-}
-type StatesMap = UnionToObject<States, boolean>
+import { styled } from '../../utils'
+import { space, dimension, shadows, position, fonts } from '../../styled-system'
+import { VariantsProps, VariantsColor } from './contract'
 
 type GetStyles = (
-  theme: VariantsTheme,
-  property: 'border' | 'background' | 'color',
-  type: VariantsProps['border'] | VariantsProps['background'] | VariantsProps['color'],
+  props: VariantsProps & { theme: NonNullable<VariantsProps['theme']> }
+) => string
+
+type GetCssProp = (
+  theme: NonNullable<VariantsProps['theme']>['variants'],
+  themeVar: string,
+  state: string,
+  value?: VariantsColor,
   variant?: VariantsProps['variant'],
-  state?: string,
-) => any
+) => string
 
-const statesMap = (value: string): StatesMap => value.split(' ').reduce((acc, state) => {
-  acc[state] = true
+const mapColor = {
+  color: 'color',
+  borderColor: 'border-color',
+  backgroundColor: 'background-color',
+}
 
-  return acc
-}, {})
+const getCssProp: GetCssProp = (theme, themeVar, state, value, variant) => {
+  if (!value) return ''
 
-const getStyles: GetStyles = memoize((theme, property, type, variant, states = '') => {
-  if (!type) return
+  let color
 
-  let themeVar
-  let prop
-
-  if (property === 'border') {
-    themeVar = 'borderColor'
-    prop = 'border-color'
-  }
-  if (property === 'background') {
-    themeVar = 'backgroundColor'
-    prop = 'background-color'
-  }
-  if (property === 'color') {
-    themeVar = 'color'
-    prop = 'color'
+  if (value === 'colored' && variant) {
+    color = theme[`${variant}_${themeVar}_${state}`]
+  } else if (value === 'contrast') {
+    color = theme[`contrast_${themeVar}_${state}`]
+  } else if (value === 'transparent') {
+    color = 'transparent'
+  } else if (value === 'contrast-light') {
+    color = theme[`contrast_light_${themeVar}_${state}`]
   }
 
-  const map = statesMap(states)
+  if (!color) return ''
 
-  const styles = {
-    normal: null,
-    hover: null,
-    active: null,
-    focus: null,
-    disabled: null,
-  }
+  return `${mapColor[themeVar]}: ${color};`
 
-  for (const state in styles) {
-    if (type === 'colored' && variant) {
-      styles[state] = theme[`${variant}_${themeVar}_${state}`]
-    } else if (type === 'contrast') {
-      styles[state] = theme[`${variant}_${themeVar}_contrast${state === 'disabled' ? '_disabled' : ''}`]
-    } else if (type === 'mixed' && variant) {
-      if (property === 'color') {
-        styles[state] = theme[`mixed_${themeVar}_${state}`]
-          ? theme[`${variant}_${themeVar}_${state}`]
-          : theme[`${variant}_${themeVar}_contrast${state === 'disabled' ? '_disabled' : ''}`]
-      } else {
-        styles[state] = theme[`mixed_${themeVar}_${state}`]
-          ? theme[`${variant}_${themeVar}_${state}`]
-          : theme[`gray_${themeVar}_${state}`]
-      }
-    } else {
-      styles[state] = theme[`gray_${themeVar}_${state}`]
+}
+
+const getStyles: GetStyles = ({ theme, variant, adjacentSelector, ...props}) => {
+  const variantsTheme = theme.variants
+  const focusTheme = theme.focus
+  let selector
+  
+  if (adjacentSelector) {
+    selector = {
+      normal: `${adjacentSelector} + &`,
+      checked: `${adjacentSelector}:checked + &, ${adjacentSelector}[aria-checked=true] + &`,
+      hover: `${adjacentSelector}:hover + &`,
+      active: `${adjacentSelector}:active + &`,
+      focus: `${adjacentSelector}:focus + &`,
+      disabled: `${adjacentSelector}:disabled + &, ${adjacentSelector}[aria-disabled=true] + &`,
+    }
+  } else {
+    selector = {
+      normal: '&',
+      checked: '&[aria-checked=true]',
+      hover: '&:hover',
+      active: '&:active',
+      focus: '&&:focus',
+      disabled: '&:disabled, &[aria-disabled=true]',
     }
   }
 
-  return `
-    & { ${prop}: ${styles.normal}; }
-    ${map.selected ? `&[aria-checked=true] { ${prop}: ${styles.active}; }` : ''}
-    ${map.hover ? `&:hover { ${prop}: ${styles.hover}; z-index: 1; }` : ''}
-    ${map.active ? `&:active { ${prop}: ${styles.active}; }` : ''}
-    ${map.focus ? `&:focus { ${prop}: ${styles.focus}; }` : ''}
-    &:disabled { ${prop}: ${styles.disabled}; }
-  `
-})
+  let resultRule = ''
+  let rule = ''
 
-const Variants = styled('span')<VariantsProps>`
-  ${({theme, border, borderState, variant}) => getStyles(theme.variants, 'border', border, variant, borderState)}
-  ${({theme, background, backgroundState, variant}) => getStyles(theme.variants, 'background', background, variant, backgroundState)}
-  ${({theme, color, colorState, variant}) => getStyles(theme.variants, 'color', color, variant, colorState)}
-  ${(props) => props.focus && focus(props)}
+  rule += getCssProp(variantsTheme, 'color', 'normal', props.color, variant)
+  rule += getCssProp(variantsTheme, 'borderColor', 'normal', props.border, variant)
+  rule += getCssProp(variantsTheme, 'backgroundColor', 'normal', props.background, variant)
 
+  if (rule !== '') {
+    resultRule += `${selector.normal} {${rule}}`
+
+    rule = ''
+  }
+
+  rule += getCssProp(variantsTheme, 'color', 'checked', props.colorChecked, variant)
+  rule += getCssProp(variantsTheme, 'borderColor', 'checked', props.borderChecked, variant)
+  rule += getCssProp(variantsTheme, 'backgroundColor', 'checked', props.backgroundChecked, variant)
+
+  if (rule !== '') {
+    resultRule += `${selector.checked} {${rule}}`
+
+    rule = ''
+  }
+
+  rule += getCssProp(variantsTheme, 'color', 'hover', props.colorHover, variant)
+  rule += getCssProp(variantsTheme, 'borderColor', 'hover', props.borderHover, variant)
+  rule += getCssProp(variantsTheme, 'backgroundColor', 'hover', props.backgroundHover, variant)
+
+  if (rule !== '') {
+    resultRule += `${selector.hover} {
+      ${rule}
+      z-index: 1;
+    }`
+
+    rule = ''
+  }
+
+  rule += getCssProp(variantsTheme, 'color', 'active', props.colorActive, variant)
+  rule += getCssProp(variantsTheme, 'borderColor', 'active', props.borderActive, variant)
+  rule += getCssProp(variantsTheme, 'backgroundColor', 'active', props.backgroundActive, variant)
+
+  if (rule !== '') {
+    resultRule += `${selector.active} {${rule}}`
+
+    rule = ''
+  }
+
+  rule += getCssProp(variantsTheme, 'color', 'focus', props.colorFocus, variant)
+  rule += getCssProp(variantsTheme, 'borderColor', 'focus', props.borderFocus, variant)
+  rule += getCssProp(variantsTheme, 'backgroundColor', 'focus', props.backgroundFocus, variant)
+
+  if (props.focus) {
+    rule += `
+      ${!props.position ? 'position: relative;' : ''}
+      box-shadow: ${focusTheme} ${variantsTheme[`${variant || 'primary'}_focus`]};
+      outline: none;
+      z-index: 2;
+    `
+  }
+
+  if (rule !== '') {
+    resultRule += `${selector.focus} {${rule}}`
+
+    rule = ''
+  }
+
+  rule += getCssProp(variantsTheme, 'color', 'disabled', props.colorDisabled, variant)
+  rule += getCssProp(variantsTheme, 'borderColor', 'disabled', props.borderDisabled, variant)
+  rule += getCssProp(variantsTheme, 'backgroundColor', 'disabled', props.backgroundDisabled, variant)
+
+  if (rule !== '') {
+    resultRule += `${selector.disabled} {${rule}}`
+
+    rule = ''
+  }
+
+  return resultRule
+}
+
+const Variants = styled('div')<VariantsProps>`
+  box-sizing: border-box;
+  &[disabled] {
+    pointer-events: none;
+  }
+
+  ${({ borderRadius, borderWidth, borderStyle }) => `
+    ${borderRadius ? `border-radius: ${borderRadius};`: ''}
+    ${borderWidth ? `border-width: ${borderWidth};`: ''}
+    ${borderStyle ? `border-style: ${borderStyle};`: ''}
+  `}
+
+  ${fonts}
+  ${getStyles}
+  ${position}
   ${space}
+  ${dimension}
+  ${shadows}
 `
 
-export default Variants as StyledComponent<React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>, VariantsProps, ReturnType<typeof useTheme>>
+export default Variants

@@ -9,7 +9,7 @@ type FocusProps = {
 
 export const focus = ({ variant = 'primary', theme: { variants, focus } }: FocusProps): string => (`
   outline: none;
-  &:focus {
+  &&:focus {
     box-shadow: ${focus} ${variants[`${variant}_focus`]};
     position: relative;
     z-index: 2;

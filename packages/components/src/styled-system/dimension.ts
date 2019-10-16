@@ -1,29 +1,72 @@
+import { Theme } from '../theme/'
+
+type Width = number
+type Height = 's' | 'm' | 'l' | number
+
 export type Dimensions = {
+  /** Тип отображения элемента */
+  display?: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex',
+  /** Блочное поведение */
+  block?: boolean,
+  /** Строчное поведение */
+  inline?: boolean,
   /** Ширина блока */
-  width?: number,
+  width?: Width,
   /** Максимальная ширина блока */
-  maxWidth?: number,
+  maxWidth?: Width,
   /** Минимальная ширина блока */
-  minWidth?: number,
+  minWidth?: Width,
   /** Высота блока */
-  height?: number,
+  height?: Height,
   /** Минимальная высота блока */
-  minHeight?: number,
+  minHeight?: Height,
   /** Максимальная высота блока */
-  maxHeight?: number,
+  maxHeight?: Height,
 }
 
-const computedWidth = (value: number) => value > 1 ? `${value}px` : `${value * 100}%`
+type DimensionsProps = {
+  theme: Theme,
+} & Dimensions
 
-export const dimension = ({ width, minWidth, maxWidth, height, minHeight, maxHeight }: Dimensions): string => {
+const computedWidth = (value: Width) => value > 1 ? `${value}px` : `${value * 100}%`
+const computedHeight = (value: Height, sizes: Theme['sizes']): string => {
+  if (typeof value === 'string') {
+    return sizes[`${value}_height`]
+  } else {
+    return value > 1 ? `${value}px` : `${value * 100}%`
+  }
+}
+
+const mapBlock = (display?: string) => (display ? {
+  block: 'block',
+  inline: 'block',
+  'inline-block': 'block',
+  'flex': 'flex',
+  'inline-flex': 'flex',
+}[display] : 'block')
+
+const mapInline = (display?: string) => (display ? {
+  block: 'inline-block',
+  inline: 'inline',
+  'inline-block': 'inline-block',
+  'flex': 'inline-flex',
+  'inline-flex': 'inline-flex',
+}[display] : 'inline-block')
+
+
+export const dimension = ({ width, minWidth, maxWidth, height, minHeight, maxHeight, display, block, inline, theme: { sizes } }: DimensionsProps): string => {
   let css = ''
+
+  display && (css += `display: ${display};`)
+  block && (css += `display: ${mapBlock(display)}; width: 100%;`)
+  inline && (css += `display: ${mapInline(display)};`)
 
   width && (css += `width: ${computedWidth(width)};`)
   minWidth && (css += `min-width: ${computedWidth(minWidth)};`)
   maxWidth && (css += `max-width: ${computedWidth(maxWidth)};`)
-  height && (css += `height: ${computedWidth(height)};`)
-  minHeight && (css += `min-height: ${computedWidth(minHeight)};`)
-  maxHeight && (css += `max-height: ${computedWidth(maxHeight)};`)
+  height && (css += `height: ${computedHeight(height, sizes)};`)
+  minHeight && (css += `min-height: ${computedHeight(minHeight, sizes)};`)
+  maxHeight && (css += `max-height: ${computedHeight(maxHeight, sizes)};`)
 
   return css
 }

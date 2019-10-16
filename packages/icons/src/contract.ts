@@ -4,7 +4,7 @@ export interface IconProps {
   /** Имя иконки */
   name: string,
   /** Размер иконки */
-  size?: string,
+  size?: 'auto' | string,
   /** Цвет иконки */
   color?: string,
   /** Дополнительный стиль */

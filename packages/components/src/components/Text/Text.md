@@ -10,7 +10,6 @@
 ```
 
 ```jsx
-import Article from './Article.tsx'
 import { Link } from '../../';
 
 <div>

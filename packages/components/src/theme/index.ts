@@ -8,7 +8,8 @@ export type ComponentsTheme = {
   button: components.ButtonTheme,
   link: components.LinkTheme,
   icon: components.IconTheme,
-  toggle: components.ToggleTheme,
+  toggleBox: components.ToggleBoxTheme,
+  inputBox: components.InputBoxTheme,
   checkbox: components.CheckboxTheme,
   variants: components.VariantsTheme,
 }
@@ -21,9 +22,8 @@ export interface ComputedsTheme extends Tokens {
 
 // export const createTheme = (baseToken: Tokens, overrides: DeepPartial<ComponentsTheme> & DeepPartial<ComputedsTheme> = {}) => {
 export const createTheme = (baseToken: Tokens, overrides: DeepPartial<ComponentsTheme> = {}) => {
-  const computed: ComputedsTheme = {
+  const computed: Tokens = {
     ...baseToken,
-    // variants: components.variantsTheme(baseToken, overrides.variants),
   }
 
   const tokens = {
@@ -32,7 +32,8 @@ export const createTheme = (baseToken: Tokens, overrides: DeepPartial<Components
     text: components.textTheme(computed, overrides.text),
     link: components.linkTheme(computed, overrides.link),
     icon: components.iconTheme(computed, overrides.icon),
-    toggle: components.toggleTheme(computed, overrides.toggle),
+    toggleBox: components.toggleBoxTheme(computed, overrides.toggleBox),
+    inputBox: components.inputBoxTheme(computed, overrides.inputBox),
     checkbox: components.checkboxTheme(computed, overrides.checkbox),
     variants: components.variantsTheme(computed, overrides.variants),
   } 

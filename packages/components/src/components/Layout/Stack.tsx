@@ -6,9 +6,7 @@ import { StackProps } from './contract'
 const Stack = styled('div')<StackProps>`
   box-sizing: border-box;
 
-  ${({ column, align, justify, inline, scroll }) => `
-    display: ${inline ? 'inline-flex' : 'flex'};
-    width: ${inline ? 'auto' : '100%'};
+  ${({ column, align, justify, scroll }) => `
     flex-direction: ${column ? 'column' : 'row'};
     align-items: ${align ? align : !column ? 'baseline' : 'normal'};
     ${justify ? `justify-content: ${justify};` : ''}
@@ -35,7 +33,8 @@ const Stack = styled('div')<StackProps>`
   `}
 `
 
+Stack.defaultProps = {
+  display: 'flex',
+}
+
 export default Stack
-
-
-var a = <Stack>fff</Stack>

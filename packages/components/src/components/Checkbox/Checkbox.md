@@ -1,8 +1,8 @@
 ```jsx
 import { Stack } from '../../';
 const initialState = { checked: false }
+const r = (i) => console.log(i)
 const onChange = ({ target }) => {
-  console.log(target.checked, target.value, target.name)
   setState(state => ({ checked: target.checked }))
 };
 
@@ -11,6 +11,57 @@ const onChange = ({ target }) => {
   <Checkbox checked={state.checked} value='value' name='name' onChange={onChange} label='label' size='s'/>
   <Checkbox checked={state.checked} label='label' onChange={onChange}/>
   <Checkbox checked={state.checked} label='label' size='l' onChange={onChange}/>
+</Stack>
+```
+
+```jsx
+import { Stack } from '../../';
+const initialState = { checked: false }
+const onChange = ({ target }) => {
+  setState(state => ({ checked: target.checked }))
+};
+
+
+<Stack space='m'>
+  <Checkbox checked={state.checked} onChange={onChange}/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='secondary'/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='success'/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='warning'/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='error'/>
+</Stack>
+```
+
+```jsx
+import { Stack } from '../../';
+const initialState = { checked: false }
+const onChange = ({ target }) => {
+  setState(state => ({ checked: target.checked }))
+};
+
+
+<Stack space='m'>
+  <Checkbox checked={state.checked} onChange={onChange} disabled/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='secondary' disabled/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='success' disabled/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='warning' disabled/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='error' disabled/>
+</Stack>
+```
+
+```jsx
+import { Stack } from '../../';
+const initialState = { checked: true }
+const onChange = ({ target }) => {
+  setState(state => ({ checked: target.checked }))
+};
+
+
+<Stack space='m'>
+  <Checkbox checked={state.checked} onChange={onChange} disabled/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='secondary' disabled/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='success' disabled/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='warning' disabled/>
+  <Checkbox checked={state.checked} onChange={onChange} variant='error' disabled/>
 </Stack>
 ```
 

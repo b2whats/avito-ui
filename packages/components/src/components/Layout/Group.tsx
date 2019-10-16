@@ -29,14 +29,14 @@ type TargetProps = {
 
 export const GroupContext = React.createContext<GroupContext | null>(null)
 
-export function groupTargetHook(ref: React.MutableRefObject<HTMLElement | null>, targetProps: TargetProps) {
+export function useGroupHook(ref: React.MutableRefObject<HTMLElement | null>, targetProps: TargetProps) {
   const groupContext = useContext(GroupContext)
-
-  if (!groupContext) return null
-
-  const [positions, setPositions] = useState<string>('')
   const props = {} as GroupTargetHook
 
+  if (!groupContext) return props
+
+  const [positions, setPositions] = useState<string>('')
+  
   useEffect(() => {
     if (groupContext && ref.current !== null) {
       groupContext.elements.current.push(ref.current)
@@ -60,14 +60,14 @@ export function groupTargetHook(ref: React.MutableRefObject<HTMLElement | null>,
     }
   }, [])
 
-  props.block = groupContext.block
+  props.block = 'block' in groupContext ? groupContext.block : undefined
   props['data-group'] = (`${groupContext.orientation} ${positions}`).trim()
 
   if (groupContext.onClick) {
     const checked = groupContext.checked && groupContext.checked.includes(targetProps.value)
     const isFirstChecked = !groupContext.checked && positions.includes('first')
 
-    props['aria-checked'] = checked
+    props['aria-checked'] = checked || false
     props.role = groupContext.mode
     props.tabIndex = (checked && !targetProps.disabled) || isFirstChecked || groupContext.mode !== 'radio' ? 0 : -1
     props.onClick = groupContext.onClick
@@ -109,20 +109,25 @@ const Group = ({ children, block, mode, value, name, onChange, ...props }: Group
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     const node = event.currentTarget
-    const currentIndex = elements.current.findIndex(element => element === node)
+    let currentIndex = elements.current.findIndex(element => element === node)
     const count = elements.current.length
-    let next: HTMLElement | null = null
+    let next: HTMLElement & { disabled: boolean } | null = null
 
-    switch (event.key) {
-      case 'ArrowRight':
-      case 'ArrowDown':
-        next = currentIndex === count - 1 ? elements.current[0] : elements.current[currentIndex + 1]
-        break
-      case 'ArrowUp':
-      case 'ArrowLeft':
-        next = currentIndex === 0 ? elements.current[count - 1] : elements.current[currentIndex - 1]
-        break  
-    }
+    do {
+      switch (event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+          currentIndex = currentIndex === count - 1 ? 0 : currentIndex + 1
+          next = elements.current[currentIndex]
+          break
+        case 'ArrowUp':
+        case 'ArrowLeft':
+          currentIndex = currentIndex === 0 ? count - 1 : currentIndex - 1
+          next = elements.current[currentIndex]
+          break  
+      }
+
+    } while (next && next.disabled)
 
     if (next) {
       next.focus()
