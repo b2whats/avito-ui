@@ -3,16 +3,16 @@ import { Theme, Tokens } from '../../theme/'
 import { Spaces } from '../../styled-system/'
 
 export interface TextProps extends Spaces {
-  /** Размер текста
-  * @default m
-  */
+  /** Размер текста */
   size?: 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl',
-  /** Коэффициент для высоты строки
-   * @default m
-  */
-  lineHeight?: 'none' | 's' | 'm' | 'l',
+  /** Размер текста, фолбек */
+  fontSize?: number,
+  /** Коэффициент для высоты строки */
+  lineHeight?: number,
+  /** Уплотненная высота строки */
+  dense?: boolean,
   /** Горизонтальное выравнивание текста */
-  align?: 'start' | 'end' | 'center' | 'justify',
+  align?: 'left' | 'center' | 'right' | 'justify',
   /** Вертикальное выравнивание текста */
   valign?: 'top' | 'middle' | 'bottom' | 'baseline',
   /** Расстояние между буквами */

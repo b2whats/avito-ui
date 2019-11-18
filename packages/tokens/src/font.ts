@@ -11,6 +11,23 @@ type Font = {
   fontSize_s: number,
   fontSize_xs: number,
 
+  fontSize: {
+    xxxxxl: number,
+    xxxxl: number,
+    xxxl: number,
+    xxl: number,
+    xl: number,
+    l: number,
+    m: number,
+    s: number,
+    xs: number,
+  },
+
+  lineHeight: {
+    normal: number,
+    dense: number,
+  },
+
   lineHeight_l: number,
   lineHeight_m: number,
   lineHeight_s: number,
@@ -23,6 +40,23 @@ type Font = {
 
 export const font: Font = {
   fontFamily: 'Arial',
+
+  fontSize: {
+    xxxxxl: 36,
+    xxxxl: 32,
+    xxxl: 28,
+    xxl: 24,
+    xl: 20,
+    l: 16,
+    m: 14,
+    s: 12,
+    xs: 10,
+  },
+
+  lineHeight: {
+    normal: 1.375,
+    dense: 1.25,
+  },
 
   fontSize_xxxxxl: 36,
   fontSize_xxxxl: 32,
