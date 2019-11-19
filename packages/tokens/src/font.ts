@@ -23,6 +23,12 @@ type Font = {
     xs: number,
   },
 
+  fontWeight: {
+    light: 300,
+    normal: 400,
+    bold: 600,
+  },
+
   lineHeight: {
     normal: number,
     dense: number,
@@ -31,8 +37,6 @@ type Font = {
   lineHeight_l: number,
   lineHeight_m: number,
   lineHeight_s: number,
-
-  fontWeight: number,
 
   crop_top: number,
   crop_bottom: number,
@@ -58,6 +62,12 @@ export const font: Font = {
     dense: 1.25,
   },
 
+  fontWeight: {
+    light: 300,
+    normal: 400,
+    bold: 600,
+  },
+
   fontSize_xxxxxl: 36,
   fontSize_xxxxl: 32,
   fontSize_xxxl: 28,
@@ -71,8 +81,6 @@ export const font: Font = {
   lineHeight_l: 1.5,
   lineHeight_m: 1.4,
   lineHeight_s: 1.2,
-
-  fontWeight: 400,
 
   crop_top: 3,
   crop_bottom: 4,

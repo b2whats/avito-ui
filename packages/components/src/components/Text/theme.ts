@@ -219,7 +219,6 @@ export const textTheme: ComponentTheme<TextTheme> = ({ font, palette }, override
       style: {
         fontSize: 'm',
         lineHeight: 'normal',
-        fontWeight: 'normal',
         color: 'gray90',
       },
       size: {
@@ -227,7 +226,6 @@ export const textTheme: ComponentTheme<TextTheme> = ({ font, palette }, override
           style: {
             fontSize: 'xs',
           },
-        
         },
         s: {
           style: {
@@ -260,6 +258,21 @@ export const textTheme: ComponentTheme<TextTheme> = ({ font, palette }, override
           },
         },
       },
+      dense: {
+        style: {
+          lineHeight: 'dense',
+        },
+      },
+      bold: {
+        style: {
+          fontWeight: 'bold',
+        },
+      },
+      light: {
+        style: {
+          fontWeight: 'light',
+        },
+      },
       variant: {
         primary: {
           style: {
@@ -287,52 +300,43 @@ export const textTheme: ComponentTheme<TextTheme> = ({ font, palette }, override
           },
         },
       },
-      kind: {
-        h1: {
-          style: {
-            fontSize: 'xxxl',
-          },
-        },
-        h2: {
-          style: {
-            fontSize: 'xxl',
-            lineHeight: 'dense',
-            fontWeight: 'bold',
-          },
-        },
-        h3: {
-          style: {
-            fontSize: 'xl',
-            lineHeight: 'dense',
-            fontWeight: 'bold',
-          },
-        },
-        h4: {
-          style: {
-            fontSize: 'xl',
-            lineHeight: 'dense',
-          },
-        },
-        h5: {
-          style: {
-            fontSize: 'l',
-          },
-        },
-      },
+      // kind: {
+      //   h1: {
+      //     style: {
+      //       fontSize: 'xxxl',
+      //     },
+      //   },
+      //   h2: {
+      //     style: {
+      //       fontSize: 'xxl',
+      //       lineHeight: 'dense',
+      //       fontWeight: 'bold',
+      //     },
+      //   },
+      //   h3: {
+      //     style: {
+      //       fontSize: 'xl',
+      //       lineHeight: 'dense',
+      //       fontWeight: 'bold',
+      //     },
+      //   },
+      //   h4: {
+      //     style: {
+      //       fontSize: 'xl',
+      //       lineHeight: 'dense',
+      //     },
+      //   },
+      //   h5: {
+      //     style: {
+      //       fontSize: 'l',
+      //     },
+      //   },
+      // },
     },
   }
 
   const defaultTheme = {
-    ...computedFontSize(font.fontSize, font.sizeScale),
-  
-    fontFamily: font.fontFamily,
-    fontWeight: font.fontWeight,
-    color: palette.gray90,
 
-    lineHeight_l: font.lineHeight + 0.1,
-    lineHeight_m: font.lineHeight,
-    lineHeight_s: font.lineHeight - 0.15,
-    lineHeight_none: 1,
   
     strike_offset: '4px',
     strike_height: '2px',
@@ -446,6 +450,7 @@ export const textTheme: ComponentTheme<TextTheme> = ({ font, palette }, override
   })
 
   return {
+    scheme,
     ...defaultTheme,
     preset,
     ...computedTheme(),

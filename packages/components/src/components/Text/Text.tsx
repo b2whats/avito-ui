@@ -1,40 +1,13 @@
 import React from 'react'
 import { styled, useTheme, isPropValid, foldPreset } from '../../utils/'
-import { space } from '../../styled-system/'
+import { getThemeStyle } from '../../styled-system/'
 import { TextProps } from './contract'
+import { ClassNames,  css, jsx } from '@emotion/core'
 
-const Text = styled('span', {
-  target: 'Text',
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'kind',
-})<TextProps>`
+const TextBox = styled('span')<TextProps>`
   box-sizing: border-box;
   margin: 0;
   -webkit-font-smoothing: antialiased;
-
-  ${({ size, lineHeight, inherit, variant, color, theme: { text, palette, variants } }) => (`
-    font-family: ${text.fontFamily};
-    font-size: ${inherit ? 'inherit' : text[`size_${size}_fontSize`]};
-    line-height: ${inherit ? 'inherit' : text[`lineHeight_${lineHeight}`]};
-    color: ${
-      color ? palette[color] : 
-      variant ? variants[`${variant}_color_normal`] :
-      inherit ? 'inherit' :
-      text.color
-    };
-  `)}
-
-  ${({ bold, light, align, valign, uppercase, italic, inline, block, letterSpacing, noWrap, theme: { text } }) => (`
-    font-weight: ${bold ? 700 : light ? 300 : text.fontWeight};
-    ${uppercase ? 'text-transform: uppercase;' : ''}
-    ${letterSpacing ? `letter-spacing: ${letterSpacing};` : ''}
-    ${italic ? 'font-style: italic;' : ''}
-    ${align ? `text-align: ${align};` : ''}
-    ${valign ? `vertical-align: ${valign};` : ''}
-    ${inline ? 'display: inline;' : block ? 'display: block;' : ''}
-    ${noWrap ? 'white-space: nowrap;' : ''}
-  `)}
-
-  ${space}
 
   li& {
     list-style: none;
@@ -101,22 +74,25 @@ const Line = () => (
   </svg>
 )
 
-const defaultProps = {
-  size: 'm',
-  lineHeight: 'm',
-}
 
-const TextWrapper = ({ children, ...props }: TextProps) => {
+const Text = ({ children, ...props }: TextProps) => {
   const theme = useTheme()
 
   const presetTextProps = foldPreset(theme.text.preset.Text, props)
+  const start = performance.now()
+  const style = getThemeStyle('text', props, theme, {
+    Text: { ...props, display: 'inline' },
+  })
+  const end = performance.now()
+  console.log('timing', end- start,style)
 
   return (
-    <Text theme={theme} {...defaultProps} {...presetTextProps} {...props}>
+    <TextBox {...presetTextProps} {...props}>
+      <div css={style.Text}></div>
       {props.strike && <Line />}
       { children }
-    </Text> 
+    </TextBox> 
   )
 }
 
-export default TextWrapper
+export default Text

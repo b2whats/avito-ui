@@ -88,20 +88,24 @@ const schemeParams = (config: any, props: any) => {
 
   if (!config) return null
 
-  const { style, checked, ...configProps } = config
+  const { style, ...configProps } = config
 
   if (style) {
     Object.assign(result, style)
   }
 
-  if (checked && (props.checked || props['aria-checked'])) {
-    Object.assign(result, checked)
-  }
+  // Кажется это больше не нужно
+  // if (checked && (props.checked || props['aria-checked'])) {
+  //   Object.assign(result, checked)
+  // }
 
+  // Что бы меньше проверок делать тут, можно валидировать конфиг из темы в дев режиме 
   for (const prop in configProps) {
     const propValue = props[prop]
 
-    if (propValue || propValue === 0) {
+    if (propValue === true) {
+      Object.assign(result, configProps[prop].style)
+    } else if (propValue || propValue === 0) {
       const nestedConfig = configProps[prop][propValue]
   
       Object.assign(result, schemeParams(nestedConfig, props))
@@ -119,7 +123,7 @@ const spaceValue = (value: string | number, spaces: {}): string => {
   }
 }
 
-export const getStyles = (params, theme: { font, height, space, palette }) => {
+export const getStyles = (params, {font, height, space, palette}) => {
   if (!params) return null
 
   let css = ''
@@ -155,13 +159,7 @@ export const getStyles = (params, theme: { font, height, space, palette }) => {
 
         break
       case 'fontWeight':
-        const weightMap = {
-          light: 300,
-          normal: 400,
-          bold: 600,
-        }
-
-        css += `font-weight: ${weightMap[value]};`
+        css += `font-weight: ${font.fontWeight[value] || value};`
 
         break
       case 'italic':
@@ -472,7 +470,7 @@ export const getThemeStyle = (name, props, theme, extra) => {
   }
 
   for (const name in themeParams) {
-    const boxParams = { ...themeParams[name], ...kind, ...filterUndefined(extra)}
+    const boxParams = { ...themeParams[name], ...filterUndefined(extra[name])}
 
     result[name] = css`${getStyles(boxParams, theme)}`
   }
