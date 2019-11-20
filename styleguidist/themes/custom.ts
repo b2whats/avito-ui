@@ -1,3 +1,4 @@
-import { theme } from '@avito/components'
+import { Mav } from '@avito/tokens'
+import { createTheme } from '@avito/components'
 
-export default theme
+export default createTheme(Mav, {})

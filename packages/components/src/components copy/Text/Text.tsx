@@ -39,7 +39,7 @@ const Text = ({ children, ...props }: TextProps) => {
   const theme = useTheme()
 
   const style = getThemeStyle(theme, 'text', props, {
-    Text: { ...props, display: 'inline' },
+    Text: { display: 'inline' },
   })
 
   return (

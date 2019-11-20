@@ -26,12 +26,12 @@ const Inner = styled('div')<GridProps>`
     ${justify ? `justify-content: ${justify};` : ''}
   `}
 
-  ${({ space, spaceY, theme: { spaces } }) => `
-      margin-left: -${spaces[space]};
-      margin-top: -${spaces[spaceY]};
+  ${({ space, spaceY, theme }) => `
+      margin-left: -${theme.space[space]};
+      margin-top: -${theme.space[spaceY]};
     & > * {
-      border-left: ${spaces[space]} solid transparent;
-      margin-top: ${spaces[spaceY]};
+      border-left: ${theme.space[space]} solid transparent;
+      margin-top: ${theme.space[spaceY]};
     }
   `}
 

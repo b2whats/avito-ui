@@ -1,7 +1,7 @@
 import React from 'react'
 import { CheckboxProps } from './contract'
 import { ToggleBox } from '../ToggleBox'
-import { Icon } from '../Icon/'
+import { Icon } from '../../components/Icon'
 
 const Checkbox = ({ ...props }: CheckboxProps) => {
   return (

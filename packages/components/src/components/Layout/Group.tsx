@@ -1,6 +1,6 @@
 import React, { useRef, useContext, useState, useEffect } from 'react'
 import { GroupProps } from './contract'
-import { Stack } from './'
+import { Stack } from '.'
 
 type GroupContext = {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void,

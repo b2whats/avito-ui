@@ -2,7 +2,7 @@ import { css } from '@emotion/core'
 
 type TextProperties = Partial<{
   fontFamily: string,
-  fontSize: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | number | string,
+  fontSize: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | number,
   lineHeight: 'normal' | 'dense' | number,
   letterSpacing: number,
   fontWeight: 'light' | 'normal' | 'bold',
@@ -93,7 +93,7 @@ export type SchemeType<Props extends { [K in Prop]: Props[K] }, Prop extends key
 } & {
   [Key in Prop]?: NonNullable<Props[Key]> extends string
     ? { [Key2 in Props[Key]]?: SchemeType<Props, Exclude<Prop,Key>> }
-    : NonNullable<Props[Key]> extends boolean | Function
+    : NonNullable<Props[Key]> extends boolean
       ? SchemeType<Props, Exclude<Prop,Key>>
       : never
 }
@@ -173,7 +173,6 @@ const schemeParams = (config: any, props: any) => {
   for (const prop in configProps) {
     const propValue = props[prop]
 
-    // TODO: Добавть проверку на функцию
     if (propValue === true) {
       Object.assign(result, configProps[prop].style)
     } else if (propValue || propValue === 0) {
@@ -301,8 +300,7 @@ export const getStyles = (params, {font, dimension, space, palette}) => {
       case 'height':
       case 'minHeight':
       case 'maxHeight':
-        value = dimension.rowHeight[value] || value
-        css += `${param}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
+        css += `${param}: ${dimension.rowHeight[value] ||  value > 1 ? `${value}px` : `${value * 100}%`};`
 
         break
       case 'display':
@@ -361,18 +359,20 @@ export const getStyles = (params, {font, dimension, space, palette}) => {
         spaces.push(`margin: ${spaceValue(value, space)};`)
 
         break
-      case 'mx':
-        value = spaceValue(value, space)
+      case 'mx': {
+        const val = spaceValue(value, space)
 
-        spaces.push(`margin-left: ${value};margin-right: ${value};`)
-
-        break
-      case 'my':
-        value = spaceValue(value, space)
-
-        spaces.push(`margin-top: ${value};margin-bottom: ${value};`)
+        spaces.push(`margin-left: ${val};margin-right: ${val};`)
 
         break
+      }
+      case 'my': {
+        const val = spaceValue(value, space)
+
+        spaces.push(`margin-top: ${val};margin-bottom: ${val};`)
+
+        break
+      }
       case 'mt':
         spaces.push(`margin-top: ${spaceValue(value, space)};`)
 
@@ -393,18 +393,20 @@ export const getStyles = (params, {font, dimension, space, palette}) => {
         spaces.push(`padding: ${spaceValue(value, space)};`)
     
         break
-      case 'px':
-        value = spaceValue(value, space)
+      case 'px': {
+        const val = spaceValue(value, space)
   
-        spaces.push(`padding-left: ${value};padding-right: ${value};`)
-  
-        break
-      case 'py':
-        value = spaceValue(value, space)
-  
-        spaces.push(`padding-top: ${value};padding-bottom: ${value};`)
+        spaces.push(`padding-left: ${val};padding-right: ${val};`)
   
         break
+      }
+      case 'py': {
+        const val = spaceValue(value, space)
+  
+        spaces.push(`padding-top: ${val};padding-bottom: ${val};`)
+  
+        break
+      }
       case 'pt':
         spaces.push(`padding-top: ${spaceValue(value, space)};`)
   

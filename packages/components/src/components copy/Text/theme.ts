@@ -4,7 +4,7 @@ import { TextProps } from './contract'
 
 export type TextTheme = {
   scheme: {
-    Text: SchemeType<TextProps, 'size' | 'dense' | 'variant'>,
+    Text: SchemeType<TextProps, 'kind' | 'size' | 'dense' | 'variant'>,
   },
   preset: {
     Text: PresetType<TextProps>,

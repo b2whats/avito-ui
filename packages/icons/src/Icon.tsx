@@ -12,7 +12,8 @@ const Svg = styled('svg')<Partial<IconProps>>`
 
   ${({ size, color, onClick }) => `
     height: ${size === 'auto' ? '100%' : size || '1em'};
-    fill: ${color ? color : 'currentColor'};
+    fill: currentColor;
+    ${color ? `color: ${color};` : ''};
     ${onClick ? 'cursor: pointer;' : ''};
   `}
 `

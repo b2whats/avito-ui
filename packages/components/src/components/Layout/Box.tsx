@@ -1,5 +1,5 @@
 import { styled, isPropValid } from '../../utils'
-import { space, dimension, shadows, colors } from '../../styled-system'
+import { space, dimension } from '../../styled-system'
 import { BoxProps } from './contract'
 
 const Box = styled('div', { shouldForwardProp: isPropValid })<BoxProps>`
@@ -15,8 +15,6 @@ const Box = styled('div', { shouldForwardProp: isPropValid })<BoxProps>`
 
   ${space}
   ${dimension}
-  ${shadows}
-  ${colors}
 `
 
 Box.defaultProps = {

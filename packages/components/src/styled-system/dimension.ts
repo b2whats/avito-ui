@@ -1,4 +1,4 @@
-import { Theme } from '../theme/'
+import { Tokens } from '../theme/'
 
 type Width = number
 type Height = 's' | 'm' | 'l' | number
@@ -25,11 +25,11 @@ export type Dimensions = {
 }
 
 type DimensionsProps = {
-  theme: Theme,
+  theme: Tokens,
 } & Dimensions
 
 const computedWidth = (value: Width) => value > 1 ? `${value}px` : `${value * 100}%`
-const computedHeight = (value: Height, sizes: Theme['sizes']): string => {
+const computedHeight = (value: Height, sizes: Tokens['dimension']['rowHeight']): string => {
   if (typeof value === 'string') {
     return sizes[`${value}_height`]
   } else {
@@ -54,7 +54,7 @@ const mapInline = (display?: string) => (display ? {
 }[display] : 'inline-block')
 
 
-export const dimension = ({ width, minWidth, maxWidth, height, minHeight, maxHeight, display, block, inline, theme: { sizes } }: DimensionsProps): string => {
+export const dimension = ({ width, minWidth, maxWidth, height, minHeight, maxHeight, display, block, inline, theme: { dimension } }: DimensionsProps): string => {
   let css = ''
 
   display && (css += `display: ${display};`)
@@ -64,9 +64,9 @@ export const dimension = ({ width, minWidth, maxWidth, height, minHeight, maxHei
   width && (css += `width: ${computedWidth(width)};`)
   minWidth && (css += `min-width: ${computedWidth(minWidth)};`)
   maxWidth && (css += `max-width: ${computedWidth(maxWidth)};`)
-  height && (css += `height: ${computedHeight(height, sizes)};`)
-  minHeight && (css += `min-height: ${computedHeight(minHeight, sizes)};`)
-  maxHeight && (css += `max-height: ${computedHeight(maxHeight, sizes)};`)
+  height && (css += `height: ${computedHeight(height, dimension.rowHeight)};`)
+  minHeight && (css += `min-height: ${computedHeight(minHeight, dimension.rowHeight)};`)
+  maxHeight && (css += `max-height: ${computedHeight(maxHeight, dimension.rowHeight)};`)
 
   return css
 }

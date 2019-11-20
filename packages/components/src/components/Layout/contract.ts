@@ -1,33 +1,30 @@
 import { Spaces, SpaceValues, Dimensions } from '../../styled-system'
-import { Theme, Tokens } from '../../theme'
+import { Tokens } from '../../theme'
 import { ReactText } from 'react'
+import { SpaceProperties, DimensionProperties } from '../../styled-system/'
 
-type Align = 'start' | 'center' | 'end' | 'baseline' | 'stretch'
-type Justify = 'start' | 'center' | 'end' | 'space-between' | 'space-around'
 type Display = 'inline' | 'block' | 'flex' | 'inline-flex'
 
-export interface GridProps extends Spaces, Dimensions {
+export interface GridProps extends SpaceProperties, DimensionProperties {
   /** Отступ между дочерними блоками */
-  space: SpaceValues,
+  space: keyof Tokens['space'] | number,
   /** Отступ между дочерними блоками по вертикали */
-  spaceY: SpaceValues,
-  /** Вертикальное выравнивание дочерних блоков */
-  align: Align,
+  spaceY: keyof Tokens['space'] | number,
+  /** Горизонтальное выравнивание дочерних блоков  */
+  align?: 'left' | 'center' | 'right' | 'justify',
+  /** Вертикальное выравнивание дочерних блоков  */
+  valign?: 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch',
   /** Содержание */
   children?: React.ReactNode,
-  /** Горизонтальное выравнивание дочерних блоков */
-  justify?: Justify,
-  /** @ignore */
-  theme?: Theme,
   /** @ignore */
   debug?: boolean,
 }
 
-export interface BoxProps extends Spaces, Dimensions {
+export interface BoxProps extends SpaceProperties, DimensionProperties {
   /** Содержание */
   children?: React.ReactNode,
   /** Вертикальное выравнивание */
-  alignSelf?: Align,
+  valignSelf?: 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch',
   /** Уменьшать при нехватке пространства */
   shrink?: boolean,
   /** Занять все возможзное пространство */
@@ -35,18 +32,16 @@ export interface BoxProps extends Spaces, Dimensions {
   /** Определяет, как элемент должен быть показан в документе */
   display?: Display,
   /** Тень блока */
-  shadow?: keyof Tokens['shadows'],
+  //shadow?: keyof Tokens['shadows'],
   /** Цвет текста */
   color?: keyof Tokens['palette'],
   /** Цвет фона */
-  bgColor?: keyof Tokens['palette'],
+  backgroundColor?: keyof Tokens['palette'],
   /** Радиус */
   radius?: string,
-  /** @ignore */
-  theme: Theme,
 }
 
-export interface StackProps extends Spaces, Dimensions {
+export interface StackProps extends SpaceProperties, DimensionProperties {
   /** Содержание */
   children?: React.ReactNode,
   /** Отступ между дочерними блоками */
@@ -55,10 +50,10 @@ export interface StackProps extends Spaces, Dimensions {
   column?: boolean,
   /** Добавляет скролл */
   scroll?: boolean,
-  /** Вертикальное выравнивание дочерних блоков */
-  align?: Align,
-  /** Горизонтальное выравнивание дочерних блоков */
-  justify?: Justify,
+  /** Горизонтальное выравнивание дочерних блоков  */
+  align?: 'left' | 'center' | 'right' | 'justify',
+  /** Вертикальное выравнивание дочерних блоков  */
+  valign?: 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch',
   /** Инлайновое поведение */
   inline?: boolean,
   /** @ignore */
@@ -71,7 +66,7 @@ type onChangeProps = {
   value?: ReactText | ReactText[] | null,
 }
 
-export interface GroupProps extends Spaces, Dimensions {
+export interface GroupProps extends SpaceProperties, DimensionProperties {
   /** Содержание */
   children?: React.ReactNode,
   /** Блочное поведение */

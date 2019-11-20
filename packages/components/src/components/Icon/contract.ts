@@ -1,14 +1,15 @@
-import { Theme, Tokens } from '../../theme/'
+import { Tokens } from '../../theme'
 import { IconProps as IconBaseProps } from '@avito/icons'
-import { Spaces } from '../../styled-system/'
+import { SpaceProperties } from '../../styled-system/'
 
-export interface IconProps extends IconBaseProps, Spaces {
+
+export interface IconProps extends IconBaseProps, SpaceProperties {
   /** Цвет иконки */
-  color?: keyof Theme['palette'],
+  color?: keyof Tokens['palette'],
   /** Размер иконки */
-  size?: 's' | 'm' | 'l' | 'auto' | string,
+  size?: 'auto' | string,
   /** Цветовые варианты иконок */
-  variant?: keyof Tokens['variants'],
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   /** Событие клика */
   onClick?(event: React.MouseEvent<SVGSVGElement>): void,
 }

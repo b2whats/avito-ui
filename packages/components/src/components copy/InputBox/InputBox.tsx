@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { styled, useTheme, pick, useRefHook, foldPreset } from '../../utils'
 import { css } from '@emotion/core'
 import { InputBoxProps } from './contract'
-import { useGroupHook } from '../Layout/Group'
+import { useGroupHook } from '../../components/Layout/Group'
 import { Variants } from '../Variants'
 
 const InputBox = ({ className, ...props }: InputBoxProps) => {

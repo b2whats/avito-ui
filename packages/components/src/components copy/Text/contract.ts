@@ -1,10 +1,10 @@
 import React from 'react'
-import { Tokens } from '../../theme/'
+import { Theme, Tokens } from '../../theme/'
 import { SpaceProperties } from '../../styled-system/'
 
 export interface TextProps extends SpaceProperties {
   /** Размер текста */
-  size?: keyof Tokens['font']['fontSize'],
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl',
   /** Размер текста, фолбек */
   fontSize?: number,
   /** Коэффициент для высоты строки */
@@ -14,7 +14,7 @@ export interface TextProps extends SpaceProperties {
   /** Горизонтальное выравнивание текста */
   align?: 'left' | 'center' | 'right' | 'justify',
   /** Вертикальное выравнивание текста */
-  valignSelf?: 'top' | 'middle' | 'bottom' | 'baseline',
+  valign?: 'top' | 'middle' | 'bottom' | 'baseline',
   /** Расстояние между буквами */
   letterSpacing?: string,
   /** Текстовое содержание */
@@ -30,7 +30,7 @@ export interface TextProps extends SpaceProperties {
   /** Текст в верхнем регистре */
   uppercase?: boolean,
   /** Перечеркнутый текст */
-  strike?: keyof Tokens['palette'] | boolean,
+  strike?: keyof Theme['palette'] | boolean,
   /** Подчеркнутый текст */
   underline?: 'dashed' | 'dotted' | boolean,
   /** Обрезка высоты строки у текста сверху и снизу */
@@ -40,11 +40,11 @@ export interface TextProps extends SpaceProperties {
   /** Многоточие в конце строки */
   truncate?: boolean,
   /** Цветовые варианты текста */
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
+  variant?: keyof Tokens['variants'],
   /** Текстовая нода */
   as?: string,
   /** Цвет текста */
-  color?: keyof Tokens['palette'],
+  color?: keyof Theme['palette'],
   /** Инлайновое поведение */
   inline?: boolean,
   /** Блочное поведение */

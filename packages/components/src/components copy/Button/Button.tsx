@@ -4,7 +4,7 @@ import { ButtonProps } from './contract'
 import { Text } from '../Text/'
 import { Variants } from '../Variants/'
 import { VariantsProps } from '../Variants/contract'
-import { useGroupHook } from '../Layout/Group'
+import { useGroupHook } from '../../components/Layout/Group'
 
 const ButtonBox = styled(Variants, {
   shouldForwardProp: prop => isPropValid(prop) && prop !== 'loading' && prop !== 'kind',

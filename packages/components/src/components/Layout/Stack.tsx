@@ -14,8 +14,8 @@ const Stack = styled('div')<StackProps>`
     overflow-x: ${scroll && !column ? 'scroll' : 'visible'};
   `}
 
-  ${({ space, column, theme: { spaces } }) => space && `
-    & > :not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${spaces[space]}; }
+  ${({ space, column, theme }) => space && `
+    & > :not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${theme.space[space]}; }
   `}
 
   ${space}

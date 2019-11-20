@@ -1,6 +1,6 @@
-import { Theme, Tokens } from '../theme'
+import { Tokens } from '../theme'
 
-export type SpaceValues = keyof Tokens['spaces']
+export type SpaceValues = keyof Tokens['space']
 
 export type Spaces = Partial<{
   /** Внешний отступ со всех сторон */
@@ -34,26 +34,26 @@ export type Spaces = Partial<{
   pl: SpaceValues,
 }>
 
-type Space = (props: { theme: Theme } & Spaces) => string | undefined
+type Space = (props: { theme: Tokens } & Spaces) => string | undefined
 
-export const space: Space = ({ m, mx, my, mt, mr, mb, ml, p, px, py, pt, pr, pb, pl, theme: { spaces } }) => {
+export const space: Space = ({ m, mx, my, mt, mr, mb, ml, p, px, py, pt, pr, pb, pl, theme: { space } }) => {
   let css = ''
 
-  m && (css += `margin: ${spaces[m]};`)
-  mx && (css += `margin-left: ${spaces[mx]}; margin-right: ${spaces[mx]};`)
-  my && (css += `margin-top: ${spaces[my]}; margin-bottom: ${spaces[my]};`)
-  mt && (css += `margin-top: ${spaces[mt]};`)
-  mr && (css += `margin-right: ${spaces[mr]};`)
-  mb && (css += `margin-bottom: ${spaces[mb]};`)
-  ml && (css += `margin-left: ${spaces[ml]};`)
+  m && (css += `margin: ${space[m]};`)
+  mx && (css += `margin-left: ${space[mx]}; margin-right: ${space[mx]};`)
+  my && (css += `margin-top: ${space[my]}; margin-bottom: ${space[my]};`)
+  mt && (css += `margin-top: ${space[mt]};`)
+  mr && (css += `margin-right: ${space[mr]};`)
+  mb && (css += `margin-bottom: ${space[mb]};`)
+  ml && (css += `margin-left: ${space[ml]};`)
 
-  p && (css += `padding: ${spaces[p]};`)
-  px && (css += `padding-left: ${spaces[px]}; padding-right: ${spaces[px]};`)
-  py && (css += `padding-top: ${spaces[py]}; padding-bottom: ${spaces[py]};`)
-  pt && (css += `padding-top: ${spaces[pt]};`)
-  pr && (css += `padding-right: ${spaces[pr]};`)
-  pb && (css += `padding-bottom: ${spaces[pb]};`)
-  pl && (css += `padding-left: ${spaces[pl]};`)
+  p && (css += `padding: ${space[p]};`)
+  px && (css += `padding-left: ${space[px]}; padding-right: ${space[px]};`)
+  py && (css += `padding-top: ${space[py]}; padding-bottom: ${space[py]};`)
+  pt && (css += `padding-top: ${space[pt]};`)
+  pr && (css += `padding-right: ${space[pr]};`)
+  pb && (css += `padding-bottom: ${space[pb]};`)
+  pl && (css += `padding-left: ${space[pl]};`)
 
   return css.length > 0 ? `&& {${css}}` : undefined
 }

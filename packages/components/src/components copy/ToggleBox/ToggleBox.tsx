@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { styled, useTheme, omit, useRefHook, foldPreset } from '../../utils'
 import { space } from '../../styled-system'
 import { ToggleBoxProps } from './contract'
-import { useGroupHook } from '../Layout/Group'
+import { useGroupHook } from '../../components/Layout/Group'
 import { Text } from '../Text'
 import { Variants } from '../Variants'
 
