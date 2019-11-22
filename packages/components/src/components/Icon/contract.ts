@@ -7,9 +7,13 @@ export interface IconProps extends IconBaseProps, SpaceProperties {
   /** Цвет иконки */
   color?: keyof Tokens['palette'],
   /** Размер иконки */
-  size?: 'auto' | string,
+  size?: 's' | 'm' | 'l' | 'auto' | string,
   /** Цветовые варианты иконок */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   /** Событие клика */
   onClick?(event: React.MouseEvent<SVGSVGElement>): void,
+  /** Событие наведения */
+  onMouseOver?(event: React.MouseEvent<SVGSVGElement>): void,
+  /** Событие снятия мышки */
+  onMouseOut?(event: React.MouseEvent<SVGSVGElement>): void,
 }

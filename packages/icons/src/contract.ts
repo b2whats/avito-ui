@@ -12,4 +12,6 @@ export interface IconProps {
   /** Аттрибут для тестирования */
   marker?: string,
   onClick?(event: React.MouseEvent<SVGSVGElement>): void,
+  onMouseOver?(event: React.MouseEvent<SVGSVGElement>): void,
+  onMouseOut?(event: React.MouseEvent<SVGSVGElement>): void,
 }

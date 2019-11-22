@@ -295,6 +295,7 @@ export const getStyles = (params, {font, dimension, space, palette}) => {
       case 'width':
       case 'minWidth':
       case 'maxWidth':
+        console.log('W', value)
         css += `${param}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
 
         break
@@ -428,39 +429,75 @@ export const getStyles = (params, {font, dimension, space, palette}) => {
       
         break
       case 'colorHover':
+        hover.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorHover':
+        hover.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorHover':
-        hover.push(`${param}: ${palette[value] || value};`)
+        hover.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'colorActive':
+        active.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorActive':
+        active.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorActive':
-        active.push(`${param}: ${palette[value] || value};`)
+        active.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'colorVisited':
+        visited.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorVisited':
+        visited.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorVisited':
-        visited.push(`${param}: ${palette[value] || value};`)
+        visited.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'colorChecked':
+        checked.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorChecked':
+        checked.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorChecked':
-        checked.push(`${param}: ${palette[value] || value};`)
+        checked.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'colorFocus':
+        focus.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorFocus':
+        focus.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorFocus':
-        focus.push(`${param}: ${palette[value] || value};`)
+        focus.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'colorDisabled':
+        disabled.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorDisabled':
+        disabled.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorDisabled':
-        disabled.push(`${param}: ${palette[value] || value};`)
+        disabled.push(`border-color: ${palette[value] || value};`)
             
         break
       default:
