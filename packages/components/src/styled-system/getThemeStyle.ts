@@ -295,7 +295,6 @@ export const getStyles = (params, {font, dimension, space, palette}) => {
       case 'width':
       case 'minWidth':
       case 'maxWidth':
-        console.log('W', value)
         css += `${param}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
 
         break
