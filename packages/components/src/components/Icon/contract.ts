@@ -10,7 +10,8 @@ export interface IconProps extends IconBaseProps, SpaceProperties {
   size?: 's' | 'm' | 'l' | 'auto' | string,
   /** Цветовые варианты иконок */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
-  /** Инвертированная иконка */
+  /** Инвертированная иконка
+   * */
   inverted?: boolean,
   /** Событие клика */
   onClick?(event: React.MouseEvent<SVGSVGElement>): void,

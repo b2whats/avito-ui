@@ -2,12 +2,12 @@ import React from 'react'
 import { createIcon } from '../createIcon'
 
 createIcon({
-  name: 'check',
+  name: 'arrow-back',
   originalWidth: 24,
   originalHeight: 24,
   svg: (
     <path
-      d="M18.226 6.367a1 1 0 011.548 1.266l-9 11a1 1 0 01-1.481.074l-5-5a1 1 0 111.414-1.414l4.219 4.219 8.3-10.145z"
+      d='M7.414 13l5.293 5.293a1 1 0 01-1.414 1.414l-7-7a1 1 0 010-1.414l7-7a1 1 0 111.414 1.414L7.414 11H19a1 1 0 110 2H7.414z'
     />
   ),
 })

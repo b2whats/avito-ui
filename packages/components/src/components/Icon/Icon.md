@@ -53,7 +53,7 @@ const onMouseOut = () => {
 
 <div>
     <Icon 
-        name='search' 
+        name='call' 
         variant='warning' 
         size='35px' 
         onMouseOver={onMouseOver} 
