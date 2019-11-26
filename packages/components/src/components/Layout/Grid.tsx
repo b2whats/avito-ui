@@ -1,64 +1,74 @@
 import React from 'react'
-import { styled } from '../../utils'
-import { space, dimension } from '../../styled-system'
+import { useTheme, omit, pick } from '../../utils'
+import { createClassName } from '../../styled-system/'
 import { GridProps } from './contract'
 
 // &::before хак против выпадания отрицательных margins из родителя для правильного задания высоты
-const Wrapper = styled('div')<GridProps>`
-  box-sizing: border-box;
+const gridWrapperClassName = createClassName<GridProps>(
+  (_, props) => ({ display: 'block', ...omit(props, 'align', 'valign')}),
+  (textRules, { debug }) => (`
+    box-sizing: border-box;
 
-  &::before {
-    content: '';
-    display: table;
-  }
-
-  ${space}
-  ${dimension}
-`
-
-const Inner = styled('div')<GridProps>`
-  box-sizing: border-box;
-  display: flex;
-
-  ${({ align, justify }) => `
-    flex-wrap: wrap;
-    align-items: ${align};
-    ${justify ? `justify-content: ${justify};` : ''}
-  `}
-
-  ${({ space, spaceY, theme }) => `
-      margin-left: -${theme.space[space]};
-      margin-top: -${theme.space[spaceY]};
-    & > * {
-      border-left: ${theme.space[space]} solid transparent;
-      margin-top: ${theme.space[spaceY]};
-    }
-  `}
-
-  ${({ debug, theme: { palette } }) => debug && `
-    & > * {
-      background-color: ${palette.blue20};
-      background-clip: padding-box;
+    &::before {
+      content: '';
+      display: table;
     }
 
-    & > :nth-child(2n) {
-      background-color: ${palette.yellow20};
-    }
-  `}
-`
+    ${debug ? `
+      outline: 1px solid red;
+    ` : ''}
 
-const Grid = ({ children, ...props }: GridProps) => (
-  <Wrapper {...props}>
-    <Inner {...props}>
-      { children }
-    </Inner>
-  </Wrapper>
+    ${textRules}
+  `),
 )
 
-Grid.defaultProps = {
-  space: 'none',
-  spaceY: 'none',
-  align: 'stretch',
+const gridClassName = createClassName<GridProps>(
+  (_, props) => ({ display: 'flex', ...pick(props, 'align', 'valign')}),
+  (textRules, { space, spaceY, debug }, { space: spaceToken, palette }) => (`
+    box-sizing: border-box;
+    flex-wrap: wrap;
+
+    ${space ? `
+      margin-left: -${spaceToken[space] || space}px;
+      & > * {
+        border-left: ${spaceToken[space] || space}px solid transparent;
+        background-clip: padding-box;
+      }
+    ` : ''}
+    ${spaceY ? `
+      margin-top: -${spaceToken[spaceY] || spaceY}px;
+      & > * {
+        margin-top: ${spaceToken[space] || space}px;
+      }
+    ` : ''}
+
+    ${debug ? `
+      & > * {
+        background-color: ${palette.blue20};
+        background-clip: padding-box;
+      }
+
+      & > :nth-child(2n) {
+        background-color: ${palette.yellow20};
+      }
+    ` : ''}
+
+    ${textRules}
+  `),
+)
+
+const Grid = ({ children, ...props }: GridProps) => {
+  const theme = useTheme()
+  const gridWrapperStyle = gridWrapperClassName(props, theme)
+  const gridStyle = gridClassName(props, theme)
+
+  return (
+    <div css={gridWrapperStyle}>
+      <div css={gridStyle}>
+        { children }
+      </div>
+    </div>
+  )
 }
 
 export default Grid

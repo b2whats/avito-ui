@@ -1,6 +1,6 @@
 import React from 'react'
-import { Theme, Tokens } from '../../theme/'
-import { Spaces, Dimensions } from '../../styled-system/'
+import { Theme, Tokens } from '../../theme'
+import { Spaces, Dimensions } from '../../styled-system'
 
 export interface ButtonProps extends Spaces, Dimensions {
   children?: React.ReactNode,

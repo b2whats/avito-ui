@@ -4,6 +4,17 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
   },
+  assetsDir: 'styleguidist/assets',
+  template: {
+    head: {
+      links: [
+        {
+          rel: 'stylesheet',
+          href: '/font.css',
+        },
+      ],
+    },
+  },
   styles: {
     Playground: {
       preview: {

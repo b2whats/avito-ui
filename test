@@ -1,5 +1,4 @@
 import { css } from '@emotion/core'
-import { Theme } from '../theme/'
 
 type TextProperties = Partial<{
   fontFamily: string,
@@ -57,11 +56,10 @@ export type SpaceProperties = Partial<{
 type Valign = 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch'
 type Align = 'left' | 'center' | 'right' | 'justify'
 
-type LayoutProperties = Partial<{
+type IndentProperties = Partial<{
   align: Align,
   valign: Valign,
   valignSelf: Valign,
-  column: boolean,
 }>
 
 type ColorProperties = Partial<{
@@ -88,7 +86,7 @@ type ColorProperties = Partial<{
   borderColorDisabled: string,
 }>
 
-type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties
+type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & IndentProperties & ColorProperties
 
 export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, ComponentsProps = {}> = {
   style?: Partial<StyleProperties>,
@@ -108,7 +106,7 @@ export type PresetType<Props> = {
 const computedCrop = (crop: number, targetHeight: number) => {
   const value = (crop + (targetHeight - 1) * 16) / 32 
 
-  return Math.round(value * 100) / 100
+  return Math.round(value * 10) / 10
 }
 
 const spaceValue = (value: string | number, spaces: {}): string => {
@@ -229,11 +227,10 @@ export const foldScheme = (scheme: any, props: any) => {
   return result
 }
 
-export const getStyles = (params: any, {font, dimension, space, palette}: any) => {
+export const getStyles = (params, {font, dimension, space, palette}) => {
+  if (!params) return null
+
   let css = ''
-
-  if (!params) return css
-
   let spaces = []
   let hover = []
   let active = []
@@ -303,7 +300,7 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
 
         break
       case 'crop': {
-        if (!params.lineHeight) break
+        if (params.lineHeight) break
 
         const lineHeight = font.lineHeight[params.lineHeight] || params.lineHeight
 
@@ -391,18 +388,16 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
 
         break
       }
-      case 'valign':
+      case 'valign': {
         css += `align-items: ${maps.alignFlex[value]};`
 
         break
-      case 'valignSelf':
+      }
+      case 'valignSelf': {
         css += `align-self: ${maps.alignFlex[value]};`
 
         break
-      case 'column':
-        css += 'flex-direction: column;'
-
-        break
+      }
       case 'm':
         spaces.push(`margin: ${spaceValue(value, space)};`)
 
@@ -602,7 +597,7 @@ type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { scheme: ob
   }
 } : never
 
-export function foldThemeParams<T extends { scheme: { [key: string]: any } }>({ scheme }: T, props: any): FoldThemeParamsReturn<T> {
+export const foldThemeParams: FoldThemeParams = (scheme, props) => {
   const result: any = {}
 
   let name: keyof typeof scheme
@@ -612,17 +607,25 @@ export function foldThemeParams<T extends { scheme: { [key: string]: any } }>({ 
 
   return result
 }
+// export function foldThemeParams<T extends { scheme: object }>(scheme: T['scheme'], props: any): FoldThemeParamsReturn<T> {
+//   const result: any = {}
 
-export function createClassName<Props, ComponentTheme = null>(
-  createRule: (schemeStyle: FoldThemeParamsReturn<ComponentTheme> | undefined, props: Props, theme: Theme) => StyleProperties,
-  createUserRule: (textRules: string, props: Props, theme: Theme) => string
-) {
-  return (props: Props, theme: Theme, schemeStyle?: FoldThemeParamsReturn<ComponentTheme>) => {
-    const styles = createRule(schemeStyle, props, theme)
-    const textRules = getStyles(styles, theme)
+//   let name: keyof typeof scheme
+//   for (name in scheme) {
+//     result[name] = foldScheme(scheme[name], props)
+//   }
 
-    const resultRules = createUserRule(textRules, props, theme)
+//   return result
+// }
 
-    return css`${resultRules}`
-  }
+
+
+
+interface CreateClassName<Props, Theme, ComponentTheme> {
+  (
+    createRule: (props: Props) => StyleProperties,
+    createUserRule: () => string
+  ): (schemeStyle: FoldThemeParamsReturn<ComponentTheme>) => void
 }
+
+export function createClassName<T>(createRule, createUserRule) {}

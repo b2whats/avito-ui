@@ -4,7 +4,7 @@ import { TextProps } from './contract'
 
 export type TextTheme = {
   scheme: {
-    Text: SchemeType<TextProps, 'size' | 'dense' | 'variant'>,
+    Text: SchemeType<TextProps>,
   },
   preset: {
     Text: PresetType<TextProps>,
@@ -18,7 +18,7 @@ export type TextTheme = {
 export const textTheme: ComponentTheme<TextTheme> = (_, override) => {
   const component = {
     strike: {
-      offset: 2,
+      offset: 0,
       height: 1,
     },
   }
