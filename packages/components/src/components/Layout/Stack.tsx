@@ -1,40 +1,42 @@
 import React from 'react'
-import { styled } from '../../utils'
-import { space, dimension } from '../../styled-system'
+import { useTheme, omit } from '../../utils'
+import { createClassName } from '../../styled-system/'
 import { StackProps } from './contract'
 
-const Stack = styled('div')<StackProps>`
-  box-sizing: border-box;
-
-  ${({ column, align, justify, scroll }) => `
-    flex-direction: ${column ? 'column' : 'row'};
+const stackClassName = createClassName<StackProps>(
+  (_, props) => ({ display: 'flex', ...omit(props, 'align')}),
+  (textRules, { column, align, scroll, space, debug }, { palette, space: spaceToken }) => (`
+    box-sizing: border-box;
     align-items: ${align ? align : !column ? 'baseline' : 'normal'};
-    ${justify ? `justify-content: ${justify};` : ''}
-    overflow-y: ${scroll && column ? 'scroll' : 'visible'};
-    overflow-x: ${scroll && !column ? 'scroll' : 'visible'};
-  `}
+    ${scroll ? `overflow-${column ? 'y' : 'x'}: scroll;` : ''};
 
-  ${({ space, column, theme }) => space && `
-    & > :not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${theme.space[space]}; }
-  `}
+    ${space ? `
+      & > :not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${spaceToken[space] || space}px; }
+    ` : ''}
 
-  ${space}
-  ${dimension}
+    ${debug ? `
+      border: 2px solid ${palette.red30};
+      & > * {
+        background-color: ${palette.blue20};
+      }
 
-  ${({ debug, theme: { palette } }) => debug && `
-    border: 2px solid ${palette.red30};
-    & > * {
-      background-color: ${palette.blue20};
-    }
+      & > :nth-child(2n) {
+        background-color: ${palette.yellow20};
+      }
+    ` : ''}
+    ${textRules}
+  `),
+)
 
-    & > :nth-child(2n) {
-      background-color: ${palette.yellow20};
-    }
-  `}
-`
+const Stack = ({ children, ...props }: StackProps) => {
+  const theme = useTheme()
+  const stackStyle = stackClassName(props, theme)
 
-Stack.defaultProps = {
-  display: 'flex',
+  return (
+    <div css={stackStyle}>
+      { children }
+    </div>
+  )
 }
 
 export default Stack

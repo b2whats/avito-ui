@@ -11,7 +11,7 @@ const Svg = styled('svg')<Partial<IconProps>>`
   white-space: nowrap;
 
   ${({ size, color, onClick, onMouseOver }) => `
-    height: ${size === 'auto' ? '100%' : size || '1em'};
+    height: ${size === 'auto' ? '100%' : typeof size === 'number' ? `${size}px` : size || '1em'};
     fill: currentColor;
     ${color ? `color: ${color};` : ''};
     ${onClick || onMouseOver ? 'cursor: pointer;' : ''};

@@ -1,8 +1,8 @@
-import { ComponentTheme } from '../../theme/'
-import { PresetType } from '../../utils/'
+import { ComponentTheme } from '../../theme'
+import { PresetType } from '../../utils'
 import { ButtonProps } from './contract'
-import { TextProps } from '../Text/contract'
-import { VariantsProps } from '../Variants/contract'
+import { TextProps } from '../../components copy/Text/contract'
+import { VariantsProps } from '../../components copy/Variants/contract'
 
 export type ButtonTheme = {
   preset: {
@@ -50,6 +50,9 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
         borderStyle: 'solid',
         focus: true,
       },
+      props: {
+
+      }
       size: {
         s: {
           style: {
@@ -73,6 +76,19 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
           },
         },
       },
+      variant: {
+        secondary: {
+          style: {
+            color: 'contrast',
+            colorDisabled: 'contrast',
+          },
+        },
+        warning: {
+          style: {
+            color: 'contrast',
+            colorDisabled: 'contrast',
+          },
+        },
       kind: {
         default: {
           style: {

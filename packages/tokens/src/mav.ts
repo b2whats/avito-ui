@@ -23,8 +23,8 @@ const tokens: Tokens = {
     },
   
     crop: {
-      top: 3,
-      bottom: 4,
+      top: 4,
+      bottom: 6,
     },
 
     underline: {

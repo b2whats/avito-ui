@@ -16,7 +16,7 @@ export interface TextProps extends SpaceProperties {
   /** Вертикальное выравнивание текста */
   valignSelf?: 'top' | 'middle' | 'bottom' | 'baseline',
   /** Расстояние между буквами */
-  letterSpacing?: string,
+  letterSpacing?: number,
   /** Текстовое содержание */
   children?: React.ReactNode,
   /** Жирное начертание */
