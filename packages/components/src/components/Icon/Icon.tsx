@@ -10,9 +10,16 @@ const Icon = ({ size, name, ...props }: IconProps) => {
   const style = getThemeStyle(theme, 'icon', props, {
     Icon: { ...props, display: 'inline-block' },
   })
+  const iconSize = size in theme.icon.sizes ? theme.icon.sizes[size] + 'px' : size
 
   return (
-    <IconBase css={style.Icon} name={name} size={size} onClick={props.onClick}/>
+    <IconBase
+      css={style.Icon}
+      name={name}
+      size={iconSize}
+      onClick={props.onClick}
+      onMouseOver={props.onMouseOver}
+      onMouseOut={props.onMouseOut} />
   )
 }
 

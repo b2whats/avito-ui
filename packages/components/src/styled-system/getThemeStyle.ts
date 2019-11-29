@@ -484,39 +484,75 @@ export const getStyles = (params: any, {font, dimension, space, palette, focus}:
       
         break
       case 'colorHover':
+        hover.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorHover':
+        hover.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorHover':
-        hover.push(`${maps.color[param]}: ${palette[value] || value};`)
+        hover.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'colorActive':
+        active.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorActive':
+        active.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorActive':
-        active.push(`${maps.color[param]}: ${palette[value] || value};`)
+        active.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'colorVisited':
+        visited.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorVisited':
+        visited.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorVisited':
-        visited.push(`${maps.color[param]}: ${palette[value] || value};`)
+        visited.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'colorChecked':
+        checked.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorChecked':
+        checked.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorChecked':
-        checked.push(`${maps.color[param]}: ${palette[value] || value};`)
+        checked.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'colorFocus':
+        focus.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorFocus':
+        focus.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorFocus':
         focusState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorDisabled':
+        disabled.push(`color: ${palette[value] || value};`)
+
+        break
       case 'backgroundColorDisabled':
+        disabled.push(`background-color: ${palette[value] || value};`)
+
+        break
       case 'borderColorDisabled':
-        disabled.push(`${maps.color[param]}: ${palette[value] || value};`)
+        disabled.push(`border-color: ${palette[value] || value};`)
             
         break
       case 'borderStyle':

@@ -1,5 +1,6 @@
 import React from 'react'
 import { styled, useTheme, isPropValid, foldPreset } from '../../utils/'
+import Text from '../../components/Text/theme'
 import { space } from '../../styled-system/'
 
 const StyledBox = styled('span')<TextProps>`

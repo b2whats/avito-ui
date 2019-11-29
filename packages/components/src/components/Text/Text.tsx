@@ -10,7 +10,7 @@ const textClassName = createClassName<TextProps, TextTheme>(
     ...themeParams && themeParams.Text.style,
     ...props,
   }),
-  (textRules, { strike, size, color, variant }, { text, palette }) => (console.log(color),`
+  (textRules, { strike, size, color, variant }, { text, palette }) => (`
     box-sizing: border-box;
     margin: 0;
 
