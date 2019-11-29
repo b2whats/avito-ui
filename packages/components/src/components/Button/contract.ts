@@ -1,8 +1,7 @@
 import React from 'react'
-import { Theme, Tokens } from '../../theme'
-import { Spaces, Dimensions } from '../../styled-system'
+import { MarginProperties } from '../../styled-system/' 
 
-export interface ButtonProps extends Spaces, Dimensions {
+export interface ButtonProps extends MarginProperties {
   children?: React.ReactNode,
   /** Размер кнопки */
   size: 's' | 'm' | 'l',
@@ -14,10 +13,12 @@ export interface ButtonProps extends Spaces, Dimensions {
   kind: 'default' | 'outline' | 'flat',
   /** Закругленные углы */
   rounded?: boolean,
+  /** Нажатое состояние кнопки */
+  checked?: boolean,
   /** Неактивная кнопка */
   disabled?: boolean,
   /** Цветовые варианты кнопки */
-  variant: keyof Tokens['variants'],
+  variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   /** Действие которое совершает кнопка */
   type?: 'button' | 'submit' | 'reset',
   /** Кнопка со спиннером */
@@ -33,7 +34,4 @@ export interface ButtonProps extends Spaces, Dimensions {
 
   onClick?(event: React.MouseEvent<HTMLButtonElement | HTMLLinkElement>): void,
   onKeyDown?(event: React.KeyboardEvent<HTMLButtonElement | HTMLLinkElement>): void,
-  
-  /** @ignore */
-  theme?: Theme,
 }

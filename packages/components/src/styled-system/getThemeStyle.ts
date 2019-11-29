@@ -18,7 +18,7 @@ type TextProperties = Partial<{
 type Width = number
 type Height = 's' | 'm' | 'l' | number
 
-type DimensionProperties = Partial<{
+export type DimensionProperties = Partial<{
   display: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex',
   block: boolean,
   inline: boolean,
@@ -36,7 +36,7 @@ type DimensionProperties = Partial<{
 
 type SpaceValues = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'none' | 'auto' | number
 
-export type SpaceProperties = Partial<{
+export type MarginProperties = Partial<{
   m: SpaceValues,
   mx: SpaceValues,
   my: SpaceValues,
@@ -44,7 +44,8 @@ export type SpaceProperties = Partial<{
   mr: SpaceValues,
   mb: SpaceValues,
   ml: SpaceValues,
-
+}>
+export type PaddingProperties = Partial<{
   p: SpaceValues,
   px: SpaceValues,
   py: SpaceValues,
@@ -54,6 +55,10 @@ export type SpaceProperties = Partial<{
   pl: SpaceValues,
 }>
 
+export type SpaceProperties = PaddingProperties & MarginProperties
+
+
+
 type Valign = 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch'
 type Align = 'left' | 'center' | 'right' | 'justify'
 
@@ -62,6 +67,11 @@ type LayoutProperties = Partial<{
   valign: Valign,
   valignSelf: Valign,
   column: boolean,
+}>
+
+type OtherProperties = Partial<{
+  borderStyle: 'solid' | 'dotted' | 'dashed' | 'none',
+  focus: boolean,
 }>
 
 type ColorProperties = Partial<{
@@ -88,7 +98,7 @@ type ColorProperties = Partial<{
   borderColorDisabled: string,
 }>
 
-type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties
+type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties & OtherProperties
 
 export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, ComponentsProps = {}> = {
   style?: Partial<StyleProperties>,
@@ -229,7 +239,7 @@ export const foldScheme = (scheme: any, props: any) => {
   return result
 }
 
-export const getStyles = (params: any, {font, dimension, space, palette}: any) => {
+export const getStyles = (params: any, {font, dimension, space, palette, focus}: any) => {
   let css = ''
 
   if (!params) return css
@@ -239,7 +249,7 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
   let active = []
   let visited = []
   let checked = []
-  let focus = []
+  let focusState = []
   let disabled = []
 
 
@@ -500,13 +510,28 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
       case 'colorFocus':
       case 'backgroundColorFocus':
       case 'borderColorFocus':
-        focus.push(`${maps.color[param]}: ${palette[value] || value};`)
+        focusState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorDisabled':
       case 'backgroundColorDisabled':
       case 'borderColorDisabled':
         disabled.push(`${maps.color[param]}: ${palette[value] || value};`)
+            
+        break
+      case 'borderStyle':
+        css += `border-style: ${value};`
+            
+        break
+      case 'focus':
+        css += `
+          outline: none;
+          &&:focus {
+            box-shadow: ${focus.shape} ${focus[`${params.variant || 'default'}Color`]};
+            position: relative;
+            z-index: 2;
+          }
+        `
             
         break
       default:
@@ -553,8 +578,8 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
   if (checked.length) {
     css += `${selector.checked}{${checked.join('')}}`
   }
-  if (focus.length) {
-    css += `${selector.focus}{${focus.join('')}}`
+  if (focusState.length) {
+    css += `${selector.focus}{${focusState.join('')}}`
   }
   if (disabled.length) {
     css += `${selector.disabled}{${disabled.join('')}}`

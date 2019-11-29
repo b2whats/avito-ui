@@ -1,43 +1,38 @@
-import { ComponentTheme } from '../../theme'
-import { PresetType } from '../../utils'
+import { ComponentTheme } from '../../theme/'
+import { SchemeType } from '../../styled-system/'
 import { ButtonProps } from './contract'
-import { TextProps } from '../../components copy/Text/contract'
-import { VariantsProps } from '../../components copy/Variants/contract'
+import { TextProps } from '../Text/contract'
 
 export type ButtonTheme = {
-  preset: {
-    Button: PresetType<ButtonProps, ButtonProps | VariantsProps, 'variant' | 'kind' | 'size'>
-    Text: PresetType<ButtonProps, TextProps, 'kind' | 'size'>
+  scheme: {
+    Button: SchemeType<ButtonProps>,
+    Text: SchemeType<ButtonProps, TextProps>,
   },
-
-  default_press_offset: string,
-  flat_press_offset: string,
-  outline_press_offset: string,
 }
 
 export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
-  const defaultTheme = {
-    default_press_offset: '1px',
-    flat_press_offset: '1px',
-    outline_press_offset: '1px',
-  }
-
-  const preset: ButtonTheme['preset'] = {
+  const scheme: ButtonTheme['scheme'] = {
     Text: {
-      style: {
-        size: 'm',
-        lineHeight: 'none',
-      },
       size: {
         s: {
-          style: {
+          props: {
             size: 's',
+          },
+        },
+        m: {
+          props: {
+            size: 'm',
+          },
+        },
+        l: {
+          props: {
+            size: 'l',
           },
         },
       },
       kind: {
         flat: {
-          style: {
+          props: {
             uppercase: true,
           },
         },
@@ -45,14 +40,12 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
     },
     Button: {
       style: {
-        borderRadius: '3px',
-        borderWidth: '1px',
+        borderRadius: 3,
+        borderWidth: 1,
         borderStyle: 'solid',
+        borderColor: 'transparent',
         focus: true,
       },
-      props: {
-
-      }
       size: {
         s: {
           style: {
@@ -76,73 +69,175 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
           },
         },
       },
-      variant: {
-        secondary: {
-          style: {
-            color: 'contrast',
-            colorDisabled: 'contrast',
-          },
-        },
-        warning: {
-          style: {
-            color: 'contrast',
-            colorDisabled: 'contrast',
-          },
-        },
       kind: {
         default: {
           style: {
-            background: 'colored',
-            backgroundHover: 'colored',
-            backgroundActive: 'colored',
-            backgroundChecked: 'colored',
-            backgroundDisabled: 'colored',
-            border: 'transparent',
-            color: 'contrast-light',
-            colorDisabled: 'contrast-light',
+            backgroundColor: 'blue50',
+            backgroundColorHover: 'blue60',
+            backgroundColorActive: 'blue70',
+            backgroundColorChecked: 'blue70',
+            backgroundColorDisabled: 'blue30',
+            color: 'white',
+            colorDisabled: 'gray30',
           },
           variant: {
+            primary: {
+              style: {
+                backgroundColor: 'blue50',
+                backgroundColorHover: 'blue60',
+                backgroundColorActive: 'blue70',
+                backgroundColorChecked: 'blue70',
+                backgroundColorDisabled: 'blue30',
+              },
+            },
             secondary: {
               style: {
-                color: 'contrast',
-                colorDisabled: 'contrast',
+                backgroundColor: 'gray50',
+                backgroundColorHover: 'gray60',
+                backgroundColorActive: 'gray70',
+                backgroundColorChecked: 'gray70',
+                backgroundColorDisabled: 'gray30',
+                color: 'black',
+                colorDisabled: 'gray70',
+              },
+            },
+            success: {
+              style: {
+                backgroundColor: 'green50',
+                backgroundColorHover: 'green60',
+                backgroundColorActive: 'green70',
+                backgroundColorChecked: 'green70',
+                backgroundColorDisabled: 'green30',
               },
             },
             warning: {
               style: {
-                color: 'contrast',
-                colorDisabled: 'contrast',
+                backgroundColor: 'yellow50',
+                backgroundColorHover: 'yellow60',
+                backgroundColorActive: 'yellow70',
+                backgroundColorChecked: 'yellow70',
+                backgroundColorDisabled: 'yellow30',
+                color: 'black',
+                colorDisabled: 'gray70',
+              },
+            },
+            error: {
+              style: {
+                backgroundColor: 'red50',
+                backgroundColorHover: 'red60',
+                backgroundColorActive: 'red70',
+                backgroundColorChecked: 'red70',
+                backgroundColorDisabled: 'red30',
               },
             },
           },
         },
         outline: {
           style: {
-            color: 'colored',
-            colorHover: 'colored',
-            colorActive: 'colored',
-            colorDisabled: 'colored',
-            border: 'contrast-light',
-            borderHover: 'colored',
-            borderActive: 'contrast-light',
-            borderDisabled: 'contrast-light',
-            background: 'contrast-light',
-            backgroundHover: 'contrast-light',
-            backgroundActive: 'contrast-light',
-            backgroundChecked: 'contrast-light',
+            borderColor: 'gray30',
+            borderColorHover: 'gray40',
+            borderColorActive: 'gra50',
+            borderColorDisabled: 'gray20',
+            backgroundColor: 'gray30',
+            backgroundColorHover: 'gray40',
+            backgroundColorActive: 'gray50',
+            backgroundColorChecked: 'gray30',
+          },
+          variant: {
+            primary: {
+              style: {
+                color: 'blue50',
+                colorHover: 'blue60',
+                colorActive: 'blue70',
+                colorDisabled: 'blue30',
+              },
+            },
+            secondary: {
+              style: {
+                color: 'gray50',
+                colorHover: 'gray60',
+                colorActive: 'gray70',
+                colorDisabled: 'gray30',
+              },
+            },
+            success: {
+              style: {
+                color: 'green50',
+                colorHover: 'green60',
+                colorActive: 'green70',
+                colorDisabled: 'green30',
+              },
+            },
+            warning: {
+              style: {
+                color: 'yellow50',
+                colorHover: 'yellow60',
+                colorActive: 'yellow70',
+                colorDisabled: 'yellow30',
+              },
+            },
+            error: {
+              style: {
+                color: 'red50',
+                colorHover: 'red60',
+                colorActive: 'red70',
+                colorDisabled: 'red30',
+              },
+            },
           },
         },
         flat: {
           style: {
-            color: 'colored',
-            colorHover: 'colored',
-            colorActive: 'colored',
-            colorDisabled: 'colored',
-            border: 'transparent',
-            background: 'contrast-light',
-            backgroundHover: 'contrast-light',
-            backgroundActive: 'contrast-light',
-            backgroundChecked: 'contrast-light',
+            borderColor: 'gray30',
+            borderColorHover: 'gray40',
+            borderColorActive: 'gra50',
+            borderColorDisabled: 'gray20',
+            backgroundColor: 'gray30',
+            backgroundColorHover: 'gray40',
+            backgroundColorActive: 'gray50',
+            backgroundColorChecked: 'gray30',
+          },
+          variant: {
+            primary: {
+              style: {
+                color: 'blue50',
+                colorHover: 'blue60',
+                colorActive: 'blue70',
+                colorDisabled: 'blue30',
+              },
+            },
+            secondary: {
+              style: {
+                color: 'gray50',
+                colorHover: 'gray60',
+                colorActive: 'gray70',
+                colorDisabled: 'gray30',
+              },
+            },
+            success: {
+              style: {
+                color: 'green50',
+                colorHover: 'green60',
+                colorActive: 'green70',
+                colorDisabled: 'green30',
+              },
+            },
+            warning: {
+              style: {
+                color: 'yellow50',
+                colorHover: 'yellow60',
+                colorActive: 'yellow70',
+                colorDisabled: 'yellow30',
+              },
+            },
+            error: {
+              style: {
+                color: 'red50',
+                colorHover: 'red60',
+                colorActive: 'red70',
+                colorDisabled: 'red30',
+              },
+            },
           },
         },
       },
@@ -150,8 +245,6 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
   }
 
   return {
-    ...defaultTheme,
-    preset,
-    ...override,
+    scheme,
   } as ButtonTheme
 }

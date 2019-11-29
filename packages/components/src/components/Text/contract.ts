@@ -1,8 +1,8 @@
 import React from 'react'
 import { Tokens } from '../../theme/'
-import { SpaceProperties } from '../../styled-system/'
+import { MarginProperties } from '../../styled-system/'
 
-export interface TextProps extends SpaceProperties {
+export interface TextProps extends MarginProperties {
   /** Размер текста */
   size?: keyof Tokens['font']['fontSize'],
   /** Размер текста, фолбек */

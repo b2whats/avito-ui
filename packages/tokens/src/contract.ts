@@ -109,7 +109,15 @@ type Space = {
 }
 
 export type Tokens = {
-  focus: string,
+  focus: {
+    shape: string,
+    defaultColor: string,
+    primaryColor: string,
+    secondaryColor: string,
+    successColor: string,
+    warningColor: string,
+    errorColor: string,
+  },
   font: Font,
   palette: Palette,
   dimension: Dimension,
