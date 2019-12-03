@@ -22,7 +22,17 @@ export interface ButtonProps extends MarginProperties {
   /** Действие которое совершает кнопка */
   type?: 'button' | 'submit' | 'reset',
   /** Кнопка со спиннером */
-  loading: boolean,
+  loading?: boolean,
+  /** Квадратная кнопка */
+  square?: boolean,
+  /** Квадратная кнопка */
+  circle?: boolean,
+  /** Иконка слева */
+  iconBefore?: string,
+  /** Иконка справа */
+  iconAfter?: string,
+  /** Кнопка занимает всю ширину */
+  block?: boolean,
   /** Тег компонента */
   as?: 'a' | 'button',
   /** Id елемента */
@@ -30,8 +40,9 @@ export interface ButtonProps extends MarginProperties {
   /** Ссылка для перехода */
   href?: string,
   /** Ссылка на дом ноду */
-  innerRef?: (node: HTMLButtonElement | HTMLLinkElement | null) => void,
+  innerRef?: (node: HTMLButtonElement | HTMLAnchorElement | null) => void,
 
-  onClick?(event: React.MouseEvent<HTMLButtonElement | HTMLLinkElement>): void,
-  onKeyDown?(event: React.KeyboardEvent<HTMLButtonElement | HTMLLinkElement>): void,
+  onClick?(event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void,
+  onKeyDown?(event: React.KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>): void,
 }
+

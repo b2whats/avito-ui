@@ -32,7 +32,7 @@ const tokens: Tokens = {
   
     crop: {
       top: 4,
-      bottom: 6,
+      bottom: 3,
     },
 
     underline: {

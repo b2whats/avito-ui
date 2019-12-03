@@ -10,11 +10,12 @@ const Svg = styled('svg')<Partial<IconProps>>`
   display: inline-block;
   white-space: nowrap;
 
-  ${({ size, color, onClick, onMouseOver }) => `
+  ${({ size, color, colorHover, onClick, onMouseOver }) => `
     height: ${size === 'auto' ? '100%' : typeof size === 'number' ? `${size}px` : size || '1em'};
     fill: currentColor;
-    ${color ? `color: ${color};` : ''};
-    ${onClick || onMouseOver ? 'cursor: pointer;' : ''};
+    ${color ? `color: ${color};` : ''}
+    ${onClick || onMouseOver ? 'cursor: pointer;' : ''}
+    ${colorHover ? `&:hover { color: ${colorHover} }` : ''};
   `}
 `
 
@@ -25,7 +26,6 @@ const Icon = ({ name, marker, ...props }: IconProps) => {
     throw new Error(`Icon name "${name}" not exist.`)
   }
 
-  // Accessibility
   const aria = props.onClick
     ? { 'aria-hidden': false, role: 'button', tabIndex: 0 }
     : { 'aria-hidden': true, role: 'img' }

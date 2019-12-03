@@ -42,9 +42,9 @@ export interface TextProps extends MarginProperties {
   /** Цветовые варианты текста */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   /** Текстовая нода */
-  as?: string,
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'strong' | 'em' | 'label' | 'li',
   /** Цвет текста */
-  color?: keyof Tokens['palette'],
+  color?: keyof Tokens['palette'] | 'inherit',
   /** Инлайновое поведение */
   inline?: boolean,
   /** Блочное поведение */

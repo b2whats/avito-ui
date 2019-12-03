@@ -2,17 +2,80 @@ import { ComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { ButtonProps } from './contract'
 import { TextProps } from '../Text/contract'
+import { IconProps } from '../Icon/contract'
 
 export type ButtonTheme = {
+  pressOffset: {
+    default: number,
+    outline: number,
+    flat: number,
+  },
   scheme: {
     Button: SchemeType<ButtonProps>,
+    IconBefore: SchemeType<ButtonProps, IconProps>,
     Text: SchemeType<ButtonProps, TextProps>,
+    IconAfter: SchemeType<ButtonProps, IconProps>,
   },
 }
 
 export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
+  const component = {
+    pressOffset: {
+      default: 1,
+      outline: 1,
+      flat: 1,
+    },
+  }
   const scheme: ButtonTheme['scheme'] = {
+    IconBefore: {
+      size: {
+        s: {
+          props: {
+            size: 's',
+          },
+        },
+        m: {
+          props: {
+            size: 'm',
+          },
+        },
+        l: {
+          props: {
+            size: 'l',
+          },
+        },
+      },
+    },
+    IconAfter: {
+      size: {
+        s: {
+          props: {
+            size: 's',
+          },
+        },
+        m: {
+          props: {
+            size: 'm',
+          },
+        },
+        l: {
+          props: {
+            size: 'l',
+          },
+        },
+      },
+    },
     Text: {
+      iconBefore: {
+        props: {
+          ml: 2,
+        },
+      },
+      iconAfter: {
+        props: {
+          mr: 2,
+        },
+      },
       size: {
         s: {
           props: {
@@ -53,6 +116,13 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
             py: 'xs',
             minHeight: 's',
           },
+          iconBefore: {
+            children: {
+              style: {
+                pl: 's',
+              },
+            },
+          },
         },
         m: {
           style: {
@@ -60,12 +130,26 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
             py: 's',
             minHeight: 'm',
           },
+          iconBefore: {
+            children: {
+              style: {
+                pl: 's',
+              },
+            },
+          },
         },
         l: {
           style: {
             px: 'm',
             py: 's',
             minHeight: 'l',
+          },
+          iconBefore: {
+            children: {
+              style: {
+                pl: 's',
+              },
+            },
           },
         },
       },
@@ -245,6 +329,7 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
   }
 
   return {
+    ...component,
     scheme,
-  } as ButtonTheme
+  }
 }

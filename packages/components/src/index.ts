@@ -1,4 +1,4 @@
-// export { Button } from './components/Button/'
+export { Button } from './components/Button/'
 // export { Checkbox } from './components/Checkbox/'
 export { Text } from './components/Text/'
 // export { Link } from './components/Link/'

@@ -20,3 +20,5 @@ https://material.io/design/color/text-legibility.html#text-types
 про вертикальный риитм в 8 пунктов
 https://builttoadapt.io/8-point-grid-borders-and-layouts-e91eb97f5091
 
+подчеркнутый текст выглядит странно, нужно придумать как приблизить полоску ближе к тексту
+

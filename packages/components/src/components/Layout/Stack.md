@@ -1,7 +1,7 @@
 ```jsx
 import { Box } from './';
 
-<Stack space='m' debug onMouseUp={() => console.log('up stack')}>
+<Stack space='m' debug inline onMouseUp={() => console.log('up stack')}>
   <Box p='s' onMouseUp={() => console.log('up1')}>1</Box>
   <Box mr='xl' p='s' onMouseUp={() => console.log('up2')}>2</Box>
   <Box p='s' onMouseUp={() => console.log('up3')}>3</Box>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme, omit } from '../../utils'
+import { useTheme, omit, filterProps } from '../../utils'
 import { createClassName } from '../../styled-system/'
 import { StackProps } from './contract'
 
@@ -7,6 +7,7 @@ const stackClassName = createClassName<StackProps>(
   (_, props) => ({ display: 'flex', ...omit(props, 'align')}),
   (textRules, { column, align, scroll, space, debug }, { palette, space: spaceToken }) => (`
     box-sizing: border-box;
+    flex-shrink: 0;
     align-items: ${align ? align : !column ? 'baseline' : 'normal'};
     ${scroll ? `overflow-${column ? 'y' : 'x'}: scroll;` : ''};
 
@@ -24,6 +25,7 @@ const stackClassName = createClassName<StackProps>(
         background-color: ${palette.yellow20};
       }
     ` : ''}
+
     ${textRules}
   `),
 )
@@ -33,7 +35,7 @@ const Stack = ({ children, ...props }: StackProps) => {
   const stackStyle = stackClassName(props, theme)
 
   return (
-    <div css={stackStyle}>
+    <div css={stackStyle} {...filterProps(props)}>
       { children }
     </div>
   )
