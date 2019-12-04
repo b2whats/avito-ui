@@ -6,6 +6,10 @@ import { Stack, Icon } from '../../';
   <Button variant='primary' size='s' iconBefore='search'></Button>
   <Button variant='primary' size='s' iconBefore='search' square></Button>
   <Button variant='primary' size='s' iconBefore='search' circle></Button>
+  <Button loading iconBefore='search'>Push Me</Button>
+  <Button loading iconBefore='search' disabled>Push Me</Button>
+  <Button as='a' href={`http://example.com`} variant='primary' size='s' iconBefore='search' disabled>Push Me</Button>
+  <Button as='a' href={`http://example.com`} variant='primary' size='s' iconBefore='search' loading>Push Me</Button>
 </div>
 ```
 

@@ -3,6 +3,7 @@ import { SchemeType } from '../../styled-system/'
 import { ButtonProps } from './contract'
 import { TextProps } from '../Text/contract'
 import { IconProps } from '../Icon/contract'
+import { SpinnerProps } from '../Spinner/contract'
 
 export type ButtonTheme = {
   pressOffset: {
@@ -15,6 +16,7 @@ export type ButtonTheme = {
     IconBefore: SchemeType<ButtonProps, IconProps>,
     Text: SchemeType<ButtonProps, TextProps>,
     IconAfter: SchemeType<ButtonProps, IconProps>,
+    Spinner: SchemeType<ButtonProps, SpinnerProps>,
   },
 }
 
@@ -27,6 +29,25 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
     },
   }
   const scheme: ButtonTheme['scheme'] = {
+    Spinner: {
+      size: {
+        s: {
+          props: {
+            size: 's',
+          },
+        },
+        m: {
+          props: {
+            size: 'm',
+          },
+        },
+        l: {
+          props: {
+            size: 'l',
+          },
+        },
+      },
+    },
     IconBefore: {
       size: {
         s: {

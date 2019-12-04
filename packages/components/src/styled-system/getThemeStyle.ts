@@ -265,9 +265,10 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
 
   if (!params) return css
 
-  let margin = [null, null, null, null]
-  let spaces = []
+  let margin: string[] = []
+  let padding: string[] = []
   let hoverState = []
+  let checkedState = []
   let activeState = []
   let visitedState = []
   let focusState = []
@@ -453,67 +454,87 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
 
         break
       case 'm':
-        spaces.push(`margin: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin = [
+          `margin-top: ${value};`,
+          `margin-right: ${value};`,
+          `margin-bottom: ${value};`,
+          `margin-left: ${value};`,
+        ]
 
         break
       case 'mx':
         value = spaceValue(value, space)
-
-        spaces.push(`margin-left: ${value};margin-right: ${value};`)
+        margin[1] = `margin-right: ${value};`
+        margin[3] = `margin-left: ${value};`
 
         break
       case 'my':
         value = spaceValue(value, space)
-
-        spaces.push(`margin-top: ${value};margin-bottom: ${value};`)
+        margin[0] = `margin-top: ${value};`
+        margin[2] = `margin-bottom: ${value};`
 
         break
       case 'mt':
-        spaces.push(`margin-top: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin[0] = `margin-top: ${value};`
 
         break
       case 'mr':
-        spaces.push(`margin-right: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin[1] = `margin-right: ${value};`
 
         break
       case 'mb':
-        spaces.push(`margin-bottom: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin[2] = `margin-bottom: ${value};`
 
         break
       case 'ml':
-        spaces.push(`margin-left: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin[3] = `margin-left: ${value};`
 
         break
       case 'p':
-        spaces.push(`padding: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding = [
+          `padding-top: ${value};`,
+          `padding-right: ${value};`,
+          `padding-bottom: ${value};`,
+          `padding-left: ${value};`,
+        ]
     
         break
       case 'px':
         value = spaceValue(value, space)
-  
-        spaces.push(`padding-left: ${value};padding-right: ${value};`)
+        padding[1] = `padding-right: ${value};`
+        padding[3] = `padding-left: ${value};`
   
         break
       case 'py':
         value = spaceValue(value, space)
-  
-        spaces.push(`padding-top: ${value};padding-bottom: ${value};`)
+        padding[0] = `padding-top: ${value};`
+        padding[2] = `padding-bottom: ${value};`
   
         break
       case 'pt':
-        spaces.push(`padding-top: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding[0] = `padding-top: ${value};`
   
         break
       case 'pr':
-        spaces.push(`padding-right: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding[1] = `padding-right: ${value};`
   
         break
       case 'pb':
-        spaces.push(`padding-bottom: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding[2] = `padding-bottom: ${value};`
   
         break
       case 'pl':
-        spaces.push(`padding-left: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding[3] = `padding-left: ${value};`
   
         break
       case 'color':
@@ -546,6 +567,12 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         focusState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
+      case 'colorChecked':
+      case 'backgroundColorChecked':
+      case 'borderColorChecked':
+        checkedState.push(`${maps.color[param]}: ${palette[value] || value};`)
+            
+        break
       case 'colorDisabled':
       case 'backgroundColorDisabled':
       case 'borderColorDisabled':
@@ -557,17 +584,15 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
             
         break
       case 'focus':
+        const color = focus.color[params.variant || 'default']
         css += `
           outline: none;
           &&:focus {
-            box-shadow: ${focus.shape} ${focus[`${params.variant || 'default'}Color`]};
+            box-shadow: ${focus.shape} ${palette[color] || color};
             position: relative;
             z-index: 2;
           }
         `
-            
-        break
-
             
         break
       default:
@@ -575,8 +600,11 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
     }
   }
 
-  if (spaces.length) {
-    css += `&&& {${spaces.join('')}}`
+  if (margin.length || padding.length) {
+    css += `&&& {
+      ${margin.join('')}
+      ${padding.join('')}
+    }`
   }
 
   let selector = null
@@ -602,20 +630,23 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
     }
   }
 
+  if (checkedState.length) {
+    css += `${selector.hover}{${hoverState.join('')}}`
+  }
+  if (visitedState.length) {
+    css += `${selector.visited}{${visitedState.join('')}}`
+  }
   if (hoverState.length) {
     css += `${selector.hover}{${hoverState.join('')}}`
   }
   if (activeState.length) {
     css += `${selector.active}{${activeState.join('')}}`
   }
-  if (visitedState.length) {
-    css += `${selector.visited}{${visitedState.join('')}}`
-  }
   if (focusState.length) {
     css += `${selector.focus}{${focusState.join('')}}`
   }
   if (disabledState.length) {
-    css += `${selector.disabled}{${disabledState.join('')}}`
+    css += `${selector.disabled}{cursor: not-allowed;${disabledState.join('')}}`
   }
 
   return css
@@ -681,14 +712,14 @@ interface Selector<Props, ComponentTheme> {
 
 export function createClassName<Props, ComponentTheme extends object | null = null>(
   createRule: (schemeStyle: ThemeStyle<ComponentTheme>, props: Props, theme: Theme) => StyleProperties & Display,
-  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => string,
+  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any,
 ): Selector<Props, ComponentTheme>[ComponentTheme extends object ? 't' : 'f']  {
   return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme>) => {
     const styles = createRule(schemeStyle as any, props, theme)
     const textRules = getStyles(styles, theme)
 
     const resultRules = createUserRule(textRules, props, theme, schemeStyle as any)
-
-    return css`${resultRules}`
+    
+    return typeof resultRules === 'string' ? css`${resultRules}` : resultRules
   }
 }

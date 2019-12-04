@@ -3,26 +3,23 @@ import { useTheme, useRefHook, filterProps } from '../../utils'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Text as TextComponent } from '../Text/'
 import { Icon } from '../Icon/'
+import { Spinner as SpinnerComponent } from '../Spinner/'
 import { useGroupHook } from '../Layout/Group'
 import { ButtonProps } from './contract'
 import { ButtonTheme } from './theme'
 
 const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
-  (themeStyle, props, { dimension: { rowHeight } }) => ({
+  (themeStyle, props) => ({
     display: 'inline-block',
     ...themeStyle,
     ...props,
     ...props.block && { width: 1 },
-    ...(props.square || props.circle) && {
-      width: rowHeight[themeStyle.minHeight! || themeStyle.height!],
-      height: themeStyle.minHeight,
-      minHeight: undefined,
-      p: 'none',
-    },
-    ...props.circle && { borderRadius: 'rounded'},
+    ...(props.square || props.circle) && { p: 'none' },
+    ...props.circle && { borderRadius: 'rounded' },
   }),
-  (textRules, { kind }, { button }, style) => (`
+  (textRules, { kind, loading }, { button, dimension: { rowHeight } }, themeStyle) => (`
     box-sizing: border-box;
+    min-width: ${rowHeight[themeStyle.minHeight! || themeStyle.height!]}px;
     font-family: inherit;
     cursor: pointer;
     text-align: center;
@@ -44,7 +41,7 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     }
 
     &[data-group~='horizontal']:not([data-group~='last']) {
-      margin-right: ${kind === 'outline' ? '-' : ''}${style.borderWidth};
+      margin-right: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth};
       border-bottom-right-radius: 0px;
       border-top-right-radius: 0px;
     }
@@ -55,7 +52,7 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     }
 
     &[data-group~='vertical']:not([data-group~='last']) {
-      margin-bottom: ${kind === 'outline' ? '-' : ''}${style.borderWidth};
+      margin-bottom: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth};
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
@@ -70,12 +67,23 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
       justify-content: center;
       align-items: center;
     }
+
+    & > [data-component='spinner'] {
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+    }
+
+    &[aria-busy='true'] > :not([data-component='spinner']) {
+      visibility: hidden;
+    }
     
     ${textRules}
   `),
 )
 
-const Button = ({ as, innerRef, ...props }: ButtonProps) => {
+const Button = ({ innerRef, ...props }: ButtonProps) => {
   const theme = useTheme()
 
   props = {
@@ -84,29 +92,31 @@ const Button = ({ as, innerRef, ...props }: ButtonProps) => {
     variant: 'primary',
     type: 'button',
     ...props,
+    disabled: props.disabled || props.loading,
   }
 
-  if (as === 'a') {
+  if (props.href) {
     props.type = undefined
+    props.href = props.disabled ? undefined : props.href
   }
 
   const aria = {
     'aria-disabled': props.disabled,
     'aria-busy': props.loading,
-    tabIndex: props.disabled ? -1 : undefined,
   }
 
   const [ref, setRef] = useRefHook(innerRef)
   const groupProps = useGroupHook(ref, props)
   const mergeProps = {...props, ...groupProps}
 
-  const { Button, Text, IconBefore, IconAfter } = foldThemeParams<ButtonTheme>(theme.button, mergeProps)
+  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams<ButtonTheme>(theme.button, mergeProps)
   const buttonStyle = buttonClassName(mergeProps, theme, Button.style)
 
-  const Tag = as || 'button'
+  const Tag = props.href ? 'a' : 'button'
 
   return (
     <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(mergeProps)}>
+      {props.loading && <SpinnerComponent {...Spinner.props}/>}
       {props.iconBefore && <Icon name={props.iconBefore} {...IconBefore.props} />}
       {props.children && <TextComponent {...Text.props} crop color='inherit' valignSelf='middle' dense>{ props.children }</TextComponent>}
       {props.iconAfter && <Icon name={props.iconAfter} {...IconAfter.props} />}

@@ -3,12 +3,14 @@ import { Tokens } from './contract'
 const tokens: Tokens = {
   focus: {
     shape: 'white 0px 0px 0px 1px, 0px 0px 2px 3px',
-    defaultColor: 'blue20',
-    primaryColor: 'blue20',
-    secondaryColor: 'blue20',
-    successColor: 'blue20',
-    warningColor: 'blue20',
-    errorColor: 'blue20',
+    color: {
+      default: 'blue20',
+      primary: 'blue20',
+      secondary: 'blue20',
+      success: 'blue20',
+      warning: 'blue20',
+      error: 'blue20',
+    },
   },
   font: {
     fontFamily: 'Arial',
@@ -31,7 +33,7 @@ const tokens: Tokens = {
     },
   
     crop: {
-      top: 4,
+      top: 3,
       bottom: 3,
     },
 
@@ -107,14 +109,15 @@ const tokens: Tokens = {
     },
   },
   space: {
-    xxxl: 36,
-    xxl: 26,
-    xl: 22,
-    l: 16,
-    m: 14,
+    xxxl: 40,
+    xxl: 32,
+    xl: 24,
+    l: 20,
+    m: 16,
     s: 12,
     xs: 8,
     xxs: 4,
+    xxxs: 2,
   },
 }
 

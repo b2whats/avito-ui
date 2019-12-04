@@ -33,8 +33,6 @@ export interface ButtonProps extends MarginProperties {
   iconAfter?: string,
   /** Кнопка занимает всю ширину */
   block?: boolean,
-  /** Тег компонента */
-  as?: 'a' | 'button',
   /** Id елемента */
   id?: string,
   /** Ссылка для перехода */
