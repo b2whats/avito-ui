@@ -12,7 +12,7 @@ import { Stack } from '../../';
 </Stack>
 ```
 
-<!-- ### Размеры
+### Размеры
 
 ```js
 import { Stack } from '../../';
@@ -47,4 +47,4 @@ import { Stack } from '../../';
   <Spinner thickness={1}/>
   <Spinner thickness={4}/> 
 </Stack>
-``` -->
+```
