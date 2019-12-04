@@ -9,7 +9,7 @@ export interface SpinnerProps extends MarginProperties {
   size?: number | 's' | 'm' | 'l',
   /** Толщина */
   thickness?: number,
-  /** Цветовые варианты иконок */
+  /** Цветовые варианты */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   /** Скорость вращения */
   speed?: number,
