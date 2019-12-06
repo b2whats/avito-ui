@@ -7,9 +7,9 @@ import { Icon } from '../Icon'
 import { CheckmarkTheme } from './theme'
 
 const checkmarkClassName = createClassName<CheckmarkProps, CheckmarkTheme>(
-  (themeParams, props) => ({
+  (themeStyle, props) => ({
     display: 'inline',
-    ...themeParams && themeParams.Checkmark.style,
+    ...themeStyle,
     ...props,
   }),
   (textRules, {}, {}) => (`
@@ -36,8 +36,8 @@ const checkmarkClassName = createClassName<CheckmarkProps, CheckmarkTheme>(
 
 const Checkmark = (props: CheckmarkProps) => {
   const theme = useTheme()
-  const themeParams = foldThemeParams<CheckmarkTheme>(theme.checkmark, props)
-  const style = checkmarkClassName(props, theme, themeParams)
+  const { Checkmark } = foldThemeParams<CheckmarkTheme>(theme.checkmark, props)
+  const style = checkmarkClassName(props, theme, Checkmark.style)
 
   return (
     <Toggler

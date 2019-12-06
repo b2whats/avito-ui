@@ -6,12 +6,12 @@ import {createClassName, foldThemeParams } from '../../styled-system'
 import { Toggler } from '../Toggler'
 
 const radioClassName = createClassName<SwitcherProps, SwitcherTheme>(
-  (themeParams, props) => ({
+  (themeStyles, props) => ({
     display: 'inline-flex',
-    ...themeParams && themeParams.Switcher.style,
+    ...themeStyles,
     ...props,
   }),
-  (textRules, {}, {}) => (console.log('!!', textRules),`
+  (textRules, {}, {}) => (`
     position: relative;
     width: 48px;
     height: 24px;
@@ -41,8 +41,8 @@ const radioClassName = createClassName<SwitcherProps, SwitcherTheme>(
 
 const Switcher = (props: SwitcherProps) => {
   const theme = useTheme()
-  const themeParams = foldThemeParams<SwitcherTheme>(theme.switcher, props)
-  const style = radioClassName(props, theme, themeParams)
+  const { Switcher } = foldThemeParams<SwitcherTheme>(theme.switcher, props)
+  const style = radioClassName(props, theme, Switcher.style)
 
   return (
     <Toggler

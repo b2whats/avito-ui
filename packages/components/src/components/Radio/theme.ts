@@ -16,86 +16,96 @@ export const radioTheme: ComponentTheme<RadioTheme> = (_, override) => {
           style: {
             backgroundColor: 'gray10',
             borderColor: 'gray10',
-            backgroundColorHover: 'white',
+            backgroundColorHover: 'gray0',
             borderColorHover: 'blue50',
             borderColorActive: 'blue50',
-            backgroundColorChecked: 'white',
+            backgroundColorChecked: 'gray0',
             borderColorChecked: 'blue40',
             borderColorDisabled: 'gray10',
           },
           checked: {
             style: {
-              borderColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'gray0',
+              borderColor: 'blue40',
+              borderColorDisabled: 'gray30',
+            },
+          },
         },
         secondary: {
           style: {
             backgroundColor: 'gray10',
             borderColor: 'gray10',
-            backgroundColorHover: 'white',
+            backgroundColorHover: 'gray0',
             borderColorHover: 'blue50',
             borderColorActive: 'blue50',
-            backgroundColorChecked: 'white',
+            backgroundColorChecked: 'gray0',
             borderColorChecked: 'blue40',
             borderColorDisabled: 'gray10',
           },
           checked: {
             style: {
-              borderColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'gray0',
+              borderColor: 'blue40',
+              borderColorDisabled: 'gray30',
+            },
+          },
         },
         error: {
           style: {
             backgroundColor: 'gray10',
             borderColor: 'gray10',
-            backgroundColorHover: 'white',
+            backgroundColorHover: 'gray0',
             borderColorHover: 'blue50',
             borderColorActive: 'blue50',
-            backgroundColorChecked: 'white',
+            backgroundColorChecked: 'gray0',
             borderColorChecked: 'blue40',
             borderColorDisabled: 'gray10',
           },
           checked: {
             style: {
-              borderColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'gray0',
+              borderColor: 'blue40',
+              borderColorDisabled: 'gray30',
+            },
+          },
         },
         success: {
           style: {
             backgroundColor: 'gray10',
             borderColor: 'gray10',
-            backgroundColorHover: 'white',
+            backgroundColorHover: 'gray0',
             borderColorHover: 'blue50',
             borderColorActive: 'blue50',
-            backgroundColorChecked: 'white',
+            backgroundColorChecked: 'gray0',
             borderColorChecked: 'blue40',
             borderColorDisabled: 'gray10',
           },
           checked: {
             style: {
-              borderColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'gray0',
+              borderColor: 'blue40',
+              borderColorDisabled: 'gray30',
+            },
+          },
         },
         warning: {
           style: {
             backgroundColor: 'gray10',
             borderColor: 'gray10',
-            backgroundColorHover: 'white',
+            backgroundColorHover: 'gray0',
             borderColorHover: 'blue50',
             borderColorActive: 'blue50',
-            backgroundColorChecked: 'white',
+            backgroundColorChecked: 'gray0',
             borderColorChecked: 'blue40',
             borderColorDisabled: 'gray10',
           },
           checked: {
             style: {
-              borderColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'gray0',
+              borderColor: 'blue40',
+              borderColorDisabled: 'gray30',
+            },
+          },
         },
       },
     },

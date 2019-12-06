@@ -22,9 +22,10 @@ export const checkboxTheme: ComponentTheme<CheckboxTheme> = (_, override) => {
           },
           checked: {
             style: {
-              backgroundColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'blue40',
+              backgroundColorDisabled: 'gray30',
+            },
+          },
         },
         secondary: {
           style: {
@@ -36,9 +37,10 @@ export const checkboxTheme: ComponentTheme<CheckboxTheme> = (_, override) => {
           },
           checked: {
             style: {
-              backgroundColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'blue40',
+              backgroundColorDisabled: 'gray30',
+            },
+          },
         },
         error: {
           style: {
@@ -50,9 +52,10 @@ export const checkboxTheme: ComponentTheme<CheckboxTheme> = (_, override) => {
           },
           checked: {
             style: {
-              backgroundColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'blue40',
+              backgroundColorDisabled: 'gray30',
+            },
+          },
         },
         success: {
           style: {
@@ -64,9 +67,10 @@ export const checkboxTheme: ComponentTheme<CheckboxTheme> = (_, override) => {
           },
           checked: {
             style: {
-              backgroundColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'blue40',
+              backgroundColorDisabled: 'gray30',
+            },
+          },
         },
         warning: {
           style: {
@@ -78,9 +82,10 @@ export const checkboxTheme: ComponentTheme<CheckboxTheme> = (_, override) => {
           },
           checked: {
             style: {
-              backgroundColorDisabled: 'gray30'
-            }
-          }
+              backgroundColor: 'blue40',
+              backgroundColorDisabled: 'gray30',
+            },
+          },
         },
       },
     },

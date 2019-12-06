@@ -6,9 +6,9 @@ import { Toggler } from '../Toggler'
 import { RadioTheme } from './theme'
 
 const radioClassName = createClassName<RadioProps, RadioTheme>(
-  (themeParams, props) => ({
+  (themeStyle, props) => ({
     display: 'inline',
-    ...themeParams && themeParams.Radio.style,
+    ...themeStyle,
     ...props,
   }),
   (textRules, {}, {}) => (`
@@ -24,8 +24,8 @@ const radioClassName = createClassName<RadioProps, RadioTheme>(
 
 const Radio = (props: RadioProps) => {
   const theme = useTheme()
-  const themeParams = foldThemeParams<RadioTheme>(theme.radio, props)
-  const style = radioClassName(props, theme, themeParams)
+  const { Radio } = foldThemeParams<RadioTheme>(theme.radio, props)
+  const style = radioClassName(props, theme, Radio.style)
 
   return (
     <Toggler

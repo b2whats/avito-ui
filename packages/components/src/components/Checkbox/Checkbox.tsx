@@ -7,12 +7,12 @@ import { Icon } from '../Icon'
 import { CheckboxTheme } from './theme'
 
 const checkboxClassName = createClassName<CheckboxProps, CheckboxTheme>(
-  (themeParams, props) => ({
+  (themeStyle, props) => ({
     display: 'inline',
-    ...themeParams && themeParams.Сheckbox.style,
+    ...themeStyle,
     ...props,
   }),
-  (textRules, {}, {}) => (`
+  (textRules) => (`
     width: 18px;
     height: 18px;
     margin: 2px; /* чтобы уравновесть с radio */
@@ -38,8 +38,8 @@ const checkboxClassName = createClassName<CheckboxProps, CheckboxTheme>(
 
 const Checkbox = (props: CheckboxProps) => {
   const theme = useTheme()
-  const themeParams = foldThemeParams<CheckboxTheme>(theme.checkbox, props)
-  const style = checkboxClassName(props, theme, themeParams)
+  const { Сheckbox } = foldThemeParams<CheckboxTheme>(theme.checkbox, props)
+  const style = checkboxClassName(props, theme, Сheckbox.style)
 
   return (
     <Toggler

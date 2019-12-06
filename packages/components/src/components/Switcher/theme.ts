@@ -26,8 +26,8 @@ export const switcherTheme: ComponentTheme<SwitcherTheme> = (_, override) => {
               backgroundColorHover: 'blue60',
               backgroundColorActive: 'blue60',
               backgroundColorDisabled: 'blue20',
-            }
-          }
+            },
+          },
         },
         secondary: {
           style: {
@@ -43,8 +43,8 @@ export const switcherTheme: ComponentTheme<SwitcherTheme> = (_, override) => {
               backgroundColorHover: 'blue60',
               backgroundColorActive: 'blue60',
               backgroundColorDisabled: 'blue20',
-            }
-          }
+            },
+          },
         },
         error: {
           style: {
@@ -60,8 +60,8 @@ export const switcherTheme: ComponentTheme<SwitcherTheme> = (_, override) => {
               backgroundColorHover: 'blue60',
               backgroundColorActive: 'blue60',
               backgroundColorDisabled: 'blue20',
-            }
-          }
+            },
+          },
         },
         success: {
           style: {
@@ -77,8 +77,8 @@ export const switcherTheme: ComponentTheme<SwitcherTheme> = (_, override) => {
               backgroundColorHover: 'blue60',
               backgroundColorActive: 'blue60',
               backgroundColorDisabled: 'blue20',
-            }
-          }
+            },
+          },
         },
         warning: {
           style: {
@@ -94,8 +94,8 @@ export const switcherTheme: ComponentTheme<SwitcherTheme> = (_, override) => {
               backgroundColorHover: 'blue60',
               backgroundColorActive: 'blue60',
               backgroundColorDisabled: 'blue20',
-            }
-          }
+            },
+          },
         },
       },
     },
