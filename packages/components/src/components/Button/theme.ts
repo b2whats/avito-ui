@@ -130,9 +130,6 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
         borderColor: 'transparent',
         focus: true,
       },
-      props: {
-
-      },
       size: {
         s: {
           style: {
