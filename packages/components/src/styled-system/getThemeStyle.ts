@@ -538,6 +538,7 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
 
         break
       case 'backgroundColorDisabled':
+        console.log('!!!!', value, params)
         disabled.push(`background-color: ${palette[value] || value};`)
 
         break
@@ -577,17 +578,17 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
     }
   }
 
+  if (checked.length) {
+    css += `${selector.checked}{${checked.join('')}}`
+  }
+  if (visited.length) {
+    css += `${selector.visited}{${visited.join('')}}`
+  }
   if (hover.length) {
     css += `${selector.hover}{${hover.join('')}}`
   }
   if (active.length) {
     css += `${selector.active}{${active.join('')}}`
-  }
-  if (visited.length) {
-    css += `${selector.visited}{${visited.join('')}}`
-  }
-  if (checked.length) {
-    css += `${selector.checked}{${checked.join('')}}`
   }
   if (focus.length) {
     css += `${selector.focus}{${focus.join('')}}`

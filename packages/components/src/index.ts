@@ -3,6 +3,10 @@
 export { Text } from './components/Text/'
 // export { Link } from './components/Link/'
 export { Icon } from './components/Icon/'
+export { Checkbox } from './components/Checkbox/'
+export { Checkmark } from './components/Checkmark/'
+export { Radio } from './components/Radio/'
+export { Switcher } from './components/Switcher/'
 export { Stack, Grid, Box, Group } from './components/Layout/'
 
 export { createTheme } from './theme/'

@@ -52,7 +52,7 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
       },
       props: {
 
-      }
+      },
       size: {
         s: {
           style: {

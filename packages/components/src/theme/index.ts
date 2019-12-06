@@ -10,9 +10,13 @@ export type ComponentsTheme = {
   icon: components.IconTheme,
   // toggleBox: components.ToggleBoxTheme,
   // inputBox: components.InputBoxTheme,
-  // checkbox: components.CheckboxTheme,
+  checkbox: components.CheckboxTheme,
+  checkmark: components.CheckmarkTheme,
+  radio: components.RadioTheme,
+  switcher: components.SwitcherTheme,
   // variants: components.VariantsTheme,
 }
+console.log('11', components)
 
 type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
 
@@ -24,7 +28,10 @@ export const createTheme = (baseToken: Tokens, overrides: DeepPartial<Components
   icon: components.iconTheme(baseToken, overrides.icon),
   // toggleBox: components.toggleBoxTheme(baseToken, overrides.toggleBox),
   // inputBox: components.inputBoxTheme(baseToken, overrides.inputBox),
-  // checkbox: components.checkboxTheme(baseToken, overrides.checkbox),
+  checkbox: components.checkboxTheme(baseToken, overrides.checkbox),
+  checkmark: components.checkmarkTheme(baseToken, overrides.checkmark),
+  radio: components.radioTheme(baseToken, overrides.radio),
+  switcher: components.switcherTheme(baseToken, overrides.switcher),
   // variants: components.variantsTheme(baseToken, overrides.variants),
 })
 
