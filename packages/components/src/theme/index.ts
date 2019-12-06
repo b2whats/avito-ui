@@ -5,9 +5,10 @@ export type Tokens = Tokens
 
 export type ComponentsTheme = {
   text: components.TextTheme,
-  // button: components.ButtonTheme,
+  button: components.ButtonTheme,
   // link: components.LinkTheme,
   icon: components.IconTheme,
+  spinner: components.SpinnerTheme,
   // toggleBox: components.ToggleBoxTheme,
   // inputBox: components.InputBoxTheme,
   checkbox: components.CheckboxTheme,
@@ -22,10 +23,11 @@ type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } 
 
 export const createTheme = (baseToken: Tokens, overrides: DeepPartial<ComponentsTheme> = {}) => ({
   ...baseToken,
-  // button: components.buttonTheme(baseToken, overrides.button),
+  button: components.buttonTheme(baseToken, overrides.button),
   text: components.textTheme(baseToken, overrides.text),
   // link: components.linkTheme(baseToken, overrides.link),
   icon: components.iconTheme(baseToken, overrides.icon),
+  spinner: components.spinnerTheme(baseToken, overrides.spinner),
   // toggleBox: components.toggleBoxTheme(baseToken, overrides.toggleBox),
   // inputBox: components.inputBoxTheme(baseToken, overrides.inputBox),
   checkbox: components.checkboxTheme(baseToken, overrides.checkbox),

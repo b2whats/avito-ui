@@ -1,8 +1,8 @@
 import React from 'react'
 import { Tokens } from '../../theme/'
-import { SpaceProperties } from '../../styled-system/'
+import { MarginProperties } from '../../styled-system/'
 
-export interface TextProps extends SpaceProperties {
+export interface TextProps extends MarginProperties {
   /** Размер текста */
   size?: keyof Tokens['font']['fontSize'],
   /** Размер текста, фолбек */
@@ -42,9 +42,9 @@ export interface TextProps extends SpaceProperties {
   /** Цветовые варианты текста */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   /** Текстовая нода */
-  as?: string,
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'strong' | 'em' | 'label' | 'li',
   /** Цвет текста */
-  color?: keyof Tokens['palette'],
+  color?: keyof Tokens['palette'] | 'inherit',
   /** Инлайновое поведение */
   inline?: boolean,
   /** Блочное поведение */

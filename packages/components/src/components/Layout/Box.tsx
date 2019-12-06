@@ -1,24 +1,27 @@
-import { styled, isPropValid } from '../../utils'
-import { space, dimension } from '../../styled-system'
+import React from 'react'
+import { useTheme } from '../../utils'
+import { createClassName } from '../../styled-system/'
 import { BoxProps } from './contract'
 
-const Box = styled('div', { shouldForwardProp: isPropValid })<BoxProps>`
-  box-sizing: border-box;
+const boxClassName = createClassName<BoxProps>(
+  (_, props) => ({ display: 'inline-flex', ...props}),
+  (textRules) => (`
+    box-sizing: border-box;
+    flex-shrink: 0;
 
-  ${({ grow, shrink, alignSelf, display, radius }) => `
-    display: ${display};
-    flex-shrink: ${shrink ? '1' : '0'};
-    ${grow ? 'flex-grow: 1;': ''}
-    ${radius ? `border-radius: ${radius};` : ''}
-    ${alignSelf ? `align-self: ${alignSelf};` : ''};
-  `}
+    ${textRules}
+  `),
+)
 
-  ${space}
-  ${dimension}
-`
+const Box = ({ children, ...props }: BoxProps) => {
+  const theme = useTheme()
+  const boxStyle = boxClassName(props, theme)
 
-Box.defaultProps = {
-  display: 'block',
+  return (
+    <div css={boxStyle}>
+      { children }
+    </div>
+  )
 }
 
 export default Box

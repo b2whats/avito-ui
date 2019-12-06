@@ -203,3 +203,67 @@ const test: PresetType<TextProps, TextProps, 'kind'> = {
   },
 }
 ```
+
+
+export function createClassName2<Props, ComponentTheme extends object | null = null>(
+  createRule: (schemeStyle: ThemeStyle<ComponentTheme>, props: Props, theme: Theme) => StyleProperties,
+  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => string,
+): ComponentTheme extends object
+  ? (props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any
+  : (props: Props, theme: Theme) => any  {
+  
+  function setScheme(props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme>) {
+    const styles = createRule(schemeStyle, props, theme)
+    const textRules = getStyles(styles, theme)
+
+    const resultRules = createUserRule(textRules, props, theme, schemeStyle)
+
+    return css`${resultRules}` as unknown as string
+  }
+
+  return setScheme as any
+}
+
+type OneArgFn<Props, ComponentTheme> = ComponentTheme extends object
+    ? (props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any
+    : (props: Props, theme: Theme) => any
+
+export function createClassName<Props, ComponentTheme extends object | null = null>(
+  createRule: (schemeStyle: ThemeStyle<ComponentTheme>, props: Props, theme: Theme) => StyleProperties,
+  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => string,
+) {
+  
+  function setScheme(...args: Parameters<OneArgFn<Props, ComponentTheme>>): any
+  function setScheme(props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme>): any {
+    const styles = createRule(schemeStyle, props, theme)
+    const textRules = getStyles(styles, theme)
+
+    const resultRules = createUserRule(textRules, props, theme, schemeStyle)
+
+    return css`${resultRules}` as unknown as string
+  }
+
+  return setScheme
+}
+
+interface Selector<Props, ComponentTheme> {
+  t: (props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any;
+  f: (props: Props, theme: Theme) => any;
+}
+
+export function createClassName<Props, ComponentTheme extends object | null = null>(
+  createRule: (schemeStyle: ThemeStyle<ComponentTheme>, props: Props, theme: Theme) => StyleProperties,
+  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => string,
+): Selector<Props, ComponentTheme>[ComponentTheme extends object ? 't' : 'f']  {
+  
+  function setScheme(props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme>) {
+    const styles = createRule(schemeStyle, props, theme)
+    const textRules = getStyles(styles, theme)
+
+    const resultRules = createUserRule(textRules, props, theme, schemeStyle)
+
+    return css`${resultRules}` as unknown as string
+  }
+
+  return setScheme
+}

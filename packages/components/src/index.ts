@@ -1,4 +1,4 @@
-// export { Button } from './components/Button/'
+export { Button } from './components/Button/'
 // export { Checkbox } from './components/Checkbox/'
 export { Text } from './components/Text/'
 // export { Link } from './components/Link/'
@@ -7,6 +7,7 @@ export { Checkbox } from './components/Checkbox/'
 export { Checkmark } from './components/Checkmark/'
 export { Radio } from './components/Radio/'
 export { Switcher } from './components/Switcher/'
+export { Spinner } from './components/Spinner/'
 export { Stack, Grid, Box, Group } from './components/Layout/'
 
 export { createTheme } from './theme/'

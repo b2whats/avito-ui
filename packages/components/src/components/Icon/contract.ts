@@ -1,17 +1,18 @@
 import { Tokens } from '../../theme'
 import { IconProps as IconBaseProps } from '@avito/icons'
-import { SpaceProperties } from '../../styled-system/'
+import { MarginProperties } from '../../styled-system/'
 
 
-export interface IconProps extends IconBaseProps, SpaceProperties {
+export interface IconProps extends IconBaseProps, MarginProperties {
   /** Цвет иконки */
   color?: keyof Tokens['palette'],
+  /** Цвет иконки при наведении */
+  colorHover?: keyof Tokens['palette'],
   /** Размер иконки */
-  size?: 's' | 'm' | 'l' | 'auto' | string,
+  size: number | 's' | 'm' | 'l' | 'auto',
   /** Цветовые варианты иконок */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
-  /** Инвертированная иконка
-   * */
+  /** Инвертированная иконка */
   inverted?: boolean,
   /** Событие клика */
   onClick?(event: React.MouseEvent<SVGSVGElement>): void,
