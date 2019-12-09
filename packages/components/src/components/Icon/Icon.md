@@ -12,6 +12,17 @@ import { Stack } from '../../';
 </Stack>
 ```
 
+### Кликабельная область
+```js
+import { Stack } from '../../';
+const onClick = () => {};
+
+<Stack space='m'>
+  <Icon name='search' variant='primary' onClick={onClick} />
+  <Icon name='search' variant='error' onClick={onClick} />
+</Stack>
+```
+
 ### Инвертированные
 ```js
 import { Stack } from '../../';

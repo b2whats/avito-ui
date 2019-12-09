@@ -26,9 +26,7 @@ export const textTheme: ComponentTheme<TextTheme> = (_, override) => {
   const scheme: TextTheme['scheme'] = {
     Text: {
       style: {
-        fontSize: 'm',
         lineHeight: 'normal',
-        color: 'gray90',
       },
       size: {
         xs: {

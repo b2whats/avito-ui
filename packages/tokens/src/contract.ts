@@ -1,5 +1,8 @@
 type Font = {
   fontFamily: string,
+  defaultColor: string,
+  defaultFontSize: string,
+  defaultLineHeight: string,
 
   fontSize: {
     xxxxxl: number,
@@ -109,18 +112,20 @@ type Space = {
   xxxs: number,
 }
 
-export type Tokens = {
-  focus: {
-    shape: string,
-    color: {
-      default: string,
-      primary: string,
-      secondary: string,
-      success: string,
-      warning: string,
-      error: string,
-    },
+type Focus = {
+  shape: string,
+  color: {
+    default: string,
+    primary: string,
+    secondary: string,
+    success: string,
+    warning: string,
+    error: string,
   },
+}
+
+export type Tokens = {
+  focus: Focus,
   font: Font,
   palette: Palette,
   dimension: Dimension,

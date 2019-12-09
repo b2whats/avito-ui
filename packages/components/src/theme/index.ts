@@ -10,9 +10,9 @@ export type ComponentsTheme = {
   icon: components.IconTheme,
   spinner: components.SpinnerTheme,
   // toggleBox: components.ToggleBoxTheme,
-  // inputBox: components.InputBoxTheme,
+  input: components.InputTheme,
+  textarea: components.TextareaTheme,
   // checkbox: components.CheckboxTheme,
-  // variants: components.VariantsTheme,
 }
 
 type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
@@ -25,9 +25,9 @@ export const createTheme = (baseToken: Tokens, overrides: DeepPartial<Components
   icon: components.iconTheme(baseToken, overrides.icon),
   spinner: components.spinnerTheme(baseToken, overrides.spinner),
   // toggleBox: components.toggleBoxTheme(baseToken, overrides.toggleBox),
-  // inputBox: components.inputBoxTheme(baseToken, overrides.inputBox),
+  input: components.inputTheme(baseToken, overrides.input),
+  textarea: components.textareaTheme(baseToken, overrides.textarea),
   // checkbox: components.checkboxTheme(baseToken, overrides.checkbox),
-  // variants: components.variantsTheme(baseToken, overrides.variants),
 })
 
 export type Theme = ReturnType<typeof createTheme>

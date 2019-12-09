@@ -13,7 +13,10 @@ const tokens: Tokens = {
     },
   },
   font: {
-    fontFamily: 'Arial',
+    fontFamily: 'Avito',
+    defaultColor: 'black',
+    defaultFontSize: 'm',
+    defaultLineHeight: 'normal',
 
     fontSize: {
       xxxxxl: 0,

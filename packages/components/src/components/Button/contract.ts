@@ -10,9 +10,7 @@ export interface ButtonProps extends MarginProperties {
   /** Значение кнопки */
   value?: string | number,
   /** Внешний вид кнопки */
-  kind: 'default' | 'outline' | 'flat',
-  /** Закругленные углы */
-  rounded?: boolean,
+  kind: 'default' | 'outline' | 'flat'
   /** Нажатое состояние кнопки */
   checked?: boolean,
   /** Неактивная кнопка */
@@ -23,14 +21,12 @@ export interface ButtonProps extends MarginProperties {
   type?: 'button' | 'submit' | 'reset',
   /** Кнопка со спиннером */
   loading?: boolean,
-  /** Квадратная кнопка */
-  square?: boolean,
-  /** Квадратная кнопка */
-  circle?: boolean,
+  /** Квадратная, круглая и вытянутая кнопка с закругленными углами */
+  shape: 'pill' | 'square' | 'circle',
   /** Иконка слева */
-  iconBefore?: string,
+  iconBefore?: string | React.ReactNode,
   /** Иконка справа */
-  iconAfter?: string,
+  iconAfter?: string | React.ReactNode,
   /** Кнопка занимает всю ширину */
   block?: boolean,
   /** Id елемента */

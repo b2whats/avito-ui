@@ -19,6 +19,13 @@ export interface GridProps extends SpaceProperties, DimensionProperties {
   debug?: boolean,
 }
 
+export interface PageProps extends SpaceProperties, DimensionProperties {
+  /** Содержание */
+  children?: React.ReactNode,
+  /** Определяет, как элемент должен быть показан в документе */
+  display?: Display,
+}
+
 export interface BoxProps extends SpaceProperties, DimensionProperties {
   /** Содержание */
   children?: React.ReactNode,
@@ -33,7 +40,7 @@ export interface BoxProps extends SpaceProperties, DimensionProperties {
   /** Цвет фона */
   backgroundColor?: keyof Tokens['palette'],
   /** Радиус */
-  radius?: 'rounded' | number,
+  borderRadius?: 'rounded' | number,
 }
 
 export interface StackProps extends SpaceProperties, DimensionProperties {

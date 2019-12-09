@@ -44,33 +44,33 @@ import { Stack } from '../../';
 const text = 'Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском 12 567 456';
 
 <Stack space={12} column>
-  <Stack space={10} width={600}>
-    <Text size='m' bold>XS</Text>
+  <Stack space={10} width={600} valign='top'>
+    <Text size='m' bold width={60}>XS</Text>
     <Text size='xs'>{text}</Text>
     <Text size='xs' dense>{text}</Text>
   </Stack>
-  <Stack space={10} width={600}>
-    <Text size='m' bold>S</Text>
+  <Stack space={10} width={600} valign='top'>
+    <Text size='m' bold width={60}>S</Text>
     <Text size='s'>{text}</Text>
     <Text size='s' dense>{text}</Text>
   </Stack>
-  <Stack space={10} width={600}>
-    <Text size='m' bold>M</Text>
+  <Stack space={10} width={600} valign='top'>
+    <Text size='m' bold width={60}>M</Text>
     <Text size='m'>{text}</Text>
     <Text size='m' dense>{text}</Text>
   </Stack>
-  <Stack space={10} width={800}>
-    <Text size='m' bold>L</Text>
+  <Stack space={10} width={800} valign='top'>
+    <Text size='m' bold width={60}>L</Text>
     <Text size='l'>{text}</Text>
     <Text size='l' dense>{text}</Text>
   </Stack>
-  <Stack space={10}>
-    <Text size='m' bold>XL</Text>
+  <Stack space={10}s>
+    <Text size='m' bold width={60}>XL</Text>
     <Text size='xl'>{text}</Text>
     <Text size='xl' dense>{text}</Text>
   </Stack>
   <Stack space={10}>
-    <Text size='m' bold>XXL</Text>
+    <Text size='m' bold width={60}>XXL</Text>
     <Text size='xxl'>{text}</Text>
     <Text size='xxl' dense>{text}</Text>
   </Stack>

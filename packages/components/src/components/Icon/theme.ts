@@ -12,6 +12,9 @@ export type IconTheme = {
 export const iconTheme: ComponentTheme<IconTheme> = (_, override) => {
   const scheme: IconTheme['scheme'] = {
     Icon: {
+      style: {
+        focus: true,
+      },
       size: {
         s: {
           props: {

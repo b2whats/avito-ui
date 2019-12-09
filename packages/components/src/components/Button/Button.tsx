@@ -13,13 +13,10 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     display: 'inline-block',
     ...themeStyle,
     ...props,
-    ...props.block && { width: 1 },
-    ...(props.square || props.circle) && { p: 'none' },
-    ...props.circle && { borderRadius: 'rounded' },
+    ...(props.shape === 'circle' || props.shape === 'square') && { p: 'none' },
   }),
-  (textRules, { kind, loading }, { button, dimension: { rowHeight } }, themeStyle) => (`
+  (textRules, { kind }, { button }, themeStyle) => (`
     box-sizing: border-box;
-    min-width: ${rowHeight[themeStyle.minHeight! || themeStyle.height!]}px;
     font-family: inherit;
     cursor: pointer;
     text-align: center;
@@ -114,11 +111,18 @@ const Button = ({ innerRef, ...props }: ButtonProps) => {
 
   const Tag = props.href ? 'a' : 'button'
 
+  const renderIconSlot = (icon: InputProps['iconBefore'] | InputProps['iconAfter'], iconProps: IconProps) => (
+    typeof icon === 'string' ? <Icon name={icon} {...iconProps} /> :
+    typeof icon === 'function' ? icon({ ...props, iconProps, focus, handleClear, handlePreventFocus }) :
+    isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} onClick={handlePreventFocus(icon.props.onClick)} /> :
+    undefined
+  )
+
   return (
     <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(mergeProps)}>
       {props.loading && <SpinnerComponent {...Spinner.props}/>}
       {props.iconBefore && <Icon name={props.iconBefore} {...IconBefore.props} />}
-      {props.children && <TextComponent {...Text.props} crop color='inherit' valignSelf='middle' dense>{ props.children }</TextComponent>}
+      {props.children && <TextComponent {...Text.props} crop valignSelf='middle' dense>{ props.children }</TextComponent>}
       {props.iconAfter && <Icon name={props.iconAfter} {...IconAfter.props} />}
     </Tag>
   )
