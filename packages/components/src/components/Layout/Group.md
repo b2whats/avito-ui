@@ -64,7 +64,7 @@ import { Button, Stack } from '../../';
 </Stack>
 ```
 
-```jsx
+<!-- ```jsx
 import { Button, Checkbox } from '../../'
 initialState = { value: undefined };
 
@@ -81,7 +81,7 @@ initialState = { value: undefined };
     <Checkbox value={2} label='Three' />
   </Group>
 </div>
-```
+``` -->
 
 ```jsx
 import { Button } from '../../'

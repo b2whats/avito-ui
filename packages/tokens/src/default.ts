@@ -1,7 +1,15 @@
 import { Tokens } from './contract'
 
 const defaultTokens: Tokens = {
-  focus: 'white 0px 0px 0px 1px, 0px 0px 2px 3px',
+  focus: {
+    shape: 'white 0px 0px 0px 1px, 0px 0px 2px 3px',
+    defaultColor: 'blue20',
+    primaryColor: 'blue20',
+    secondaryColor: 'blue20',
+    successColor: 'blue20',
+    warningColor: 'blue20',
+    errorColor: 'blue20',
+  },
   font: {
     fontFamily: 'Arial',
 

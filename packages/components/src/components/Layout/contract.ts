@@ -1,9 +1,8 @@
-import { Spaces, SpaceValues, Dimensions } from '../../styled-system'
 import { Tokens } from '../../theme'
 import { ReactText } from 'react'
 import { SpaceProperties, DimensionProperties } from '../../styled-system/'
 
-type Display = 'inline' | 'block' | 'flex' | 'inline-flex'
+type Display = 'inline' | 'block' | 'flex' | 'inline-flex' | 'inline-block'
 
 export interface GridProps extends SpaceProperties, DimensionProperties {
   /** Отступ между дочерними блоками */
@@ -25,10 +24,6 @@ export interface BoxProps extends SpaceProperties, DimensionProperties {
   children?: React.ReactNode,
   /** Вертикальное выравнивание */
   valignSelf?: 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch',
-  /** Уменьшать при нехватке пространства */
-  shrink?: boolean,
-  /** Занять все возможзное пространство */
-  grow?: boolean,
   /** Определяет, как элемент должен быть показан в документе */
   display?: Display,
   /** Тень блока */
@@ -38,14 +33,14 @@ export interface BoxProps extends SpaceProperties, DimensionProperties {
   /** Цвет фона */
   backgroundColor?: keyof Tokens['palette'],
   /** Радиус */
-  radius?: string,
+  radius?: 'rounded' | number,
 }
 
 export interface StackProps extends SpaceProperties, DimensionProperties {
   /** Содержание */
   children?: React.ReactNode,
-  /** Отступ между дочерними блоками */
-  space?: SpaceValues,
+  /** Горизонтальный отступ между дочерними блоками */
+  space?: keyof Tokens['space'] | number,
   /** Вертикальный ритм */
   column?: boolean,
   /** Добавляет скролл */
@@ -56,6 +51,8 @@ export interface StackProps extends SpaceProperties, DimensionProperties {
   valign?: 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch',
   /** Инлайновое поведение */
   inline?: boolean,
+  /** Переносить блоки на следующие строки если не хватило места */
+  wrap?: boolean,
   /** @ignore */
   debug?: boolean,
 }

@@ -106,10 +106,21 @@ type Space = {
   s: number,
   xs: number,
   xxs: number,
+  xxxs: number,
 }
 
 export type Tokens = {
-  focus: string,
+  focus: {
+    shape: string,
+    color: {
+      default: string,
+      primary: string,
+      secondary: string,
+      success: string,
+      warning: string,
+      error: string,
+    },
+  },
   font: Font,
   palette: Palette,
   dimension: Dimension,

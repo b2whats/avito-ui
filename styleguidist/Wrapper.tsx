@@ -17,7 +17,7 @@ export default function Preview(props: { children: React.ReactNode }) {
 
   return (
     <ThemeProvider theme={themes[state]}>
-      <div  style={{ fontFamily: 'Avito'}}>
+      <div  style={{ fontFamily: 'Avito, Arial, sans-serif'}}>
         <ThemeToggle>
           <Stack space='m'>
             <Icon name='avito' onClick={() => update('custom')}/>

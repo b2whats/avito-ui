@@ -5,12 +5,12 @@ import { TextProps } from './contract'
 import { TextTheme } from './theme'
 
 const textClassName = createClassName<TextProps, TextTheme>(
-  (themeParams, props) => ({
+  (style, props) => ({
     display: 'inline',
-    ...themeParams && themeParams.Text.style,
+    ...style,
     ...props,
   }),
-  (textRules, { strike, size, color, variant }, { text, palette }) => (console.log(color),`
+  (textRules, { strike, size, color, variant }, { text, palette }) => (`
     box-sizing: border-box;
     margin: 0;
 
@@ -20,7 +20,8 @@ const textClassName = createClassName<TextProps, TextTheme>(
 
     ${strike ? `
       position: relative;
-
+      white-space: nowrap;
+      
       & > .strike-line {
         position: absolute;
         height: 5px;
@@ -34,7 +35,7 @@ const textClassName = createClassName<TextProps, TextTheme>(
       }
     ` : ''}
 
-    [data-block='text'] > & {
+    [data-component='text'] > & {
       ${!size ? 'font-size: inherit;' : '' }
       ${!(color || variant) ? 'color: inherit;' : '' }
     }
@@ -51,14 +52,15 @@ const Line = () => (
 
 const Text = ({ children, ...props }: TextProps) => {
   const theme = useTheme()
-  const themeParams = foldThemeParams<TextTheme>(theme.text, props)
-  const textStyle = textClassName(props, theme, themeParams)
+  const { Text } = foldThemeParams<TextTheme>(theme.text, props)
+  const textStyle = textClassName(props, theme, Text.style)
+  const Tag = props.as || 'span'
 
   return (
-    <div css={textStyle} data-block='text'>
+    <Tag css={textStyle} data-component='text'>
       {props.strike && <Line />}
       { children }
-    </div> 
+    </Tag> 
   )
 }
 

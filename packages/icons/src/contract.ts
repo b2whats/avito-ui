@@ -4,9 +4,11 @@ export interface IconProps {
   /** Имя иконки */
   name: string,
   /** Размер иконки */
-  size?: 'auto' | string,
+  size?: 'auto' | string | number,
   /** Цвет иконки */
   color?: string,
+  /** Цвет иконки при наведении */
+  colorHover?: string,
   /** Дополнительный стиль */
   className?: string,
   /** Аттрибут для тестирования */

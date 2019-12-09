@@ -1,25 +1,35 @@
 import React from 'react'
 import { useTheme } from '../../utils/'
 import { Icon as IconBase } from '@avito/icons'
-import { getThemeStyle } from '../../styled-system/'
+import { foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from './contract'
+import { IconTheme } from './theme'
 
-const Icon = ({ size, name, ...props }: IconProps) => {
+const iconClassName = createClassName<IconProps, IconTheme>(
+  (style, props) => ({
+    display: 'inline-block',
+    ...style,
+    ...props,
+  }),
+  (textRules) => (`${textRules}`),
+)
+
+const Icon = (props: IconProps) => {
   const theme = useTheme()
 
-  const style = getThemeStyle(theme, 'icon', props, {
-    Icon: { ...props, display: 'inline-block' },
-  })
-  const iconSize = size in theme.icon.sizes ? theme.icon.sizes[size] + 'px' : size
+  const { Icon } = foldThemeParams<IconTheme>(theme.icon, props)
+  const iconStyle = iconClassName(props, theme, Icon.style)
+  const size = Icon.props.size || props.size
 
   return (
     <IconBase
-      css={style.Icon}
-      name={name}
-      size={iconSize}
+      css={iconStyle}
+      name={props.name}
+      size={size}
       onClick={props.onClick}
       onMouseOver={props.onMouseOver}
-      onMouseOut={props.onMouseOut} />
+      onMouseOut={props.onMouseOut}
+    />
   )
 }
 

@@ -1,38 +1,47 @@
-import React, { useContext, useRef, useEffect, useState, useCallback } from 'react'
-import { styled, useTheme, isPropValid, useRefHook, foldPreset } from '../../utils'
-import { ButtonProps } from './contract'
-import { Text } from '../../components copy/Text'
-import { Variants } from '../../components copy/Variants'
-import { VariantsProps } from '../../components copy/Variants/contract'
+import React from 'react'
+import { useTheme, useRefHook, filterProps } from '../../utils'
+import { foldThemeParams, createClassName } from '../../styled-system/'
+import { Text as TextComponent } from '../Text/'
+import { Icon } from '../Icon/'
+import { Spinner as SpinnerComponent } from '../Spinner/'
 import { useGroupHook } from '../Layout/Group'
+import { ButtonProps } from './contract'
+import { ButtonTheme } from './theme'
 
-const ButtonBox = styled(Variants, {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'loading' && prop !== 'kind',
-})<ButtonProps & VariantsProps>`
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  margin: 0;
-  line-height: 1;
-  position: relative;
+const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
+  (themeStyle, props) => ({
+    display: 'inline-block',
+    ...themeStyle,
+    ...props,
+    ...props.block && { width: 1 },
+    ...(props.square || props.circle) && { p: 'none' },
+    ...props.circle && { borderRadius: 'rounded' },
+  }),
+  (textRules, { kind, loading }, { button, dimension: { rowHeight } }, themeStyle) => (`
+    box-sizing: border-box;
+    min-width: ${rowHeight[themeStyle.minHeight! || themeStyle.height!]}px;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    line-height: 1;
+    position: relative;
 
-  &::-moz-focus-inner {
-    border: 0;
-  }
-
-  ${({ kind, borderWidth, rounded, theme: { button } }) => (`
-    ${rounded ? 'border-radius: 100px;' : ''};
-
-    &:active > span:first-child {
-      transform: translateY(${button[`${kind}_press_offset`]});
+    &::-moz-focus-inner {
+      border: 0;
     }
 
     &[data-group] {
       box-shadow: none;
     }
 
+    &:active > * {
+      transform: translateY(${button.pressOffset[kind]}px);
+    }
+
     &[data-group~='horizontal']:not([data-group~='last']) {
-      margin-right: ${kind === 'outline' ? '-' : ''}${borderWidth};
+      margin-right: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth};
       border-bottom-right-radius: 0px;
       border-top-right-radius: 0px;
     }
@@ -43,7 +52,7 @@ const ButtonBox = styled(Variants, {
     }
 
     &[data-group~='vertical']:not([data-group~='last']) {
-      margin-bottom: ${kind === 'outline' ? '-' : ''}${borderWidth};
+      margin-bottom: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth};
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
@@ -52,49 +61,66 @@ const ButtonBox = styled(Variants, {
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
     }
-  `)}
 
-  a& {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-  }
-`
+    a& {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-const Button = ({ children, innerRef, ...props }: ButtonProps) => {
+    & > [data-component='spinner'] {
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+    }
+
+    &[aria-busy='true'] > :not([data-component='spinner']) {
+      visibility: hidden;
+    }
+    
+    ${textRules}
+  `),
+)
+
+const Button = ({ innerRef, ...props }: ButtonProps) => {
   const theme = useTheme()
 
   props = {
-    as: 'button',
     size: 'm',
     kind: 'default',
     variant: 'primary',
     type: 'button',
     ...props,
+    disabled: props.disabled || props.loading,
   }
 
-  const [ref, setRef] = useRefHook<HTMLButtonElement | HTMLLinkElement>(innerRef)
-  const groupProps = useGroupHook(ref, props)
+  if (props.href) {
+    props.type = undefined
+    props.href = props.disabled ? undefined : props.href
+  }
 
-  // Necessary when rendering an `a` element, which doesn't use `disabled`
   const aria = {
     'aria-disabled': props.disabled,
     'aria-busy': props.loading,
-    tabIndex: props.disabled ? -1 : undefined,
   }
 
-  if (props.as === 'a') {
-    props.type = undefined
-  }
+  const [ref, setRef] = useRefHook(innerRef)
+  const groupProps = useGroupHook(ref, props)
+  const mergeProps = {...props, ...groupProps}
 
-  const presetButtonProps = foldPreset(theme.button.preset.Button, {...props, ...groupProps})
-  const presetTextProps = foldPreset(theme.button.preset.Text, props)
+  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams<ButtonTheme>(theme.button, mergeProps)
+  const buttonStyle = buttonClassName(mergeProps, theme, Button.style)
+
+  const Tag = props.href ? 'a' : 'button'
 
   return (
-    <ButtonBox ref={setRef} {...presetButtonProps} {...props} {...aria} {...groupProps}>
-
-      <Text {...presetTextProps} crop color='inherit'>{ children }</Text>
-    </ButtonBox>
+    <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(mergeProps)}>
+      {props.loading && <SpinnerComponent {...Spinner.props}/>}
+      {props.iconBefore && <Icon name={props.iconBefore} {...IconBefore.props} />}
+      {props.children && <TextComponent {...Text.props} crop color='inherit' valignSelf='middle' dense>{ props.children }</TextComponent>}
+      {props.iconAfter && <Icon name={props.iconAfter} {...IconAfter.props} />}
+    </Tag>
   )
 }
 

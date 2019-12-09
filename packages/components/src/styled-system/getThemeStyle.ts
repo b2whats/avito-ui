@@ -9,6 +9,8 @@ type TextProperties = Partial<{
   fontWeight: 'light' | 'normal' | 'bold',
   italic: boolean,
   noWrap: boolean,
+  bold: boolean,
+  light: boolean,
   uppercase: boolean,
   truncate: boolean,
   crop: boolean,
@@ -18,25 +20,24 @@ type TextProperties = Partial<{
 type Width = number
 type Height = 's' | 'm' | 'l' | number
 
-type DimensionProperties = Partial<{
-  display: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex',
-  block: boolean,
-  inline: boolean,
+export type DimensionProperties = Partial<{
   width: Width,
   maxWidth: Width,
   minWidth: Width,
   height: Height,
   minHeight: Height,
   maxHeight: Height,
-  grow: boolean,
-  shrink: boolean,
-  borderRadius: number | 'rounded',
-  borderWidth: number,
+  /** Уменьшать при нехватке пространства */
+  shrink?: boolean,
+  /** Занять все возможзное пространство */
+  grow?: boolean,
 }>
+
+type Display = { display: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex' }
 
 type SpaceValues = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'none' | 'auto' | number
 
-export type SpaceProperties = Partial<{
+export type MarginProperties = Partial<{
   m: SpaceValues,
   mx: SpaceValues,
   my: SpaceValues,
@@ -44,7 +45,8 @@ export type SpaceProperties = Partial<{
   mr: SpaceValues,
   mb: SpaceValues,
   ml: SpaceValues,
-
+}>
+export type PaddingProperties = Partial<{
   p: SpaceValues,
   px: SpaceValues,
   py: SpaceValues,
@@ -54,6 +56,10 @@ export type SpaceProperties = Partial<{
   pl: SpaceValues,
 }>
 
+export type SpaceProperties = PaddingProperties & MarginProperties
+
+
+
 type Valign = 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch'
 type Align = 'left' | 'center' | 'right' | 'justify'
 
@@ -62,6 +68,20 @@ type LayoutProperties = Partial<{
   valign: Valign,
   valignSelf: Valign,
   column: boolean,
+}>
+
+type OtherProperties = Partial<{
+  borderStyle: 'solid' | 'dotted' | 'dashed' | 'none',
+  focus: boolean,
+  variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
+  adjacentSelector: string,
+  block: boolean,
+  inline: boolean,
+  wrap: boolean,
+  borderRadius: number | 'rounded',
+  radius: number | 'rounded',
+  rounded: boolean,
+  borderWidth: number,
 }>
 
 type ColorProperties = Partial<{
@@ -88,17 +108,21 @@ type ColorProperties = Partial<{
   borderColorDisabled: string,
 }>
 
-type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties
+type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties & OtherProperties
+type UnionToIntersection<U> = (boolean extends U ? (k: U)=>void : U extends any ? (k: U)=>void : never) extends ((k: infer I)=>void) ? I : never
+type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
+type OnlyLiteralString<T> = T extends string ? T : never
+type IsChildren<T> = React.ReactNode extends T ? true : false
 
-export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, ComponentsProps = {}> = {
+export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, ComponentsProps = never> = {
   style?: Partial<StyleProperties>,
   props?: Partial<ComponentsProps>
 } & {
-  [Key in keyof Props]?: NonNullable<Props[Key]> extends string
-    ? { [Key2 in Props[Key]]?: SchemeType<Omit<Props, Key>, ComponentsProps> }
-    : NonNullable<Props[Key]> extends boolean | Function
-      ? SchemeType<Omit<Props, Key>, ComponentsProps>
-      : never
+  [Key in keyof Props]?: IsChildren<Props[Key]> extends true
+    ? SchemeType<Omit<Props, Key>, ComponentsProps>
+    : IsUnion<NonNullable<Props[Key]>> extends true
+      ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Omit<Props, Key>, ComponentsProps> }
+      : SchemeType<Omit<Props, Key>, ComponentsProps>
 }
 
 export type PresetType<Props> = {
@@ -121,11 +145,11 @@ const spaceValue = (value: string | number, spaces: {}): string => {
 
 const maps = {
   inline: {
-    block: 'block',
-    inline: 'block',
-    'inline-block': 'block',
-    'flex': 'flex',
-    'inline-flex': 'flex',
+    block: 'inline-block',
+    inline: 'inline-block',
+    'inline-block': 'inline-block',
+    'flex': 'inline-flex',
+    'inline-flex': 'inline-flex',
   },
   block: {
     block: 'block',
@@ -153,6 +177,13 @@ const maps = {
     bottom: 'flex-end',
     baseline: 'baseline',
     stretch: 'baseline',
+  },
+  valignSelf: {
+    block: 'vertical-align',
+    inline: 'vertical-align',
+    'inline-block': 'vertical-align',
+    'flex': 'align-self',
+    'inline-flex': 'align-self',
   },
   dimension: {
     width: 'width',
@@ -209,8 +240,8 @@ export const foldScheme = (scheme: any, props: any) => {
     const value = props[prop]
     const nestedConfig = scheme[prop]
 
-    if (value === true || typeof value === 'function') {
-      const data = foldScheme(nestedConfig, props)
+    if (nestedConfig[value]) {
+      const data = foldScheme(nestedConfig[value], props)
 
       Object.assign(result.style, data.style)
       Object.assign(result.props, data.props)
@@ -218,29 +249,30 @@ export const foldScheme = (scheme: any, props: any) => {
       continue
     }
 
-    if (!nestedConfig[value]) continue
+    if (value) {
+      const data = foldScheme(nestedConfig, props)
 
-    const data = foldScheme(nestedConfig[value], props)
-
-    Object.assign(result.style, data.style)
-    Object.assign(result.props, data.props)
+      Object.assign(result.style, data.style)
+      Object.assign(result.props, data.props)
+    }
   }
 
   return result
 }
 
-export const getStyles = (params: any, {font, dimension, space, palette}: any) => {
+export const getStyles = (params: StyleProperties & Display, {font, dimension, space, palette, focus}: any) => {
   let css = ''
 
   if (!params) return css
 
-  let spaces = []
-  let hover = []
-  let active = []
-  let visited = []
-  let checked = []
-  let focus = []
-  let disabled = []
+  let margin: string[] = []
+  let padding: string[] = []
+  let hoverState = []
+  let checkedState = []
+  let activeState = []
+  let visitedState = []
+  let focusState = []
+  let disabledState = []
 
 
   for (const param in params) {
@@ -285,6 +317,10 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
         break
       case 'noWrap':
         css += 'white-space: nowrap;'
+
+        break
+      case 'wrap':
+        css += 'flex-wrap: wrap;'
 
         break
       case 'uppercase':
@@ -373,12 +409,19 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
     
         break
       case 'borderWidth':
-        css += `border-width: ${value}px`
+        css += `border-width: ${value}px;`
     
         break
+      case 'radius':
       case 'borderRadius':
-        css += `border-width: ${value === 'rounded' ? 100 : value}px`
+        if (params.rounded) break
+
+        css += `border-radius: ${value === 'rounded' ? 100 : value}px;`
     
+        break
+      case 'rounded':
+        css += 'border-radius: 100px;'
+        
         break
       case 'align': {
         const prop = maps.align[params.display]
@@ -395,76 +438,103 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
         css += `align-items: ${maps.alignFlex[value]};`
 
         break
-      case 'valignSelf':
-        css += `align-self: ${maps.alignFlex[value]};`
+      case 'valignSelf': {
+        const prop = maps.valignSelf[params.display]
+
+        if (prop === 'align-self') {
+          value = maps.alignFlex[value]
+        }
+
+        css += `${prop}: ${value};`
 
         break
+      }
       case 'column':
         css += 'flex-direction: column;'
 
         break
       case 'm':
-        spaces.push(`margin: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin = [
+          `margin-top: ${value};`,
+          `margin-right: ${value};`,
+          `margin-bottom: ${value};`,
+          `margin-left: ${value};`,
+        ]
 
         break
       case 'mx':
         value = spaceValue(value, space)
-
-        spaces.push(`margin-left: ${value};margin-right: ${value};`)
+        margin[1] = `margin-right: ${value};`
+        margin[3] = `margin-left: ${value};`
 
         break
       case 'my':
         value = spaceValue(value, space)
-
-        spaces.push(`margin-top: ${value};margin-bottom: ${value};`)
+        margin[0] = `margin-top: ${value};`
+        margin[2] = `margin-bottom: ${value};`
 
         break
       case 'mt':
-        spaces.push(`margin-top: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin[0] = `margin-top: ${value};`
 
         break
       case 'mr':
-        spaces.push(`margin-right: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin[1] = `margin-right: ${value};`
 
         break
       case 'mb':
-        spaces.push(`margin-bottom: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin[2] = `margin-bottom: ${value};`
 
         break
       case 'ml':
-        spaces.push(`margin-left: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        margin[3] = `margin-left: ${value};`
 
         break
       case 'p':
-        spaces.push(`padding: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding = [
+          `padding-top: ${value};`,
+          `padding-right: ${value};`,
+          `padding-bottom: ${value};`,
+          `padding-left: ${value};`,
+        ]
     
         break
       case 'px':
         value = spaceValue(value, space)
-  
-        spaces.push(`padding-left: ${value};padding-right: ${value};`)
+        padding[1] = `padding-right: ${value};`
+        padding[3] = `padding-left: ${value};`
   
         break
       case 'py':
         value = spaceValue(value, space)
-  
-        spaces.push(`padding-top: ${value};padding-bottom: ${value};`)
+        padding[0] = `padding-top: ${value};`
+        padding[2] = `padding-bottom: ${value};`
   
         break
       case 'pt':
-        spaces.push(`padding-top: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding[0] = `padding-top: ${value};`
   
         break
       case 'pr':
-        spaces.push(`padding-right: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding[1] = `padding-right: ${value};`
   
         break
       case 'pb':
-        spaces.push(`padding-bottom: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding[2] = `padding-bottom: ${value};`
   
         break
       case 'pl':
-        spaces.push(`padding-left: ${spaceValue(value, space)};`)
+        value = spaceValue(value, space)
+        padding[3] = `padding-left: ${value};`
   
         break
       case 'color':
@@ -474,75 +544,55 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
       
         break
       case 'colorHover':
-        hover.push(`color: ${palette[value] || value};`)
-
-        break
       case 'backgroundColorHover':
-        hover.push(`background-color: ${palette[value] || value};`)
-
-        break
       case 'borderColorHover':
-        hover.push(`border-color: ${palette[value] || value};`)
+        hoverState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorActive':
-        active.push(`color: ${palette[value] || value};`)
-
-        break
       case 'backgroundColorActive':
-        active.push(`background-color: ${palette[value] || value};`)
-
-        break
       case 'borderColorActive':
-        active.push(`border-color: ${palette[value] || value};`)
+        activeState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorVisited':
-        visited.push(`color: ${palette[value] || value};`)
-
-        break
       case 'backgroundColorVisited':
-        visited.push(`background-color: ${palette[value] || value};`)
-
-        break
       case 'borderColorVisited':
-        visited.push(`border-color: ${palette[value] || value};`)
-            
-        break
-      case 'colorChecked':
-        checked.push(`color: ${palette[value] || value};`)
-
-        break
-      case 'backgroundColorChecked':
-        checked.push(`background-color: ${palette[value] || value};`)
-
-        break
-      case 'borderColorChecked':
-        checked.push(`border-color: ${palette[value] || value};`)
+        visitedState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorFocus':
-        focus.push(`color: ${palette[value] || value};`)
-
-        break
       case 'backgroundColorFocus':
-        focus.push(`background-color: ${palette[value] || value};`)
-
-        break
       case 'borderColorFocus':
-        focus.push(`border-color: ${palette[value] || value};`)
+        focusState.push(`${maps.color[param]}: ${palette[value] || value};`)
+            
+        break
+      case 'colorChecked':
+      case 'backgroundColorChecked':
+      case 'borderColorChecked':
+        checkedState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorDisabled':
-        disabled.push(`color: ${palette[value] || value};`)
-
-        break
       case 'backgroundColorDisabled':
-        disabled.push(`background-color: ${palette[value] || value};`)
-
-        break
       case 'borderColorDisabled':
-        disabled.push(`border-color: ${palette[value] || value};`)
+        disabledState.push(`${maps.color[param]}: ${palette[value] || value};`)
+            
+        break
+      case 'borderStyle':
+        css += `border-style: ${value};`
+            
+        break
+      case 'focus':
+        const color = focus.color[params.variant || 'default']
+        css += `
+          outline: none;
+          &&:focus {
+            box-shadow: ${focus.shape} ${palette[color] || color};
+            position: relative;
+            z-index: 2;
+          }
+        `
             
         break
       default:
@@ -550,8 +600,11 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
     }
   }
 
-  if (spaces.length) {
-    css += `&& {${spaces.join('')}}`
+  if (margin.length || padding.length) {
+    css += `&&& {
+      ${margin.join('')}
+      ${padding.join('')}
+    }`
   }
 
   let selector = null
@@ -577,23 +630,23 @@ export const getStyles = (params: any, {font, dimension, space, palette}: any) =
     }
   }
 
-  if (hover.length) {
-    css += `${selector.hover}{${hover.join('')}}`
+  if (checkedState.length) {
+    css += `${selector.hover}{${hoverState.join('')}}`
   }
-  if (active.length) {
-    css += `${selector.active}{${active.join('')}}`
+  if (visitedState.length) {
+    css += `${selector.visited}{${visitedState.join('')}}`
   }
-  if (visited.length) {
-    css += `${selector.visited}{${visited.join('')}}`
+  if (hoverState.length) {
+    css += `${selector.hover}{${hoverState.join('')}}`
   }
-  if (checked.length) {
-    css += `${selector.checked}{${checked.join('')}}`
+  if (activeState.length) {
+    css += `${selector.active}{${activeState.join('')}}`
   }
-  if (focus.length) {
-    css += `${selector.focus}{${focus.join('')}}`
+  if (focusState.length) {
+    css += `${selector.focus}{${focusState.join('')}}`
   }
-  if (disabled.length) {
-    css += `${selector.disabled}{${disabled.join('')}}`
+  if (disabledState.length) {
+    css += `${selector.disabled}{cursor: not-allowed;${disabledState.join('')}}`
   }
 
   return css
@@ -649,16 +702,24 @@ export function foldThemeParams<T extends { scheme: { [key: string]: any } }>({ 
   return result
 }
 
-export function createClassName<Props, ComponentTheme = null>(
-  createRule: (schemeStyle: FoldThemeParamsReturn<ComponentTheme> | undefined, props: Props, theme: Theme) => StyleProperties,
-  createUserRule: (textRules: string, props: Props, theme: Theme) => string
-) {
-  return (props: Props, theme: Theme, schemeStyle?: FoldThemeParamsReturn<ComponentTheme>) => {
-    const styles = createRule(schemeStyle, props, theme)
+type valueof<T> = T[keyof T]
+type ThemeStyle<ComponentTheme> = ComponentTheme extends object ? valueof<FoldThemeParamsReturn<ComponentTheme>>['style'] : never
+
+interface Selector<Props, ComponentTheme> {
+  t: (props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any;
+  f: (props: Props, theme: Theme) => any;
+}
+
+export function createClassName<Props, ComponentTheme extends object | null = null>(
+  createRule: (schemeStyle: ThemeStyle<ComponentTheme>, props: Props, theme: Theme) => StyleProperties & Display,
+  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any,
+): Selector<Props, ComponentTheme>[ComponentTheme extends object ? 't' : 'f']  {
+  return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme>) => {
+    const styles = createRule(schemeStyle as any, props, theme)
     const textRules = getStyles(styles, theme)
 
-    const resultRules = createUserRule(textRules, props, theme)
-
-    return css`${resultRules}`
+    const resultRules = createUserRule(textRules, props, theme, schemeStyle as any)
+    
+    return typeof resultRules === 'string' ? css`${resultRules}` : resultRules
   }
 }

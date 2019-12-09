@@ -1,22 +1,34 @@
 import { ComponentTheme } from '../../theme'
 import { SchemeType } from '../../styled-system/'
 import { IconProps } from './contract'
+import { IconProps as IconBaseProps } from '@avito/icons'
 
 export type IconTheme = {
   scheme: {
-    Icon: SchemeType<IconProps, 'variant' | 'onClick'>,
-  },
+    Icon: SchemeType<IconProps, IconBaseProps>,
+  }
 }
 
 export const iconTheme: ComponentTheme<IconTheme> = (_, override) => {
-  const sizes = {
-    s: 16,
-    m: 20,
-    l: 24,
-  }
-
   const scheme: IconTheme['scheme'] = {
     Icon: {
+      size: {
+        s: {
+          props: {
+            size: 16,
+          },
+        },
+        m: {
+          props: {
+            size: 20,
+          },
+        },
+        l: {
+          props: {
+            size: 24,
+          },
+        },
+      },
       variant: {
         primary: {
           style: {
@@ -82,9 +94,7 @@ export const iconTheme: ComponentTheme<IconTheme> = (_, override) => {
     },
   }
 
-  // ...override,
   return {
     scheme,
-    sizes,
   }
 }

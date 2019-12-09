@@ -1,7 +1,16 @@
 ```js
 import { Stack, Icon } from '../../';
 
-<Button variant='primary' size='s'><Icon name='search'/>Push Me</Button>
+<div>
+  <Button variant='primary' size='s' iconBefore='search' onClick={()=> console.log('click')}>Push Me</Button>
+  <Button variant='primary' size='s' iconBefore='search'></Button>
+  <Button variant='primary' size='s' iconBefore='search' square></Button>
+  <Button variant='primary' size='s' iconBefore='search' circle></Button>
+  <Button loading iconBefore='search'>Push Me</Button>
+  <Button loading iconBefore='search' disabled>Push Me</Button>
+  <Button as='a' href={`http://example.com`} variant='primary' size='s' iconBefore='search' disabled>Push Me</Button>
+  <Button as='a' href={`http://example.com`} variant='primary' size='s' iconBefore='search' loading>Push Me</Button>
+</div>
 ```
 
 ```js
@@ -9,32 +18,32 @@ import { Stack, Icon } from '../../';
 
 <Stack space='m' column>
   <Stack space='m'>
-    <Button variant='primary' size='s'><Icon name='search'/>Push Me</Button>
-    <Button variant='secondary' size='s'><Icon name='search'/>Push Me</Button>
-    <Button variant='success' size='s'><Icon name='search'/>Push Me</Button>
-    <Button variant='warning' size='s'><Icon name='search'/>Push Me</Button>
-    <Button variant='error' size='s'><Icon name='search'/>Push Me</Button>
+    <Button variant='primary' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='secondary' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='success' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='warning' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='error' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
   </Stack>
   <Stack space='m'>
-    <Button as='a' href={`http://example.com`} variant='primary' size='s'><Icon name='search'/>Push Me</Button>
-    <Button as='a' variant='secondary' size='s'><Icon name='search'/>Push Me</Button>
-    <Button as='a' variant='success' size='s'><Icon name='search'/>Push Me</Button>
-    <Button as='a' variant='warning' size='s'><Icon name='search'/>Push Me</Button>
-    <Button as='a' variant='error' size='s'><Icon name='search'/>Push Me</Button>
+    <Button as='a' href={`http://example.com`} variant='primary' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button as='a' variant='secondary' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button as='a' variant='success' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button as='a' variant='warning' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button as='a' variant='error' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
   </Stack>
   <Stack space='m'>
-    <Button variant='primary'><Icon name='search'/>Push Me</Button>
-    <Button variant='secondary'><Icon name='search'/>Push Me</Button>
-    <Button variant='success'><Icon name='search'/>Push Me</Button>
-    <Button variant='warning'><Icon name='search'/>Push Me</Button>
-    <Button variant='error'><Icon name='search'/>Push Me</Button>
+    <Button variant='primary' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='secondary' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='success' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='warning' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='error' iconBefore='search' iconAfter='search'>Push Me</Button>
   </Stack>
   <Stack space='m'>
-    <Button variant='primary' size='l'><Icon name='search'/>Push Me</Button>
-    <Button variant='secondary' size='l'><Icon name='search'/>Push Me</Button>
-    <Button variant='success' size='l'><Icon name='search'/>Push Me</Button>
-    <Button variant='warning' size='l'><Icon name='search'/>Push Me</Button>
-    <Button variant='error' size='l'><Icon name='search'/>Push Me</Button>
+    <Button variant='primary' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='secondary' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='success' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='warning' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
+    <Button variant='error' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
   </Stack>
 </Stack>
 ```
