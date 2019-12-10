@@ -11,7 +11,7 @@ const onChange = ({ target }) => {
   <Input name='value' placeholder='Подсказка' value={state.value} onChange={onChange}/>
   <Input name='issetValue' placeholder='Подсказка' value={state.issetValue} onChange={onChange}/>
   <Input name='value' value={state.issetValue} onChange={onChange} disabled/>
-  <Input name='value' value={state.issetValue} onChange={onChange} size='l' clearable='always'/>
+  <Input name='issetValue' value={state.issetValue} onChange={onChange} size='l' clearable='always'/>
   <Input name='value' value={state.value} onChange={onChange} size='s' clearable='always'/>
 </Stack>
 ```

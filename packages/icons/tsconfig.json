@@ -2,6 +2,7 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "outDir": "./build",
+    "emitDeclarationOnly": true,
   },
   "include": ["./src"],
 }

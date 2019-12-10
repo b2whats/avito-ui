@@ -14,6 +14,7 @@ const textareaStyle = css`
   font-family: inherit;
   font-weight: inherit;
   line-height: inherit;
+  -webkit-text-fill-color: currentcolor;
   color: inherit;
   outline: none;
   background-color: transparent;

@@ -601,7 +601,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
             
         break
       case 'placeholderColor':
-        css += `&::placeholder, & *::placeholder {color: ${value};}`
+        css += `&::placeholder, & *::placeholder {color: ${palette[value] || value};-webkit-text-fill-color: currentcolor;}`
             
         break
       case 'borderStyle':
@@ -703,7 +703,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   return css
 }
 
-const filterUndefined = (obj) => {
+const filterUndefined = (obj: any) => {
   const result = {}
 
   for (const key in obj) {
@@ -716,7 +716,7 @@ const filterUndefined = (obj) => {
 }
 
 
-export const getThemeStyle = (theme, name, props, extra) => {
+export const getThemeStyle = (theme: any, name: any, props: any, extra: any) => {
   const { scheme } = theme[name]
   const themeParams = {}
   const result = {}

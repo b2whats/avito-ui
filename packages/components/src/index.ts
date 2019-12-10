@@ -3,6 +3,8 @@ export { Button } from './components/Button/'
 export { Text } from './components/Text/'
 // export { Link } from './components/Link/'
 export { Icon } from './components/Icon/'
+export { Input } from './components/Input/'
+export { Textarea } from './components/Textarea/'
 export { Spinner } from './components/Spinner/'
 export { Stack, Grid, Box, Group, Page } from './components/Layout/'
 

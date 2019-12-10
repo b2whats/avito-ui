@@ -14,7 +14,7 @@ const wrapperClassName = createClassName<TextareaProps>(
     ...props,
   }),
   (textRules) => `
-    && > [data-icon] {
+    &&& > [data-icon] {
       position: absolute;
       right: 0;
       top: 0;
@@ -59,6 +59,10 @@ const Textarea = ({ onFocus, onBlur, ...props}: TextareaProps) => {
     onBlur && onBlur(event)
   }
 
+  const handlePreventBlur = (event: React.MouseEvent<HTMLElement>) => {
+    focus && event.preventDefault()
+  }
+
   const handleClear = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault()
     setNativeValue(textareaRef.current, '')
@@ -69,7 +73,7 @@ const Textarea = ({ onFocus, onBlur, ...props}: TextareaProps) => {
   const textareaStyle = textareaClassName(props, theme, Textarea.style)
 
   return (
-    <div css={wrapperStyle}>
+    <div css={wrapperStyle} onMouseDown={handlePreventBlur}>
       <TextareaCore {...props} innerRef={setTextareaRef} css={textareaStyle} onFocus={handleFocus} onBlur={handleBlur}/>
       {props.clearable && <Icon {...IconClear.props} onClick={handleClear} />}
     </div>
