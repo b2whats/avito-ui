@@ -30,7 +30,6 @@ const inputStyle = css`
   left: 0;
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
   padding: 0px;
   margin: 0px;
   border-width: 0;

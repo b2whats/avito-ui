@@ -11,6 +11,7 @@ import { InputTheme } from './theme'
 const inputClassName = createClassName<InputProps, InputTheme>(
   (themeStyle, props) => ({
     display: 'flex',
+    width: 1,
     ...themeStyle,
     ...props,
   }),

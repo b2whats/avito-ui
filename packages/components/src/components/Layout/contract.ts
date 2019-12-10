@@ -13,6 +13,10 @@ export interface GridProps extends SpaceProperties, DimensionProperties {
   align?: 'left' | 'center' | 'right' | 'justify',
   /** Вертикальное выравнивание дочерних блоков  */
   valign?: 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch',
+  /** Вертикальное выравнивание */
+  valignSelf?: 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch',
+  /** Инлайновое поведение */
+  inline?: boolean,
   /** Содержание */
   children?: React.ReactNode,
   /** @ignore */
@@ -60,6 +64,8 @@ export interface StackProps extends SpaceProperties, DimensionProperties {
   inline?: boolean,
   /** Переносить блоки на следующие строки если не хватило места */
   wrap?: boolean,
+  /** Цвет фона */
+  backgroundColor?: keyof Tokens['palette'],
   /** @ignore */
   debug?: boolean,
 }

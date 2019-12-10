@@ -10,7 +10,7 @@ export interface ButtonProps extends MarginProperties {
   /** Значение кнопки */
   value?: string | number,
   /** Внешний вид кнопки */
-  kind: 'default' | 'outline' | 'flat'
+  kind: 'default' | 'outline' | 'flat',
   /** Нажатое состояние кнопки */
   checked?: boolean,
   /** Неактивная кнопка */
@@ -33,6 +33,8 @@ export interface ButtonProps extends MarginProperties {
   id?: string,
   /** Ссылка для перехода */
   href?: string,
+  /** Ссылка для перехода */
+  preset?: 'primary' | 'accent' | 'secondary' | 'default' | 'defaultOnSurface' | 'defaultDark' | 'outline' | 'pay' | 'appInstall' | 'linkIncreased',
   /** Ссылка на дом ноду */
   innerRef?: (node: HTMLButtonElement | HTMLAnchorElement | null) => void,
 

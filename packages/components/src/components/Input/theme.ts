@@ -22,7 +22,7 @@ export const inputTheme: ComponentTheme<InputTheme> = (_, override) => {
   const scheme: InputTheme['scheme'] = {
     IconBefore: {
       props: {
-        color: '#BCBCBC',
+        color: 'gray28',
       },
       size: {
         s: {
@@ -50,13 +50,13 @@ export const inputTheme: ComponentTheme<InputTheme> = (_, override) => {
     },
     IconAfter: {
       props: {
-        color: '#BCBCBC',
+        color: 'gray28',
       },
       size: {
         s: {
           props: {
             size: 's',
-            mx: 10,
+            mx: 8,
           },
         },
         m: {
@@ -76,7 +76,7 @@ export const inputTheme: ComponentTheme<InputTheme> = (_, override) => {
     
     IconClear: {
       props: {
-        color: '#BCBCBC',
+        color: 'gray28',
         name: 'cross',
         area: 10,
       },
@@ -102,7 +102,7 @@ export const inputTheme: ComponentTheme<InputTheme> = (_, override) => {
       size: {
         s: {
           style: {
-            px: 16,
+            px: 12,
           },
         },
         m: {
@@ -136,25 +136,25 @@ export const inputTheme: ComponentTheme<InputTheme> = (_, override) => {
       style: {
         borderRadius: 5,
         focus: true,
-        placeholderColor: '#858585',
+        placeholderColor: 'gray48',
       },
       size: {
         s: {
           style: {
-            fontSize: 16,
-            minHeight: 's',
+            fontSize: 12,
+            height: 's',
           },
         },
         m: {
           style: {
             fontSize: 16,
-            minHeight: 'm',
+            height: 'm',
           },
         },
         l: {
           style: {
             fontSize: 16,
-            minHeight: 'l',
+            height: 'l',
           },
         },
       },
@@ -162,49 +162,36 @@ export const inputTheme: ComponentTheme<InputTheme> = (_, override) => {
         primary: {
           style: {
             color: 'black',
-            colorDisabled: 'gray70',
-            backgroundColor: '#F5F5F5',
-            backgroundColorDisabled: 'gray30',
+            colorDisabled: 'gray40',
+            backgroundColor: 'gray4',
           },
         },
         secondary: {
           style: {
-            backgroundColor: 'gray50',
-            backgroundColorHover: 'gray60',
-            backgroundColorActive: 'gray70',
-            backgroundColorChecked: 'gray70',
-            backgroundColorDisabled: 'gray30',
             color: 'black',
-            colorDisabled: 'gray70',
+            colorDisabled: 'gray40',
+            backgroundColor: 'gray8',
           },
         },
         success: {
           style: {
-            backgroundColor: 'green50',
-            backgroundColorHover: 'green60',
-            backgroundColorActive: 'green70',
-            backgroundColorChecked: 'green70',
-            backgroundColorDisabled: 'green30',
+            color: 'black',
+            colorDisabled: 'gray40',
+            backgroundColor: 'green100',
           },
         },
         warning: {
           style: {
-            backgroundColor: 'yellow50',
-            backgroundColorHover: 'yellow60',
-            backgroundColorActive: 'yellow70',
-            backgroundColorChecked: 'yellow70',
-            backgroundColorDisabled: 'yellow30',
             color: 'black',
-            colorDisabled: 'gray70',
+            colorDisabled: 'gray40',
+            backgroundColor: 'orange100',
           },
         },
         error: {
           style: {
-            backgroundColor: 'red50',
-            backgroundColorHover: 'red60',
-            backgroundColorActive: 'red70',
-            backgroundColorChecked: 'red70',
-            backgroundColorDisabled: 'red30',
+            color: 'black',
+            colorDisabled: 'gray40',
+            backgroundColor: 'red100',
           },
         },
       },

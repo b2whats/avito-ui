@@ -199,12 +199,12 @@ const maps = {
     baseline: 'baseline',
     stretch: 'stretch',
   },
-  valignSelf: {
-    block: 'vertical-align',
-    inline: 'vertical-align',
-    'inline-block': 'vertical-align',
-    'flex': 'align-self',
-    'inline-flex': 'align-self',
+  verticalAlign: {
+    top: 'top',
+    middle: 'middle',
+    bottom: 'bottom',
+    baseline: 'baseline',
+    stretch: 'baseline',
   },
   dimension: {
     width: 'width',
@@ -466,13 +466,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
 
         break
       case 'valignSelf': {
-        const prop = maps.valignSelf[params.display]
-
-        if (prop === 'align-self') {
-          value = maps.alignFlex[value]
-        }
-
-        css += `${prop}: ${value};`
+        css += `align-self: ${maps.alignFlex[value]};vertical-align: ${maps.verticalAlign[value]};`
 
         break
       }
@@ -674,7 +668,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       checked: '&[aria-checked=true]',
       visited: '&:visited',
       hover: '&:hover',
-      active: '&:active',
+      active: '&:enabled:active',
       focus: '&&:focus, &&[data-focus=true]',
       disabled: '&:disabled, &[aria-disabled=true]',
     }

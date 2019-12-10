@@ -1,6 +1,103 @@
 ```js
 import { Stack, Icon } from '../../';
 
+<Stack space={10} column>
+  <Stack space={10} wrap>
+    <Button preset='primary' size='s'>Кнопка</Button>
+    <Button preset='primary' size='s' iconBefore='search'>Кнопка</Button>
+    <Button preset='primary' size='s' iconAfter='search'>Кнопка</Button>
+    <Button preset='primary'>Кнопка</Button>
+    <Button preset='primary' iconBefore='search'>Кнопка</Button>
+    <Button preset='primary' iconAfter='search'>Кнопка</Button>
+    <Button preset='primary' size='l'>Кнопка</Button>
+    <Button preset='primary' size='l' iconBefore='search'>Кнопка</Button>
+    <Button preset='primary' size='l' iconBefore={<Icon size='l' name='search'/>}>Кнопка</Button>
+    <Button preset='primary' size='l' iconAfter='search'>Кнопка</Button>
+    <Button preset='primary' disabled>Кнопка</Button>
+    <Button preset='primary' loading>Кнопка</Button>
+    <Button preset='primary' shape='pill'>Кнопка</Button>
+    <Button preset='primary' shape='square' iconBefore='search' />
+    <Button preset='primary' shape='circle' iconBefore='search' />
+  </Stack>
+  <Stack p={10} space={10} wrap>
+    <Button preset='accent'>Кнопка</Button>
+    <Button preset='accent' disabled>Кнопка</Button>
+    <Button preset='accent' loading>Кнопка</Button>
+    <Button preset='accent' shape='pill'>Кнопка</Button>
+    <Button preset='accent' shape='square' iconBefore='search' />
+    <Button preset='accent' shape='circle' iconBefore='search' />
+  </Stack>
+  <Stack p={10} space={10} wrap>
+    <Button preset='secondary'>Кнопка</Button>
+    <Button preset='secondary' disabled>Кнопка</Button>
+    <Button preset='secondary' loading>Кнопка</Button>
+    <Button preset='secondary' shape='pill'>Кнопка</Button>
+    <Button preset='secondary' shape='square' iconBefore='search' />
+    <Button preset='secondary' shape='circle' iconBefore='search' />
+  </Stack>
+  <Stack p={10} space={10} wrap>
+    <Button preset='default'>Кнопка</Button>
+    <Button preset='default' disabled>Кнопка</Button>
+    <Button preset='default' loading>Кнопка</Button>
+    <Button preset='default' shape='pill'>Кнопка</Button>
+    <Button preset='default' shape='square' iconBefore='search' />
+    <Button preset='default' shape='circle' iconBefore='search' />
+  </Stack>
+  <Stack p={10} space={10} backgroundColor='gray4' wrap>
+    <Button preset='defaultOnSurface'>Кнопка</Button>
+    <Button preset='defaultOnSurface' disabled>Кнопка</Button>
+    <Button preset='defaultOnSurface' loading>Кнопка</Button>
+    <Button preset='defaultOnSurface' shape='pill'>Кнопка</Button>
+    <Button preset='defaultOnSurface' shape='square' iconBefore='search' />
+    <Button preset='defaultOnSurface' shape='circle' iconBefore='search' />
+  </Stack>
+  <Stack p={10} space={10} backgroundColor='gray84' wrap>
+    <Button preset='defaultDark'>Кнопка</Button>
+    <Button preset='defaultDark' disabled>Кнопка</Button>
+    <Button preset='defaultDark' loading>Кнопка</Button>
+    <Button preset='defaultDark' shape='pill'>Кнопка</Button>
+    <Button preset='defaultDark' shape='square' iconBefore='search' />
+    <Button preset='defaultDark' shape='circle' iconBefore='search' />
+  </Stack>
+  <Stack p={10} space={10} wrap>
+    <Button preset='outline'>Кнопка</Button>
+    <Button preset='outline' disabled>Кнопка</Button>
+    <Button preset='outline' loading>Кнопка</Button>
+    <Button preset='outline' shape='pill'>Кнопка</Button>
+    <Button preset='outline' shape='square' iconBefore='search' />
+    <Button preset='outline' shape='circle' iconBefore='search' />
+  </Stack>
+  <Stack p={10} space={10} wrap>
+    <Button preset='pay'>Кнопка</Button>
+    <Button preset='pay' disabled>Кнопка</Button>
+    <Button preset='pay' loading>Кнопка</Button>
+    <Button preset='pay' shape='pill'>Кнопка</Button>
+    <Button preset='pay' shape='square' iconBefore='search' />
+    <Button preset='pay' shape='circle' iconBefore='search' />
+  </Stack>
+  <Stack p={10} space={10} wrap>
+    <Button preset='appInstall'>Кнопка</Button>
+    <Button preset='appInstall' disabled>Кнопка</Button>
+    <Button preset='appInstall' loading>Кнопка</Button>
+    <Button preset='appInstall' shape='pill'>Кнопка</Button>
+    <Button preset='appInstall' shape='square' iconBefore='search' />
+    <Button preset='appInstall' shape='circle' iconBefore='search' />
+  </Stack>
+  <Stack p={10} space={10} wrap>
+    <Button preset='linkIncreased'>Кнопка</Button>
+    <Button preset='linkIncreased' disabled>Кнопка</Button>
+    <Button preset='linkIncreased' loading>Кнопка</Button>
+    <Button preset='linkIncreased' shape='pill'>Кнопка</Button>
+    <Button preset='linkIncreased' shape='square' iconBefore='search' />
+    <Button preset='linkIncreased' shape='circle' iconBefore='search' />
+  </Stack>
+</Stack>
+```
+
+
+```js
+import { Stack, Icon } from '../../';
+
 <div>
   <Button variant='primary' size='s' iconBefore='search' onClick={()=> console.log('click')}>Push Me</Button>
   <Button variant='primary' size='s' iconBefore='search'></Button>

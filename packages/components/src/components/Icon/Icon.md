@@ -29,7 +29,7 @@ import { Stack } from '../../';
 
 <Stack space='m'>
   <Icon name='search' onClick={() => {}} inverted />
-  <Icon name='search' color='blue50' onClick={() => {}} colorHover='blue30' />
+  <Icon name='search' color='blue500' onClick={() => {}} colorHover='blue300' />
   <Icon name='search' variant='primary' onClick={() => {}} inverted />
   <Icon name='search' variant='secondary' onClick={() => {}} inverted />
   <Icon name='search' variant='success' onClick={() => {}} inverted />
