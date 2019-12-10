@@ -23,7 +23,7 @@ const gridWrapperClassName = createClassName<GridProps>(
     ` : ''}
 
     ${textRules}
-  `),
+  `)
 )
 
 const gridClassName = createClassName<GridProps>(
@@ -58,7 +58,7 @@ const gridClassName = createClassName<GridProps>(
     ` : ''}
 
     ${textRules}
-  `),
+  `)
 )
 
 const Grid = ({ children, ...props }: GridProps) => {

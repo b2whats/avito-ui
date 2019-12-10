@@ -28,7 +28,7 @@ const spinnerClassName = createClassName<SpinnerProps, SpinnerTheme>(
     ${textRules}
 
     border-bottom-color: transparent;
-  `,
+  `
 )
 
 const Spinner = (props: SpinnerProps) => {

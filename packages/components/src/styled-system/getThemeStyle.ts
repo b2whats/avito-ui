@@ -763,7 +763,7 @@ interface Selector<Props, ComponentTheme> {
 
 export function createClassName<Props, ComponentTheme extends object | null = null>(
   createRule: (schemeStyle: ThemeStyle<ComponentTheme>, props: Props, theme: Theme) => StyleProperties & Display,
-  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any,
+  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any
 ): Selector<Props, ComponentTheme>[ComponentTheme extends object ? 't' : 'f']  {
   return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme>) => {
     const styles = createRule(schemeStyle as any, props, theme)

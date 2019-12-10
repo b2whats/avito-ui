@@ -27,7 +27,7 @@ const stackClassName = createClassName<StackProps>(
     ` : ''}
 
     ${textRules}
-  `),
+  `)
 )
 
 const Stack = ({ children, ...props }: StackProps) => {

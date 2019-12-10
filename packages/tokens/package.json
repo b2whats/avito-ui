@@ -7,7 +7,8 @@
   "module": "src/index.ts",
   "types": "build/index.d.ts",
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "scripts": {
     "build": "yarn clean && tsc -b tsconfig.json",
@@ -16,10 +17,10 @@
     "prepublishOnly": "yarn build"
   },
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "deepmerge": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }

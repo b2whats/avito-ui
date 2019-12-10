@@ -16,7 +16,7 @@ const pageClassName = createClassName<PageProps>(
     box-sizing: border-box;
 
     ${textRules}
-  `),
+  `)
 )
 
 const Page = ({ children, ...props }: PageProps) => {

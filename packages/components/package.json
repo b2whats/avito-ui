@@ -7,11 +7,12 @@
   "module": "src/index.ts",
   "types": "build/index.d.ts",
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "scripts": {
     "build": "yarn clean && yarn build:js && yarn build:types",
-    "build:types": "tsc -b tsconfig.json",
+    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
     "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
     "clean": "rm -rf ./build && rm -rf tsconfig.tsbuildinfo",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -39,6 +40,6 @@
     "react-dom": "^16.8.6"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   }
 }

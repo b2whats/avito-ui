@@ -11,7 +11,7 @@ const iconClassName = createClassName<IconProps, IconTheme>(
     ...style,
     ...props,
   }),
-  (textRules) => (`${textRules}`),
+  (textRules) => (`${textRules}`)
 )
 
 const Icon = (props: IconProps) => {

@@ -79,7 +79,7 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     }
     
     ${textRules}
-  `),
+  `)
 )
 
 const Button = ({ innerRef, ...props }: ButtonProps) => {

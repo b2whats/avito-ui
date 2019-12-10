@@ -36,7 +36,7 @@ const textClassName = createClassName<TextProps, TextTheme>(
     ` : ''}
     
     ${textRules}
-  `),
+  `)
 )
 
 const Line = () => (

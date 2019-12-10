@@ -22,7 +22,7 @@ const inputClassName = createClassName<InputProps, InputTheme>(
     align-items: center;
 
     ${textRules}
-  `),
+  `)
 )
 const inputFieldClassName = createClassName<InputProps, InputTheme>(
   (themeStyle) => ({

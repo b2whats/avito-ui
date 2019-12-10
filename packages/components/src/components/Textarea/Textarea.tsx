@@ -21,7 +21,7 @@ const wrapperClassName = createClassName<TextareaProps>(
       z-index: 5;
     }
     ${textRules}
-  `,
+  `
 )
 
 const textareaClassName = createClassName<TextareaProps, TextareaTheme>(
@@ -33,7 +33,7 @@ const textareaClassName = createClassName<TextareaProps, TextareaTheme>(
     box-sizing: border-box;
 
     ${textRules}
-  `),
+  `)
 )
 
 const Textarea = ({ onFocus, onBlur, ...props}: TextareaProps) => {

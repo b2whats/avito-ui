@@ -1,7 +1,7 @@
-import { Tokens } from '@avito/tokens'
+import { Tokens as _Tokens } from '@avito/tokens'
 import * as components from './components'
 
-export type Tokens = Tokens
+export type Tokens = _Tokens
 
 export type ComponentsTheme = {
   text: components.TextTheme,
