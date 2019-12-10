@@ -680,6 +680,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   if (visitedState.length) {
     css += `${selector.visited}{${visitedState.join('')}}`
   }
+
   if (hoverState.length) {
     css += `${selector.hover}{${hoverState.join('')}}`
   }
