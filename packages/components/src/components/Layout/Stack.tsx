@@ -16,18 +16,18 @@ const stackClassName = createClassName<StackProps>(
     ` : ''}
 
     ${debug ? `
-      border: 2px solid ${palette.red30};
+      border: 2px solid ${palette.red300};
       & > * {
-        background-color: ${palette.blue20};
+        background-color: ${palette.blue200};
       }
 
       & > :nth-child(2n) {
-        background-color: ${palette.yellow20};
+        background-color: ${palette.yellow200};
       }
     ` : ''}
 
     ${textRules}
-  `),
+  `)
 )
 
 const Stack = ({ children, ...props }: StackProps) => {

@@ -31,27 +31,27 @@ export const spinnerTheme: ComponentTheme<SpinnerTheme> = (_, override) => {
       variant: {
         primary: {
           style: {
-            color: 'blue50',
+            color: 'blue500',
           },
         },
         secondary: {
           style: {
-            color: 'gray50',
+            color: 'gray52',
           },
         },
         error: {
           style: {
-            color: 'red50',
+            color: 'red500',
           },
         },
         success: {
           style: {
-            color: 'green50',
+            color: 'green500',
           },
         },
         warning: {
           style: {
-            color: 'yellow50',
+            color: 'yellow500',
           },
         },
       },

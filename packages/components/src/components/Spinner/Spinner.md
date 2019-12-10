@@ -3,7 +3,7 @@ import { Stack } from '../../';
 
 <Stack space='m'>
   <Spinner />
-  <Spinner color='blue50' />
+  <Spinner color='blue300' />
   <Spinner variant='primary' />
   <Spinner variant='secondary' />
   <Spinner variant='success' />

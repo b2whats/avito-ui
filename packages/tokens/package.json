@@ -1,13 +1,15 @@
 {
   "name": "@avito/tokens",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "tokens",
   "main": "build/index.js",
+  "browser": "build/index.js",
   "module": "src/index.ts",
   "types": "build/index.d.ts",
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "scripts": {
     "build": "yarn clean && tsc -b tsconfig.json",
@@ -16,10 +18,11 @@
     "prepublishOnly": "yarn build"
   },
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "deepmerge": "^4.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "gitHead": "145a1cb695a1ca5d76d32c75c2992039df439a95"
 }

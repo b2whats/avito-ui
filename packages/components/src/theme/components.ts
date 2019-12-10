@@ -11,3 +11,8 @@ export * from '../components/Radio/theme'
 export * from '../components/Switcher/theme'
 // export * from '../components/Variants/theme'
 // export * from './variants'
+export * from '../components/Input/theme'
+export * from '../components/Textarea/theme'
+// export * from '../components/Checkbox/theme'
+
+

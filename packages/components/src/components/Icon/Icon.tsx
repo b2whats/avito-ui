@@ -11,7 +11,7 @@ const iconClassName = createClassName<IconProps, IconTheme>(
     ...style,
     ...props,
   }),
-  (textRules) => (`${textRules}`),
+  (textRules) => (`${textRules}`)
 )
 
 const Icon = (props: IconProps) => {
@@ -26,7 +26,9 @@ const Icon = (props: IconProps) => {
       css={iconStyle}
       name={props.name}
       size={size}
+      area={props.area}
       onClick={props.onClick}
+      onMouseDown={props.onMouseDown}
       onMouseOver={props.onMouseOver}
       onMouseOut={props.onMouseOut}
     />

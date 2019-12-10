@@ -6,11 +6,11 @@ import { TextTheme } from './theme'
 
 const textClassName = createClassName<TextProps, TextTheme>(
   (style, props) => ({
-    display: 'inline',
+    display: props.width ? 'inline-block' : 'inline',
     ...style,
     ...props,
   }),
-  (textRules, { strike, size, color, variant }, { text, palette }) => (`
+  (textRules, { strike }, { text, palette }) => (`
     box-sizing: border-box;
     margin: 0;
 
@@ -34,14 +34,9 @@ const textClassName = createClassName<TextProps, TextTheme>(
         stroke: ${typeof strike === 'string' ? palette[strike] : 'currentcolor'};
       }
     ` : ''}
-
-    [data-component='text'] > & {
-      ${!size ? 'font-size: inherit;' : '' }
-      ${!(color || variant) ? 'color: inherit;' : '' }
-    }
     
     ${textRules}
-  `),
+  `)
 )
 
 const Line = () => (

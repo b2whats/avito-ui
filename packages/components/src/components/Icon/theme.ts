@@ -12,6 +12,9 @@ export type IconTheme = {
 export const iconTheme: ComponentTheme<IconTheme> = (_, override) => {
   const scheme: IconTheme['scheme'] = {
     Icon: {
+      style: {
+        focus: true,
+      },
       size: {
         s: {
           props: {
@@ -32,61 +35,61 @@ export const iconTheme: ComponentTheme<IconTheme> = (_, override) => {
       variant: {
         primary: {
           style: {
-            color: 'blue50',
-            colorHover: 'blue70',
+            color: 'blue500',
+            colorHover: 'blue700',
           },
           inverted: {
             style: {
-              color: 'blue80',
-              colorHover: 'blue60',
+              color: 'blue800',
+              colorHover: 'blue600',
             },
           },
         },
         secondary: {
           style: {
-            color: 'gray50',
-            colorHover: 'gray70',
+            color: 'gray500',
+            colorHover: 'gray700',
           },
           inverted: {
             style: {
-              color: 'gray80',
-              colorHover: 'gray60',
+              color: 'gray800',
+              colorHover: 'gray600',
             },
           },
         },
         error: {
           style: {
-            color: 'red50',
-            colorHover: 'red70',
+            color: 'red500',
+            colorHover: 'red700',
           },
           inverted: {
             style: {
-              color: 'red80',
-              colorHover: 'red60',
+              color: 'red800',
+              colorHover: 'red600',
             },
           },
         },
         success: {
           style: {
-            color: 'green50',
-            colorHover: 'green70',
+            color: 'green500',
+            colorHover: 'green700',
           },
           inverted: {
             style: {
-              color: 'green80',
-              colorHover: 'green60',
+              color: 'green800',
+              colorHover: 'green600',
             },
           },
         },
         warning: {
           style: {
-            color: 'yellow50',
-            colorHover: 'yellow70',
+            color: 'yellow500',
+            colorHover: 'yellow700',
           },
           inverted: {
             style: {
-              color: 'yellow80',
-              colorHover: 'yellow60',
+              color: 'yellow800',
+              colorHover: 'yellow600',
             },
           },
         },

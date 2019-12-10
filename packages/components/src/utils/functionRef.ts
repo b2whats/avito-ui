@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef } from 'react'
 
-function functionRef<T>(userSetRef?: React.Ref<T>,): [T | null, (instance: T | null) => void] {
+function functionRef<T>(userSetRef?: React.Ref<T>): [T | null, (instance: T | null) => void] {
   console.log('functionRef')
 
   const [ref, set] = useState<T | null>(null)

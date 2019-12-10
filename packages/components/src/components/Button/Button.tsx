@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { isValidElement } from 'react'
 import { useTheme, useRefHook, filterProps } from '../../utils'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Text as TextComponent } from '../Text/'
-import { Icon } from '../Icon/'
+import { Icon, IconProps } from '../Icon/'
 import { Spinner as SpinnerComponent } from '../Spinner/'
 import { useGroupHook } from '../Layout/Group'
 import { ButtonProps } from './contract'
@@ -13,13 +13,10 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     display: 'inline-block',
     ...themeStyle,
     ...props,
-    ...props.block && { width: 1 },
-    ...(props.square || props.circle) && { p: 'none' },
-    ...props.circle && { borderRadius: 'rounded' },
+    ...(props.shape === 'circle' || props.shape === 'square') && { p: 'none' },
   }),
-  (textRules, { kind, loading }, { button, dimension: { rowHeight } }, themeStyle) => (`
+  (textRules, { kind }, { button }, themeStyle) => (`
     box-sizing: border-box;
-    min-width: ${rowHeight[themeStyle.minHeight! || themeStyle.height!]}px;
     font-family: inherit;
     cursor: pointer;
     text-align: center;
@@ -69,10 +66,12 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     }
 
     & > [data-component='spinner'] {
-        position: absolute;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
     }
 
     &[aria-busy='true'] > :not([data-component='spinner']) {
@@ -80,7 +79,7 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     }
     
     ${textRules}
-  `),
+  `)
 )
 
 const Button = ({ innerRef, ...props }: ButtonProps) => {
@@ -88,8 +87,7 @@ const Button = ({ innerRef, ...props }: ButtonProps) => {
 
   props = {
     size: 'm',
-    kind: 'default',
-    variant: 'primary',
+    preset: 'primary',
     type: 'button',
     ...props,
     disabled: props.disabled || props.loading,
@@ -114,12 +112,19 @@ const Button = ({ innerRef, ...props }: ButtonProps) => {
 
   const Tag = props.href ? 'a' : 'button'
 
+  const renderIconSlot = (icon: ButtonProps['iconBefore'] | ButtonProps['iconAfter'], iconProps: IconProps) => (
+    typeof icon === 'string' ? <Icon name={icon} {...iconProps} /> :
+    typeof icon === 'function' ? icon({ ...props, iconProps }) :
+    isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} /> :
+    undefined
+  )
+
   return (
     <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(mergeProps)}>
       {props.loading && <SpinnerComponent {...Spinner.props}/>}
-      {props.iconBefore && <Icon name={props.iconBefore} {...IconBefore.props} />}
-      {props.children && <TextComponent {...Text.props} crop color='inherit' valignSelf='middle' dense>{ props.children }</TextComponent>}
-      {props.iconAfter && <Icon name={props.iconAfter} {...IconAfter.props} />}
+      {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
+      {props.children && <TextComponent {...Text.props} crop valignSelf='middle' dense>{ props.children }</TextComponent>}
+      {props.iconAfter && renderIconSlot(props.iconAfter, IconAfter.props)}
     </Tag>
   )
 }

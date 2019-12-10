@@ -5,7 +5,11 @@ import { GridProps } from './contract'
 
 // &::before хак против выпадания отрицательных margins из родителя для правильного задания высоты
 const gridWrapperClassName = createClassName<GridProps>(
-  (_, props) => ({ display: 'block', ...omit(props, 'align', 'valign')}),
+  (_, props) => ({
+    display: 'block',
+    width: 1,
+    ...omit(props, 'align', 'valign'),
+  }),
   (textRules, { debug }) => (`
     box-sizing: border-box;
 
@@ -19,7 +23,7 @@ const gridWrapperClassName = createClassName<GridProps>(
     ` : ''}
 
     ${textRules}
-  `),
+  `)
 )
 
 const gridClassName = createClassName<GridProps>(
@@ -44,17 +48,17 @@ const gridClassName = createClassName<GridProps>(
 
     ${debug ? `
       & > * {
-        background-color: ${palette.blue20};
+        background-color: ${palette.blue200};
         background-clip: padding-box;
       }
 
       & > :nth-child(2n) {
-        background-color: ${palette.yellow20};
+        background-color: ${palette.yellow200};
       }
     ` : ''}
 
     ${textRules}
-  `),
+  `)
 )
 
 const Grid = ({ children, ...props }: GridProps) => {

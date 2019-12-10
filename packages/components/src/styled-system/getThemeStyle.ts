@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import { Theme } from '../theme/'
 
-type TextProperties = Partial<{
+export type TextProperties = Partial<{
   fontFamily: string,
   fontSize: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | number | string,
   lineHeight: 'normal' | 'dense' | number,
@@ -9,6 +9,7 @@ type TextProperties = Partial<{
   fontWeight: 'light' | 'normal' | 'bold',
   italic: boolean,
   noWrap: boolean,
+  pre: boolean,
   bold: boolean,
   light: boolean,
   uppercase: boolean,
@@ -21,12 +22,18 @@ type Width = number
 type Height = 's' | 'm' | 'l' | number
 
 export type DimensionProperties = Partial<{
-  width: Width,
-  maxWidth: Width,
-  minWidth: Width,
-  height: Height,
-  minHeight: Height,
-  maxHeight: Height,
+  /** Ширина блока */
+  width?: Width,
+  /** Максимальная ширина блока */
+  maxWidth?: Width,
+  /** Минимальная ширина блока */
+  minWidth?: Width,
+  /** Высота блока */
+  height?: Height,
+  /** Минимальная высота блока */
+  minHeight?: Height,
+  /** Максимальная высота блока */
+  maxHeight?: Height,
   /** Уменьшать при нехватке пространства */
   shrink?: boolean,
   /** Занять все возможзное пространство */
@@ -35,30 +42,42 @@ export type DimensionProperties = Partial<{
 
 type Display = { display: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex' }
 
-type SpaceValues = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'none' | 'auto' | number
+type SpaceValues = keyof Theme['space'] | 'none' | 'auto' | number
 
 export type MarginProperties = Partial<{
+  /** Внешний отступ со всех сторон */
   m: SpaceValues,
+  /** Внешний отступ слува и справа */
   mx: SpaceValues,
+  /** Внешний отступ сверху и снизу */
   my: SpaceValues,
+  /** Внешний отступ сверху */
   mt: SpaceValues,
+  /** Внешний отступ справа */
   mr: SpaceValues,
+  /** Внешний отступ снизу */
   mb: SpaceValues,
+  /** Внешний отступ слева */
   ml: SpaceValues,
 }>
 export type PaddingProperties = Partial<{
+  /** Внутренний отступ */
   p: SpaceValues,
+  /** Внутренний отступ слева и справа */
   px: SpaceValues,
+  /** Внутренний отступ сверху и снизу */
   py: SpaceValues,
+  /** Внутренний отступ сверху */
   pt: SpaceValues,
+  /** Внутренний отступ справа */
   pr: SpaceValues,
+  /** Внутренний отступ снизу */
   pb: SpaceValues,
+  /** Внутренний отступ слева */
   pl: SpaceValues,
 }>
 
 export type SpaceProperties = PaddingProperties & MarginProperties
-
-
 
 type Valign = 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch'
 type Align = 'left' | 'center' | 'right' | 'justify'
@@ -78,10 +97,11 @@ type OtherProperties = Partial<{
   block: boolean,
   inline: boolean,
   wrap: boolean,
+  position: 'relative' | 'absolute' | 'static' | 'fixed',
   borderRadius: number | 'rounded',
   radius: number | 'rounded',
-  rounded: boolean,
   borderWidth: number,
+  shape?: 'pill' | 'square' | 'circle'
 }>
 
 type ColorProperties = Partial<{
@@ -106,6 +126,7 @@ type ColorProperties = Partial<{
   borderColorChecked: string,
   borderColorFocus: string,
   borderColorDisabled: string,
+  placeholderColor: string,
 }>
 
 type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties & OtherProperties
@@ -176,14 +197,14 @@ const maps = {
     middle: 'center',
     bottom: 'flex-end',
     baseline: 'baseline',
-    stretch: 'baseline',
+    stretch: 'stretch',
   },
-  valignSelf: {
-    block: 'vertical-align',
-    inline: 'vertical-align',
-    'inline-block': 'vertical-align',
-    'flex': 'align-self',
-    'inline-flex': 'align-self',
+  verticalAlign: {
+    top: 'top',
+    middle: 'middle',
+    bottom: 'bottom',
+    baseline: 'baseline',
+    stretch: 'baseline',
   },
   dimension: {
     width: 'width',
@@ -273,6 +294,8 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   let visitedState = []
   let focusState = []
   let disabledState = []
+  let display = ''
+  let width = ''
 
 
   for (const param in params) {
@@ -319,6 +342,10 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         css += 'white-space: nowrap;'
 
         break
+      case 'pre':
+        css += 'white-space: pre;'
+
+        break
       case 'wrap':
         css += 'flex-wrap: wrap;'
 
@@ -328,8 +355,9 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
 
         break
       case 'truncate':
+        display = 'inline-block'
+        
         css += `
-          display: inline-block;
           vertical-align: top;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -342,12 +370,12 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         if (!params.lineHeight) break
 
         const lineHeight = font.lineHeight[params.lineHeight] || params.lineHeight
+        display = 'inline-block'
 
         css += `
           && {
             margin-top: 0;
             margin-bottom: 0;
-            display: inline-block;
           }
           
           &::before, &::after {
@@ -364,15 +392,19 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         break
       }
       case 'underline':
+        display = 'inline-block'
         css += `
           cursor: pointer;
-          display: inline-block;
+          line-height: 1;
           padding-bottom: ${font.underline.offset}px;
           border-bottom: ${font.underline.height}px ${typeof value === 'string' ? value : 'solid'} currentColor;
         `
   
         break
       case 'width':
+        width = value > 1 ? `${value}px` : `${value * 100}%`
+
+        break
       case 'minWidth':
       case 'maxWidth':
         css += `${maps.dimension[param]}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
@@ -386,17 +418,17 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
 
         break
       case 'display':
-        if (params.block || params.inline) break
-
-        css += `display: ${value};`
+        display = value
 
         break
       case 'inline':
-        css += `display: ${maps.inline[params.display] || 'inline-block'};`
+        display = maps.inline[params.display] || 'inline-block'
+        width = ''
 
         break
       case 'block': {
-        css += `display: ${maps.block[params.display] || 'block'};`
+        display = maps.block[params.display] || 'block'
+        width = '100%'
 
         break
       }
@@ -412,16 +444,11 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         css += `border-width: ${value}px;`
     
         break
-      case 'radius':
       case 'borderRadius':
-        if (params.rounded) break
+        if (params.shape === 'circle' || params.shape === 'pill') break
 
         css += `border-radius: ${value === 'rounded' ? 100 : value}px;`
     
-        break
-      case 'rounded':
-        css += 'border-radius: 100px;'
-        
         break
       case 'align': {
         const prop = maps.align[params.display]
@@ -439,13 +466,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
 
         break
       case 'valignSelf': {
-        const prop = maps.valignSelf[params.display]
-
-        if (prop === 'align-self') {
-          value = maps.alignFlex[value]
-        }
-
-        css += `${prop}: ${value};`
+        css += `align-self: ${maps.alignFlex[value]};vertical-align: ${maps.verticalAlign[value]};`
 
         break
       }
@@ -579,15 +600,23 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         disabledState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
+      case 'placeholderColor':
+        css += `&::placeholder, & *::placeholder {color: ${palette[value] || value};-webkit-text-fill-color: currentcolor;}`
+            
+        break
       case 'borderStyle':
         css += `border-style: ${value};`
             
         break
-      case 'focus':
+      case 'position':
+        css += `position: ${value};`
+            
+        break
+      case 'focus': {
         const color = focus.color[params.variant || 'default']
         css += `
           outline: none;
-          &&:focus {
+          &&:focus, &&[data-focus=true] {
             box-shadow: ${focus.shape} ${palette[color] || color};
             position: relative;
             z-index: 2;
@@ -595,6 +624,21 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         `
             
         break
+      }
+      case 'shape': {
+        if (value === 'circle' || value === 'pill') {
+          css += 'border-radius: 100px;'
+        }
+        if (value === 'circle' || value === 'square') {
+          const targetHeight = params.height || params.minHeight
+          
+          if (targetHeight) {
+            width = `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
+          }
+        }
+            
+        break
+      }
       default:
         break
     }
@@ -624,8 +668,8 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       checked: '&[aria-checked=true]',
       visited: '&:visited',
       hover: '&:hover',
-      active: '&:active',
-      focus: '&&:focus',
+      active: '&:enabled:active',
+      focus: '&&:focus, &&[data-focus=true]',
       disabled: '&:disabled, &[aria-disabled=true]',
     }
   }
@@ -650,10 +694,17 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
     css += `${selector.disabled}{cursor: not-allowed;${disabledState.join('')}}`
   }
 
+  if (width) {
+    css = `width: ${width};${css}`
+  }
+  if (display) {
+    css = `display: ${display};${css}`
+  }
+
   return css
 }
 
-const filterUndefined = (obj) => {
+const filterUndefined = (obj: any) => {
   const result = {}
 
   for (const key in obj) {
@@ -666,7 +717,7 @@ const filterUndefined = (obj) => {
 }
 
 
-export const getThemeStyle = (theme, name, props, extra) => {
+export const getThemeStyle = (theme: any, name: any, props: any, extra: any) => {
   const { scheme } = theme[name]
   const themeParams = {}
   const result = {}
@@ -713,7 +764,7 @@ interface Selector<Props, ComponentTheme> {
 
 export function createClassName<Props, ComponentTheme extends object | null = null>(
   createRule: (schemeStyle: ThemeStyle<ComponentTheme>, props: Props, theme: Theme) => StyleProperties & Display,
-  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any,
+  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any
 ): Selector<Props, ComponentTheme>[ComponentTheme extends object ? 't' : 'f']  {
   return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme>) => {
     const styles = createRule(schemeStyle as any, props, theme)

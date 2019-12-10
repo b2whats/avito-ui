@@ -20,5 +20,5 @@
       "@avito/tokens": ["../node_modules/@avito/tokens/src"],
     },
   },
-  "exclude": ["node_modules", "packages/**/build"]
+  "exclude": ["node_modules", "old", "packages/**/build"]
 }

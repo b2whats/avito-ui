@@ -1,7 +1,7 @@
-import { Tokens } from '@avito/tokens'
+import { Tokens as _Tokens } from '@avito/tokens'
 import * as components from './components'
 
-export type Tokens = Tokens
+export type Tokens = _Tokens
 
 export type ComponentsTheme = {
   text: components.TextTheme,
@@ -16,6 +16,9 @@ export type ComponentsTheme = {
   radio: components.RadioTheme,
   switcher: components.SwitcherTheme,
   // variants: components.VariantsTheme,
+  input: components.InputTheme,
+  textarea: components.TextareaTheme,
+  // checkbox: components.CheckboxTheme,
 }
 console.log('11', components)
 
@@ -35,6 +38,9 @@ export const createTheme = (baseToken: Tokens, overrides: DeepPartial<Components
   radio: components.radioTheme(baseToken, overrides.radio),
   switcher: components.switcherTheme(baseToken, overrides.switcher),
   // variants: components.variantsTheme(baseToken, overrides.variants),
+  input: components.inputTheme(baseToken, overrides.input),
+  textarea: components.textareaTheme(baseToken, overrides.textarea),
+  // checkbox: components.checkboxTheme(baseToken, overrides.checkbox),
 })
 
 export type Theme = ReturnType<typeof createTheme>

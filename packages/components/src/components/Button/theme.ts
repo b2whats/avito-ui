@@ -43,7 +43,7 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
         },
         l: {
           props: {
-            size: 'l',
+            size: 'm',
           },
         },
       },
@@ -57,12 +57,12 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
         },
         m: {
           props: {
-            size: 'm',
+            size: 's',
           },
         },
         l: {
           props: {
-            size: 'l',
+            size: 'm',
           },
         },
       },
@@ -76,42 +76,28 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
         },
         m: {
           props: {
-            size: 'm',
+            size: 's',
           },
         },
         l: {
           props: {
-            size: 'l',
+            size: 'm',
           },
         },
       },
     },
     Text: {
+      props: {
+        size: 'm',
+      },
       iconBefore: {
         props: {
-          ml: 2,
+          ml: 6,
         },
       },
       iconAfter: {
         props: {
-          mr: 2,
-        },
-      },
-      size: {
-        s: {
-          props: {
-            size: 's',
-          },
-        },
-        m: {
-          props: {
-            size: 'm',
-          },
-        },
-        l: {
-          props: {
-            size: 'l',
-          },
+          mr: 6,
         },
       },
       kind: {
@@ -125,6 +111,7 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
     Button: {
       style: {
         borderRadius: 3,
+        px: 16,
         borderWidth: 1,
         borderStyle: 'solid',
         borderColor: 'transparent',
@@ -133,219 +120,302 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
       size: {
         s: {
           style: {
-            px: 'm',
-            py: 'xs',
+            py: 4,
             minHeight: 's',
-          },
-          iconBefore: {
-            children: {
-              style: {
-                pl: 's',
-              },
-            },
           },
         },
         m: {
           style: {
-            px: 'm',
-            py: 's',
+            py: 6,
             minHeight: 'm',
-          },
-          iconBefore: {
-            children: {
-              style: {
-                pl: 's',
-              },
-            },
           },
         },
         l: {
           style: {
-            px: 'm',
-            py: 's',
+            py: 8,
             minHeight: 'l',
-          },
-          iconBefore: {
-            children: {
-              style: {
-                pl: 's',
-              },
-            },
           },
         },
       },
-      kind: {
+      iconBefore: {
+        children: {
+          style: {
+            pl: 12,
+          },
+        },
+      },
+      iconAfter: {
+        children: {
+          style: {
+            pr: 12,
+          },
+        },
+      },
+      preset: {
+        primary: {
+          style: {
+            color: 'white',
+            colorDisabled: 'blue50',
+            backgroundColor: 'blue500',
+            backgroundColorActive: 'blue800',
+            backgroundColorDisabled: 'blue300',
+          },
+        },
+        accent: {
+          style: {
+            color: 'white',
+            colorDisabled: 'gray48',
+            backgroundColor: 'green500',
+            backgroundColorActive: 'green800',
+            backgroundColorDisabled: 'gray4',
+          },
+        },
+        secondary: {
+          style: {
+            color: 'blue500',
+            colorDisabled: 'gray48',
+            backgroundColor: 'blue50',
+            backgroundColorActive: 'blue100',
+            backgroundColorDisabled: 'gray4',
+          },
+        },
         default: {
           style: {
-            backgroundColor: 'blue50',
-            backgroundColorHover: 'blue60',
-            backgroundColorActive: 'blue70',
-            backgroundColorChecked: 'blue70',
-            backgroundColorDisabled: 'blue30',
-            color: 'white',
-            colorDisabled: 'gray30',
+            color: 'black',
+            colorDisabled: 'gray48',
+            backgroundColor: 'gray4',
+            backgroundColorActive: 'gray8',
+            backgroundColorDisabled: 'gray4',
           },
-          variant: {
-            primary: {
-              style: {
-                backgroundColor: 'blue50',
-                backgroundColorHover: 'blue60',
-                backgroundColorActive: 'blue70',
-                backgroundColorChecked: 'blue70',
-                backgroundColorDisabled: 'blue30',
-              },
-            },
-            secondary: {
-              style: {
-                backgroundColor: 'gray50',
-                backgroundColorHover: 'gray60',
-                backgroundColorActive: 'gray70',
-                backgroundColorChecked: 'gray70',
-                backgroundColorDisabled: 'gray30',
-                color: 'black',
-                colorDisabled: 'gray70',
-              },
-            },
-            success: {
-              style: {
-                backgroundColor: 'green50',
-                backgroundColorHover: 'green60',
-                backgroundColorActive: 'green70',
-                backgroundColorChecked: 'green70',
-                backgroundColorDisabled: 'green30',
-              },
-            },
-            warning: {
-              style: {
-                backgroundColor: 'yellow50',
-                backgroundColorHover: 'yellow60',
-                backgroundColorActive: 'yellow70',
-                backgroundColorChecked: 'yellow70',
-                backgroundColorDisabled: 'yellow30',
-                color: 'black',
-                colorDisabled: 'gray70',
-              },
-            },
-            error: {
-              style: {
-                backgroundColor: 'red50',
-                backgroundColorHover: 'red60',
-                backgroundColorActive: 'red70',
-                backgroundColorChecked: 'red70',
-                backgroundColorDisabled: 'red30',
-              },
-            },
+        },
+        defaultOnSurface: {
+          style: {
+            color: 'black',
+            colorDisabled: 'gray48',
+            backgroundColor: 'gray8',
+            backgroundColorActive: 'gray12',
+            backgroundColorDisabled: 'gray8',
+          },
+        },
+        defaultDark: {
+          style: {
+            color: 'white',
+            colorDisabled: 'gray40',
+            backgroundColor: 'gray68',
+            backgroundColorActive: 'gray76',
+            backgroundColorDisabled: 'gray76',
           },
         },
         outline: {
           style: {
-            borderColor: 'gray30',
-            borderColorHover: 'gray40',
-            borderColorActive: 'gra50',
-            borderColorDisabled: 'gray20',
-            backgroundColor: 'gray30',
-            backgroundColorHover: 'gray40',
-            backgroundColorActive: 'gray50',
-            backgroundColorChecked: 'gray30',
-          },
-          variant: {
-            primary: {
-              style: {
-                color: 'blue50',
-                colorHover: 'blue60',
-                colorActive: 'blue70',
-                colorDisabled: 'blue30',
-              },
-            },
-            secondary: {
-              style: {
-                color: 'gray50',
-                colorHover: 'gray60',
-                colorActive: 'gray70',
-                colorDisabled: 'gray30',
-              },
-            },
-            success: {
-              style: {
-                color: 'green50',
-                colorHover: 'green60',
-                colorActive: 'green70',
-                colorDisabled: 'green30',
-              },
-            },
-            warning: {
-              style: {
-                color: 'yellow50',
-                colorHover: 'yellow60',
-                colorActive: 'yellow70',
-                colorDisabled: 'yellow30',
-              },
-            },
-            error: {
-              style: {
-                color: 'red50',
-                colorHover: 'red60',
-                colorActive: 'red70',
-                colorDisabled: 'red30',
-              },
-            },
+            color: 'black',
+            colorDisabled: 'gray48',
+            backgroundColor: 'white',
+            borderColor: 'gray8',
+            backgroundColorActive: 'gray8',
+            //backgroundColorDisabled: 'gray4',
           },
         },
-        flat: {
+        pay: {
           style: {
-            borderColor: 'gray30',
-            borderColorHover: 'gray40',
-            borderColorActive: 'gra50',
-            borderColorDisabled: 'gray20',
-            backgroundColor: 'gray30',
-            backgroundColorHover: 'gray40',
-            backgroundColorActive: 'gray50',
-            backgroundColorChecked: 'gray30',
+            color: 'white',
+            colorDisabled: 'gray40',
+            backgroundColor: 'black',
+            backgroundColorActive: 'gray76',
+            backgroundColorDisabled: 'gray68',
           },
-          variant: {
-            primary: {
-              style: {
-                color: 'blue50',
-                colorHover: 'blue60',
-                colorActive: 'blue70',
-                colorDisabled: 'blue30',
-              },
-            },
-            secondary: {
-              style: {
-                color: 'gray50',
-                colorHover: 'gray60',
-                colorActive: 'gray70',
-                colorDisabled: 'gray30',
-              },
-            },
-            success: {
-              style: {
-                color: 'green50',
-                colorHover: 'green60',
-                colorActive: 'green70',
-                colorDisabled: 'green30',
-              },
-            },
-            warning: {
-              style: {
-                color: 'yellow50',
-                colorHover: 'yellow60',
-                colorActive: 'yellow70',
-                colorDisabled: 'yellow30',
-              },
-            },
-            error: {
-              style: {
-                color: 'red50',
-                colorHover: 'red60',
-                colorActive: 'red70',
-                colorDisabled: 'red30',
-              },
-            },
+        },
+        appInstall: {
+          style: {
+            color: 'blue500',
+            colorDisabled: 'gray48',
+            backgroundColor: 'gray4',
+            backgroundColorActive: 'gray8',
+            backgroundColorDisabled: 'gray4',
+          },
+        },
+        linkIncreased: {
+          style: {
+            color: 'blue500',
+            colorDisabled: 'gray40',
+            backgroundColor: 'white',
+            backgroundColorActive: 'gray4',
+            backgroundColorDisabled: 'white',
           },
         },
       },
+      // kind: {
+      //   default: {
+      //     style: {
+      //       backgroundColor: 'blue50',
+      //       backgroundColorHover: 'blue60',
+      //       backgroundColorActive: 'blue70',
+      //       backgroundColorChecked: 'blue70',
+      //       backgroundColorDisabled: 'blue30',
+      //       color: 'white',
+      //       colorDisabled: 'gray30',
+      //     },
+      //     variant: {
+      //       primary: {
+      //         style: {
+      //           backgroundColor: 'blue50',
+      //           backgroundColorHover: 'blue60',
+      //           backgroundColorActive: 'blue70',
+      //           backgroundColorChecked: 'blue70',
+      //           backgroundColorDisabled: 'blue30',
+      //         },
+      //       },
+      //       secondary: {
+      //         style: {
+      //           backgroundColor: 'gray50',
+      //           backgroundColorHover: 'gray60',
+      //           backgroundColorActive: 'gray70',
+      //           backgroundColorChecked: 'gray70',
+      //           backgroundColorDisabled: 'gray30',
+      //           color: 'black',
+      //           colorDisabled: 'gray70',
+      //         },
+      //       },
+      //       success: {
+      //         style: {
+      //           backgroundColor: 'green50',
+      //           backgroundColorHover: 'green60',
+      //           backgroundColorActive: 'green70',
+      //           backgroundColorChecked: 'green70',
+      //           backgroundColorDisabled: 'green30',
+      //         },
+      //       },
+      //       warning: {
+      //         style: {
+      //           backgroundColor: 'yellow50',
+      //           backgroundColorHover: 'yellow60',
+      //           backgroundColorActive: 'yellow70',
+      //           backgroundColorChecked: 'yellow70',
+      //           backgroundColorDisabled: 'yellow30',
+      //           color: 'black',
+      //           colorDisabled: 'gray70',
+      //         },
+      //       },
+      //       error: {
+      //         style: {
+      //           backgroundColor: 'red50',
+      //           backgroundColorHover: 'red60',
+      //           backgroundColorActive: 'red70',
+      //           backgroundColorChecked: 'red70',
+      //           backgroundColorDisabled: 'red30',
+      //         },
+      //       },
+      //     },
+      //   },
+      //   outline: {
+      //     style: {
+      //       borderColor: 'gray30',
+      //       borderColorHover: 'gray40',
+      //       borderColorActive: 'gra50',
+      //       borderColorDisabled: 'gray20',
+      //       backgroundColor: 'gray30',
+      //       backgroundColorHover: 'gray40',
+      //       backgroundColorActive: 'gray50',
+      //       backgroundColorChecked: 'gray30',
+      //     },
+      //     variant: {
+      //       primary: {
+      //         style: {
+      //           color: 'blue50',
+      //           colorHover: 'blue60',
+      //           colorActive: 'blue70',
+      //           colorDisabled: 'blue30',
+      //         },
+      //       },
+      //       secondary: {
+      //         style: {
+      //           color: 'gray50',
+      //           colorHover: 'gray60',
+      //           colorActive: 'gray70',
+      //           colorDisabled: 'gray30',
+      //         },
+      //       },
+      //       success: {
+      //         style: {
+      //           color: 'green50',
+      //           colorHover: 'green60',
+      //           colorActive: 'green70',
+      //           colorDisabled: 'green30',
+      //         },
+      //       },
+      //       warning: {
+      //         style: {
+      //           color: 'yellow50',
+      //           colorHover: 'yellow60',
+      //           colorActive: 'yellow70',
+      //           colorDisabled: 'yellow30',
+      //         },
+      //       },
+      //       error: {
+      //         style: {
+      //           color: 'red50',
+      //           colorHover: 'red60',
+      //           colorActive: 'red70',
+      //           colorDisabled: 'red30',
+      //         },
+      //       },
+      //     },
+      //   },
+      //   flat: {
+      //     style: {
+      //       borderColor: 'gray30',
+      //       borderColorHover: 'gray40',
+      //       borderColorActive: 'gra50',
+      //       borderColorDisabled: 'gray20',
+      //       backgroundColor: 'gray30',
+      //       backgroundColorHover: 'gray40',
+      //       backgroundColorActive: 'gray50',
+      //       backgroundColorChecked: 'gray30',
+      //     },
+      //     variant: {
+      //       primary: {
+      //         style: {
+      //           color: 'blue50',
+      //           colorHover: 'blue60',
+      //           colorActive: 'blue70',
+      //           colorDisabled: 'blue30',
+      //         },
+      //       },
+      //       secondary: {
+      //         style: {
+      //           color: 'gray50',
+      //           colorHover: 'gray60',
+      //           colorActive: 'gray70',
+      //           colorDisabled: 'gray30',
+      //         },
+      //       },
+      //       success: {
+      //         style: {
+      //           color: 'green50',
+      //           colorHover: 'green60',
+      //           colorActive: 'green70',
+      //           colorDisabled: 'green30',
+      //         },
+      //       },
+      //       warning: {
+      //         style: {
+      //           color: 'yellow50',
+      //           colorHover: 'yellow60',
+      //           colorActive: 'yellow70',
+      //           colorDisabled: 'yellow30',
+      //         },
+      //       },
+      //       error: {
+      //         style: {
+      //           color: 'red50',
+      //           colorHover: 'red60',
+      //           colorActive: 'red70',
+      //           colorDisabled: 'red30',
+      //         },
+      //       },
+      //     },
+      //   },
+      // },
     },
   }
 

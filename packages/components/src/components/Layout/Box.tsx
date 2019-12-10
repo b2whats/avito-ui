@@ -10,7 +10,7 @@ const boxClassName = createClassName<BoxProps>(
     flex-shrink: 0;
 
     ${textRules}
-  `),
+  `)
 )
 
 const Box = ({ children, ...props }: BoxProps) => {

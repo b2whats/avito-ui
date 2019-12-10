@@ -1,13 +1,15 @@
 {
   "name": "@avito/components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "components",
   "main": "build/index.js",
   "module": "src/index.ts",
   "types": "build/index.d.ts",
+  "browser": "build/index.js",
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "scripts": {
     "build": "yarn clean && yarn build:js && yarn build:types",
@@ -24,8 +26,8 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/icons": "^0.0.1",
-    "@avito/tokens": "^0.0.1",
+    "@avito/icons": "^0.0.2",
+    "@avito/tokens": "^0.0.2",
     "@emotion/core": "^10.0.15",
     "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/styled": "^10.0.15",
@@ -39,6 +41,7 @@
     "react-dom": "^16.8.6"
   },
   "publishConfig": {
-    "access": "public"
-  }
+    "access": "restricted"
+  },
+  "gitHead": "145a1cb695a1ca5d76d32c75c2992039df439a95"
 }

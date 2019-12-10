@@ -1,7 +1,7 @@
 ```jsx
 import { Box } from './';
 
-<Grid space='s' spaceY='s' width={537} inline debug>
+<Grid space='s' spaceY='s' width={537} debug>
   <Box width={1/5} p='l' height={100}>
     <Grid space='s' debug>
       <Box width={1/3}>1</Box>

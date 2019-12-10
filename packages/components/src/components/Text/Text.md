@@ -44,33 +44,33 @@ import { Stack } from '../../';
 const text = 'Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском 12 567 456';
 
 <Stack space={12} column>
-  <Stack space={10} width={600}>
-    <Text size='m' bold>XS</Text>
+  <Stack space={10} width={600} valign='top'>
+    <Text size='m' bold minWidth={30} >XS</Text>
     <Text size='xs'>{text}</Text>
     <Text size='xs' dense>{text}</Text>
   </Stack>
-  <Stack space={10} width={600}>
-    <Text size='m' bold>S</Text>
+  <Stack space={10} width={600} valign='top'>
+    <Text size='m' bold minWidth={30}>S</Text>
     <Text size='s'>{text}</Text>
     <Text size='s' dense>{text}</Text>
   </Stack>
-  <Stack space={10} width={600}>
-    <Text size='m' bold>M</Text>
+  <Stack space={10} width={600} valign='top'>
+    <Text size='m' bold minWidth={30}>M</Text>
     <Text size='m'>{text}</Text>
     <Text size='m' dense>{text}</Text>
   </Stack>
-  <Stack space={10} width={800}>
-    <Text size='m' bold>L</Text>
+  <Stack space={10} width={800} valign='top'>
+    <Text size='m' bold minWidth={30}>L</Text>
     <Text size='l'>{text}</Text>
     <Text size='l' dense>{text}</Text>
   </Stack>
-  <Stack space={10}>
-    <Text size='m' bold>XL</Text>
+  <Stack space={10}s>
+    <Text size='m' bold minWidth={30}>XL</Text>
     <Text size='xl'>{text}</Text>
     <Text size='xl' dense>{text}</Text>
   </Stack>
   <Stack space={10}>
-    <Text size='m' bold>XXL</Text>
+    <Text size='m' bold minWidth={30}>XXL</Text>
     <Text size='xxl'>{text}</Text>
     <Text size='xxl' dense>{text}</Text>
   </Stack>
@@ -93,9 +93,9 @@ import { Stack } from '../../';
   </Stack>
   <Stack column space={10}>
     <Text>Custom </Text>
-    <Text color='red70'>red70</Text>
-    <Text color='blue30'>blue30</Text>
-    <Text color='green60'>green60</Text>
+    <Text color='red700'>red70</Text>
+    <Text color='blue300'>blue30</Text>
+    <Text color='green600'>green60</Text>
   </Stack>
 </Stack>
 ```
@@ -108,7 +108,7 @@ import { Stack } from '../../';
 <Stack space={12}>
     <Text uppercase>uppercase</Text>
     <Text strike>strike normal</Text>
-    <Text strike='red50'>strike color</Text>
+    <Text strike='red500'>strike color</Text>
     <Text underline>underline</Text>
     <Text underline='dashed'>underline</Text>
     <Text underline='dotted'>underline</Text>
@@ -152,7 +152,7 @@ import { Stack } from '../../';
 <Stack space={12} column>
     <Text>
       Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском 
-      <Text color='gray50'>12 567 456</Text>
+      <Text color='gray52'>12 567 456</Text>
     </Text>
     <Stack space={12}>
       <CardDoc>
