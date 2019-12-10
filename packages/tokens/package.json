@@ -1,6 +1,6 @@
 {
   "name": "@avito/tokens",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "tokens",
   "main": "build/index.js",
@@ -22,5 +22,6 @@
   },
   "publishConfig": {
     "access": "restricted"
-  }
+  },
+  "gitHead": "145a1cb695a1ca5d76d32c75c2992039df439a95"
 }
