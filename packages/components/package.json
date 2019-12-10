@@ -6,6 +6,7 @@
   "main": "build/index.js",
   "module": "src/index.ts",
   "types": "build/index.d.ts",
+  "browser": "build/index.js",
   "files": [
     "build",
     "src"
