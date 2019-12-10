@@ -1,11 +1,12 @@
 {
   "name": "@avito/components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "components",
   "main": "build/index.js",
   "module": "src/index.ts",
   "types": "build/index.d.ts",
+  "browser": "build/index.js",
   "files": [
     "build",
     "src"

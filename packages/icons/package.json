@@ -1,9 +1,10 @@
 {
   "name": "@avito/icons",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "icons",
   "main": "build/index.js",
+  "browser": "build/index.js",
   "module": "src/index.ts",
   "types": "build/index.d.ts",
   "files": [
