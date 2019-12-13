@@ -72,6 +72,7 @@ export interface StackProps extends SpaceProperties, DimensionProperties {
 
 type onChangeProps = {
   name?: string,
+  mode?: string,
   type: string,
   value?: ReactText | ReactText[] | null,
 }
@@ -81,10 +82,16 @@ export interface GroupProps extends SpaceProperties, DimensionProperties {
   children?: React.ReactNode,
   /** Блочное поведение */
   block?: boolean,
+  /** Горизонтальный отступ между дочерними блоками */
+  space?: keyof Tokens['space'] | number,
   /** Вертикальный ритм */
   column?: boolean,
   /** Имя группы */
   name?: string,
+  /** Добавляет скролл */
+  scroll?: boolean,
+  /** Неактивный контрол */
+  disabled?: boolean,
   /** Режим для события onClick */
   mode?: 'checkbox' | 'radio',
   /** Выбранные элементы */

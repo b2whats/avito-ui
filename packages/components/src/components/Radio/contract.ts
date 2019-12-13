@@ -1,3 +1,3 @@
-import { TogglerProps } from '../Toggler/contract'
+import { ToggleProps } from '../Toggle/contract'
 
-export interface RadioProps extends Omit<TogglerProps, 'children'> {}
+export type RadioProps = Omit<ToggleProps, 'children' | 'scheme' | 'className' | 'mode' | 'indeterminate'>

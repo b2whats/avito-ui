@@ -14,7 +14,9 @@ import { Stack, Icon } from '../../';
     <Button preset='primary' size='l' iconBefore={<Icon size='l' name='search'/>}>Кнопка</Button>
     <Button preset='primary' size='l' iconAfter='search'>Кнопка</Button>
     <Button preset='primary' disabled>Кнопка</Button>
+    <Button preset='primary' size='s' loading>Кнопка</Button>
     <Button preset='primary' loading>Кнопка</Button>
+    <Button preset='primary' size='l' loading>Кнопка</Button>
     <Button preset='primary' shape='pill'>Кнопка</Button>
     <Button preset='primary' shape='square' iconBefore='search' />
     <Button preset='primary' shape='circle' iconBefore='search' />

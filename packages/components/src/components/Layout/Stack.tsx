@@ -12,7 +12,7 @@ const stackClassName = createClassName<StackProps>(
     ${scroll ? `overflow-${column ? 'y' : 'x'}: scroll;` : ''};
 
     ${space ? `
-      & > :not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${spaceToken[space] || space}px; }
+      & > *:not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${spaceToken[space] || space}px; }
     ` : ''}
 
     ${debug ? `

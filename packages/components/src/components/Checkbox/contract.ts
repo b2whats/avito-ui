@@ -1,5 +1,6 @@
-import { TogglerProps } from '../Toggler/contract'
+import { ToggleProps } from '../Toggle/contract'
 
-export interface CheckboxProps extends Omit<TogglerProps, 'children'> {
-  variant?: string,
+export type CheckboxProps = Omit<ToggleProps, 'children' | 'scheme' | 'className' | 'mode'> & {
+  /** Квадратная, круглая форма */
+  shape: 'square' | 'circle',
 }

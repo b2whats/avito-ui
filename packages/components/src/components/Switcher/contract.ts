@@ -1,3 +1,3 @@
-import { TogglerProps } from '../Toggler/contract'
+import { ToggleProps } from '../Toggle/contract'
 
-export interface SwitcherProps extends Omit<TogglerProps, 'children'> {}
+export type SwitcherProps = Omit<ToggleProps, 'children' | 'theme' | 'className' | 'mode'>

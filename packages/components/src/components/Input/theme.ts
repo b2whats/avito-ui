@@ -177,21 +177,21 @@ export const inputTheme: ComponentTheme<InputTheme> = (_, override) => {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'green100',
+            backgroundColor: 'green50',
           },
         },
         warning: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'orange100',
+            backgroundColor: 'orange50',
           },
         },
         error: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'red100',
+            backgroundColor: 'red50',
           },
         },
       },

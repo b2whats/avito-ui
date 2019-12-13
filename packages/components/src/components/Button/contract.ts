@@ -21,7 +21,7 @@ export interface ButtonProps extends MarginProperties {
   type?: 'button' | 'submit' | 'reset',
   /** Кнопка со спиннером */
   loading?: boolean,
-  /** Квадратная, круглая и вытянутая кнопка с закругленными углами */
+  /** Квадратная, круглая и вытянутая форма с закругленными углами */
   shape: 'pill' | 'square' | 'circle',
   /** Иконка слева */
   iconBefore?: string | React.ReactNode,

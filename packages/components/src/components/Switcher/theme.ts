@@ -1,101 +1,107 @@
 import { ComponentTheme } from '../../theme'
-import { SchemeType } from '../../styled-system/'
+import { SchemeType } from '../../styled-system'
 import { SwitcherProps } from './contract'
 
 export type SwitcherTheme = {
   scheme: {
-    Switcher: SchemeType<SwitcherProps>,
+    Switch: SchemeType<SwitcherProps>,
   },
 }
 
 export const switcherTheme: ComponentTheme<SwitcherTheme> = (_, override) => {
   const scheme: SwitcherTheme['scheme'] = {
-    Switcher: {
+    Switch: {
+      style: {
+        width: 48,
+        height: 24,
+        p: 3,
+        focus: true,
+      },
       variant: {
         primary: {
           style: {
-            backgroundColor: 'gray40',
-            backgroundColorActive: 'gray40',
-            backgroundColorHover: 'gray40',
-            backgroundColorChecked: 'blue50',
-            backgroundColorDisabled: 'gray10',
+            color: 'white',
+            backgroundColor: 'gray12',
+            backgroundColorActive: 'gray28',
+            backgroundColorDisabled: 'gray8',
           },
           checked: {
             style: {
-              backgroundColor: 'blue50',
-              backgroundColorHover: 'blue60',
-              backgroundColorActive: 'blue60',
-              backgroundColorDisabled: 'blue20',
+              backgroundColor: 'blue500',
+              backgroundColorActive: 'blue700',
+              backgroundColorDisabled: 'blue300',
             },
           },
         },
         secondary: {
           style: {
-            backgroundColor: 'gray40',
-            backgroundColorActive: 'gray40',
-            backgroundColorHover: 'gray40',
-            backgroundColorChecked: 'blue50',
-            backgroundColorDisabled: 'gray10',
+            color: 'white',
+            backgroundColor: 'gray12',
+            backgroundColorActive: 'gray28',
+            backgroundColorDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'blue50',
-              backgroundColorHover: 'blue60',
-              backgroundColorActive: 'blue60',
-              backgroundColorDisabled: 'blue20',
-            },
-          },
-        },
-        error: {
-          style: {
-            backgroundColor: 'gray40',
-            backgroundColorActive: 'gray40',
-            backgroundColorHover: 'gray40',
-            backgroundColorChecked: 'blue50',
-            backgroundColorDisabled: 'gray10',
-          },
-          checked: {
-            style: {
-              backgroundColor: 'blue50',
-              backgroundColorHover: 'blue60',
-              backgroundColorActive: 'blue60',
-              backgroundColorDisabled: 'blue20',
+              backgroundColor: 'gray48',
+              backgroundColorActive: 'gray56',
+              backgroundColorDisabled: 'gray28',
             },
           },
         },
         success: {
           style: {
-            backgroundColor: 'gray40',
-            backgroundColorActive: 'gray40',
-            backgroundColorHover: 'gray40',
-            backgroundColorChecked: 'blue50',
-            backgroundColorDisabled: 'gray10',
+            color: 'white',
+            backgroundColor: 'gray12',
+            backgroundColorActive: 'gray28',
+            backgroundColorDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'blue50',
-              backgroundColorHover: 'blue60',
-              backgroundColorActive: 'blue60',
-              backgroundColorDisabled: 'blue20',
+              backgroundColor: 'green500',
+              backgroundColorActive: 'green700',
+              backgroundColorDisabled: 'gray28',
             },
           },
         },
         warning: {
           style: {
-            backgroundColor: 'gray40',
-            backgroundColorActive: 'gray40',
-            backgroundColorHover: 'gray40',
-            backgroundColorChecked: 'blue50',
-            backgroundColorDisabled: 'gray10',
+            color: 'white',
+            backgroundColor: 'gray12',
+            backgroundColorActive: 'gray28',
+            backgroundColorDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'blue50',
-              backgroundColorHover: 'blue60',
-              backgroundColorActive: 'blue60',
-              backgroundColorDisabled: 'blue20',
+              backgroundColor: 'orange500',
+              backgroundColorActive: 'orange700',
+              backgroundColorDisabled: 'gray28',
             },
           },
+        },
+        error: {
+          style: {
+            color: 'white',
+            backgroundColor: 'gray12',
+            backgroundColorActive: 'gray28',
+            backgroundColorDisabled: 'gray4',
+          },
+          checked: {
+            style: {
+              backgroundColor: 'red500',
+              backgroundColorActive: 'red700',
+              backgroundColorDisabled: 'gray28',
+            },
+          },
+        },
+      },
+      loading: {
+        style: {
+          focus: false,
+          align: 'center',
+          color: 'gray28',
+          backgroundColor: 'transparent',
+          backgroundColorActive: 'transparent',
+          backgroundColorDisabled: 'transparent',
         },
       },
     },

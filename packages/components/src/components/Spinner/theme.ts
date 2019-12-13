@@ -1,10 +1,11 @@
 import { ComponentTheme } from '../../theme'
 import { SchemeType } from '../../styled-system/'
 import { SpinnerProps } from './contract'
+import { IconProps } from '../Icon/'
 
 export type SpinnerTheme = {
   scheme: {
-    Spinner: SchemeType<SpinnerProps>,
+    Spinner: SchemeType<SpinnerProps, IconProps>,
   }
 }
 
@@ -13,45 +14,18 @@ export const spinnerTheme: ComponentTheme<SpinnerTheme> = (_, override) => {
     Spinner: {
       size: {
         s: {
-          style: {
-            width: 16,
+          props: {
+            size: 16,
           },
         },
         m: {
-          style: {
-            width: 20,
+          props: {
+            size: 24,
           },
         },
         l: {
-          style: {
-            width: 24,
-          },
-        },
-      },
-      variant: {
-        primary: {
-          style: {
-            color: 'blue500',
-          },
-        },
-        secondary: {
-          style: {
-            color: 'gray52',
-          },
-        },
-        error: {
-          style: {
-            color: 'red500',
-          },
-        },
-        success: {
-          style: {
-            color: 'green500',
-          },
-        },
-        warning: {
-          style: {
-            color: 'yellow500',
+          props: {
+            size: 32,
           },
         },
       },

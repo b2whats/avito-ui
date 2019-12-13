@@ -1,4 +1,5 @@
 import React, { useRef, useContext, useState, useEffect } from 'react'
+import scrollIntoView from 'scroll-into-view-if-needed'
 import { GroupProps } from './contract'
 import { Stack } from '.'
 
@@ -7,17 +8,21 @@ type GroupContext = {
   onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void,
   checked?: (string | number | undefined | null)[],
   block?: boolean,
+  space?: boolean,
+  disabled?: boolean,
   mode?: string,
   elements: React.MutableRefObject<any[]>,
   orientation: 'horizontal' | 'vertical'
 }
 
 type GroupTargetHook = {
-  block?: boolean,
+  grow?: boolean,
   role?: string,
   tabIndex: number,
+  disabled?: boolean,
   'data-group': string,
   'aria-checked'?: boolean,
+  checked: boolean,
   onClick?: (event: React.MouseEvent<HTMLElement>) => void,
   onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void,
 }
@@ -33,7 +38,7 @@ export function useGroupHook(ref: React.MutableRefObject<HTMLElement | null>, ta
   const groupContext = useContext(GroupContext)
   const props = {} as GroupTargetHook
 
-  if (!groupContext) return props
+  if (!groupContext) return
 
   const [positions, setPositions] = useState<string>('')
   
@@ -56,19 +61,27 @@ export function useGroupHook(ref: React.MutableRefObject<HTMLElement | null>, ta
           prevNode = node
           node = node.parentElement
         }
-      } 
+      }
+
+      const checked = groupContext.checked && groupContext.checked.includes(targetProps.value)
+      if (groupContext.mode === 'radio' && checked ) {
+        ref.current.scrollIntoView()
+      }
     }
   }, [])
 
-  props.block = 'block' in groupContext ? groupContext.block : undefined
-  props['data-group'] = (`${groupContext.orientation} ${positions}`).trim()
+  if (groupContext.block) {
+    props.grow = true
+  }
+  props['data-group'] = (`${groupContext.orientation} ${groupContext.space ? 'space' : ''} ${positions}`).trim()
 
   if (groupContext.onClick) {
     const checked = groupContext.checked && groupContext.checked.includes(targetProps.value)
     const isFirstChecked = !groupContext.checked && positions.includes('first')
 
-    props['aria-checked'] = checked || false
+    props.checked = checked || false
     props.role = groupContext.mode
+    props.disabled = groupContext.disabled
     props.tabIndex = (checked && !targetProps.disabled) || isFirstChecked || groupContext.mode !== 'radio' ? 0 : -1
     props.onClick = groupContext.onClick
     props.onKeyDown = groupContext.onKeyDown
@@ -78,21 +91,29 @@ export function useGroupHook(ref: React.MutableRefObject<HTMLElement | null>, ta
 }
 
 
-const Group = ({ children, block, mode, value, name, onChange, ...props }: GroupProps) => {
+const Group = ({ children, block, mode, value, name, disabled, onChange, ...props }: GroupProps) => {
   const elements =  useRef<any[]>([])
 
   const onClick = (event: React.MouseEvent<HTMLElement>) => {
     if (!onChange || !mode) return
 
     const { currentTarget: target } = event as React.MouseEvent<HTMLInputElement>
+
+    if (props.scroll) {
+      scrollIntoView(target, {
+        behavior: 'smooth',
+        scrollMode: 'if-needed',
+      })
+    }
+
     const tartetValue = Number.isNaN(Number(target.value)) ? target.value : Number(target.value)
-    const update = { name, value, type: 'checked-group' }
+    const update = { mode, name, value, type: 'toggle-group' }
 
     if (mode === 'checkbox') {
-      const checked = target.getAttribute('aria-checked')
+      const checked = target.getAttribute('aria-checked') === 'true'
 
       update.value = Array.isArray(value)
-        ? checked === 'true'
+        ? checked
           ? value.filter(val => val !== tartetValue)
           : [...value, tartetValue]
         : [tartetValue]
@@ -117,11 +138,13 @@ const Group = ({ children, block, mode, value, name, onChange, ...props }: Group
       switch (event.key) {
         case 'ArrowRight':
         case 'ArrowDown':
+          event.preventDefault()
           currentIndex = currentIndex === count - 1 ? 0 : currentIndex + 1
           next = elements.current[currentIndex]
           break
         case 'ArrowUp':
         case 'ArrowLeft':
+          event.preventDefault()
           currentIndex = currentIndex === 0 ? count - 1 : currentIndex - 1
           next = elements.current[currentIndex]
           break  
@@ -144,7 +167,9 @@ const Group = ({ children, block, mode, value, name, onChange, ...props }: Group
       ? Array.isArray(value) ? value : [value]
       : undefined,
     block,
+    space: Boolean(props.space),
     mode,
+    disabled,
     elements,
     orientation,
   }

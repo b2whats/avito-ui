@@ -1,55 +1,50 @@
 import React from 'react'
-import { useTheme } from '../../utils/'
+import { css } from '@emotion/core'
+import { Toggle } from '../Toggle/'
+import { Icon } from '../Icon/'
+import { Spinner } from '../Spinner/'
 import { SwitcherProps } from './contract'
-import { SwitcherTheme } from './theme'
-import {createClassName, foldThemeParams } from '../../styled-system'
-import { Toggler } from '../Toggler'
 
-const radioClassName = createClassName<SwitcherProps, SwitcherTheme>(
-  (themeStyles, props) => ({
-    display: 'inline-flex',
-    ...themeStyles,
-    ...props,
-  }),
-  (textRules, {}, {}) => (`
-    position: relative;
-    width: 48px;
-    height: 24px;
-    box-sizing: border-box;
-    border-radius: 15px;
-    
-    &::after {
-      content: ' ';
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      display: block;
-      width: 18px;
-      height: 18px;
-      background-color: white;
-      border-radius: 100%;
-    }
-    
-    &[aria-checked=true]::after {
-      right: 3px;
-      left: auto;
-    }
-    
-    ${textRules}
-  `),
-)
+const circleStyle = (checked: boolean, press: boolean) => css`
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  &::before {
+    content: '';
+    transition: flex-basis .2s ease;
+    flex-basis: ${(
+      !checked && press ? '15%' :
+      checked ? '100%' : '0%')};
+  }
+  &::after {
+    content: '';
+    transition: flex-basis .2s ease;
+    flex-basis: ${(
+      checked && press ? '15%' :
+      !checked ? '100%' : '0%')};
+  }
+`
 
 const Switcher = (props: SwitcherProps) => {
-  const theme = useTheme()
-  const { Switcher } = foldThemeParams<SwitcherTheme>(theme.switcher, props)
-  const style = radioClassName(props, theme, Switcher.style)
+  props = {
+    variant: 'primary',
+    size: 'm',
+    shape: 'pill',
+    ...props,
+  }
 
   return (
-    <Toggler
-      mode='switcher'
-      className={style}
-      { ...props }>
-    </Toggler>
+    <Toggle {...props} mode='checkbox' scheme='switcher'>
+      {({ state, press, loading }) => (loading
+        ? <Spinner size='auto'/>
+        : (
+          <div css={circleStyle(!!state, press)}>
+            <Icon name='circle' size='auto' />
+          </div>
+        )
+      )}
+    </Toggle>
   )
 }
 

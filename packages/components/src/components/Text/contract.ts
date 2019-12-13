@@ -53,4 +53,7 @@ export interface TextProps extends MarginProperties, DimensionProperties {
   block?: boolean,
   /** Пресет компонента */
   preset?: string,
+
+  onMouseDown?(event: React.MouseEvent<HTMLElement>): void,
+
 }

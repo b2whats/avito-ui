@@ -19,6 +19,10 @@ const textareaStyle = css`
   outline: none;
   background-color: transparent;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  &[disabled] {
+    cursor: inherit;
+  }
 `
 
 const TextareaCore = ({ innerRef, maxRows, autoSize, resizable, ...props }: TextareaCoreProps) => {

@@ -1,5 +1,7 @@
 import { css } from '@emotion/core'
-import { Theme } from '../theme/'
+import { Theme as ThemeComponents } from '../theme/'
+
+export type Theme = ThemeComponents
 
 export type TextProperties = Partial<{
   fontFamily: string,
@@ -40,7 +42,7 @@ export type DimensionProperties = Partial<{
   grow?: boolean,
 }>
 
-type Display = { display: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex' }
+type Display = { display: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex' | null }
 
 type SpaceValues = keyof Theme['space'] | 'none' | 'auto' | number
 
@@ -219,22 +221,22 @@ const maps = {
     colorHover: 'color',
     colorActive: 'color',
     colorVisited: 'color',
-    colorChecked: 'color',
     colorFocus: 'color',
+    colorChecked: 'color',
     colorDisabled: 'color',
     backgroundColor: 'background-color',
     backgroundColorHover: 'background-color',
     backgroundColorActive: 'background-color',
     backgroundColorVisited: 'background-color',
-    backgroundColorChecked: 'background-color',
     backgroundColorFocus: 'background-color',
+    backgroundColorChecked: 'background-color',
     backgroundColorDisabled: 'background-color',
     borderColor: 'border-color',
     borderColorHover: 'border-color',
     borderColorActive: 'border-color',
     borderColorVisited: 'border-color',
-    borderColorChecked: 'border-color',
     borderColorFocus: 'border-color',
+    borderColorChecked: 'border-color',
     borderColorDisabled: 'border-color',
   },
 }
@@ -289,11 +291,11 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   let margin: string[] = []
   let padding: string[] = []
   let hoverState = []
-  let checkedState = []
   let activeState = []
   let visitedState = []
   let focusState = []
   let disabledState = []
+  let checkedState = []
   let display = ''
   let width = ''
 
@@ -422,12 +424,12 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
 
         break
       case 'inline':
-        display = maps.inline[params.display] || 'inline-block'
+        display = params.display ? maps.inline[params.display] : 'inline-block'
         width = ''
 
         break
       case 'block': {
-        display = maps.block[params.display] || 'block'
+        display = params.display ? maps.block[params.display] : 'block'
         width = '100%'
 
         break
@@ -451,6 +453,8 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
     
         break
       case 'align': {
+        if (!params.display) break
+
         const prop = maps.align[params.display]
 
         if (prop === 'justify-content') {
@@ -592,7 +596,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       case 'backgroundColorChecked':
       case 'borderColorChecked':
         checkedState.push(`${maps.color[param]}: ${palette[value] || value};`)
-            
+                
         break
       case 'colorDisabled':
       case 'backgroundColorDisabled':
@@ -614,15 +618,15 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         break
       case 'focus': {
         const color = focus.color[params.variant || 'default']
-        css += `
-          outline: none;
-          &&:focus, &&[data-focus=true] {
-            box-shadow: ${focus.shape} ${palette[color] || color};
-            position: relative;
-            z-index: 2;
-          }
-        `
-            
+        
+        focusState.push(`            
+          box-shadow: ${focus.shape} ${palette[color] || color};
+          position: relative;
+          z-index: 2;
+        `)
+
+        css += 'outline: none;'
+ 
         break
       }
       case 'shape': {
@@ -659,7 +663,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       checked: `${before}:checked + &, ${before}[aria-checked=true] + &`,
       visited: `${before}:visited + &`,
       hover: `${before}:hover + &`,
-      active: `${before}:active + &`,
+      active: `${before}:enabled:active + &`,
       focus: `${before}:focus + &`,
       disabled: `${before}:disabled + &, ${before}[aria-disabled=true] + &`,
     }
@@ -675,12 +679,11 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   }
 
   if (checkedState.length) {
-    css += `${selector.hover}{${hoverState.join('')}}`
+    css += `${selector.checked}{${checkedState.join('')}}`
   }
   if (visitedState.length) {
     css += `${selector.visited}{${visitedState.join('')}}`
   }
-
   if (hoverState.length) {
     css += `${selector.hover}{${hoverState.join('')}}`
   }
@@ -702,38 +705,6 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   }
 
   return css
-}
-
-const filterUndefined = (obj: any) => {
-  const result = {}
-
-  for (const key in obj) {
-    if (obj[key] !== undefined) {
-      result[key] = obj[key]
-    }
-  }
-
-  return result
-}
-
-
-export const getThemeStyle = (theme: any, name: any, props: any, extra: any) => {
-  const { scheme } = theme[name]
-  const themeParams = {}
-  const result = {}
-
-  for (const name in scheme) {
-    const flatScheme = foldScheme(scheme[name], props)
-    themeParams[name] = flatScheme.style
-  }
-
-  for (const name in themeParams) {
-    const boxParams = { ...themeParams[name], ...filterUndefined(extra[name])}
-
-    result[name] = css`${getStyles(boxParams, theme)}`
-  }
-
-  return result
 }
 
 type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { scheme: object } ? {

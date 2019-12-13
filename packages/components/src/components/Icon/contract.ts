@@ -8,6 +8,8 @@ export interface IconProps extends IconBaseProps, MarginProperties {
   colorHover?: keyof Tokens['palette'] | string,
   /** Размер иконки */
   size?: number | 's' | 'm' | 'l' | 'auto',
+  /** Вращение иконки */
+  spin?: number | boolean,
   /** Цветовые варианты иконок */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   /** Инвертированная иконка */

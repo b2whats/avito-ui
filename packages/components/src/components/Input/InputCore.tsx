@@ -44,6 +44,10 @@ const inputStyle = css`
   background-color: transparent;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 
+  &[disabled] {
+    cursor: inherit;
+  }
+
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,

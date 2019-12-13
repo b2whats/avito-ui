@@ -1,22 +1,27 @@
 ```js
 import { Stack } from '../../';
-const initialState = { checked: true };
+const initialState = { checked: false };
 const onChange = (event) => {
     setState({ checked: event.target.checked });
 }
+const longText = 'Французская художница, входившая в круг художников в Париже, ставших известными как импрессионисты.';
 
 <Stack space='m'>
-  <Radio checked={state.checked} onChange={onChange} variant='primary' />
+  <Stack space='m' column width={300}>
+    <Radio checked={state.checked} onChange={onChange} label='Teкст рядом' />
+    <Radio checked={state.checked} onChange={onChange} label='Teкст рядом' shape='square'/>
+    <Radio checked={state.checked} onChange={onChange} variant='secondary' label='Teкст рядом' />
+    <Radio checked={state.checked} onChange={onChange} variant='success' label='Teкст рядом' />
+    <Radio checked={state.checked} onChange={onChange} variant='warning' label='Teкст рядом' />
+    <Radio checked={state.checked} onChange={onChange} variant='error' label='Teкст рядом' />
+    <Radio checked={state.checked} onChange={onChange} label='Teкст рядом' labelPosition='start'/>
+    <Radio label='Teкст рядом' disabled/>
+    <Radio checked label='Teкст рядом' disabled/>
+    <Radio checked={state.checked} onChange={onChange} label='Teкст рядом' description={longText}/>
+    <Radio checked label='Teкст рядом' description={longText} disabled/>
+    <Radio checked label={longText} />
+  </Stack>
 </Stack>
 ```
 
-### Disabled 
-```js
 
-import { Stack } from '../../';
-
-<Stack space='m'>
-  <Radio disabled variant='primary' />
-  <Radio disabled checked variant='primary' />
-</Stack>
-```

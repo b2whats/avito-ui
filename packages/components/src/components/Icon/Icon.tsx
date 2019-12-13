@@ -1,9 +1,15 @@
 import React from 'react'
+import { css, keyframes } from '@emotion/core'
 import { useTheme } from '../../utils/'
 import { Icon as IconBase } from '@avito/icons'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from './contract'
 import { IconTheme } from './theme'
+
+const spinAnimation = keyframes`
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+`
 
 const iconClassName = createClassName<IconProps, IconTheme>(
   (style, props) => ({
@@ -11,7 +17,13 @@ const iconClassName = createClassName<IconProps, IconTheme>(
     ...style,
     ...props,
   }),
-  (textRules) => (`${textRules}`)
+  (textRules, { spin }) => css`
+    ${spin ? css`
+      animation: ${spinAnimation} ${typeof spin === 'boolean' ? 0.5 : spin}s linear infinite;
+    ` : ''}
+    
+    ${textRules}
+  `
 )
 
 const Icon = (props: IconProps) => {

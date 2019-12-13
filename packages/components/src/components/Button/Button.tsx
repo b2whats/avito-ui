@@ -24,7 +24,8 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     margin: 0;
     line-height: 1;
     position: relative;
-
+    flex-shrink: 0;
+    
     &::-moz-focus-inner {
       border: 0;
     }
@@ -37,24 +38,24 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
       transform: translateY(${button.pressOffset[kind]}px);
     }
 
-    &[data-group~='horizontal']:not([data-group~='last']) {
-      margin-right: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth};
+    &[data-group~='horizontal']:not([data-group~='last']):not([data-group~='space']) {
+      margin-right: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth}px;
       border-bottom-right-radius: 0px;
       border-top-right-radius: 0px;
     }
 
-    &[data-group~='horizontal']:not([data-group~='first']) {
+    &[data-group~='horizontal']:not([data-group~='first']):not([data-group~='space']) {
       border-bottom-left-radius: 0px;
       border-top-left-radius: 0px;
     }
 
-    &[data-group~='vertical']:not([data-group~='last']) {
-      margin-bottom: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth};
+    &[data-group~='vertical']:not([data-group~='last']):not([data-group~='space']) {
+      margin-bottom: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth}px;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
 
-    &[data-group~='vertical']:not([data-group~='first']) {
+    &[data-group~='vertical']:not([data-group~='first']):not([data-group~='space']) {
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
     }
@@ -65,7 +66,7 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
       align-items: center;
     }
 
-    & > [data-component='spinner'] {
+    & > [data-icon='spinner'] {
       position: absolute;
       margin: auto;
       left: 0;
@@ -74,7 +75,7 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
       bottom: 0;
     }
 
-    &[aria-busy='true'] > :not([data-component='spinner']) {
+    &[aria-busy='true'] > :not([data-icon='spinner']) {
       visibility: hidden;
     }
     
@@ -97,15 +98,16 @@ const Button = ({ innerRef, ...props }: ButtonProps) => {
     props.type = undefined
     props.href = props.disabled ? undefined : props.href
   }
-
-  const aria = {
-    'aria-disabled': props.disabled,
-    'aria-busy': props.loading,
-  }
-
+  
   const [ref, setRef] = useRefHook(innerRef)
   const groupProps = useGroupHook(ref, props)
   const mergeProps = {...props, ...groupProps}
+  
+  const aria = {
+    'aria-checked': mergeProps.checked,
+    'aria-disabled': mergeProps.disabled,
+    'aria-busy': mergeProps.loading,
+  }
 
   const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams<ButtonTheme>(theme.button, mergeProps)
   const buttonStyle = buttonClassName(mergeProps, theme, Button.style)

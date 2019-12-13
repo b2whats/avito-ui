@@ -2,7 +2,7 @@ import React from 'react'
 import { createIcon } from '../createIcon'
 
 createIcon({
-  name: 'my-items',
+  name: 'my-location',
   originalWidth: 24,
   originalHeight: 24,
   svg: (
