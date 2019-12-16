@@ -5,7 +5,7 @@ type Breakpoints = {
 }
 
 export const breakpoints: Breakpoints = {
-  s: '40em',
+  s: '40emf',
   m: '52em',
   l: '64em',
 }
