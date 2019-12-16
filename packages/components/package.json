@@ -1,6 +1,6 @@
 {
   "name": "@avito/components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "components",
   "main": "build/index.js",
@@ -24,8 +24,8 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/icons": "^0.0.2",
-    "@avito/tokens": "^0.0.2",
+    "@avito/icons": "^0.0.3",
+    "@avito/tokens": "^0.0.3",
     "@emotion/core": "^10.0.15",
     "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/styled": "^10.0.15",
