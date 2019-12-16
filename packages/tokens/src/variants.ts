@@ -8,7 +8,7 @@ type Variants = {
 
 export const variants: Variants = {
   primary: 'blue',
-  secondary: 'gray',
+  secondary: 'grayff',
   error: 'red',
   success: 'green',
   warning: 'yellow',
