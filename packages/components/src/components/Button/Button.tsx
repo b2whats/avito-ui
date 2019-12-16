@@ -25,7 +25,9 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     line-height: 1;
     position: relative;
     flex-shrink: 0;
-    
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     &::-moz-focus-inner {
       border: 0;
     }
@@ -34,9 +36,12 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
       box-shadow: none;
     }
 
-    &:active > * {
-      transform: translateY(${button.pressOffset[kind]}px);
-    }
+    ${button.pressOffset[kind] ? `
+      &:active > * {
+        transform: translateY(${button.pressOffset[kind]}px);
+      }
+    ` : ''}
+
 
     &[data-group~='horizontal']:not([data-group~='last']):not([data-group~='space']) {
       margin-right: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth}px;
@@ -120,9 +125,9 @@ const Button = ({ innerRef, ...props }: ButtonProps) => {
     isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} /> :
     undefined
   )
-
+  
   return (
-    <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(mergeProps)}>
+    <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(mergeProps)} >
       {props.loading && <SpinnerComponent {...Spinner.props}/>}
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       {props.children && <TextComponent {...Text.props} crop valignSelf='middle' dense>{ props.children }</TextComponent>}

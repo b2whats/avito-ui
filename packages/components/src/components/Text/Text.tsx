@@ -13,6 +13,8 @@ const textClassName = createClassName<TextProps, TextTheme>(
   (textRules, { strike }, { text, palette }) => (`
     box-sizing: border-box;
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     li& {
       list-style: none;

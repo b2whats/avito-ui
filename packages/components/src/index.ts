@@ -1,6 +1,5 @@
 export { Button } from './components/Button/'
 export { SegmentButton } from './components/SegmentButton/'
-// export { Checkbox } from './components/Checkbox/'
 export { Text } from './components/Text/'
 // export { Link } from './components/Link/'
 export { Icon } from './components/Icon/'
@@ -11,5 +10,6 @@ export { Input } from './components/Input/'
 export { Textarea } from './components/Textarea/'
 export { Spinner } from './components/Spinner/'
 export { Stack, Grid, Box, Group, Page } from './components/Layout/'
+export { ListItem } from './components/List/'
 
 export { createTheme } from './theme/'

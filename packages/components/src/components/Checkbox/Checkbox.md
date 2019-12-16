@@ -1,14 +1,18 @@
 ```js
 import { Stack } from '../../';
 const initialState = { checked: false };
-const onChange = (event) => {
-    setState({ checked: event.target.checked });
+const onChange = ({ checked }) => {
+  console.log('onChange')
+  setState({ checked });
+}
+const onPress = (event) => {
+  console.log('onPress', event)
 }
 const longText = 'Французская художница, входившая в круг художников в Париже, ставших известными как импрессионисты.';
 
 <Stack space='m'>
   <Stack space='m' column width={300}>
-    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' />
+    <Checkbox checked={state.checked} onChange={onChange}  label='Teкст рядом' />
     <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' shape='circle'/>
     <Checkbox checked={state.checked} onChange={onChange} variant='secondary' label='Teкст рядом' />
     <Checkbox checked={state.checked} onChange={onChange} variant='success' label='Teкст рядом' />

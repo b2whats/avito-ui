@@ -2,9 +2,16 @@ import React from 'react'
 import { MarginProperties, DimensionProperties, Theme } from '../../styled-system/'
 
 type ChildrenProps = {
-  state: boolean | 'mixed',
-  press: boolean,
+  checked: boolean | 'mixed',
+  active: boolean,
   loading?: boolean,
+}
+
+type onChangeProps = {
+  name?: string,
+  value?: string | number,
+  checked: boolean,
+  type: 'checkbox' | 'radio',
 }
 
 export interface ToggleProps extends MarginProperties, DimensionProperties {
@@ -41,16 +48,14 @@ export interface ToggleProps extends MarginProperties, DimensionProperties {
   className?: string,
   /** Позиция элемента при фокусе */
   tabIndex?: number,
+  /** Переопределить тему */
+  override?: object,
   /** Ссылка на дом ноду */
   innerRef?: (node: HTMLInputElement | null) => void,
 
-  onClick?(event: React.MouseEvent<HTMLInputElement>): void,
-  onChange?(event: React.ChangeEvent<HTMLInputElement>): void,
-  onFocus?(event: React.FocusEvent<HTMLInputElement>): void,
-  onBlur?(event: React.FocusEvent<HTMLInputElement>): void,
+  onClick?(): void,
+  onChange?(props: onChangeProps): void,
+  onMouseEnter?(): void,
+  onMouseLeave?(): void,
   onKeyDown?(event: React.KeyboardEvent<HTMLInputElement>): void,
-
-
-  /** @ignore */
-  scheme?: string,
 }

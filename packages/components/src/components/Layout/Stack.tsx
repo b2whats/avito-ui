@@ -30,15 +30,22 @@ const stackClassName = createClassName<StackProps>(
   `)
 )
 
-const Stack = ({ children, ...props }: StackProps) => {
+
+export const Stack: React.RefForwardingComponent<
+  React.Ref<HTMLButtonElement>,
+  StackProps
+> = React.forwardRef(({ as, children, ...props }: StackProps, ref) => {
   const theme = useTheme()
   const stackStyle = stackClassName(props, theme)
+  const Tag = as || 'div'
 
   return (
-    <div css={stackStyle} {...filterProps(props)}>
+    <Tag ref={ref} css={stackStyle} {...filterProps(props)}>
       { children }
-    </div>
+    </Tag>
   )
-}
+})
+
+Stack.displayName = 'Stack'
 
 export default Stack

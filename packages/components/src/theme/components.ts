@@ -14,6 +14,7 @@ export * from '../components/Input/theme'
 export * from '../components/Textarea/theme'
 export * from '../components/Toggle/theme'
 export * from '../components/SegmentButton/theme'
+export * from '../components/List/theme'
 // export * from '../components/Checkbox/theme'
 
 

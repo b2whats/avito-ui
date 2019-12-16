@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { css } from '@emotion/core'
+import deepmerge from 'deepmerge'
+import memoize from 'fast-memoize'
 import { filterProps, useRefHook, useTheme } from '../../utils'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { ToggleProps } from './contract'
@@ -17,6 +19,9 @@ const toggleClassName = createClassName<ToggleProps, ToggleTheme>(
   (textRules, { disabled }) => (`
     box-sizing: border-box;
     position: relative;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     & > input {
       clip: rect(0, 0, 0, 0);
@@ -43,8 +48,8 @@ const toggleClassName = createClassName<ToggleProps, ToggleTheme>(
 const switchClassName = createClassName<ToggleProps, ToggleTheme>(
   (themeStyle, props) => ({
     display: 'inline-flex',
-    adjacentSelector: 'input',
     shape: props.shape,
+    adjacentSelector: 'input',
     ...themeStyle,
   }),
   (textRules) => (`
@@ -57,36 +62,28 @@ const switchClassName = createClassName<ToggleProps, ToggleTheme>(
       content: 'x';
       width: 0px;
       overflow: hidden;
+      align-self: center;
     }
     ${textRules}
   `)
 )
 
-const textStyle = css`
-  display: inline-flex;
-  flex-direction: column;
-`
+const mergeTheme = memoize((target, reference) => deepmerge(target, reference))
 
 const Toggle = ({ className, children, ...props }: ToggleProps) => {
   const theme = useTheme()
-  const [press, setPress] = useState(false)
+  const toggleTheme = props.override
+    ? mergeTheme(theme.toggle, props.override) as typeof theme.toggle
+    : theme.toggle
+  const [active, setActive] = useState(false)
 
   props = {
     labelPosition: 'end',
-    onChange: () => {},
     ...props,
   }
 
   const [ref, setRef] = useRefHook(props.innerRef)
   const groupProps = useGroupHook(ref, props)
-
-  if (groupProps && 'onClick' in groupProps) {
-    props = {
-      ...props,
-      ...groupProps,
-      onChange: () => {},
-    }
-  }
 
   useEffect(() => {
     if (props.indeterminate !== undefined && ref.current) {
@@ -94,46 +91,57 @@ const Toggle = ({ className, children, ...props }: ToggleProps) => {
     }
   }, [props.indeterminate])
   
-  const state = props.indeterminate ? 'mixed' as const : Boolean(props.checked)
+  const checked = groupProps.indeterminate ? 'mixed' as const : Boolean(groupProps.checked)
 
   const aria = {
-    role: groupProps && groupProps.role,
-    'aria-checked': state,
-    'aria-invalid': props.variant === 'error',
-    'aria-disabled': props.disabled,
+    role: groupProps.role || groupProps.mode,
+    'aria-checked': checked,
+    'aria-invalid': groupProps.variant === 'error',
+    'aria-disabled': groupProps.disabled,
   }
 
   // Prevent focused state lost
-  const onMouseDown = (event: React.MouseEvent<HTMLElement>) => {
-    setPress(true)
+  const onMouseDown = (event: React.MouseEvent<Element> | React.TouchEvent<Element>) => {
+    setActive(true)
     event.preventDefault()
   }
 
-  const onMouseUp = (event: React.MouseEvent<HTMLElement>) => {
-    setPress(false)
+  const onMouseUp = () => {
+    setActive(false)
   }
 
-  const override = foldThemeParams(theme[props.scheme!], props)
-  const { Toggle, Switch, Label, Description } = foldThemeParams(theme.toggle, props)
-  const toggleStyle = toggleClassName(props, theme, Toggle.style)
-  const switchStyle = switchClassName(props, theme, {...Switch.style, ...override.Switch.style })
+  const onChange = () => {
+    const value = {
+      name: groupProps.name,
+      value: groupProps.value,
+      checked: !groupProps.checked,
+      type: aria.role,
+    }
+
+    props.onChange && props.onChange(value)
+  }
+
+  const { Toggle, Switch, Label } = foldThemeParams(toggleTheme, groupProps)
+  const toggleStyle = toggleClassName(groupProps, theme, Toggle.style)
+  const switchStyle = switchClassName(groupProps, theme, Switch.style)
 
   const label = props.label && <Text {...Label.props} crop >{props.label}</Text>
-  const description = props.description && <Text {...Description.props} crop>{props.description}</Text>
+
+  const toggleHanflers = {
+    onMouseDown,
+    onMouseUp,
+    onTouchStart: onMouseDown,
+    onTouchEnd: onMouseUp,
+  }
 
   return (
-    <label css={toggleStyle}>
+    <label css={toggleStyle} {...aria} {...toggleHanflers}>
       {props.labelPosition === 'start' && label}
-      <input {...filterProps(props)} ref={setRef} type={props.mode} aria-checked={state} />
-      <div css={switchStyle} className={className} {...aria} onMouseDown={onMouseDown} onMouseUp={onMouseUp}>
-        {children && children({state, press, loading: props.loading})}
+      <input {...filterProps(groupProps)} ref={setRef} type={props.mode} onChange={onChange}/>
+      <div css={switchStyle} className={className} >
+        {children && children({ checked, active, loading: props.loading })}
       </div>
-      {props.labelPosition === 'end' && (
-        <div css={textStyle} onMouseDown={onMouseDown} onMouseUp={onMouseUp}>
-          {label}
-          {description}
-        </div>
-      )}
+      {props.labelPosition === 'end' && label}
     </label>
   )
 }

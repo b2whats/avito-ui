@@ -66,6 +66,8 @@ export interface StackProps extends SpaceProperties, DimensionProperties {
   wrap?: boolean,
   /** Цвет фона */
   backgroundColor?: keyof Tokens['palette'],
+  /** Изменить тег */
+  as?: string,
   /** @ignore */
   debug?: boolean,
 }

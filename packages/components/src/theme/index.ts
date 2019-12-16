@@ -15,6 +15,7 @@ export type ComponentsTheme = {
   input: components.InputTheme,
   textarea: components.TextareaTheme,
   toggle: components.ToggleTheme,
+  listItem: components.ListItemTheme,
   segmentButton: components.SegmentButtonTheme,
 }
 
@@ -34,6 +35,7 @@ export const createTheme = (baseToken: Tokens, overrides: DeepPartial<Components
   textarea: components.textareaTheme(baseToken, overrides.textarea),
   toggle: components.toggleTheme(baseToken, overrides.toggle),
   segmentButton: components.segmentButtonTheme(baseToken, overrides.segmentButton),
+  listItem: components.listItemTheme(baseToken, overrides.listItem),
 })
 
 export type Theme = ReturnType<typeof createTheme>

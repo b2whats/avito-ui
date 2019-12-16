@@ -663,18 +663,18 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       checked: `${before}:checked + &, ${before}[aria-checked=true] + &`,
       visited: `${before}:visited + &`,
       hover: `${before}:hover + &`,
-      active: `${before}:enabled:active + &`,
+      active: `${before}:enabled:active + &, ${before}[data-state=active] + &`,
       focus: `${before}:focus + &`,
       disabled: `${before}:disabled + &, ${before}[aria-disabled=true] + &`,
     }
   } else {
     selector = {
-      checked: '&[aria-checked=true]',
+      checked: '&[aria-checked=true], &[data-state~=checked]',
       visited: '&:visited',
       hover: '&:hover',
-      active: '&:enabled:active',
-      focus: '&&:focus, &&[data-focus=true]',
-      disabled: '&:disabled, &[aria-disabled=true]',
+      active: '&:enabled:active, &[data-state~=active]',
+      focus: '&&:focus, &&[data-state~=focus]',
+      disabled: '&:disabled, &[aria-disabled=true], &[data-state~=disabled]',
     }
   }
 

@@ -1,8 +1,8 @@
 ```js
 import { Stack } from '../../';
 const initialState = { checked: false };
-const onChange = (event) => {
-    setState({ checked: event.target.checked });
+const onChange = ({ checked }) => {
+    setState({ checked });
 }
 const longText = 'Французская художница, входившая в круг художников в Париже, ставших известными как импрессионисты.';
 

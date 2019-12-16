@@ -1,11 +1,11 @@
 ```js
 import { Stack } from '../../';
 const initialState = { checked: false, loading: false };
-const onChange = (event) => {
-    setState({ checked: event.target.checked });
+const onChange = ({ checked }) => {
+    setState({ checked: checked });
 }
-const onLoadingChange = (event) => {
-    setState({ checked: event.target.checked, loading: true });
+const onLoadingChange = ({ checked }) => {
+    setState({ checked: checked, loading: true });
 
     setTimeout(() => {
       setState({ loading: false });

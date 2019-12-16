@@ -68,6 +68,7 @@ import { Button, Stack } from '../../';
 import { Stack, Checkbox, Radio } from '../../'
 initialState = { radio: undefined, checkbox: undefined };
 const onChange = ({ name, value }) => {
+  console.log(name, value)
     setState({ [name]: value });
 }
 

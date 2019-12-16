@@ -10,35 +10,29 @@ type GroupContext = {
   block?: boolean,
   space?: boolean,
   disabled?: boolean,
-  mode?: string,
+  mode?: 'radio' | 'checkbox',
   elements: React.MutableRefObject<any[]>,
   orientation: 'horizontal' | 'vertical'
 }
 
 type GroupTargetHook = {
   grow?: boolean,
-  role?: string,
-  tabIndex: number,
+  role?: 'radio' | 'checkbox',
+  tabIndex?: number,
   disabled?: boolean,
-  'data-group': string,
-  'aria-checked'?: boolean,
-  checked: boolean,
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void,
-  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void,
-}
-
-type TargetProps = {
-  value?: string | number | null,
-  disabled?: boolean,
+  'data-group'?: string,
+  checked?: boolean,
+  onClick?: (event: any) => void,
+  onKeyDown?: (event: any) => void,
+  [key: string]: any,
 }
 
 export const GroupContext = React.createContext<GroupContext | null>(null)
 
-export function useGroupHook(ref: React.MutableRefObject<HTMLElement | null>, targetProps: TargetProps) {
+export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObject<HTMLElement | null>, targetProps: T): T & GroupTargetHook {
   const groupContext = useContext(GroupContext)
-  const props = {} as GroupTargetHook
 
-  if (!groupContext) return
+  if (!groupContext) return targetProps as T
 
   const [positions, setPositions] = useState<string>('')
   
@@ -64,30 +58,36 @@ export function useGroupHook(ref: React.MutableRefObject<HTMLElement | null>, ta
       }
 
       const checked = groupContext.checked && groupContext.checked.includes(targetProps.value)
+
       if (groupContext.mode === 'radio' && checked ) {
-        ref.current.scrollIntoView()
+        scrollIntoView(ref.current, {
+          behavior: 'smooth',
+          scrollMode: 'if-needed',
+          boundary: node,
+        })
       }
     }
   }, [])
 
   if (groupContext.block) {
-    props.grow = true
+    targetProps.grow = true
   }
-  props['data-group'] = (`${groupContext.orientation} ${groupContext.space ? 'space' : ''} ${positions}`).trim()
+
+  targetProps['data-group'] = (`${groupContext.orientation} ${groupContext.space ? 'space' : ''} ${positions}`).trim()
 
   if (groupContext.onClick) {
     const checked = groupContext.checked && groupContext.checked.includes(targetProps.value)
     const isFirstChecked = !groupContext.checked && positions.includes('first')
 
-    props.checked = checked || false
-    props.role = groupContext.mode
-    props.disabled = groupContext.disabled
-    props.tabIndex = (checked && !targetProps.disabled) || isFirstChecked || groupContext.mode !== 'radio' ? 0 : -1
-    props.onClick = groupContext.onClick
-    props.onKeyDown = groupContext.onKeyDown
+    targetProps.checked = checked || false
+    targetProps.role = groupContext.mode
+    targetProps.disabled = groupContext.disabled
+    targetProps.tabIndex = (checked && !targetProps.disabled) || isFirstChecked || groupContext.mode !== 'radio' ? 0 : -1
+    targetProps.onClick = groupContext.onClick
+    targetProps.onKeyDown = groupContext.onKeyDown
   }
 
-  return props
+  return targetProps as T & GroupTargetHook
 }
 
 
@@ -110,7 +110,9 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
     const update = { mode, name, value, type: 'toggle-group' }
 
     if (mode === 'checkbox') {
-      const checked = target.getAttribute('aria-checked') === 'true'
+      const checked = target.tagName === 'INPUT'
+        ? target.checked
+        : target.getAttribute('aria-checked') === 'true'
 
       update.value = Array.isArray(value)
         ? checked
@@ -158,7 +160,7 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
     }
   }
 
-  const orientation = props.column ? 'vertical' : 'horizontal' as 'vertical' | 'horizontal'
+  const orientation = props.column ? 'vertical' : 'horizontal'
   
   const context: GroupContext = {
     onClick: onChange ? onClick : undefined,

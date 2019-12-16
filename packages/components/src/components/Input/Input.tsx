@@ -20,6 +20,7 @@ const inputClassName = createClassName<InputProps, InputTheme>(
     position: relative;
     font-family: inherit;
     align-items: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 
     ${textRules}
   `)
@@ -102,8 +103,10 @@ const Input = ({ onFocus, onBlur, onMouseDown, ...props }: InputProps) => {
     ? <Icon {...IconAfter.props} {...IconClear.props} onClick={handleClear} />
     : renderIconSlot(props.iconAfter, IconAfter.props)
 
+  const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
+
   return (
-    <label css={inputStyle} data-focus={focus} aria-disabled={props.disabled} onMouseDown={handlePreventBlur}>
+    <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix)}

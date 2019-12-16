@@ -12,15 +12,16 @@ const spinAnimation = keyframes`
 `
 
 const iconClassName = createClassName<IconProps, IconTheme>(
-  (style, props) => ({
+  (themeStyle, props) => ({
     display: 'inline-block',
-    ...style,
+    ...themeStyle,
     ...props,
   }),
   (textRules, { spin }) => css`
     ${spin ? css`
       animation: ${spinAnimation} ${typeof spin === 'boolean' ? 0.5 : spin}s linear infinite;
     ` : ''}
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
     
     ${textRules}
   `

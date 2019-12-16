@@ -24,9 +24,9 @@ export interface ButtonProps extends MarginProperties {
   /** Квадратная, круглая и вытянутая форма с закругленными углами */
   shape: 'pill' | 'square' | 'circle',
   /** Иконка слева */
-  iconBefore?: string | React.ReactNode,
+  iconBefore?: React.ReactNode,
   /** Иконка справа */
-  iconAfter?: string | React.ReactNode,
+  iconAfter?: React.ReactNode,
   /** Кнопка занимает всю ширину */
   block?: boolean,
   /** Id елемента */

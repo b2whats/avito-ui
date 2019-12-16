@@ -8,7 +8,6 @@ export type ToggleTheme = {
     Toggle: SchemeType<ToggleProps>,
     Switch: SchemeType<ToggleProps>,
     Label: SchemeType<ToggleProps, TextProps>,
-    Description: SchemeType<ToggleProps, TextProps>,
   },
 }
 
@@ -18,15 +17,17 @@ export const toggleTheme: ComponentTheme<ToggleTheme> = (_, override) => {
       style: {},
     },
     Switch: {
-      labelPosition: {
-        start: {
-          style: {
-            ml: 16,
+      label: {
+        labelPosition: {
+          start: {
+            style: {
+              ml: 16,
+            },
           },
-        },
-        end: {
-          style: {
-            mr: 16,
+          end: {
+            style: {
+              mr: 16,
+            },
           },
         },
       },
@@ -38,18 +39,6 @@ export const toggleTheme: ComponentTheme<ToggleTheme> = (_, override) => {
       disabled: {
         props: {
           color: 'gray48',
-        },
-      },
-    },
-    Description: {
-      props: {
-        size: 's',
-        mt: 12,
-        color: 'gray40',
-      },
-      disabled: {
-        props: {
-          color: 'gray32',
         },
       },
     },
