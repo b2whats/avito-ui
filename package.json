@@ -49,15 +49,13 @@
     "webpack": "^4.28.3",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "benchmark": "^2.1.4"
   },
   "workspaces": [
     "packages/*"
   ],
   "engines": {
     "node": ">=10.13.0"
-  },
-  "dependencies": {
-    "benchmark": "^2.1.4"
   }
 }

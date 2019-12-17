@@ -1,8 +1,8 @@
 {
-  "name": "@avito/components",
-  "version": "0.0.3",
+  "name": "@avito/mobile-ui",
+  "version": "0.0.1",
   "private": false,
-  "description": "components",
+  "description": "Components for mobile web",
   "main": "build/index.js",
   "module": "src/index.ts",
   "types": "build/index.d.ts",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@avito/icons": "^0.0.2",
-    "@avito/tokens": "^0.0.2",
+    "@avito/tokens": "^0.0.3",
     "@emotion/core": "^10.0.15",
     "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/styled": "^10.0.15",
