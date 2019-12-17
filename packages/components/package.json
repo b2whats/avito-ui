@@ -1,5 +1,5 @@
 {
-  "name": "@avito/mobile-ui",
+  "name": "@avito/mav-ui",
   "version": "0.0.1",
   "private": false,
   "description": "Components for mobile web",
@@ -46,5 +46,5 @@
   "publishConfig": {
     "access": "restricted"
   },
-  "gitHead": "145a1cb695a1ca5d76d32c75c2992039df439a95"
+  "gitHead": "7b3d4da9ad7a8dc1355583633c524e0503129354"
 }
