@@ -3,8 +3,8 @@
 ```jsx
 import { Stack } from '../../';
 
-<Stack space={12}>
-  <Stack column space={10}>
+<Stack spacing={12}>
+  <Stack column spacing={10}>
     <Text mb={15}>Normal</Text>
     <Text size='xs'>XS size</Text>
     <Text size='s'>S size</Text>
@@ -14,7 +14,7 @@ import { Stack } from '../../';
     <Text size='xxl'>XXL size</Text>
     <Text fontSize={50}>Custom size</Text>
   </Stack>
-  <Stack column space={10}>
+  <Stack column spacing={10}>
     <Text mb={15}>Bold</Text>
     <Text size='xs' bold>XS size</Text>
     <Text size='s' bold>S size</Text>
@@ -24,7 +24,7 @@ import { Stack } from '../../';
     <Text size='xxl' bold>XXL size</Text>
     <Text fontSize={50} bold>Custom size</Text>
   </Stack>
-  <Stack column space={10}>
+  <Stack column spacing={10}>
     <Text mb={15}>Italic</Text>
     <Text size='xs' italic>XS size</Text>
     <Text size='s' italic>S size</Text>
@@ -43,33 +43,33 @@ import { Stack } from '../../';
 import { Stack } from '../../';
 const text = 'Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском 12 567 456';
 
-<Stack space={12} column>
-  <Stack space={10} width={600} valign='top'>
+<Stack spacing={12} column>
+  <Stack spacing={10} width={600} valign='top'>
     <Text size='m' bold minWidth={30} >XS</Text>
     <Text size='xs'>{text}</Text>
     <Text size='xs' dense>{text}</Text>
   </Stack>
-  <Stack space={10} width={600} valign='top'>
+  <Stack spacing={10} width={600} valign='top'>
     <Text size='m' bold minWidth={30}>S</Text>
     <Text size='s'>{text}</Text>
     <Text size='s' dense>{text}</Text>
   </Stack>
-  <Stack space={10} width={600} valign='top'>
+  <Stack spacing={10} width={600} valign='top'>
     <Text size='m' bold minWidth={30}>M</Text>
     <Text size='m'>{text}</Text>
     <Text size='m' dense>{text}</Text>
   </Stack>
-  <Stack space={10} width={800} valign='top'>
+  <Stack spacing={10} width={800} valign='top'>
     <Text size='m' bold minWidth={30}>L</Text>
     <Text size='l'>{text}</Text>
     <Text size='l' dense>{text}</Text>
   </Stack>
-  <Stack space={10}s>
+  <Stack spacing={10}s>
     <Text size='m' bold minWidth={30}>XL</Text>
     <Text size='xl'>{text}</Text>
     <Text size='xl' dense>{text}</Text>
   </Stack>
-  <Stack space={10}>
+  <Stack spacing={10}>
     <Text size='m' bold minWidth={30}>XXL</Text>
     <Text size='xxl'>{text}</Text>
     <Text size='xxl' dense>{text}</Text>
@@ -82,8 +82,8 @@ const text = 'Продажа двухкомнатных квартир втор�
 ```jsx
 import { Stack } from '../../';
 
-<Stack space={12}>
-  <Stack column space={10}>
+<Stack spacing={12}>
+  <Stack column spacing={10}>
     <Text>Variants </Text>
     <Text variant='primary'>variant primary</Text>
     <Text variant='default'>variant default</Text>
@@ -91,11 +91,11 @@ import { Stack } from '../../';
     <Text variant='warning'>variant warning</Text>
     <Text variant='error'>variant error</Text>
   </Stack>
-  <Stack column space={10}>
+  <Stack column spacing={10}>
     <Text>Custom </Text>
-    <Text color='red700'>red70</Text>
-    <Text color='blue300'>blue30</Text>
-    <Text color='green600'>green60</Text>
+    <Text color='red700'>red700</Text>
+    <Text color='blue300'>blue300</Text>
+    <Text color='green600'>green600</Text>
   </Stack>
 </Stack>
 ```
@@ -105,10 +105,11 @@ import { Stack } from '../../';
 ```jsx
 import { Stack } from '../../';
 
-<Stack space={12}>
+<Stack spacing={12}>
     <Text uppercase>uppercase</Text>
     <Text strike>strike normal</Text>
     <Text strike='red500'>strike color</Text>
+    <Text size='xxl' strike='red500'>strike color</Text>
     <Text underline>underline</Text>
     <Text underline='dashed'>underline</Text>
     <Text underline='dotted'>underline</Text>
@@ -121,7 +122,7 @@ import { Stack } from '../../';
 import { Stack } from '../../';
 const text = 'В 2017, 2018 и 2019 гг. в ООО «КЕХ еКоммерц» была проведена специальная оценка условий труда. В результате оценки установлено, что условия труда на рабочих местах соответствуют государственным нормативным требованиям охраны труда (2017, 2018, 2019), вредные и опасные производственные факторы на рабочих местах отсутствуют. В связи с этим дополнительные мероприятия по улучшению условий и охраны труда работников на данных рабочих местах не требуются.';
 
-<Stack space={12} column>
+<Stack spacing={12} column>
     <Text align='left' block>left</Text>
     <Text align='center' block>center</Text>
     <Text align='right' block>right</Text>
@@ -135,7 +136,7 @@ const text = 'В 2017, 2018 и 2019 гг. в ООО «КЕХ еКоммерц» 
 import { Stack } from '../../';
 const text = 'В 2017, 2018 и 2019 гг. в ООО «КЕХ еКоммерц» была проведена специальная оценка условий труда. В результате оценки установлено, что условия труда на рабочих местах соответствуют государственным нормативным требованиям охраны труда (2017, 2018, 2019), вредные и опасные производственные факторы на рабочих местах отсутствуют. В связи с этим дополнительные мероприятия по улучшению условий и охраны труда работников на данных рабочих местах не требуются.';
 
-<Stack space={12} height={100}>
+<Stack spacing={12} height={100}>
     <Text>normal</Text>
     <Text valignSelf='top'>top</Text>
     <Text valignSelf='middle'>middle</Text>
@@ -149,12 +150,12 @@ const text = 'В 2017, 2018 и 2019 гг. в ООО «КЕХ еКоммерц» 
 ```jsx
 import { Stack } from '../../';
 
-<Stack space={12} column>
+<Stack spacing={12} column>
     <Text>
       Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском 
       <Text color='gray52'>12 567 456</Text>
     </Text>
-    <Stack space={12}>
+    <Stack spacing={12}>
       <CardDoc>
         <Text>Normal</Text>
       </CardDoc>

@@ -11,8 +11,6 @@ const gridWrapperClassName = createClassName<GridProps>(
     ...omit(props, 'align', 'valign'),
   }),
   (textRules, { debug }) => (`
-    box-sizing: border-box;
-
     &::before {
       content: '';
       display: table;
@@ -27,22 +25,24 @@ const gridWrapperClassName = createClassName<GridProps>(
 )
 
 const gridClassName = createClassName<GridProps>(
-  (_, props) => ({ display: 'flex', ...pick(props, 'align', 'valign')}),
-  (textRules, { space, spaceY, debug }, { space: spaceToken, palette }) => (`
-    box-sizing: border-box;
+  (_, props) => ({
+    display: 'flex',
+    ...pick(props, 'align', 'valign'),
+  }),
+  (textRules, { spacing, spacingY, debug }, { space, palette }) => (`
     flex-wrap: wrap;
 
-    ${space ? `
-      margin-left: -${spaceToken[space] || space}px;
+    ${spacing ? `
+      margin-left: -${space[spacing] || spacing}px;
       & > * {
-        border-left: ${spaceToken[space] || space}px solid transparent;
+        border-left: ${space[spacing] || spacing}px solid transparent;
         background-clip: padding-box;
       }
     ` : ''}
-    ${spaceY ? `
-      margin-top: -${spaceToken[spaceY] || spaceY}px;
+    ${spacingY ? `
+      margin-top: -${space[spacingY] || spacingY}px;
       & > * {
-        margin-top: ${spaceToken[space] || space}px;
+        margin-top: ${space[spacingY] || spacingY}px;
       }
     ` : ''}
 

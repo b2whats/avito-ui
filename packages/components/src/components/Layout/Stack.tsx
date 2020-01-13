@@ -4,15 +4,17 @@ import { createClassName } from '../../styled-system/'
 import { StackProps } from './contract'
 
 const stackClassName = createClassName<StackProps>(
-  (_, props) => ({ display: 'flex', ...omit(props, 'align')}),
-  (textRules, { column, align, scroll, space, debug }, { palette, space: spaceToken }) => (`
-    box-sizing: border-box;
-    flex-shrink: 0;
+  (_, props) => ({
+    display: 'flex',
+    shrink: false,
+    ...omit(props, 'align'),
+  }),
+  (textRules, { column, align, scroll, spacing, debug }, { palette, space }) => (`
     align-items: ${align ? align : !column ? 'baseline' : 'normal'};
     ${scroll ? `overflow-${column ? 'y' : 'x'}: scroll;` : ''};
 
-    ${space ? `
-      & > *:not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${spaceToken[space] || space}px; }
+    ${spacing ? `
+      & > *:not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${space[spacing] || spacing}px; }
     ` : ''}
 
     ${debug ? `
@@ -32,7 +34,7 @@ const stackClassName = createClassName<StackProps>(
 
 
 export const Stack: React.RefForwardingComponent<
-  React.Ref<HTMLButtonElement>,
+  React.Ref<HTMLElement>,
   StackProps
 > = React.forwardRef(({ as, children, ...props }: StackProps, ref) => {
   const theme = useTheme()

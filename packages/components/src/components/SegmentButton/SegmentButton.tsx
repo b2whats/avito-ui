@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useTheme, useRefHook, filterProps } from '../../utils'
+import { useTheme, useRefHook, filterProps } from '../../utils/'
+import { useWindowSize } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { SegmentButtonProps } from './contract'
 import { SegmentButtonTheme } from './theme'
@@ -8,13 +9,12 @@ const groupClassName = createClassName<SegmentButtonProps, SegmentButtonTheme>(
   (themeStyle, props) => ({
     display: 'flex',
     width: 1,
+    shrink: false,
     ...themeStyle,
     ...props,
   }),
   (textRules) => (`
-    box-sizing: border-box;
     position: relative;
-    flex-shrink: 0;
 
     ${textRules}
   `)
@@ -28,14 +28,16 @@ const buttonClassName = createClassName<SegmentButtonProps, SegmentButtonTheme>(
     ...themeStyle,
   }),
   (textRules) => (`
-    box-sizing: border-box;
     position: relative;
+    padding: 0px;
+    margin: 0px;
     border: 0px;
     background: transparent;
     font-family: inherit;
     font-size: inherit;
     outline: 0;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
     
     &::-moz-focus-inner {
       border: 0;
@@ -59,8 +61,9 @@ const slideClassName = createClassName<SegmentButtonProps, SegmentButtonTheme>(
   `
 )
 
-const Button = ({ options, name, onChange, ...props }: SegmentButtonProps) => {
+const SegmentButton = ({ options, name, onChange, ...props }: SegmentButtonProps) => {
   const theme = useTheme()
+  const windowSize = useWindowSize()
 
   props = {
     size: 'm',
@@ -77,19 +80,19 @@ const Button = ({ options, name, onChange, ...props }: SegmentButtonProps) => {
   useEffect(() => {
     if (!ref.current) return
 
-    const dimension: any = {}
+    const geometry: Geometry = {}
     const buttons = ref.current.querySelectorAll('[type=button]') as NodeListOf<HTMLButtonElement>
 
     buttons.forEach(node => {
-      dimension[node.value] = {
+      geometry[node.value] = {
         transform: `translateX(${node.offsetLeft}px)`,
         width: node.offsetWidth,
         height: node.offsetHeight,
       }
     })
 
-    setGeometry(dimension)
-  }, [])
+    setGeometry(geometry)
+  }, [windowSize.innerWidth])
 
   const { Group, Button, Slide } = foldThemeParams(theme.segmentButton, props)
   const groupStyle = groupClassName(props, theme, Group.style)
@@ -104,7 +107,7 @@ const Button = ({ options, name, onChange, ...props }: SegmentButtonProps) => {
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     let next: HTMLButtonElement | null = event.currentTarget
-    let exit = 20
+    let exit = ref.current!.children.length
 
     do {
       switch (event.key) {
@@ -120,7 +123,7 @@ const Button = ({ options, name, onChange, ...props }: SegmentButtonProps) => {
           break  
       }
 
-    } while (next && (next.disabled || next.type !== 'button') && exit)
+    } while (next && (next.disabled || next.type !== 'button') && exit--)
 
     if (next) {
       next.focus()
@@ -154,4 +157,4 @@ const Button = ({ options, name, onChange, ...props }: SegmentButtonProps) => {
   )
 }
 
-export default Button
+export default SegmentButton

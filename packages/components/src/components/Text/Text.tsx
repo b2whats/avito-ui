@@ -5,14 +5,12 @@ import { TextProps } from './contract'
 import { TextTheme } from './theme'
 
 const textClassName = createClassName<TextProps, TextTheme>(
-  (style, props) => ({
+  (themeStyle, props) => ({
     display: props.width ? 'inline-block' : 'inline',
-    ...style,
+    ...themeStyle,
     ...props,
   }),
   (textRules, { strike }, { text, palette }) => (`
-    box-sizing: border-box;
-    margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -23,28 +21,21 @@ const textClassName = createClassName<TextProps, TextTheme>(
     ${strike ? `
       position: relative;
       white-space: nowrap;
-      
-      & > .strike-line {
+
+      &::after {
+        content: '';
         position: absolute;
-        height: 5px;
-        top: 50%;
-        margin-top: -2px;
-        stroke-linecap: round;
-        stroke-width: ${text.strike.height};
+        bottom: 0;
         left: -${text.strike.offset}px;
         width: calc(100% + ${text.strike.offset}px * 2);
-        stroke: ${typeof strike === 'string' ? palette[strike] : 'currentcolor'};
+        border-top: 0.075em solid ${typeof strike === 'string' ? palette[strike] : 'currentcolor'};
+        height: calc(50% - 1px);
+        transform: rotateZ(-2deg);
       }
     ` : ''}
     
     ${textRules}
   `)
-)
-
-const Line = () => (
-  <svg className='strike-line' viewBox='0 0 100 5' preserveAspectRatio='none'>
-    <line x1='1' x2='99' y1='4' y2='2' />
-  </svg>
 )
 
 const Text = ({ children, ...props }: TextProps) => {
@@ -55,7 +46,6 @@ const Text = ({ children, ...props }: TextProps) => {
 
   return (
     <Tag css={textStyle} data-component='text'>
-      {props.strike && <Line />}
       { children }
     </Tag> 
   )

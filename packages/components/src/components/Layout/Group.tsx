@@ -8,7 +8,7 @@ type GroupContext = {
   onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void,
   checked?: (string | number | undefined | null)[],
   block?: boolean,
-  space?: boolean,
+  spacing?: boolean,
   disabled?: boolean,
   mode?: 'radio' | 'checkbox',
   elements: React.MutableRefObject<any[]>,
@@ -73,7 +73,7 @@ export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObj
     targetProps.grow = true
   }
 
-  targetProps['data-group'] = (`${groupContext.orientation} ${groupContext.space ? 'space' : ''} ${positions}`).trim()
+  targetProps['data-group'] = (`${groupContext.orientation} ${groupContext.spacing ? 'spacing' : ''} ${positions}`).trim()
 
   if (groupContext.onClick) {
     const checked = groupContext.checked && groupContext.checked.includes(targetProps.value)
@@ -111,7 +111,7 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
 
     if (mode === 'checkbox') {
       const checked = target.tagName === 'INPUT'
-        ? target.checked
+        ? !target.checked
         : target.getAttribute('aria-checked') === 'true'
 
       update.value = Array.isArray(value)
@@ -169,7 +169,7 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
       ? Array.isArray(value) ? value : [value]
       : undefined,
     block,
-    space: Boolean(props.space),
+    spacing: Boolean(props.spacing),
     mode,
     disabled,
     elements,

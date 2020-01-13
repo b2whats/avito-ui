@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { css } from '@emotion/core'
-import deepmerge from 'deepmerge'
-import memoize from 'fast-memoize'
-import { filterProps, useRefHook, useTheme } from '../../utils'
+import { filterProps, useTheme, mergeTheme } from '../../utils'
+import { useRefHook, usePrevent3DTouch } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { ToggleProps } from './contract'
 import { ToggleTheme } from './theme'
@@ -16,12 +14,13 @@ const toggleClassName = createClassName<ToggleProps, ToggleTheme>(
     ...props,
     shape: undefined,
   }),
-  (textRules, { disabled }) => (`
-    box-sizing: border-box;
+  (textRules) => (`
     position: relative;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
 
     & > input {
       clip: rect(0, 0, 0, 0);
@@ -38,8 +37,9 @@ const toggleClassName = createClassName<ToggleProps, ToggleTheme>(
       padding: 0;
     }
 
-    cursor: ${disabled ? 'default' : 'pointer'};
-    pointer-events: ${disabled ? 'none' : 'all'};
+    &[aria-disabled] {
+      pointer-events: none;
+    }
 
     ${textRules}
   `)
@@ -48,41 +48,40 @@ const toggleClassName = createClassName<ToggleProps, ToggleTheme>(
 const switchClassName = createClassName<ToggleProps, ToggleTheme>(
   (themeStyle, props) => ({
     display: 'inline-flex',
+    shrink: false,
     shape: props.shape,
     adjacentSelector: 'input',
     ...themeStyle,
   }),
   (textRules) => (`
     transition: background-color 0.2s ease 0s;
-    box-sizing: border-box;
     user-select: none;
-    flex-shrink: 0;
   
     &::before {
       content: 'x';
       width: 0px;
       overflow: hidden;
       align-self: center;
+      color: transparent;
     }
+
     ${textRules}
   `)
 )
-
-const mergeTheme = memoize((target, reference) => deepmerge(target, reference))
 
 const Toggle = ({ className, children, ...props }: ToggleProps) => {
   const theme = useTheme()
   const toggleTheme = props.override
     ? mergeTheme(theme.toggle, props.override) as typeof theme.toggle
     : theme.toggle
-  const [active, setActive] = useState(false)
+  const setTouchRef = usePrevent3DTouch()
 
   props = {
     labelPosition: 'end',
     ...props,
   }
 
-  const [ref, setRef] = useRefHook(props.innerRef)
+  const [ref, setRef] = useRefHook<HTMLInputElement>()
   const groupProps = useGroupHook(ref, props)
 
   useEffect(() => {
@@ -98,16 +97,11 @@ const Toggle = ({ className, children, ...props }: ToggleProps) => {
     'aria-checked': checked,
     'aria-invalid': groupProps.variant === 'error',
     'aria-disabled': groupProps.disabled,
+    'aria-busy': groupProps.loading,
   }
 
-  // Prevent focused state lost
   const onMouseDown = (event: React.MouseEvent<Element> | React.TouchEvent<Element>) => {
-    setActive(true)
     event.preventDefault()
-  }
-
-  const onMouseUp = () => {
-    setActive(false)
   }
 
   const onChange = () => {
@@ -129,17 +123,15 @@ const Toggle = ({ className, children, ...props }: ToggleProps) => {
 
   const toggleHanflers = {
     onMouseDown,
-    onMouseUp,
     onTouchStart: onMouseDown,
-    onTouchEnd: onMouseUp,
   }
 
   return (
-    <label css={toggleStyle} {...aria} {...toggleHanflers}>
+    <label ref={setTouchRef} css={toggleStyle} {...aria} {...toggleHanflers}>
       {props.labelPosition === 'start' && label}
       <input {...filterProps(groupProps)} ref={setRef} type={props.mode} onChange={onChange}/>
-      <div css={switchStyle} className={className} >
-        {children && children({ checked, active, loading: props.loading })}
+      <div css={switchStyle} className={className}>
+        {children && children({ checked, loading: props.loading })}
       </div>
       {props.labelPosition === 'end' && label}
     </label>

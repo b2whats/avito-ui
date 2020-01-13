@@ -3,7 +3,6 @@ import { MarginProperties, DimensionProperties, Theme } from '../../styled-syste
 
 type ChildrenProps = {
   checked: boolean | 'mixed',
-  active: boolean,
   loading?: boolean,
 }
 
@@ -50,8 +49,6 @@ export interface ToggleProps extends MarginProperties, DimensionProperties {
   tabIndex?: number,
   /** Переопределить тему */
   override?: object,
-  /** Ссылка на дом ноду */
-  innerRef?: (node: HTMLInputElement | null) => void,
 
   onClick?(): void,
   onChange?(props: onChangeProps): void,

@@ -15,10 +15,10 @@
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "./packages",
     "paths": {
-      "@avito/icons": ["../node_modules/@avito/icons/src"],
-      "@avito/components": ["../node_modules/@avito/components/src"],
-      "@avito/tokens": ["../node_modules/@avito/tokens/src"],
+      "@avito/icons": ["icons/src"],
+      "@avito/components": ["components/src"],
+      "@avito/tokens": ["tokens/src"],
     },
   },
-  "exclude": ["node_modules", "old", "packages/**/build"]
+  "exclude": ["node_modules", "packages/**/build"]
 }

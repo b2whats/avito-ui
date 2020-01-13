@@ -28,12 +28,7 @@ const textareaClassName = createClassName<TextareaProps, TextareaTheme>(
   (themeStyle) => ({
     display: 'block',
     ...themeStyle,
-  }),
-  (textRules) => (`
-    box-sizing: border-box;
-
-    ${textRules}
-  `)
+  })
 )
 
 const Textarea = ({ onFocus, onBlur, ...props}: TextareaProps) => {

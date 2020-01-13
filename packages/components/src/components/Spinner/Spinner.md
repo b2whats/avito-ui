@@ -1,7 +1,7 @@
 ```js
 import { Stack } from '../../';
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Spinner />
   <Spinner color='blue300' />
   <Spinner variant='primary' />
@@ -17,7 +17,7 @@ import { Stack } from '../../';
 ```js
 import { Stack } from '../../';
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Spinner variant='primary' size='s' />
   <Spinner variant='secondary' size='m' />
   <Spinner variant='success' size='l' /> 
@@ -30,7 +30,7 @@ import { Stack } from '../../';
 ```js
 import { Stack } from '../../';
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Spinner />
   <Spinner speed={0.2}/>
   <Spinner speed={0.9}/> 
@@ -42,7 +42,7 @@ import { Stack } from '../../';
 ```js
 import { Stack } from '../../';
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Spinner />
   <Spinner thickness={1}/>
   <Spinner thickness={4}/> 

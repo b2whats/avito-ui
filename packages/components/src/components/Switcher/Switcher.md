@@ -14,8 +14,8 @@ const onLoadingChange = ({ checked }) => {
 
 const longText = 'Французская художница, входившая в круг художников в Париже, ставших известными как импрессионисты.';
 
-<Stack space='m'>
-  <Stack space='m' column width={300}>
+<Stack spacing='m'>
+  <Stack spacing='m' column width={300}>
     <Switcher checked={state.checked} onChange={onChange} label='Teкст рядом' />
     <Switcher checked={state.checked} onChange={onLoadingChange} label='Teкст рядом' loading={state.loading} />
     <Switcher checked={state.checked} onChange={onLoadingChange} label='Teкст рядом' loading />

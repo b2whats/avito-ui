@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "cross-env TARGET=server styleguidist server",
-    "build": "cross-env NODE_ENV=production styleguidist build",
+    "build": "cross-env TARGET=server NODE_ENV=production styleguidist build",
     "server": "cross-env BABEL_ENV=cjs TARGET=server NODE_ENV=production babel-node server/server.js --extensions \".js,.ts,.tsx\"",
     "bench": "cross-env BABEL_ENV=cjs TARGET=server NODE_ENV=production babel-node benchmark/index.js --extensions \".js,.ts,.tsx\"",
     "lint": "eslint . --ext .js,.ts,.tsx",

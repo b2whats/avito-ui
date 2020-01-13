@@ -5,6 +5,8 @@ import { TextProps } from '../Text/contract'
 import { StackProps, BoxProps } from '../Layout/contract'
 
 export type ListItemTheme = {
+  beforeTreshold: number,
+  afterTreshold: number,
   scheme: {
     ListItem: SchemeType<ListItemProps, StackProps>,
     Before: SchemeType<ListItemProps, BoxProps>,
@@ -17,17 +19,24 @@ export type ListItemTheme = {
 }
 
 export const listItemTheme: ComponentTheme<ListItemTheme> = (_, override) => {
+  const component = {
+    beforeTreshold: 82,
+    afterTreshold: 82,
+  }
+  
   const scheme: ListItemTheme['scheme'] = {
     ListItem: {
       props: {
         pt: 10,
         pb: 12,
         px: 16,
-        space: 16,
+        spacing: 16,
         valign: 'middle',
       },
-      style: {
-        backgroundColorActive: 'gray4',
+      interactive: {
+        style: {
+          backgroundColorActive: 'gray4',
+        },
       },
     },
     Before: {
@@ -37,7 +46,7 @@ export const listItemTheme: ComponentTheme<ListItemTheme> = (_, override) => {
     },
     StackText: {
       props: {
-        space: 2,
+        spacing: 2,
       },
     },
     Label: {
@@ -74,6 +83,7 @@ export const listItemTheme: ComponentTheme<ListItemTheme> = (_, override) => {
   }
 
   return {
+    ...component,
     scheme,
   }
 }

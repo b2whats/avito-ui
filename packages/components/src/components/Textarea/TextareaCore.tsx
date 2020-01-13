@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { css } from '@emotion/core'
 import { filterProps, useRefHook } from '../../utils'
 import { TextareaCoreProps } from './contract'
 
 const textareaStyle = css`
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
   padding: 0px;
   margin: 0px;
   border-width: 0;
@@ -14,11 +14,13 @@ const textareaStyle = css`
   font-family: inherit;
   font-weight: inherit;
   line-height: inherit;
-  -webkit-text-fill-color: currentcolor;
   color: inherit;
   outline: none;
   background-color: transparent;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-text-fill-color: currentcolor;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &[disabled] {
     cursor: inherit;

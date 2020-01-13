@@ -6,8 +6,8 @@ const onChange = ({ checked }) => {
 }
 const longText = 'Французская художница, входившая в круг художников в Париже, ставших известными как импрессионисты.';
 
-<Stack space='m'>
-  <Stack space='m' column width={300}>
+<Stack spacing='m'>
+  <Stack spacing='m' column width={300}>
     <Radio checked={state.checked} onChange={onChange} label='Teкст рядом' />
     <Radio checked={state.checked} onChange={onChange} label='Teкст рядом' shape='square'/>
     <Radio checked={state.checked} onChange={onChange} variant='secondary' label='Teкст рядом' />

@@ -284,7 +284,7 @@ export const foldScheme = (scheme: any, props: any) => {
 }
 
 export const getStyles = (params: StyleProperties & Display, {font, dimension, space, palette, focus}: any) => {
-  let css = ''
+  let css = 'box-sizing: border-box;'
 
   if (!params) return css
 
@@ -303,7 +303,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   for (const param in params) {
     let value = params[param]
 
-    if (value === null || value === undefined || value === false) continue
+    if (value === null || value === undefined) continue
 
     switch (param) {
       case 'fontFamily':
@@ -439,7 +439,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
     
         break
       case 'shrink':
-        css += 'flex-shrink: 1;'
+        css += `flex-shrink: ${value ? '1' : '0'};`
     
         break
       case 'borderWidth':
@@ -672,7 +672,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       checked: '&[aria-checked=true], &[data-state~=checked]',
       visited: '&:visited',
       hover: '&:hover',
-      active: '&:enabled:active, &[data-state~=active]',
+      active: '&:not(:disabled):active, &[data-state~=active]',
       focus: '&&:focus, &&[data-state~=focus]',
       disabled: '&:disabled, &[aria-disabled=true], &[data-state~=disabled]',
     }
@@ -735,13 +735,15 @@ interface Selector<Props, ComponentTheme> {
 
 export function createClassName<Props, ComponentTheme extends object | null = null>(
   createRule: (schemeStyle: ThemeStyle<ComponentTheme>, props: Props, theme: Theme) => StyleProperties & Display,
-  createUserRule: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any
+  createUserRule?: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any
 ): Selector<Props, ComponentTheme>[ComponentTheme extends object ? 't' : 'f']  {
   return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme>) => {
     const styles = createRule(schemeStyle as any, props, theme)
     const textRules = getStyles(styles, theme)
 
-    const resultRules = createUserRule(textRules, props, theme, schemeStyle as any)
+    const resultRules = createUserRule
+      ? createUserRule(textRules, props, theme, schemeStyle as any)
+      : textRules
     
     return typeof resultRules === 'string' ? css`${resultRules}` : resultRules
   }

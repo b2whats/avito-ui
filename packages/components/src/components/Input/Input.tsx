@@ -1,6 +1,6 @@
 import React, { isValidElement, useState } from 'react'
-import { css } from '@emotion/core'
-import { useTheme, useRefHook, setNativeValue } from '../../utils'
+import { useTheme, setNativeValue } from '../../utils/'
+import { useRefHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Icon, IconProps } from '../Icon/'
 import { Text } from '../Text/'
@@ -16,7 +16,6 @@ const inputClassName = createClassName<InputProps, InputTheme>(
     ...props,
   }),
   (textRules) => (`
-    box-sizing: border-box;
     position: relative;
     font-family: inherit;
     align-items: center;
@@ -25,19 +24,22 @@ const inputClassName = createClassName<InputProps, InputTheme>(
     ${textRules}
   `)
 )
+
 const inputFieldClassName = createClassName<InputProps, InputTheme>(
   (themeStyle) => ({
     display: 'flex',
     valign: 'baseline',
     grow: true,
     ...themeStyle,
-  }),
-  (textRules) => (css`${textRules}`)
+  })
 )
 
-const Input = ({ onFocus, onBlur, onMouseDown, ...props }: InputProps) => {
+export const Input: React.RefForwardingComponent<
+  React.Ref<HTMLInputElement>,
+  InputProps
+> = React.forwardRef(({ onFocus, onBlur, onMouseDown, ...props }: InputProps, ref) => {
   const theme = useTheme()
-  const [inputRef, setInputRef] = useRefHook(props.innerRef)
+  const [inputRef, setInputRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
 
   props = {
@@ -110,12 +112,14 @@ const Input = ({ onFocus, onBlur, onMouseDown, ...props }: InputProps) => {
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix)}
-        <InputCore {...props} autoSize={props.postfix ? true : false} innerRef={setInputRef} onMouseDown={handleMouseDown} onFocus={handleFocus} onBlur={handleBlur}/>
+        <InputCore {...props} autoSize={props.postfix ? true : false} ref={setInputRef} onMouseDown={handleMouseDown} onFocus={handleFocus} onBlur={handleBlur}/>
         {props.postfix && renderTextSlot(props.postfix)}
       </div>
       {iconAfter}
     </label>
   )
-}
+})
+
+Input.displayName = 'Input'
 
 export default Input

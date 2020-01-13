@@ -11,11 +11,11 @@ const options = [
 const options2 = [
   { value: 1, text: 'Раз' },
   { value: 2, text: 'Два' },
-  { value: 3, text: 'Три' },
+  { value: 3, text: 'Три', disabled: true },
   { value: 4, text: 'Четыре' },
 ];
 
-<Stack space={10} column>
+<Stack spacing={10} column>
   <SegmentButton size='s' options={options} name='radio' value={state.radio} onChange={onChange} />
   <SegmentButton options={options} name='radio' value={state.radio} onChange={onChange} />
   <SegmentButton size='l' options={options} name='radio' value={state.radio} onChange={onChange} />

@@ -6,24 +6,37 @@ import { Icon } from '../Icon/'
 import { Spinner } from '../Spinner/'
 import { SwitcherProps } from './contract'
 
-const circleStyle = (checked: boolean, active: boolean) => css`
-  display: flex;
-  height: 100%;
-  width: 100%;
-
+const circleStyle = () => css`
   &::before {
-    content: '';
-    transition: width .2s ease;
-    width: ${(
-      !checked && active ? '15%' :
-      checked ? '100%' : '0%')};
+    transition: width .2s ease .05s;
+    width: 0%;
   }
+
   &::after {
     content: '';
-    transition: width .2s ease;
-    width: ${(
-      checked && active ? '15%' :
-      !checked ? '100%' : '0%')};
+    transition: width .2s ease .05s;
+    width: 100%;
+  }
+
+  input:active + &::before {
+    width: 20%;
+  }
+
+  input:checked + &::before {
+    width: 100%;
+  }
+
+  input:checked + &::after {
+    width: 0%;
+  }
+
+  input:checked:active + &::after {
+    width: 20%;
+  }
+
+  [aria-busy='true'] > &::before,
+  [aria-busy='true'] > &::after {
+    content: none;
   }
 `
 
@@ -38,14 +51,10 @@ const Switcher = (props: SwitcherProps) => {
   }
 
   return (
-    <Toggle {...props} mode='checkbox' override={theme.switcher}>
-      {({ checked, active, loading }) => (loading
-        ? <Spinner size='auto'/>
-        : (
-          <div css={circleStyle(Boolean(checked), active)}>
-            <Icon name='circle' size='auto' />
-          </div>
-        )
+    <Toggle css={circleStyle} {...props} mode='checkbox' override={theme.switcher}>
+      {({ loading }) => (loading
+        ? <Spinner size='auto' />
+        : <Icon name='circle' size='auto' />
       )}
     </Toggle>
   )

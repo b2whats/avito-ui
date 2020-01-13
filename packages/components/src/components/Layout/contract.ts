@@ -6,9 +6,9 @@ type Display = 'inline' | 'block' | 'flex' | 'inline-flex' | 'inline-block'
 
 export interface GridProps extends SpaceProperties, DimensionProperties {
   /** Отступ между дочерними блоками */
-  space: keyof Tokens['space'] | number,
+  spacing: keyof Tokens['space'] | number,
   /** Отступ между дочерними блоками по вертикали */
-  spaceY: keyof Tokens['space'] | number,
+  spacingY: keyof Tokens['space'] | number,
   /** Горизонтальное выравнивание дочерних блоков  */
   align?: 'left' | 'center' | 'right' | 'justify',
   /** Вертикальное выравнивание дочерних блоков  */
@@ -51,7 +51,7 @@ export interface StackProps extends SpaceProperties, DimensionProperties {
   /** Содержание */
   children?: React.ReactNode,
   /** Горизонтальный отступ между дочерними блоками */
-  space?: keyof Tokens['space'] | number,
+  spacing?: keyof Tokens['space'] | number,
   /** Вертикальный ритм */
   column?: boolean,
   /** Добавляет скролл */
@@ -60,6 +60,8 @@ export interface StackProps extends SpaceProperties, DimensionProperties {
   align?: 'left' | 'center' | 'right' | 'justify',
   /** Вертикальное выравнивание дочерних блоков  */
   valign?: 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch',
+  /** Вертикальное выравнивание */
+  valignSelf?: 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch',
   /** Инлайновое поведение */
   inline?: boolean,
   /** Переносить блоки на следующие строки если не хватило места */
@@ -68,6 +70,8 @@ export interface StackProps extends SpaceProperties, DimensionProperties {
   backgroundColor?: keyof Tokens['palette'],
   /** Изменить тег */
   as?: string,
+
+  ref?: (node: HTMLElement | null) => void,
   /** @ignore */
   debug?: boolean,
 }
@@ -85,7 +89,7 @@ export interface GroupProps extends SpaceProperties, DimensionProperties {
   /** Блочное поведение */
   block?: boolean,
   /** Горизонтальный отступ между дочерними блоками */
-  space?: keyof Tokens['space'] | number,
+  spacing?: keyof Tokens['space'] | number,
   /** Вертикальный ритм */
   column?: boolean,
   /** Имя группы */

@@ -11,12 +11,7 @@ const pageClassName = createClassName<PageProps>(
     lineHeight: font.defaultLineHeight,
     fontFamily: font.fontFamily,
     fontSize: font.defaultFontSize,
-  }),
-  (textRules) => (`
-    box-sizing: border-box;
-
-    ${textRules}
-  `)
+  })
 )
 
 const Page = ({ children, ...props }: PageProps) => {

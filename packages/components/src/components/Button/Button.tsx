@@ -11,12 +11,12 @@ import { ButtonTheme } from './theme'
 const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
   (themeStyle, props) => ({
     display: 'inline-block',
+    shrink: false,
     ...themeStyle,
     ...props,
     ...(props.shape === 'circle' || props.shape === 'square') && { p: 'none' },
   }),
   (textRules, { kind }, { button }, themeStyle) => (`
-    box-sizing: border-box;
     font-family: inherit;
     cursor: pointer;
     text-align: center;
@@ -24,7 +24,6 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     margin: 0;
     line-height: 1;
     position: relative;
-    flex-shrink: 0;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -43,24 +42,24 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     ` : ''}
 
 
-    &[data-group~='horizontal']:not([data-group~='last']):not([data-group~='space']) {
+    &[data-group~='horizontal']:not([data-group~='last']):not([data-group~='spacing']) {
       margin-right: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth}px;
       border-bottom-right-radius: 0px;
       border-top-right-radius: 0px;
     }
 
-    &[data-group~='horizontal']:not([data-group~='first']):not([data-group~='space']) {
+    &[data-group~='horizontal']:not([data-group~='first']):not([data-group~='spacing']) {
       border-bottom-left-radius: 0px;
       border-top-left-radius: 0px;
     }
 
-    &[data-group~='vertical']:not([data-group~='last']):not([data-group~='space']) {
+    &[data-group~='vertical']:not([data-group~='last']):not([data-group~='spacing']) {
       margin-bottom: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth}px;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
 
-    &[data-group~='vertical']:not([data-group~='first']):not([data-group~='space']) {
+    &[data-group~='vertical']:not([data-group~='first']):not([data-group~='spacing']) {
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
     }

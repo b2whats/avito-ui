@@ -13,7 +13,7 @@ export const switcherTheme: ComponentTheme<SwitcherTheme> = (_, override) => {
     Switch: {
       style: {
         width: 48,
-        height: 24,
+        height: 25,
         p: 3,
         focus: true,
       },

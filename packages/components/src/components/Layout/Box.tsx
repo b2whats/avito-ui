@@ -4,13 +4,12 @@ import { createClassName } from '../../styled-system/'
 import { BoxProps } from './contract'
 
 const boxClassName = createClassName<BoxProps>(
-  (_, props) => ({ display: 'inline-flex', ...props}),
-  (textRules) => (`
-    box-sizing: border-box;
-    flex-shrink: 0;
-
-    ${textRules}
-  `)
+  (_, props) => ({
+    display: 'inline-flex',
+    shrink: false,
+    ...props,
+  }),
+  (textRules) => textRules
 )
 
 const Box = ({ children, ...props }: BoxProps) => {

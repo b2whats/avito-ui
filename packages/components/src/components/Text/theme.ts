@@ -11,7 +11,6 @@ export type TextTheme = {
   },
   strike: {
     offset: number,
-    height: number,
   }
 }
 
@@ -19,7 +18,6 @@ export const textTheme: ComponentTheme<TextTheme> = (_, override) => {
   const component = {
     strike: {
       offset: 0,
-      height: 1,
     },
   }
 

@@ -1,7 +1,7 @@
 ```js
 import { Stack } from '../../';
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Icon name='search' />
   <Icon name='search' color='blue50' />
   <Icon name='search' variant='primary' />
@@ -17,7 +17,7 @@ import { Stack } from '../../';
 import { Stack } from '../../';
 const onClick = () => {};
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Icon name='search' variant='primary' onClick={onClick} />
   <Icon name='search' variant='error' onClick={onClick} />
 </Stack>
@@ -27,7 +27,7 @@ const onClick = () => {};
 ```js
 import { Stack } from '../../';
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Icon name='search' onClick={() => {}} inverted />
   <Icon name='search' color='blue500' onClick={() => {}} colorHover='blue300' />
   <Icon name='search' variant='primary' onClick={() => {}} inverted />
@@ -43,7 +43,7 @@ import { Stack } from '../../';
 ```js
 import { Stack } from '../../';
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Icon name='search' variant='primary' size='s' />
   <Icon name='search' variant='secondary' size='m' />
   <Icon name='search' variant='success' size='l' /> 

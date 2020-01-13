@@ -1,7 +1,7 @@
 ```jsx
 import { Button, Stack } from '../../';
 
-<Stack column space='m'>
+<Stack column spacing='m'>
   <Group>
     <Button>One 1</Button>
     <Button>Two 2</Button>
@@ -28,7 +28,7 @@ import { Button, Stack } from '../../';
 ```jsx
 import { Button, Stack } from '../../';
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Group column>
     <Button>One 1</Button>
     <Button>Two 2</Button>
@@ -50,7 +50,7 @@ import { Button, Stack } from '../../';
 ```jsx
 import { Button, Stack } from '../../';
 
-<Stack space='m' column>
+<Stack spacing='m' column>
   <Group column block>
     <Button>One 1</Button>
     <Button>Two 2</Button>
@@ -72,13 +72,13 @@ const onChange = ({ name, value }) => {
     setState({ [name]: value });
 }
 
-<Stack column space='m'>
-  <Group name='radio' mode='radio' value={state.radio} space='l' onChange={onChange}>
+<Stack column spacing='m'>
+  <Group name='radio' mode='radio' value={state.radio} spacing='l' onChange={onChange}>
     <Radio value={0} label='One' />
     <Radio value={1} label='Two' />
     <Radio value={2} label='Three' />
   </Group>
-  <Group name='checkbox' mode='checkbox' value={state.checkbox} space='l' onChange={onChange}>
+  <Group name='checkbox' mode='checkbox' value={state.checkbox} spacing='l' onChange={onChange}>
     <Checkbox value={0} label='One' />
     <Checkbox value={1} label='Two' />
     <Checkbox value={2} label='Three' />
@@ -92,13 +92,13 @@ initialState = { radio: 6, checkbox: undefined };
 const onChange = ({ name, value }) => {
     setState({ [name]: value });
 }
-<Stack column space='m'>
-  <Group name='checkbox' mode='checkbox' space={10} value={state.checkbox} onChange={onChange}>
+<Stack column spacing='m'>
+  <Group name='checkbox' mode='checkbox' spacing={10} value={state.checkbox} onChange={onChange}>
     <Button preset='default' value={0}>One</Button>
     <Button preset='default' value={1}>Two</Button>
     <Button preset='default' value={2}>Three</Button>
   </Group>
-  <Group name='radio' mode='radio' space={10} value={state.radio} onChange={onChange}>
+  <Group name='radio' mode='radio' spacing={10} value={state.radio} onChange={onChange}>
     <Button preset='default' value={0} shape='square'>1</Button>
     <Button preset='default' value={1} shape='square'>2</Button>
     <Button preset='default' value={2} shape='square'>3</Button>
@@ -107,7 +107,7 @@ const onChange = ({ name, value }) => {
     <Button preset='default' value={5} shape='square'>6</Button>
     <Button preset='default' value={6} shape='square'>7</Button>
   </Group>
-  <Group name='radio' mode='radio' space={10} value={state.radio} p={3} scroll width={200} onChange={onChange}>
+  <Group name='radio' mode='radio' spacing={10} value={state.radio} p={3} scroll width={200} onChange={onChange}>
     <Button preset='default' value={0} shape='square'>1</Button>
     <Button preset='default' value={1} shape='square'>2</Button>
     <Button preset='default' value={2} shape='square'>3</Button>
@@ -116,7 +116,7 @@ const onChange = ({ name, value }) => {
     <Button preset='default' value={5} shape='square'>6</Button>
     <Button preset='default' value={6} shape='square'>7</Button>
   </Group>
-  <Group name='radio' mode='radio' space={10} value={state.radio} p={3} scroll disabled width={200} onChange={onChange}>
+  <Group name='radio' mode='radio' spacing={10} value={state.radio} p={3} scroll disabled width={200} onChange={onChange}>
     <Button preset='default' value={0} shape='square'>1</Button>
     <Button preset='default' value={1} shape='square'>2</Button>
     <Button preset='default' value={2} shape='square'>3</Button>

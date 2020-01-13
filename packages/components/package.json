@@ -1,10 +1,9 @@
 {
-  "name": "@avito/mav-ui",
+  "name": "@avito/mobile-components",
   "version": "0.0.1",
   "private": false,
   "description": "Components for mobile web",
   "main": "build/index.js",
-  "module": "src/index.ts",
   "types": "build/index.d.ts",
   "browser": "build/index.js",
   "files": [
@@ -26,13 +25,14 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/icons": "^0.0.2",
-    "@avito/tokens": "^0.0.4",
+    "@avito/icons": "^0.0.4",
+    "@avito/tokens": "^0.0.5",
     "@emotion/core": "^10.0.15",
     "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/styled": "^10.0.15",
     "create-emotion-server": "^10.0.14",
     "deepmerge": "^4.0.0",
+    "emotion": "^10.0.23",
     "emotion-theming": "^10.0.14",
     "fast-memoize": "^2.5.1",
     "react-gesture-responder": "^2.1.0",

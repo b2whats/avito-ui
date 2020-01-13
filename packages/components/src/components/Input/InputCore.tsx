@@ -12,10 +12,13 @@ const autofill = keyframes`
 
 const inputField = (autoSize?: boolean) => css`
   width: ${autoSize ? 'auto' : '100%'};
+  flex-shrink: 0;
   display: inline-block;
   position: relative;
   visibility: hidden;
   min-width: 5px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   &::before {
     content: attr(data-value);
     display: inline-block;
@@ -24,11 +27,11 @@ const inputField = (autoSize?: boolean) => css`
 `
 
 const inputStyle = css`
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  box-sizing: border-box;
   width: 100%;
   padding: 0px;
   margin: 0px;
@@ -38,11 +41,13 @@ const inputStyle = css`
   font-family: inherit;
   font-weight: inherit;
   line-height: inherit;
-  -webkit-text-fill-color: currentcolor;
   color: inherit;
   outline: none;
   background-color: transparent;
+  -webkit-text-fill-color: currentcolor;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &[disabled] {
     cursor: inherit;
@@ -61,12 +66,17 @@ const inputStyle = css`
   }
 `
 
-const InputCore = ({ innerRef, ...props }: InputCoreProps) => {
+export const InputCore: React.RefForwardingComponent<
+  React.Ref<HTMLInputElement>,
+  InputCoreProps
+> = React.forwardRef(({ ...props }: InputCoreProps, ref) => {
   return (
     <div css={inputField(props.autoSize)} data-value={props.value || props.placeholder}>
-      <input {...filterProps(props)} ref={innerRef} css={inputStyle} size={1} autoCorrect='off' spellCheck={false}/>
+      <input {...filterProps(props)} ref={ref} css={inputStyle}  autoCorrect='off' spellCheck={false}/>
     </div>
   )
-}
+})
+
+InputCore.displayName = 'InputCore'
 
 export default InputCore

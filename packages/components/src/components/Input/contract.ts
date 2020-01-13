@@ -19,7 +19,7 @@ export interface InputCoreProps {
   /** Класс элемента */
   className?: string,
   /** Ссылка на дом ноду */
-  innerRef?: (node: HTMLInputElement | null) => void,
+  ref?: React.Ref<HTMLInputElement>,
 
   onClick?(event: React.MouseEvent<HTMLInputElement>): void,
   onChange?(event: React.ChangeEvent<HTMLInputElement>): void,
@@ -49,5 +49,5 @@ export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginPro
   /** Инлайновое поведение */
   inline?: boolean,
   /** Ссылка на дом ноду */
-  innerRef?: (node: HTMLInputElement | null) => void,
+  ref?: React.Ref<HTMLInputElement>,
 }

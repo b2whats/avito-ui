@@ -5,7 +5,7 @@ const onChange = ({ target }) => {
   setState(state => ({ [target.name]: target.value }))
 };
 
-<Stack column space={10}>
+<Stack column spacing={10}>
   <Input name='value' value={state.value} onChange={onChange} clearable/>
   <Input name='value' value={state.value} onChange={onChange} clearable='always'/>
   <Input name='value' placeholder='Подсказка' value={state.value} onChange={onChange}/>
@@ -24,32 +24,32 @@ const onChange = ({ target }) => {
   setState(state => ({ [target.name]: target.value }))
 };
 
-<Stack column space={10}>
-  <Stack space={10}>
+<Stack column spacing={10}>
+  <Stack spacing={10}>
     <Input name='value' value={state.value} onChange={onChange} clearable/>
     <Input name='value' placeholder='Подсказка' value={state.value} onChange={onChange} clearable/>
     <Input name='value' placeholder='Подсказка' value={state.value} onChange={onChange} disabled/>
     <Input name='issetValue' value={state.issetValue} onChange={onChange} disabled/>
   </Stack>
-  <Stack space={10}>
+  <Stack spacing={10}>
     <Input variant='secondary' name='value' value={state.value} onChange={onChange} clearable/>
     <Input variant='secondary'  name='value' placeholder='Подсказка' value={state.value} onChange={onChange} clearable/>
     <Input variant='secondary'  name='value' placeholder='Подсказка' value={state.value} onChange={onChange} disabled/>
     <Input variant='secondary'  name='issetValue' value={state.issetValue} onChange={onChange} disabled/>
   </Stack>
-  <Stack space={10}>
+  <Stack spacing={10}>
     <Input variant='success' name='value' value={state.value} onChange={onChange} clearable/>
     <Input variant='success'  name='value' placeholder='Подсказка' value={state.value} onChange={onChange} clearable/>
     <Input variant='success'  name='value' placeholder='Подсказка' value={state.value} onChange={onChange} disabled/>
     <Input variant='success'  name='issetValue' value={state.issetValue} onChange={onChange} disabled/>
   </Stack>
-  <Stack space={10}>
+  <Stack spacing={10}>
     <Input variant='warning' name='value' value={state.value} onChange={onChange} clearable/>
     <Input variant='warning'  name='value' placeholder='Подсказка' value={state.value} onChange={onChange} clearable/>
     <Input variant='warning'  name='value' placeholder='Подсказка' value={state.value} onChange={onChange} disabled/>
     <Input variant='warning'  name='issetValue' value={state.issetValue} onChange={onChange} disabled/>
   </Stack>
-  <Stack space={10}>
+  <Stack spacing={10}>
     <Input variant='error' name='value' value={state.value} onChange={onChange} clearable/>
     <Input variant='error'  name='value' placeholder='Подсказка' value={state.value} onChange={onChange} clearable/>
     <Input variant='error'  name='value' placeholder='Подсказка' value={state.value} onChange={onChange} disabled/>
@@ -66,7 +66,7 @@ const onChange = ({ target }) => {
   setState(state => ({ value: target.value }))
 };
 
-<Stack column space='s'>
+<Stack column spacing='s'>
   <Input
     iconBefore={({loading, focus, iconProps}) => (loading
       ? <Spinner {...iconProps}/>
@@ -125,7 +125,7 @@ const onChange = ({ target }) => {
   setState(state => ({ value: target.value }))
 };
 
-<Stack column space='s'>
+<Stack column spacing='s'>
   <Input
     placeholder='Укажите цену,'
     postfix=' ₽'
