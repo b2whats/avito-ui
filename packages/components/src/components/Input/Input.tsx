@@ -3,7 +3,7 @@ import { useTheme, setNativeValue } from '../../utils/'
 import { useRefHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Icon, IconProps } from '../Icon/'
-import { Text } from '../Text/'
+import { Text, TextProps } from '../Text/'
 import { InputCore } from './'
 import { InputProps } from './contract'
 import { InputTheme } from './theme'
@@ -31,13 +31,18 @@ const inputFieldClassName = createClassName<InputProps, InputTheme>(
     valign: 'baseline',
     grow: true,
     ...themeStyle,
-  })
+  }),
+  (textRules) => (`
+    overflow: hidden;
+
+    ${textRules}
+  `)
 )
 
 export const Input: React.RefForwardingComponent<
   React.Ref<HTMLInputElement>,
   InputProps
-> = React.forwardRef(({ onFocus, onBlur, onMouseDown, ...props }: InputProps, ref) => {
+> = React.forwardRef(({ onFocus, onBlur, onClick, ...props }: InputProps, ref) => {
   const theme = useTheme()
   const [inputRef, setInputRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
@@ -61,21 +66,21 @@ export const Input: React.RefForwardingComponent<
     onBlur && onBlur(event)
   }
 
-  const handleMouseDown: InputProps['onMouseDown'] = (event) => {
+  // Прерываем всплытие события клика, так как клик будет триггерить лейбл и без отмены событие будет вызвано дважды
+  const handleClick = (event: React.MouseEvent<HTMLInputElement>) => {
+    console.log('component click')
     event.stopPropagation()
-    onMouseDown && onMouseDown(event)
+    onClick && onClick(event)
   }
 
+  // Отменяем моргание фокуса при повторных кликах
   const handlePreventBlur = (event: React.MouseEvent<HTMLLabelElement>) => {
-    focus && event.preventDefault()
-  }
+    console.log('component mouse down (label)')
+    // Так же мы отменяем и все события по выделению внутри инпута
+    // Поэтому если мы нажимаем на input нам не нужно блокировать действие браузера по умолчанию
+    if ((event.target as any).tagName === 'INPUT') return
 
-  const handlePreventFocus = (onClick: any) => (event: React.MouseEvent<HTMLLabelElement>) => {
-    if (onClick) {
-      event.preventDefault()
-
-      onClick(event)
-    }
+    event.preventDefault()
   }
 
   const handleClear = (event: React.MouseEvent<HTMLElement>) => {
@@ -83,21 +88,21 @@ export const Input: React.RefForwardingComponent<
     setNativeValue(inputRef.current, '')
   }
 
-  const { Input, IconClear, IconBefore, IconAfter, InputField } = foldThemeParams<InputTheme>(theme.input, props)
+  const { Input, IconClear, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams<InputTheme>(theme.input, props)
   const inputStyle = inputClassName(props, theme, Input.style)
   const inputFieldStyle = inputFieldClassName(props, theme, InputField.style)
 
   const renderIconSlot = (icon: InputProps['iconBefore'] | InputProps['iconAfter'], iconProps: IconProps) => (
-    typeof icon === 'string' ? <Icon name={icon} {...iconProps} /> :
-    typeof icon === 'function' ? icon({ ...props, iconProps, focus, handleClear, handlePreventFocus }) :
-    isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} onClick={handlePreventFocus(icon.props.onClick)} /> :
+    typeof icon === 'string' ? <Icon {...iconProps} name={icon} /> :
+    typeof icon === 'function' ? icon({ ...props, iconProps, focus, handleClear }) :
+    isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} /> :
     undefined
   )
 
-  const renderTextSlot = (text: InputProps['prefix'] | InputProps['postfix']) => (
-    typeof text === 'string' ? <Text color={focus || props.value ? undefined : Input.style.placeholderColor as any} pre>{text}</Text> :
+  const renderTextSlot = (text: InputProps['prefix'] | InputProps['postfix'], textProps: TextProps) => (
+    typeof text === 'string' ? <Text {...textProps} color={focus || props.value ? undefined : Input.style.placeholderColor as any} pre>{text}</Text> :
     typeof text === 'function' ? text({ ...props, focus }) :
-    React.isValidElement(text) ? <text.type {...text.props} color={focus || props.value ? text.props.color : Input.style.placeholderColor} pre/> :
+    React.isValidElement(text) ? <text.type {...textProps} {...text.props} color={focus || props.value ? text.props.color : Input.style.placeholderColor}/> :
     undefined
   )
 
@@ -111,9 +116,9 @@ export const Input: React.RefForwardingComponent<
     <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
-        {props.prefix && renderTextSlot(props.prefix)}
-        <InputCore {...props} autoSize={props.postfix ? true : false} ref={setInputRef} onMouseDown={handleMouseDown} onFocus={handleFocus} onBlur={handleBlur}/>
-        {props.postfix && renderTextSlot(props.postfix)}
+        {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
+        <InputCore {...props} autoSize={props.postfix ? true : false} ref={setInputRef} onClick={handleClick} onFocus={handleFocus} onBlur={handleBlur}/>
+        {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
       </div>
       {iconAfter}
     </label>

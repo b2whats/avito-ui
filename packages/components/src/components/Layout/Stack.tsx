@@ -6,12 +6,13 @@ import { StackProps } from './contract'
 const stackClassName = createClassName<StackProps>(
   (_, props) => ({
     display: 'flex',
-    shrink: false,
+    block: true,
     ...omit(props, 'align'),
   }),
   (textRules, { column, align, scroll, spacing, debug }, { palette, space }) => (`
-    align-items: ${align ? align : !column ? 'baseline' : 'normal'};
-    ${scroll ? `overflow-${column ? 'y' : 'x'}: scroll;` : ''};
+    align-items: ${align ? align : column ? 'normal' : 'baseline'};
+    -webkit-user-select: none;
+    ${scroll ? `overflow-${column ? 'y' : 'x'}: auto;` : ''};
 
     ${spacing ? `
       & > *:not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${space[spacing] || spacing}px; }

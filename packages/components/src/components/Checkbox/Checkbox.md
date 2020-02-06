@@ -10,7 +10,11 @@ const onPress = (event) => {
 }
 const longText = 'Французская художница, входившая в круг художников в Париже, ставших известными как импрессионисты.';
 
-<Stack spacing='m'>
+<Stack spacing='m' column>
+  <div>
+    <Checkbox checked={state.checked} onChange={onChange}  label='Teкст рядом' />
+    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' shape='circle'/>
+  </div>
   <Stack spacing='m' column width={300}>
     <Checkbox checked={state.checked} onChange={onChange}  label='Teкст рядом' />
     <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' shape='circle'/>
@@ -22,8 +26,8 @@ const longText = 'Французская художница, входившая 
     <Checkbox checked indeterminate label='Teкст рядом'/>
     <Checkbox label='Teкст рядом' disabled/>
     <Checkbox checked label='Teкст рядом' disabled/>
-    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' description={longText}/>
-    <Checkbox checked label='Teкст рядом' description={longText} disabled/>
+    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' />
+    <Checkbox checked label='Teкст рядом' disabled/>
     <Checkbox checked label={longText} />
   </Stack>
 </Stack>

@@ -19,8 +19,6 @@ export interface ListItemProps extends SpaceProperties, DimensionProperties {
   link?: React.ReactNode,
   /** Неактивное состояние */
   disabled?: boolean,
-  /** Обработка клика */
-  interactive?: boolean,
 
-  onClick?: () => void,
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void,
 }

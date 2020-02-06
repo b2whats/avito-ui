@@ -46,7 +46,6 @@ export const textareaTheme: ComponentTheme<TextareaTheme> = (_, override) => {
     Textarea: {
       style: {
         borderRadius: 5,
-        focus: true,
         placeholderColor: 'gray48',
       },
       size: {

@@ -33,7 +33,7 @@ export interface ButtonProps extends MarginProperties {
   id?: string,
   /** Ссылка для перехода */
   href?: string,
-  /** Ссылка для перехода */
+  /** Пресеты */
   preset?: 'primary' | 'accent' | 'secondary' | 'default' | 'defaultOnSurface' | 'defaultDark' | 'outline' | 'pay' | 'appInstall' | 'linkIncreased',
   /** Ссылка на дом ноду */
   innerRef?: (node: HTMLButtonElement | HTMLAnchorElement | null) => void,

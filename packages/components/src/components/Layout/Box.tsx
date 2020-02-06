@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme } from '../../utils'
+import { useTheme, filterProps } from '../../utils'
 import { createClassName } from '../../styled-system/'
 import { BoxProps } from './contract'
 
@@ -8,8 +8,7 @@ const boxClassName = createClassName<BoxProps>(
     display: 'inline-flex',
     shrink: false,
     ...props,
-  }),
-  (textRules) => textRules
+  })
 )
 
 const Box = ({ children, ...props }: BoxProps) => {
@@ -17,7 +16,7 @@ const Box = ({ children, ...props }: BoxProps) => {
   const boxStyle = boxClassName(props, theme)
 
   return (
-    <div css={boxStyle}>
+    <div css={boxStyle} {...filterProps(props)}>
       { children }
     </div>
   )

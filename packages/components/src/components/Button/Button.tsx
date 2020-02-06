@@ -27,6 +27,8 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
     &::-moz-focus-inner {
       border: 0;
     }
@@ -105,16 +107,15 @@ const Button = ({ innerRef, ...props }: ButtonProps) => {
   
   const [ref, setRef] = useRefHook(innerRef)
   const groupProps = useGroupHook(ref, props)
-  const mergeProps = {...props, ...groupProps}
   
   const aria = {
-    'aria-checked': mergeProps.checked,
-    'aria-disabled': mergeProps.disabled,
-    'aria-busy': mergeProps.loading,
+    'aria-checked': groupProps.checked,
+    'aria-disabled': groupProps.disabled,
+    'aria-busy': groupProps.loading,
   }
 
-  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams<ButtonTheme>(theme.button, mergeProps)
-  const buttonStyle = buttonClassName(mergeProps, theme, Button.style)
+  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams(theme.button, groupProps)
+  const buttonStyle = buttonClassName(groupProps, theme, Button.style)
 
   const Tag = props.href ? 'a' : 'button'
 
@@ -126,7 +127,7 @@ const Button = ({ innerRef, ...props }: ButtonProps) => {
   )
   
   return (
-    <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(mergeProps)} >
+    <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(groupProps)} >
       {props.loading && <SpinnerComponent {...Spinner.props}/>}
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       {props.children && <TextComponent {...Text.props} crop valignSelf='middle' dense>{ props.children }</TextComponent>}

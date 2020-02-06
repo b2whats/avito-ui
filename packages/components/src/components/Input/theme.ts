@@ -2,14 +2,16 @@ import { ComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { InputProps } from './contract'
 import { IconProps } from '../Icon/contract'
-import { SpinnerProps } from '../Spinner/contract'
+import { TextProps } from '../Text/contract'
 
 export type InputTheme = {
   deletePlaceholderOnFocus: boolean,
   scheme: {
     IconBefore: SchemeType<InputProps, IconProps>,
-    Input: SchemeType<InputProps>,
     InputField: SchemeType<InputProps>,
+    Prefix: SchemeType<InputProps, TextProps>,
+    Input: SchemeType<InputProps>,
+    Postfix: SchemeType<InputProps, TextProps>,
     IconClear: SchemeType<InputProps, IconProps>,
     IconAfter: SchemeType<InputProps, IconProps>,
   },
@@ -73,7 +75,16 @@ export const inputTheme: ComponentTheme<InputTheme> = (_, override) => {
         },
       },
     },
-    
+    Prefix: {
+      props: {
+        mr: 4,
+      },
+    },
+    Postfix: {
+      props: {
+        ml: 4,
+      },
+    },
     IconClear: {
       props: {
         color: 'gray28',
@@ -135,7 +146,6 @@ export const inputTheme: ComponentTheme<InputTheme> = (_, override) => {
     Input: {
       style: {
         borderRadius: 5,
-        focus: true,
         placeholderColor: 'gray48',
       },
       size: {

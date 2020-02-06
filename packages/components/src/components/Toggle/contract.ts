@@ -1,5 +1,5 @@
 import React from 'react'
-import { MarginProperties, DimensionProperties, Theme } from '../../styled-system/'
+import { MarginProperties, DimensionProperties, ValignProperties } from '../../styled-system/'
 
 type ChildrenProps = {
   checked: boolean | 'mixed',
@@ -13,7 +13,7 @@ type onChangeProps = {
   type: 'checkbox' | 'radio',
 }
 
-export interface ToggleProps extends MarginProperties, DimensionProperties {
+export interface ToggleProps extends MarginProperties, DimensionProperties, ValignProperties {
   children?(props: ChildrenProps): React.ReactNode,
   /** Размер */
   size?: 's' | 'm' | 'l',
@@ -50,7 +50,7 @@ export interface ToggleProps extends MarginProperties, DimensionProperties {
   /** Переопределить тему */
   override?: object,
 
-  onClick?(): void,
+  onClick?(event: React.MouseEvent<HTMLInputElement>): void,
   onChange?(props: onChangeProps): void,
   onMouseEnter?(): void,
   onMouseLeave?(): void,

@@ -14,13 +14,17 @@ export const checkboxTheme: ComponentTheme<CheckboxTheme> = (_, override) => {
       style: {
         borderRadius: 2,
         height: 18,
-        focus: true,
       },
       shape: {
         circle: {
           style: {
             p: 1,
             height: 20,
+          },
+        },
+        square: {
+          style: {
+            mx: 1,
           },
         },
       },

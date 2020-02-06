@@ -49,6 +49,12 @@ const TextareaCore = ({ innerRef, maxRows, autoSize, resizable, ...props }: Text
     }
   }
 
+  // Если перенести эту логику в useEffect хук, будет наблюдаться неприятное подрагивание текста
+  const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    autoSize && resize()
+    props.onChange && props.onChange(event)
+  }
+
   useEffect(() => {
     const node = ref.current
 
@@ -58,14 +64,12 @@ const TextareaCore = ({ innerRef, maxRows, autoSize, resizable, ...props }: Text
       node.style.maxHeight = `calc(${maxRows} * ${lineHeight} + ${paddingTop} + ${paddingBottom} + ${borderTopWidth} + ${borderBottomWidth})`
       node.style.resize = resizable ? 'auto' : 'none'
     }
+
+    autoSize && resize()
   }, [maxRows, resizable])
 
-  useEffect(() => {
-    autoSize && resize()
-  })
-
   return (
-    <textarea css={textareaStyle} {...filterProps(props)} ref={setRef} autoCorrect='off' spellCheck={false} />
+    <textarea css={textareaStyle} {...filterProps(props)} onChange={onChange} ref={setRef} autoCorrect='off' spellCheck={false} />
   )
 }
 

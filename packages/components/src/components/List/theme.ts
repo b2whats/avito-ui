@@ -32,8 +32,9 @@ export const listItemTheme: ComponentTheme<ListItemTheme> = (_, override) => {
         px: 16,
         spacing: 16,
         valign: 'middle',
+        minHeight: 52,
       },
-      interactive: {
+      onClick: {
         style: {
           backgroundColorActive: 'gray4',
         },

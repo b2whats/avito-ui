@@ -13,25 +13,8 @@ export type ToggleTheme = {
 
 export const toggleTheme: ComponentTheme<ToggleTheme> = (_, override) => {
   const scheme: ToggleTheme['scheme'] = {
-    Toggle: {
-      style: {},
-    },
-    Switch: {
-      label: {
-        labelPosition: {
-          start: {
-            style: {
-              ml: 16,
-            },
-          },
-          end: {
-            style: {
-              mr: 16,
-            },
-          },
-        },
-      },
-    },
+    Toggle: {},
+    Switch: {},
     Label: {
       props: {
         size: 'm',
@@ -39,6 +22,18 @@ export const toggleTheme: ComponentTheme<ToggleTheme> = (_, override) => {
       disabled: {
         props: {
           color: 'gray48',
+        },
+      },
+      labelPosition: {
+        start: {
+          props: {
+            mr: 16,
+          },
+        },
+        end: {
+          props: {
+            ml: 16,
+          },
         },
       },
     },

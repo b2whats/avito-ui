@@ -81,13 +81,16 @@ export type PaddingProperties = Partial<{
 
 export type SpaceProperties = PaddingProperties & MarginProperties
 
-type Valign = 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch'
 type Align = 'left' | 'center' | 'right' | 'justify'
+type Valign = 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch'
 
-type LayoutProperties = Partial<{
+export type ValignProperties = Partial<{
   align: Align,
   valign: Valign,
   valignSelf: Valign,
+}>
+
+type LayoutProperties = ValignProperties & Partial<{
   column: boolean,
 }>
 
@@ -480,44 +483,39 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         break
       case 'm':
         value = spaceValue(value, space)
-        margin = [
-          `margin-top: ${value};`,
-          `margin-right: ${value};`,
-          `margin-bottom: ${value};`,
-          `margin-left: ${value};`,
-        ]
+        margin = [value, value, value, value]
 
         break
       case 'mx':
         value = spaceValue(value, space)
-        margin[1] = `margin-right: ${value};`
-        margin[3] = `margin-left: ${value};`
+        margin[1] = value
+        margin[3] = value
 
         break
       case 'my':
         value = spaceValue(value, space)
-        margin[0] = `margin-top: ${value};`
-        margin[2] = `margin-bottom: ${value};`
+        margin[0] = value
+        margin[2] = value
 
         break
       case 'mt':
         value = spaceValue(value, space)
-        margin[0] = `margin-top: ${value};`
+        margin[0] = value
 
         break
       case 'mr':
         value = spaceValue(value, space)
-        margin[1] = `margin-right: ${value};`
+        margin[1] = value
 
         break
       case 'mb':
         value = spaceValue(value, space)
-        margin[2] = `margin-bottom: ${value};`
+        margin[2] = value
 
         break
       case 'ml':
         value = spaceValue(value, space)
-        margin[3] = `margin-left: ${value};`
+        margin[3] = value
 
         break
       case 'p':
@@ -648,10 +646,17 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
     }
   }
 
-  if (margin.length || padding.length) {
+  if (padding.length !== 0) {
     css += `&&& {
-      ${margin.join('')}
       ${padding.join('')}
+    }`
+  }
+  if (margin.length !== 0) {
+    css += `&&& {
+      ${margin[0] ? `margin-top: ${margin[0]};` : ''}
+      ${margin[1] ? `margin-right: ${margin[1]};` : ''}
+      ${margin[2] ? `margin-bottom: ${margin[2]};` : ''}
+      ${margin[3] ? `margin-left: ${margin[3]};` : ''}
     }`
   }
 
@@ -697,11 +702,15 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
     css += `${selector.disabled}{cursor: not-allowed;${disabledState.join('')}}`
   }
 
+  if (width.endsWith('%') && (margin[1] || margin[3])) {
+    width = `calc(${width} - ${margin[1] || '0px'} - ${margin[3] || '0px'})`
+  }
+
   if (width) {
-    css = `width: ${width};${css}`
+    css += `width: ${width};`
   }
   if (display) {
-    css = `display: ${display};${css}`
+    css += `display: ${display};`
   }
 
   return css

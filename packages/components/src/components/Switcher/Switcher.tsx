@@ -34,9 +34,9 @@ const circleStyle = () => css`
     width: 20%;
   }
 
-  [aria-busy='true'] > &::before,
-  [aria-busy='true'] > &::after {
-    content: none;
+  [aria-busy='true'] > &&::before,
+  [aria-busy='true'] > &&::after {
+    width: 0%;
   }
 `
 

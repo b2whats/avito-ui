@@ -7,10 +7,11 @@ import { TextareaCore } from '.'
 import { TextareaProps } from './contract'
 import { TextareaTheme } from './theme'
 
-const wrapperClassName = createClassName<TextareaProps>(
-  (_, props) => ({
+const wrapperClassName = createClassName<TextareaProps, TextareaTheme>(
+  (themeStyle, props) => ({
     display: 'block',
     position: 'relative',
+    ...themeStyle,
     ...props,
   }),
   (textRules) => `
@@ -22,13 +23,6 @@ const wrapperClassName = createClassName<TextareaProps>(
     }
     ${textRules}
   `
-)
-
-const textareaClassName = createClassName<TextareaProps, TextareaTheme>(
-  (themeStyle) => ({
-    display: 'block',
-    ...themeStyle,
-  })
 )
 
 const Textarea = ({ onFocus, onBlur, ...props}: TextareaProps) => {
@@ -55,7 +49,9 @@ const Textarea = ({ onFocus, onBlur, ...props}: TextareaProps) => {
   }
 
   const handlePreventBlur = (event: React.MouseEvent<HTMLElement>) => {
-    focus && event.preventDefault()
+    if ((event.target as any).tagName === 'TEXTAREA') return
+
+    event.preventDefault()
   }
 
   const handleClear = (event: React.MouseEvent<HTMLElement>) => {
@@ -64,12 +60,11 @@ const Textarea = ({ onFocus, onBlur, ...props}: TextareaProps) => {
   }
 
   const { Textarea, IconClear } = foldThemeParams<TextareaTheme>(theme.textarea, props)
-  const wrapperStyle = wrapperClassName(props, theme)
-  const textareaStyle = textareaClassName(props, theme, Textarea.style)
+  const wrapperStyle = wrapperClassName(props, theme, Textarea.style)
 
   return (
     <div css={wrapperStyle} onMouseDown={handlePreventBlur}>
-      <TextareaCore {...props} innerRef={setTextareaRef} css={textareaStyle} onFocus={handleFocus} onBlur={handleBlur}/>
+      <TextareaCore {...props} innerRef={setTextareaRef} onFocus={handleFocus} onBlur={handleBlur}/>
       {props.clearable && <Icon {...IconClear.props} onClick={handleClear} />}
     </div>
   )

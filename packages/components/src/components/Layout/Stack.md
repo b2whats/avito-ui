@@ -1,6 +1,32 @@
 ```jsx
 import { Box } from './';
 
+<Stack spacing='m' debug>
+  <Stack spacing='m' inline debug>
+    123
+  </Stack>
+  <Stack spacing='m' debug>
+    456
+  </Stack>
+</Stack>
+```
+
+```jsx
+import { Box } from './';
+
+<Stack spacing='m' debug column>
+  <Stack spacing='m' debug>
+    123
+  </Stack>
+  <Stack spacing='m' debug>
+    456
+  </Stack>
+</Stack>
+```
+
+```jsx
+import { Box } from './';
+
 <Stack spacing='m' debug inline onMouseUp={() => console.log('up stack')}>
   <Box p='s' onMouseUp={() => console.log('up1')}>1</Box>
   <Box mr='xl' p='s' onMouseUp={() => console.log('up2')}>2</Box>

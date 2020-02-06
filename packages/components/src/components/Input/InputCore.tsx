@@ -12,7 +12,7 @@ const autofill = keyframes`
 
 const inputField = (autoSize?: boolean) => css`
   width: ${autoSize ? 'auto' : '100%'};
-  flex-shrink: 0;
+  flex-shrink: 1;
   display: inline-block;
   position: relative;
   visibility: hidden;
@@ -23,6 +23,7 @@ const inputField = (autoSize?: boolean) => css`
     content: attr(data-value);
     display: inline-block;
     white-space: pre;
+    padding-right: 2px;
   }
 `
 
@@ -72,7 +73,7 @@ export const InputCore: React.RefForwardingComponent<
 > = React.forwardRef(({ ...props }: InputCoreProps, ref) => {
   return (
     <div css={inputField(props.autoSize)} data-value={props.value || props.placeholder}>
-      <input {...filterProps(props)} ref={ref} css={inputStyle}  autoCorrect='off' spellCheck={false}/>
+      <input {...filterProps(props)} ref={ref} css={inputStyle} autoCorrect='off' spellCheck={false}/>
     </div>
   )
 })

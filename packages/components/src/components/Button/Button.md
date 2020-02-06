@@ -255,7 +255,7 @@ import { Stack } from '../../';
     <Button variant='error' shape='pill'>Push Me</Button>
   </Stack>
   <Stack spacing='m'>
-    <Button kind='outline' variant='primary' shape='pill'>Push Me</Button>
+    <Button kind='outline' variant='primary' shape='pill' >Push Me</Button>
     <Button kind='outline' variant='secondary' shape='pill'>Push Me</Button>
     <Button kind='outline' variant='success' shape='pill'>Push Me</Button>
     <Button kind='outline' variant='warning' shape='pill'>Push Me</Button>

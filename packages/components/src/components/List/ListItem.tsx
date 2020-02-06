@@ -7,7 +7,7 @@ import { ListItemTheme } from './theme'
 import { Stack, Box, useGroupHook } from '../Layout'
 import { Text, TextProps } from '../Text'
 
-const stackClassName = createClassName<ListItemProps, ListItemTheme>(
+const listClassName = createClassName<ListItemProps, ListItemTheme>(
   (themestyle, props) => ({
     display: null,
     ...themestyle,
@@ -15,6 +15,7 @@ const stackClassName = createClassName<ListItemProps, ListItemTheme>(
   }),
   (textRules, { disabled }) => `
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-overflow-scrolling: touch;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     ${disabled ? 'pointer-events: none;' : ''}
@@ -28,7 +29,7 @@ const ListItem = ({ children, ...props }: ListItemProps) => {
   // Необходимо прервать 3DTouch что бы он не прерывал событие клика
   const setTouchRef = usePrevent3DTouch()
   const [bounds, setMeasureRef] = useMeasure()
-  const [_, setRef] = useRefHook<HTMLElement>(setMeasureRef, props.interactive ? setTouchRef : null)
+  const [_, setRef] = useRefHook(setMeasureRef, setTouchRef)
 
   props.beforeValign = bounds && props.beforeValign === 'auto' && theme.listItem.beforeTreshold < bounds.height
     ? 'top'
@@ -40,7 +41,7 @@ const ListItem = ({ children, ...props }: ListItemProps) => {
   
 
   const { ListItem, Before, StackText, Label, Caption, Link, After } = foldThemeParams(theme.listItem, props)
-  const itemListStyle = stackClassName(props, theme, ListItem.style)
+  const listItemStyle = listClassName(props, theme, ListItem.style)
 
   const before = props.before && <Box {...Before.props} valignSelf={props.beforeValign}>{props.before}</Box>
   const after = props.after && <Box {...After.props} valignSelf={props.afterValign}>{props.after}</Box>
@@ -52,26 +53,20 @@ const ListItem = ({ children, ...props }: ListItemProps) => {
     undefined
   )
 
-  const onMouseDown = (event: React.MouseEvent<HTMLElement>) => {
+  const preventFocus = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault()
   }
 
-  const onMouseUp = () => {
-    props.onClick && props.onClick()
-  }
-
-  const interactiveProps = props.interactive && !props.disabled && {
-    onMouseDown,
-    onMouseUp,
-    onTouchStart: onMouseDown,
-    onTouchEnd: onMouseUp,
+  const events = props.onClick && !props.disabled && {
+    onMouseDown: preventFocus,
+    onClick: props.onClick,
     as: 'label',
   }
 
   return (
-    <Stack ref={setRef} css={itemListStyle} {...ListItem.props} {...interactiveProps} aria-disabled={props.disabled}>
+    <Stack ref={setRef} css={listItemStyle} {...ListItem.props} {...events}>
       {before}
-      <Stack column shrink valignSelf='baseline' {...StackText.props}>
+      <Stack column {...StackText.props}>
         {renderSlot(Text, props.label, Label.props)}
         {renderSlot(Text, props.caption, Caption.props)}
         {renderSlot(Text, props.link, Link.props)}

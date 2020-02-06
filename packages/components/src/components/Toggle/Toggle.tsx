@@ -55,7 +55,7 @@ const switchClassName = createClassName<ToggleProps, ToggleTheme>(
   }),
   (textRules) => (`
     transition: background-color 0.2s ease 0s;
-    user-select: none;
+    -webkit-user-select: none;
   
     &::before {
       content: 'x';
@@ -100,8 +100,14 @@ const Toggle = ({ className, children, ...props }: ToggleProps) => {
     'aria-busy': groupProps.loading,
   }
 
-  const onMouseDown = (event: React.MouseEvent<Element> | React.TouchEvent<Element>) => {
+  const preventFocus = (event: React.MouseEvent<Element> | React.TouchEvent<Element>) => {
     event.preventDefault()
+  }
+
+  const preventLabelClick = (event: React.MouseEvent<HTMLInputElement>) => {
+    event.stopPropagation()
+
+    props.onClick && props.onClick(event)
   }
 
   const onChange = () => {
@@ -119,17 +125,12 @@ const Toggle = ({ className, children, ...props }: ToggleProps) => {
   const toggleStyle = toggleClassName(groupProps, theme, Toggle.style)
   const switchStyle = switchClassName(groupProps, theme, Switch.style)
 
-  const label = props.label && <Text {...Label.props} crop >{props.label}</Text>
-
-  const toggleHanflers = {
-    onMouseDown,
-    onTouchStart: onMouseDown,
-  }
+  const label = props.label && <Text {...Label.props} crop>{props.label}</Text>
 
   return (
-    <label ref={setTouchRef} css={toggleStyle} {...aria} {...toggleHanflers}>
+    <label ref={setTouchRef} css={toggleStyle} {...aria} onMouseDown={preventFocus} >
       {props.labelPosition === 'start' && label}
-      <input {...filterProps(groupProps)} ref={setRef} type={props.mode} onChange={onChange}/>
+      <input {...filterProps(groupProps)} ref={setRef} type={props.mode} onChange={onChange} onClick={preventLabelClick}/>
       <div css={switchStyle} className={className}>
         {children && children({ checked, loading: props.loading })}
       </div>

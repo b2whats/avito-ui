@@ -88,7 +88,7 @@ export const buttonTheme: ComponentTheme<ButtonTheme> = (_, override) => {
     },
     Text: {
       props: {
-        size: 'm',
+        size: 's',
       },
       iconBefore: {
         props: {
