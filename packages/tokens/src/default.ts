@@ -1,6 +1,6 @@
 import { Tokens } from './contract'
 
-const defaultTokens: Tokens = {
+const tokens: Tokens = {
   focus: {
     shape: 'white 0px 0px 0px 1px, 0px 0px 2px 3px',
     color: {
@@ -66,7 +66,7 @@ const defaultTokens: Tokens = {
     green600: '#83C217',
     green700: '#72B50E',
     green800: '#5FA800',
-    green900: '#476212',
+    green900: '#498900',
 
     red50:  '#FFEDEE',
     red100: '#FFE6E6',
@@ -160,4 +160,4 @@ const defaultTokens: Tokens = {
   },
 }
 
-export default defaultTokens
+export default tokens

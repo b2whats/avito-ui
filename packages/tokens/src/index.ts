@@ -5,4 +5,4 @@ export * from './contract'
 
 export const createTokens = (override: Partial<Tokens>) => merge(defaultTokens, override)
 
-export { default as Mav } from './mav'
+export default defaultTokens
