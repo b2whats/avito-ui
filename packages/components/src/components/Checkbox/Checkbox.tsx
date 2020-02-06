@@ -1,18 +1,28 @@
 import React from 'react'
-import { CheckboxProps } from './contract'
-import { ToggleBox } from '../ToggleBox'
+import { useTheme } from '../../utils'
+import { Toggle } from '../Toggle/'
 import { Icon } from '../Icon/'
+import { CheckboxProps } from './contract'
 
-const Checkbox = ({ ...props }: CheckboxProps) => {
+const Checkbox = (props: CheckboxProps) => {
+  const theme = useTheme()
+
+  props = {
+    variant: 'primary',
+    size: 'm',
+    shape: 'square',
+    ...props,
+  }
+
   return (
-    <ToggleBox {...props} mode='checkbox' kind='checkbox'>
-      {(state) => ({
-        true: <Icon name='check' size='auto' />,
-        mixed: <Icon name='indeterminate' size='auto' />,
-      })[state as string]}
-      
-    </ToggleBox>
+    <Toggle {...props} mode='checkbox' override={theme.checkbox}>
+      {({ checked }) => (
+        checked === 'mixed' ? <Icon name='checkbox-intermediate' size='auto' /> :
+        checked === true ? <Icon name='checkbox-checked' size='auto' /> :
+        undefined
+      )}
+    </Toggle>
   )
 }
 
-export default React.memo(Checkbox)
+export default Checkbox

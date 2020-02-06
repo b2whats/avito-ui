@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'emotion-theming'
 import styled from '@emotion/styled'
-import { Icon, Stack } from '@avito/components'
+import { Icon, Stack, Page } from '@avito/components'
 
 import * as themes from './themes/'
 
@@ -25,7 +25,9 @@ export default function Preview(props: { children: React.ReactNode }) {
             <Icon name='mav' onClick={() => update('mav')}/>
           </Stack>
         </ThemeToggle>
-        {props.children}
+        <Page>
+          {props.children}
+        </Page>
       </div>
     </ThemeProvider>
   )

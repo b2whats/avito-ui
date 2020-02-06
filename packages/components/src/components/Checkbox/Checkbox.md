@@ -1,85 +1,36 @@
-```jsx
+```js
 import { Stack } from '../../';
-const initialState = { checked: false }
-const r = (i) => console.log(i)
-const onChange = ({ target }) => {
-  setState(state => ({ checked: target.checked }))
-};
+const initialState = { checked: false };
+const onChange = ({ checked }) => {
+  console.log('onChange')
+  setState({ checked });
+}
+const onPress = (event) => {
+  console.log('onPress', event)
+}
+const longText = 'Французская художница, входившая в круг художников в Париже, ставших известными как импрессионисты.';
 
-
-<Stack space='m' column>
-  <Checkbox checked={state.checked} value='value' name='name' onChange={onChange} label='label' size='s'/>
-  <Checkbox checked={state.checked} label='label' onChange={onChange}/>
-  <Checkbox checked={state.checked} label='label' size='l' onChange={onChange}/>
+<Stack spacing='m' column>
+  <div>
+    <Checkbox checked={state.checked} onChange={onChange}  label='Teкст рядом' />
+    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' shape='circle'/>
+  </div>
+  <Stack spacing='m' column width={300}>
+    <Checkbox checked={state.checked} onChange={onChange}  label='Teкст рядом' />
+    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' shape='circle'/>
+    <Checkbox checked={state.checked} onChange={onChange} variant='secondary' label='Teкст рядом' />
+    <Checkbox checked={state.checked} onChange={onChange} variant='success' label='Teкст рядом' />
+    <Checkbox checked={state.checked} onChange={onChange} variant='warning' label='Teкст рядом' />
+    <Checkbox checked={state.checked} onChange={onChange} variant='error' label='Teкст рядом' />
+    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' labelPosition='start'/>
+    <Checkbox checked indeterminate label='Teкст рядом'/>
+    <Checkbox label='Teкст рядом' disabled/>
+    <Checkbox checked label='Teкст рядом' disabled/>
+    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' />
+    <Checkbox checked label='Teкст рядом' disabled/>
+    <Checkbox checked label={longText} />
+  </Stack>
 </Stack>
 ```
 
-```jsx
-import { Stack } from '../../';
-const initialState = { checked: false }
-const onChange = ({ target }) => {
-  setState(state => ({ checked: target.checked }))
-};
 
-
-<Stack space='m'>
-  <Checkbox checked={state.checked} onChange={onChange}/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='secondary'/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='success'/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='warning'/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='error'/>
-</Stack>
-```
-
-```jsx
-import { Stack } from '../../';
-const initialState = { checked: false }
-const onChange = ({ target }) => {
-  setState(state => ({ checked: target.checked }))
-};
-
-
-<Stack space='m'>
-  <Checkbox checked={state.checked} onChange={onChange} disabled/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='secondary' disabled/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='success' disabled/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='warning' disabled/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='error' disabled/>
-</Stack>
-```
-
-```jsx
-import { Stack } from '../../';
-const initialState = { checked: true }
-const onChange = ({ target }) => {
-  setState(state => ({ checked: target.checked }))
-};
-
-
-<Stack space='m'>
-  <Checkbox checked={state.checked} onChange={onChange} disabled/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='secondary' disabled/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='success' disabled/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='warning' disabled/>
-  <Checkbox checked={state.checked} onChange={onChange} variant='error' disabled/>
-</Stack>
-```
-
-```jsx
-import { Stack, Icon } from '../../';
-
-<Stack space='m' column align='baseline'>
-  <Checkbox label='label' size='s' labelPosition='start'/>
-  <Checkbox label='label' labelPosition='start'/>
-  <Checkbox label='label' size='l' labelPosition='start'/>
-</Stack>
-```
-
-```jsx
-  const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
-                id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus
-                id dolor maximus eleifend nec in nunc. Integer quis lacinia leo.`;
-  
-  <Checkbox label={text}/>
-```

@@ -1,122 +1,54 @@
 import React from 'react'
-import { styled, useTheme, isPropValid, foldPreset } from '../../utils/'
-import { space } from '../../styled-system/'
+import { useTheme } from '../../utils/'
+import { foldThemeParams, createClassName } from '../../styled-system/'
 import { TextProps } from './contract'
+import { TextTheme } from './theme'
 
-const Text = styled('span', {
-  target: 'Text',
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'kind',
-})<TextProps>`
-  box-sizing: border-box;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
+const textClassName = createClassName<TextProps, TextTheme>(
+  (themeStyle, props) => ({
+    display: props.width ? 'inline-block' : 'inline',
+    ...themeStyle,
+    ...props,
+  }),
+  (textRules, { strike }, { text, palette }) => (`
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  ${({ size, lineHeight, inherit, variant, color, theme: { text, palette, variants } }) => (`
-    font-family: ${text.fontFamily};
-    font-size: ${inherit ? 'inherit' : text[`size_${size}_fontSize`]};
-    line-height: ${inherit ? 'inherit' : text[`lineHeight_${lineHeight}`]};
-    color: ${
-      color ? palette[color] : 
-      variant ? variants[`${variant}_color_normal`] :
-      inherit ? 'inherit' :
-      text.color
-    };
-  `)}
-
-  ${({ bold, light, align, valign, uppercase, italic, inline, block, letterSpacing, noWrap, theme: { text } }) => (`
-    font-weight: ${bold ? 700 : light ? 300 : text.fontWeight};
-    ${uppercase ? 'text-transform: uppercase;' : ''}
-    ${letterSpacing ? `letter-spacing: ${letterSpacing};` : ''}
-    ${italic ? 'font-style: italic;' : ''}
-    ${align ? `text-align: ${align};` : ''}
-    ${valign ? `vertical-align: ${valign};` : ''}
-    ${inline ? 'display: inline;' : block ? 'display: block;' : ''}
-    ${noWrap ? 'white-space: nowrap;' : ''}
-  `)}
-
-  ${space}
-
-  li& {
-    list-style: none;
-  }
-
-  caption& {
-    display: block;
-  }
-
-  ${({ underline, theme: { text }}) => underline && `
-    cursor: pointer;
-    padding-bottom: ${text.underline_offset};
-    border-bottom: ${text.underline_height} ${typeof underline === 'string' ? underline : 'solid'} currentColor;
-  `}
-
-  ${({ strike, theme: { text, palette } }) => strike && `
-    position: relative;
-
-    & > .strike-line {
-      position: absolute;
-      height: 5px;
-      top: 50%;
-      margin-top: -2px;
-      stroke-linecap: round;
-      stroke-width: ${text.strike_height};
-      left: -${text.strike_offset};
-      width: calc(100% + ${text.strike_offset} * 2);
-      stroke: ${typeof strike === 'string' ? palette[strike] : 'currentcolor'};
+    li& {
+      list-style: none;
     }
-  `}
 
-  ${({ truncate, crop }) => truncate && !crop && `
-    max-width: ${typeof truncate === 'string' ? truncate : '100%'};
-    display: inline-block;
-    vertical-align: top;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow-wrap: normal;
-    overflow: hidden;
-  `}
+    ${strike ? `
+      position: relative;
+      white-space: nowrap;
 
-  ${({ crop, lineHeight, theme: { text } }) => crop && `
-    && {
-      margin-top: 0;
-      margin-bottom: 0;
-      display: inline-block;
-    }
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -${text.strike.offset}px;
+        width: calc(100% + ${text.strike.offset}px * 2);
+        border-top: 0.075em solid ${typeof strike === 'string' ? palette[strike] : 'currentcolor'};
+        height: calc(50% - 1px);
+        transform: rotateZ(-2deg);
+      }
+    ` : ''}
     
-    &::before, &::after {
-      content: '';
-      display: block;
-      height: 0;
-      width: 0;
-    }
-
-    &::before { margin-bottom: -${text[`crop_${lineHeight}_top`]}em }
-    &::after { margin-top: -${text[`crop_${lineHeight}_bottom`]}em }
-  `}
-`
-
-const Line = () => (
-  <svg className='strike-line' viewBox='0 0 100 5' preserveAspectRatio='none'>
-    <line x1='1' x2='99' y1='4' y2='2' />
-  </svg>
+    ${textRules}
+  `)
 )
 
-const defaultProps = {
-  size: 'm',
-  lineHeight: 'm',
-}
-
-const TextWrapper = ({ children, ...props }: TextProps) => {
+const Text = ({ children, ...props }: TextProps) => {
   const theme = useTheme()
-
-  const presetTextProps = foldPreset(theme.text.preset.Text, props)
+  const { Text } = foldThemeParams<TextTheme>(theme.text, props)
+  const textStyle = textClassName(props, theme, Text.style)
+  const Tag = props.as || 'span'
 
   return (
-    <Text theme={theme} {...defaultProps} {...presetTextProps} {...props}>
-      {props.strike && <Line />}
+    <Tag css={textStyle} data-component='text'>
       { children }
-    </Text> 
+    </Tag> 
   )
 }
 
-export default TextWrapper
+export default Text

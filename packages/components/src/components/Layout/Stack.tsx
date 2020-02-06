@@ -1,40 +1,54 @@
 import React from 'react'
-import { styled } from '../../utils'
-import { space, dimension } from '../../styled-system'
+import { useTheme, omit, filterProps } from '../../utils'
+import { createClassName } from '../../styled-system/'
 import { StackProps } from './contract'
 
-const Stack = styled('div')<StackProps>`
-  box-sizing: border-box;
+const stackClassName = createClassName<StackProps>(
+  (_, props) => ({
+    display: 'flex',
+    block: true,
+    ...omit(props, 'align'),
+  }),
+  (textRules, { column, align, scroll, spacing, debug }, { palette, space }) => (`
+    align-items: ${align ? align : column ? 'normal' : 'baseline'};
+    -webkit-user-select: none;
+    ${scroll ? `overflow-${column ? 'y' : 'x'}: auto;` : ''};
 
-  ${({ column, align, justify, scroll }) => `
-    flex-direction: ${column ? 'column' : 'row'};
-    align-items: ${align ? align : !column ? 'baseline' : 'normal'};
-    ${justify ? `justify-content: ${justify};` : ''}
-    overflow-y: ${scroll && column ? 'scroll' : 'visible'};
-    overflow-x: ${scroll && !column ? 'scroll' : 'visible'};
-  `}
+    ${spacing ? `
+      & > *:not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${space[spacing] || spacing}px; }
+    ` : ''}
 
-  ${({ space, column, theme: { spaces } }) => space && `
-    & > :not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${spaces[space]}; }
-  `}
+    ${debug ? `
+      border: 2px solid ${palette.red300};
+      & > * {
+        background-color: ${palette.blue200};
+      }
 
-  ${space}
-  ${dimension}
+      & > :nth-child(2n) {
+        background-color: ${palette.yellow200};
+      }
+    ` : ''}
 
-  ${({ debug, theme: { palette } }) => debug && `
-    border: 2px solid ${palette.red30};
-    & > * {
-      background-color: ${palette.blue20};
-    }
+    ${textRules}
+  `)
+)
 
-    & > :nth-child(2n) {
-      background-color: ${palette.yellow20};
-    }
-  `}
-`
 
-Stack.defaultProps = {
-  display: 'flex',
-}
+export const Stack: React.RefForwardingComponent<
+  React.Ref<HTMLElement>,
+  StackProps
+> = React.forwardRef(({ as, children, ...props }: StackProps, ref) => {
+  const theme = useTheme()
+  const stackStyle = stackClassName(props, theme)
+  const Tag = as || 'div'
+
+  return (
+    <Tag ref={ref} css={stackStyle} {...filterProps(props)}>
+      { children }
+    </Tag>
+  )
+})
+
+Stack.displayName = 'Stack'
 
 export default Stack

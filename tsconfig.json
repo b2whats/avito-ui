@@ -15,7 +15,9 @@
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "./packages",
     "paths": {
-      "@avito/*": ["../node_modules/@avito/*/src"],
+      "@avito/icons": ["icons/src"],
+      "@avito/components": ["components/src"],
+      "@avito/tokens": ["tokens/src"],
     },
   },
   "exclude": ["node_modules", "packages/**/build"]

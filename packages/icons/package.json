@@ -1,17 +1,18 @@
 {
   "name": "@avito/icons",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "private": false,
   "description": "icons",
   "main": "build/index.js",
-  "module": "src/index.ts",
+  "browser": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "scripts": {
     "build": "yarn clean && yarn build:js && yarn build:types",
-    "build:types": "tsc -b tsconfig.json --emitDeclarationOnly",
+    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
     "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
     "clean": "rm -rf ./build && rm -rf tsconfig.tsbuildinfo",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,6 +34,7 @@
     "react-dom": "^16.8.6"
   },
   "publishConfig": {
-    "access": "public"
-  }
+    "access": "restricted"
+  },
+  "gitHead": "7b3d4da9ad7a8dc1355583633c524e0503129354"
 }

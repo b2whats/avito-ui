@@ -1,135 +1,142 @@
-import React, { useRef, useEffect, useCallback } from 'react'
-import { styled, useTheme } from '../../utils/'
-import { focusProp, space } from '../../styled-system/'
+import React, { useEffect, useState } from 'react'
+import { filterProps, useTheme, mergeTheme } from '../../utils'
+import { useRefHook, usePrevent3DTouch } from '../../hooks/'
+import { foldThemeParams, createClassName } from '../../styled-system/'
 import { ToggleProps } from './contract'
+import { ToggleTheme } from './theme'
+import { useGroupHook } from '../Layout/'
 import { Text } from '../Text/'
-import { Variants } from '../Variants/'
 
-type BoxProps = Pick<ToggleProps, 'labelPosition'>
+const toggleClassName = createClassName<ToggleProps, ToggleTheme>(
+  (_, props) => ({
+    display: 'inline-flex',
+    valign: 'baseline',
+    ...props,
+    shape: undefined,
+  }),
+  (textRules) => (`
+    position: relative;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
 
-const ToggleBox = styled('label')<BoxProps>`
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: baseline;
-  cursor: pointer;
-
-  & > input {
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    margin: -1px;
-    border-width: 0;
-    border-style: initial;
-    border-color: initial;
-    border-image: initial;
-    overflow: hidden;
-    padding: 0;
-  }
-
-  ${({ labelPosition }) => `
-    flex-direction: ${labelPosition === 'start' ? 'row-reverse' : 'row'};
-
-    && > .Text {
-      ${labelPosition === 'start' ? 'margin-left: 0;' : 'margin-right: 0;'}
+    & > input {
+      clip: rect(0, 0, 0, 0);
+      height: 1px;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+      margin: -1px;
+      border-width: 0;
+      border-style: initial;
+      border-color: initial;
+      border-image: initial;
+      overflow: hidden;
+      padding: 0;
     }
-  `}
 
-  ${space}
-`
+    &[aria-disabled] {
+      pointer-events: none;
+    }
 
-type SwitchProps = Pick<ToggleProps, 'size' | 'variant' | 'className'>
+    ${textRules}
+  `)
+)
 
-const Switch = styled(Variants)<SwitchProps>`
-  box-sizing: border-box;
-  user-select: none;
-  flex-shrink: 0;
-  vertical-align: middle;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+const switchClassName = createClassName<ToggleProps, ToggleTheme>(
+  (themeStyle, props) => ({
+    display: 'inline-flex',
+    shrink: false,
+    shape: props.shape,
+    adjacentSelector: 'input',
+    ...themeStyle,
+  }),
+  (textRules) => (`
+    transition: background-color 0.2s ease 0s;
+    -webkit-user-select: none;
   
-  &::before {
-    content: 'x';
-    width: 0px;
-    overflow: hidden;
-  }
-
-  &[aria-disabled='true'] {
-    cursor: default;
-  }
-
-  & > svg {
-    pointer-events: none;
-  }
-
-  ${({ size, theme: { toggle } }) => `
-    font-size: ${toggle[`size_${size}`]};
-  `}
-
-  input:focus + & {
-    ${focusProp}
-  }
-`
-
-const Toggle = ({ labelPosition, mode, size, variant, label, children, indeterminate, className, ...props }: ToggleProps) => {
-  const theme = useTheme()
-
-  const { preset: {
-    size : { [size]: presetSize },
-    variants: presetVariants,
-  } } = theme.toggle
-
-  const targetRef = useRef<HTMLInputElement | null>(null)
-  const setRef = useCallback(node => {
-    targetRef.current = node
-
-    if (props.innerRef) {
-      props.innerRef(node)
+    &::before {
+      content: 'x';
+      width: 0px;
+      overflow: hidden;
+      align-self: center;
+      color: transparent;
     }
-  }, [])
 
-  // Необходимо что бы фокус не моргал при неоднократных нажатиях на элемент
-  const onMouseDown = useCallback(event => {
-    event.stopPropagation()
-    event.preventDefault()
-  }, [])
+    ${textRules}
+  `)
+)
+
+const Toggle = ({ className, children, ...props }: ToggleProps) => {
+  const theme = useTheme()
+  const toggleTheme = props.override
+    ? mergeTheme(theme.toggle, props.override) as typeof theme.toggle
+    : theme.toggle
+  const setTouchRef = usePrevent3DTouch()
+
+  props = {
+    labelPosition: 'end',
+    ...props,
+  }
+
+  const [ref, setRef] = useRefHook<HTMLInputElement>()
+  const groupProps = useGroupHook(ref, props)
 
   useEffect(() => {
-    if (indeterminate !== undefined && targetRef.current) {
-      targetRef.current.indeterminate = indeterminate
+    if (props.indeterminate !== undefined && ref.current) {
+      ref.current.indeterminate = props.indeterminate
     }
-
-  }, [indeterminate])
+  }, [props.indeterminate])
   
-  const state = indeterminate && !props.checked ? 'mixed' as const : Boolean(props.checked)
-  const switchProps = {
-    ...presetVariants.Switch,
-    className,
-    size,
-    variant,
-    'aria-checked': state,
-    'aria-invalid': variant === 'error',
-    'aria-disabled': props.disabled,
-    onMouseDown,
+  const checked = groupProps.indeterminate ? 'mixed' as const : Boolean(groupProps.checked)
+
+  const aria = {
+    role: groupProps.role || groupProps.mode,
+    'aria-checked': checked,
+    'aria-invalid': groupProps.variant === 'error',
+    'aria-disabled': groupProps.disabled,
+    'aria-busy': groupProps.loading,
   }
 
-  return (
-    <ToggleBox labelPosition={labelPosition}>
-      <input {...props} ref={setRef} type={mode} />
-      <Switch {...switchProps}>
-        {children && children(state)}
-      </Switch>
-      { label && <Text {...presetSize.Text} as='span'>{label}</Text> }
-    </ToggleBox>
-  )
-}
+  const preventFocus = (event: React.MouseEvent<Element> | React.TouchEvent<Element>) => {
+    event.preventDefault()
+  }
 
-Toggle.defaultProps = {
-  size: 'm',
-  variant: 'primary',
+  const preventLabelClick = (event: React.MouseEvent<HTMLInputElement>) => {
+    event.stopPropagation()
+
+    props.onClick && props.onClick(event)
+  }
+
+  const onChange = () => {
+    const value = {
+      name: groupProps.name,
+      value: groupProps.value,
+      checked: !groupProps.checked,
+      type: aria.role,
+    }
+
+    props.onChange && props.onChange(value)
+  }
+
+  const { Toggle, Switch, Label } = foldThemeParams(toggleTheme, groupProps)
+  const toggleStyle = toggleClassName(groupProps, theme, Toggle.style)
+  const switchStyle = switchClassName(groupProps, theme, Switch.style)
+
+  const label = props.label && <Text {...Label.props} crop>{props.label}</Text>
+
+  return (
+    <label ref={setTouchRef} css={toggleStyle} {...aria} onMouseDown={preventFocus} >
+      {props.labelPosition === 'start' && label}
+      <input {...filterProps(groupProps)} ref={setRef} type={props.mode} onChange={onChange} onClick={preventLabelClick}/>
+      <div css={switchStyle} className={className}>
+        {children && children({ checked, loading: props.loading })}
+      </div>
+      {props.labelPosition === 'end' && label}
+    </label>
+  )
 }
 
 export default Toggle

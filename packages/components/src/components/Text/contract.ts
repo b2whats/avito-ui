@@ -1,22 +1,22 @@
 import React from 'react'
-import { Theme, Tokens } from '../../theme/'
-import { Spaces } from '../../styled-system/'
+import { Tokens } from '../../theme/'
+import { MarginProperties, DimensionProperties } from '../../styled-system/'
 
-export interface TextProps extends Spaces {
-  /** Размер текста
-  * @default m
-  */
-  size?: 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl',
-  /** Коэффициент для высоты строки
-   * @default m
-  */
-  lineHeight?: 'none' | 's' | 'm' | 'l',
+export interface TextProps extends MarginProperties, DimensionProperties {
+  /** Размер текста */
+  size?: keyof Tokens['font']['fontSize'],
+  /** Размер текста, фолбек */
+  fontSize?: number,
+  /** Коэффициент для высоты строки */
+  lineHeight?: number,
+  /** Уплотненная высота строки */
+  dense?: boolean,
   /** Горизонтальное выравнивание текста */
-  align?: 'start' | 'end' | 'center' | 'justify',
+  align?: 'left' | 'center' | 'right' | 'justify',
   /** Вертикальное выравнивание текста */
-  valign?: 'top' | 'middle' | 'bottom' | 'baseline',
+  valignSelf?: 'top' | 'middle' | 'bottom' | 'baseline',
   /** Расстояние между буквами */
-  letterSpacing?: string,
+  letterSpacing?: number,
   /** Текстовое содержание */
   children?: React.ReactNode,
   /** Жирное начертание */
@@ -30,32 +30,30 @@ export interface TextProps extends Spaces {
   /** Текст в верхнем регистре */
   uppercase?: boolean,
   /** Перечеркнутый текст */
-  strike?: keyof Theme['palette'] | boolean,
+  strike?: keyof Tokens['palette'] | boolean,
   /** Подчеркнутый текст */
   underline?: 'dashed' | 'dotted' | boolean,
   /** Обрезка высоты строки у текста сверху и снизу */
   crop?: boolean,
   /** Текст без переносов */
   noWrap?: boolean,
-  /** Вы можете обрезать текст с помощью многоточия. При передачи этого параметра текст становится однострочный.
-      Установив значение в true строка текста будет равна 100%
-      Передача строки ('50%', '15em', '100px') передаются напрямую
-  */
-  truncate?: boolean | string,
+  /** Текст с сохранением всех пробелов */
+  pre?: boolean,
+  /** Многоточие в конце строки */
+  truncate?: boolean,
   /** Цветовые варианты текста */
-  variant?: keyof Tokens['variants'],
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   /** Текстовая нода */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'em' | 'strong' | 'caption' | 'div' | 'label' | 'li',
-  /** Внешний вид текста */
-  kind?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'caption' | 'label' | 'li',
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'strong' | 'em' | 'label' | 'li',
   /** Цвет текста */
-  color?: keyof Theme['palette'],
+  color?: keyof Tokens['palette'],
   /** Инлайновое поведение */
   inline?: boolean,
   /** Блочное поведение */
   block?: boolean,
-  /** @ignore */
-  theme?: Theme,
-}
+  /** Пресет компонента */
+  preset?: string,
 
-//https://evergreen.segment.com/components/typography/ 
+  onMouseDown?(event: React.MouseEvent<HTMLElement>): void,
+
+}

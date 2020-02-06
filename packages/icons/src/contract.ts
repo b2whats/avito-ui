@@ -1,15 +1,24 @@
 import React from 'react'
 
+type MouseEvent = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
+
 export interface IconProps {
-  /** Имя иконки */
+  /** Имя */
   name: string,
-  /** Размер иконки */
-  size?: 'auto' | string,
-  /** Цвет иконки */
+  /** Размер */
+  size?: 'auto' | string | number,
+  /** Цвет */
   color?: string,
+  /** Цвет при наведении */
+  colorHover?: string,
   /** Дополнительный стиль */
   className?: string,
+  /** Размер кликабельной области */
+  area?: number,
   /** Аттрибут для тестирования */
   marker?: string,
-  onClick?(event: React.MouseEvent<SVGSVGElement>): void,
+  onClick?: MouseEvent,
+  onMouseDown?: MouseEvent,
+  onMouseOver?: MouseEvent,
+  onMouseOut?: MouseEvent,
 }

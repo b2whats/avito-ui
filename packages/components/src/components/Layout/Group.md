@@ -1,7 +1,7 @@
 ```jsx
 import { Button, Stack } from '../../';
 
-<Stack column space='m'>
+<Stack column spacing='m'>
   <Group>
     <Button>One 1</Button>
     <Button>Two 2</Button>
@@ -28,7 +28,7 @@ import { Button, Stack } from '../../';
 ```jsx
 import { Button, Stack } from '../../';
 
-<Stack space='m'>
+<Stack spacing='m'>
   <Group column>
     <Button>One 1</Button>
     <Button>Two 2</Button>
@@ -50,7 +50,7 @@ import { Button, Stack } from '../../';
 ```jsx
 import { Button, Stack } from '../../';
 
-<Stack space='m' column>
+<Stack spacing='m' column>
   <Group column block>
     <Button>One 1</Button>
     <Button>Two 2</Button>
@@ -65,31 +65,65 @@ import { Button, Stack } from '../../';
 ```
 
 ```jsx
-import { Button, Checkbox } from '../../'
-initialState = { value: undefined };
+import { Stack, Checkbox, Radio } from '../../'
+initialState = { radio: undefined, checkbox: undefined };
+const onChange = ({ name, value }) => {
+  console.log(name, value)
+    setState({ [name]: value });
+}
 
-<div>
-  <Group name='radio' mode='radio' value={state.value} onChange={(props) => setState({ value: props.value })}>
-    <Button value={0}>One</Button>
-    <Button value={1}>Two</Button>
-    <Button value={2}>Three</Button>
+<Stack column spacing='m'>
+  <Group name='radio' mode='radio' value={state.radio} spacing='l' onChange={onChange}>
+    <Radio value={0} label='One' />
+    <Radio value={1} label='Two' />
+    <Radio value={2} label='Three' />
   </Group>
-
-  <Group name='radio' mode='radio' value={state.value} onChange={(props) => setState({ value: props.value })}>
+  <Group name='checkbox' mode='checkbox' value={state.checkbox} spacing='l' onChange={onChange}>
     <Checkbox value={0} label='One' />
     <Checkbox value={1} label='Two' />
     <Checkbox value={2} label='Three' />
   </Group>
-</div>
+</Stack>
 ```
 
 ```jsx
-import { Button } from '../../'
-initialState = { value: undefined };
-
-<Group name='checkbox' mode='checkbox' value={state.value} onChange={(props) => setState({ value: props.value })}>
-  <Button kind='outline' value={0}>One</Button>
-  <Button kind='outline' value={1}>Two</Button>
-  <Button kind='outline' value={2}>Three</Button>
-</Group>
+import { Button, Stack } from '../../'
+initialState = { radio: 6, checkbox: undefined };
+const onChange = ({ name, value }) => {
+    setState({ [name]: value });
+}
+<Stack column spacing='m'>
+  <Group name='checkbox' mode='checkbox' spacing={10} value={state.checkbox} onChange={onChange}>
+    <Button preset='default' value={0}>One</Button>
+    <Button preset='default' value={1}>Two</Button>
+    <Button preset='default' value={2}>Three</Button>
+  </Group>
+  <Group name='radio' mode='radio' spacing={10} value={state.radio} onChange={onChange}>
+    <Button preset='default' value={0} shape='square'>1</Button>
+    <Button preset='default' value={1} shape='square'>2</Button>
+    <Button preset='default' value={2} shape='square'>3</Button>
+    <Button preset='default' value={3} shape='square'>4</Button>
+    <Button preset='default' value={4} shape='square'>5</Button>
+    <Button preset='default' value={5} shape='square'>6</Button>
+    <Button preset='default' value={6} shape='square'>7</Button>
+  </Group>
+  <Group name='radio' mode='radio' spacing={10} value={state.radio} p={3} scroll width={200} onChange={onChange}>
+    <Button preset='default' value={0} shape='square'>1</Button>
+    <Button preset='default' value={1} shape='square'>2</Button>
+    <Button preset='default' value={2} shape='square'>3</Button>
+    <Button preset='default' value={3} shape='square'>4</Button>
+    <Button preset='default' value={4} shape='square'>5</Button>
+    <Button preset='default' value={5} shape='square'>6</Button>
+    <Button preset='default' value={6} shape='square'>7</Button>
+  </Group>
+  <Group name='radio' mode='radio' spacing={10} value={state.radio} p={3} scroll disabled width={200} onChange={onChange}>
+    <Button preset='default' value={0} shape='square'>1</Button>
+    <Button preset='default' value={1} shape='square'>2</Button>
+    <Button preset='default' value={2} shape='square'>3</Button>
+    <Button preset='default' value={3} shape='square'>4</Button>
+    <Button preset='default' value={4} shape='square'>5</Button>
+    <Button preset='default' value={5} shape='square'>6</Button>
+    <Button preset='default' value={6} shape='square'>7</Button>
+  </Group>
+</Stack>
 ```

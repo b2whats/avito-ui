@@ -4,7 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "start": "cross-env TARGET=server styleguidist server",
+    "build": "cross-env TARGET=server NODE_ENV=production styleguidist build",
     "server": "cross-env BABEL_ENV=cjs TARGET=server NODE_ENV=production babel-node server/server.js --extensions \".js,.ts,.tsx\"",
+    "bench": "cross-env BABEL_ENV=cjs TARGET=server NODE_ENV=production babel-node benchmark/index.js --extensions \".js,.ts,.tsx\"",
     "lint": "eslint . --ext .js,.ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,26 +30,27 @@
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@types/react": "^16.8.20",
     "@types/react-dom": "^16.8.4",
-    "@typescript-eslint/eslint-plugin": "^1.10.2",
-    "@typescript-eslint/parser": "^1.10.2",
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^3.2.0",
     "circular-dependency-plugin": "^5.0.2",
     "cross-env": "^5.2.0",
     "deepmerge": "^4.0.0",
-    "eslint": "5.16.0",
-    "eslint-plugin-react": "^7.13.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-react": "^7.17.0",
     "express": "^4.17.1",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.8.6",
     "react-docgen-typescript": "^1.12.5",
     "react-dom": "^16.8.6",
     "react-styleguidist": "^9.1.10",
-    "typescript": "^3.5.2",
+    "typescript": "^3.7.3",
     "webpack": "^4.28.3",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "benchmark": "^2.1.4"
   },
   "workspaces": [
     "packages/*"
