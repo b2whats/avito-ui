@@ -52,11 +52,11 @@ const tokens: Tokens = {
     blue300: '#80D4FF',
     blue400: '#45C1FF',
     blue500: '#00AAFF',
-    blue600: '#009CF0',
-    blue700: '#008EE0',
-    blue800: '#0081D1',
-    blue900: '#2472BA',
-
+    blue600: '#0099F7',
+    blue700: '#008AED',
+    blue800: '#007DEB',
+    blue900: '#0075EB',
+    
     green50:  '#EEF7DC',
     green100: '#EEF7DC',
     green200: '#CBE792',
