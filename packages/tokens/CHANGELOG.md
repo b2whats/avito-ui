@@ -1,2 +1,12 @@
+## 0.0.7 (2020-02-28)
+  Изменили цвета в палитре
+
+  ![](./changelog/change-blue-colors.jpg?raw=true)
+
+  > blue600 = #009CF0 → #0099F7  
+  > blue700 = #008EE0 → #008AED  
+  > blue800 = #0081D1 → #007DEB  
+  > blue900 = #2472BA → #0075EB  
+
 ## 0.0.6 (2020-02-06)
   Initial
