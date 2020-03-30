@@ -1,3 +1,2 @@
-export { default as mav } from './mav'
-export { default as autoteka } from './autoteka'
-export { default as custom } from './custom'
+export { default as web } from './web'
+export { default as mobile } from './mobile'

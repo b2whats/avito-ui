@@ -15,10 +15,8 @@ export interface IconProps {
   className?: string,
   /** Размер кликабельной области */
   area?: number,
-  /** Аттрибут для тестирования */
+  /** Атрибут для тестирования */
   marker?: string,
+
   onClick?: MouseEvent,
-  onMouseDown?: MouseEvent,
-  onMouseOver?: MouseEvent,
-  onMouseOut?: MouseEvent,
 }

@@ -35,17 +35,16 @@ const ClickableArea = styled('button')<ComponentProps>`
 const Svg = styled('svg')<ComponentProps>`
   flex-shrink: 0;
   vertical-align: middle;
-  line-height: 1;
 
   ${({ size, color, colorHover }) => `
     height: ${size === 'auto' ? '100%' : typeof size === 'number' ? `${size}px` : size || '1em'};
     fill: currentColor;
-    color: ${color ? color : 'inherit'};
+    ${color ? `color: ${color}` : ''};
     ${colorHover ? `&:hover { color: ${colorHover} }` : ''};
   `}
 `
 
-const Icon = ({ className, area = 5, name, marker, onClick, onMouseDown, ...props }: IconProps) => {
+const Icon = ({ className, area = 5, name, marker, onClick, ...props }: IconProps) => {
   const icon = icons[name]
 
   if (!icon) {
@@ -67,7 +66,7 @@ const Icon = ({ className, area = 5, name, marker, onClick, onMouseDown, ...prop
     : icon.svg
 
   return onClick ?
-      <ClickableArea className={className} area={area} onClick={onClick} onMouseDown={onMouseDown} {...other}>
+      <ClickableArea className={className} area={area} onClick={onClick} {...other}>
         <Svg {...props} {...aria} viewBox={icon.viewBox}>{ content }</Svg>
       </ClickableArea> :
       <Svg {...props} className={className} viewBox={icon.viewBox} {...aria} {...other}>{ content }</Svg>

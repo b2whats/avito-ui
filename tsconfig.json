@@ -16,7 +16,7 @@
     "baseUrl": "./packages",
     "paths": {
       "@avito/icons": ["icons/src"],
-      "@avito/components": ["components/src"],
+      "@avito/mobile-components": ["mobile-components/src"],
       "@avito/tokens": ["tokens/src"],
     },
   },

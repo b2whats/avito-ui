@@ -32,7 +32,7 @@ const config = {
         'module-resolver',
         {
           alias: {
-            '@avito/components': './packages/components/src',
+            '@avito/mobile-components': './packages/mobile-components/src',
             '@avito/tokens': './packages/tokens/src',
             '@avito/icons': './packages/icons/src',
           },
