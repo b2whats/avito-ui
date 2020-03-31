@@ -1,0 +1,26 @@
+{
+  "name": "web-components",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "vyuklepov <vyuklepov@avito.ru>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "build/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://npm.msk.avito.ru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.msk.avito.ru:7999/mds/ui-web-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
