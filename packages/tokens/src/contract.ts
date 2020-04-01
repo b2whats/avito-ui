@@ -17,6 +17,7 @@ type Font = {
   },
 
   lineHeight: {
+    none: number,
     normal: number,
     dense: number,
   },
@@ -185,10 +186,21 @@ type Focus = {
   },
 }
 
+type Shape = {
+  borderRadius: {
+    l: number,
+    m: number,
+    s: number,
+  },
+}
+
+
+
 export type Tokens = {
   focus: Focus,
   font: Font,
   palette: Palette,
   dimension: Dimension,
   space: Space,
+  shape: Shape,
 }

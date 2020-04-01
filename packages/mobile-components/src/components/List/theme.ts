@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { ListItemProps } from './contract'
 import { TextProps } from '../Text/contract'
@@ -18,7 +17,7 @@ export type ListItemTheme = {
   },
 }
 
-const listItemTheme: ListItemTheme = {
+export const listItemTheme: ListItemTheme = {
   beforeTreshold: 82,
   afterTreshold: 82,
   scheme: {
@@ -33,7 +32,7 @@ const listItemTheme: ListItemTheme = {
       },
       onClick: {
         style: {
-          backgroundColorActive: 'gray4',
+          bgActive: 'gray4',
         },
       },
     },
@@ -80,6 +79,3 @@ const listItemTheme: ListItemTheme = {
     },
   },
 }
-
-
-export const createListItemTheme = createComponentTheme('ListItem', listItemTheme)

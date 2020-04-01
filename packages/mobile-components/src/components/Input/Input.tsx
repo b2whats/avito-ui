@@ -1,16 +1,16 @@
 import React, { isValidElement, useState } from 'react'
 import { setNativeValue } from '../../utils'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { useRefHook } from '../../hooks'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Icon, IconProps } from '../Icon'
 import { Text, TextProps } from '../Text'
-import { InputCore } from '.'
+import { InputCore } from './InputCore'
 import { InputProps } from './contract'
-import { createInputTheme, InputTheme } from './theme'
+import { inputTheme } from './theme'
 
 
-const inputClassName = createClassName<InputProps, InputTheme>(
+const inputClassName = createClassName<InputProps, typeof inputTheme>(
   (themeStyle, props) => ({
     display: 'flex',
     width: 1,
@@ -27,7 +27,7 @@ const inputClassName = createClassName<InputProps, InputTheme>(
   `)
 )
 
-const inputFieldClassName = createClassName<InputProps, InputTheme>(
+const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
   (themeStyle) => ({
     display: 'flex',
     valign: 'middle',
@@ -45,7 +45,8 @@ const inputFieldClassName = createClassName<InputProps, InputTheme>(
 type Input = React.RefForwardingComponent<React.Ref<HTMLInputElement>, InputProps>
 
 export const Input: Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: InputProps, ref) => {
-  const [theme, inputTheme] = useThemeMemo(createInputTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(inputTheme, theme.Input, override)
   const [inputRef, setInputRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
 
@@ -54,6 +55,7 @@ export const Input: Input = React.forwardRef(({ onFocus, onBlur, override, ...pr
     size: 'm',
     type: 'text',
     ...props,
+    ...'value' in props && !props.onChange && { defaultValue: props.value, value: undefined },
     clearable: props.clearable === 'always' || Boolean(props.clearable && props.value && focus),
     placeholder: inputTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
@@ -77,8 +79,8 @@ export const Input: Input = React.forwardRef(({ onFocus, onBlur, override, ...pr
     event.preventDefault()
     setNativeValue(inputRef.current, '')
   }
-
-  const { Input, IconClear, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, inputTheme)
+  
+  const { Input, IconClear, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, componentTheme)
   const inputStyle = inputClassName(props, theme, Input.style)
   const inputFieldStyle = inputFieldClassName(props, theme, InputField.style)
 

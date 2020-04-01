@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { SpinnerProps } from './contract'
 import { IconProps } from '../Icon'
@@ -9,7 +8,7 @@ export type SpinnerTheme = {
   }
 }
 
-const spinnerTheme: SpinnerTheme = {
+export const spinnerTheme: SpinnerTheme = {
   scheme: {
     Icon: {
       size: {
@@ -32,5 +31,3 @@ const spinnerTheme: SpinnerTheme = {
     },
   },
 }
-
-export const createSpinnerTheme = createComponentTheme('Spinner', spinnerTheme)

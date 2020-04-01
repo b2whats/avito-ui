@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { CheckboxProps } from './contract'
 import { TextProps } from '../Text/contract'
@@ -11,7 +10,7 @@ export type CheckboxTheme = {
   },
 }
 
-const checkboxTheme: CheckboxTheme = {
+export const checkboxTheme: CheckboxTheme = {
   scheme: {
     Toggle: {},
     Label: {},
@@ -37,75 +36,75 @@ const checkboxTheme: CheckboxTheme = {
         primary: {
           style: {
             color: 'white',
-            backgroundColor: 'gray4',
-            backgroundColorActive: 'gray12',
-            backgroundColorDisabled: 'gray4',
+            bg: 'gray4',
+            bgActive: 'gray12',
+            bgDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'blue500',
-              backgroundColorActive: 'blue700',
-              backgroundColorDisabled: 'gray28',
+              bg: 'blue500',
+              bgActive: 'blue700',
+              bgDisabled: 'gray28',
             },
           },
         },
         secondary: {
           style: {
             color: 'white',
-            backgroundColor: 'gray4',
-            backgroundColorActive: 'gray12',
-            backgroundColorDisabled: 'gray4',
+            bg: 'gray4',
+            bgActive: 'gray12',
+            bgDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'gray48',
-              backgroundColorActive: 'gray56',
-              backgroundColorDisabled: 'gray28',
+              bg: 'gray48',
+              bgActive: 'gray56',
+              bgDisabled: 'gray28',
             },
           },
         },
         success: {
           style: {
             color: 'white',
-            backgroundColor: 'gray4',
-            backgroundColorActive: 'gray12',
-            backgroundColorDisabled: 'gray4',
+            bg: 'gray4',
+            bgActive: 'gray12',
+            bgDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'green500',
-              backgroundColorActive: 'green700',
-              backgroundColorDisabled: 'gray28',
+              bg: 'green500',
+              bgActive: 'green700',
+              bgDisabled: 'gray28',
             },
           },
         },
         warning: {
           style: {
             color: 'white',
-            backgroundColor: 'gray4',
-            backgroundColorActive: 'gray12',
-            backgroundColorDisabled: 'gray4',
+            bg: 'gray4',
+            bgActive: 'gray12',
+            bgDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'orange500',
-              backgroundColorActive: 'orange700',
-              backgroundColorDisabled: 'gray28',
+              bg: 'orange500',
+              bgActive: 'orange700',
+              bgDisabled: 'gray28',
             },
           },
         },
         error: {
           style: {
             color: 'white',
-            backgroundColor: 'gray4',
-            backgroundColorActive: 'gray12',
-            backgroundColorDisabled: 'gray4',
+            bg: 'gray4',
+            bgActive: 'gray12',
+            bgDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'red500',
-              backgroundColorActive: 'red700',
-              backgroundColorDisabled: 'gray28',
+              bg: 'red500',
+              bgActive: 'red700',
+              bgDisabled: 'gray28',
             },
           },
         },
@@ -113,5 +112,3 @@ const checkboxTheme: CheckboxTheme = {
     },
   },
 }
-
-export const createCheckboxTheme = createComponentTheme('Checkbox', checkboxTheme)

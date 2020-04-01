@@ -1,12 +1,13 @@
 import React from 'react'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { Toggle } from '../Toggle'
 import { Icon } from '../Icon'
 import { CheckboxProps } from './contract'
-import { createCheckboxTheme } from './theme'
+import { checkboxTheme } from './theme'
 
 const Checkbox = ({ override, ...props }: CheckboxProps) => {
-  const [_, checkboxTheme] = useThemeMemo(createCheckboxTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(checkboxTheme, theme.Checkbox, override)
 
   props = {
     variant: 'primary',
@@ -16,7 +17,7 @@ const Checkbox = ({ override, ...props }: CheckboxProps) => {
   }
 
   return (
-    <Toggle {...props} mode='checkbox' override={checkboxTheme}>
+    <Toggle {...props} mode='checkbox' override={componentTheme}>
       {({ checked }) => (
         checked === 'mixed' ? <Icon name='checkbox-intermediate' size='auto' /> :
         checked === true ? <Icon name='checkbox-checked' size='auto' /> :

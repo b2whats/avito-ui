@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
-import { useThemeMemo } from '../../theme/'
-import { filterProps } from '../../utils'
-import { useRefHook, usePrevent3DTouch } from '../../hooks'
+import { useTheme, mergeTheme } from '../../theme/'
+import { filterProps } from '../../utils/'
+import { useRefHook, usePrevent3DTouch } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { ToggleProps } from './contract'
-import { createToggleTheme, ToggleTheme } from './theme'
-import { useGroupHook } from '../Layout'
-import { Text } from '../Text'
+import { useGroupHook } from '../Layout/'
+import { Text } from '../Text/'
+import { toggleTheme } from './theme'
 
-const toggleClassName = createClassName<ToggleProps, ToggleTheme>(
+const toggleClassName = createClassName<ToggleProps, typeof toggleTheme>(
   (_, props) => ({
     display: 'inline-flex',
     valign: 'baseline',
@@ -46,7 +46,7 @@ const toggleClassName = createClassName<ToggleProps, ToggleTheme>(
   `)
 )
 
-const switchClassName = createClassName<ToggleProps, ToggleTheme>(
+const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
   (themeStyle, props) => ({
     display: 'inline-flex',
     shrink: false,
@@ -71,7 +71,8 @@ const switchClassName = createClassName<ToggleProps, ToggleTheme>(
 )
 
 const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
-  const [theme, toggleTheme] = useThemeMemo(createToggleTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(toggleTheme, theme.Toggle, override)
   const setTouchRef = usePrevent3DTouch()
 
   props = {
@@ -119,7 +120,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
     props.onChange && props.onChange(value)
   }
 
-  const { Toggle, Switch, Label } = foldThemeParams(groupProps, toggleTheme)
+  const { Toggle, Switch, Label } = foldThemeParams(groupProps, componentTheme)
   const toggleStyle = toggleClassName(groupProps, theme, Toggle.style)
   const switchStyle = switchClassName(groupProps, theme, Switch.style)
   const label = props.label && <Text {...Label.props} crop>{props.label}</Text>

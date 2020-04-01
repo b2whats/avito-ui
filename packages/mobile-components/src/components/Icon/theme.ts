@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { IconProps } from './contract'
 import { IconProps as IconBaseProps } from '@avito/icons'
@@ -9,7 +8,7 @@ export type IconTheme = {
   }
 }
 
-const iconTheme: IconTheme = {
+export const iconTheme: IconTheme = {
   scheme: {
     Icon: {
       size: {
@@ -59,5 +58,3 @@ const iconTheme: IconTheme = {
     },
   },
 }
-
-export const createIconTheme = createComponentTheme('Icon', iconTheme)

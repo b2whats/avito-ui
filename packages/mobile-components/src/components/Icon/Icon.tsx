@@ -1,10 +1,10 @@
 import React from 'react'
 import { css, keyframes } from '@emotion/core'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { Icon as IconBase } from '@avito/icons'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from './contract'
-import { createIconTheme, IconTheme } from './theme'
+import { iconTheme } from './theme'
 
 const spinAnimation = keyframes`
   0% { transform: rotate(0deg) }
@@ -12,7 +12,7 @@ const spinAnimation = keyframes`
 `
 
 // Вложенная анимация это хак, из-за того что в safari вращение происходит не по центру при абсолютном позиционировании элемента
-const iconClassName = createClassName<IconProps, IconTheme>(
+const iconClassName = createClassName<IconProps, typeof iconTheme>(
   (themeStyle, props) => ({
     display: 'inline-block',
     ...themeStyle,
@@ -32,9 +32,11 @@ const iconClassName = createClassName<IconProps, IconTheme>(
 )
 
 const Icon = ({ override, ...props }: IconProps) => {
-  const [theme, iconTheme] = useThemeMemo(createIconTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(iconTheme, theme.Icon, override)
 
-  const { Icon } = foldThemeParams(props, iconTheme)
+
+  const { Icon } = foldThemeParams(props, componentTheme)
   const iconStyle = iconClassName(props, theme, Icon.style)
   const size = Icon.props.size || props.size
 

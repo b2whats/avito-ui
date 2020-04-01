@@ -45,7 +45,7 @@ import { Stack, Icon } from '../../';
     <Button preset='default' shape='square' iconBefore='search' />
     <Button preset='default' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} backgroundColor='gray4' wrap>
+  <Stack p={10} spacing={10} bg='gray4' wrap>
     <Button preset='defaultOnSurface'>Кнопка</Button>
     <Button preset='defaultOnSurface' disabled>Кнопка</Button>
     <Button preset='defaultOnSurface' loading>Кнопка</Button>
@@ -53,7 +53,7 @@ import { Stack, Icon } from '../../';
     <Button preset='defaultOnSurface' shape='square' iconBefore='search' />
     <Button preset='defaultOnSurface' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} backgroundColor='gray84' wrap>
+  <Stack p={10} spacing={10} bg='gray84' wrap>
     <Button preset='defaultDark'>Кнопка</Button>
     <Button preset='defaultDark' disabled>Кнопка</Button>
     <Button preset='defaultDark' loading>Кнопка</Button>

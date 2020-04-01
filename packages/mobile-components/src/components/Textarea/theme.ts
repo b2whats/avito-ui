@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { TextareaProps } from './contract'
 import { IconProps } from '../Icon/contract'
@@ -11,7 +10,7 @@ export type TextareaTheme = {
   },
 }
 
-const textareaTheme: TextareaTheme = {
+export const textareaTheme: TextareaTheme = {
   deletePlaceholderOnFocus: true,
   scheme: {
     IconClear: {
@@ -75,40 +74,38 @@ const textareaTheme: TextareaTheme = {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'gray4',
+            bg: 'gray4',
           },
         },
         secondary: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'gray8',
+            bg: 'gray8',
           },
         },
         success: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'green100',
+            bg: 'green100',
           },
         },
         warning: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'orange100',
+            bg: 'orange100',
           },
         },
         error: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'red100',
+            bg: 'red100',
           },
         },
       },
     },
   },
 }
-
-export const createTextareaTheme = createComponentTheme('Textarea', textareaTheme)

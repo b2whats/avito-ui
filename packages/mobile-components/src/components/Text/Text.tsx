@@ -1,10 +1,10 @@
 import React from 'react'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { TextProps } from './contract'
-import { createTextTheme, TextTheme } from './theme'
+import { textTheme } from './theme'
 
-const textClassName = createClassName<TextProps, TextTheme>(
+const textClassName = createClassName<TextProps, typeof textTheme>(
   (themeStyle, props) => ({
     display: props.width || props.height ? 'inline-block' : 'inline',
     ...themeStyle,
@@ -13,11 +13,8 @@ const textClassName = createClassName<TextProps, TextTheme>(
   (textRules, { strike }, { palette }) => (`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    --size: 2048;
-    --ascent: 1854;
-    --descent: 434;
-    --capitalHeight: 1467;
-
+    margin: 0;
+    
     li& {
       list-style: none;
     }
@@ -43,8 +40,9 @@ const textClassName = createClassName<TextProps, TextTheme>(
 )
 
 const Text = ({ children, override, ...props }: TextProps) => {
-  const [theme, textTheme] = useThemeMemo(createTextTheme, override)
-  const { Text } = foldThemeParams(props, textTheme)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(textTheme, theme.Text, override)
+  const { Text } = foldThemeParams(props, componentTheme)
   const textStyle = textClassName(props, theme, Text.style)
   const Tag = props.as || 'span'
 

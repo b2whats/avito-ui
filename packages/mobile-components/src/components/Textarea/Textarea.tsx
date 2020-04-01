@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useRefHook, setNativeValue } from '../../utils/'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Icon } from '../Icon'
 import { TextareaCore } from './TextareaCore'
 import { TextareaProps } from './contract'
-import { createTextareaTheme ,TextareaTheme } from './theme'
+import { textareaTheme ,TextareaTheme } from './theme'
 
-const wrapperClassName = createClassName<TextareaProps, TextareaTheme>(
+const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
   (themeStyle, props) => ({
     display: 'flex',
     valign: 'top',
@@ -19,7 +19,8 @@ const wrapperClassName = createClassName<TextareaProps, TextareaTheme>(
 type Textarea = React.RefForwardingComponent<React.Ref<HTMLElement>, TextareaProps>
 
 export const Textarea: Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props }: TextareaProps, ref) => {
-  const [theme, textareaTheme] = useThemeMemo(createTextareaTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(textareaTheme, theme.Textarea, override)
   const [textareaRef, setTextareaRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
 
@@ -28,7 +29,7 @@ export const Textarea: Textarea = React.forwardRef(({ override, onFocus, onBlur,
     size: 'm',
     ...props,
     clearable: props.clearable === 'always' || Boolean(props.clearable && props.value && focus),
-    placeholder: textareaTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
+    placeholder: componentTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
   const handleFocus: TextareaProps['onFocus'] = (event) => {
@@ -50,7 +51,7 @@ export const Textarea: Textarea = React.forwardRef(({ override, onFocus, onBlur,
     setNativeValue(textareaRef.current, '')
   }
 
-  const { Textarea, IconClear } = foldThemeParams<TextareaTheme>(props, textareaTheme)
+  const { Textarea, IconClear } = foldThemeParams<TextareaTheme>(props, componentTheme)
   const wrapperStyle = wrapperClassName(props, theme, Textarea.style)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`

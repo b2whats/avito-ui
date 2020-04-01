@@ -1,15 +1,15 @@
 import React from 'react'
-import { Tokens } from '../../theme/'
+import { Theme } from '../../theme/'
 import { MarginProperties, DimensionProperties, ValignProperties } from '../../styled-system/'
 import { TextTheme } from './theme'
 
 export interface TextProps extends MarginProperties, DimensionProperties, ValignProperties {
   /** Размер текста */
-  size?: keyof Tokens['font']['fontSize']
+  size?: keyof Theme['font']['fontSize']
   /** Размер текста фолбек */
   fontSize?: number
   /** Коэффициент для высоты строки */
-  lineHeight?: number
+  lineHeight?: number | 'none'
   /** Уплотненная высота строки */
   dense?: boolean
   /** Расстояние между буквами */
@@ -27,7 +27,7 @@ export interface TextProps extends MarginProperties, DimensionProperties, Valign
   /** Текст в верхнем регистре */
   uppercase?: boolean
   /** Перечеркнутый текст */
-  strike?: keyof Tokens['palette'] | boolean
+  strike?: keyof Theme['palette'] | boolean
   /** Подчеркнутый текст */
   underline?: 'dashed' | 'dotted' | boolean
   /** Обрезка высоты строки у текста сверху и снизу */
@@ -43,15 +43,15 @@ export interface TextProps extends MarginProperties, DimensionProperties, Valign
   /** Текстовая нода */
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'strong' | 'em' | 'label' | 'li'
   /** Цвет текста */
-  color?: keyof Tokens['palette']
+  color?: keyof Theme['palette']
   /** Инлайновое поведение */
   inline?: boolean
   /** Блочное поведение */
   block?: boolean
   /** Пресет компонента */
   preset?: 'title' | 'title-small' | 'heading-large' | 'heading' | 'heading-small'
+  /** Переопределиь тему компонента */  
+  override?: TextTheme
 
   onMouseDown?(event: React.MouseEvent<HTMLElement>): void
-
-  override?: TextTheme
 }

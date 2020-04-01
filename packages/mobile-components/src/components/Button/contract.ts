@@ -38,10 +38,10 @@ export interface ButtonProps extends MarginProperties {
   preset?: 'primary' | 'accent' | 'secondary' | 'default' | 'defaultOnSurface' | 'defaultDark' | 'outline' | 'pay' | 'appInstall' | 'linkIncreased'
   /** Ссылка на дом ноду */
   innerRef?: (node: HTMLButtonElement | HTMLAnchorElement | null) => void
+  /** Переопределиь тему компонента */
+  override?: Partial<ButtonTheme>
 
   onClick?(event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void
   onKeyDown?(event: React.KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>): void
-
-  override?: Partial<ButtonTheme>
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { omit, filterProps } from '../../utils/'
 import { useTheme } from '../../theme/'
-import { createClassName } from '../../styled-system//'
+import { createClassName } from '../../styled-system/'
 import { StackProps } from './contract'
 
 const stackClassName = createClassName<StackProps>(

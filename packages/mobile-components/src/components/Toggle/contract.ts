@@ -47,7 +47,7 @@ export interface ToggleProps extends MarginProperties, DimensionProperties, Vali
   className?: string,
   /** Позиция элемента при фокусе */
   tabIndex?: number,
-  /** Переопределить тему */
+  /** Переопределиь тему компонента */
   override?: object,
 
   onClick?(event: React.MouseEvent<HTMLInputElement>): void,

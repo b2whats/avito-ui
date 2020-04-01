@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { InputProps } from './contract'
 import { IconProps } from '../Icon/contract'
@@ -17,7 +16,7 @@ export type InputTheme = {
   },
 }
 
-const inputTheme: InputTheme = {
+export const inputTheme: InputTheme = {
   deletePlaceholderOnFocus: true,
   scheme: {
     IconBefore: {
@@ -172,40 +171,38 @@ const inputTheme: InputTheme = {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'gray4',
+            bg: 'gray4',
           },
         },
         secondary: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'gray8',
+            bg: 'gray8',
           },
         },
         success: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'green50',
+            bg: 'green50',
           },
         },
         warning: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'orange50',
+            bg: 'orange50',
           },
         },
         error: {
           style: {
             color: 'black',
             colorDisabled: 'gray40',
-            backgroundColor: 'red50',
+            bg: 'red50',
           },
         },
       },
     },
   },
 }
-
-export const createInputTheme = createComponentTheme('Input', inputTheme)

@@ -45,6 +45,6 @@ export interface TextareaProps extends Omit<TextareaCoreProps, 'className'>, Val
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Инлайновое поведение */
   inline?: boolean
-
+  /** Переопределиь тему компонента */
   override?: TextareaTheme
 }

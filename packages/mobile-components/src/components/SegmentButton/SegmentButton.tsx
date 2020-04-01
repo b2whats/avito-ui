@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useRefHook, filterProps } from '../../utils/'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { useWindowSize } from '../../hooks'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { SegmentButtonProps } from './contract'
-import { createSegmentButtonTheme, SegmentButtonTheme } from './theme'
+import { segmentButtonTheme } from './theme'
 
-const groupClassName = createClassName<SegmentButtonProps, SegmentButtonTheme>(
+const groupClassName = createClassName<SegmentButtonProps, typeof segmentButtonTheme>(
   (themeStyle, props) => ({
     display: 'flex',
     width: 1,
@@ -21,9 +21,10 @@ const groupClassName = createClassName<SegmentButtonProps, SegmentButtonTheme>(
   `)
 )
 
-const buttonClassName = createClassName<SegmentButtonProps, SegmentButtonTheme>(
+const buttonClassName = createClassName<SegmentButtonProps, typeof segmentButtonTheme>(
   (themeStyle) => ({
     display: 'inline-block',
+    position: 'relative',
     grow: true,
     height: 1,
     ...themeStyle,
@@ -47,7 +48,7 @@ const buttonClassName = createClassName<SegmentButtonProps, SegmentButtonTheme>(
   `)
 )
 
-const slideClassName = createClassName<SegmentButtonProps, SegmentButtonTheme>(
+const slideClassName = createClassName<SegmentButtonProps, typeof segmentButtonTheme>(
   (themeStyle) => ({
     display: 'inline-block',
     height: 1,
@@ -62,7 +63,8 @@ const slideClassName = createClassName<SegmentButtonProps, SegmentButtonTheme>(
 )
 
 const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentButtonProps) => {
-  const [theme, segmentButtonTheme] = useThemeMemo(createSegmentButtonTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(segmentButtonTheme, theme.SegmentButton, override)
   const windowSize = useWindowSize()
 
   props = {
@@ -94,7 +96,7 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
     setGeometry(geometry)
   }, [windowSize.innerWidth])
 
-  const { Group, Button, Slide } = foldThemeParams(props, segmentButtonTheme)
+  const { Group, Button, Slide } = foldThemeParams(props, componentTheme)
   const groupStyle = groupClassName(props, theme, Group.style)
   const buttonStyle = buttonClassName(props, theme, Button.style)
   const slideStyle = slideClassName(props, theme, Slide.style)
@@ -133,6 +135,7 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
 
   return (
     <div ref={setRef} css={groupStyle} role='radiogroup' {...filterProps(props)}>
+      <div css={slideStyle} style={geometry[props.value!]} />
       {options && options.map(item => {
         const checked = item.value === props.value
 
@@ -152,7 +155,6 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
           </button>
         )
       })}
-      <div css={slideStyle} style={geometry[props.value!]} />
     </div>
   )
 }

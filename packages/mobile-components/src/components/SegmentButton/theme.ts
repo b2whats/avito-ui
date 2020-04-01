@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { SegmentButtonProps } from './contract'
 
@@ -10,11 +9,11 @@ export type SegmentButtonTheme = {
   },
 }
 
-const segmentButtonTheme: SegmentButtonTheme = {
+export const segmentButtonTheme: SegmentButtonTheme = {
   scheme: {
     Group: {
       style: {
-        backgroundColor: 'gray4',
+        bg: 'gray4',
       },
       size: {
         s: {
@@ -52,10 +51,8 @@ const segmentButtonTheme: SegmentButtonTheme = {
     Slide: {
       style: {
         borderRadius: 5,
-        backgroundColor: 'white',
+        bg: 'white',
       },
     },
   },
 }
-
-export const createSegmentButtonTheme = createComponentTheme('SegmentButton', segmentButtonTheme) 

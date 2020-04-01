@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { ThemeProvider } from 'emotion-theming'
 import styled from '@emotion/styled'
 import { Icon, Stack, Page } from '@avito/mobile-components'
+import * as tokens from '@avito/tokens'
 
-import * as themes from './themes/'
 
 const ThemeToggle = styled('div')`
   position: absolute;
@@ -16,7 +16,7 @@ export default function Preview(props: { children: React.ReactNode }) {
   const [state, update] = useState('mobile')
 
   return (
-    <ThemeProvider theme={themes[state]}>
+    <ThemeProvider theme={tokens[state]}>
       <div>
         <ThemeToggle>
           <Stack spacing='s'>

@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { ToggleProps } from './contract'
 import { TextProps } from '../Text/contract'
@@ -39,5 +38,3 @@ export const toggleTheme: ToggleTheme = {
     },
   },
 }
-
-export const createToggleTheme = createComponentTheme('Toggle', toggleTheme)

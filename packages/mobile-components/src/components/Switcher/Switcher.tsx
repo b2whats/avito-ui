@@ -1,11 +1,11 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { Toggle } from '../Toggle'
 import { Icon } from '../Icon'
 import { Spinner } from '../Spinner'
 import { SwitcherProps } from './contract'
-import { createSwitcherTheme } from './theme'
+import { switcherTheme } from './theme'
 
 const circleStyle = () => css`
   &::before {
@@ -42,7 +42,8 @@ const circleStyle = () => css`
 `
 
 const Switcher = ({ override, ...props }: SwitcherProps) => {
-  const [_, switcherTheme] = useThemeMemo(createSwitcherTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(switcherTheme, theme.Switcher, override)
 
   props = {
     variant: 'primary',
@@ -52,7 +53,7 @@ const Switcher = ({ override, ...props }: SwitcherProps) => {
   }
 
   return (
-    <Toggle css={circleStyle} {...props} mode='checkbox' override={switcherTheme}>
+    <Toggle css={circleStyle} {...props} mode='checkbox' override={componentTheme}>
       {({ loading }) => (loading
         ? <Spinner size='auto' />
         : <Icon name='circle' size='auto' />

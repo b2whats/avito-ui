@@ -1,12 +1,13 @@
 import React from 'react'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { Toggle } from '../Toggle'
 import { Icon } from '../Icon'
 import { RadioProps } from './contract'
-import { createRadioTheme } from './theme'
+import { radioTheme } from './theme'
 
 const Radio = ({ override, ...props}: RadioProps) => {
-  const [_, radioTheme] = useThemeMemo(createRadioTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(radioTheme, theme.Radio, override)
 
   props = {
     variant: 'primary',
@@ -16,7 +17,7 @@ const Radio = ({ override, ...props}: RadioProps) => {
   }
 
   return (
-    <Toggle {...props} mode='radio' override={radioTheme}>
+    <Toggle {...props} mode='radio' override={componentTheme}>
       {({ checked }) => (
         checked === true ? <Icon name='radio-checked' size='auto' /> :
         undefined

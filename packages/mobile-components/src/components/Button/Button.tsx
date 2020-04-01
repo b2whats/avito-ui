@@ -1,15 +1,15 @@
 import React, { isValidElement } from 'react'
 import { useRefHook, filterProps } from '../../utils/'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Text as TextComponent } from '../Text'
 import { Icon, IconProps } from '../Icon'
 import { Spinner as SpinnerComponent } from '../Spinner'
 import { useGroupHook } from '../Layout/Group'
 import { ButtonProps } from './contract'
-import { createButtonTheme, ButtonTheme } from './theme'
+import { buttonTheme } from './theme'
 
-const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
+const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
   (themeStyle, props) => ({
     display: 'inline-block',
     shrink: false,
@@ -84,7 +84,8 @@ const buttonClassName = createClassName<ButtonProps, ButtonTheme>(
 )
 
 const Button = ({ innerRef, override, ...props }: ButtonProps) => {
-  const [theme, buttonTheme] = useThemeMemo(createButtonTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(buttonTheme, theme.Button, override)
 
   props = {
     size: 'm',
@@ -108,7 +109,7 @@ const Button = ({ innerRef, override, ...props }: ButtonProps) => {
     'aria-busy': groupProps.loading,
   }
 
-  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams(groupProps, buttonTheme)
+  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams(groupProps, componentTheme)
   const buttonStyle = buttonClassName(groupProps, theme, Button.style)
 
   const Tag = props.href ? 'a' : 'button'

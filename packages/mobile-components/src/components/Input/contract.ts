@@ -51,6 +51,6 @@ export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginPro
   inline?: boolean
   /** Ссылка на дом ноду */
   ref?: React.Ref<HTMLInputElement>
-
+  /** Переопределиь тему компонента */
   override?: InputTheme
 }

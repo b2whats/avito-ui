@@ -1,4 +1,4 @@
-import { Tokens } from '../../theme'
+import { Theme } from '../../theme/'
 import { ReactText } from 'react'
 import { SpaceProperties, DimensionProperties } from '../../styled-system/'
 
@@ -6,9 +6,9 @@ type Display = 'inline' | 'block' | 'flex' | 'inline-flex' | 'inline-block'
 
 export interface GridProps extends SpaceProperties, DimensionProperties {
   /** Отступ между дочерними блоками */
-  spacing: keyof Tokens['space'] | number
+  spacing: keyof Theme['space'] | number
   /** Отступ между дочерними блоками по вертикали */
-  spacingY: keyof Tokens['space'] | number
+  spacingY: keyof Theme['space'] | number
   /** Горизонтальное выравнивание дочерних блоков  */
   align?: 'left' | 'center' | 'right' | 'justify'
   /** Вертикальное выравнивание дочерних блоков  */
@@ -38,20 +38,20 @@ export interface BoxProps extends SpaceProperties, DimensionProperties {
   /** Определяет как элемент должен быть показан в документе */
   display?: Display
   /** Тень блока */
-  //shadow?: keyof Tokens['shadows']
+  //shadow?: keyof Theme['shadows']
   /** Цвет текста */
-  color?: keyof Tokens['palette']
+  color?: keyof Theme['palette']
   /** Цвет фона */
-  backgroundColor?: keyof Tokens['palette']
+  bg?: keyof Theme['palette']
   /** Радиус */
-  borderRadius?: 'rounded' | number
+  rounded?: 's' | 'm' | 'l' | 'circle' | number
 }
 
 export interface StackProps extends SpaceProperties, DimensionProperties {
   /** Содержание */
   children?: React.ReactNode
   /** Горизонтальный отступ между дочерними блоками */
-  spacing?: keyof Tokens['space'] | number
+  spacing?: keyof Theme['space'] | number
   /** Вертикальный ритм */
   column?: boolean
   /** Добавляет скролл */
@@ -67,7 +67,7 @@ export interface StackProps extends SpaceProperties, DimensionProperties {
   /** Переносить блоки на следующие строки если не хватило места */
   wrap?: boolean
   /** Цвет фона */
-  backgroundColor?: keyof Tokens['palette']
+  bg?: keyof Theme['palette']
   /** Изменить тег */
   as?: string
   ref?: (node: HTMLElement | null) => void
@@ -88,7 +88,7 @@ export interface GroupProps extends SpaceProperties, DimensionProperties {
   /** Блочное поведение */
   block?: boolean
   /** Горизонтальный отступ между дочерними блоками */
-  spacing?: keyof Tokens['space'] | number
+  spacing?: keyof Theme['space'] | number
   /** Вертикальный ритм */
   column?: boolean
   /** Имя группы */

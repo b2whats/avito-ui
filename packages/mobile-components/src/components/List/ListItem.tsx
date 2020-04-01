@@ -1,13 +1,13 @@
 import React, { isValidElement } from 'react'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { useRefHook, usePrevent3DTouch, useMeasure } from '../../hooks'
 import { foldThemeParams, createClassName } from '../../styled-system/'
-import { ListItemProps } from './contract'
-import { createListItemTheme, ListItemTheme } from './theme'
 import { Stack, Box } from '../Layout'
 import { Text, TextProps } from '../Text'
+import { ListItemProps } from './contract'
+import { listItemTheme } from './theme'
 
-const listClassName = createClassName<ListItemProps, ListItemTheme>(
+const listClassName = createClassName<ListItemProps, typeof listItemTheme>(
   (themestyle, props) => ({
     display: null,
     ...themestyle,
@@ -25,7 +25,9 @@ const listClassName = createClassName<ListItemProps, ListItemTheme>(
 )
 
 const ListItem = ({ children, override, ...props }: ListItemProps) => {
-  const [theme, listItemTheme] = useThemeMemo(createListItemTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(listItemTheme, theme.ListItem, override)
+
   // Необходимо прервать 3DTouch что бы он не прерывал событие клика
   const setTouchRef = usePrevent3DTouch()
   const [bounds, setMeasureRef] = useMeasure()
@@ -40,7 +42,7 @@ const ListItem = ({ children, override, ...props }: ListItemProps) => {
     : 'middle'
   
 
-  const { ListItem, Before, StackText, Label, Caption, Link, After } = foldThemeParams(props, listItemTheme)
+  const { ListItem, Before, StackText, Label, Caption, Link, After } = foldThemeParams(props, componentTheme)
   const listItemStyle = listClassName(props, theme, ListItem.style)
 
   const before = props.before && <Box {...Before.props} valignSelf={props.beforeValign}>{props.before}</Box>

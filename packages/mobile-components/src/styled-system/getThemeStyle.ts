@@ -6,7 +6,7 @@ export type Theme = Tokens
 export type TextProperties = Partial<{
   fontFamily: string,
   fontSize: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | number | string,
-  lineHeight: 'normal' | 'dense' | number,
+  lineHeight: 'none' | 'normal' | 'dense' | number,
   letterSpacing: number,
   fontWeight: 'light' | 'normal' | 'bold',
   italic: boolean,
@@ -106,10 +106,11 @@ type OtherProperties = Partial<{
   inline: boolean,
   wrap: boolean,
   position: 'relative' | 'absolute' | 'static' | 'fixed',
-  borderRadius: number | 'rounded',
-  radius: number | 'rounded',
+  borderRadius: number | 's' | 'm' | 'l' | 'circle',
+  rounded: number | 's' | 'm' | 'l' | 'circle',
   borderWidth: number,
   shape?: 'pill' | 'square' | 'circle'
+  trancate: boolean
 }>
 
 type ColorProperties = Partial<{
@@ -120,13 +121,13 @@ type ColorProperties = Partial<{
   colorChecked: string,
   colorFocus: string,
   colorDisabled: string,
-  backgroundColor: string,
-  backgroundColorHover: string,
-  backgroundColorActive: string,
-  backgroundColorVisited: string,
-  backgroundColorChecked: string,
-  backgroundColorFocus: string,
-  backgroundColorDisabled: string,
+  bg: string,
+  bgHover: string,
+  bgActive: string,
+  bgVisited: string,
+  bgChecked: string,
+  bgFocus: string,
+  bgDisabled: string,
   borderColor: string,
   borderColorHover: string,
   borderColorActive: string,
@@ -226,13 +227,13 @@ const maps = {
     colorFocus: 'color',
     colorChecked: 'color',
     colorDisabled: 'color',
-    backgroundColor: 'background-color',
-    backgroundColorHover: 'background-color',
-    backgroundColorActive: 'background-color',
-    backgroundColorVisited: 'background-color',
-    backgroundColorFocus: 'background-color',
-    backgroundColorChecked: 'background-color',
-    backgroundColorDisabled: 'background-color',
+    bg: 'background-color',
+    bgHover: 'background-color',
+    bgActive: 'background-color',
+    bgVisited: 'background-color',
+    bgFocus: 'background-color',
+    bgChecked: 'background-color',
+    bgDisabled: 'background-color',
     borderColor: 'border-color',
     borderColorHover: 'border-color',
     borderColorActive: 'border-color',
@@ -285,7 +286,7 @@ export const foldScheme = (scheme: any, props: any) => {
   return result
 }
 
-export const getStyles = (params: StyleProperties & Display, {font, dimension, space, palette, focus}: any) => {
+export const getStyles = (params: StyleProperties & Display, {font, dimension, space, palette, focus, shape}: any) => {
   let css = 'box-sizing: border-box;'
 
   if (!params) return css
@@ -362,6 +363,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         display = 'inline-block'
         
         css += `
+          max-width: 100%;
           vertical-align: top;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -448,10 +450,11 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         css += `border-width: ${value}px;`
     
         break
+      case 'rounded':
       case 'borderRadius':
         if (params.shape === 'circle' || params.shape === 'pill') break
 
-        css += `border-radius: ${value === 'rounded' ? 100 : value}px;`
+        css += `border-radius: ${value === 'circle' ? '100' : shape.borderRadius[value] || value}px;`
     
         break
       case 'align': {
@@ -560,43 +563,43 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   
         break
       case 'color':
-      case 'backgroundColor':
+      case 'bg':
       case 'borderColor':
         css += `${maps.color[param]}: ${palette[value] || value};`
       
         break
       case 'colorHover':
-      case 'backgroundColorHover':
+      case 'bgHover':
       case 'borderColorHover':
         hoverState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorActive':
-      case 'backgroundColorActive':
+      case 'bgActive':
       case 'borderColorActive':
         activeState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorVisited':
-      case 'backgroundColorVisited':
+      case 'bgVisited':
       case 'borderColorVisited':
         visitedState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorFocus':
-      case 'backgroundColorFocus':
+      case 'bgFocus':
       case 'borderColorFocus':
         focusState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
         break
       case 'colorChecked':
-      case 'backgroundColorChecked':
+      case 'bgChecked':
       case 'borderColorChecked':
         checkedState.push(`${maps.color[param]}: ${palette[value] || value};`)
                 
         break
       case 'colorDisabled':
-      case 'backgroundColorDisabled':
+      case 'bgDisabled':
       case 'borderColorDisabled':
         disabledState.push(`${maps.color[param]}: ${palette[value] || value};`)
             
@@ -752,7 +755,8 @@ export function createClassName<Props, ComponentTheme extends object | null = nu
     const resultRules = createUserRule
       ? createUserRule(textRules, props, theme, schemeStyle as any)
       : textRules
-    
+
+
     return typeof resultRules === 'string' ? css`${resultRules}` : resultRules
   }
 }

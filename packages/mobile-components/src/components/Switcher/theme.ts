@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { SwitcherProps } from './contract'
 
@@ -8,7 +7,7 @@ export type SwitcherTheme = {
   },
 }
 
-const switcherTheme: SwitcherTheme = {
+export const switcherTheme: SwitcherTheme = {
   scheme: {
     Switch: {
       style: {
@@ -21,75 +20,75 @@ const switcherTheme: SwitcherTheme = {
         primary: {
           style: {
             color: 'white',
-            backgroundColor: 'gray12',
-            backgroundColorActive: 'gray28',
-            backgroundColorDisabled: 'gray8',
+            bg: 'gray12',
+            bgActive: 'gray28',
+            bgDisabled: 'gray8',
           },
           checked: {
             style: {
-              backgroundColor: 'blue500',
-              backgroundColorActive: 'blue700',
-              backgroundColorDisabled: 'blue300',
+              bg: 'blue500',
+              bgActive: 'blue700',
+              bgDisabled: 'blue300',
             },
           },
         },
         secondary: {
           style: {
             color: 'white',
-            backgroundColor: 'gray12',
-            backgroundColorActive: 'gray28',
-            backgroundColorDisabled: 'gray4',
+            bg: 'gray12',
+            bgActive: 'gray28',
+            bgDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'gray48',
-              backgroundColorActive: 'gray56',
-              backgroundColorDisabled: 'gray28',
+              bg: 'gray48',
+              bgActive: 'gray56',
+              bgDisabled: 'gray28',
             },
           },
         },
         success: {
           style: {
             color: 'white',
-            backgroundColor: 'gray12',
-            backgroundColorActive: 'gray28',
-            backgroundColorDisabled: 'gray4',
+            bg: 'gray12',
+            bgActive: 'gray28',
+            bgDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'green500',
-              backgroundColorActive: 'green700',
-              backgroundColorDisabled: 'gray28',
+              bg: 'green500',
+              bgActive: 'green700',
+              bgDisabled: 'gray28',
             },
           },
         },
         warning: {
           style: {
             color: 'white',
-            backgroundColor: 'gray12',
-            backgroundColorActive: 'gray28',
-            backgroundColorDisabled: 'gray4',
+            bg: 'gray12',
+            bgActive: 'gray28',
+            bgDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'orange500',
-              backgroundColorActive: 'orange700',
-              backgroundColorDisabled: 'gray28',
+              bg: 'orange500',
+              bgActive: 'orange700',
+              bgDisabled: 'gray28',
             },
           },
         },
         error: {
           style: {
             color: 'white',
-            backgroundColor: 'gray12',
-            backgroundColorActive: 'gray28',
-            backgroundColorDisabled: 'gray4',
+            bg: 'gray12',
+            bgActive: 'gray28',
+            bgDisabled: 'gray4',
           },
           checked: {
             style: {
-              backgroundColor: 'red500',
-              backgroundColorActive: 'red700',
-              backgroundColorDisabled: 'gray28',
+              bg: 'red500',
+              bgActive: 'red700',
+              bgDisabled: 'gray28',
             },
           },
         },
@@ -99,13 +98,11 @@ const switcherTheme: SwitcherTheme = {
           focus: false,
           align: 'center',
           color: 'gray28',
-          backgroundColor: 'transparent',
-          backgroundColorActive: 'transparent',
-          backgroundColorDisabled: 'transparent',
+          bg: 'transparent',
+          bgActive: 'transparent',
+          bgDisabled: 'transparent',
         },
       },
     },
   },
 }
-
-export const createSwitcherTheme = createComponentTheme('Switcher', switcherTheme)

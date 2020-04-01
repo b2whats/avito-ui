@@ -1,14 +1,15 @@
 import React from 'react'
-import { useThemeMemo } from '../../theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams } from '../../styled-system/'
 import { Icon } from '../Icon/'
 import { SpinnerProps } from './contract'
-import { createSpinnerTheme } from './theme'
+import { spinnerTheme } from './theme'
 
 const Spinner = ({ speed, override, ...props }: SpinnerProps) => {
-  const [_, spinnerTheme] = useThemeMemo(createSpinnerTheme, override)
+  const theme = useTheme()
+  const componentTheme = mergeTheme(spinnerTheme, theme.Spinner, override)
 
-  const { Icon: IconComponent } = foldThemeParams(props, spinnerTheme)
+  const { Icon: IconComponent } = foldThemeParams(props, componentTheme)
 
   return (
     <Icon name='spinner'  {...IconComponent.props} {...props} spin={speed || true} />

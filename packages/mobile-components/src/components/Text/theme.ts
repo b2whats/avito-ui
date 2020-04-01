@@ -1,4 +1,3 @@
-import { createComponentTheme } from '../../theme/'
 import { SchemeType } from '../../styled-system/'
 import { TextProps } from './contract'
 
@@ -8,7 +7,7 @@ export type TextTheme = {
   },
 }
 
-const textTheme: TextTheme = {
+export const textTheme: TextTheme = {
   scheme: {
     Text: {
       style: {
@@ -128,5 +127,3 @@ const textTheme: TextTheme = {
     },
   },
 }
-
-export const createTextTheme = createComponentTheme('Text', textTheme)

@@ -22,10 +22,9 @@ export interface SegmentButtonProps extends MarginProperties {
   disabled?: boolean
   /** Выбранные элементы */
   value?: number | string
-
+  /** Переопределиь тему компонента */
+  override?: SegmentButtonTheme
   /** Событие изменения значения */
   onChange?: (props: onChangeProps) => void
-
-  override?: SegmentButtonTheme
 }
 
