@@ -1,4 +1,4 @@
-import { MarginProperties } from '../../styled-system/' 
+import { MarginProperties } from '@avito/core/styled-system/' 
 import { SegmentButtonTheme } from './theme'
 
 type onChangeProps = {

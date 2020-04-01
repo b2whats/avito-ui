@@ -1,7 +1,7 @@
 import React from 'react'
-import { omit, pick } from '../../utils/'
-import { useTheme } from '../../theme/'
-import { createClassName } from '../../styled-system/'
+import { omit, pick } from '@avito/core/utils/'
+import { useTheme } from '@avito/core/theme/'
+import { createClassName } from '@avito/core/styled-system/'
 import { GridProps } from './contract'
 
 // &::before хак против выпадания отрицательных margins из родителя для правильного задания высоты

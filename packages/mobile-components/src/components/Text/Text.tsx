@@ -1,6 +1,6 @@
 import React from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
-import { foldThemeParams, createClassName } from '../../styled-system/'
+import { useTheme, mergeTheme } from '@avito/core/theme/'
+import { foldThemeParams, createClassName } from '@avito/core/styled-system/'
 import { TextProps } from './contract'
 import { textTheme } from './theme'
 

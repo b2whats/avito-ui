@@ -1,6 +1,6 @@
-import { Theme } from '../../theme/'
+import { Theme } from '@avito/core/theme/'
 import { IconProps as IconBaseProps } from '@avito/icons'
-import { MarginProperties } from '../../styled-system/'
+import { MarginProperties } from '@avito/core/styled-system/'
 import { IconTheme } from './theme'
 
 export interface IconProps extends IconBaseProps, MarginProperties {

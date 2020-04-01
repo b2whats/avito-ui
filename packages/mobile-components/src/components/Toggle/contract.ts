@@ -1,5 +1,5 @@
 import React from 'react'
-import { MarginProperties, DimensionProperties, ValignProperties } from '../../styled-system/'
+import { MarginProperties, DimensionProperties, ValignProperties } from '@avito/core/styled-system/'
 
 type ChildrenProps = {
   checked: boolean | 'mixed',

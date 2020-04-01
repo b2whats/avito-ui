@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { css } from '@emotion/core'
-import { filterProps, useRefHook } from '../../utils'
+import { filterProps, useRefHook } from '@avito/core/utils'
 import { TextareaCoreProps } from './contract'
 
 const textareaStyle = css`

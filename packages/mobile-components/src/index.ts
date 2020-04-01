@@ -10,7 +10,3 @@ export { Textarea } from './components/Textarea'
 export { Spinner } from './components/Spinner'
 export { Stack, Grid, Box, Group, Page } from './components/Layout'
 export { ListItem } from './components/List'
-
-export { ThemeProvider, useTheme } from './theme/'
-
-export * from './hooks/'

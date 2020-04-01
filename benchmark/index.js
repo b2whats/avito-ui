@@ -1,6 +1,6 @@
 import deepmerge from 'deepmerge'
 import memoize from 'fast-memoize'
-// import { getStyles } from '../packages/mobile-components/src/styled-system/getThemeStyle'
+// import { getStyles } from '@avito/core/styled-system/getThemeStyle'
 // import tokens from '../packages/tokens/src/mav'
 const Benchmark = require('benchmark')
 const suite = new Benchmark.Suite

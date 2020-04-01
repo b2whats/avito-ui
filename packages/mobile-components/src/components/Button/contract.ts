@@ -1,5 +1,5 @@
 import React from 'react'
-import { MarginProperties } from '../../styled-system/'
+import { MarginProperties } from '@avito/core/styled-system/'
 import { ButtonTheme } from './theme'
 
 export interface ButtonProps extends MarginProperties {

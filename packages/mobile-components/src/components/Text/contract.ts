@@ -1,6 +1,6 @@
 import React from 'react'
-import { Theme } from '../../theme/'
-import { MarginProperties, DimensionProperties, ValignProperties } from '../../styled-system/'
+import { Theme } from '@avito/core/theme/'
+import { MarginProperties, DimensionProperties, ValignProperties } from '@avito/core/styled-system/'
 import { TextTheme } from './theme'
 
 export interface TextProps extends MarginProperties, DimensionProperties, ValignProperties {

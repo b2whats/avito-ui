@@ -1,8 +1,8 @@
 import React from 'react'
 import { css, keyframes } from '@emotion/core'
-import { useTheme, mergeTheme } from '../../theme/'
+import { useTheme, mergeTheme } from '@avito/core/theme/'
 import { Icon as IconBase } from '@avito/icons'
-import { foldThemeParams, createClassName } from '../../styled-system/'
+import { foldThemeParams, createClassName } from '@avito/core/styled-system/'
 import { IconProps } from './contract'
 import { iconTheme } from './theme'
 

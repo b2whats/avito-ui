@@ -1,5 +1,5 @@
 import React from 'react'
-import { MarginProperties, ValignProperties } from '../../styled-system/'
+import { MarginProperties, ValignProperties } from '@avito/core/styled-system/'
 import { TextareaTheme } from './theme'
 
 export interface TextareaCoreProps {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { css, keyframes } from '@emotion/core'
-import { filterProps } from '../../utils'
+import { filterProps } from '@avito/core/utils'
 import { InputCoreProps } from './contract'
 
 const autofill = keyframes`

@@ -1,4 +1,4 @@
-import { SchemeType } from '../../styled-system/'
+import { SchemeType } from '@avito/core/styled-system/'
 import { RadioProps } from './contract'
 
 export type RadioTheme = {

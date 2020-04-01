@@ -1,4 +1,4 @@
-import { SchemeType } from '../../styled-system/'
+import { SchemeType } from '@avito/core/styled-system/'
 import { ListItemProps } from './contract'
 import { TextProps } from '../Text/contract'
 import { StackProps, BoxProps } from '../Layout/contract'

@@ -1,6 +1,6 @@
-import { Theme } from '../../theme/'
+import { Theme } from '@avito/core/theme/'
 import { ReactText } from 'react'
-import { SpaceProperties, DimensionProperties } from '../../styled-system/'
+import { SpaceProperties, DimensionProperties } from '@avito/core/styled-system/'
 
 type Display = 'inline' | 'block' | 'flex' | 'inline-flex' | 'inline-block'
 

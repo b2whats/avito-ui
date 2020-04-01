@@ -1,7 +1,7 @@
 import React from 'react'
-import { filterProps } from '../../utils/'
-import { useTheme } from '../../theme/'
-import { createClassName } from '../../styled-system/'
+import { filterProps } from '@avito/core/utils/'
+import { useTheme } from '@avito/core/theme/'
+import { createClassName } from '@avito/core/styled-system/'
 import { BoxProps } from './contract'
 
 const boxClassName = createClassName<BoxProps>(

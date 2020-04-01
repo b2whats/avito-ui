@@ -1,6 +1,6 @@
 import React from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
-import { foldThemeParams } from '../../styled-system/'
+import { useTheme, mergeTheme } from '@avito/core/theme/'
+import { foldThemeParams } from '@avito/core/styled-system/'
 import { Icon } from '../Icon/'
 import { SpinnerProps } from './contract'
 import { spinnerTheme } from './theme'

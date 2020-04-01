@@ -1,4 +1,4 @@
-import { SchemeType } from '../../styled-system//'
+import { SchemeType } from '@avito/core/styled-system//'
 import { ButtonProps } from './contract'
 import { TextProps } from '../Text/contract'
 import { IconProps } from '../Icon/contract'

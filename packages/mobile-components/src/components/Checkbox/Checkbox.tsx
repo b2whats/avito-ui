@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
+import { useTheme, mergeTheme } from '@avito/core/theme/'
 import { Toggle } from '../Toggle'
 import { Icon } from '../Icon'
 import { CheckboxProps } from './contract'

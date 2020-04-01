@@ -1,5 +1,5 @@
-import { Theme } from '../../theme/'
-import { MarginProperties } from '../../styled-system/'
+import { Theme } from '@avito/core/theme/'
+import { MarginProperties } from '@avito/core/styled-system/'
 import { SpinnerTheme } from './theme' 
 
 export interface SpinnerProps extends MarginProperties {

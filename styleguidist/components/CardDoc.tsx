@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from '@avito/core/utils/styled'
 
 type CardProps = {
   inset: 'squish' | 'square',

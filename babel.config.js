@@ -35,6 +35,7 @@ const config = {
             '@avito/mobile-components': './packages/mobile-components/src',
             '@avito/tokens': './packages/tokens/src',
             '@avito/icons': './packages/icons/src',
+            '@avito/core': './packages/core/src',
           },
         },
       ])

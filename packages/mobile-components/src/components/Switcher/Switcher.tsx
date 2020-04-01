@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { useTheme, mergeTheme } from '../../theme/'
+import { useTheme, mergeTheme } from '@avito/core/theme/'
 import { Toggle } from '../Toggle'
 import { Icon } from '../Icon'
 import { Spinner } from '../Spinner'
