@@ -28,7 +28,13 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.tsx?$/, '.md')
   },
-  components: 'packages/mobile-components/src/components/**/[A-Z]*.tsx',
+  sections: [{
+    name: 'Mobile',
+    components: 'packages/mobile-components/src/components/**/[A-Z]*.tsx',
+  }, {
+    name: 'Web',
+    components: 'packages/web-components/src/components/**/[A-Z]*.tsx',
+  }],
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
     // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
     propFilter: (prop, component) => {
