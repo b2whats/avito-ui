@@ -2,10 +2,12 @@
   font-family: Avito;
   src: url('/Avitoweb-Regular.woff') format("woff");
   font-weight: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Avito;
   src: url('/Avitoweb-Heavy.woff') format("woff");
   font-weight: bold;
+  font-display: swap;
 }

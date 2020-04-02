@@ -1,7 +1,6 @@
 export { Button } from './components/Button'
 export { SegmentButton } from './components/SegmentButton'
 export { Text } from './components/Text'
-// export { Link } from './components/Link/'
 export { Icon } from './components/Icon'
 export { Checkbox } from './components/Checkbox'
 export { Radio } from './components/Radio'
@@ -12,5 +11,6 @@ export { Spinner } from './components/Spinner'
 export { Stack, Grid, Box, Group, Page } from './components/Layout'
 export { ListItem } from './components/List'
 
-export { createTheme } from './theme'
-export * from './hooks'
+export { ThemeProvider, useTheme } from './theme/'
+
+export * from './hooks/'
