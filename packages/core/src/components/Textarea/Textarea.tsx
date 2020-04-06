@@ -17,9 +17,7 @@ const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
   })
 )
 
-type Textarea = React.RefForwardingComponent<React.Ref<HTMLElement>, TextareaProps>
-
-export const Textarea: Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props }: TextareaProps, ref) => {
+export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props }: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(textareaTheme, theme.Textarea, override)
   const [textareaRef, setTextareaRef] = useRefHook(ref)

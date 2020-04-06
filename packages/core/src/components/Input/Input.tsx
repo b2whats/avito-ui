@@ -42,9 +42,7 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
   `)
 )
 
-type Input = React.RefForwardingComponent<React.Ref<HTMLInputElement>, InputProps>
-
-export const Input: Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: InputProps, ref) => {
+export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(inputTheme, theme.Input, override)
   const [inputRef, setInputRef] = useRefHook(ref)

@@ -37,7 +37,7 @@ export interface ButtonProps extends MarginProperties {
   /** Пресеты */
   preset?: 'primary' | 'accent' | 'secondary' | 'default' | 'defaultOnSurface' | 'defaultDark' | 'outline' | 'pay' | 'appInstall' | 'linkIncreased'
   /** Ссылка на дом ноду */
-  ref?: (node: HTMLButtonElement | HTMLAnchorElement | null) => void
+  ref?: React.Ref<HTMLButtonElement | HTMLLinkElement>
   /** Переопределиь тему компонента */
   override?: Partial<ButtonTheme>
 

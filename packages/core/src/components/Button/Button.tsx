@@ -84,9 +84,7 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
   `)
 )
 
-type Button = React.RefForwardingComponent<React.Ref<HTMLButtonElement | HTMLLinkElement>, ButtonProps> 
-
-export const Button: Button = React.forwardRef(({ override, ...props }: ButtonProps, ref) => {
+export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref: React.Ref<HTMLButtonElement | HTMLLinkElement>) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(buttonTheme, theme.Button, override)
 

@@ -67,9 +67,7 @@ const inputStyle = css`
   }
 `
 
-type InputCore = React.RefForwardingComponent<React.Ref<HTMLInputElement>, InputCoreProps>
-
-export const InputCore: InputCore = React.forwardRef((props: InputCoreProps, ref) => {
+export const InputCore = React.forwardRef((props: InputCoreProps, ref: React.Ref<HTMLInputElement>) => {
   // Прерываем всплытие события клика, так как клик будет триггерить лейбл и без отмены событие будет вызвано дважды
   const preventClick = (event: React.MouseEvent<HTMLInputElement>) => {
     event.stopPropagation()
