@@ -1,19 +1,18 @@
 import React from 'react'
 import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming'
-import defaultTheme from '@avito/tokens'
-import mergeTheme from './mergeTheme'
-import useTheme from './useTheme'
-import { Theme } from './contract'
+import { tokens, Tokens } from '@avito/tokens'
+import { mergeTheme } from './mergeTheme'
+import { useTheme } from './useTheme'
 
-const ThemeProvider: React.FunctionComponent<{ theme?: Theme }> = ({ theme, children }) => {
-  const globalteme = useTheme()
-  const mobileTeme = mergeTheme(defaultTheme, globalteme, theme)
+type ProviderProps = { children: React.ReactNode, defaultTheme?: Tokens, theme?: Partial<Tokens> }
+
+export function ThemeProvider({ defaultTheme = tokens, theme, children }: ProviderProps) {
+  const globalTheme = useTheme()
+  const currentTeme = mergeTheme(defaultTheme, globalTheme, theme)
   
   return (
-    <EmotionThemeProvider theme={mobileTeme}>
+    <EmotionThemeProvider theme={currentTeme}>
       {children}
     </EmotionThemeProvider>
   )
 }
-
-export default ThemeProvider

@@ -16,11 +16,11 @@ function getSize() {
 function useWindowSize() {
   let [windowSize, setWindowSize] = useState(getSize())
 
-  function handleResize() {
-    setWindowSize(getSize())
-  }
-
   useEffect(() => {
+    function handleResize() {
+      setWindowSize(getSize())
+    }
+    
     window.addEventListener('resize', handleResize)
     return () => {
       window.removeEventListener('resize', handleResize)

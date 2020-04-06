@@ -3,7 +3,7 @@ import deepmerge from 'deepmerge'
 const cache = new WeakMap()
 const defaultKey = {}
 
-const mergeTheme = <T extends object>(defaultTheme: T, globalOverride: Partial<T> = defaultKey, localOverride: Partial<T> = defaultKey): T => {
+export const mergeTheme = <T extends object>(defaultTheme: T, globalOverride: Partial<T> = defaultKey, localOverride: Partial<T> = defaultKey): T => {
   let cursor = cache
 
   if (!cursor.has(defaultTheme)) {
@@ -22,5 +22,3 @@ const mergeTheme = <T extends object>(defaultTheme: T, globalOverride: Partial<T
 
   return cursor.get(localOverride)
 }
-
-export default mergeTheme

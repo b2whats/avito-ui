@@ -1,7 +1,4 @@
-export { withTheme, ThemeProvider } from 'emotion-theming'
 export { default as isPropValid } from '@emotion/is-prop-valid'
-export { default as useRefHook } from './useRefHook'
-export * from './foldPreset'
 export { default as omit } from './omit'
 export { default as pick } from './pick'
 export { default as filterProps } from './filterProps'

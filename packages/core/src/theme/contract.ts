@@ -3,9 +3,7 @@ import { ButtonTheme } from '../components/Button/theme'
 import { CheckboxTheme } from '../components/Checkbox/theme'
 import { IconTheme } from '../components/Icon/theme'
 import { InputTheme } from '../components/Input/theme'
-import { ListItemTheme } from '../components/List/theme'
 import { RadioTheme } from '../components/Radio/theme'
-import { SegmentButtonTheme } from '../components/SegmentButton/theme'
 import { SpinnerTheme } from '../components/Spinner/theme'
 import { SwitcherTheme } from '../components/Switcher/theme'
 import { TextTheme } from '../components/Text/theme'
@@ -17,9 +15,7 @@ export interface Theme extends Tokens {
   Checkbox: Partial<CheckboxTheme>
   Icon: Partial<IconTheme>
   Input: Partial<InputTheme>
-  ListItem: Partial<ListItemTheme>
   Radio: Partial<RadioTheme>
-  SegmentButton: Partial<SegmentButtonTheme>
   Spinner: Partial<SpinnerTheme>
   Switcher: Partial<SwitcherTheme>
   Text: Partial<TextTheme>
