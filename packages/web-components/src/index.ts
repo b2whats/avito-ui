@@ -9,7 +9,4 @@ export { Textarea } from '@avito/core/components/Textarea'
 export { Spinner } from '@avito/core/components/Spinner'
 export { Stack, Grid, Box, Group, Page } from '@avito/core/components/Layout'
 
-export { ListItem } from './components/List'
-export { SegmentButton } from './components/SegmentButton'
-
 export { ThemeProvider, useTheme } from './theme/'

@@ -1,26 +1,37 @@
 {
-  "name": "web-components",
+  "name": "@avito/web-components",
   "version": "0.0.1",
-  "description": "> TODO: description",
+  "description": "Components for desctop web",
   "author": "vyuklepov <vyuklepov@avito.ru>",
-  "homepage": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "build/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "types": "build/index.d.ts",
+  "browser": "build/index.js",
   "files": [
-    "lib"
+    "build",
+    "src"
   ],
-  "publishConfig": {
-    "registry": "http://npm.msk.avito.ru"
-  },
-  "repository": {
-    "type": "git",
-    "url": "ssh://git@stash.msk.avito.ru:7999/mds/ui-web-components.git"
-  },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "yarn clean && yarn build:js && yarn build:types",
+    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
+    "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
+    "clean": "rm -rf ./build && rm -rf tsconfig.tsbuildinfo",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "yarn build",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@avito/core": "^0.0.1"
+  },
+  "devDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }

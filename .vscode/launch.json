@@ -9,7 +9,10 @@
       "request": "launch",
       "name": "Launch Program",
       "program": "${workspaceFolder}/node_modules/.bin/styleguidist",
-      "args": ["server"]
+      "args": ["server"],
+      "env": {
+        "TARGET": "server"
+      },
     }
   ]
 }

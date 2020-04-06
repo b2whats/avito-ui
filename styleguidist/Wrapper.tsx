@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { ThemeProvider } from '@avito/core/theme'
-import styled from '@emotion/styled'
+import { ThemeProvider } from '@avito/core/theme/'
+import styled from '@avito/core/styled-system/'
 import { Icon, Stack, Page } from '@avito/mobile-components'
 import * as tokens from '@avito/tokens'
 
