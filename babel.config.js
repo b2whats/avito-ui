@@ -36,7 +36,6 @@ const config = {
             '@avito/tokens': './packages/tokens/src',
             '@avito/icons': './packages/icons/src',
             '@avito/core': './packages/core/src',
-            'rsg-components': './node_modules/react-styleguidist/lib/client/rsg-components/',
           },
         },
       ])
