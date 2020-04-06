@@ -8,5 +8,3 @@ export { Input } from '@avito/core/components/Input'
 export { Textarea } from '@avito/core/components/Textarea'
 export { Spinner } from '@avito/core/components/Spinner'
 export { Stack, Grid, Box, Group, Page } from '@avito/core/components/Layout'
-
-export { ThemeProvider, useTheme } from './theme/'
