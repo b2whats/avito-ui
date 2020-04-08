@@ -17,7 +17,7 @@
     "experimentalDecorators": true,
     "paths": {
       "@avito/*": ["./*/src"],
-      "@avito/core/*": ["./core/src/*"],
+      "@avito/core/*": ["./core/src/*"]
     },
   },
   "exclude": ["node_modules", "packages/**/build"]

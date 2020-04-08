@@ -5,6 +5,7 @@ module.exports = {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
     ComponentsListRenderer: path.join(__dirname, 'styleguidist/ComponentsList'),
     StyleGuideRenderer: path.join(__dirname, 'styleguidist/components/StyleGuideRenderer'),
+    ReactComponent: path.join(__dirname, 'styleguidist/components/ReactComponent'),
   },
   assetsDir: 'styleguidist/assets',
   template: {
@@ -37,7 +38,11 @@ module.exports = {
   webpackConfig: {
     resolve: {
       extensions: [ '.tsx', '.ts', '.js', '.json' ],
-      mainFields: ['browser', 'module', 'main'],
+      mainFields: ['browser', 'module', 'main'], 
+      alias: {
+        // переопределил ReactComponent - стандартный Renderer отвалился
+        'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponentRenderer'),
+      }
     },
     module: {
       rules: [
