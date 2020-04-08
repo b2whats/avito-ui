@@ -6,6 +6,7 @@ module.exports = {
     ComponentsListRenderer: path.join(__dirname, 'styleguidist/ComponentsList'),
     StyleGuideRenderer: path.join(__dirname, 'styleguidist/components/StyleGuideRenderer'),
     ReactComponent: path.join(__dirname, 'styleguidist/components/ReactComponent'),
+    TableOfContentsRenderer: path.join(__dirname, 'styleguidist/components/TableOfContentsRenderer'),
   },
   assetsDir: 'styleguidist/assets',
   template: {
