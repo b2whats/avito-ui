@@ -1,33 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ThemeProvider } from '@avito/core/theme/'
-import styled from '@avito/core/styled-system/'
-import { Icon, Stack, Page } from '@avito/mobile-components'
+import { Page } from '@avito/mobile-components'
 import * as tokens from '@avito/tokens'
+import { store } from './store'
+import { observer } from 'mobx-react-lite'
 
-
-const ThemeToggle = styled('div')`
-  position: absolute;
-  right: 0;
-  top: 0px;
-  transform: translateY(-150%);
-`
-
-export default function Preview(props: { children: React.ReactNode }) {
-  const [state, update] = useState('mobile')
-
+export default observer((props: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider theme={tokens[state]}>
+    <ThemeProvider theme={tokens[store.theme]}>
       <div>
-        <ThemeToggle>
-          <Stack spacing='s'>
-            <Icon name='mobile' onClick={() => update('mobile')}/>
-            <Icon name='web' onClick={() => update('web')}/>
-          </Stack>
-        </ThemeToggle>
         <Page>
           {props.children}
         </Page>
       </div>
     </ThemeProvider>
   )
-}
+})

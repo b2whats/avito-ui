@@ -4,6 +4,7 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
     ComponentsListRenderer: path.join(__dirname, 'styleguidist/ComponentsList'),
+    StyleGuideRenderer: path.join(__dirname, 'styleguidist/components/StyleGuideRenderer'),
   },
   assetsDir: 'styleguidist/assets',
   template: {
@@ -16,26 +17,13 @@ module.exports = {
       ],
     },
   },
-  styles: {
-    Playground: {
-      preview: {
-        position: 'relative',
-        marginTop: '15px',
-      },
-    },
-  },
   require: [path.resolve(__dirname, 'styleguidist/setup.ts')],
   skipComponentsWithoutExample: true,
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.tsx?$/, '.md')
   },
-  sections: [{
-    name: 'Mobile',
-    components: ['packages/mobile-components/src/components/**/[A-Z]*.tsx', 'packages/core/src/components/**/[A-Z]*.tsx'],
-  }, {
-    name: 'Web',
-    components: ['packages/web-components/src/components/**/[A-Z]*.tsx', 'packages/core/src/components/**/[A-Z]*.tsx'],
-  }],
+  pagePerSection: true,
+  components: ['packages/{core,mobile-components,web-components}/src/components/**/[A-Z]*.tsx'],
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
     // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
     propFilter: (prop, component) => {
