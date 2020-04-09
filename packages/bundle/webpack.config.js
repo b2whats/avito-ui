@@ -1,4 +1,5 @@
 const path = require('path')
+const Visualizer = require('webpack-visualizer-plugin')
 const babelConfig = require('../../babel.config')
 
 module.exports = {
@@ -19,6 +20,7 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
+  plugins: [new Visualizer()],
   externals: {
     'react': 'React'
   }

@@ -23,11 +23,12 @@
   "scripts": {
     "build": "cross-env TARGET=bundle webpack",
     "stats": "cross-env TARGET=bundle webpack --json > stats.json",
-    "size:compressed": "yarn build > /dev/null && for file in dist/*; do echo $file\t$(gzip -c $file | wc -c) ; done"
+    "size:compressed": "yarn build > /dev/null && for file in dist/*.js; do echo $file\\\\t$(gzip -c $file | wc -c) bytes ; done"
   },
   "devDependencies": {
     "babel-loader": "^8.1.0",
     "webpack": "^4.42.1",
-    "webpack-cli": "^4.0.0-beta.2"
+    "webpack-cli": "^4.0.0-beta.2",
+    "webpack-visualizer-plugin": "^0.1.11"
   }
 }

@@ -46,6 +46,15 @@ npm-run-all - для запуска линтинга параллельно
 }
 ```
 
+# Размер бандла
+
+Размер библиотеки (десктопная и мобильная версии) проверяем пакетом `@avito/bundle-analyzer`.
+
+```sh
+yarn workspace @avito/bundle-analyzer ...
+```
+- `build` — собрать полные бандлы в `packages/bundle/dist` и график размера в `stats.html`
+- `size:compressed` — размеры бандлов после standalone gzip.
 
 #Readme
 https://itnext.io/how-to-set-up-a-typescript-monorepo-with-lerna-c6acda7d4559
