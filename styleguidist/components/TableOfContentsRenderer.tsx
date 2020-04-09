@@ -19,9 +19,11 @@ const ThemeControl = observer(() => {
   )
 })
 
-export default (props: any) => (
-  <>
-    <ThemeControl />
-    <TableOfContentsRenderer { ...props } />
-  </>
-)
+export default function ThemableToC(props: any) {
+  return (
+    <>
+      <ThemeControl />
+      <TableOfContentsRenderer { ...props } />
+    </>
+  )
+}

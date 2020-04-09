@@ -43,7 +43,7 @@ module.exports = {
       alias: {
         // переопределил ReactComponent - стандартный Renderer отвалился
         'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponentRenderer'),
-      }
+      },
     },
     module: {
       rules: [
