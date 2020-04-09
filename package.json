@@ -8,7 +8,13 @@
     "server": "cross-env BABEL_ENV=cjs TARGET=server NODE_ENV=production babel-node server/server.js --extensions \".js,.ts,.tsx\"",
     "bench": "cross-env BABEL_ENV=cjs TARGET=server NODE_ENV=production babel-node benchmark/index.js --extensions \".js,.ts,.tsx\"",
     "lint": "eslint . --ext .js,.ts,.tsx",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "concurrently 'yarn lint' 'yarn typecheck'"
+    }
   },
   "license": "MIT",
   "peerDependencies": {
@@ -36,6 +42,7 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "benchmark": "^2.1.4",
     "circular-dependency-plugin": "^5.0.2",
+    "concurrently": "^5.1.0",
     "create-emotion-server": "^10.0.14",
     "cross-env": "^5.2.0",
     "deepmerge": "^4.0.0",
@@ -43,6 +50,7 @@
     "eslint-plugin-react": "^7.17.0",
     "express": "^4.17.1",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.2.3",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^2.0.4",
     "react": "^16.8.6",

@@ -1,0 +1,4 @@
+{
+  "extends": "./tsconfig",
+  "include": ["packages/mobile-components/src", "packages/web-components/src"]
+}
