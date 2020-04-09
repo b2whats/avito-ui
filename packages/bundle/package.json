@@ -1,0 +1,32 @@
+{
+  "name": "@avito/bundle-analyzer",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Analyze @avito/* bundle sizes",
+  "author": "vyuklepov <vyuklepov@avito.ru>",
+  "homepage": "",
+  "license": "ISC",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.msk.avito.ru:7999/mds/ui-web-components.git"
+  },
+  "scripts": {
+    "build": "cross-env TARGET=bundle webpack",
+    "stats": "cross-env TARGET=bundle webpack --json > stats.json"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^4.0.0-beta.2"
+  }
+}
