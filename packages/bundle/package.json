@@ -22,7 +22,8 @@
   },
   "scripts": {
     "build": "cross-env TARGET=bundle webpack",
-    "stats": "cross-env TARGET=bundle webpack --json > stats.json"
+    "stats": "cross-env TARGET=bundle webpack --json > stats.json",
+    "size:compressed": "yarn build > /dev/null && for file in dist/*; do echo $file\t$(gzip -c $file | wc -c) ; done"
   },
   "devDependencies": {
     "babel-loader": "^8.1.0",
