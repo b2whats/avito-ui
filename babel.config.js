@@ -30,7 +30,7 @@ const config = {
     ]
 
     if (isServer || isBundleCheck) {
-      const packagePath = tail => path.join(isServer ? './packages' : '../', tail)
+      const packagePath = tail => (isServer ? './packages/' : '../') + tail
       plugins.push([
         'module-resolver',
         {
