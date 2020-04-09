@@ -194,8 +194,6 @@ type Shape = {
   },
 }
 
-
-
 export type Tokens = {
   focus: Focus,
   font: Font,

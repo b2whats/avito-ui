@@ -1,4 +1,4 @@
-import { SchemeType } from '../../styled-system/'
+import { SchemeType } from '@avito/core/styled-system/'
 import { SegmentButtonProps } from './contract'
 
 export type SegmentButtonTheme = {

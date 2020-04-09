@@ -1,6 +1,5 @@
 import deepmerge from 'deepmerge'
-import memoize from 'fast-memoize'
-// import { getStyles } from '../packages/mobile-components/src/styled-system/getThemeStyle'
+// import { getStyles } from '@avito/core/styled-system/getThemeStyle'
 // import tokens from '../packages/tokens/src/mav'
 const Benchmark = require('benchmark')
 const suite = new Benchmark.Suite
@@ -464,8 +463,6 @@ const buttonTheme = {
 
 const cache = new WeakMap()
 
-const memo = memoize((componentTheme, globalComponentTheme, override) => deepmerge.all([componentTheme, globalComponentTheme, override]))
-
 const createComponentTheme = (componentTheme, globalComponentTheme, override) => {
   let cursor = cache
 
@@ -493,7 +490,6 @@ suite
     createComponentTheme(buttonTheme, buttonTheme, buttonTheme)
   })
   .add('memo', function() {
-    memo(buttonTheme, buttonTheme, buttonTheme)
   })
   // .add('getStyles - 10', function() {
   //   getStyles(params10, tokens)

@@ -1,7 +1,7 @@
-import { SchemeType } from '../../styled-system/'
+import { SchemeType } from '@avito/core/styled-system/'
 import { ListItemProps } from './contract'
-import { TextProps } from '../Text/contract'
-import { StackProps, BoxProps } from '../Layout/contract'
+import { TextProps } from '@avito/core/components/Text/contract'
+import { StackProps, BoxProps } from '@avito/core/components/Layout/contract'
 
 export type ListItemTheme = {
   beforeTreshold: number,

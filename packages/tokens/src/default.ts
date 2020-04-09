@@ -1,6 +1,6 @@
 import { Tokens } from './contract'
 
-const tokens: Tokens = {
+export const tokens: Tokens = {
   focus: {
     shape: 'white 0px 0px 0px 1px, 0px 0px 2px 3px',
     color: {
@@ -193,5 +193,3 @@ const tokens: Tokens = {
     },
   },
 }
-
-export default tokens

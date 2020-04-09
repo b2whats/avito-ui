@@ -1,0 +1,37 @@
+{
+  "name": "@avito/web-components",
+  "version": "0.0.1",
+  "description": "Components for desctop web",
+  "author": "vyuklepov <vyuklepov@avito.ru>",
+  "license": "MIT",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "browser": "build/index.js",
+  "files": [
+    "build",
+    "src"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn build:js && yarn build:types",
+    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
+    "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
+    "clean": "rm -rf ./build && rm -rf tsconfig.tsbuildinfo",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "yarn build",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@avito/core": "^0.0.1"
+  },
+  "devDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

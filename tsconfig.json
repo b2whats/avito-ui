@@ -14,10 +14,10 @@
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "./packages",
+    "experimentalDecorators": true,
     "paths": {
-      "@avito/icons": ["icons/src"],
-      "@avito/mobile-components": ["mobile-components/src"],
-      "@avito/tokens": ["tokens/src"],
+      "@avito/*": ["./*/src"],
+      "@avito/core/*": ["./core/src/*"]
     },
   },
   "exclude": ["node_modules", "packages/**/build"]
