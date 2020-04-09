@@ -1,7 +1,9 @@
+const path = require('path')
 const { DEBUG, BABEL_ENV, NODE_ENV, TARGET } = process.env
 const isProduction = NODE_ENV === 'production'
 const isTest = NODE_ENV === 'test'
 const isServer = TARGET === 'server'
+const isBundleCheck = TARGET === 'bundle'
 
 const config = {
   presets: [
@@ -27,15 +29,16 @@ const config = {
       '@babel/plugin-syntax-dynamic-import',
     ]
 
-    if (isServer) {
+    if (isServer || isBundleCheck) {
+      const packagePath = tail => path.join(isServer ? './packages' : '../', tail)
       plugins.push([
         'module-resolver',
         {
           alias: {
-            '@avito/mobile-components': './packages/mobile-components/src',
-            '@avito/tokens': './packages/tokens/src',
-            '@avito/icons': './packages/icons/src',
-            '@avito/core': './packages/core/src',
+            '@avito/mobile-components': packagePath('mobile-components/src'),
+            '@avito/tokens': packagePath('tokens/src'),
+            '@avito/icons': packagePath('icons/src'),
+            '@avito/core': packagePath('core/src'),
           },
         },
       ])
