@@ -1,0 +1,17 @@
+name = "nephakt"
+description = "Витрина web-компонентов."
+kind = "infrastructure"
+unit = "Design-system"
+replicas = 1
+
+[engine]
+name = "static"
+version = "1.0"
+size = "small"
+
+[envs.dev]
+host = "nephakt-dev.k.avito.ru"
+[envs.staging]
+host = "nephakt-staging.k.avito.ru"
+[envs.prod]
+host = "nephakt.k.avito.ru"
