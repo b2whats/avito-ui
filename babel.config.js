@@ -29,8 +29,8 @@ const config = {
       '@babel/plugin-syntax-dynamic-import',
     ]
 
-    if (isServer || isBundleCheck) {
-      const packagePath = tail => (isServer ? './packages/' : '../') + tail
+    if (isServer || isTest || isBundleCheck) {
+      const packagePath = tail => (isBundleCheck ?  '../' : './packages/') + tail
       plugins.push([
         'module-resolver',
         {
