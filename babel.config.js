@@ -36,6 +36,7 @@ const config = {
         {
           alias: {
             '@avito/mobile-components': packagePath('mobile-components/src'),
+            '@avito/web-components': packagePath('web-components/src'),
             '@avito/tokens': packagePath('tokens/src'),
             '@avito/icons': packagePath('icons/src'),
             '@avito/core': packagePath('core/src'),

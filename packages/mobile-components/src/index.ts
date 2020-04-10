@@ -12,3 +12,4 @@ export { Stack, Grid, Box, Group, Page } from '@avito/core/components/Layout'
 export { ListItem } from './components/List'
 export { SegmentButton } from './components/SegmentButton'
 
+export { theme } from './theme'
