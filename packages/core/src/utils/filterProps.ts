@@ -8,7 +8,7 @@ const isPropValid = (prop: any) => {
   && prop.charCodeAt(2) < 91
 }
 
-const filterProps = (props: any) => {
+export const filterProps = (props: any) => {
   let ret: any = {}
 
   for (let prop in props) {
@@ -18,5 +18,3 @@ const filterProps = (props: any) => {
   }
   return ret
 }
-
-export default filterProps

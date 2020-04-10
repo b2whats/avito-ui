@@ -5,7 +5,7 @@ interface OmitFn {
   }
 }
 
-const omit: OmitFn = (obj, ...keys) => {
+export const omit: OmitFn = (obj, ...keys) => {
   let ret: any = {}
 
   let key: keyof typeof obj
@@ -16,5 +16,3 @@ const omit: OmitFn = (obj, ...keys) => {
   }
   return ret
 }
-
-export default omit

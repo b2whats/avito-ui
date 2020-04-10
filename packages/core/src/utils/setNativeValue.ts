@@ -1,4 +1,4 @@
-export default (element: HTMLElement | null, value: any) => {
+export function setNativeValue(element: HTMLElement | null, value: any) {
   if (!element) return
   
   const elementDescriptor = Object.getOwnPropertyDescriptor(element, 'value')

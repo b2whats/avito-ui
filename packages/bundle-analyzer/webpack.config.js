@@ -5,7 +5,7 @@ const babelConfig = require('../../babel.config')
 module.exports = {
   entry: {
     mobile: path.join( __dirname, '../mobile-components/src/index.ts'),
-    web: path.join(__dirname, '../web-components/src/index.ts')
+    web: path.join(__dirname, '../web-components/src/index.ts'),
   },
   mode: 'production',
   module: {
@@ -13,15 +13,15 @@ module.exports = {
       test: /\.[jt]sx?$/,
       use: {
         loader: 'babel-loader',
-        options: babelConfig
-      }
-    }]
+        options: babelConfig,
+      },
+    }],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [new Visualizer()],
   externals: {
-    'react': 'React'
-  }
+    'react': 'React',
+  },
 }

@@ -5,7 +5,7 @@ interface PickFn {
   }
 }
 
-const pick: PickFn = (obj, ...keys) => {
+export const pick: PickFn = (obj, ...keys) => {
   let ret: any = {}
 
   let key: keyof typeof obj
@@ -16,5 +16,3 @@ const pick: PickFn = (obj, ...keys) => {
   }
   return ret
 }
-
-export default pick
