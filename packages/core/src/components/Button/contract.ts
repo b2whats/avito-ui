@@ -4,6 +4,9 @@ import { ButtonTheme } from './theme'
 
 type Element = HTMLButtonElement | HTMLLinkElement
 
+// export enum trick allows per-platform declaration merging
+export enum ButtonPreset {}
+
 export interface ButtonProps extends MarginProperties, DimensionProperties, ValignProperties {
   children?: React.ReactNode
   /** Размер кнопки */
@@ -37,7 +40,7 @@ export interface ButtonProps extends MarginProperties, DimensionProperties, Vali
   /** Ссылка для перехода */
   href?: string
   /** Пресеты */
-  preset?: 'primary' | 'accent' | 'secondary' | 'default' | 'defaultOnSurface' | 'defaultDark' | 'outline' | 'pay' | 'appInstall' | 'linkIncreased'
+  preset?: keyof typeof ButtonPreset
   /** Ссылка на дом ноду */
   ref?: React.Ref<Element>
   /** Переопределиь тему компонента */

@@ -155,7 +155,9 @@ export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, Component
     ? SchemeType<Omit<Props, Key>, ComponentsProps>
     : IsUnion<NonNullable<Props[Key]>> extends true
       ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Omit<Props, Key>, ComponentsProps> }
-      : SchemeType<Omit<Props, Key>, ComponentsProps>
+      : Props[Key] extends string 
+        ? { [K in Props[Key]]?: SchemeType<Omit<Props, Key>, ComponentsProps> }
+        : SchemeType<Omit<Props, Key>, ComponentsProps>
 }
 
 const computedCrop = (crop: number, targetHeight: number) => {

@@ -2,6 +2,7 @@ import { Theme, mergeTheme } from '@avito/core'
 import { mobile } from '@avito/tokens'
 import { ListItemTheme } from './components/List/'
 import { SegmentButtonTheme } from './components/SegmentButton/'
+import { mobileButtonTheme } from './components/Button/theme'
 
 declare module '@avito/core' {
   interface Theme {
@@ -10,4 +11,6 @@ declare module '@avito/core' {
   }
 }
 
-export const theme = mergeTheme(mobile as Theme, {})
+export const theme = mergeTheme(mobile as Theme, {
+  Button: mobileButtonTheme,
+})
