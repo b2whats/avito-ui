@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  styleguideDir: 'public',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
     ComponentsListRenderer: path.join(__dirname, 'styleguidist/ComponentsList'),
