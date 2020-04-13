@@ -2,9 +2,7 @@ import '@avito/core'
 
 declare module '@avito/core' {
   enum ButtonPreset {
-    primary,
-    default,
-    accent,
+    accent = 200,
     secondary,
     defaultOnSurface,
     defaultDark,

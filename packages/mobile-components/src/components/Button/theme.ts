@@ -1,6 +1,6 @@
 import { DeepPartial, ButtonTheme } from '@avito/core'
 
-export const mobileButtonTheme: DeepPartial<ButtonTheme> = {
+export const buttonTheme: DeepPartial<ButtonTheme> = {
   scheme: {
     Text: {
       kind: {

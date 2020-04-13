@@ -2,14 +2,14 @@ import { Tokens } from './contract'
 
 export const web: Tokens = {
   focus: {
-    shape: 'white 0px 0px 0px 1px, 0px 0px 2px 3px',
+    shape: '0 0 0 3px',
     color: {
-      default: 'blue200',
-      primary: 'blue200',
+      default: 'blue100',
+      primary: 'blue100',
       secondary: 'blue200',
-      success: 'blue200',
-      warning: 'blue200',
-      error: 'blue200',
+      success: 'green100',
+      warning: 'orange100',
+      error: 'red100',
     },
   },
   font: {
@@ -21,13 +21,13 @@ export const web: Tokens = {
     fontSize: {
       xxxxxl: 0,
       xxxxl: 0,
-      xxxl: 0,
-      xxl: 36,
-      xl: 26,
-      l: 22,
+      xxxl: 40,
+      xxl: 32,
+      xl: 25,
+      l: 20,
       m: 16,
-      s: 13,
-      xs: 11,
+      s: 14,
+      xs: 13,
     },
   
     lineHeight: {

@@ -5,7 +5,7 @@ import { ButtonTheme } from './theme'
 type Element = HTMLButtonElement | HTMLLinkElement
 
 // export enum trick allows per-platform declaration merging
-export enum ButtonPreset {}
+export enum ButtonPreset { primary, default }
 
 export interface ButtonProps extends MarginProperties, DimensionProperties, ValignProperties {
   children?: React.ReactNode

@@ -28,7 +28,7 @@ import { Stack } from '../Layout/';
 
 ## Размеры
 
-Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`.  
+Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`.
 По умолчанию `m`
 ```js
 import { Stack } from '../Layout/';
@@ -74,8 +74,8 @@ import { Stack } from '../Layout/';
 
 ## Иконки в кнопке
 
-Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.  
-Возможные значения:  
+Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.
+Возможные значения:
 строка - `search`
 renderProp - `(iconProps) => <Icon name='search' {...iconProps}>`. `iconProps` - добавляе параметры темы
 Component - `<Icon name='search' color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
@@ -95,15 +95,15 @@ import { Icon } from '../Icon/';
 
 ## Размеры кнопки
 
-Доступные парамеры:  
-`width`, `maxWidth`, `minWidth` - ширина кнопки. Доступные значения: `number`  
+Доступные парамеры:
+`width`, `maxWidth`, `minWidth` - ширина кнопки. Доступные значения: `number`
 `height`, `maxHeight`, `minHeight` - высота кнопки. Доступные значения: `number`, `s`, `m`, `l`
-`block`, `grow` - кнопка занимает всю возможную ширину родителя. Доступные значения: `boolean`  
-`shrik` - позволяет кнопке сжиматься в контексте компонента `Layout`. Доступные значения: `boolean`  
+`block`, `grow` - кнопка занимает всю возможную ширину родителя. Доступные значения: `boolean`
+`shrik` - позволяет кнопке сжиматься в контексте компонента `Layout`. Доступные значения: `boolean`
 
-Если значение ширины и высоты больше 1, размер устанавливается в пикселях `width={100}` = `100px`   
-Если значение ширины и высоты меньше 1, размер устанавливается в процентах `width={0.3}` = `30%`  
-Значения `s`, `m`, `l` берут свои размерности из темы  
+Если значение ширины и высоты больше 1, размер устанавливается в пикселях `width={100}` = `100px`
+Если значение ширины и высоты меньше 1, размер устанавливается в процентах `width={0.3}` = `30%`
+Значения `s`, `m`, `l` берут свои размерности из темы
 
 ```js
 import { Text } from '../Text/';
@@ -131,11 +131,11 @@ import { Stack } from '../Layout/';
 </Stack>
 ```
 
-:::platform mobile
 ## Внешний вид кнопки
 
 Параметр `preset` задает цветовую схему кнопки
 
+::: platform mobile
 ```js
 import { Stack } from '../Layout/'
 import { Icon } from '../Icon/'
@@ -223,6 +223,31 @@ import { Text } from '../Text/'
     <Button preset='linkIncreased' shape='pill'>Кнопка</Button>
     <Button preset='linkIncreased' shape='square' iconBefore='search' />
     <Button preset='linkIncreased' shape='circle' iconBefore='search' />
+  </Stack>
+</Stack>
+```
+:::
+
+::: platform web
+```tsx
+import { Stack } from '../Layout';
+
+<Stack spacing="m" column>
+  <Stack spacing="m">
+    <Button>Кнопка</Button>
+    <Button preset="newDefault">Кнопка</Button>
+    <Button preset="primary">Кнопка</Button>
+    <Button preset="success">Кнопка</Button>
+    <Button preset="warning">Кнопка</Button>
+    <Button preset="error">Кнопка</Button>
+  </Stack>
+  <Stack spacing="m">
+    <Button disabled>Кнопка</Button>
+    <Button preset="newDefault" disabled>Кнопка</Button>
+    <Button preset="primary" disabled>Кнопка</Button>
+    <Button preset="success" disabled>Кнопка</Button>
+    <Button preset="warning" disabled>Кнопка</Button>
+    <Button preset="error" disabled>Кнопка</Button>
   </Stack>
 </Stack>
 ```

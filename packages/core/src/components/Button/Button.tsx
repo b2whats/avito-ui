@@ -76,6 +76,10 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
       bottom: 0;
     }
 
+    &:not(:disabled):active > *, &[data-state~=active] > *  {
+      transform: translateY(1px);
+    }
+
     &[aria-busy='true'] > :not([data-icon='spinner']) {
       visibility: hidden;
     }

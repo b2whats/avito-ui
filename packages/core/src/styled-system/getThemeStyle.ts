@@ -99,7 +99,7 @@ type LayoutProperties = ValignProperties & Partial<{
 
 type OtherProperties = Partial<{
   borderStyle: 'solid' | 'dotted' | 'dashed' | 'none',
-  focus: boolean,
+  focus: boolean | string,
   disabled: boolean,
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   adjacentSelector: string,
@@ -155,13 +155,13 @@ export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, Component
     ? SchemeType<Omit<Props, Key>, ComponentsProps>
     : IsUnion<NonNullable<Props[Key]>> extends true
       ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Omit<Props, Key>, ComponentsProps> }
-      : Props[Key] extends string 
+      : Props[Key] extends string
         ? { [K in Props[Key]]?: SchemeType<Omit<Props, Key>, ComponentsProps> }
         : SchemeType<Omit<Props, Key>, ComponentsProps>
 }
 
 const computedCrop = (crop: number, targetHeight: number) => {
-  const value = (crop + (targetHeight - 1) * 16) / 32 
+  const value = (crop + (targetHeight - 1) * 16) / 32
 
   return Math.round(value * 100) / 100
 }
@@ -277,8 +277,9 @@ export const foldScheme = (scheme: any, props: any) => {
     const value = props[prop]
     const nestedConfig = scheme[prop]
 
-    if (nestedConfig[value]) {
-      const data = foldScheme(nestedConfig[value], props)
+    const switchBranch = nestedConfig[value]
+    if (switchBranch) {
+      const data = foldScheme(switchBranch, props)
 
       Object.assign(result.style, data.style)
       Object.assign(result.props, data.props)
@@ -297,7 +298,7 @@ export const foldScheme = (scheme: any, props: any) => {
   return result
 }
 
-export const getStyles = (params: StyleProperties & Display, {font, dimension, space, palette, focus, shape}: any) => {
+export const getStyles = (params: StyleProperties & Display, {font, dimension, space, palette, focus, shape}: Tokens) => {
   let css = 'box-sizing: border-box;'
 
   if (!params) return css
@@ -314,11 +315,13 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   let width = ''
 
 
-  for (const param in params) {
-    let value = params[param]
+  for (const _param in params) {
+    const param = _param as keyof typeof params
+    let value = params[_param]
 
     if (value === null || value === undefined) continue
 
+    // Exhaustive switch
     switch (param) {
       case 'fontFamily':
         css += `font-family: ${value};`
@@ -372,7 +375,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         break
       case 'truncate':
         display = 'inline-block'
-        
+
         css += `
           max-width: 100%;
           vertical-align: top;
@@ -394,14 +397,14 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
             margin-top: 0;
             margin-bottom: 0;
           }
-          
+
           &::before, &::after {
             content: '';
             display: block;
             height: 0;
             width: 0;
           }
-      
+
           &::before { margin-bottom: -${computedCrop(font.crop.top, lineHeight)}em }
           &::after { margin-top: -${computedCrop(font.crop.bottom, lineHeight)}em }
         `
@@ -416,7 +419,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
           padding-bottom: ${font.underline.offset}px;
           border-bottom: ${font.underline.height}px ${typeof value === 'string' ? value : 'solid'} currentColor;
         `
-  
+
         break
       case 'width':
         width = value > 1 ? `${value}px` : `${value * 100}%`
@@ -451,22 +454,22 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       }
       case 'grow':
         css += `flex-grow: ${value ? '1' : '0'};`
-    
+
         break
       case 'shrink':
         css += `flex-shrink: ${value ? '1' : '0'};`
-    
+
         break
       case 'borderWidth':
         css += `border-width: ${value}px;`
-    
+
         break
       case 'rounded':
       case 'borderRadius':
         if (params.shape === 'circle' || params.shape === 'pill') break
 
         css += `border-radius: ${value === 'circle' ? '100' : shape.borderRadius[value] || value}px;`
-    
+
         break
       case 'align': {
         if (!params.display) break
@@ -546,107 +549,107 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
           `padding-bottom: ${value};`,
           `padding-left: ${value};`,
         ]
-    
+
         break
       case 'px':
         value = spaceValue(value, space)
         padding[1] = `padding-right: ${value};`
         padding[3] = `padding-left: ${value};`
-  
+
         break
       case 'py':
         value = spaceValue(value, space)
         padding[0] = `padding-top: ${value};`
         padding[2] = `padding-bottom: ${value};`
-  
+
         break
       case 'pt':
         value = spaceValue(value, space)
         padding[0] = `padding-top: ${value};`
-  
+
         break
       case 'pr':
         value = spaceValue(value, space)
         padding[1] = `padding-right: ${value};`
-  
+
         break
       case 'pb':
         value = spaceValue(value, space)
         padding[2] = `padding-bottom: ${value};`
-  
+
         break
       case 'pl':
         value = spaceValue(value, space)
         padding[3] = `padding-left: ${value};`
-  
+
         break
       case 'color':
       case 'bg':
       case 'borderColor':
         css += `${maps.color[param]}: ${palette[value] || value};`
-      
+
         break
       case 'colorHover':
       case 'bgHover':
       case 'borderColorHover':
         hoverState.push(`${maps.color[param]}: ${palette[value] || value};`)
-            
+
         break
       case 'colorActive':
       case 'bgActive':
       case 'borderColorActive':
         activeState.push(`${maps.color[param]}: ${palette[value] || value};`)
-            
+
         break
       case 'colorVisited':
       case 'bgVisited':
       case 'borderColorVisited':
         visitedState.push(`${maps.color[param]}: ${palette[value] || value};`)
-            
+
         break
       case 'colorFocus':
       case 'bgFocus':
       case 'borderColorFocus':
         focusState.push(`${maps.color[param]}: ${palette[value] || value};`)
-            
+
         break
       case 'colorChecked':
       case 'bgChecked':
       case 'borderColorChecked':
         checkedState.push(`${maps.color[param]}: ${palette[value] || value};`)
-                
+
         break
       case 'colorDisabled':
       case 'bgDisabled':
       case 'borderColorDisabled':
         disabledState.push(`${maps.color[param]}: ${palette[value] || value};`)
-            
+
         break
       case 'placeholderColor':
         css += `&::placeholder, & *::placeholder {color: ${palette[value] || value};-webkit-text-fill-color: currentcolor;}`
-            
+
         break
       case 'borderStyle':
         css += `border-style: ${value};`
-            
+
         break
       case 'position':
         css += `position: ${value};`
-            
+
         break
       case 'focus': {
         css += 'outline: none;'
 
         if (!value) break
 
-        const color = focus.color[params.variant || 'default']
-        
-        focusState.push(`            
+        const color = typeof value === 'string' ? value : focus.color[params.variant || 'default']
+
+        focusState.push(`
           box-shadow: ${focus.shape} ${palette[color] || color};
           position: relative;
           z-index: 2;
         `)
- 
+
         break
       }
       case 'disabled':
@@ -661,16 +664,17 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         }
         if (value === 'circle' || value === 'square') {
           const targetHeight = params.height || params.minHeight
-          
+
           if (targetHeight) {
             width = `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
           }
         }
-            
+
         break
       }
       default:
-        break
+        // Exhaustive switch guard
+        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate'>(param)
     }
   }
 
@@ -786,3 +790,5 @@ export function createClassName<Props, ComponentTheme extends object | null = nu
     return typeof resultRules === 'string' ? css`${resultRules}` : resultRules
   }
 }
+
+function assertExhaustive<K>(v: K) {}
