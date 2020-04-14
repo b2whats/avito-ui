@@ -71,7 +71,7 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
 
   useEffect(() => {
     autoSize && resize()
-  })
+  }, [autoSize])
 
   return (
     <textarea css={textareaStyle} {...filterProps(props)} onMouseDown={preventClick}  ref={setRef} autoCorrect='off' spellCheck={false} />

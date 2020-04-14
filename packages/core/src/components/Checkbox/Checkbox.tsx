@@ -1,7 +1,7 @@
 import React from 'react'
-import { useTheme, mergeTheme } from '../../theme'
-import { Toggle } from '../Toggle'
-import { Icon } from '../Icon'
+import { useTheme, mergeTheme } from '../../theme/'
+import { Toggle } from '../Toggle/'
+import { Icon } from '../Icon/'
 import { CheckboxProps } from './contract'
 import { checkboxTheme } from './theme'
 

@@ -35,9 +35,6 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.tsx?$/, '.md')
   },
-  updateDocs(docs, file) {
-    return docs
-  },
   pagePerSection: true,
   components: ['packages/{core,mobile-components,web-components}/src/components/**/[A-Z]*.tsx'],
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {

@@ -13,8 +13,6 @@ export interface InputCoreProps {
   type?: string
   /** Значение */
   value?: string | number
-  /** Значение без обработчикиа */
-  defaultValue?: string | number
   /** Подсказка */
   placeholder?: string
   /** Неактивное состояние */
