@@ -7,7 +7,7 @@ import { Stack } from '../Layout/'
 const [state, setState] = useState('default')
 ;
 
-<Stack spacing='m'>
+<Stack spacing='m' column align='left'>
   <Input minWidth={200} inline value={state} onChange={({ target: { value } }) => setState(value)}/>
   <Button>{state}</Button>
 </Stack>
@@ -18,7 +18,7 @@ const [state, setState] = useState('default')
 ```js
 import { Stack } from '../Layout/';
 
-<Stack spacing='m'>
+<Stack spacing='m' align='left' column>
   <Button>normal</Button>
   <Button checked>pressed/checked</Button>
   <Button loading>loading</Button>
@@ -85,7 +85,7 @@ import { Text } from '../Text/';
 import { Stack } from '../Layout/';
 import { Icon } from '../Icon/';
 
-<Stack spacing='m'>
+<Stack spacing='m' align='left' column>
   <Button iconBefore='search'>Кнопка</Button>
   <Button iconAfter='search'>Кнопка</Button>
   <Button iconBefore={(iconProps) => <Icon name='search' {...iconProps}/>}>Кнопка</Button>
