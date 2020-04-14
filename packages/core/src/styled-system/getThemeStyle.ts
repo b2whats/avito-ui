@@ -197,6 +197,12 @@ const maps = {
     right: 'flex-end',
     justify: 'space-between',
   },
+  alignColumn: {
+    left: 'flex-start',
+    center: 'center',
+    right: 'flex-end',
+    justify: 'stretch',
+  },
   alignFlex: {
     top: 'flex-start',
     middle: 'center',
@@ -460,10 +466,17 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       case 'align': {
         if (!params.display) break
 
-        const prop = maps.align[params.display]
+        let prop
 
-        if (prop === 'justify-content') {
-          value = maps.justifyContent[value]
+        if (params.column) {
+          prop = 'align-items'
+          value = maps.alignColumn[value]
+        } else {
+          prop = maps.align[params.display]
+
+          if (prop === 'justify-content') {
+            value = maps.justifyContent[value]
+          }
         }
 
         css += `${prop}: ${value};`
@@ -617,6 +630,10 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
             
         break
       case 'focus': {
+        css += 'outline: none;'
+
+        if (!value) break
+
         const color = focus.color[params.variant || 'default']
         
         focusState.push(`            
@@ -624,8 +641,6 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
           position: relative;
           z-index: 2;
         `)
-
-        css += 'outline: none;'
  
         break
       }
@@ -701,7 +716,10 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
     css += `${selector.focus}{${focusState.join('')}}`
   }
   if (disabledState.length) {
-    css += `${selector.disabled}{cursor: not-allowed;${disabledState.join('')}}`
+    css += `${selector.disabled} {
+      pointer-events: none;
+      ${disabledState.join('')}
+    }`
   }
 
   if (width.endsWith('%') && (margin[1] || margin[3])) {

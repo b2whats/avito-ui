@@ -1,8 +1,10 @@
 import React from 'react'
-import { MarginProperties } from '../../styled-system/'
+import { MarginProperties, DimensionProperties, ValignProperties } from '../../styled-system/'
 import { ButtonTheme } from './theme'
 
-export interface ButtonProps extends MarginProperties {
+type Element = HTMLButtonElement | HTMLLinkElement
+
+export interface ButtonProps extends MarginProperties, DimensionProperties, ValignProperties {
   children?: React.ReactNode
   /** Размер кнопки */
   size: 's' | 'm' | 'l'
@@ -37,11 +39,13 @@ export interface ButtonProps extends MarginProperties {
   /** Пресеты */
   preset?: 'primary' | 'accent' | 'secondary' | 'default' | 'defaultOnSurface' | 'defaultDark' | 'outline' | 'pay' | 'appInstall' | 'linkIncreased'
   /** Ссылка на дом ноду */
-  ref?: React.Ref<HTMLButtonElement | HTMLLinkElement>
+  ref?: React.Ref<Element>
   /** Переопределиь тему компонента */
   override?: Partial<ButtonTheme>
 
-  onClick?(event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void
-  onKeyDown?(event: React.KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>): void
+  onClick?(event: React.MouseEvent<Element>): void
+  onKeyDown?(event: React.KeyboardEvent<Element>): void
+  onFocus?(event: React.FocusEvent<Element>): void
+  onBlur?(event: React.FocusEvent<Element>): void
 }
 

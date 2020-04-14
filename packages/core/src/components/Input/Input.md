@@ -182,34 +182,42 @@ const onFavoriteClick = (event) => {
 Префиикс и постфикс
 
 ```jsx
+import { useState } from 'react'
 import { Stack } from '../Layout/'
 import { Spinner } from '../Spinner/'
 import { Icon } from '../Icon/'
 import { Text } from '../Text/'
-const initialState = { value: '' }
-const onChange = ({ target }) => {
-  setState(state => ({ value: target.value }))
+
+const [state, setState] = useState({})
+const onChange = ({ target: { name, value } }) => {
+  setState(state => ({
+    ...state,
+    [name]: value
+  }))
 };
 
 <Stack column spacing='s'>
   <Input
+    name='one'
     placeholder='Укажите цену,'
     postfix='₽'
-    value={state.value}
+    value={state.one}
     clearable
     onChange={onChange}
   />
 
   <Input
+    name='two'
     prefix='от'
-    value={state.value}
+    value={state.two}
     clearable
     onChange={onChange}
   />
 
   <Input
+    name='three'
     prefix={<Text color='blue500'>от</Text>}
-    value={state.value}
+    value={state.three}
     clearable
     onChange={onChange}
   />

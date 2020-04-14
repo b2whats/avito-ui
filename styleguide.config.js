@@ -1,6 +1,16 @@
 const path = require('path')
 
 module.exports = {
+  styles: {
+    Code: {
+      code: {
+        color: '#e83e8c',
+        background: 'rgba(232, 62, 140, 0.1)',
+        padding: '2px 4px',
+        borderRadius: '4px',
+      },
+    },
+  },
   styleguideDir: 'public',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
@@ -24,6 +34,9 @@ module.exports = {
   skipComponentsWithoutExample: true,
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.tsx?$/, '.md')
+  },
+  updateDocs(docs, file) {
+    return docs
   },
   pagePerSection: true,
   components: ['packages/{core,mobile-components,web-components}/src/components/**/[A-Z]*.tsx'],

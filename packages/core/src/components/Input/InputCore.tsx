@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { css, keyframes } from '@emotion/core'
 import { filterProps } from '@avito/core/utils'
 import { InputCoreProps } from './contract'
@@ -35,6 +35,7 @@ const inputStyle = css`
   width: 100%;
   height: 100%;
   padding: 0px;
+  padding-bottom: 1px;
   margin: 0px;
   border-width: 0;
   visibility: visible;
@@ -68,14 +69,16 @@ const inputStyle = css`
 `
 
 export const InputCore = React.forwardRef((props: InputCoreProps, ref: React.Ref<HTMLInputElement>) => {
+  const value = props.value === null || props.value === undefined ? '' : String(props.value)
+
   // Прерываем всплытие события клика, так как клик будет триггерить лейбл и без отмены событие будет вызвано дважды
   const preventClick = (event: React.MouseEvent<HTMLInputElement>) => {
     event.stopPropagation()
   }
 
   return (
-    <div css={inputField(props.autoSize)} data-value={props.value || props.placeholder}>
-      <input {...filterProps(props)} onMouseDown={preventClick} ref={ref} css={inputStyle} autoCorrect='off' spellCheck={false}/>
+    <div css={inputField(props.autoSize)} data-value={value || props.placeholder}>
+      <input type='text' {...filterProps(props)} value={value} ref={ref} css={inputStyle} autoCorrect='off' spellCheck={false} onMouseDown={preventClick} />
     </div>
   )
 })

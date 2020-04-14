@@ -1,29 +1,149 @@
+## Тестовый блок
+
+```js
+import { useState } from 'react'
+import { Input } from '../Input/'
+import { Stack } from '../Layout/'
+const [state, setState] = useState('default')
+;
+
+<Stack spacing='m'>
+  <Input minWidth={200} inline value={state} onChange={({ target: { value } }) => setState(value)}/>
+  <Button>{state}</Button>
+</Stack>
+```
+
+## Состояние
+
+```js
+import { Stack } from '../Layout/';
+
+<Stack spacing='m'>
+  <Button>normal</Button>
+  <Button checked>pressed/checked</Button>
+  <Button loading>loading</Button>
+  <Button disabled>disabled</Button>
+</Stack>
+```
+
+## Размеры
+
+Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`.  
+По умолчанию `m`
+```js
+import { Stack } from '../Layout/';
+
+<Stack spacing='m'>
+  <Button size='s'>Size: s</Button>
+  <Button>Size: m</Button>
+  <Button size='l'>Size: l</Button>
+</Stack>
+```
+
+## Многострочная кнопка
+
+В кнопке может быть несколько строк
+```js
+import { Text } from '../Text/';
+import { Stack } from '../Layout/';
+
+<Stack spacing='m'>
+  <Button>1 строка</Button>
+  <Button>
+    1 строка<br/>
+    2 строка
+  </Button>
+</Stack>
+```
+
+## Форма кнопки
+
+Параметр `shape` определяет форму кнопки. Доступные значения `pill`, `square`, `circle`.
+
+```js
+import { Text } from '../Text/';
+import { Stack } from '../Layout/';
+
+<Stack spacing='m'>
+  <Button>default</Button>
+  <Button shape='pill'>pill</Button>
+  <Button shape='square'>S</Button>
+  <Button shape='circle'>C</Button>
+</Stack>
+```
+
+## Иконки в кнопке
+
+Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.  
+Возможные значения:  
+строка - `search`
+renderProp - `(iconProps) => <Icon name='search' {...iconProps}>`. `iconProps` - добавляе параметры темы
+Component - `<Icon name='search' color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
+
+```js
+import { Text } from '../Text/';
+import { Stack } from '../Layout/';
+import { Icon } from '../Icon/';
+
+<Stack spacing='m'>
+  <Button iconBefore='search'>Кнопка</Button>
+  <Button iconAfter='search'>Кнопка</Button>
+  <Button iconBefore={(iconProps) => <Icon name='search' {...iconProps}/>}>Кнопка</Button>
+  <Button iconBefore={<Icon name='search' color='black'/>}>Кнопка</Button>
+</Stack>
+```
+
+## Размеры кнопки
+
+Доступные парамеры:  
+`width`, `maxWidth`, `minWidth` - ширина кнопки. Доступные значения: `number`  
+`height`, `maxHeight`, `minHeight` - высота кнопки. Доступные значения: `number`, `s`, `m`, `l`
+`block`, `grow` - кнопка занимает всю возможную ширину родителя. Доступные значения: `boolean`  
+`shrik` - позволяет кнопке сжиматься в контексте компонента `Layout`. Доступные значения: `boolean`  
+
+Если значение ширины и высоты больше 1, размер устанавливается в пикселях `width={100}` = `100px`   
+Если значение ширины и высоты меньше 1, размер устанавливается в процентах `width={0.3}` = `30%`  
+Значения `s`, `m`, `l` берут свои размерности из темы  
+
+```js
+import { Text } from '../Text/';
+import { Box, Stack } from '../Layout/';
+
+<Stack spacing='m' column>
+  <Button width={150}>150px</Button>
+  <Button width={0.3}>30%</Button>
+  <Button grow>grow</Button>
+  <Button block>block</Button>
+  <Button width={150} height={50}>height 50px</Button>
+</Stack>
+```
+
+## Кнопка как ссылка
+
+Кнопка может выполнять роль ссылки, достаточно передать парамер `href`
+```js
+import { Text } from '../Text/';
+import { Stack } from '../Layout/';
+
+<Stack spacing={10}>
+  <Button href='https://example.com'>Ссылка</Button>
+  <Button href='https://example.com' disabled>Неактивная сылка</Button>
+</Stack>
+```
+
+## Внешний вид кнопки
+
+Параметр `preset` задает цветовую схему кнопки
+
 ```js
 import { Stack } from '../Layout/'
 import { Icon } from '../Icon/'
+import { Text } from '../Text/'
 ;
 
 <Stack spacing={10} column>
-  <Stack spacing={10} wrap>
-    <Button preset='primary' size='s'>Кнопка</Button>
-    <Button preset='primary' size='s' iconBefore='search'>Кнопка</Button>
-    <Button preset='primary' size='s' iconAfter='search'>Кнопка</Button>
-    <Button preset='primary'>Кнопка</Button>
-    <Button preset='primary' iconBefore='search'>Кнопка</Button>
-    <Button preset='primary' iconAfter='search'>Кнопка</Button>
-    <Button preset='primary' size='l'>Кнопка</Button>
-    <Button preset='primary' size='l' iconBefore='search'>Кнопка</Button>
-    <Button preset='primary' size='l' iconBefore={<Icon size='l' name='search'/>}>Кнопка</Button>
-    <Button preset='primary' size='l' iconAfter='search'>Кнопка</Button>
-    <Button preset='primary' disabled>Кнопка</Button>
-    <Button preset='primary' size='s' loading>Кнопка</Button>
-    <Button preset='primary' loading>Кнопка</Button>
-    <Button preset='primary' size='l' loading>Кнопка</Button>
-    <Button preset='primary' shape='pill'>Кнопка</Button>
-    <Button preset='primary' shape='square' iconBefore='search' />
-    <Button preset='primary' shape='circle' iconBefore='search' />
-  </Stack>
-  <Stack p={10} spacing={10} wrap>
+  <Stack p={10} spacing={10} valign='middle' wrap>
+    <Text>accent</Text>
     <Button preset='accent'>Кнопка</Button>
     <Button preset='accent' disabled>Кнопка</Button>
     <Button preset='accent' loading>Кнопка</Button>
@@ -31,7 +151,8 @@ import { Icon } from '../Icon/'
     <Button preset='accent' shape='square' iconBefore='search' />
     <Button preset='accent' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} wrap>
+  <Stack p={10} spacing={10} valign='middle' wrap>
+    <Text>secondary</Text>
     <Button preset='secondary'>Кнопка</Button>
     <Button preset='secondary' disabled>Кнопка</Button>
     <Button preset='secondary' loading>Кнопка</Button>
@@ -39,7 +160,8 @@ import { Icon } from '../Icon/'
     <Button preset='secondary' shape='square' iconBefore='search' />
     <Button preset='secondary' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} wrap>
+  <Stack p={10} spacing={10} valign='middle' wrap>
+    <Text>default</Text>
     <Button preset='default'>Кнопка</Button>
     <Button preset='default' disabled>Кнопка</Button>
     <Button preset='default' loading>Кнопка</Button>
@@ -47,7 +169,8 @@ import { Icon } from '../Icon/'
     <Button preset='default' shape='square' iconBefore='search' />
     <Button preset='default' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} bg='gray4' wrap>
+  <Stack p={10} spacing={10} bg='gray4' valign='middle' wrap>
+    <Text>defaultOnSurface</Text>
     <Button preset='defaultOnSurface'>Кнопка</Button>
     <Button preset='defaultOnSurface' disabled>Кнопка</Button>
     <Button preset='defaultOnSurface' loading>Кнопка</Button>
@@ -55,7 +178,8 @@ import { Icon } from '../Icon/'
     <Button preset='defaultOnSurface' shape='square' iconBefore='search' />
     <Button preset='defaultOnSurface' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} bg='gray84' wrap>
+  <Stack p={10} spacing={10} bg='gray84' valign='middle' wrap>
+    <Text color='white'>defaultDark</Text>
     <Button preset='defaultDark'>Кнопка</Button>
     <Button preset='defaultDark' disabled>Кнопка</Button>
     <Button preset='defaultDark' loading>Кнопка</Button>
@@ -63,7 +187,8 @@ import { Icon } from '../Icon/'
     <Button preset='defaultDark' shape='square' iconBefore='search' />
     <Button preset='defaultDark' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} wrap>
+  <Stack p={10} spacing={10} valign='middle' wrap>
+    <Text>outline</Text>
     <Button preset='outline'>Кнопка</Button>
     <Button preset='outline' disabled>Кнопка</Button>
     <Button preset='outline' loading>Кнопка</Button>
@@ -71,7 +196,8 @@ import { Icon } from '../Icon/'
     <Button preset='outline' shape='square' iconBefore='search' />
     <Button preset='outline' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} wrap>
+  <Stack p={10} spacing={10} valign='middle' wrap>
+    <Text>pay</Text>
     <Button preset='pay'>Кнопка</Button>
     <Button preset='pay' disabled>Кнопка</Button>
     <Button preset='pay' loading>Кнопка</Button>
@@ -79,7 +205,8 @@ import { Icon } from '../Icon/'
     <Button preset='pay' shape='square' iconBefore='search' />
     <Button preset='pay' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} wrap>
+  <Stack p={10} spacing={10} valign='middle' wrap>
+    <Text>appInstall</Text>
     <Button preset='appInstall'>Кнопка</Button>
     <Button preset='appInstall' disabled>Кнопка</Button>
     <Button preset='appInstall' loading>Кнопка</Button>
@@ -87,7 +214,8 @@ import { Icon } from '../Icon/'
     <Button preset='appInstall' shape='square' iconBefore='search' />
     <Button preset='appInstall' shape='circle' iconBefore='search' />
   </Stack>
-  <Stack p={10} spacing={10} wrap>
+  <Stack p={10} spacing={10} valign='middle' wrap>
+    <Text>linkIncreased</Text>
     <Button preset='linkIncreased'>Кнопка</Button>
     <Button preset='linkIncreased' disabled>Кнопка</Button>
     <Button preset='linkIncreased' loading>Кнопка</Button>
@@ -95,195 +223,5 @@ import { Icon } from '../Icon/'
     <Button preset='linkIncreased' shape='square' iconBefore='search' />
     <Button preset='linkIncreased' shape='circle' iconBefore='search' />
   </Stack>
-</Stack>
-```
-
-
-```js
-import { Stack } from '../Layout/'
-import { Icon } from '../Icon/'
-;
-
-<div>
-  <Button variant='primary' size='s' iconBefore='search' onClick={()=> console.log('click')}>Push Me</Button>
-  <Button variant='primary' size='s' iconBefore='search'></Button>
-  <Button variant='primary' size='s' iconBefore='search' shape='square'></Button>
-  <Button variant='primary' size='s' iconBefore='search' shape='circle'></Button>
-  <Button loading iconBefore='search'>Push Me</Button>
-  <Button loading iconBefore='search' disabled>Push Me</Button>
-  <Button as='a' href={`http://example.com`} variant='primary' size='s' iconBefore='search' disabled>Push Me</Button>
-  <Button as='a' href={`http://example.com`} variant='primary' size='s' iconBefore='search' loading>Push Me</Button>
-</div>
-```
-
-```js
-import { Stack } from '../Layout/'
-import { Icon } from '../Icon/';
-
-<Stack spacing='m' column>
-  <Stack spacing='m'>
-    <Button variant='primary' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='secondary' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='success' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='warning' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='error' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button as='a' href={`http://example.com`} variant='primary' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button as='a' variant='secondary' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button as='a' variant='success' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button as='a' variant='warning' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button as='a' variant='error' size='s' iconBefore='search' iconAfter='search'>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button variant='primary' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='secondary' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='success' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='warning' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='error' iconBefore='search' iconAfter='search'>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button variant='primary' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='secondary' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='success' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='warning' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
-    <Button variant='error' size='l' iconBefore='search' iconAfter='search'>Push Me</Button>
-  </Stack>
-</Stack>
-```
-
-```js
-import { Stack } from '../Layout/';
-
-<Stack spacing='m' column>
-  <Stack spacing='m'>
-    <Button kind='flat' variant='primary' size='s'>Push Me</Button>
-    <Button kind='flat' variant='secondary' size='s'>Push Me</Button>
-    <Button kind='flat' variant='success' size='s'>Push Me</Button>
-    <Button kind='flat' variant='warning' size='s'>Push Me</Button>
-    <Button kind='flat' variant='error' size='s'>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button kind='flat' variant='primary'>Push Me</Button>
-    <Button kind='flat' variant='secondary'>Push Me</Button>
-    <Button kind='flat' variant='success'>Push Me</Button>
-    <Button kind='flat' variant='warning'>Push Me</Button>
-    <Button kind='flat' variant='error'>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button kind='flat' variant='primary' size='l'>Push Me</Button>
-    <Button kind='flat' variant='secondary' size='l'>Push Me</Button>
-    <Button kind='flat' variant='success' size='l'>Push Me</Button>
-    <Button kind='flat' variant='warning' size='l'>Push Me</Button>
-    <Button kind='flat' variant='error' size='l'>Push Me</Button>
-  </Stack>
-</Stack>
-```
-
-```js
-import { Stack } from '../Layout/';
-
-<Stack spacing='m' column>
-  <Stack spacing='m'>
-    <Button kind='outline' variant='primary' size='s'>Push Me</Button>
-    <Button kind='outline' variant='secondary' size='s'>Push Me</Button>
-    <Button kind='outline' variant='success' size='s'>Push Me</Button>
-    <Button kind='outline' variant='warning' size='s'>Push Me</Button>
-    <Button kind='outline' variant='error' size='s'>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button kind='outline' variant='primary'>Push Me</Button>
-    <Button kind='outline' variant='secondary'>Push Me</Button>
-    <Button kind='outline' variant='success'>Push Me</Button>
-    <Button kind='outline' variant='warning'>Push Me</Button>
-    <Button kind='outline' variant='error'>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button kind='outline' variant='primary' size='l'>Push Me</Button>
-    <Button kind='outline' variant='secondary' size='l'>Push Me</Button>
-    <Button kind='outline' variant='success' size='l'>Push Me</Button>
-    <Button kind='outline' variant='warning' size='l'>Push Me</Button>
-    <Button kind='outline' variant='error' size='l'>Push Me</Button>
-  </Stack>
-</Stack>
-```
-
-```js
-import { Stack } from '../Layout/';
-
-<Stack spacing='m' column>
-  <Stack spacing='m'>
-    <Button variant='primary' disabled>Push Me</Button>
-    <Button variant='secondary' disabled>Push Me</Button>
-    <Button variant='success' disabled>Push Me</Button>
-    <Button variant='warning' disabled>Push Me</Button>
-    <Button variant='error' disabled>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button kind='flat' variant='primary' disabled>Push Me</Button>
-    <Button kind='flat' variant='secondary' disabled>Push Me</Button>
-    <Button kind='flat' variant='success' disabled>Push Me</Button>
-    <Button kind='flat' variant='warning' disabled>Push Me</Button>
-    <Button kind='flat' variant='error' disabled>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button kind='outline' variant='primary' disabled>Push Me</Button>
-    <Button kind='outline' variant='secondary' disabled>Push Me</Button>
-    <Button kind='outline' variant='success' disabled>Push Me</Button>
-    <Button kind='outline' variant='warning' disabled>Push Me</Button>
-    <Button kind='outline' variant='error' disabled>Push Me</Button>
-  </Stack>
-</Stack>
-```
-
-```js
-import { Stack } from '../Layout/';
-
-<Stack spacing='m'>
-  <Button variant='primary'>Push Me<br/>2</Button>
-  <Button variant='secondary'>Push Me<br/>2</Button>
-  <Button variant='success'>Push Me<br/>2</Button>
-  <Button variant='warning'>Push Me<br/>2</Button>
-  <Button variant='error'>Push Me<br/>2</Button>
-</Stack>
-```
-
-```js
-import { Stack } from '../Layout/';
-
-<Stack spacing='m' column>
-  <Stack spacing='m'>
-    <Button variant='primary' shape='pill'>Push Me</Button>
-    <Button variant='secondary' shape='pill'>Push Me</Button>
-    <Button variant='success' shape='pill'>Push Me</Button>
-    <Button variant='warning' shape='pill'>Push Me</Button>
-    <Button variant='error' shape='pill'>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button kind='outline' variant='primary' shape='pill' >Push Me</Button>
-    <Button kind='outline' variant='secondary' shape='pill'>Push Me</Button>
-    <Button kind='outline' variant='success' shape='pill'>Push Me</Button>
-    <Button kind='outline' variant='warning' shape='pill'>Push Me</Button>
-    <Button kind='outline' variant='error' shape='pill'>Push Me</Button>
-  </Stack>
-  <Stack spacing='m'>
-    <Button kind='flat' variant='primary' shape='pill'>Push Me</Button>
-    <Button kind='flat' variant='secondary' shape='pill'>Push Me</Button>
-    <Button kind='flat' variant='success' shape='pill'>Push Me</Button>
-    <Button kind='flat' variant='warning' shape='pill'>Push Me</Button>
-    <Button kind='flat' variant='error' shape='pill'>Push Me</Button>
-  </Stack>
-</Stack>
-```
-
-```js
-import { Stack } from '../Layout/';
-
-<Stack spacing='m' column>
-  <Button variant='primary' block>Push Me</Button>
-  <Button variant='secondary' block>Push Me</Button>
-  <Button variant='success' block>Push Me</Button>
-  <Button variant='warning' block>Push Me</Button>
-  <Button variant='error' block>Push Me</Button>
 </Stack>
 ```
