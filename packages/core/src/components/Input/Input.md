@@ -189,10 +189,10 @@ import { Icon } from '../Icon/'
 import { Text } from '../Text/'
 
 const [state, setState] = useState({})
-const onChange = ({ target: { name, value } }) => {
+const onChange = (event) => {
   setState(state => ({
     ...state,
-    [name]: value
+    [event.target.name]: event.target.value
   }))
 };
 

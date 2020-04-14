@@ -45,7 +45,7 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
 export const Input = React.forwardRef(({ type, onFocus, onBlur, onChange, override, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(inputTheme, theme.Input, override)
-  const [inputRef, setInputRef] = useRefHook(ref)
+  const [inputRef, setRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
   const [value, setValue] = useState(props.value)
 
@@ -58,16 +58,10 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, onChange, overri
   }
 
   const handleChange: InputProps['onChange'] = (event) => {
-    const value = event.target.value
-
-    if (type === 'number') {
-      if (Number.isNaN(Number(value))) return
-    }
-
     if (!onChange) {
       setValue(event.target.value)
     } else {
-      onChange && onChange(event)
+      onChange(event)
     }
   }
 
@@ -114,13 +108,14 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, onChange, overri
     : renderIconSlot(props.iconAfter, IconAfter.props)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
+  const autoSize = props.postfix ? true : false
 
   return (
     <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
-        <InputCore {...props} autoSize={props.postfix ? true : false} ref={setInputRef} onChange={handleChange} onFocus={handleFocus} onBlur={handleBlur}/>
+        <InputCore {...props} autoSize={autoSize} ref={setRef} onChange={handleChange} onFocus={handleFocus} onBlur={handleBlur}/>
         {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
       </div>
       {iconAfter}
