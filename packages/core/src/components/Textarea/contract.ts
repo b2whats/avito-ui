@@ -12,7 +12,7 @@ export interface TextareaCoreProps {
   /** Имя */
   name?: string
   /** Значение */
-  value?: string | number
+  value?: string
   /** Подсказка */
   placeholder?: string
   /** Неактивное состояние */

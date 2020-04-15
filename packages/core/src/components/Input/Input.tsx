@@ -42,20 +42,27 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
   `)
 )
 
-export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
+export const Input = React.forwardRef(({ type, onFocus, onBlur, onChange, override, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(inputTheme, theme.Input, override)
-  const [inputRef, setInputRef] = useRefHook(ref)
+  const [inputRef, setRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
+  const [value, setValue] = useState(props.value)
 
   props = {
     variant: 'primary',
     size: 'm',
-    type: 'text',
     ...props,
-    ...'value' in props && !props.onChange && { defaultValue: props.value, value: undefined },
-    clearable: props.clearable === 'always' || Boolean(props.clearable && props.value && focus),
+    ...!onChange && { value },
     placeholder: inputTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
+  }
+
+  const handleChange: InputProps['onChange'] = (event) => {
+    if (!onChange) {
+      setValue(event.target.value)
+    } else {
+      onChange(event)
+    }
   }
 
   const handleFocus: InputProps['onFocus'] = (event) => {
@@ -96,18 +103,19 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
     undefined
   )
 
-  const iconAfter = props.clearable
+  const iconAfter = props.clearable === 'always' || Boolean(props.clearable && props.value && focus)
     ? <Icon {...IconAfter.props} {...IconClear.props} onClick={handleClear} />
     : renderIconSlot(props.iconAfter, IconAfter.props)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
+  const autoSize = props.postfix ? true : false
 
   return (
     <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
-        <InputCore {...props} autoSize={props.postfix ? true : false} ref={setInputRef} onFocus={handleFocus} onBlur={handleBlur}/>
+        <InputCore {...props} autoSize={autoSize} ref={setRef} onChange={handleChange} onFocus={handleFocus} onBlur={handleBlur}/>
         {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
       </div>
       {iconAfter}

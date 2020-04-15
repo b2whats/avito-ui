@@ -30,7 +30,7 @@ const iconClassName = createClassName<IconProps, typeof iconTheme>(
   `
 )
 
-const Icon = ({ override, ...props }: IconProps) => {
+export const Icon = ({ override, ...props }: IconProps) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(iconTheme, theme.Icon, override)
 
@@ -49,5 +49,3 @@ const Icon = ({ override, ...props }: IconProps) => {
     />
   )
 }
-
-export default Icon

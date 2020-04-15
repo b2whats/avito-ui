@@ -39,6 +39,8 @@ export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginPro
   loading?: boolean
   /** Цветовые варианты */
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
+  /** Тип текстового поля */
+  type?: 'text' | 'number' | 'phone' | 'email'
   /** Иконка в начале */
   iconBefore?: string | React.ReactNode
   /** Иконка в конце */

@@ -98,7 +98,6 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
 
   if (props.href) {
     props.type = undefined
-    props.href = props.disabled ? undefined : props.href
   }
   
   const [componentRef, setRef] = useRefHook(ref)
@@ -117,7 +116,7 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
 
   const renderIconSlot = (icon: ButtonProps['iconBefore'] | ButtonProps['iconAfter'], iconProps: IconProps) => (
     typeof icon === 'string' ? <Icon name={icon} {...iconProps} /> :
-    typeof icon === 'function' ? icon({ ...props, iconProps }) :
+    typeof icon === 'function' ? icon(iconProps) :
     isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} /> :
     undefined
   )

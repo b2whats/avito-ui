@@ -39,7 +39,8 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
 
     if (!node) return
 
-    // Placeholder создает скрол когда не помещается, запоминаем его значение, удаляем и возвращаем после рассчета высоты
+    // Placeholder создает скрол когда не помещается, поэтому когда текста в нем очень много, высота высчиывается исходя из количества строк placeholder
+    // То есть при первоначальном вводе текста текстовое поле сожмется до минимальной ширины
     const { placeholder, value } = node
 
     if (value) {
@@ -51,12 +52,6 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
       node.style.height = `${node.scrollHeight}px`
       node.placeholder = placeholder
     }
-  }
-
-  // Если перенести эту логику в useEffect хук, будет наблюдаться неприятное подрагивание текста
-  const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    autoSize && resize()
-    props.onChange && props.onChange(event)
   }
 
   const preventClick = (event: React.MouseEvent<HTMLTextAreaElement>) => {
@@ -72,12 +67,14 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
       node.style.maxHeight = `calc(${maxRows} * ${lineHeight} + ${paddingTop} + ${paddingBottom} + ${borderTopWidth} + ${borderBottomWidth})`
       node.style.resize = resizable ? 'auto' : 'none'
     }
-
-    autoSize && resize()
   }, [maxRows, resizable])
 
+  useEffect(() => {
+    autoSize && resize()
+  }, [autoSize])
+
   return (
-    <textarea css={textareaStyle} {...filterProps(props)} onMouseDown={preventClick} onChange={onChange} ref={setRef} autoCorrect='off' spellCheck={false} />
+    <textarea css={textareaStyle} {...filterProps(props)} onMouseDown={preventClick}  ref={setRef} autoCorrect='off' spellCheck={false} />
   )
 })
 

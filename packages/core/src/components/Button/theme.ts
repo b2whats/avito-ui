@@ -75,7 +75,7 @@ export const buttonTheme: ButtonTheme = {
     },
     Text: {
       props: {
-        size: 's',
+        size: 'm',
       },
       iconBefore: {
         props: {
@@ -102,7 +102,7 @@ export const buttonTheme: ButtonTheme = {
         borderWidth: 1,
         borderStyle: 'solid',
         borderColor: 'transparent',
-        focus: true,
+        focus: false,
       },
       size: {
         s: {
@@ -144,7 +144,8 @@ export const buttonTheme: ButtonTheme = {
             color: 'white',
             colorDisabled: 'blue50',
             bg: 'blue500',
-            bgActive: 'blue800',
+            bgActive: 'blue600',
+            bgChecked: 'blue600',
             bgDisabled: 'blue300',
           },
         },
@@ -209,7 +210,6 @@ export const buttonTheme: ButtonTheme = {
             bg: 'white',
             borderColor: 'gray8',
             bgActive: 'gray8',
-            //bgDisabled: 'gray4',
           },
         },
         pay: {

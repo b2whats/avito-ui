@@ -1,6 +1,16 @@
 const path = require('path')
 
 module.exports = {
+  styles: {
+    Code: {
+      code: {
+        color: '#e83e8c',
+        background: 'rgba(232, 62, 140, 0.1)',
+        padding: '2px 4px',
+        borderRadius: '4px',
+      },
+    },
+  },
   styleguideDir: 'public',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),

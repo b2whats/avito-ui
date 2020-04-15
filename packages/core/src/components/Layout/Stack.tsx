@@ -7,11 +7,10 @@ import { StackProps } from './contract'
 const stackClassName = createClassName<StackProps>(
   (_, props) => ({
     display: 'flex',
-    block: true,
-    ...omit(props, 'align'),
+    valign: !props.column ? 'top' : undefined,
+    ...props,
   }),
   (textRules, { column, align, scroll, spacing, debug }, { space, palette }) => (`
-    align-items: ${align ? align : column ? 'normal' : 'baseline'};
     -webkit-user-select: none;
     ${scroll ? `overflow-${column ? 'y' : 'x'}: auto;` : ''};
 
