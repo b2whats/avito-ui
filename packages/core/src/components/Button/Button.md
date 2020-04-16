@@ -125,6 +125,23 @@ import { Box, Stack } from '../Layout/';
 </Stack>
 ```
 
+Через `Grid + block` кнопка встраивается в модульную сетку:
+
+```js
+import { Box, Grid } from '../Layout/';
+<Grid spacing='s' spacingY='s' debug>
+  <Box width={1/6}>
+    <Button block>Кнопка 1/6</Button>
+  </Box>
+  <Box width={2/6}>
+    <Button block>Кнопка 2/6</Button>
+  </Box>
+  <Box width={3/6}>
+    <Button block>Кнопка 3/6</Button>
+  </Box>
+</Grid>
+```
+
 ## Кнопка как ссылка
 
 Кнопка может выполнять роль ссылки, достаточно передать парамер `href`
