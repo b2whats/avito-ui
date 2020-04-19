@@ -1,5 +1,5 @@
 import React from 'react'
-import { omit, filterProps } from '../../utils/'
+import { filterProps } from '../../utils/'
 import { useTheme } from '../../theme/'
 import { createClassName } from '../../styled-system/'
 import { StackProps } from './contract'
@@ -10,7 +10,7 @@ const stackClassName = createClassName<StackProps>(
     valign: !props.column ? 'top' : undefined,
     ...props,
   }),
-  (textRules, { column, align, scroll, spacing, debug }, { space, palette }) => (`
+  (textRules, { column, scroll, spacing, debug }, { space, palette }) => (`
     -webkit-user-select: none;
     ${scroll ? `overflow-${column ? 'y' : 'x'}: auto;` : ''};
 

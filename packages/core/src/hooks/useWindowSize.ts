@@ -13,7 +13,7 @@ function getSize() {
   }
 }
 
-function useWindowSize() {
+export function useWindowSize() {
   let [windowSize, setWindowSize] = useState(getSize())
 
   useEffect(() => {
@@ -29,5 +29,3 @@ function useWindowSize() {
 
   return windowSize
 }
-
-export default useWindowSize

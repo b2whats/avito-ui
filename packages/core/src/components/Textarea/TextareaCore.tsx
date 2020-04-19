@@ -17,7 +17,7 @@ const textareaStyle = css`
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
-  line-height: inherit;
+  line-height: normal;
   color: inherit;
   outline: none;
   background-color: transparent;
@@ -33,6 +33,13 @@ const textareaStyle = css`
 
 export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ...props }: TextareaCoreProps, ref: React.Ref<HTMLTextAreaElement>) => {
   const [textarea, setRef] = useRefHook(ref)
+
+  props = {
+    ...props,
+    ref: setRef,
+    autoCorrect: 'off',
+    spellCheck: false,
+  } as TextareaCoreProps
 
   const resize = () => {
     const node = textarea.current
@@ -55,7 +62,9 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
   }
 
   const preventClick = (event: React.MouseEvent<HTMLTextAreaElement>) => {
-    event.stopPropagation()
+    if (event.detail === 0) event.stopPropagation()
+
+    props.onClick && props.onClick(event)
   }
 
   useEffect(() => {
@@ -74,7 +83,7 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
   }, [autoSize])
 
   return (
-    <textarea css={textareaStyle} {...filterProps(props)} onMouseDown={preventClick}  ref={setRef} autoCorrect='off' spellCheck={false} />
+    <textarea css={textareaStyle} {...filterProps(props)} onClick={preventClick} />
   )
 })
 

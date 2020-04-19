@@ -1,6 +1,7 @@
 ```jsx
-import { Stack } from '../Layout/';
-const initialState = { value: '', issetValue: 'Платье женское' }
+import { useState } from 'react'
+import { Stack } from '../Layout/'
+const [state, setState] = useState({ value: '', issetValue: 'Платье женское' })
 const onChange = ({ target }) => {
   setState(state => ({ [target.name]: target.value }))
 };
@@ -21,8 +22,9 @@ const onClick = ({ target }) => {
 
 Варианты
 ```jsx
+import { useState } from 'react'
 import { Stack } from '../Layout/';
-const initialState = { value: '', issetValue: 'Платье женское' }
+const [state, setState] = useState({ value: '', issetValue: 'Платье женское' })
 const onChange = ({ target }) => {
   setState(state => ({ [target.name]: target.value }))
 };
@@ -64,8 +66,9 @@ const onChange = ({ target }) => {
 
 Варианты
 ```jsx
+import { useState } from 'react'
 import { Stack, Grid, Box} from '../Layout/';
-const initialState = { value: '', issetValue: 'Платье женское' }
+const [state, setState] = useState({ value: '', issetValue: 'Платье женское' })
 const onChange = ({ target }) => {
   setState(state => ({ [target.name]: target.value }))
 };
@@ -90,22 +93,34 @@ const onChange = ({ target }) => {
 
 Поисковая строка
 ```jsx
+import { useState } from 'react'
 import { Stack } from '../Layout/'
 import { Spinner } from '../Spinner/'
 import { Icon } from '../Icon/'
 
-const initialState = { value: '' }
+const [state, setState] = useState({ value: '', favorite: false })
 const onChange = ({ target }) => {
-  setState(state => ({ value: target.value }))
-};
+  setState(state => ({ ...state, value: target.value }))
+}
+
 const onFavoriteClick = (event) => {
-  event.preventDefault()
-  event.stopPropagation()
-  console.log('onFavoriteClick')
-  setState(state => ({ favorite: !state.favorite }))
+  //event.preventDefault()
+  console.log('onFavoriteClick', event.target)
+  setState(state => ({ ...state, favorite: !state.favorite }))
 };
 
 <Stack column spacing='s'>
+  <Input
+    placeholder='Поиск'
+    clearable
+  />
+
+  <Input
+    placeholder='Поиск'
+    value={state.value}
+    clearable
+  />
+
   <Input
     iconBefore={({loading, focus, iconProps}) => (loading
       ? <Spinner {...iconProps}/>
@@ -113,7 +128,7 @@ const onFavoriteClick = (event) => {
     )}
     placeholder='Поиск'
     value={state.value}
-    clearable
+    clearable='always'
     onChange={onChange}
   />
 
@@ -134,12 +149,13 @@ const onFavoriteClick = (event) => {
       ? <Spinner {...iconProps} />
       : <Icon name='search'  {...iconProps} />
     )}
-    iconAfter={<Icon name='favorites' color={state.favorite ? 'blue300' : 'green300'} size='l' onClick={onFavoriteClick}/>}
+    iconAfter={<Icon name='favorites' color={state.favorite ? 'blue300' : 'green300'} size='l' onClick={onFavoriteClick} />}
     placeholder='Поиск'
     value={state.value}
     clearable
     onChange={onChange}
-    onClick={() => console.log('click')}
+    onClick={(event) => console.log('click', {...event})}
+    
   />
 
   <Input
@@ -156,7 +172,7 @@ const onFavoriteClick = (event) => {
         ? <Spinner {...iconProps} />
         : <Icon name='search'  {...iconProps} />
       )}
-      iconAfter={<Icon name='favorites' color={state.favorite ? 'blue300' : 'green300'} size='l' onClick={onFavoriteClick}/>}
+      iconAfter={<Icon name='favorites' color={state.favorite ? 'blue300' : 'green300'} size='l' onClick={onFavoriteClick} />}
       placeholder='Поиск'
       value={state.value}
       clearable
@@ -182,19 +198,19 @@ const onFavoriteClick = (event) => {
 Префиикс и постфикс
 
 ```jsx
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { Stack } from '../Layout/'
 import { Spinner } from '../Spinner/'
 import { Icon } from '../Icon/'
 import { Text } from '../Text/'
 
 const [state, setState] = useState({})
-const onChange = (event) => {
+const onChange = useCallback(({ target }) => {
   setState(state => ({
     ...state,
-    [event.target.name]: event.target.value
+    [target.name]: target.value
   }))
-};
+}, []);
 
 <Stack column spacing='s'>
   <Input
@@ -224,19 +240,3 @@ const onChange = (event) => {
 
 </Stack>
 ```
-
-
-```jsx
-import { Spinner } from '../Spinner/'
-import { Icon } from '../Icon/'
-import { Text } from '../Text/'
-const initialState = { value: '' }
-const onChange = ({ target }) => {
-  setState(state => ({ value: target.value }))
-};
-
-<div>
-  <Icon name='cross' /><Text>QplgqopTev</Text> <Icon name='search' />
-</div>
-```
-

@@ -17,6 +17,8 @@ export interface InputCoreProps {
   placeholder?: string
   /** Неактивное состояние */
   disabled?: boolean
+  /** Read-only состояние */
+  readOnly?: boolean
   /** Класс элемента */
   className?: string
   /** Ссылка на дом ноду */

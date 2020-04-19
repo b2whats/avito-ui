@@ -92,7 +92,7 @@ export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObj
 
 
 const Group = ({ children, block, mode, value, name, disabled, onChange, ...props }: GroupProps) => {
-  const elements =  useRef<any[]>([])
+  const elements =  useRef<(HTMLInputElement | HTMLButtonElement)[]>([])
 
   const onClick = (event: React.MouseEvent<HTMLElement>) => {
     if (!onChange || !mode) return
@@ -134,7 +134,7 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
     const node = event.currentTarget
     let currentIndex = elements.current.findIndex(element => element === node)
     const count = elements.current.length
-    let next: HTMLElement & { disabled: boolean } | null = null
+    let next
 
     do {
       switch (event.key) {
@@ -151,7 +151,6 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
           next = elements.current[currentIndex]
           break  
       }
-
     } while (next && next.disabled)
 
     if (next) {
