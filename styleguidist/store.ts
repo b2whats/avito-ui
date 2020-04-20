@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx'
 
-type Theme = 'web' | 'mobile'
+export type Theme = 'web' | 'mobile'
 
 export const store = observable({
   theme: 'mobile' as Theme,

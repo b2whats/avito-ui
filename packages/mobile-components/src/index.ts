@@ -13,3 +13,5 @@ export { ListItem } from './components/List/'
 export { SegmentButton } from './components/SegmentButton/'
 export { Select } from './components/Select/'
 
+export { theme } from './theme'
+export { ThemeProvider } from './ThemeProvider'

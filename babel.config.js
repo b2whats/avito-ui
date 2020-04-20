@@ -29,13 +29,14 @@ const config = {
       '@babel/plugin-syntax-dynamic-import',
     ]
 
-    if (isServer || isBundleCheck) {
-      const packagePath = tail => (isServer ? './packages/' : '../') + tail
+    if (isServer || isTest || isBundleCheck) {
+      const packagePath = tail => (isBundleCheck ?  '../' : './packages/') + tail
       plugins.push([
         'module-resolver',
         {
           alias: {
             '@avito/mobile-components': packagePath('mobile-components/src'),
+            '@avito/web-components': packagePath('web-components/src'),
             '@avito/tokens': packagePath('tokens/src'),
             '@avito/icons': packagePath('icons/src'),
             '@avito/core': packagePath('core/src'),
