@@ -36,7 +36,7 @@ export const checkboxTheme: CheckboxTheme = {
         primary: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -51,7 +51,7 @@ export const checkboxTheme: CheckboxTheme = {
         secondary: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -66,7 +66,7 @@ export const checkboxTheme: CheckboxTheme = {
         success: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -81,7 +81,7 @@ export const checkboxTheme: CheckboxTheme = {
         warning: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -96,7 +96,7 @@ export const checkboxTheme: CheckboxTheme = {
         error: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
