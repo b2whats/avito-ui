@@ -1,13 +1,13 @@
 import React from 'react'
 import { ThemeProvider } from '@avito/core/theme/'
-import { Page } from '@avito/mobile-components'
-import * as tokens from '@avito/tokens'
+import { Page, theme as mobile } from '@avito/mobile-components'
+import { theme as web } from '@avito/web-components'
 import { store } from './store'
 import { observer } from 'mobx-react-lite'
 
 export default observer((props: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider theme={tokens[store.theme]}>
+    <ThemeProvider theme={store.theme === 'mobile' ? mobile : web}>
       <div>
         <Page>
           {props.children}
