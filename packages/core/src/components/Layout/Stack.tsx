@@ -11,8 +11,6 @@ const stackClassName = createClassName<StackProps>(
     ...props,
   }),
   (textRules, { column, scroll, spacing, debug }, { space, palette }) => (`
-    -webkit-user-select: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
     ${scroll ? `overflow-${column ? 'y' : 'x'}: auto;` : ''};
 
     ${spacing ? `

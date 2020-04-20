@@ -10,7 +10,6 @@ export const usePrevent3DTouch = () => {
   const isPrevented = useRef<boolean>(false)
 
   const prevent3DTouch = useCallback((event: any) => {
-    console.log(event)
     if (event.changedTouches[0].force > 0.2) {
       event.preventDefault()
       event.stopPropagation()

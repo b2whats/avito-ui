@@ -86,8 +86,7 @@ export const InputCore = React.forwardRef((props: InputCoreProps, ref: React.Ref
   // Прерываем всплытие события click вызванное триггером label, без отмены событие клика будет вызвано дважды
   // Когда мы триггерим клик по инпуту через лейбл в свойстве detail будет значение 0, так как клик был програмный
   const preventClick = (event: React.MouseEvent<HTMLInputElement>) => {
-    console.log('input onClick')
-    //if (event.detail === 0) event.stopPropagation()
+    if (event.detail === 0) event.stopPropagation()
 
     props.onClick && props.onClick(event)
   }
@@ -102,5 +101,3 @@ export const InputCore = React.forwardRef((props: InputCoreProps, ref: React.Ref
 })
 
 InputCore.displayName = 'InputCore'
-
-export default InputCore

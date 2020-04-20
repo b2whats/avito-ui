@@ -114,7 +114,7 @@ type OtherProperties = Partial<{
   trancate: boolean
 }>
 
-type Colors = string
+type Colors = keyof Tokens['palette'] | 'transparent' | (string & {})
 
 export type ColorProperties = Partial<{
   color: Colors,

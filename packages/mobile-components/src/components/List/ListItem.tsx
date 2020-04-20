@@ -12,9 +12,10 @@ const ListItem = ({ children, override, ...props }: ListItemProps) => {
   const componentTheme = mergeTheme(listItemTheme, theme.ListItem, override)
 
   // Необходимо прервать 3DTouch что бы он не прерывал событие клика
-  const setTouchRef = usePrevent3DTouch()
+  // TODO: Протестировать на елефоне с HapticTouch
+  //const setTouchRef = usePrevent3DTouch()
   const [bounds, setMeasureRef] = useMeasure()
-  const [_, setRef] = useRefHook(setMeasureRef, setTouchRef)
+  const [_, setRef] = useRefHook(setMeasureRef)
 
   props.beforeValign = bounds && props.beforeValign === 'auto' && listItemTheme.beforeTreshold < bounds.height
     ? 'top'

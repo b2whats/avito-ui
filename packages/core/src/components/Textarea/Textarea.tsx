@@ -6,7 +6,7 @@ import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Icon } from '../Icon/'
 import { TextareaCore } from './TextareaCore'
 import { TextareaProps } from './contract'
-import { textareaTheme ,TextareaTheme } from './theme'
+import { textareaTheme } from './theme'
 
 const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
   (themeStyle, props) => ({
@@ -52,7 +52,7 @@ export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props 
     setNativeValue(textareaRef.current, '')
   }
 
-  const { Textarea, IconClear } = foldThemeParams<TextareaTheme>(props, componentTheme)
+  const { Textarea, IconClear } = foldThemeParams(props, componentTheme)
   const wrapperStyle = wrapperClassName(props, theme, Textarea.style)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
@@ -66,5 +66,3 @@ export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props 
 })
 
 Textarea.displayName = 'Textarea'
-
-export default Textarea

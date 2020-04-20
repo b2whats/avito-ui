@@ -1,4 +1,4 @@
-export { default as Input } from './Input'
-export { default as InputCore } from './InputCore'
+export { Input } from './Input'
+export { InputCore } from './InputCore'
 export * from './contract'
 export * from './theme'

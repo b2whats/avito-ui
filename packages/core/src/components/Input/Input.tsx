@@ -71,7 +71,6 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
   // Отменяем моргание фокуса при повторных кликах внутри контейнера с инпутом
   // Проверка нужна что бы не блокировать выделениие в самом инпуте
   const handlePreventBlur = (event: React.MouseEvent<HTMLElement>) => {
-    console.log('label handlePreventBlur')
     if (event.target['tagName'] !== 'INPUT') event.preventDefault()
   }
 
@@ -105,7 +104,7 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
   const autoSize = props.postfix ? true : false
 
   return (
-    <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur} onClick={() => console.log('label click')}>
+    <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
@@ -118,5 +117,3 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
 })
 
 Input.displayName = 'Input'
-
-export default Input

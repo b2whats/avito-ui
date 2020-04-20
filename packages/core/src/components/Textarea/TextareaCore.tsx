@@ -88,5 +88,3 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
 })
 
 TextareaCore.displayName = 'TextareaCore'
-
-export default TextareaCore
