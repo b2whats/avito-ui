@@ -23,11 +23,11 @@ export const platformFromPath = (path: string) => {
 export function filterMarkdown(examples: Example[], targetPlatform: Theme) {
   let isSkipping = false
   let isInsideBlock = false
-  const fail = (message: string, item: any) => {
+  const fail = (message: string, item?: any) => {
     console.error(examples.map(e => `${e === item ? 'ERROR >>> ' : ''} ${e.content}`))
     throw new Error(message)
   }
-  return splitMarkdownConditionals(examples).map((item) => {
+  const res = splitMarkdownConditionals(examples).map((item) => {
     if (conditionRE.test(item.content)) {
       if (isInsideBlock) {
         fail('Nested conditional blocks not allowed', item)
@@ -47,15 +47,19 @@ export function filterMarkdown(examples: Example[], targetPlatform: Theme) {
     }
 
     // Preserve example positions to use styleguidist's index-based react keys
-    return isSkipping ? { type: 'skip' } : item
-  }).filter(b => b != null) as Example[]
+    return isSkipping ? { type: 'skip' as const } : item
+  }).filter(b => b != null && (b.type === 'skip' || b.content.trim())) as Example[]
+  if (isInsideBlock) {
+    fail('Unterminated block')
+  }
+  return res
 }
 
 function splitMarkdownConditionals(markdown: Example[]) {
   return markdown.reduce((acc, item) =>
     acc.concat(item.type === 'code'
       ? item
-      : item.content.split(/(?:^|\n)(:::[^\n]*)/)
+      : item.content.split(/(?:^|\n)\s*(:::[^\n]*)/)
         .filter(c => c.length)
         .map(content => ({ ...item, content }))),
     [] as Example[])
