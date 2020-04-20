@@ -10,3 +10,4 @@ export { Spinner } from '@avito/core/components/Spinner'
 export { Stack, Grid, Box, Group, Page } from '@avito/core/components/Layout'
 
 export { theme } from './theme'
+export { ThemeProvider } from './ThemeProvider'
