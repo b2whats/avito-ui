@@ -54,7 +54,7 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
     ...props,
     value,
     onChange,
-    clearable: props.clearable === 'always' || Boolean(props.clearable && value && focus),
+    clearable: Boolean(value && (props.clearable === 'always' || props.clearable && focus)),
     placeholder: inputTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 

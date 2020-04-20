@@ -100,6 +100,7 @@ type LayoutProperties = ValignProperties & Partial<{
 type OtherProperties = Partial<{
   borderStyle: 'solid' | 'dotted' | 'dashed' | 'none',
   focus: boolean,
+  disabled: boolean,
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   adjacentSelector: string,
   block: boolean,
@@ -113,29 +114,31 @@ type OtherProperties = Partial<{
   trancate: boolean
 }>
 
-type ColorProperties = Partial<{
-  color: string,
-  colorHover: string,
-  colorActive: string,
-  colorVisited: string,
-  colorChecked: string,
-  colorFocus: string,
-  colorDisabled: string,
-  bg: string,
-  bgHover: string,
-  bgActive: string,
-  bgVisited: string,
-  bgChecked: string,
-  bgFocus: string,
-  bgDisabled: string,
-  borderColor: string,
-  borderColorHover: string,
-  borderColorActive: string,
-  borderColorVisited: string,
-  borderColorChecked: string,
-  borderColorFocus: string,
-  borderColorDisabled: string,
-  placeholderColor: string,
+type Colors = string
+
+export type ColorProperties = Partial<{
+  color: Colors,
+  colorHover: Colors,
+  colorActive: Colors,
+  colorVisited: Colors,
+  colorChecked: Colors,
+  colorFocus: Colors,
+  colorDisabled: Colors,
+  bg: Colors,
+  bgHover: Colors,
+  bgActive: Colors,
+  bgVisited: Colors,
+  bgChecked: Colors,
+  bgFocus: Colors,
+  bgDisabled: Colors,
+  borderColor: Colors,
+  borderColorHover: Colors,
+  borderColorActive: Colors,
+  borderColorVisited: Colors,
+  borderColorChecked: Colors,
+  borderColorFocus: Colors,
+  borderColorDisabled: Colors,
+  placeholderColor: Colors,
 }>
 
 type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties & OtherProperties
@@ -445,7 +448,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         break
       }
       case 'grow':
-        css += 'flex-grow: 1;'
+        css += `flex-grow: ${value ? '1' : '0'};`
     
         break
       case 'shrink':
@@ -644,6 +647,12 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
  
         break
       }
+      case 'disabled':
+        if (!value) break
+
+        css += 'pointer-events: none;'
+
+        break
       case 'shape': {
         if (value === 'circle' || value === 'pill') {
           css += 'border-radius: 100px;'
@@ -716,10 +725,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
     css += `${selector.focus}{${focusState.join('')}}`
   }
   if (disabledState.length) {
-    css += `${selector.disabled} {
-      pointer-events: none;
-      ${disabledState.join('')}
-    }`
+    css += `${selector.disabled}{${disabledState.join('')}}`
   }
 
   if (width.endsWith('%') && (margin[1] || margin[3])) {

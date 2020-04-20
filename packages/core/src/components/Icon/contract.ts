@@ -5,9 +5,9 @@ import { IconTheme } from './theme'
 
 export interface IconProps extends IconBaseProps, MarginProperties {
   /** Цвет иконки */
-  color?: keyof Theme['palette'] | string
+  color?: keyof Theme['palette'] & string
   /** Цвет иконки при наведении */
-  colorHover?: keyof Theme['palette'] | string
+  colorHover?: keyof Theme['palette'] & string
   /** Размер иконки */
   size?: number | 's' | 'm' | 'l' | 'auto'
   /** Вращение иконки */

@@ -20,6 +20,8 @@ export interface ListItemProps extends SpaceProperties, DimensionProperties {
   link?: React.ReactNode
   /** Неактивное состояние */
   disabled?: boolean
+  /** Инлайновое поведение */
+  inline?: boolean
   /** Переопределиь тему компонента */
   override?: ListItemTheme
   

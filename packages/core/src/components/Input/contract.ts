@@ -17,6 +17,8 @@ export interface InputCoreProps {
   placeholder?: string
   /** Неактивное состояние */
   disabled?: boolean
+  /** Поле не может быть пустым */
+  required?: boolean
   /** Read-only состояние */
   readOnly?: boolean
   /** Класс элемента */
@@ -40,7 +42,7 @@ export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginPro
   /** Состояние загрузки */
   loading?: boolean
   /** Цветовые варианты */
-  variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Тип текстового поля */
   type?: 'text' | 'number' | 'phone' | 'email'
   /** Иконка в начале */

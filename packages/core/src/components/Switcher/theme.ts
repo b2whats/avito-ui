@@ -98,7 +98,7 @@ export const switcherTheme: SwitcherTheme = {
           focus: false,
           align: 'center',
           color: 'gray28',
-          bg: 'transparent',
+          bg: 'transparet',
           bgActive: 'transparent',
           bgDisabled: 'transparent',
         },
