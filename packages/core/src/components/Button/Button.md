@@ -131,6 +131,7 @@ import { Stack } from '../Layout/';
 </Stack>
 ```
 
+:::platform mobile
 ## Внешний вид кнопки
 
 Параметр `preset` задает цветовую схему кнопки
@@ -225,3 +226,4 @@ import { Text } from '../Text/'
   </Stack>
 </Stack>
 ```
+:::

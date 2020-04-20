@@ -9,7 +9,8 @@
     "bench": "cross-env BABEL_ENV=cjs TARGET=server NODE_ENV=production babel-node benchmark/index.js --extensions \".js,.ts,.tsx\"",
     "lint": "eslint ./packages/*/src --ext .js,.ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:snap": "jest",
+    "test:snap": "jest '.snap.test.ts'",
+    "test:unit": "jest '(?<!.snap).test.ts'",
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json"
   },
   "husky": {

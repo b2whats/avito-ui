@@ -18,6 +18,7 @@ module.exports = {
     StyleGuideRenderer: path.join(__dirname, 'styleguidist/components/StyleGuideRenderer'),
     ReactComponent: path.join(__dirname, 'styleguidist/components/ReactComponent'),
     TableOfContentsRenderer: path.join(__dirname, 'styleguidist/components/TableOfContentsRenderer'),
+    Examples: path.join(__dirname, 'styleguidist/components/Examples'),
   },
   assetsDir: 'styleguidist/assets',
   template: {
@@ -54,6 +55,7 @@ module.exports = {
       alias: {
         // переопределил ReactComponent - стандартный Renderer отвалился
         'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponentRenderer'),
+        'rsg-components/Examples/ExamplesRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/Examples/ExamplesRenderer'),
       },
     },
     module: {
