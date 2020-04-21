@@ -6,6 +6,9 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
   },
   scheme: {
     Text: {
+      props: {
+        dense: true,
+      },
       kind: {
         flat: {
           props: {

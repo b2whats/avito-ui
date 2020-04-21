@@ -168,9 +168,9 @@ export const web: Tokens = {
   },
   dimension: {
     rowHeight: {
-      l: 48,
-      m: 36,
-      s: 28,
+      l: 50,
+      m: 40,
+      s: 30,
     },
   },
   space: {

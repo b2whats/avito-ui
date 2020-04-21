@@ -42,16 +42,23 @@ import { Stack } from '../Layout/';
 
 ## Многострочная кнопка
 
-В кнопке может быть несколько строк
+В кнопке может быть несколько строк — нужен явный `<br />`
 ```js
 import { Text } from '../Text/';
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
-  <Button>1 строка</Button>
   <Button>
     1 строка<br/>
     2 строка
+  </Button>
+  <Button>
+    Кнопка<br />
+    <Text size="xs">мини-текст</Text>
+  </Button>
+  <Button iconBefore="search">
+    Две строки с иконкой?<br />
+    <Text size="xs">Никаких проблем!</Text>
   </Button>
 </Stack>
 ```
@@ -76,9 +83,9 @@ import { Stack } from '../Layout/';
 
 Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.
 Возможные значения:
-строка - `search`
-renderProp - `(iconProps) => <Icon name='search' {...iconProps}>`. `iconProps` - добавляе параметры темы
-Component - `<Icon name='search' color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
+- строка - `'search'`
+- renderProp - `(iconProps) => <Icon name='search' {...iconProps}>`. `iconProps` — параметры темы
+- Component - `<Icon name='search' color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
 
 ```js
 import { Text } from '../Text/';

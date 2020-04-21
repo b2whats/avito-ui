@@ -91,6 +91,10 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
       },
     },
     Text: {
+      props: {
+        // Ужатые строки для двустрочной кнопки - на 1 строку не влияет
+        lineHeight: 1.1875,
+      },
       size: {
         s: {
           props: {
@@ -109,6 +113,9 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
         },
       },
       iconBefore: {
+        props: {
+          align: 'left',
+        },
         size: {
           s: {
             props: {
@@ -128,6 +135,9 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
         },
       },
       iconAfter: {
+        props: {
+          align: 'left',
+        },
         size: {
           s: {
             props: {
