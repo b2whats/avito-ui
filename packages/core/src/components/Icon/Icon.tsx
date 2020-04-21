@@ -34,7 +34,6 @@ export const Icon = ({ override, ...props }: IconProps) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(iconTheme, theme.Icon, override)
 
-
   const { Icon } = foldThemeParams(props, componentTheme)
   const iconStyle = iconClassName(props, theme, Icon.style)
   const size = Icon.props.size || props.size

@@ -1,36 +1,71 @@
+## Интерактивный пример
+
 ```js
+import { useState } from 'react'
 import { Stack } from '../Layout/';
-const initialState = { checked: false };
+const [state, setState] = useState(false)
 const onChange = ({ checked }) => {
-  console.log('onChange')
-  setState({ checked });
-}
-const onPress = (event) => {
-  console.log('onPress', event)
-}
-const longText = 'Французская художница, входившая в круг художников в Париже, ставших известными как импрессионисты.';
+  setState(checked);
+};
+
+<Checkbox checked={state} onChange={onChange} label='Teкст рядом' />
+```
+
+## Состояния
+
+```js
+import { useState } from 'react'
+import { Stack } from '../Layout/';
+const [state, setState] = useState(false);
 
 <Stack spacing='m' column>
-  <div>
-    <Checkbox checked={state.checked} onChange={onChange}  label='Teкст рядом' />
-    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' shape='circle'/>
-  </div>
-  <Stack spacing='m' column width={300}>
-    <Checkbox checked={state.checked} onChange={onChange}  label='Teкст рядом' />
-    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' shape='circle'/>
-    <Checkbox checked={state.checked} onChange={onChange} variant='secondary' label='Teкст рядом' />
-    <Checkbox checked={state.checked} onChange={onChange} variant='success' label='Teкст рядом' />
-    <Checkbox checked={state.checked} onChange={onChange} variant='warning' label='Teкст рядом' />
-    <Checkbox checked={state.checked} onChange={onChange} variant='error' label='Teкст рядом' />
-    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' labelPosition='start'/>
-    <Checkbox checked indeterminate label='Teкст рядом'/>
-    <Checkbox label='Teкст рядом' disabled/>
-    <Checkbox checked label='Teкст рядом' disabled/>
-    <Checkbox checked={state.checked} onChange={onChange} label='Teкст рядом' />
-    <Checkbox checked label='Teкст рядом' disabled/>
-    <Checkbox checked label={longText} />
-  </Stack>
+  <Checkbox label='Не выбран' />
+  <Checkbox checked label='Выбран' />
+  <Checkbox indeterminate label='Не выбран, неопределенный' />
+  <Checkbox checked indeterminate label='Выбран, неопределенный' />
+  <Checkbox disabled label='Не выбран, неактивный' />
+  <Checkbox checked disabled label='Выбран, неактивный' />
 </Stack>
 ```
 
+:::platform web
+## Размер
 
+```js
+import { useState } from 'react'
+import { Stack } from '../Layout/';
+const [state, setState] = useState(false);
+
+<Stack spacing='m' column>
+  <Checkbox size='s' label='Маленький'/>
+  <Checkbox size='m' label='Стандартный'/>
+  <Checkbox size='l' label='Большой'/>
+</Stack>
+```
+:::
+
+## Форма
+
+```js
+import { useState } from 'react'
+import { Stack } from '../Layout/';
+const [state, setState] = useState(false);
+
+<Stack spacing='m' column>
+  <Checkbox checked label='Квадратный'/>
+  <Checkbox checked shape='circle' label='Круглый' />
+</Stack>
+```
+
+## Положение текста
+
+```js
+import { useState } from 'react'
+import { Stack } from '../Layout/';
+const [state, setState] = useState(false);
+
+<Stack spacing='m' column>
+  <Checkbox label='После контрола'/>
+  <Checkbox label='До контрола' labelPosition='start'/>
+</Stack>
+```

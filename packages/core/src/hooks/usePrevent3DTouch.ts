@@ -2,7 +2,7 @@ import { useCallback, useRef } from 'react'
 
 const noop = () => {}
 
-const usePrevent3DTouch = () => {
+export const usePrevent3DTouch = () => {
   if (typeof window !== 'undefined' && !('ontouchforcechange' in window.document)) {
     return noop
   }
@@ -10,7 +10,6 @@ const usePrevent3DTouch = () => {
   const isPrevented = useRef<boolean>(false)
 
   const prevent3DTouch = useCallback((event: any) => {
-    console.log(event)
     if (event.changedTouches[0].force > 0.2) {
       event.preventDefault()
       event.stopPropagation()
@@ -44,5 +43,3 @@ const usePrevent3DTouch = () => {
   
   return setRef
 }
-
-export default usePrevent3DTouch

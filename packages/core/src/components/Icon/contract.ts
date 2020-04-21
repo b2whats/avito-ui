@@ -1,13 +1,13 @@
 import { Theme } from '../../theme/'
 import { IconProps as IconBaseProps } from '@avito/icons'
-import { MarginProperties } from '../../styled-system/'
+import { MarginProperties, ColorProperties } from '../../styled-system/'
 import { IconTheme } from './theme'
 
 export interface IconProps extends IconBaseProps, MarginProperties {
   /** Цвет иконки */
-  color?: keyof Theme['palette'] | string
+  color?: ColorProperties['color']
   /** Цвет иконки при наведении */
-  colorHover?: keyof Theme['palette'] | string
+  colorHover?: ColorProperties['colorHover']
   /** Размер иконки */
   size?: number | 's' | 'm' | 'l' | 'auto'
   /** Вращение иконки */

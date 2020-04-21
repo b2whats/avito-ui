@@ -11,7 +11,7 @@ interface Bounds {
   right: number
 }
 
-const useMeasure = () => {
+export const useMeasure = () => {
   const [bounds, setBounds] = useState<Bounds | null>(null)
 
   const setRef = useCallback(node => {
@@ -22,5 +22,3 @@ const useMeasure = () => {
 
   return [bounds, setRef] as [typeof bounds, typeof setRef]
 }
-
-export default useMeasure

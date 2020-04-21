@@ -1,6 +1,6 @@
 import { Theme } from '../../theme/'
 import { ReactText } from 'react'
-import { SpaceProperties, DimensionProperties } from '../../styled-system/'
+import { SpaceProperties, DimensionProperties, ColorProperties } from '../../styled-system/'
 
 type Display = 'inline' | 'block' | 'flex' | 'inline-flex' | 'inline-block'
 
@@ -23,14 +23,14 @@ export interface GridProps extends SpaceProperties, DimensionProperties {
   debug?: boolean
 }
 
-export interface PageProps extends SpaceProperties, DimensionProperties {
+export interface PageProps extends SpaceProperties, DimensionProperties, ColorProperties {
   /** Содержание */
   children?: React.ReactNode
   /** Определяет, как элемент должен быть показан в документе */
   display?: Display
 }
 
-export interface BoxProps extends SpaceProperties, DimensionProperties {
+export interface BoxProps extends SpaceProperties, DimensionProperties, ColorProperties {
   /** Содержание */
   children?: React.ReactNode
   /** Вертикальное выравнивание */
@@ -39,15 +39,11 @@ export interface BoxProps extends SpaceProperties, DimensionProperties {
   display?: Display
   /** Тень блока */
   //shadow?: keyof Theme['shadows']
-  /** Цвет текста */
-  color?: keyof Theme['palette']
-  /** Цвет фона */
-  bg?: keyof Theme['palette']
   /** Радиус */
   rounded?: 's' | 'm' | 'l' | 'circle' | number
 }
 
-export interface StackProps extends SpaceProperties, DimensionProperties {
+export interface StackProps extends SpaceProperties, DimensionProperties, ColorProperties {
   /** Содержание */
   children?: React.ReactNode
   /** Горизонтальный отступ между дочерними блоками */
@@ -66,8 +62,6 @@ export interface StackProps extends SpaceProperties, DimensionProperties {
   inline?: boolean
   /** Переносить блоки на следующие строки если не хватило места */
   wrap?: boolean
-  /** Цвет фона */
-  bg?: keyof Theme['palette']
   /** Изменить тег */
   as?: string
   ref?: (node: HTMLElement | null) => void
@@ -82,7 +76,7 @@ type onChangeProps = {
   value?: ReactText | ReactText[] | null
 }
 
-export interface GroupProps extends SpaceProperties, DimensionProperties {
+export interface GroupProps extends SpaceProperties, DimensionProperties, ColorProperties {
   /** Содержание */
   children?: React.ReactNode
   /** Блочное поведение */

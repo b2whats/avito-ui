@@ -1,6 +1,8 @@
 ```jsx
+import { useState } from 'react'
 import { Stack, Text, Icon, Checkbox, Switcher } from '../../'
-initialState = { count: 0 }
+const [state, setState] = useState({})
+
 const onChange = ({ name, checked }) => {
   console.log('change', name, checked)
   setState({ [name]: checked })

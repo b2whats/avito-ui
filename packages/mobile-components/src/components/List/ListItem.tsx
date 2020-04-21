@@ -7,31 +7,15 @@ import { Text, TextProps } from '@avito/core/components/Text/'
 import { ListItemProps } from './contract'
 import { listItemTheme } from './theme'
 
-const listClassName = createClassName<ListItemProps, typeof listItemTheme>(
-  (themestyle, props) => ({
-    display: null,
-    ...themestyle,
-    ...props,
-  }),
-  (textRules, { disabled }) => `
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-overflow-scrolling: touch;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    ${disabled ? 'pointer-events: none;' : ''}
-
-    ${textRules}
-  `
-)
-
 const ListItem = ({ children, override, ...props }: ListItemProps) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(listItemTheme, theme.ListItem, override)
 
   // Необходимо прервать 3DTouch что бы он не прерывал событие клика
-  const setTouchRef = usePrevent3DTouch()
+  // TODO: Протестировать на елефоне с HapticTouch
+  //const setTouchRef = usePrevent3DTouch()
   const [bounds, setMeasureRef] = useMeasure()
-  const [_, setRef] = useRefHook(setMeasureRef, setTouchRef)
+  const [_, setRef] = useRefHook(setMeasureRef)
 
   props.beforeValign = bounds && props.beforeValign === 'auto' && listItemTheme.beforeTreshold < bounds.height
     ? 'top'
@@ -43,7 +27,6 @@ const ListItem = ({ children, override, ...props }: ListItemProps) => {
   
 
   const { ListItem, Before, StackText, Label, Caption, Link, After } = foldThemeParams(props, componentTheme)
-  const listItemStyle = listClassName(props, theme, ListItem.style)
 
   const before = props.before && <Box {...Before.props} valignSelf={props.beforeValign}>{props.before}</Box>
   const after = props.after && <Box {...After.props} valignSelf={props.afterValign}>{props.after}</Box>
@@ -66,9 +49,9 @@ const ListItem = ({ children, override, ...props }: ListItemProps) => {
   }
 
   return (
-    <Stack ref={setRef} css={listItemStyle} {...ListItem.props} {...events}>
+    <Stack ref={setRef} {...ListItem.props} {...props} {...events}>
       {before}
-      <Stack column {...StackText.props}>
+      <Stack column grow {...StackText.props}>
         {renderSlot(Text, props.label, Label.props)}
         {renderSlot(Text, props.caption, Caption.props)}
         {renderSlot(Text, props.link, Link.props)}

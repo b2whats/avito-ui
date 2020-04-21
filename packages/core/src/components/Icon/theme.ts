@@ -36,7 +36,7 @@ export const iconTheme: IconTheme = {
         },
         secondary: {
           style: {
-            color: 'gray500',
+            color: 'gray52',
           },
         },
         error: {

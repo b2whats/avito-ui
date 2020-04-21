@@ -31,7 +31,7 @@ export const listItemTheme: ListItemTheme = {
         minHeight: 52,
       },
       onClick: {
-        style: {
+        props: {
           bgActive: 'gray4',
         },
       },

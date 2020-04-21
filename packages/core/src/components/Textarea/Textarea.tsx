@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { setNativeValue } from '../../utils/'
-import { useRefHook } from '../../hooks/'
+import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
 import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Icon } from '../Icon/'
 import { TextareaCore } from './TextareaCore'
 import { TextareaProps } from './contract'
-import { textareaTheme ,TextareaTheme } from './theme'
+import { textareaTheme } from './theme'
 
 const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
   (themeStyle, props) => ({
@@ -22,12 +22,15 @@ export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props 
   const componentTheme = mergeTheme(textareaTheme, theme.Textarea, override)
   const [textareaRef, setTextareaRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
+  const [value, onChange] = useUncontrolledInputHook(props)
 
   props = {
     variant: 'primary',
     size: 'm',
     ...props,
-    clearable: props.clearable === 'always' || Boolean(props.clearable && props.value && focus),
+    value,
+    onChange,
+    clearable: props.clearable === 'always' || Boolean(props.clearable && value && focus),
     placeholder: componentTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
@@ -42,15 +45,14 @@ export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props 
   }
 
   const handlePreventBlur = (event: React.MouseEvent<HTMLElement>) => {
-    event.preventDefault()
+    if (event.target['tagName'] !== 'TEXTAREA') event.preventDefault()
   }
 
-  const handleClear = (event: React.MouseEvent<HTMLElement>) => {
-    event.preventDefault()
+  const handleClear = () => {
     setNativeValue(textareaRef.current, '')
   }
 
-  const { Textarea, IconClear } = foldThemeParams<TextareaTheme>(props, componentTheme)
+  const { Textarea, IconClear } = foldThemeParams(props, componentTheme)
   const wrapperStyle = wrapperClassName(props, theme, Textarea.style)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
@@ -64,5 +66,3 @@ export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props 
 })
 
 Textarea.displayName = 'Textarea'
-
-export default Textarea

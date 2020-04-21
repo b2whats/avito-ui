@@ -12,14 +12,14 @@ export const radioTheme: RadioTheme = {
     Switch: {
       style: {
         height: 18,
-        focus: true,
+        focus: false,
         mx: 1,
       },
       variant: {
         primary: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },

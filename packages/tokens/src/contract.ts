@@ -1,6 +1,6 @@
 type Font = {
   fontFamily: string,
-  defaultColor: string,
+  defaultColor: keyof Palette,
   defaultFontSize: string,
   defaultLineHeight: number | 'normal' | 'dense',
 
