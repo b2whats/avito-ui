@@ -2,6 +2,7 @@
   "packages": [
     "packages/*"
   ],
+  "registry": "http://npm.msk.avito.ru/",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent"

@@ -1,6 +1,7 @@
 {
   "name": "@avito/web-components",
   "version": "0.0.1",
+  "private": false,
   "description": "Components for desctop web",
   "author": "vyuklepov <vyuklepov@avito.ru>",
   "license": "MIT",
