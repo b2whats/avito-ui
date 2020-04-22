@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite'
 import ReactComponent from 'react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponent'
 import getInfoFromHash from 'react-styleguidist/lib/client/utils/getInfoFromHash'
 import Markdown from 'react-styleguidist/lib/client/rsg-components/Markdown'
-import styled from '@avito/core/styled-system/'
 import { store } from '../store'
 import { platformFromPath } from '../utils'
 

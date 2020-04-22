@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import { Tokens } from '@avito/tokens'
 
-export type Theme = Tokens
+type Theme = Tokens
 
 export type TextProperties = Partial<{
   fontFamily: string,
