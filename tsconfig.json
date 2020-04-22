@@ -16,7 +16,7 @@
     "baseUrl": "./packages",
     "experimentalDecorators": true,
     "paths": {
-      "@avito/*": ["./*/src"],
+      "@avito/*": ["../node_modules/@avito/*/src"],
     },
   },
   "exclude": ["node_modules", "packages/**/build"]

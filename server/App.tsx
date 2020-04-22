@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { ThemeProvider } from 'emotion-theming'
-import { Button, Stack, Icon, theme } from '@avito/mobile-components'
-
+import { Button } from '@avito/mobile-components'
+import { ThemeProvider } from '@avito/mobile-components'
 class App extends Component {
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <Button>SSR button</Button>
       </ThemeProvider>
     )

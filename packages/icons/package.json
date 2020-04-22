@@ -4,7 +4,6 @@
   "private": false,
   "description": "icons",
   "main": "build/index.js",
-  "browser": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
     "build",
@@ -14,7 +13,7 @@
     "build": "yarn clean && yarn build:js && yarn build:types",
     "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
     "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
-    "clean": "rm -rf ./build && rm -rf tsconfig.tsbuildinfo",
+    "clean": "rm -rf ./build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "yarn build",
     "typecheck": "tsc --noEmit"
