@@ -5,6 +5,7 @@ import { IconProps } from '../Icon/contract'
 import { SpinnerProps } from '../Spinner/contract'
 
 export type ButtonTheme = {
+  defaultProps?: Partial<ButtonProps>,
   scheme: {
     Button: SchemeType<ButtonProps>,
     IconBefore: SchemeType<ButtonProps, IconProps>,
@@ -15,6 +16,10 @@ export type ButtonTheme = {
 }
 
 export const buttonTheme: ButtonTheme = {
+  defaultProps: {
+    size: 'm',
+    type: 'button',
+  },
   scheme: {
     Spinner: {
       size: {

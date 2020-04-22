@@ -1,6 +1,9 @@
 import { DeepPartial, ButtonTheme } from '@avito/core'
 
 export const buttonTheme: DeepPartial<ButtonTheme> = {
+  defaultProps: {
+    preset: 'primary',
+  },
   scheme: {
     Text: {
       kind: {

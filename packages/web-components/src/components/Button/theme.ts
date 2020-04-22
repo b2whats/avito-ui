@@ -9,6 +9,9 @@ const fillTheme = (hue: string): ButtonTheme['scheme']['Button']['style'] => ({
 })
 
 export const buttonTheme: DeepPartial<ButtonTheme> = {
+  defaultProps: {
+    preset: 'default',
+  },
   scheme: {
     Button: {
       size: {

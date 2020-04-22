@@ -93,9 +93,7 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
   const componentTheme = mergeTheme(buttonTheme, theme.Button, override)
 
   props = {
-    size: 'm',
-    preset: 'primary',
-    type: 'button',
+    ...componentTheme.defaultProps,
     ...props,
     disabled: props.disabled || props.loading,
   }
