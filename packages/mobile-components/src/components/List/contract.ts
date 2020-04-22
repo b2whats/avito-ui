@@ -1,4 +1,4 @@
-import { SpaceProperties, DimensionProperties } from '@avito/core/styled-system/'
+import { SpaceProperties, DimensionProperties } from '@avito/core'
 import { ListItemTheme } from './theme'
 
 export interface ListItemProps extends SpaceProperties, DimensionProperties {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme, mergeTheme } from '@avito/core/theme/'
+import { useTheme, mergeTheme } from '../../theme/'
 import { Icon as IconBase } from '@avito/icons'
 import { css, keyframes, foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from './contract'

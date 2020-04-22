@@ -7,25 +7,25 @@ type Element = HTMLButtonElement | HTMLLinkElement
 export interface ButtonProps extends MarginProperties, DimensionProperties, ValignProperties {
   children?: React.ReactNode
   /** Размер кнопки */
-  size: 's' | 'm' | 'l'
+  size?: 's' | 'm' | 'l'
   /** Имя кнопки */
   name?: string
   /** Значение кнопки */
   value?: string | number
   /** Внешний вид кнопки */
-  kind: 'default' | 'outline' | 'flat'
+  kind?: 'default' | 'outline' | 'flat'
   /** Нажатое состояние кнопки */
   checked?: boolean
   /** Неактивная кнопка */
   disabled?: boolean
   /** Цветовые варианты кнопки */
-  variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Действие которое совершает кнопка */
   type?: 'button' | 'submit' | 'reset'
   /** Кнопка со спиннером */
   loading?: boolean
   /** Квадратная круглая и вытянутая форма с закругленными углами */
-  shape: 'pill' | 'square' | 'circle'
+  shape?: 'pill' | 'square' | 'circle'
   /** Иконка слева */
   iconBefore?: React.ReactNode
   /** Иконка справа */

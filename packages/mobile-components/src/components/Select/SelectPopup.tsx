@@ -1,7 +1,7 @@
 //@ts-nocheck
 import React from 'react'
 import { Icon, Text, Stack, ListItem, Checkbox } from '../../'
-import { css, keyframes } from '@avito/core/styled-system/'
+import { css } from '@avito/core'
 
 const styles = {
   root: css`

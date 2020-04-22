@@ -4,14 +4,9 @@
   "private": false,
   "description": "Shared utilities for desktop / mav versions of avito design system",
   "author": "vyuklepov <vyuklepov@avito.ru>",
-  "homepage": "",
   "license": "MIT",
-  "files": [
-    "src"
-  ],
-  "directories": {
-    "src": "src"
-  },
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "publishConfig": {
     "access": "restricted"
   },
