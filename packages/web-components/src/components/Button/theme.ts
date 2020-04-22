@@ -17,6 +17,11 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
       style: {
         pressedOffset: -1,
       },
+      disabled: {
+        style: {
+          overlay: 'rgba(255,255,255,0.5)',
+        },
+      },
       size: {
         s: {
           style: {

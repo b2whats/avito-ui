@@ -86,6 +86,20 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
       visibility: hidden;
     }
 
+    ${ themeStyle.overlay ? `
+      &::before {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: -${themeStyle.borderWidth}px;
+        right: -${themeStyle.borderWidth}px;
+        top: -${themeStyle.borderWidth}px;
+        bottom: -${themeStyle.borderWidth}px;
+        border-radius: ${themeStyle.borderRadius}px;
+        background: ${themeStyle.overlay};
+      }
+    ` : '' }
+
     ${textRules}
   `)
 )
