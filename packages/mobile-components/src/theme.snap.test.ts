@@ -1,5 +1,5 @@
 import { mergeTheme } from '@avito/core'
-import { buttonTheme } from '@avito/core/src/components/Button/'
+import { buttonTheme } from '@avito/core'
 import { theme } from './theme'
 
 describe('mobile theme', () => {
