@@ -10,7 +10,7 @@ import { useGroupHook } from '../Layout/Group'
 import { ButtonProps } from './contract'
 import { buttonTheme } from './theme'
 
-const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
+const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button'>(
   (themeStyle, props) => ({
     display: 'inline-block',
     shrink: false,
@@ -76,14 +76,16 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
       bottom: 0;
     }
 
-    &:not(:disabled):active > *, &[data-state~=active] > *  {
-      transform: translateY(1px);
-    }
+    ${ themeStyle.pressedOffset ? `
+      &:not(:disabled):active > *, &[data-state~=active] > *  {
+        transform: translateY(1px);
+      }
+    ` : '' }
 
     &[aria-busy='true'] > :not([data-icon='spinner']) {
       visibility: hidden;
     }
-    
+
     ${textRules}
   `)
 )
@@ -101,10 +103,10 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
   if (props.href) {
     props.type = undefined
   }
-  
+
   const [componentRef, setRef] = useRefHook(ref)
   const groupProps = useGroupHook(componentRef, props)
-  
+
   const aria = {
     'aria-checked': groupProps.checked,
     'aria-disabled': groupProps.disabled,
@@ -122,7 +124,7 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
     isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} /> :
     undefined
   )
-  
+
   return (
     <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(groupProps)} >
       {props.loading && <SpinnerComponent {...Spinner.props}/>}

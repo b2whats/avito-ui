@@ -7,7 +7,7 @@ import { SpinnerProps } from '../Spinner/contract'
 export type ButtonTheme = {
   defaultProps?: Partial<ButtonProps>,
   scheme: {
-    Button: SchemeType<ButtonProps>,
+    Button: SchemeType<ButtonProps, never, { pressedOffset: number, }>,
     IconBefore: SchemeType<ButtonProps, IconProps>,
     Text: SchemeType<ButtonProps, TextProps>,
     IconAfter: SchemeType<ButtonProps, IconProps>,

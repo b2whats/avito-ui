@@ -147,17 +147,17 @@ type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 type OnlyLiteralString<T> = T extends string ? T : never
 type IsChildren<T> = React.ReactNode extends T ? true : false
 
-export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, ComponentsProps = never> = {
-  style?: Partial<StyleProperties>,
+export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, ComponentsProps = never, ExtraStyleProps = {}> = {
+  style?: Partial<StyleProperties & ExtraStyleProps>,
   props?: Partial<ComponentsProps>
 } & {
   [Key in keyof Props]?: IsChildren<Props[Key]> extends true
     ? SchemeType<Omit<Props, Key>, ComponentsProps>
     : IsUnion<NonNullable<Props[Key]>> extends true
-      ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Omit<Props, Key>, ComponentsProps> }
+      ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps> }
       : Props[Key] extends string
-        ? { [K in Props[Key]]?: SchemeType<Omit<Props, Key>, ComponentsProps> }
-        : SchemeType<Omit<Props, Key>, ComponentsProps>
+        ? { [K in Props[Key]]?: SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps> }
+        : SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps>
 }
 
 const computedCrop = (crop: number, targetHeight: number) => {
@@ -748,9 +748,10 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   return css
 }
 
+
 type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { scheme: object } ? {
   [K in keyof ComponentTheme['scheme']]: {
-    style: StyleProperties,
+    style: ComponentTheme['scheme'][K] extends SchemeType<any, any, infer S> ? StyleProperties & S : never,
     props: ComponentTheme['scheme'][K] extends SchemeType<any, infer R> ? R : never
   }
 } : never
@@ -766,19 +767,21 @@ export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(pr
   return result
 }
 
-type valueof<T> = T[keyof T]
-type ThemeStyle<ComponentTheme> = ComponentTheme extends object ? valueof<FoldThemeParamsReturn<ComponentTheme>>['style'] : never
+type valueof<T, Key = null> = T[Key extends keyof T ? Key : keyof T]
+type ThemeStyle<ComponentTheme, Key> = ComponentTheme extends object
+  ? valueof<FoldThemeParamsReturn<ComponentTheme>, Key>['style']
+  : never
 
-interface Selector<Props, ComponentTheme> {
-  t: (props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any;
+interface Selector<Props, ComponentTheme, Key> {
+  t: (props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme, Key>) => any;
   f: (props: Props, theme: Theme) => any;
 }
 
-export function createClassName<Props, ComponentTheme extends object | null = null>(
-  createRule: (schemeStyle: ThemeStyle<ComponentTheme>, props: Props, theme: Theme) => StyleProperties & Display,
-  createUserRule?: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme>) => any
-): Selector<Props, ComponentTheme>[ComponentTheme extends object ? 't' : 'f']  {
-  return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme>) => {
+export function createClassName<Props, ComponentTheme extends object | null = null, PrimaryComponent = null>(
+  createRule: (schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>, props: Props, theme: Theme) => StyleProperties & Display,
+  createUserRule?: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>) => any
+): Selector<Props, ComponentTheme, PrimaryComponent>[ComponentTheme extends object ? 't' : 'f']  {
+  return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme, PrimaryComponent>) => {
     const styles = createRule(schemeStyle as any, props, theme)
     const textRules = getStyles(styles, theme)
 

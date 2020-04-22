@@ -14,6 +14,9 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
   },
   scheme: {
     Button: {
+      style: {
+        pressedOffset: -1,
+      },
       size: {
         s: {
           style: {
