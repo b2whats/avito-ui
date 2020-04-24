@@ -1,6 +1,6 @@
 {
   "name": "@avito/tokens",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
   "description": "tokens",
   "main": "build/index.js",

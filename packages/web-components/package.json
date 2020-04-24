@@ -1,6 +1,6 @@
 {
   "name": "@avito/web-components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "Components for desctop web",
   "author": "vyuklepov <vyuklepov@avito.ru>",
@@ -25,7 +25,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/core": "^0.0.2"
+    "@avito/core": "^0.0.3"
   },
   "devDependencies": {
     "react": "^16.8.6",
