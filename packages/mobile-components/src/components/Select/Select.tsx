@@ -19,7 +19,7 @@ export class Select extends PureComponent {
   }
   
   render() {
-    const { title, items, keyProperty, displayProperty, required, selectedKey } = this.props
+    const { title, items, keyProperty, displayProperty, required, selectedKey, ...props } = this.props
     const { isPopupOpened } = this.state
     const selectedObject = getItemById(items, selectedKey, keyProperty)
     const value = selectedObject && selectedObject[displayProperty]
@@ -27,6 +27,7 @@ export class Select extends PureComponent {
     return (
       <>
         <Input
+          {...props}
           placeholder={title}
           value={value}
           required={required}
