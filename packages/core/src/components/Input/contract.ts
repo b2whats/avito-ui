@@ -41,6 +41,8 @@ export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginPro
   clearable?: boolean | 'always'
   /** Состояние загрузки */
   loading?: boolean
+  /** Внешний вид кнопки */
+  kind: 'default' | 'outline'
   /** Цветовые варианты */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Тип текстового поля */

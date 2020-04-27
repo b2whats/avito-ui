@@ -49,8 +49,7 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
   const [value, onChange] = useUncontrolledInputHook(props)
 
   props = {
-    variant: 'primary',
-    size: 'm',
+    ...componentTheme.defaultProps,
     ...props,
     value,
     onChange,
@@ -77,7 +76,7 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
   const handleClear = () => {
     setNativeValue(inputRef.current, '')
   }
-  
+
   const { Input, IconClear, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, componentTheme)
   const inputStyle = inputClassName(props, theme, Input.style)
   const inputFieldStyle = inputFieldClassName(props, theme, InputField.style)

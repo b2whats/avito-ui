@@ -5,6 +5,7 @@ import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 
 export type InputTheme = {
+  defaultProps: Partial<InputProps>,
   deletePlaceholderOnFocus: boolean,
   scheme: {
     IconBefore: SchemeType<InputProps, IconProps>,
@@ -18,6 +19,10 @@ export type InputTheme = {
 }
 
 export const inputTheme: InputTheme = {
+  defaultProps: {
+    variant: 'primary',
+    size: 'm',
+  },
   deletePlaceholderOnFocus: true,
   scheme: {
     IconBefore: {
