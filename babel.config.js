@@ -20,10 +20,16 @@ const config = {
     ],
     '@babel/preset-typescript',
     '@babel/preset-react',
-    '@emotion/babel-preset-css-prop',
+    [
+      '@emotion/babel-preset-css-prop',
+      {
+        'sourceMap': NODE_ENV === 'test' ? false : true,
+      },
+    ],
   ],
   plugins: (() => {
     let plugins = [
+      '@babel/transform-runtime', // Нужно для avito/ct
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-syntax-dynamic-import',
