@@ -1,6 +1,5 @@
 const path = require('path')
 const Visualizer = require('webpack-visualizer-plugin')
-const babelConfig = require('../../babel.config')
 
 module.exports = {
   entry: {
@@ -13,7 +12,9 @@ module.exports = {
       test: /\.[jt]sx?$/,
       use: {
         loader: 'babel-loader',
-        options: babelConfig,
+        options: {
+          rootMode: 'upward',
+        },
       },
     }],
   },

@@ -8,6 +8,7 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js', '.json' ],
   },
   optimization: {
+    //minimize: false,
     splitChunks: {
       chunks: 'all',
     },
@@ -15,13 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        //sideEffects: false,
-      },
-      {
-        test: /\.js$/,
+        test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         //sideEffects: false,

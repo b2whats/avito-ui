@@ -3,7 +3,6 @@ const { DEBUG, BABEL_ENV, NODE_ENV, TARGET } = process.env
 const isProduction = NODE_ENV === 'production'
 const isTest = NODE_ENV === 'test'
 const isServer = TARGET === 'server'
-const isBundleCheck = TARGET === 'bundle'
 
 const config = {
   presets: [
@@ -35,17 +34,13 @@ const config = {
       '@babel/plugin-syntax-dynamic-import',
     ]
 
-    if (isServer || isTest || isBundleCheck) {
-      const packagePath = tail => (isBundleCheck ?  '../' : './packages/') + tail
+    if (isServer || isTest) {
       plugins.push([
         'module-resolver',
         {
+          cwd: 'babelrc', // Установить корень проекта
           alias: {
-            '@avito/mobile-components': packagePath('mobile-components/src'),
-            '@avito/web-components': packagePath('web-components/src'),
-            '@avito/tokens': packagePath('tokens/src'),
-            '@avito/icons': packagePath('icons/src'),
-            '@avito/core': packagePath('core/src'),
+            '^@avito/(.+)': './packages/\\1/src',
           },
         },
       ])
