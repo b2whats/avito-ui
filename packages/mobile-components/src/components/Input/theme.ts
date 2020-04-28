@@ -1,4 +1,4 @@
-import { DeepPartial, InputTheme } from '@avito/core'
+import { DeepPartial, InputTheme, dsl } from '@avito/core'
 
 export const inputTheme: DeepPartial<InputTheme> = {
   defaultProps: {
@@ -12,23 +12,11 @@ export const inputTheme: DeepPartial<InputTheme> = {
       },
     },
     IconAfter: {
-      size: {
-        s: {
-          props: {
-            mx: 8,
-          },
-        },
-        m: {
-          props: {
-            mx: 10,
-          },
-        },
-        l: {
-          props: {
-            mx: 10,
-          },
-        },
-      },
+      size: dsl.propMap('mx', {
+        s: 8,
+        m: 10,
+        l: 10,
+      }),
     },
     Prefix: {
       props: {
@@ -36,23 +24,11 @@ export const inputTheme: DeepPartial<InputTheme> = {
       },
     },
     InputField: {
-      size: {
-        s: {
-          style: {
-            px: 12,
-          },
-        },
-        m: {
-          style: {
-            px: 16,
-          },
-        },
-        l: {
-          style: {
-            px: 16,
-          },
-        },
-      },
+      size: dsl.styleMap('px', {
+        s: 12,
+        m: 16,
+        l: 16,
+      }),
       iconBefore: {
         style: {
           pl: 'none',
@@ -76,50 +52,18 @@ export const inputTheme: DeepPartial<InputTheme> = {
         colorDisabled: 'gray40',
         placeholderColor: 'gray48',
       },
-      size: {
-        s: {
-          style: {
-            fontSize: 12,
-          },
-        },
-        m: {
-          style: {
-            fontSize: 16,
-          },
-        },
-        l: {
-          style: {
-            fontSize: 16,
-          },
-        },
-      },
-      variant: {
-        primary: {
-          style: {
-            bg: 'gray4',
-          },
-        },
-        secondary: {
-          style: {
-            bg: 'gray8',
-          },
-        },
-        success: {
-          style: {
-            bg: 'green50',
-          },
-        },
-        warning: {
-          style: {
-            bg: 'orange50',
-          },
-        },
-        error: {
-          style: {
-            bg: 'red50',
-          },
-        },
-      },
+      size: dsl.styleMap('fontSize', {
+        s: 12,
+        m: 16,
+        l: 16,
+      }),
+      variant: dsl.styleMap('bg', {
+        primary: 'gray4',
+        secondary: 'gray8',
+        success: 'green50',
+        warning: 'orange50',
+        error: 'red50',
+      }),
     },
   },
 }

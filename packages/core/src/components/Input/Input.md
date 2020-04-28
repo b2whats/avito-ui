@@ -85,7 +85,7 @@ const help = e => {
 
 ## Префиикс и постфикс
 
-`prefix` и `postfix` — слоты для постоянно видимого текста вокруг инпута.
+`prefix` и `postfix` — слоты для постоянно видимого текста вокруг инпута. Сочетаются с иконками.
 
 ```jsx
 import { DeliveryIcon, HelpIcon } from '@avito/icons';

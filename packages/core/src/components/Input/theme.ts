@@ -1,4 +1,5 @@
 import { SchemeType } from '../../styled-system/'
+import { dsl } from '../../theme'
 import { InputProps } from './contract'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
@@ -27,23 +28,11 @@ export const inputTheme: InputTheme = {
       props: {
         color: 'gray28',
       },
-      size: {
-        s: {
-          props: {
-            size: 's',
-          },
-        },
-        m: {
-          props: {
-            size: 's',
-          },
-        },
-        l: {
-          props: {
-            size: 'm',
-          },
-        },
-      },
+      size: dsl.propMap('size', {
+        s: 's',
+        m: 's',
+        l: 'm',
+      } as const),
     },
     IconAfter: {
       props: {
@@ -54,23 +43,11 @@ export const inputTheme: InputTheme = {
           area: 10,
         },
       },
-      size: {
-        s: {
-          props: {
-            size: 's',
-          },
-        },
-        m: {
-          props: {
-            size: 's',
-          },
-        },
-        l: {
-          props: {
-            size: 'm',
-          },
-        },
-      },
+      size: dsl.propMap('size', {
+        s: 's',
+        m: 's',
+        l: 'm',
+      } as const),
     },
     Prefix: {
     },
@@ -85,23 +62,11 @@ export const inputTheme: InputTheme = {
       style: {
         focus: true,
       },
-      size: {
-        s: {
-          style: {
-            height: 's',
-          },
-        },
-        m: {
-          style: {
-            height: 'm',
-          },
-        },
-        l: {
-          style: {
-            height: 'l',
-          },
-        },
-      },
+      size: dsl.styleMap('height', {
+        s: 's',
+        m: 'm',
+        l: 'l',
+      } as const),
     },
   },
 }

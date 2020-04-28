@@ -1,4 +1,4 @@
-import { DeepPartial, InputTheme } from '@avito/core'
+import { DeepPartial, InputTheme, dsl } from '@avito/core'
 
 const gapSize = {
   s: 7,
@@ -12,61 +12,13 @@ export const inputTheme: DeepPartial<InputTheme> = {
   },
   scheme: {
     IconBefore: {
-      size: {
-        s: {
-          props: {
-            mr: gapSize.s,
-          },
-        },
-        m: {
-          props: {
-            mr: gapSize.m,
-          },
-        },
-        l: {
-          props: {
-            mr: gapSize.l,
-          },
-        },
-      },
+      size: dsl.propMap('mr', gapSize),
     },
     IconAfter: {
-      size: {
-        s: {
-          props: {
-            ml: gapSize.s,
-          },
-        },
-        m: {
-          props: {
-            ml: gapSize.m,
-          },
-        },
-        l: {
-          props: {
-            ml: gapSize.l,
-          },
-        },
-      },
+      size: dsl.propMap('ml', gapSize),
     },
     Prefix: {
-      size: {
-        s: {
-          props: {
-            mr: gapSize.s,
-          },
-        },
-        m: {
-          props: {
-            mr: gapSize.m,
-          },
-        },
-        l: {
-          props: {
-            mr: gapSize.l,
-          },
-        },
-      },
+      size: dsl.propMap('mr', gapSize),
     },
     Input: {
       style: {
@@ -78,54 +30,28 @@ export const inputTheme: DeepPartial<InputTheme> = {
         colorDisabled: 'gray64',
         bgDisabled: 'gray4',
       },
-      size: {
+      size: dsl.styleMap({
         s: {
-          style: {
-            fontSize: 's',
-            px: gapSize.s,
-          },
+          fontSize: 's',
+          px: gapSize.s,
         },
         m: {
-          style: {
-            fontSize: 'm',
-            px: gapSize.m,
-          },
+          fontSize: 'm',
+          px: gapSize.m,
         },
         l: {
-          style: {
-            fontSize: 'l',
-            px: gapSize.l,
-          },
+          fontSize: 'l',
+          px: gapSize.l,
         },
-      },
-      variant: {
-        primary: {
-          style: {
-            borderColor: 'gray28',
-          },
-        },
-        secondary: {
-          style: {
-            // FIXME: How to style it?
-            bg: 'gray8',
-          },
-        },
-        success: {
-          style: {
-            borderColor: 'green500',
-          },
-        },
-        warning: {
-          style: {
-            borderColor: 'orange500',
-          },
-        },
-        error: {
-          style: {
-            borderColor: 'red500',
-          },
-        },
-      },
+      }),
+      variant: dsl.styleMap('borderColor', {
+        primary: 'gray20',
+        // FIXME: How to style it?
+        secondary: 'gray8',
+        success: 'green500',
+        warning: 'orange500',
+        error: 'red500',
+      }),
     },
   },
 }

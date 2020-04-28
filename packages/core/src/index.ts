@@ -24,5 +24,5 @@ export { useRefHook, usePrevent3DTouch, useMeasure, useUncontrolledInputHook, us
 export { default as styled, css, keyframes, foldThemeParams } from './styled-system/'
 export { filterProps, DeepPartial } from './utils/'
 export * from './styled-system/'
-export { ThemeProvider, useTheme, mergeTheme } from './theme/'
+export { ThemeProvider, useTheme, mergeTheme, dsl } from './theme/'
 export type { Theme } from './theme/'
