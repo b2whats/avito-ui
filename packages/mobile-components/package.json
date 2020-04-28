@@ -24,7 +24,8 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/core": "^0.0.3"
+    "@avito/core": "^0.0.3",
+    "@avito/tokens": "^0.0.10"
   },
   "devDependencies": {
     "react": "^16.8.6",
