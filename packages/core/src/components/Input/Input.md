@@ -151,7 +151,7 @@ const onFavoriteClick = (event) => {
     clearable
     onChange={onChange}
     onClick={(event) => console.log('click', {...event})}
-    
+
   />
 
   <Input

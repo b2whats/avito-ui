@@ -2,6 +2,11 @@
 
 exports[`mobile theme button theme snap 1`] = `
 Object {
+  "defaultProps": Object {
+    "preset": "primary",
+    "size": "m",
+    "type": "button",
+  },
   "scheme": Object {
     "Button": Object {
       "iconAfter": Object {
@@ -284,7 +289,8 @@ Object {
         "primary": Object {
           "style": Object {
             "bg": "blue500",
-            "bgActive": "blue800",
+            "bgActive": "blue600",
+            "bgChecked": "blue600",
             "bgDisabled": "blue300",
             "color": "white",
             "colorDisabled": "blue50",
@@ -325,7 +331,7 @@ Object {
         "borderRadius": 3,
         "borderStyle": "solid",
         "borderWidth": 1,
-        "focus": true,
+        "focus": false,
         "px": 16,
       },
     },
@@ -405,7 +411,8 @@ Object {
         },
       },
       "props": Object {
-        "size": "s",
+        "dense": true,
+        "size": "m",
       },
     },
   },
@@ -422,6 +429,12 @@ Object {
   "deletePlaceholderOnFocus": true,
   "scheme": Object {
     "IconAfter": Object {
+      "clearable": Object {
+        "props": Object {
+          "area": 10,
+          "name": "cross",
+        },
+      },
       "props": Object {
         "color": "gray28",
       },
@@ -449,36 +462,8 @@ Object {
     "IconBefore": Object {
       "props": Object {
         "color": "gray28",
-      },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "ml": 10,
-            "mr": 8,
-            "size": "m",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "ml": 10,
-            "mr": 8,
-            "size": "s",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "ml": 10,
-            "mr": 8,
-            "size": "s",
-          },
-        },
-      },
-    },
-    "IconClear": Object {
-      "props": Object {
-        "area": 10,
-        "color": "gray28",
-        "name": "cross",
+        "ml": 10,
+        "mr": 8,
       },
       "size": Object {
         "l": Object {
@@ -521,6 +506,8 @@ Object {
       },
       "style": Object {
         "borderRadius": 5,
+        "color": "black",
+        "colorDisabled": "gray40",
         "focus": true,
         "placeholderColor": "gray48",
       },
@@ -528,36 +515,26 @@ Object {
         "error": Object {
           "style": Object {
             "bg": "red50",
-            "color": "black",
-            "colorDisabled": "gray40",
           },
         },
         "primary": Object {
           "style": Object {
             "bg": "gray4",
-            "color": "black",
-            "colorDisabled": "gray40",
           },
         },
         "secondary": Object {
           "style": Object {
             "bg": "gray8",
-            "color": "black",
-            "colorDisabled": "gray40",
           },
         },
         "success": Object {
           "style": Object {
             "bg": "green50",
-            "color": "black",
-            "colorDisabled": "gray40",
           },
         },
         "warning": Object {
           "style": Object {
             "bg": "orange50",
-            "color": "black",
-            "colorDisabled": "gray40",
           },
         },
       },

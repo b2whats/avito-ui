@@ -90,7 +90,7 @@ export const InputCore = React.forwardRef((props: InputCoreProps, ref: React.Ref
 
     props.onClick && props.onClick(event)
   }
-  
+
   const text = props.autoSize ? props.value || props.placeholder : undefined
 
   return (

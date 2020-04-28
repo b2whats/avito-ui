@@ -3,8 +3,9 @@ import { setNativeValue } from '../../utils/'
 import { useTheme, mergeTheme } from '../../theme/'
 import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
-import { Icon, IconProps } from '../Icon/'
+import { IconProps } from '../Icon/'
 import { Text, TextProps } from '../Text/'
+import { CrossIcon } from '@avito/icons'
 import { InputCore } from './InputCore'
 import { InputProps } from './contract'
 import { inputTheme } from './theme'
@@ -41,19 +42,24 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
   `)
 )
 
-export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
+export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(inputTheme, theme.Input, override)
   const [inputRef, setRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
   const [value, onChange] = useUncontrolledInputHook(props)
+  const clearable = Boolean(
+    value &&
+    !props.disabled && !props.readOnly &&
+    (props.clearable === 'always' || props.clearable && focus))
 
   props = {
     ...componentTheme.defaultProps,
     ...props,
     value,
     onChange,
-    clearable: Boolean(value && (props.clearable === 'always' || props.clearable && focus)),
+    clearable,
+    iconAfter: clearable ? <CrossIcon /> : props.iconAfter,
     placeholder: inputTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
@@ -77,7 +83,7 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
     setNativeValue(inputRef.current, '')
   }
 
-  const { Input, IconClear, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, componentTheme)
+  const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, componentTheme)
   const inputStyle = inputClassName(props, theme, Input.style)
   const inputFieldStyle = inputFieldClassName(props, theme, InputField.style)
 
@@ -94,9 +100,9 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
     undefined
   )
 
-  const iconAfter = props.clearable
-    ? <IconClear.component {...IconAfter.props} {...IconClear.props} onClick={handleClear} />
-    : renderIconSlot(props.iconAfter, IconAfter.props)
+  const iconAfter = renderIconSlot(
+    props.iconAfter,
+    clearable ? { ...IconAfter.props, onClick: handleClear } : IconAfter.props)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
   const autoSize = props.postfix ? true : false
