@@ -2,3 +2,4 @@ export { Button, Text, Icon, Checkbox, Radio, Switcher, Input, Textarea, Spinner
 
 export { theme } from './theme'
 export { ThemeProvider } from './ThemeProvider'
+export { pikTheme } from './themes'

@@ -9,7 +9,7 @@ export default observer(function ComponentsList(props: any) {
     return +(a.name > b.name) || -(a.name < b.name)
   }).filter((item: any) => {
     const platform = platformFromPath(item.filepath)
-    return platform === 'universal' || platform === store.theme
+    return platform === 'universal' || platform === store.platform
   })
 
   return <DefaultComponentsList items={items} />
