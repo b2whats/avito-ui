@@ -9,14 +9,14 @@ import { platformFromPath } from '../utils'
 // Прячем неподдерживаемые платформой компоненты
 export default observer((props: any) => {
   const platform = platformFromPath(props.component.filepath)
-  if (platform !== 'universal' && store.theme !== platform) {
+  if (platform !== 'universal' && store.platform !== platform) {
     // Прячем в списке компонентов
     if (!getInfoFromHash(window.location.hash).targetName) {
       return null
     }
 
     // Явное сообщение на отдельной странице неподдерживаемого компонента (/#/SegmentButton)
-    const message = `##${ props.component.visibleName }\nNot supported on ${ store.theme } — try another platform.`
+    const message = `##${ props.component.visibleName }\nNot supported on ${ store.platform } — try another platform.`
     return <Markdown text={message} />
   }
   return <ReactComponent { ...props } />

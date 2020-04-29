@@ -21,7 +21,7 @@ export * from './components/Layout/'
 
 export { useRefHook, usePrevent3DTouch, useMeasure, useUncontrolledInputHook, useWindowSize } from './hooks/'
 export { default as styled, css, keyframes, foldThemeParams } from './styled-system/'
-export { filterProps } from './utils/'
+export { filterProps, DeepPartial } from './utils/'
 export * from './styled-system/'
 export { ThemeProvider, useTheme, mergeTheme } from './theme/'
 export type { Theme } from './theme/'
