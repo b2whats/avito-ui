@@ -11,6 +11,13 @@ export const pikTheme: DeepPartial<Theme> = {
       moz: 'grayscale',
     },
   },
+  dimension: {
+    rowHeight: {
+      s: 36,
+      m: 48,
+      l: 56,
+    },
+  },
   Text: {
     scheme: {
       Text: {
@@ -23,6 +30,61 @@ export const pikTheme: DeepPartial<Theme> = {
           xxl: 1.25,
           xxxl: 1.2,
         }),
+      },
+    },
+  },
+  Button: {
+    scheme: {
+      Button: {
+        style: {
+          borderRadius: 4,
+          pressedOffset: 0,
+        },
+        size: {
+          s: {
+            style: {
+              px: 24,
+            },
+          },
+          m: {
+            style: {
+              px: 24,
+            },
+          },
+          l: {
+            style: {
+              px: 36,
+            },
+            multiline: {
+              style: {
+                minWidth: 290,
+                px: 48,
+                height: 64,
+              },
+            },
+          },
+        },
+        preset: {
+          default: {
+            style: {
+              borderColor: 'gray16',
+              bgHover: 'gray4',
+              bgActive: 'gray8',
+            },
+          },
+          newDefault: {
+            style: {
+              bg: 'gray4',
+              bgHover: 'gray8',
+              bgActive: 'gray12',
+            },
+          },
+          warning: {
+            style: {
+              color: 'white',
+            },
+          },
+        },
       },
     },
   },

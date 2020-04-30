@@ -46,21 +46,29 @@ import { Stack } from '../Layout/';
 ```js
 import { Text } from '../Text/';
 import { Stack } from '../Layout/';
-import { Icon } from '../Icon/';
+import { SearchIcon } from '@avito/icons';
 
-<Stack spacing='m'>
-  <Button multiline>
-    1 строка<br/>
-    2 строка
-  </Button>
-  <Button multiline>
-    Кнопка<br />
-    <Text size="xs">мини-текст</Text>
-  </Button>
-  <Button iconBefore='search' multiline>
-    Две строки с иконкой?<br />
-    <Text size="xs">Никаких проблем!</Text>
-  </Button>
+<Stack column spacing='m'>
+  <Stack spacing='m'>
+    <Button multiline>
+      1 строка<br/>
+      2 строка
+    </Button>
+    <Button multiline>
+      Кнопка<br />
+      <Text size="xs">мини-текст</Text>
+    </Button>
+    <Button iconBefore={ <SearchIcon /> } multiline>
+      Две строки с иконкой?<br />
+      <Text size="xs">Никаких проблем!</Text>
+    </Button>
+  </Stack>
+  <Stack spacing='m'>
+    <Button size='l' multiline>
+      Кнопка побольше<br />
+      <Text size="s">Тоже можно устроить</Text>
+    </Button>
+  </Stack>
 </Stack>
 ```
 
@@ -82,8 +90,8 @@ import { Stack } from '../Layout/';
 
 ## Иконки в кнопке
 
-Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.  
-Возможные значения:  
+Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.
+Возможные значения:
 renderProp - `(iconProps) => <SearchIcon {...iconProps}>`. `iconProps` - добавляет параметры темы
 Component - `<SearchIcon color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
 
