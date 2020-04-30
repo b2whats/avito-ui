@@ -5,5 +5,5 @@ import { filterMarkdown } from '../utils'
 import { store } from '../store'
 
 export default observer(function PlatformExamples(props: any) {
-  return <Examples {...props} examples={filterMarkdown(props.examples, store.theme)} />
+  return <Examples {...props} examples={filterMarkdown(props.examples, store.platform)} />
 })
