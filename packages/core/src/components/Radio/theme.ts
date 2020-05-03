@@ -1,9 +1,15 @@
+import '@avito/icons/register/radio-checked'
 import { SchemeType } from '../../styled-system/'
 import { RadioProps } from './contract'
+import { IconProps } from '../Icon/contract'
+import { TextProps } from '../Text/contract'
 
 export type RadioTheme = {
   scheme: {
-    Switch: SchemeType<RadioProps>,
+    Toggle?: SchemeType<RadioProps>,
+    Switch?: SchemeType<RadioProps>,
+    Icon?: SchemeType<RadioProps, IconProps>,
+    Label?: SchemeType<RadioProps, TextProps>,
   },
 }
 
@@ -90,6 +96,13 @@ export const radioTheme: RadioTheme = {
               bgDisabled: 'gray28',
             },
           },
+        },
+      },
+    },
+    Icon: {
+      checked: {
+        props: {
+          name: 'radio-checked',
         },
       },
     },

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Theme } from '../../theme/'
-import { MarginProperties, DimensionProperties, ValignProperties } from '../../styled-system/'
+import { MarginProperties, DimensionProperties, AlignProperties } from '../../styled-system/'
 import { TextTheme } from './theme'
 
-export interface TextProps extends MarginProperties, DimensionProperties, ValignProperties {
+export interface TextProps extends MarginProperties, DimensionProperties, AlignProperties {
   /** Размер текста */
   size?: keyof Theme['font']['fontSize']
   /** Размер текста фолбек */

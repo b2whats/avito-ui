@@ -1,4 +1,6 @@
 import React from 'react'
+import '@avito/icons/register/mobile'
+import '@avito/icons/register/web'
 import TableOfContentsRenderer from 'react-styleguidist/lib/client/rsg-components/TableOfContents/TableOfContentsRenderer'
 import { Icon, Stack, Box } from '@avito/mobile-components'
 import { store } from '../store'

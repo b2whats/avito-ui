@@ -1,23 +1,26 @@
-import { Theme } from '../../theme/'
-import { IconProps as IconBaseProps } from '@avito/icons'
-import { MarginProperties, ColorProperties } from '../../styled-system/'
+import React from 'react'
+import { SpaceProperties,  ColorProperties } from '../../styled-system/'
 import { IconTheme } from './theme'
 
-export interface IconProps extends IconBaseProps, MarginProperties {
-  /** Цвет иконки */
-  color?: ColorProperties['color']
-  /** Цвет иконки при наведении */
-  colorHover?: ColorProperties['colorHover']
+type MouseEvent = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
+
+export interface IconProps extends SpaceProperties, ColorProperties {
+  /** Имя */
+  name?: string,
   /** Размер иконки */
   size?: number | 's' | 'm' | 'l' | 'auto'
+  /** Поворот иконки */
+  rotate?: number
   /** Вращение иконки */
   spin?: number | boolean
   /** Цветовые варианты иконок */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Зона областии для клика */
   area?: number
+  /** Добавляет тень для иконки */
+  shadow?: boolean | string
   /** Переопределиь тему компонента */
   override?: IconTheme
 
-  onClick?(event: React.MouseEvent<Element>): void
+  onClick?: MouseEvent
 }

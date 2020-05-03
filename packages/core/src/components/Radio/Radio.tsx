@@ -18,10 +18,7 @@ const Radio = ({ override, ...props}: RadioProps) => {
 
   return (
     <Toggle {...props} mode='radio' override={componentTheme}>
-      {({ checked }) => (
-        checked === true ? <Icon name='radio-checked' size='auto' /> :
-        undefined
-      )}
+      {({ checked, iconProps }) => checked && <Icon {...iconProps} size='auto' />}
     </Toggle>
   )
 }

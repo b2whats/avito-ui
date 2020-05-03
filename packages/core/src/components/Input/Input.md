@@ -1,5 +1,4 @@
 ```jsx
-import { useState } from 'react'
 import { Stack } from '../Layout/'
 const [state, setState] = useState({ value: '', issetValue: 'Платье женское' })
 const onChange = ({ target }) => {
@@ -22,8 +21,7 @@ const onClick = ({ target }) => {
 
 Варианты
 ```jsx
-import { useState } from 'react'
-import { Stack } from '../Layout/';
+import { Stack } from '../Layout/'
 const [state, setState] = useState({ value: '', issetValue: 'Платье женское' })
 const onChange = ({ target }) => {
   setState(state => ({ [target.name]: target.value }))
@@ -66,7 +64,6 @@ const onChange = ({ target }) => {
 
 Варианты
 ```jsx
-import { useState } from 'react'
 import { Stack, Grid, Box} from '../Layout/';
 const [state, setState] = useState({ value: '', issetValue: 'Платье женское' })
 const onChange = ({ target }) => {
@@ -93,7 +90,6 @@ const onChange = ({ target }) => {
 
 Поисковая строка
 ```jsx
-import { useState } from 'react'
 import { Stack } from '../Layout/'
 import { Spinner } from '../Spinner/'
 import { Icon } from '../Icon/'

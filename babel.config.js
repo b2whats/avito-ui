@@ -40,6 +40,7 @@ const config = {
         {
           cwd: 'babelrc', // Установить корень проекта
           alias: {
+            '^@avito/icons/register/(.+)': './packages/icons/src/\\1',
             '^@avito/(.+)': './packages/\\1/src',
           },
         },

@@ -1,3 +1,4 @@
+import '@avito/icons/register/spinner'
 import { SchemeType } from '../../styled-system/'
 import { SpinnerProps } from './contract'
 import { IconProps } from '../Icon'
@@ -11,6 +12,9 @@ export type SpinnerTheme = {
 export const spinnerTheme: SpinnerTheme = {
   scheme: {
     Icon: {
+      props: {
+        name: 'spinner',
+      },
       size: {
         s: {
           props: {

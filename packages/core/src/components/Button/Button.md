@@ -1,7 +1,6 @@
 ## Тестовый блок
 
 ```js
-import { useState } from 'react'
 import { Input } from '../Input/'
 import { Stack } from '../Layout/'
 const [state, setState] = useState('default')
@@ -90,8 +89,9 @@ import { Stack } from '../Layout/';
 - Component - `<Icon name='search' color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
 
 ```js
-import { Text } from '../Text/';
-import { Stack } from '../Layout/';
+import '@avito/icons/register/search'
+import { Text } from '../Text/'
+import { Stack } from '../Layout/'
 import { Icon } from '../Icon/';
 
 <Stack spacing='m' align='left' column>

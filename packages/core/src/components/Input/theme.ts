@@ -1,3 +1,4 @@
+import '@avito/icons/register/cross'
 import { SchemeType } from '../../styled-system/'
 import { InputProps } from './contract'
 import { IconProps } from '../Icon/contract'

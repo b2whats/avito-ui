@@ -81,6 +81,7 @@ export const buttonTheme: ButtonTheme = {
     Text: {
       props: {
         size: 'm',
+        ml: -1,
       },
       iconBefore: {
         props: {

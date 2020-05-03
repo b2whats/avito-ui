@@ -1,5 +1,4 @@
 ```jsx
-import { useState } from 'react'
 import { Stack, Text, Icon, Checkbox, Switcher } from '../../'
 const [state, setState] = useState({})
 

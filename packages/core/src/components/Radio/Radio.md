@@ -1,8 +1,7 @@
 ## Интерактивный пример
 
 ```js
-import { useState } from 'react'
-import { Stack } from '../Layout/';
+import { Stack } from '../Layout/'
 const [state, setState] = useState(false)
 const onChange = ({ value }) => {
   setState(value);
@@ -17,8 +16,7 @@ const onChange = ({ value }) => {
 ## Состояния
 
 ```js
-import { useState } from 'react'
-import { Stack } from '../Layout/';
+import { Stack } from '../Layout/'
 const [state, setState] = useState(false);
 
 <Stack spacing='m' column>
@@ -32,8 +30,7 @@ const [state, setState] = useState(false);
 ## Размер
 
 ```js
-import { useState } from 'react'
-import { Stack } from '../Layout/';
+import { Stack } from '../Layout/'
 const [state, setState] = useState(false);
 
 <Stack spacing='m' column>
@@ -48,8 +45,7 @@ const [state, setState] = useState(false);
 ## Положение текста
 
 ```js
-import { useState } from 'react'
-import { Stack } from '../Layout/';
+import { Stack } from '../Layout/'
 const [state, setState] = useState(false);
 
 <Stack spacing='m' column>

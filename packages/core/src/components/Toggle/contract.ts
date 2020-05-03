@@ -1,9 +1,12 @@
 import React from 'react'
-import { MarginProperties, DimensionProperties, ValignProperties } from '../../styled-system/'
+import { IconProps } from '../Icon/contract'
+import { MarginProperties, DimensionProperties, AlignProperties } from '../../styled-system/'
 
 type ChildrenProps = {
   checked: boolean | 'mixed',
   loading?: boolean,
+  iconProps?: IconProps
+
 }
 
 type onChangeProps = {
@@ -13,7 +16,7 @@ type onChangeProps = {
   type: 'checkbox' | 'radio',
 }
 
-export interface ToggleProps extends MarginProperties, DimensionProperties, ValignProperties {
+export interface ToggleProps extends MarginProperties, DimensionProperties, AlignProperties {
   children?(props: ChildrenProps): React.ReactNode,
   /** Размер */
   size?: 's' | 'm' | 'l',

@@ -18,11 +18,7 @@ const Checkbox = ({ override, ...props }: CheckboxProps) => {
 
   return (
     <Toggle {...props} mode='checkbox' override={componentTheme}>
-      {({ checked }) => (
-        checked === 'mixed' ? <Icon name='checkbox-intermediate' size='auto' /> :
-        checked === true ? <Icon name='checkbox-checked' size='auto' /> :
-        undefined
-      )}
+      {({ checked, iconProps }) => checked && <Icon {...iconProps} size='auto' />}
     </Toggle>
   )
 }

@@ -84,32 +84,46 @@ export type SpaceProperties = PaddingProperties & MarginProperties
 type Align = 'left' | 'center' | 'right' | 'justify'
 type Valign = 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch'
 
-export type ValignProperties = Partial<{
-  /** Горизонтальное выравнивание */
+export type AlignProperties = Partial<{
+  /** Горизонтальное выравнивание дочерних блоков */
   align: Align
   /** Вертикальное выравнивание */
   valignSelf: Valign
-  /** Вертикальное выравнивание потомков */
+  /** Вертикальное выравнивание дочерних блоков */
   valign: Valign
 }>
 
-type LayoutProperties = ValignProperties & Partial<{
+export type LayoutProperties = AlignProperties & Partial<{
+  /** Вертикальное направление дочерних элементов */
   column: boolean,
+  /** Блочное поведение */
+  block: boolean,
+  /** Строчное поведение */
+  inline: boolean,
+  /** Переносить блоки на следующие строки если не хватило места */
+  wrap: boolean,
+  /** Положение элемента в потоке */
+  position: 'relative' | 'absolute' | 'static' | 'fixed',
+  /** Добавляет скролл */
+  scroll?: boolean
 }>
 
-type OtherProperties = Partial<{
+export type BorderProperties = Partial<{
+  /** Стиль границ */
   borderStyle: 'solid' | 'dotted' | 'dashed' | 'none',
-  focus: boolean | string,
+  /** Радиус границ */
+  borderRadius: number | 's' | 'm' | 'l' | 'circle',
+  /** Радиус границ */
+  rounded: number | 's' | 'm' | 'l' | 'circle',
+  /** Ширина границы */
+  borderWidth: number,
+}>
+
+type OtherProperties = BorderProperties & Partial<{
+  focus: boolean,
   disabled: boolean,
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   adjacentSelector: string,
-  block: boolean,
-  inline: boolean,
-  wrap: boolean,
-  position: 'relative' | 'absolute' | 'static' | 'fixed',
-  borderRadius: number | 's' | 'm' | 'l' | 'circle',
-  rounded: number | 's' | 'm' | 'l' | 'circle',
-  borderWidth: number,
   shape?: 'pill' | 'square' | 'circle'
   trancate: boolean
 }>
@@ -117,27 +131,49 @@ type OtherProperties = Partial<{
 type Colors = keyof Tokens['palette'] | 'transparent' | (string & {})
 
 export type ColorProperties = Partial<{
+  /** Цвет контента */
   color: Colors,
+  /** Цвет контента при наведении */
   colorHover: Colors,
+  /** Цвет контента при нажатии */
   colorActive: Colors,
+  /** Цвет контента посещенной ссылки */
   colorVisited: Colors,
+  /** Цвет контента в выбранном состоянии */
   colorChecked: Colors,
+  /** Цвет контента в состоянии фокуса */
   colorFocus: Colors,
+  /** Цвет контента в неакттивном состоянии */
   colorDisabled: Colors,
+  /** Цвет фона */
   bg: Colors,
+  /** Цвет фона при наведении */
   bgHover: Colors,
+  /** Цвет фона при нажатии */
   bgActive: Colors,
+  /** Цвет фона посещенной ссылки */
   bgVisited: Colors,
+  /** Цвет фона в выбранном состоянии */
   bgChecked: Colors,
+  /** Цвет фона в состоянии фокуса */
   bgFocus: Colors,
+  /** Цвет фона в неакттивном состоянии */
   bgDisabled: Colors,
+  /** Цвет ганиц */
   borderColor: Colors,
+  /** Цвет границ при наведении */
   borderColorHover: Colors,
+  /** Цвет границ при наведении */
   borderColorActive: Colors,
+  /** Цвет границ посещенной ссылки */
   borderColorVisited: Colors,
+  /** Цвет границ в выбранном состоянии */
   borderColorChecked: Colors,
+  /** Цвет границ в состоянии фокуса */
   borderColorFocus: Colors,
+  /** Цвет границ в неакттивном состоянии */
   borderColorDisabled: Colors,
+  /** Цвет текста у плейсхолдера */
   placeholderColor: Colors,
 }>
 
@@ -463,6 +499,10 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       case 'borderWidth':
         css += `border-width: ${value}px;`
 
+        if (params.borderStyle) break
+
+        css += 'border-style: solid;'
+
         break
       case 'rounded':
       case 'borderRadius':
@@ -674,7 +714,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       }
       default:
         // Exhaustive switch guard
-        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate'>(param)
+        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate' | 'scroll'>(param)
     }
   }
 

@@ -1,7 +1,6 @@
 ## Интерактивный пример
 
 ```js
-import { useState } from 'react'
 import { Stack } from '../Layout/';
 const [state, setState] = useState(false)
 const onChange = ({ checked }) => {
@@ -14,7 +13,6 @@ const onChange = ({ checked }) => {
 ## Состояния
 
 ```js
-import { useState } from 'react'
 import { Stack } from '../Layout/';
 const [state, setState] = useState(false);
 
@@ -32,7 +30,6 @@ const [state, setState] = useState(false);
 ## Размер
 
 ```js
-import { useState } from 'react'
 import { Stack } from '../Layout/';
 const [state, setState] = useState(false);
 
@@ -44,23 +41,9 @@ const [state, setState] = useState(false);
 ```
 :::
 
-## Форма
-
-```js
-import { useState } from 'react'
-import { Stack } from '../Layout/';
-const [state, setState] = useState(false);
-
-<Stack spacing='m' column>
-  <Checkbox checked label='Квадратный'/>
-  <Checkbox checked shape='circle' label='Круглый' />
-</Stack>
-```
-
 ## Положение текста
 
 ```js
-import { useState } from 'react'
 import { Stack } from '../Layout/';
 const [state, setState] = useState(false);
 

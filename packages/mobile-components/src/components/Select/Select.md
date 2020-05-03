@@ -1,5 +1,4 @@
 ```js
-import { useState } from 'react';
 import { Select, Text, Stack } from '../../';
 
 function Presentation(attrs) {
