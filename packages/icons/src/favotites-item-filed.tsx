@@ -2,6 +2,7 @@ import React from 'react'
 import { createIcon } from './createIcon'
 
 createIcon({
+  platform: 'mobile',
   name: 'favotites-item-filed',
   width: 36,
   height: 36,

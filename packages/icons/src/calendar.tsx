@@ -2,6 +2,7 @@ import React from 'react'
 import { createIcon } from './createIcon'
 
 createIcon({
+  platform: 'mobile',
   name: 'calendar',
   width: 24,
   height: 24,

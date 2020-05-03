@@ -2,6 +2,7 @@ import React from 'react'
 import { createIcon } from './createIcon'
 
 createIcon({
+  platform: 'mobile',
   name: 'icon-not-found',
   width: 452,
   height: 452,

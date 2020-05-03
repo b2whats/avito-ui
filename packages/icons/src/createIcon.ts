@@ -3,6 +3,7 @@ type Icon = {
   width: number,
   height: number,
   svg: React.ReactNode,
+  platform?: string,
   category?: string,
 }
 
