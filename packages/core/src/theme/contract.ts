@@ -1,4 +1,4 @@
-import { Tokens } from '@avito/tokens'
+import { Tokens, Palette } from '@avito/tokens'
 import { ButtonTheme } from '../components/Button/theme'
 import { CheckboxTheme } from '../components/Checkbox/theme'
 import { IconTheme } from '../components/Icon/theme'

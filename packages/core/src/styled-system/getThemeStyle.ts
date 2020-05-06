@@ -128,7 +128,7 @@ type OtherProperties = BorderProperties & Partial<{
   trancate: boolean
 }>
 
-type Colors = keyof Tokens['palette'] | 'transparent' | (string & {})
+export type Colors = keyof Tokens['palette'] | 'transparent' | (string & {})
 
 export type ColorProperties = Partial<{
   /** Цвет контента */
@@ -177,7 +177,7 @@ export type ColorProperties = Partial<{
   placeholderColor: Colors,
 }>
 
-type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties & OtherProperties
+export type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties & OtherProperties
 type UnionToIntersection<U> = (boolean extends U ? (k: U)=>void : U extends any ? (k: U)=>void : never) extends ((k: infer I)=>void) ? I : never
 type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 type OnlyLiteralString<T> = T extends string ? T : never
@@ -199,8 +199,9 @@ export type SchemeType<
     ? SchemeType<Omit<Props, Key>, ComponentsProps>
     : IsUnion<NonNullable<Props[Key]>> extends true
       ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps> }
-      : Props[Key] extends string
-        ? { [K in Props[Key]]?: SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps> }
+      // single-value props, as in preset: 'force' or preset?: 'force'
+      : Props[Key] extends string | undefined
+        ? { [K in OnlyLiteralString<Props[Key]>]?: SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps> }
         : SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps>
 }
 

@@ -1,4 +1,8 @@
-import { Theme, dsl, DeepPartial } from '@avito/core'
+import { Theme, dsl, DeepPartial, StyleProperties, Colors } from '@avito/core'
+
+declare module '@avito/core' {
+  enum InputPreset { inverse }
+}
 
 export const pikTheme: DeepPartial<Theme> = {
   font: {
@@ -88,4 +92,56 @@ export const pikTheme: DeepPartial<Theme> = {
       },
     },
   },
+  Input: {
+    scheme: {
+      InputCore: {
+        props: {
+          pb: -1,
+        },
+      },
+      Input: {
+        style: {
+          placeholderColor: 'gray44',
+          borderWidth: 1,
+          borderRadius: 4,
+          bgFocus: 'white',
+          focus: false,
+        },
+        variant: dsl.styleMap({
+          primary: pikInput('gray4', 'gray16'),
+          secondary: pikInput('gray8', 'gray20'),
+          error: pikInput('red50', 'red300'),
+          warning: pikInput('orange50', 'orange300'),
+          success: pikInput('green50', 'green300'),
+        }),
+        size: dsl.styleMap('px', {
+          s: 16,
+          m: 16,
+          l: 16,
+        }),
+        preset: {
+          inverse: {
+            variant: {
+              primary: {
+                style: {
+                  bg: 'white',
+                  bgDisabled: 'white',
+                  borderColor: 'white',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+}
+
+function pikInput(bg: Colors, border: Colors): StyleProperties {
+  return {
+    bg,
+    borderColor: bg,
+    borderColorHover: border,
+    borderColorFocus: border,
+  }
 }
