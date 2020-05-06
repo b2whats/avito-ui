@@ -6,3 +6,14 @@ for (const name in helpers) {
 }
 
 global['useState'] = useState
+
+global['copyText'] = (text: string) => {
+  const textNode = document.createElement('textarea')
+  textNode.value = text
+  textNode.style.position = 'absolute'
+  textNode.style.left = '-9999px'
+  document.body.appendChild(textNode)
+  textNode.select()
+  document.execCommand('copy')
+  document.body.removeChild(textNode)
+}

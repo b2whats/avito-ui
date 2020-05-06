@@ -56,7 +56,7 @@ import { Stack } from '../Layout/';
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
-  <Icon name='search' color='red200' size='l' shadow/>
+  <Icon name='search' color='red200' size='l' shadow />
 </Stack>
 ```
 
@@ -69,12 +69,42 @@ import { Stack } from '../Layout/';
 import { Stack } from '../Layout/';
 const onClick = () => {};
 
+<Icon name='search' onClick={onClick} area={10}/>
+```
+
+## Вращение
+Любую иконку можно вращать вокруг своей оси используя параметр `rotate`: `number`  
+Направление вращения начинается так же как и у параметров `margin` `padding`, то есть сверху
+
+```js
+import { Stack } from '../Layout/';
+const onClick = () => {};
+
 <Stack spacing='m'>
-  <Icon name='search' onClick={onClick} area={10}/>
+  <Icon name='arrow' />
+  <Icon name='arrow' rotate={90} />
+  <Icon name='arrow' rotate={180} />
+  <Icon name='arrow' rotate={270} />
+</Stack>
+```
+
+## Постоянное вращение
+Вы можете задать анимацию враения у иконок с помощью параметра `spin`: `boolean` | `number`  
+Скорость вращения можно регулировать передав число, значение измеряется в секундах
+
+```js
+import { Stack } from '../Layout/';
+const onClick = () => {};
+
+<Stack spacing='m'>
+  <Icon name='arrow' spin/>
+  <Icon name='arrow' spin={0.3} />
+  <Icon name='arrow' spin={5} />
 </Stack>
 ```
 
 ### Список иконок
+Для копирования названия иконки, просто кликните по ней
 
 ```js
 import '@avito/icons/register/mobile-platform'
@@ -85,7 +115,7 @@ import { Stack, Box } from '../Layout/';
 
 <Stack spacing='m' wrap>
   {Object.keys(icons).map((name) => !['component', 'playground'].includes(icons[name].category) && (
-    <Box key={name} width={110} p={10} align='center' mb={16} column>
+    <Box key={name} width={110} p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
       <Icon name={name} />
       <Text size='xs' mt={8} align='center'>{name}</Text>
     </Box>

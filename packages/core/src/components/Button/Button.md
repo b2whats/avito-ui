@@ -89,6 +89,43 @@ import { Stack } from '../Layout/';
 - Component - `<Icon name='search' color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
 
 ```js
+import '@avito/icons/register/mobile-platform'
+import { icons } from '@avito/icons'
+import { Stack, Box, Group } from '../Layout/'
+import { Radio } from '../Radio/'
+import { Icon } from '../Icon/'
+
+const [props, setProps] = useState({ iconAfter: 'search'  })
+const onChange = ({ name, value }) => {
+  const position = 
+  setProps(state => ({
+    ...state,
+    ...name === 'position' && { iconBefore: undefined, iconAfter: undefined, [value]: state.iconBefore || state.iconAfter },
+    ...name === 'name' && { [(props.iconBefore && 'iconBefore') || (props.iconAfter && 'iconAfter')]: value },
+  }))
+}
+;
+
+<Stack spacing='m' align='left' column>
+  <Box py={20} align='center' block>
+    <Button {...props}>Кнопка</Button>
+  </Box>
+  <Stack spacing='m' column>
+    <Group mode='radio' name='position' spacing='m' value={(props.iconBefore && 'iconBefore') || (props.iconAfter && 'iconAfter')} onChange={onChange}>
+      <Radio label='Слева' value='iconBefore' />
+      <Radio label='Справа' value='iconAfter' />
+    </Group>
+    <select value={props.iconBefore || props.iconAfter} onChange={({ target: { value } }) => onChange({ name: 'name', value })} >
+      {Object.keys(icons).map((name) => !['component', 'playground'].includes(icons[name].category) && (
+        <option key={name} value={name}>{name}</option>
+      ))}
+    </select>
+  </Stack>
+</Stack>
+```
+
+
+```js
 import '@avito/icons/register/search'
 import { Text } from '../Text/'
 import { Stack } from '../Layout/'

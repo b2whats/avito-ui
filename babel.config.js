@@ -28,7 +28,7 @@ const config = {
   ],
   plugins: (() => {
     let plugins = [
-      '@babel/transform-runtime', // Нужно для avito/ct
+      '@babel/transform-runtime',
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-syntax-dynamic-import',

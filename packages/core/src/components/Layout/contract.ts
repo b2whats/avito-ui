@@ -5,9 +5,9 @@ import { SpaceProperties, DimensionProperties, ColorProperties, BorderProperties
 type LayoutProps = SpaceProperties & ColorProperties & DimensionProperties & BorderProperties & LayoutProperties
 
 export interface GridProps extends LayoutProps {
-  /** Отступ между дочерними блоками */
+  /** Горизонтальный отступ между дочерними блоками */
   spacing: keyof Theme['space'] | number
-  /** Отступ между дочерними блоками по вертикали */
+  /** Верикальный отступ между дочерними блоками */
   spacingY: keyof Theme['space'] | number
   /** Содержание */
   children?: React.ReactNode
@@ -28,8 +28,10 @@ export interface BoxProps extends LayoutProps {
 export interface StackProps extends LayoutProps {
   /** Содержание */
   children?: React.ReactNode
-  /** Горизонтальный отступ между дочерними блоками */
+  /** Отступ между дочерними блоками по главной оси */
   spacing?: keyof Theme['space'] | number
+  /** Отступ между дочерними блоками по перпендикулярной оси */
+  spacingCross?: keyof Theme['space'] | number
   /** Изменить тег */
   as?: string
   ref?: (node: HTMLElement | null) => void

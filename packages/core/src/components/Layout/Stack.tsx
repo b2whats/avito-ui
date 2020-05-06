@@ -10,21 +10,25 @@ const stackClassName = createClassName<StackProps>(
     valign: !props.column ? 'top' : undefined,
     ...props,
   }),
-  (textRules, { column, scroll, spacing, debug }, { space, palette }) => (`
+  (textRules, { column, scroll, spacing, spacingCross, debug }, { space }) => (`
     ${scroll ? `overflow-${column ? 'y' : 'x'}: auto;` : ''};
 
     ${spacing ? `
       & > *:not(:last-child) { margin-${column ? 'bottom' : 'right'}: ${space[spacing] || spacing}px; }
     ` : ''}
 
+    ${spacingCross ? `
+      & > * { margin-${column ? 'right' : 'bottom'}: ${space[spacingCross] || spacingCross}px; }
+    ` : ''}
+
     ${debug ? `
-      border: 2px solid ${palette.red300};
+      outline: 1px solid red;
       & > * {
-        background-color: ${palette.blue200};
+        background-color: #A1DFFF;
       }
 
       & > :nth-child(2n) {
-        background-color: ${palette.yellow200};
+        background-color: #ffd173;
       }
     ` : ''}
 
