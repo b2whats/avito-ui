@@ -2,7 +2,7 @@ import React from 'react'
 import { SpaceProperties,  ColorProperties } from '../../styled-system/'
 import { IconTheme } from './theme'
 
-type MouseEvent = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
+type MouseHadler = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
 
 export interface IconProps extends SpaceProperties, ColorProperties {
   /** Имя */
@@ -22,5 +22,5 @@ export interface IconProps extends SpaceProperties, ColorProperties {
   /** Переопределиь тему компонента */
   override?: IconTheme
 
-  onClick?: MouseEvent
+  onClick?: MouseHadler
 }
