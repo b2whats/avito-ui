@@ -6,6 +6,7 @@ import { SegmentButtonTheme } from './components/SegmentButton/'
 import { buttonTheme } from './components/Button/theme'
 import { iconTheme } from './components/Icon/theme'
 import { inputTheme } from './components/Input/theme'
+import { textTheme } from './components/Text/theme'
 
 declare module '@avito/core' {
   interface Theme {
@@ -18,6 +19,7 @@ export const theme = mergeTheme(mobile as Theme, {
   Button: buttonTheme,
   Icon: iconTheme,
   Input: inputTheme,
+  Text: textTheme,
   Textarea: {
     scheme: {
       IconClear: {

@@ -1,4 +1,5 @@
 import { SchemeType } from '../../styled-system/'
+import { dsl } from '../../theme'
 import { TextProps } from './contract'
 
 export type TextTheme = {
@@ -82,48 +83,13 @@ export const textTheme: TextTheme = {
           },
         },
       },
-      preset: {
-        title: {
-          props: {
-            as: 'h1',
-            size: 'xxl',
-            mb: 36,
-          },
-        },
-        'title-small': {
-          props: {
-            as: 'h2',
-            size: 'xl',
-            dense: true,
-            bold: true,
-            mb: 26,
-          },
-        },
-        'heading-large': {
-          props: {
-            as: 'h3',
-            size: 'l',
-            dense: true,
-            bold: true,
-            mb: 22,
-          },
-        },
-        'heading': {
-          props: {
-            as: 'h4',
-            size: 'l',
-            dense: true,
-            mb: 22,
-          },
-        },
-        'heading-small': {
-          props: {
-            as: 'h5',
-            size: 'm',
-            mb: 16,
-          },
-        },
-      },
+      preset: dsl.propMap('as', {
+        'title': 'h1',
+        'title-small': 'h2',
+        'heading-large': 'h3',
+        'heading': 'h4',
+        'heading-small': 'h5',
+      } as const),
     },
   },
 }
