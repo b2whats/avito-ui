@@ -258,20 +258,28 @@ import { Stack } from '../Layout';
 
 <Stack spacing="m" column>
   <Stack spacing="m">
-    <Button>Кнопка</Button>
-    <Button preset="newDefault">Кнопка</Button>
-    <Button preset="primary">Кнопка</Button>
-    <Button preset="success">Кнопка</Button>
-    <Button preset="warning">Кнопка</Button>
-    <Button preset="error">Кнопка</Button>
+    <Button>default</Button>
+    <Button preset="newDefault">newDefault</Button>
+    <Button preset="primary">primary</Button>
+    <Button preset="success">success</Button>
+    <Button preset="warning">warning</Button>
+    <Button preset="error">error</Button>
   </Stack>
   <Stack spacing="m">
-    <Button disabled>Кнопка</Button>
-    <Button preset="newDefault" disabled>Кнопка</Button>
-    <Button preset="primary" disabled>Кнопка</Button>
-    <Button preset="success" disabled>Кнопка</Button>
-    <Button preset="warning" disabled>Кнопка</Button>
-    <Button preset="error" disabled>Кнопка</Button>
+    <Button disabled>default</Button>
+    <Button preset="newDefault" disabled>newDefault</Button>
+    <Button preset="primary" disabled>primary</Button>
+    <Button preset="success" disabled>success</Button>
+    <Button preset="warning" disabled>warning</Button>
+    <Button preset="error" disabled>error</Button>
+  </Stack>
+  <Stack spacing="m">
+    <Button loading>default</Button>
+    <Button preset="newDefault" loading>newDefault</Button>
+    <Button preset="primary" loading>primary</Button>
+    <Button preset="success" loading>success</Button>
+    <Button preset="warning" loading>warning</Button>
+    <Button preset="error" loading>error</Button>
   </Stack>
 </Stack>
 ```
