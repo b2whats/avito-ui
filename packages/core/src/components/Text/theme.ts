@@ -13,76 +13,20 @@ export const textTheme: TextTheme = {
     Text: {
       style: {
         lineHeight: 'normal',
-      },
-      size: {
-        xs: {
-          style: {
-            fontSize: 'xs',
-          },
-        },
-        s: {
-          style: {
-            fontSize: 's',
-          },
-        },
-        m: {
-          style: {
-            fontSize: 'm',
-          },
-        },
-        l: {
-          style: {
-            fontSize: 'l',
-          },
-        },
-        xl: {
-          style: {
-            fontSize: 'xl',
-          },
-        },
-        xxl: {
-          style: {
-            fontSize: 'xxl',
-          },
-        },
-        xxxl: {
-          style: {
-            fontSize: 'xxxl',
-          },
-        },
+        fontSize: p => p.size,
       },
       dense: {
         style: {
           lineHeight: 'dense',
         },
       },
-      variant: {
-        primary: {
-          style: {
-            color: 'blue500',
-          },
-        },
-        secondary: {
-          style: {
-            color: 'gray52',
-          },
-        },
-        error: {
-          style: {
-            color: 'red500',
-          },
-        },
-        success: {
-          style: {
-            color: 'green500',
-          },
-        },
-        warning: {
-          style: {
-            color: 'yellow500',
-          },
-        },
-      },
+      variant: dsl.styleMap('color', {
+        primary: 'blue500',
+        secondary: 'gray52',
+        error: 'red500',
+        success: 'green500',
+        warning: 'yellow500',
+      }),
       preset: dsl.propMap('as', {
         'title': 'h1',
         'title-small': 'h2',

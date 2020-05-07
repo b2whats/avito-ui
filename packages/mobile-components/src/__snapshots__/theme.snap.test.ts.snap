@@ -608,7 +608,6 @@ Object {
             "as": "h4",
             "dense": true,
             "mb": 22,
-            "size": "l",
           },
         },
         "heading-large": Object {
@@ -617,21 +616,18 @@ Object {
             "bold": true,
             "dense": true,
             "mb": 22,
-            "size": "l",
           },
         },
         "heading-small": Object {
           "props": Object {
             "as": "h5",
             "mb": 16,
-            "size": "m",
           },
         },
         "title": Object {
           "props": Object {
             "as": "h1",
             "mb": 36,
-            "size": "xxl",
           },
         },
         "title-small": Object {
@@ -640,48 +636,11 @@ Object {
             "bold": true,
             "dense": true,
             "mb": 26,
-            "size": "xl",
-          },
-        },
-      },
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "fontSize": "l",
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "fontSize": "m",
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "fontSize": "s",
-          },
-        },
-        "xl": Object {
-          "style": Object {
-            "fontSize": "xl",
-          },
-        },
-        "xs": Object {
-          "style": Object {
-            "fontSize": "xs",
-          },
-        },
-        "xxl": Object {
-          "style": Object {
-            "fontSize": "xxl",
-          },
-        },
-        "xxxl": Object {
-          "style": Object {
-            "fontSize": "xxxl",
           },
         },
       },
       "style": Object {
+        "fontSize": [Function],
         "lineHeight": "normal",
       },
       "variant": Object {
