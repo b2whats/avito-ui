@@ -13,7 +13,7 @@ export const web: Tokens = {
     },
   },
   font: {
-    fontFamily: 'Avito',
+    fontFamily: 'Arial,"Helvetica Neue",Helvetica,sans-serif',
     defaultColor: 'black',
     defaultFontSize: 'm',
     defaultLineHeight: 'normal',
@@ -29,13 +29,13 @@ export const web: Tokens = {
       s: 14,
       xs: 13,
     },
-  
+
     lineHeight: {
       none: 1.12,
       normal: 1.375,
       dense: 1.25,
     },
-  
+
     crop: {
       top: 3,
       bottom: 3,
@@ -57,7 +57,7 @@ export const web: Tokens = {
     blue700: '#008AED',
     blue800: '#007DEB',
     blue900: '#0075EB',
-    
+
     green50:  '#EEF7DC',
     green100: '#EEF7DC',
     green200: '#CBE792',
