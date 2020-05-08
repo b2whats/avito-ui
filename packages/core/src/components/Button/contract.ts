@@ -33,6 +33,8 @@ export interface ButtonProps extends MarginProperties, DimensionProperties, Vali
   iconBefore?: React.ReactNode
   /** Иконка справа */
   iconAfter?: React.ReactNode
+  /** Вторая строка */
+  multiline?: boolean
   /** Кнопка занимает всю ширину */
   block?: boolean
   /** Id елемента */

@@ -17,6 +17,11 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
       style: {
         pressedOffset: -1,
       },
+      multiline: {
+        style: {
+          py: 9,
+        },
+      },
       disabled: {
         style: {
           overlay: 'rgba(255,255,255,0.5)',
@@ -133,6 +138,11 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
             },
           },
         },
+        multiline: {
+          props: {
+            ml: 10,
+          },
+        },
       },
       iconAfter: {
         props: {
@@ -153,6 +163,11 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
             props: {
               mr: 8,
             },
+          },
+        },
+        multiline: {
+          props: {
+            mr: 10,
           },
         },
       },

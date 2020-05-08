@@ -42,21 +42,23 @@ import { Stack } from '../Layout/';
 
 ## Многострочная кнопка
 
-В кнопке может быть несколько строк — нужен явный `<br />`
+В кнопке размера `m` может быть несколько строк — нужен явный `<br />` и параметр `multiline`.
+
 ```js
 import { Text } from '../Text/';
 import { Stack } from '../Layout/';
+import { Icon } from '../Icon/';
 
 <Stack spacing='m'>
-  <Button>
+  <Button multiline>
     1 строка<br/>
     2 строка
   </Button>
-  <Button>
+  <Button multiline>
     Кнопка<br />
     <Text size="xs">мини-текст</Text>
   </Button>
-  <Button iconBefore="search">
+  <Button iconBefore='search' multiline>
     Две строки с иконкой?<br />
     <Text size="xs">Никаких проблем!</Text>
   </Button>
