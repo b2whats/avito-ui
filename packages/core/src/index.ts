@@ -1,5 +1,6 @@
 export { Button } from './components/Button/'
 export * from './components/Button/'
+export { ButtonPreset } from './components/Button/contract'
 export { Text } from './components/Text/'
 export * from './components/Text/'
 export { Icon } from './components/Icon/'

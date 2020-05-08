@@ -28,7 +28,7 @@ import { Stack } from '../Layout/';
 
 ## Размеры
 
-Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`.  
+Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`.
 По умолчанию `m`
 ```js
 import { Stack } from '../Layout/';
@@ -42,16 +42,25 @@ import { Stack } from '../Layout/';
 
 ## Многострочная кнопка
 
-В кнопке может быть несколько строк
+В кнопке размера `m` может быть несколько строк — нужен явный `<br />` и параметр `multiline`.
+
 ```js
 import { Text } from '../Text/';
 import { Stack } from '../Layout/';
+import { Icon } from '../Icon/';
 
 <Stack spacing='m'>
-  <Button>1 строка</Button>
-  <Button>
+  <Button multiline>
     1 строка<br/>
     2 строка
+  </Button>
+  <Button multiline>
+    Кнопка<br />
+    <Text size="xs">мини-текст</Text>
+  </Button>
+  <Button iconBefore='search' multiline>
+    Две строки с иконкой?<br />
+    <Text size="xs">Никаких проблем!</Text>
   </Button>
 </Stack>
 ```
@@ -74,11 +83,11 @@ import { Stack } from '../Layout/';
 
 ## Иконки в кнопке
 
-Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.  
-Возможные значения:  
-строка - `search`
-renderProp - `(iconProps) => <Icon name='search' {...iconProps}>`. `iconProps` - добавляе параметры темы
-Component - `<Icon name='search' color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
+Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.
+Возможные значения:
+- строка - `'search'`
+- renderProp - `(iconProps) => <Icon name='search' {...iconProps}>`. `iconProps` — параметры темы
+- Component - `<Icon name='search' color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
 
 ```js
 import { Text } from '../Text/';
@@ -95,15 +104,15 @@ import { Icon } from '../Icon/';
 
 ## Размеры кнопки
 
-Доступные парамеры:  
-`width`, `maxWidth`, `minWidth` - ширина кнопки. Доступные значения: `number`  
+Доступные парамеры:
+`width`, `maxWidth`, `minWidth` - ширина кнопки. Доступные значения: `number`
 `height`, `maxHeight`, `minHeight` - высота кнопки. Доступные значения: `number`, `s`, `m`, `l`
-`block`, `grow` - кнопка занимает всю возможную ширину родителя. Доступные значения: `boolean`  
-`shrik` - позволяет кнопке сжиматься в контексте компонента `Layout`. Доступные значения: `boolean`  
+`block`, `grow` - кнопка занимает всю возможную ширину родителя. Доступные значения: `boolean`
+`shrik` - позволяет кнопке сжиматься в контексте компонента `Layout`. Доступные значения: `boolean`
 
-Если значение ширины и высоты больше 1, размер устанавливается в пикселях `width={100}` = `100px`   
-Если значение ширины и высоты меньше 1, размер устанавливается в процентах `width={0.3}` = `30%`  
-Значения `s`, `m`, `l` берут свои размерности из темы  
+Если значение ширины и высоты больше 1, размер устанавливается в пикселях `width={100}` = `100px`
+Если значение ширины и высоты меньше 1, размер устанавливается в процентах `width={0.3}` = `30%`
+Значения `s`, `m`, `l` берут свои размерности из темы
 
 ```js
 import { Text } from '../Text/';
@@ -116,6 +125,23 @@ import { Box, Stack } from '../Layout/';
   <Button block>block</Button>
   <Button width={150} height={50}>height 50px</Button>
 </Stack>
+```
+
+Через `Grid + block` кнопка встраивается в модульную сетку:
+
+```js
+import { Box, Grid } from '../Layout/';
+<Grid spacing='s' spacingY='s' debug>
+  <Box width={1/6}>
+    <Button block>Кнопка 1/6</Button>
+  </Box>
+  <Box width={2/6}>
+    <Button block>Кнопка 2/6</Button>
+  </Box>
+  <Box width={3/6}>
+    <Button block>Кнопка 3/6</Button>
+  </Box>
+</Grid>
 ```
 
 ## Кнопка как ссылка
@@ -131,11 +157,11 @@ import { Stack } from '../Layout/';
 </Stack>
 ```
 
-:::platform mobile
 ## Внешний вид кнопки
 
 Параметр `preset` задает цветовую схему кнопки
 
+::: platform mobile
 ```js
 import { Stack } from '../Layout/'
 import { Icon } from '../Icon/'
@@ -223,6 +249,47 @@ import { Text } from '../Text/'
     <Button preset='linkIncreased' shape='pill'>Кнопка</Button>
     <Button preset='linkIncreased' shape='square' iconBefore='search' />
     <Button preset='linkIncreased' shape='circle' iconBefore='search' />
+  </Stack>
+</Stack>
+```
+:::
+
+::: platform web
+```tsx
+import { Stack } from '../Layout';
+
+<Stack spacing="m" column>
+  <Stack spacing="m">
+    <Button>default</Button>
+    <Button preset="newDefault">newDefault</Button>
+    <Button preset="primary">primary</Button>
+    <Button preset="success">success</Button>
+    <Button preset="warning">warning</Button>
+    <Button preset="error">error</Button>
+  </Stack>
+  <Stack spacing="m">
+    <Button disabled>default</Button>
+    <Button preset="newDefault" disabled>newDefault</Button>
+    <Button preset="primary" disabled>primary</Button>
+    <Button preset="success" disabled>success</Button>
+    <Button preset="warning" disabled>warning</Button>
+    <Button preset="error" disabled>error</Button>
+  </Stack>
+  <Stack spacing="m">
+    <Button loading>default</Button>
+    <Button preset="newDefault" loading>newDefault</Button>
+    <Button preset="primary" loading>primary</Button>
+    <Button preset="success" loading>success</Button>
+    <Button preset="warning" loading>warning</Button>
+    <Button preset="error" loading>error</Button>
+  </Stack>
+  <Stack spacing="m">
+    <Button loading disabled>default</Button>
+    <Button preset="newDefault" loading disabled>newDefault</Button>
+    <Button preset="primary" loading disabled>primary</Button>
+    <Button preset="success" loading disabled>success</Button>
+    <Button preset="warning" loading disabled>warning</Button>
+    <Button preset="error" loading disabled>error</Button>
   </Stack>
 </Stack>
 ```

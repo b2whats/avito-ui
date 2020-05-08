@@ -2,18 +2,18 @@ import { Tokens } from './contract'
 
 export const web: Tokens = {
   focus: {
-    shape: 'white 0px 0px 0px 1px, 0px 0px 2px 3px',
+    shape: '0 0 0 3px',
     color: {
-      default: 'blue200',
-      primary: 'blue200',
+      default: 'blue100',
+      primary: 'blue100',
       secondary: 'blue200',
-      success: 'blue200',
-      warning: 'blue200',
-      error: 'blue200',
+      success: 'green100',
+      warning: 'orange100',
+      error: 'red100',
     },
   },
   font: {
-    fontFamily: 'Avito',
+    fontFamily: 'Arial,"Helvetica Neue",Helvetica,sans-serif',
     defaultColor: 'black',
     defaultFontSize: 'm',
     defaultLineHeight: 'normal',
@@ -21,21 +21,21 @@ export const web: Tokens = {
     fontSize: {
       xxxxxl: 0,
       xxxxl: 0,
-      xxxl: 0,
-      xxl: 36,
-      xl: 26,
-      l: 22,
+      xxxl: 40,
+      xxl: 32,
+      xl: 25,
+      l: 20,
       m: 16,
-      s: 13,
-      xs: 11,
+      s: 14,
+      xs: 13,
     },
-  
+
     lineHeight: {
       none: 1.12,
       normal: 1.375,
       dense: 1.25,
     },
-  
+
     crop: {
       top: 3,
       bottom: 3,
@@ -57,7 +57,7 @@ export const web: Tokens = {
     blue700: '#008AED',
     blue800: '#007DEB',
     blue900: '#0075EB',
-    
+
     green50:  '#EEF7DC',
     green100: '#EEF7DC',
     green200: '#CBE792',
@@ -168,9 +168,9 @@ export const web: Tokens = {
   },
   dimension: {
     rowHeight: {
-      l: 48,
-      m: 36,
-      s: 28,
+      l: 50,
+      m: 40,
+      s: 30,
     },
   },
   space: {

@@ -1,16 +1,16 @@
-import React, { isValidElement } from 'react'
+import React, { isValidElement, ReactNode } from 'react'
 import { filterProps } from '../../utils/'
 import { useRefHook } from '../../hooks/'
 import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
-import { Text as TextComponent } from '../Text/'
+import { Text as TextComponent, TextProps } from '../Text/'
 import { Icon, IconProps } from '../Icon/'
 import { Spinner as SpinnerComponent } from '../Spinner/'
 import { useGroupHook } from '../Layout/Group'
 import { ButtonProps } from './contract'
 import { buttonTheme } from './theme'
 
-const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
+const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button'>(
   (themeStyle, props) => ({
     display: 'inline-block',
     shrink: false,
@@ -26,6 +26,7 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
     margin: 0;
     line-height: 0;
     position: relative;
+    white-space: nowrap;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -76,10 +77,30 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
       bottom: 0;
     }
 
+    ${ themeStyle.pressedOffset ? `
+      &:not(:disabled):active > *, &[data-state~=active] > *  {
+        transform: translateY(1px);
+      }
+    ` : '' }
+
     &[aria-busy='true'] > :not([data-icon='spinner']) {
       visibility: hidden;
     }
-    
+
+    ${ themeStyle.overlay ? `
+      &::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: -${themeStyle.borderWidth}px;
+        right: -${themeStyle.borderWidth}px;
+        top: -${themeStyle.borderWidth}px;
+        bottom: -${themeStyle.borderWidth}px;
+        border-radius: ${themeStyle.borderRadius}px;
+        background: ${themeStyle.overlay};
+      }
+    ` : '' }
+
     ${textRules}
   `)
 )
@@ -89,20 +110,17 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
   const componentTheme = mergeTheme(buttonTheme, theme.Button, override)
 
   props = {
-    size: 'm',
-    preset: 'primary',
-    type: 'button',
+    ...componentTheme.defaultProps,
     ...props,
-    disabled: props.disabled || props.loading,
   }
 
   if (props.href) {
     props.type = undefined
   }
-  
+
   const [componentRef, setRef] = useRefHook(ref)
   const groupProps = useGroupHook(componentRef, props)
-  
+
   const aria = {
     'aria-checked': groupProps.checked,
     'aria-disabled': groupProps.disabled,
@@ -120,13 +138,22 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
     isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} /> :
     undefined
   )
-  
+  const renderTextSlot = (children: ReactNode, props: TextProps) => (
+    isValidElement(children) ? <children.type {...props} {...children.props} /> :
+    typeof children === 'function' ? children(props) :
+    <TextComponent {...props}>{ children }</TextComponent>
+  )
+
   return (
     <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(groupProps)} >
-      {props.loading && <SpinnerComponent {...Spinner.props}/>}
-      {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
-      {props.children && <TextComponent {...Text.props} crop valignSelf='middle' dense>{ props.children }</TextComponent>}
-      {props.iconAfter && renderIconSlot(props.iconAfter, IconAfter.props)}
+      {props.loading &&
+        <SpinnerComponent {...Spinner.props}/>}
+      {props.iconBefore &&
+        renderIconSlot(props.iconBefore, IconBefore.props)}
+      {props.children &&
+        renderTextSlot(props.children, { crop: true, valignSelf: 'middle', ...Text.props })}
+      {props.iconAfter &&
+        renderIconSlot(props.iconAfter, IconAfter.props)}
     </Tag>
   )
 })

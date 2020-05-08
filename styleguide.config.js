@@ -1,5 +1,16 @@
 const path = require('path')
 
+const { parse } = require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
+  // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
+  propFilter: (prop, component) => {
+    if (prop.parent == null) {
+      return true
+    }
+
+    return prop.parent.fileName.indexOf('node_modules') < 0
+  },
+});
+
 module.exports = {
   styles: {
     Code: {
@@ -38,16 +49,17 @@ module.exports = {
   },
   pagePerSection: true,
   components: ['packages/{core,mobile-components,web-components}/src/components/**/[A-Z]*.tsx'],
-  propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
-    // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
-    propFilter: (prop, component) => {
-      if (prop.parent == null) {
-        return true
-      }
-
-      return prop.parent.fileName.indexOf('node_modules') < 0
-    },
-  }).parse,
+  propsParser: (inputPath, ...rest) => {
+    // include platform-specific prop extensions
+    const coreRE = /\/core\//
+    const toContract = (p, pack) => p.replace(coreRE, `/${pack}/`).replace(/\/[a-zA-Z]+\.tsx$/, '/contract.ts')
+    const withContracts = (Array.isArray(inputPath) ? inputPath : [inputPath]).reduce((acc, frag) => {
+      return acc.concat(coreRE.test(frag)
+        ? [frag, toContract(frag, 'web-components'), toContract(frag, 'mobile-components')]
+        : frag)
+    }, [])
+    return parse(withContracts, ...rest)
+  },
   webpackConfig: {
     resolve: {
       extensions: [ '.tsx', '.ts', '.js', '.json' ],
