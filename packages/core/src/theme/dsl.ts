@@ -18,3 +18,9 @@ export const propMap: MaybeWrapMap<'props'> = (key: any, map?: any) =>
 
 export const styleMap: MaybeWrapMap<'style'> = (key: any, map?: any) =>
   wrapValues('style', map ? wrapValues(key, map) : key)
+
+export const dsl = {
+  wrapValues,
+  styleMap,
+  propMap,
+}
