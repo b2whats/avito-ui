@@ -283,6 +283,14 @@ import { Stack } from '../Layout';
     <Button preset="warning" loading>warning</Button>
     <Button preset="error" loading>error</Button>
   </Stack>
+  <Stack spacing="m">
+    <Button loading disabled>default</Button>
+    <Button preset="newDefault" loading disabled>newDefault</Button>
+    <Button preset="primary" loading disabled>primary</Button>
+    <Button preset="success" loading disabled>success</Button>
+    <Button preset="warning" loading disabled>warning</Button>
+    <Button preset="error" loading disabled>error</Button>
+  </Stack>
 </Stack>
 ```
 :::

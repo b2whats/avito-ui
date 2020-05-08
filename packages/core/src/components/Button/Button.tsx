@@ -88,7 +88,7 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
     }
 
     ${ themeStyle.overlay ? `
-      &::before {
+      &::after {
         content: "";
         position: absolute;
         pointer-events: none;
@@ -112,7 +112,6 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
   props = {
     ...componentTheme.defaultProps,
     ...props,
-    disabled: props.disabled || props.loading,
   }
 
   if (props.href) {
