@@ -37,6 +37,20 @@ import { Stack } from '../Layout/';
 </Stack>
 ```
 
+### Заголовки
+
+У текста есть 5 зарезервированных пресетов для заголовков разного уровня:
+
+```jsx
+<Stack spacing='m' column>
+  <Text preset='title'>title</Text>
+  <Text preset='title-small'>title-small</Text>
+  <Text preset='heading-large'>heading-large</Text>
+  <Text preset='heading'>heading</Text>
+  <Text preset='heading-small'>heading-small</Text>
+</Stack>
+```
+
 ### Dense
 
 ```jsx

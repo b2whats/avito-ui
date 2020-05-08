@@ -3,8 +3,9 @@ import { dsl } from '../../theme'
 import { TextProps } from './contract'
 
 export type TextTheme = {
+  deriveProps?: SchemeType<TextProps, TextProps>
   scheme: {
-    Text: SchemeType<TextProps, TextProps>,
+    Text: SchemeType<TextProps>,
   },
 }
 
@@ -27,13 +28,6 @@ export const textTheme: TextTheme = {
         success: 'green500',
         warning: 'yellow500',
       }),
-      preset: dsl.propMap('as', {
-        'title': 'h1',
-        'title-small': 'h2',
-        'heading-large': 'h3',
-        'heading': 'h4',
-        'heading-small': 'h5',
-      } as const),
     },
   },
 }
