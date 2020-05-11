@@ -16,11 +16,7 @@
 Установить зависимость в нужный скоуп
 
 ```sh
-  lerna add @avito/tokens --scope @avito/mobile-components
-  OR
-  lerna add lodash --scope @avito/mobile-components
-  OR
-  # yarn workspace @avito/tokens add @avito/mobile-components
+  yarn workspace @avito/tokens add @avito/mobile-components
 ```
 
 Установить зависимость в корень рабочей области (флаг -W)

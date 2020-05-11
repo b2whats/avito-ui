@@ -1,6 +1,7 @@
 import { SchemeType } from '../../styled-system/'
 import { IconProps } from './contract'
 
+
 export type IconTheme = {
   defaultProps?: Partial<IconProps>,
   scheme: {

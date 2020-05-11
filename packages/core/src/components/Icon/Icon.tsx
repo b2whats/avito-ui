@@ -1,10 +1,8 @@
 import React from 'react'
-import '@avito/icons/register/icon-not-found'
-import { icons } from '@avito/icons'
 import { filterProps } from '../../utils/'
 import { useTheme, mergeTheme } from '../../theme/'
 import { css, keyframes, foldThemeParams, createClassName } from '../../styled-system/'
-import { IconProps } from './contract'
+import { BaseIconProps } from './contract'
 import { iconTheme } from './theme'
 
 const spinAnimation = keyframes`
@@ -12,7 +10,7 @@ const spinAnimation = keyframes`
   100% { transform: rotate(360deg) }
 `
 
-const iconClassName = createClassName<IconProps, typeof iconTheme>(
+const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
   (themeStyle, props) => ({
     display: 'inline-block',
     valignSelf: 'middle',
@@ -59,16 +57,9 @@ const shadowMask = (
   </filter>
 )
 
-export const Icon = ({ override, name, ...props }: IconProps) => {
+export const Icon = ({ override, ...props }: BaseIconProps) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(iconTheme, theme.Icon, override)
-  let icon = icons[name!]
-
-  if (!icon) {
-    console.error(`Icon name "${name}" not exist.`)
-
-    icon = icons['icon-not-found']
-  }
 
   props = {
     ...componentTheme.defaultProps,
@@ -78,22 +69,17 @@ export const Icon = ({ override, name, ...props }: IconProps) => {
   const aria = {
     role: 'img',
     'aria-hidden': true,
-    'data-icon': icon.name,
+    'data-icon': props.name,
   }
-
-  const content = typeof icon.svg === 'function'
-    ? icon.svg(props)
-    : icon.svg
 
   const { Icon } = foldThemeParams(props, componentTheme)
   const iconStyle = iconClassName(props, theme, Icon.style)
-  const viewBox = `0 0 ${icon.width} ${icon.height}`
 
   return (
-    <svg {...filterProps(props)} css={iconStyle} viewBox={viewBox} {...aria}>
+    <svg {...filterProps(props)} css={iconStyle} {...aria}>
       {props.shadow && shadowMask}
-      {props.onClick && <rect x='0' y='0' width={icon.width} height={icon.height} />}
-      { content }
+      {props.onClick && <rect x='0' y='0' width='100%' height='100%' />}
+      { props.children }
     </svg>
   )
 }

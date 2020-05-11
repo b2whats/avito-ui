@@ -4,7 +4,7 @@ import { useRefHook } from '../../hooks/'
 import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Text as TextComponent, TextProps } from '../Text/'
-import { Icon, IconProps } from '../Icon/'
+import { IconProps } from '../Icon/'
 import { Spinner as SpinnerComponent } from '../Spinner/'
 import { useGroupHook } from '../Layout/Group'
 import { ButtonProps } from './contract'
@@ -133,7 +133,6 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
   const Tag = props.href ? 'a' : 'button'
 
   const renderIconSlot = (icon: ButtonProps['iconBefore'] | ButtonProps['iconAfter'], iconProps: IconProps) => (
-    typeof icon === 'string' ? <Icon name={icon} {...iconProps} /> :
     typeof icon === 'function' ? icon(iconProps) :
     isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} /> :
     undefined

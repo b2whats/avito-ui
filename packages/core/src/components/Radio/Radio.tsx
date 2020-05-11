@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTheme, mergeTheme } from '../../theme/'
 import { Toggle } from '../Toggle/'
-import { Icon } from '../Icon/'
 import { RadioProps } from './contract'
 import { radioTheme } from './theme'
 
@@ -18,7 +17,7 @@ const Radio = ({ override, ...props}: RadioProps) => {
 
   return (
     <Toggle {...props} mode='radio' override={componentTheme}>
-      {({ checked, iconProps }) => checked && <Icon {...iconProps} size='auto' />}
+      {({ checked, Icon }) => checked && Icon && <Icon.component {...Icon.props} size='auto' />}
     </Toggle>
   )
 }

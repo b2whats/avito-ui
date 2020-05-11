@@ -1,5 +1,4 @@
-import '@avito/icons/register/checkbox-indeterminate'
-import '@avito/icons/register/checkbox-checked'
+import { CheckboxIndeterminateIcon, CheckboxCheckedIcon } from '@avito/icons'
 import { SchemeType } from '../../styled-system/'
 import { CheckboxProps } from './contract'
 import { TextProps } from '../Text/contract'
@@ -101,14 +100,10 @@ export const checkboxTheme: CheckboxTheme = {
     },
     Icon: {
       checked: {
-        props: {
-          name: 'checkbox-checked',
-        },
+        component: CheckboxCheckedIcon,
       },
       indeterminate: {
-        props: {
-          name: 'checkbox-indeterminate',
-        },
+        component: CheckboxIndeterminateIcon,
       },
     },
   },

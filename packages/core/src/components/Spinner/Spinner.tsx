@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams } from '../../styled-system/'
-import { Icon as IconComponent } from '../Icon/'
 import { SpinnerProps } from './contract'
 import { spinnerTheme } from './theme'
 
@@ -12,7 +11,7 @@ const Spinner = ({ speed, override, ...props }: SpinnerProps) => {
   const { Icon } = foldThemeParams(props, componentTheme)
 
   return (
-    <IconComponent {...Icon.props} {...props} spin={speed || true} />
+    <Icon.component {...Icon.props} {...props} spin={speed || true} />
   )
 }
 

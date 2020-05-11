@@ -83,7 +83,6 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
   const inputFieldStyle = inputFieldClassName(props, theme, InputField.style)
 
   const renderIconSlot = (icon: InputProps['iconBefore'] | InputProps['iconAfter'], iconProps: IconProps) => (
-    typeof icon === 'string' ? <Icon {...iconProps} name={icon} /> :
     typeof icon === 'function' ? icon({ ...props, iconProps, focus, handleClear }) :
     isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} /> :
     undefined
@@ -97,7 +96,7 @@ export const Input = React.forwardRef(({ type, onFocus, onBlur, override, ...pro
   )
 
   const iconAfter = props.clearable
-    ? <Icon {...IconAfter.props} {...IconClear.props} onClick={handleClear} />
+    ? <IconClear.component {...IconAfter.props} {...IconClear.props} onClick={handleClear} />
     : renderIconSlot(props.iconAfter, IconAfter.props)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`

@@ -13,4 +13,8 @@ declare module '@avito/core' {
 
 export const theme = mergeTheme(mobile as Theme, {
   Button: buttonTheme,
+  Icon: {
+    // @ts-ignore - временно, пока не будет найдено решения передачи выбранной темы в примеры
+    platform: 'mobile', 
+  },
 })

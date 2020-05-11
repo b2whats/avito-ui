@@ -1,12 +1,15 @@
 import React from 'react'
-import { SpaceProperties,  ColorProperties } from '../../styled-system/'
+import { SpaceProperties, ColorProperties, AlignProperties } from '../../styled-system/'
 import { IconTheme } from './theme'
 
 type MouseHandler = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
 
-export interface IconProps extends SpaceProperties, ColorProperties {
+export interface BaseIconProps extends SpaceProperties, ColorProperties, AlignProperties {
+  children: React.ReactNode
   /** Имя */
-  name?: string,
+  name: string,
+  /** Размеры конейнера с иконкой */
+  viewBox: string,
   /** Размер иконки */
   size?: number | 's' | 'm' | 'l' | 'auto'
   /** Поворот иконки */
@@ -24,3 +27,5 @@ export interface IconProps extends SpaceProperties, ColorProperties {
 
   onClick?: MouseHandler
 }
+
+export interface IconProps extends Omit<BaseIconProps, 'children' | 'name' | 'viewBox'> {}

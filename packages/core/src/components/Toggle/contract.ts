@@ -1,12 +1,11 @@
 import React from 'react'
-import { IconProps } from '../Icon/contract'
-import { MarginProperties, DimensionProperties, AlignProperties } from '../../styled-system/'
+import { ToggleTheme } from './theme'
+import { MarginProperties, DimensionProperties, AlignProperties, FoldThemeParamsReturn } from '../../styled-system/'
 
 type ChildrenProps = {
   checked: boolean | 'mixed',
   loading?: boolean,
-  iconProps?: IconProps
-
+  Icon?: FoldThemeParamsReturn<ToggleTheme>['Icon']
 }
 
 type onChangeProps = {

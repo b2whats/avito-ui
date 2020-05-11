@@ -1,4 +1,4 @@
-import '@avito/icons/register/switcher'
+import { SwitcherIcon } from '@avito/icons'
 import { SchemeType } from '../../styled-system/'
 import { SwitcherProps } from './contract'
 import { IconProps } from '../Icon/contract'
@@ -111,9 +111,7 @@ export const switcherTheme: SwitcherTheme = {
       },
     },
     Icon: {
-      props: {
-        name: 'switcher',
-      },
+      component: SwitcherIcon,
     },
   },
 }

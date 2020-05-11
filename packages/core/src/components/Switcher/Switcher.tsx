@@ -54,9 +54,9 @@ const Switcher = ({ override, ...props }: SwitcherProps) => {
 
   return (
     <Toggle css={circleStyle} {...props} mode='checkbox' override={componentTheme}>
-      {({ loading, iconProps }) => (loading
+      {({ loading, Icon }) => (loading
         ? <Spinner size='auto' />
-        : <Icon {...iconProps} size='auto' />
+        : Icon && <Icon.component {...Icon.props} size='auto' />
       )}
     </Toggle>
   )

@@ -1,4 +1,4 @@
-import '@avito/icons/register/radio-checked'
+import { RadioCheckedIcon } from '@avito/icons'
 import { SchemeType } from '../../styled-system/'
 import { RadioProps } from './contract'
 import { IconProps } from '../Icon/contract'
@@ -101,9 +101,7 @@ export const radioTheme: RadioTheme = {
     },
     Icon: {
       checked: {
-        props: {
-          name: 'radio-checked',
-        },
+        component: RadioCheckedIcon,
       },
     },
   },

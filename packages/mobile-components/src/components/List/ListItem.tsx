@@ -12,7 +12,7 @@ const ListItem = ({ children, override, ...props }: ListItemProps) => {
   const componentTheme = mergeTheme(listItemTheme, theme.ListItem, override)
 
   // Необходимо прервать 3DTouch что бы он не прерывал событие клика
-  // TODO: Протестировать на елефоне с HapticTouch
+  // TODO: Протестировать на телефоне с HapticTouch
   //const setTouchRef = usePrevent3DTouch()
   const [bounds, setMeasureRef] = useMeasure()
   const [_, setRef] = useRefHook(setMeasureRef)

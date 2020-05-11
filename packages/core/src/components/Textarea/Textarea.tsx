@@ -3,7 +3,6 @@ import { setNativeValue } from '../../utils/'
 import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
 import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
-import { Icon } from '../Icon/'
 import { TextareaCore } from './TextareaCore'
 import { TextareaProps } from './contract'
 import { textareaTheme } from './theme'
@@ -60,7 +59,7 @@ export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props 
   return (
     <label css={wrapperStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       <TextareaCore {...props} ref={setTextareaRef} onFocus={handleFocus} onBlur={handleBlur}/>
-      {props.clearable && <Icon {...IconClear.props} onClick={handleClear} />}
+      {props.clearable && <IconClear.component {...IconClear.props} valignSelf={undefined} onClick={handleClear} />}
     </label>
   )
 })

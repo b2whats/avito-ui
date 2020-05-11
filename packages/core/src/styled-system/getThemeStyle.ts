@@ -185,7 +185,10 @@ type IsChildren<T> = React.ReactNode extends T ? true : false
 
 export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, ComponentsProps = never, ExtraStyleProps = {}> = {
   style?: Partial<StyleProperties & ExtraStyleProps>,
-  props?: Partial<ComponentsProps>
+  props?: Partial<ComponentsProps>,
+  // Срабатывает ошибка рекурсии https://github.com/microsoft/TypeScript/issues/34933 в компоненте Icon
+  // Если написать так React.FunctionComponent<ComponentsProps>
+  component?: any,
 } & {
   [Key in keyof Props]?: IsChildren<Props[Key]> extends true
     ? SchemeType<Omit<Props, Key>, ComponentsProps>
@@ -295,21 +298,24 @@ export const foldScheme = (scheme: any, props: any) => {
   const result = {
     style: {},
     props: {},
+    component: null,
   }
 
   if (!scheme) return result
 
   for (const prop in scheme) {
-    if (prop === 'style') {
-      Object.assign(result.style, scheme.style)
+    if (['style', 'props'].includes(prop)) {
+      Object.assign(result[prop], scheme[prop])
 
       continue
     }
-    if (prop === 'props') {
-      Object.assign(result.props, scheme.props)
+
+    if (prop === 'component') {
+      result.component = scheme.component
 
       continue
     }
+
     const value = props[prop]
     const nestedConfig = scheme[prop]
 
@@ -319,6 +325,7 @@ export const foldScheme = (scheme: any, props: any) => {
 
       Object.assign(result.style, data.style)
       Object.assign(result.props, data.props)
+      data.component && (result.component = data.component)
 
       continue
     }
@@ -328,6 +335,7 @@ export const foldScheme = (scheme: any, props: any) => {
 
       Object.assign(result.style, data.style)
       Object.assign(result.props, data.props)
+      data.component && (result.component = data.component)
     }
   }
 
@@ -788,11 +796,11 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   return css
 }
 
-
-type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { scheme: object } ? {
+export type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { scheme: object } ? {
   [K in keyof ComponentTheme['scheme']]: {
     style: ComponentTheme['scheme'][K] extends SchemeType<any, any, infer S> ? StyleProperties & S : never,
-    props: ComponentTheme['scheme'][K] extends SchemeType<any, infer R> ? R : never
+    props: ComponentTheme['scheme'][K] extends SchemeType<any, infer R> ? R : never,
+    component: ComponentTheme['scheme'][K] extends SchemeType<any, infer R> ? React.FunctionComponent<R> | React.ComponentClass<R> : never,
   }
 } : never
 

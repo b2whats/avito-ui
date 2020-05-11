@@ -81,7 +81,6 @@ module.exports = {
         // переопределил ReactComponent - стандартный Renderer отвалился
         'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponentRenderer'),
         'rsg-components/Examples/ExamplesRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/Examples/ExamplesRenderer'),
-        '@avito/icons/register': path.resolve(__dirname, 'packages/icons/src/'),
         '@avito/icons$': path.resolve(__dirname, 'packages/icons/src/'),
       },
     },

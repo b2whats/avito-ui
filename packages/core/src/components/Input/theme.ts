@@ -1,4 +1,4 @@
-import '@avito/icons/register/cross'
+import { CrossIcon } from '@avito/icons'
 import { SchemeType } from '../../styled-system/'
 import { InputProps } from './contract'
 import { IconProps } from '../Icon/contract'
@@ -84,9 +84,9 @@ export const inputTheme: InputTheme = {
       },
     },
     IconClear: {
+      component: CrossIcon,
       props: {
         color: 'gray28',
-        name: 'cross',
         area: 10,
       },
       size: {

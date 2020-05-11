@@ -5,11 +5,13 @@
   "description": "icons",
   "main": "register/index.js",
   "types": "register/index.d.ts",
-  "files": ["register"],
+  "files": [
+    "register"
+  ],
   "scripts": {
     "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
-    "build:js": "cross-env NODE_ENV=production babel src --out-dir register --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
-    "prebuild": "rm -rf ./register",
+    "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
+    "prebuild": "rm -rf ./build",
     "build": "yarn build:js && yarn build:types",
     "test": "echo \"Error: no test specified\" && exit 1",
     "typecheck": "tsc --noEmit"
@@ -20,8 +22,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.15",
-    "@emotion/styled": "^10.0.15"
+    "@avito/core": "^0.0.4"
   },
   "devDependencies": {
     "react": "^16.8.6",

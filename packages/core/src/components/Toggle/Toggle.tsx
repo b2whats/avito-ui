@@ -130,7 +130,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
       {props.labelPosition === 'start' && label}
       <input {...filterProps(groupProps)} ref={setRef} type={props.mode} onChange={onChange} onClick={preventLabelClick}/>
       <div css={switchStyle} className={className}>
-        {children && children({ checked, loading: props.loading, iconProps: Icon.props  })}
+        {children && children({ checked, loading: props.loading, Icon })}
       </div>
       {props.labelPosition === 'end' && label}
     </label>
