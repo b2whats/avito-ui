@@ -21,6 +21,8 @@ export * from './components/Spinner/'
 export { Stack, Grid, Box, Group, Page } from './components/Layout/'
 export * from './components/Layout/'
 
+export { toggleTheme, ToggleTheme } from './components/Toggle'
+
 export { useRefHook, usePrevent3DTouch, useMeasure, useUncontrolledInputHook, useWindowSize } from './hooks/'
 export { default as styled, css, keyframes, foldThemeParams } from './styled-system/'
 export type { Colors } from './styled-system'

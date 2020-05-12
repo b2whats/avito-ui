@@ -3,13 +3,13 @@ import { ToggleProps } from './contract'
 import { TextProps } from '../Text/contract'
 import { IconProps } from '../Icon/contract'
 
-export type ToggleTheme = {
-  defaultProps?: Partial<ToggleProps>,
+export type ToggleTheme<Props = ToggleProps> = {
+  defaultProps?: Partial<Props>,
   scheme: {
-    Toggle: SchemeType<ToggleProps>,
-    Switch: SchemeType<ToggleProps>,
-    Icon: SchemeType<ToggleProps, IconProps>,
-    Label: SchemeType<ToggleProps, TextProps>,
+    Toggle: SchemeType<Props>,
+    Switch: SchemeType<Props>,
+    Icon: SchemeType<Props, IconProps>,
+    Label: SchemeType<Props, TextProps>,
   },
 }
 

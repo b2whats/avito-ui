@@ -1,21 +1,12 @@
 import { CheckboxIndeterminateIcon, CheckboxCheckedIcon } from '../Icon/'
-import { SchemeType } from '../../styled-system/'
 import { CheckboxProps } from './contract'
-import { TextProps } from '../Text/contract'
-import { IconProps } from '../Icon/contract'
+import { ToggleTheme } from '../Toggle'
 
-export type CheckboxTheme = {
-  defaultProps?: Partial<CheckboxProps>,
-  scheme: {
-    Toggle?: SchemeType<CheckboxProps>,
-    Switch?: SchemeType<CheckboxProps>,
-    Icon?: SchemeType<CheckboxProps, IconProps>,
-    Label?: SchemeType<CheckboxProps, TextProps>,
-  },
-}
+export type CheckboxTheme = ToggleTheme<CheckboxProps>
 
 export const checkboxTheme: CheckboxTheme = {
   defaultProps: {
+    shape: 'square',
     variant: 'primary',
     size: 'm',
   },
@@ -111,5 +102,7 @@ export const checkboxTheme: CheckboxTheme = {
         component: CheckboxIndeterminateIcon,
       },
     },
+    Label: {},
+    Toggle: {},
   },
 }
