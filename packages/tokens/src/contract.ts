@@ -196,6 +196,9 @@ type Shape = {
   },
 }
 
+interface Demo {
+}
+
 export type Tokens = {
   focus: Focus,
   font: Font,
@@ -203,4 +206,5 @@ export type Tokens = {
   dimension: Dimension,
   space: Space,
   shape: Shape,
+  _demo?: Demo,
 }
