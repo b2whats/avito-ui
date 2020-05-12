@@ -9,10 +9,10 @@ const { parse } = require('react-docgen-typescript').withCustomConfig('./tsconfi
 
     return prop.parent.fileName.indexOf('node_modules') < 0
   },
-});
+})
 
 module.exports = {
-  styles: {
+  styles: ({ mq }) => ({
     Code: {
       code: {
         color: '#e83e8c',
@@ -21,7 +21,20 @@ module.exports = {
         borderRadius: '4px',
       },
     },
-  },
+    StyleGuide: {
+      // Move mobile menu to top
+      [mq.small]: {
+        root: {
+          display: 'flex',
+          flexDirection: 'column-reverse',
+        },
+      },
+      // Prevent overflow
+      content: {
+        maxWidth: '100%',
+      },
+    },
+  }),
   styleguideDir: 'public',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
@@ -63,7 +76,7 @@ module.exports = {
   webpackConfig: {
     resolve: {
       extensions: [ '.tsx', '.ts', '.js', '.json' ],
-      mainFields: ['browser', 'module', 'main'], 
+      mainFields: ['browser', 'module', 'main'],
       alias: {
         // переопределил ReactComponent - стандартный Renderer отвалился
         'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponentRenderer'),

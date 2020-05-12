@@ -3,7 +3,7 @@
 ```jsx
 import { Stack } from '../Layout/';
 
-<Stack spacing={12}>
+<Stack spacing={12} wrap>
   <Stack column spacing={10}>
     <Text mb={15}>Normal</Text>
     <Text size='xs'>XS size</Text>
@@ -41,39 +41,40 @@ import { Stack } from '../Layout/';
 
 ```jsx
 import { Stack } from '../Layout/';
-const text = 'Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском 12 567 456';
+const text = 'Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском 12 567 456'
+const Row = p => <Stack spacing={10} valign='top' {...p} />;
 
 <Stack spacing={12} column>
-  <Stack spacing={10} width={600} valign='top'>
+  <Row maxWidth={600}>
     <Text size='m' bold minWidth={30} >XS</Text>
     <Text size='xs'>{text}</Text>
     <Text size='xs' dense>{text}</Text>
-  </Stack>
-  <Stack spacing={10} width={600} valign='top'>
+  </Row>
+  <Row maxWidth={600}>
     <Text size='m' bold minWidth={30}>S</Text>
     <Text size='s'>{text}</Text>
     <Text size='s' dense>{text}</Text>
-  </Stack>
-  <Stack spacing={10} width={600} valign='top'>
+  </Row>
+  <Row maxWidth={600}>
     <Text size='m' bold minWidth={30}>M</Text>
     <Text size='m'>{text}</Text>
     <Text size='m' dense>{text}</Text>
-  </Stack>
-  <Stack spacing={10} width={800} valign='top'>
+  </Row>
+  <Row maxWidth={800}>
     <Text size='m' bold minWidth={30}>L</Text>
     <Text size='l'>{text}</Text>
     <Text size='l' dense>{text}</Text>
-  </Stack>
-  <Stack spacing={10}s>
+  </Row>
+  <Row>
     <Text size='m' bold minWidth={30}>XL</Text>
     <Text size='xl'>{text}</Text>
     <Text size='xl' dense>{text}</Text>
-  </Stack>
-  <Stack spacing={10}>
+  </Row>
+  <Row>
     <Text size='m' bold minWidth={30}>XXL</Text>
     <Text size='xxl'>{text}</Text>
     <Text size='xxl' dense>{text}</Text>
-  </Stack>
+  </Row>
 </Stack>
 ```
 
@@ -105,7 +106,7 @@ import { Stack } from '../Layout/';
 ```jsx
 import { Stack } from '../Layout/';
 
-<Stack spacing={12}>
+<Stack spacing={12} wrap valign="baseline">
     <Text uppercase>uppercase</Text>
     <Text strike>strike normal</Text>
     <Text strike='red500'>strike color</Text>
@@ -160,7 +161,7 @@ import { Stack } from '../Layout/';
 
 <Stack spacing={12} column>
     <Text>
-      Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском 
+      Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском
       <Text color='gray52'>12 567 456</Text>
     </Text>
     <Stack spacing={12}>
