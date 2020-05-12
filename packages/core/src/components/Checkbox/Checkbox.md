@@ -12,6 +12,8 @@ const onChange = ({ checked }) => {
 
 ## Состояния
 
+Кроме `checked`, чекбокс бывает `indeterminate` и `disabled`:
+
 ```js
 import { Text } from '../Text/';
 
@@ -22,15 +24,23 @@ import { Text } from '../Text/';
     <Checkbox checked label='Выбран' />
   </Stack>
   <Stack spacing='m'>
-    <Text width={0.2}>Неопределенный</Text>
+    <Text width={0.2}>indeterminate</Text>
     <Checkbox indeterminate label='Не выбран' />
     <Checkbox checked indeterminate label='Выбран' />
   </Stack>
   <Stack spacing='m'>
-    <Text width={0.2}>Некативный</Text>
+    <Text width={0.2}>disabled</Text>
     <Checkbox disabled label='Не выбран' />
     <Checkbox checked disabled label='Выбран' />
   </Stack>
+</Stack>
+```
+
+`variant` — семантический цвет, `error` / `warning` / `success`:
+```js
+import { Text } from '../Text/';
+
+<Stack spacing='m' column>
   <Stack spacing='m'>
     <Text width={0.2}>error</Text>
     <Checkbox variant='error' label='Не выбран' />
@@ -52,6 +62,8 @@ import { Text } from '../Text/';
 :::platform web
 ## Размер
 
+`size` — размер чекбокса: `s` / `m` (по умолчанию) / `l`
+
 ```js
 <Stack spacing='m' column>
   <Checkbox size='s' label='Маленький'/>
@@ -61,7 +73,11 @@ import { Text } from '../Text/';
 ```
 :::
 
+
+:::platform mobile
 ## Форма
+
+`shape='circe'` делает чекбокс круглым
 
 ```js
 <Stack spacing='m'>
@@ -77,8 +93,12 @@ import { Text } from '../Text/';
 </Stack>
 </Stack>
 ```
+:::
+
 
 ## Положение текста
+
+`labelPosition="start"` меняет чекбокс и лейбл местами
 
 ```js
 import { Stack } from '../Layout/';

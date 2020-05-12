@@ -443,7 +443,8 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -478,6 +479,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -511,7 +513,8 @@ Object {
       "bgDisabled": "gray28",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -546,6 +549,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -579,7 +583,8 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -614,6 +619,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -647,7 +653,8 @@ Object {
       "bgDisabled": "gray28",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -682,6 +689,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -715,7 +723,8 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -750,6 +759,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -783,7 +793,8 @@ Object {
       "bgDisabled": "gray28",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -818,6 +829,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -851,7 +863,8 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -886,6 +899,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -919,7 +933,8 @@ Object {
       "bgDisabled": "gray28",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -954,6 +969,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -987,7 +1003,8 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -1022,6 +1039,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -1055,7 +1073,8 @@ Object {
       "bgDisabled": "gray28",
       "borderRadius": 2,
       "color": "white",
-      "height": 18,
+      "height": 20,
+      "p": 1,
     },
   },
   "Toggle": Object {
@@ -1090,6 +1109,7 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
+      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -1140,86 +1160,63 @@ Object {
       },
     },
     "Switch": Object {
-      "style": Object {
-        "borderRadius": 2,
-        "height": 18,
-      },
-      "variant": Object {
-        "error": Object {
-          "checked": Object {
+      "checked": Object {
+        "style": Object {
+          "bgDisabled": "gray28",
+        },
+        "variant": Object {
+          "error": Object {
             "style": Object {
               "bg": "red500",
               "bgActive": "red700",
-              "bgDisabled": "gray28",
             },
           },
-          "style": Object {
-            "bg": "gray8",
-            "bgActive": "gray12",
-            "bgDisabled": "gray4",
-            "color": "white",
-          },
-        },
-        "primary": Object {
-          "checked": Object {
+          "primary": Object {
             "style": Object {
               "bg": "blue500",
               "bgActive": "blue700",
-              "bgDisabled": "gray28",
             },
           },
-          "style": Object {
-            "bg": "gray8",
-            "bgActive": "gray12",
-            "bgDisabled": "gray4",
-            "color": "white",
-          },
-        },
-        "secondary": Object {
-          "checked": Object {
+          "secondary": Object {
             "style": Object {
               "bg": "gray48",
               "bgActive": "gray56",
-              "bgDisabled": "gray28",
             },
           },
-          "style": Object {
-            "bg": "gray8",
-            "bgActive": "gray12",
-            "bgDisabled": "gray4",
-            "color": "white",
-          },
-        },
-        "success": Object {
-          "checked": Object {
+          "success": Object {
             "style": Object {
               "bg": "green500",
               "bgActive": "green700",
-              "bgDisabled": "gray28",
             },
           },
-          "style": Object {
-            "bg": "gray8",
-            "bgActive": "gray12",
-            "bgDisabled": "gray4",
-            "color": "white",
-          },
-        },
-        "warning": Object {
-          "checked": Object {
+          "warning": Object {
             "style": Object {
               "bg": "orange500",
               "bgActive": "orange700",
-              "bgDisabled": "gray28",
             },
           },
+        },
+      },
+      "shape": Object {
+        "circle": Object {
           "style": Object {
-            "bg": "gray8",
-            "bgActive": "gray12",
-            "bgDisabled": "gray4",
-            "color": "white",
+            "height": 20,
+            "p": 1,
           },
         },
+        "square": Object {
+          "style": Object {
+            "mx": 1,
+          },
+        },
+      },
+      "style": Object {
+        "bg": "gray8",
+        "bgActive": "gray12",
+        "bgDisabled": "gray4",
+        "borderRadius": 2,
+        "color": "white",
+        "height": 18,
       },
     },
     "Toggle": Object {},

@@ -16,6 +16,7 @@ export type ToggleTheme<Props = ToggleProps> = {
 export const toggleTheme: ToggleTheme = {
   defaultProps: {
     labelPosition: 'end',
+    size: 'm',
   },
   scheme: {
     Toggle: {},
@@ -28,18 +29,6 @@ export const toggleTheme: ToggleTheme = {
       disabled: {
         props: {
           color: 'gray48',
-        },
-      },
-      labelPosition: {
-        start: {
-          props: {
-            mr: 16,
-          },
-        },
-        end: {
-          props: {
-            ml: 16,
-          },
         },
       },
     },

@@ -50,6 +50,7 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
     shrink: false,
     shape: props.shape,
     adjacentSelector: 'input',
+    variant: props.variant,
     ...themeStyle,
   }),
   (textRules) => (`

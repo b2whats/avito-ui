@@ -14,7 +14,7 @@ describe('mobile theme', () => {
   })
 
   describe('checkbox', () => {
-    const prebuiltTheme = mergeTheme(toggleTheme as CheckboxTheme, theme.Toggle, mergeTheme(checkboxTheme, theme.Checkbox))
+    const prebuiltTheme = mergeTheme(toggleTheme as any, theme.Toggle, mergeTheme(checkboxTheme, theme.Checkbox))
     const propValues = {
       variant: ['primary', 'secondary', 'success', 'error', 'warning'],
       checked: [true, false],
