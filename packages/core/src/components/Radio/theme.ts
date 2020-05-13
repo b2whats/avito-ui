@@ -40,7 +40,7 @@ export const radioTheme: RadioTheme = {
         secondary: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -55,7 +55,7 @@ export const radioTheme: RadioTheme = {
         success: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -70,7 +70,7 @@ export const radioTheme: RadioTheme = {
         warning: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -85,7 +85,7 @@ export const radioTheme: RadioTheme = {
         error: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },

@@ -9,11 +9,9 @@ export default observer((props: { children: React.ReactNode }) => {
   const platform = themes[store.platform]
   return (
     <ThemeProvider defaultTheme={platform.platformTheme} theme={store.theme}>
-      <div>
-        <Page>
-          {props.children}
-        </Page>
-      </div>
+      <Page>
+        {props.children}
+      </Page>
     </ThemeProvider>
   )
 })

@@ -1,6 +1,6 @@
 ```js
 import { Stack, Icon } from '../../'
-initialState = { radio: undefined, radio2: undefined };
+const [state, setState] = useState({ radio: undefined, radio2: undefined });
 const onChange = ({ name, value }) => {
     setState({ [name]: value })
 }
