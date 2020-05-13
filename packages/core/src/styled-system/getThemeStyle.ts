@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { Tokens } from '@avito/tokens'
+import { Tokens, tokens } from '@avito/tokens'
 
 type Theme = Tokens
 
@@ -342,8 +342,15 @@ export const foldScheme = (scheme: any, props: any) => {
   return result
 }
 
-export const getStyles = (params: StyleProperties & Display, {font, dimension, space, palette, focus, shape}: Tokens) => {
-  let css = 'box-sizing: border-box;'
+const baseStyle = ({ font }: Tokens) => `
+  box-sizing: border-box;
+  ${font.smoothing.webkit ? `-webkit-font-smoothing: ${font.smoothing.webkit};` : ''}
+  ${font.smoothing.moz ? `-moz-osx-font-smoothing: ${font.smoothing.moz};` : ''}
+`
+
+export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
+  let css = baseStyle(tokens)
+  const { font, dimension, space, palette, focus, shape } = tokens
 
   if (!params) return css
 

@@ -31,6 +31,11 @@ type Font = {
     height: number,
     offset: number,
   },
+
+  smoothing: {
+    webkit?: 'none' | 'antialiased' | 'subpixel-antialiased',
+    moz?: 'grayscale',
+  },
 }
 
 type Palette = {

@@ -11,10 +11,8 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
     ...props,
   }),
   (textRules, { strike }, { palette }) => (`
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     margin: 0;
-    
+
     li& {
       list-style: none;
     }
@@ -34,7 +32,7 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
         transform: rotateZ(-2deg);
       }
     ` : ''}
-    
+
     ${textRules}
   `)
 )
@@ -49,7 +47,7 @@ const Text = ({ children, override, ...props }: TextProps) => {
   return (
     <Tag css={textStyle} {...Text.props} data-component='text'>
       { children }
-    </Tag> 
+    </Tag>
   )
 }
 

@@ -28,8 +28,6 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
     position: relative;
     white-space: nowrap;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     &::-moz-focus-inner {

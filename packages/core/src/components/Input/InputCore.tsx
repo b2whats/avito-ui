@@ -19,8 +19,6 @@ const rootClassName = css`
   position: relative;
   visibility: hidden;
   min-width: 5px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 
   &[data-value] {
     width: auto;
@@ -58,8 +56,6 @@ const inputClassName = createClassName<InputCoreProps, {}>(
     outline: none;
     -webkit-text-fill-color: currentcolor;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 
     &[disabled] {
       cursor: inherit;
