@@ -1,9 +1,15 @@
+import { SwitcherIcon } from '@avito/icons'
 import { SchemeType } from '../../styled-system/'
 import { SwitcherProps } from './contract'
+import { IconProps } from '../Icon/contract'
+import { TextProps } from '../Text/contract'
 
 export type SwitcherTheme = {
   scheme: {
-    Switch: SchemeType<SwitcherProps>,
+    Toggle?: SchemeType<SwitcherProps>,
+    Switch?: SchemeType<SwitcherProps>,
+    Icon?: SchemeType<SwitcherProps, IconProps>,
+    Label?: SchemeType<SwitcherProps, TextProps>,
   },
 }
 
@@ -103,6 +109,9 @@ export const switcherTheme: SwitcherTheme = {
           bgDisabled: 'transparent',
         },
       },
+    },
+    Icon: {
+      component: SwitcherIcon,
     },
   },
 }

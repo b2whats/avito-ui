@@ -108,12 +108,12 @@ import { Box } from './';
 import { Box } from './';
 
 <Stack>
-  <Stack spacing='s' inline debug>
+  <Stack spacing='s' debug>
     <Box p='s'>1</Box>
     <Box p='s'>2</Box>
     <Box p='s'>3</Box>
   </Stack>
-  <Stack ml='xxl' spacing='s' inline debug>
+  <Stack ml='xxl' spacing='s' debug>
     <Box p='s'>1</Box>
     <Box p='s'>2</Box>
     <Box p='s'>3</Box>

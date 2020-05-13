@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { css } from '../../styled-system/'
 import { filterProps } from '../../utils/'
 import { useRefHook } from '../../hooks/'
@@ -17,7 +17,7 @@ const textareaStyle = css`
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
-  line-height: normal;
+  line-height: inherit;
   color: inherit;
   outline: none;
   background-color: transparent;
@@ -67,20 +67,22 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
     props.onClick && props.onClick(event)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const node = textarea.current
+    if (!node) return
 
-    if (node) {
+    node.style.resize = resizable ? 'auto' : 'none'
+
+    if (maxRows) {
       const { lineHeight, paddingTop, paddingBottom, borderTopWidth, borderBottomWidth } = window.getComputedStyle(node)
 
       node.style.maxHeight = `calc(${maxRows} * ${lineHeight} + ${paddingTop} + ${paddingBottom} + ${borderTopWidth} + ${borderBottomWidth})`
-      node.style.resize = resizable ? 'auto' : 'none'
     }
   }, [maxRows, resizable])
 
   useEffect(() => {
     autoSize && resize()
-  }, [autoSize])
+  }, [autoSize, props.value])
 
   return (
     <textarea css={textareaStyle} {...filterProps(props)} onClick={preventClick} />

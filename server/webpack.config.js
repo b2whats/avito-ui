@@ -8,7 +8,7 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js', '.json' ],
   },
   optimization: {
-    //minimize: false,
+    minimize: false,
     splitChunks: {
       chunks: 'all',
     },

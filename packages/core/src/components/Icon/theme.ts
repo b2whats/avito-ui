@@ -1,30 +1,34 @@
 import { SchemeType } from '../../styled-system/'
 import { IconProps } from './contract'
-import { IconProps as IconBaseProps } from '@avito/icons'
+
 
 export type IconTheme = {
+  defaultProps?: Partial<IconProps>,
   scheme: {
-    Icon: SchemeType<IconProps, IconBaseProps>,
+    Icon: SchemeType<IconProps>,
   }
 }
 
 export const iconTheme: IconTheme = {
+  defaultProps: {
+    area: 3,
+  },
   scheme: {
     Icon: {
       size: {
         s: {
-          props: {
-            size: 16,
+          style: {
+            height: 16,
           },
         },
         m: {
-          props: {
-            size: 20,
+          style: {
+            height: 20,
           },
         },
         l: {
-          props: {
-            size: 24,
+          style: {
+            height: 24,
           },
         },
       },

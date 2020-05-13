@@ -120,7 +120,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
     props.onChange && props.onChange(value)
   }
 
-  const { Toggle, Switch, Label } = foldThemeParams(groupProps, componentTheme)
+  const { Toggle, Switch, Icon, Label } = foldThemeParams(groupProps, componentTheme)
   const toggleStyle = toggleClassName(groupProps, theme, Toggle.style)
   const switchStyle = switchClassName(groupProps, theme, Switch.style)
   const label = props.label && <Text {...Label.props} crop>{props.label}</Text>
@@ -130,7 +130,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
       {props.labelPosition === 'start' && label}
       <input {...filterProps(groupProps)} ref={setRef} type={props.mode} onChange={onChange} onClick={preventLabelClick}/>
       <div css={switchStyle} className={className}>
-        {children && children({ checked, loading: props.loading })}
+        {children && children({ checked, loading: props.loading, Icon })}
       </div>
       {props.labelPosition === 'end' && label}
     </label>

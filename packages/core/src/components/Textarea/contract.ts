@@ -1,5 +1,5 @@
 import React from 'react'
-import { MarginProperties, ValignProperties } from '../../styled-system/'
+import { MarginProperties, AlignProperties } from '../../styled-system/'
 import { TextareaTheme } from './theme'
 
 export interface TextareaCoreProps {
@@ -36,7 +36,7 @@ export interface TextareaCoreProps {
   onMouseDown?(event: React.MouseEvent<HTMLTextAreaElement>): void
 }
 
-export interface TextareaProps extends Omit<TextareaCoreProps, 'className'>, ValignProperties, MarginProperties {
+export interface TextareaProps extends Omit<TextareaCoreProps, 'className'>, AlignProperties, MarginProperties {
   /** Размер */
   size?: 's' | 'm' | 'l'
   /** Крестик очистки */

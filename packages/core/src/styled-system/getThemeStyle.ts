@@ -84,32 +84,46 @@ export type SpaceProperties = PaddingProperties & MarginProperties
 type Align = 'left' | 'center' | 'right' | 'justify'
 type Valign = 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch'
 
-export type ValignProperties = Partial<{
-  /** Горизонтальное выравнивание */
+export type AlignProperties = Partial<{
+  /** Горизонтальное выравнивание дочерних блоков */
   align: Align
   /** Вертикальное выравнивание */
   valignSelf: Valign
-  /** Вертикальное выравнивание потомков */
+  /** Вертикальное выравнивание дочерних блоков */
   valign: Valign
 }>
 
-type LayoutProperties = ValignProperties & Partial<{
+export type LayoutProperties = AlignProperties & Partial<{
+  /** Вертикальное направление дочерних элементов */
   column: boolean,
+  /** Блочное поведение */
+  block: boolean,
+  /** Строчное поведение */
+  inline: boolean,
+  /** Переносить блоки на следующие строки если не хватило места */
+  wrap: boolean,
+  /** Положение элемента в потоке */
+  position: 'relative' | 'absolute' | 'static' | 'fixed',
+  /** Добавляет скролл */
+  scroll?: boolean
 }>
 
-type OtherProperties = Partial<{
+export type BorderProperties = Partial<{
+  /** Стиль границ */
   borderStyle: 'solid' | 'dotted' | 'dashed' | 'none',
+  /** Радиус границ */
+  borderRadius: number | 's' | 'm' | 'l' | 'circle',
+  /** Радиус границ */
+  rounded: number | 's' | 'm' | 'l' | 'circle',
+  /** Ширина границы */
+  borderWidth: number,
+}>
+
+type OtherProperties = BorderProperties & Partial<{
   focus: boolean | string,
   disabled: boolean,
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   adjacentSelector: string,
-  block: boolean,
-  inline: boolean,
-  wrap: boolean,
-  position: 'relative' | 'absolute' | 'static' | 'fixed',
-  borderRadius: number | 's' | 'm' | 'l' | 'circle',
-  rounded: number | 's' | 'm' | 'l' | 'circle',
-  borderWidth: number,
   shape?: 'pill' | 'square' | 'circle'
   trancate: boolean
 }>
@@ -117,27 +131,49 @@ type OtherProperties = Partial<{
 type Colors = keyof Tokens['palette'] | 'transparent' | (string & {})
 
 export type ColorProperties = Partial<{
+  /** Цвет контента */
   color: Colors,
+  /** Цвет контента при наведении */
   colorHover: Colors,
+  /** Цвет контента при нажатии */
   colorActive: Colors,
+  /** Цвет контента посещенной ссылки */
   colorVisited: Colors,
+  /** Цвет контента в выбранном состоянии */
   colorChecked: Colors,
+  /** Цвет контента в состоянии фокуса */
   colorFocus: Colors,
+  /** Цвет контента в неакттивном состоянии */
   colorDisabled: Colors,
+  /** Цвет фона */
   bg: Colors,
+  /** Цвет фона при наведении */
   bgHover: Colors,
+  /** Цвет фона при нажатии */
   bgActive: Colors,
+  /** Цвет фона посещенной ссылки */
   bgVisited: Colors,
+  /** Цвет фона в выбранном состоянии */
   bgChecked: Colors,
+  /** Цвет фона в состоянии фокуса */
   bgFocus: Colors,
+  /** Цвет фона в неакттивном состоянии */
   bgDisabled: Colors,
+  /** Цвет ганиц */
   borderColor: Colors,
+  /** Цвет границ при наведении */
   borderColorHover: Colors,
+  /** Цвет границ при наведении */
   borderColorActive: Colors,
+  /** Цвет границ посещенной ссылки */
   borderColorVisited: Colors,
+  /** Цвет границ в выбранном состоянии */
   borderColorChecked: Colors,
+  /** Цвет границ в состоянии фокуса */
   borderColorFocus: Colors,
+  /** Цвет границ в неакттивном состоянии */
   borderColorDisabled: Colors,
+  /** Цвет текста у плейсхолдера */
   placeholderColor: Colors,
 }>
 
@@ -149,7 +185,10 @@ type IsChildren<T> = React.ReactNode extends T ? true : false
 
 export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, ComponentsProps = never, ExtraStyleProps = {}> = {
   style?: Partial<StyleProperties & ExtraStyleProps>,
-  props?: Partial<ComponentsProps>
+  props?: Partial<ComponentsProps>,
+  // Срабатывает ошибка рекурсии https://github.com/microsoft/TypeScript/issues/34933 в компоненте Icon
+  // Если написать так React.FunctionComponent<ComponentsProps>
+  component?: any,
 } & {
   [Key in keyof Props]?: IsChildren<Props[Key]> extends true
     ? SchemeType<Omit<Props, Key>, ComponentsProps>
@@ -259,21 +298,24 @@ export const foldScheme = (scheme: any, props: any) => {
   const result = {
     style: {},
     props: {},
+    component: null,
   }
 
   if (!scheme) return result
 
   for (const prop in scheme) {
-    if (prop === 'style') {
-      Object.assign(result.style, scheme.style)
+    if (['style', 'props'].includes(prop)) {
+      Object.assign(result[prop], scheme[prop])
 
       continue
     }
-    if (prop === 'props') {
-      Object.assign(result.props, scheme.props)
+
+    if (prop === 'component') {
+      result.component = scheme.component
 
       continue
     }
+
     const value = props[prop]
     const nestedConfig = scheme[prop]
 
@@ -283,6 +325,7 @@ export const foldScheme = (scheme: any, props: any) => {
 
       Object.assign(result.style, data.style)
       Object.assign(result.props, data.props)
+      data.component && (result.component = data.component)
 
       continue
     }
@@ -292,6 +335,7 @@ export const foldScheme = (scheme: any, props: any) => {
 
       Object.assign(result.style, data.style)
       Object.assign(result.props, data.props)
+      data.component && (result.component = data.component)
     }
   }
 
@@ -462,6 +506,10 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
         break
       case 'borderWidth':
         css += `border-width: ${value}px;`
+
+        if (params.borderStyle) break
+
+        css += 'border-style: solid;'
 
         break
       case 'rounded':
@@ -674,7 +722,7 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
       }
       default:
         // Exhaustive switch guard
-        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate'>(param)
+        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate' | 'scroll'>(param)
     }
   }
 
@@ -748,11 +796,11 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   return css
 }
 
-
-type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { scheme: object } ? {
+export type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { scheme: object } ? {
   [K in keyof ComponentTheme['scheme']]: {
     style: ComponentTheme['scheme'][K] extends SchemeType<any, any, infer S> ? StyleProperties & S : never,
-    props: ComponentTheme['scheme'][K] extends SchemeType<any, infer R> ? R : never
+    props: ComponentTheme['scheme'][K] extends SchemeType<any, infer R> ? R : never,
+    component: ComponentTheme['scheme'][K] extends SchemeType<any, infer R> ? React.FunctionComponent<R> | React.ComponentClass<R> : never,
   }
 } : never
 

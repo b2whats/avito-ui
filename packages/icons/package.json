@@ -3,19 +3,17 @@
   "version": "0.0.9",
   "private": false,
   "description": "icons",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "register/index.js",
+  "types": "register/index.d.ts",
   "files": [
-    "build",
-    "src"
+    "register"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:js && yarn build:types",
     "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
     "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
-    "clean": "rm -rf ./build",
+    "prebuild": "rm -rf ./build",
+    "build": "yarn build:js && yarn build:types",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "yarn build",
     "typecheck": "tsc --noEmit"
   },
   "license": "MIT",
@@ -24,8 +22,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.15",
-    "@emotion/styled": "^10.0.15"
+    "@avito/core": "^0.0.4"
   },
   "devDependencies": {
     "react": "^16.8.6",

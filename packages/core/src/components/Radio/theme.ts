@@ -1,9 +1,15 @@
+import { RadioCheckedIcon } from '@avito/icons'
 import { SchemeType } from '../../styled-system/'
 import { RadioProps } from './contract'
+import { IconProps } from '../Icon/contract'
+import { TextProps } from '../Text/contract'
 
 export type RadioTheme = {
   scheme: {
-    Switch: SchemeType<RadioProps>,
+    Toggle?: SchemeType<RadioProps>,
+    Switch?: SchemeType<RadioProps>,
+    Icon?: SchemeType<RadioProps, IconProps>,
+    Label?: SchemeType<RadioProps, TextProps>,
   },
 }
 
@@ -34,7 +40,7 @@ export const radioTheme: RadioTheme = {
         secondary: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -49,7 +55,7 @@ export const radioTheme: RadioTheme = {
         success: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -64,7 +70,7 @@ export const radioTheme: RadioTheme = {
         warning: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -79,7 +85,7 @@ export const radioTheme: RadioTheme = {
         error: {
           style: {
             color: 'white',
-            bg: 'gray4',
+            bg: 'gray8',
             bgActive: 'gray12',
             bgDisabled: 'gray4',
           },
@@ -91,6 +97,11 @@ export const radioTheme: RadioTheme = {
             },
           },
         },
+      },
+    },
+    Icon: {
+      checked: {
+        component: RadioCheckedIcon,
       },
     },
   },

@@ -1,6 +1,6 @@
 ```jsx
-import { useState } from 'react'
-import { Stack, Text, Icon, Checkbox, Switcher } from '../../'
+import { CopyIcon } from '@avito/icons'
+import { Stack, Text, Checkbox, Switcher } from '../../'
 const [state, setState] = useState({})
 
 const onChange = ({ name, checked }) => {
@@ -38,11 +38,11 @@ const events = (name) => ({
   />
   <ListItem
     label='Текст лейбла'
-    before={<Icon name='copy'/>}
+    before={<CopyIcon />}
   />
   <ListItem
     label='Текст лейбла'
-    before={<Icon size='l' name='copy'/>}
+    before={<CopyIcon size='l' />}
     caption='Текст подписи'
   />
   <ListItem
@@ -90,13 +90,13 @@ const events = (name) => ({
     caption={<Text color='green500'>Текст подписи</Text>}
   />
   <ListItem
-    before={<Icon size='l' name='copy'/>}
+    before={<CopyIcon size='l'/>}
     label='метро Щелковская, 600 м, Москва, Щёлковское шоссе, 49, подъезд 1'
     caption={<Text color='green500'>Текст подписи</Text>}
     onClick={(...args) => console.log('press', args)}
   />
   <ListItem
-    before={<Icon size='l' name='copy'/>}
+    before={<CopyIcon size='l'/>}
     beforeValign='auto'
     label='метро Щелковская, 600 м, Москва, Щёлковское шоссе, 49, подъезд 1'
     caption={<Text color='green500'>Текст подписи</Text>}

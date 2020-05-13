@@ -1,36 +1,24 @@
+import { CheckboxIndeterminateIcon, CheckboxCheckedIcon } from '@avito/icons'
 import { SchemeType } from '../../styled-system/'
 import { CheckboxProps } from './contract'
 import { TextProps } from '../Text/contract'
+import { IconProps } from '../Icon/contract'
 
 export type CheckboxTheme = {
   scheme: {
-    Toggle: SchemeType<CheckboxProps>,
-    Switch: SchemeType<CheckboxProps>,
-    Label: SchemeType<CheckboxProps, TextProps>,
+    Toggle?: SchemeType<CheckboxProps>,
+    Switch?: SchemeType<CheckboxProps>,
+    Icon?: SchemeType<CheckboxProps, IconProps>,
+    Label?: SchemeType<CheckboxProps, TextProps>,
   },
 }
 
 export const checkboxTheme: CheckboxTheme = {
   scheme: {
-    Toggle: {},
-    Label: {},
     Switch: {
       style: {
         borderRadius: 2,
         height: 18,
-      },
-      shape: {
-        circle: {
-          style: {
-            p: 1,
-            height: 20,
-          },
-        },
-        square: {
-          style: {
-            mx: 1,
-          },
-        },
       },
       variant: {
         primary: {
@@ -108,6 +96,14 @@ export const checkboxTheme: CheckboxTheme = {
             },
           },
         },
+      },
+    },
+    Icon: {
+      checked: {
+        component: CheckboxCheckedIcon,
+      },
+      indeterminate: {
+        component: CheckboxIndeterminateIcon,
       },
     },
   },

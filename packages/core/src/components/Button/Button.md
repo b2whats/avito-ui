@@ -1,7 +1,6 @@
 ## Тестовый блок
 
 ```js
-import { useState } from 'react'
 import { Input } from '../Input/'
 import { Stack } from '../Layout/'
 const [state, setState] = useState('default')
@@ -83,22 +82,57 @@ import { Stack } from '../Layout/';
 
 ## Иконки в кнопке
 
-Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.
-Возможные значения:
-- строка - `'search'`
-- renderProp - `(iconProps) => <Icon name='search' {...iconProps}>`. `iconProps` — параметры темы
-- Component - `<Icon name='search' color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
+Параметр `iconBefore` и `iconAfter` добавляю иконку до и после текста в кнопке.  
+Возможные значения:  
+renderProp - `(iconProps) => <SearchIcon {...iconProps}>`. `iconProps` - добавляет параметры темы
+Component - `<SearchIcon color='black'/>`. Автоматически передает параметр темы, позволяя переопределить значения
 
 ```js
-import { Text } from '../Text/';
-import { Stack } from '../Layout/';
+import { useTheme } from '../../theme/'
+import { Stack, Box, Group } from '../Layout/'
+import { Radio } from '../Radio/'
+import * as icons from '@avito/icons'
+
+const [props, setProps] = useState({})
+const { Icon: { platform } } = useTheme()
+
+const onChange = ({ name, value }) => {
+  setProps(state => ({
+    ...state,
+    [name]: value,
+  }))
+};
+
+<Stack spacing='m' align='left' column>
+  <Box py={20} align='center' block>
+    <Button {...{ [props.position]: props.name && React.createElement(icons[props.name]) }}>Кнопка</Button>
+  </Box>
+  <Stack spacing='m' column>
+    <Group mode='radio' name='position' spacing='m' value={props.position} onChange={onChange}>
+      <Radio label='Слева' value='iconBefore' />
+      <Radio label='Справа' value='iconAfter' />
+    </Group>
+    <select value={props.name} name='name' onChange={({ target: { name, value } }) => onChange({ name, value })} >
+      {Object.keys(icons).map((name) => [undefined, platform].includes(icons[name].platform) && (
+        <option key={name} value={name}>{name}</option>
+      ))}
+    </select>
+  </Stack>
+</Stack>
+```
+
+
+```js
+import { SearchIcon } from '@avito/icons'
+import { Text } from '../Text/'
+import { Stack } from '../Layout/'
 import { Icon } from '../Icon/';
 
 <Stack spacing='m' align='left' column>
-  <Button iconBefore='search'>Кнопка</Button>
-  <Button iconAfter='search'>Кнопка</Button>
-  <Button iconBefore={(iconProps) => <Icon name='search' {...iconProps}/>}>Кнопка</Button>
-  <Button iconBefore={<Icon name='search' color='black'/>}>Кнопка</Button>
+  <Button iconBefore={SearchIcon}>Кнопка</Button>
+  <Button iconAfter={SearchIcon}>Кнопка</Button>
+  <Button iconBefore={(iconProps) => <SearchIcon {...iconProps}/>}>Кнопка</Button>
+  <Button iconBefore={<SearchIcon color='black'/>}>Кнопка</Button>
 </Stack>
 ```
 
@@ -164,7 +198,7 @@ import { Stack } from '../Layout/';
 ::: platform mobile
 ```js
 import { Stack } from '../Layout/'
-import { Icon } from '../Icon/'
+import { SearchIcon } from '@avito/icons'
 import { Text } from '../Text/'
 ;
 
@@ -175,8 +209,8 @@ import { Text } from '../Text/'
     <Button preset='accent' disabled>Кнопка</Button>
     <Button preset='accent' loading>Кнопка</Button>
     <Button preset='accent' shape='pill'>Кнопка</Button>
-    <Button preset='accent' shape='square' iconBefore='search' />
-    <Button preset='accent' shape='circle' iconBefore='search' />
+    <Button preset='accent' shape='square' iconBefore={<SearchIcon />} />
+    <Button preset='accent' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
   <Stack p={10} spacing={10} valign='middle' wrap>
     <Text>secondary</Text>
@@ -184,8 +218,8 @@ import { Text } from '../Text/'
     <Button preset='secondary' disabled>Кнопка</Button>
     <Button preset='secondary' loading>Кнопка</Button>
     <Button preset='secondary' shape='pill'>Кнопка</Button>
-    <Button preset='secondary' shape='square' iconBefore='search' />
-    <Button preset='secondary' shape='circle' iconBefore='search' />
+    <Button preset='secondary' shape='square' iconBefore={<SearchIcon />} />
+    <Button preset='secondary' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
   <Stack p={10} spacing={10} valign='middle' wrap>
     <Text>default</Text>
@@ -193,8 +227,8 @@ import { Text } from '../Text/'
     <Button preset='default' disabled>Кнопка</Button>
     <Button preset='default' loading>Кнопка</Button>
     <Button preset='default' shape='pill'>Кнопка</Button>
-    <Button preset='default' shape='square' iconBefore='search' />
-    <Button preset='default' shape='circle' iconBefore='search' />
+    <Button preset='default' shape='square' iconBefore={<SearchIcon />} />
+    <Button preset='default' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
   <Stack p={10} spacing={10} bg='gray4' valign='middle' wrap>
     <Text>defaultOnSurface</Text>
@@ -202,8 +236,8 @@ import { Text } from '../Text/'
     <Button preset='defaultOnSurface' disabled>Кнопка</Button>
     <Button preset='defaultOnSurface' loading>Кнопка</Button>
     <Button preset='defaultOnSurface' shape='pill'>Кнопка</Button>
-    <Button preset='defaultOnSurface' shape='square' iconBefore='search' />
-    <Button preset='defaultOnSurface' shape='circle' iconBefore='search' />
+    <Button preset='defaultOnSurface' shape='square' iconBefore={<SearchIcon />} />
+    <Button preset='defaultOnSurface' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
   <Stack p={10} spacing={10} bg='gray84' valign='middle' wrap>
     <Text color='white'>defaultDark</Text>
@@ -211,8 +245,8 @@ import { Text } from '../Text/'
     <Button preset='defaultDark' disabled>Кнопка</Button>
     <Button preset='defaultDark' loading>Кнопка</Button>
     <Button preset='defaultDark' shape='pill'>Кнопка</Button>
-    <Button preset='defaultDark' shape='square' iconBefore='search' />
-    <Button preset='defaultDark' shape='circle' iconBefore='search' />
+    <Button preset='defaultDark' shape='square' iconBefore={<SearchIcon />} />
+    <Button preset='defaultDark' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
   <Stack p={10} spacing={10} valign='middle' wrap>
     <Text>outline</Text>
@@ -220,8 +254,8 @@ import { Text } from '../Text/'
     <Button preset='outline' disabled>Кнопка</Button>
     <Button preset='outline' loading>Кнопка</Button>
     <Button preset='outline' shape='pill'>Кнопка</Button>
-    <Button preset='outline' shape='square' iconBefore='search' />
-    <Button preset='outline' shape='circle' iconBefore='search' />
+    <Button preset='outline' shape='square' iconBefore={<SearchIcon />} />
+    <Button preset='outline' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
   <Stack p={10} spacing={10} valign='middle' wrap>
     <Text>pay</Text>
@@ -229,8 +263,8 @@ import { Text } from '../Text/'
     <Button preset='pay' disabled>Кнопка</Button>
     <Button preset='pay' loading>Кнопка</Button>
     <Button preset='pay' shape='pill'>Кнопка</Button>
-    <Button preset='pay' shape='square' iconBefore='search' />
-    <Button preset='pay' shape='circle' iconBefore='search' />
+    <Button preset='pay' shape='square' iconBefore={<SearchIcon />} />
+    <Button preset='pay' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
   <Stack p={10} spacing={10} valign='middle' wrap>
     <Text>appInstall</Text>
@@ -238,8 +272,8 @@ import { Text } from '../Text/'
     <Button preset='appInstall' disabled>Кнопка</Button>
     <Button preset='appInstall' loading>Кнопка</Button>
     <Button preset='appInstall' shape='pill'>Кнопка</Button>
-    <Button preset='appInstall' shape='square' iconBefore='search' />
-    <Button preset='appInstall' shape='circle' iconBefore='search' />
+    <Button preset='appInstall' shape='square' iconBefore={<SearchIcon />} />
+    <Button preset='appInstall' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
   <Stack p={10} spacing={10} valign='middle' wrap>
     <Text>linkIncreased</Text>
@@ -247,8 +281,8 @@ import { Text } from '../Text/'
     <Button preset='linkIncreased' disabled>Кнопка</Button>
     <Button preset='linkIncreased' loading>Кнопка</Button>
     <Button preset='linkIncreased' shape='pill'>Кнопка</Button>
-    <Button preset='linkIncreased' shape='square' iconBefore='search' />
-    <Button preset='linkIncreased' shape='circle' iconBefore='search' />
+    <Button preset='linkIncreased' shape='square' iconBefore={<SearchIcon />} />
+    <Button preset='linkIncreased' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
 </Stack>
 ```

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { filterProps } from '@avito/core'
 import { useRefHook } from '@avito/core'
 import { mergeTheme, useTheme } from '@avito/core'
@@ -39,6 +39,7 @@ const buttonClassName = createClassName<SegmentButtonProps, typeof segmentButton
     font-size: inherit;
     outline: 0;
     cursor: pointer;
+    user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     
     &::-moz-focus-inner {
@@ -63,6 +64,10 @@ const slideClassName = createClassName<SegmentButtonProps, typeof segmentButtonT
   `
 )
 
+type Geometry = {
+  [key in string]: { transform: string, width: number, height: number }
+}
+
 const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentButtonProps) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(segmentButtonTheme, theme.SegmentButton, override)
@@ -75,9 +80,6 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
   }
 
   const [ref, setRef] = useRefHook<HTMLElement>()
-  type Geometry = {
-    [key in string]: { transform: string, width: number, height: number }
-  }
   const [geometry, setGeometry] = useState<Geometry>({})
 
   useEffect(() => {
@@ -108,7 +110,7 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
     onChange && onChange({ name, value })
   }
 
-  const onKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+  const onKeyDown = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
     let next: HTMLButtonElement | null = event.currentTarget
     let exit = ref.current!.children.length
 
@@ -132,7 +134,7 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
       next.focus()
       next.click()
     }
-  }
+  }, [])
 
   return (
     <div ref={setRef} css={groupStyle} role='radiogroup' {...filterProps(props)}>

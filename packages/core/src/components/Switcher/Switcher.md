@@ -1,14 +1,14 @@
 ```js
-import { Stack } from '../Layout/';
-const initialState = { checked: false, loading: false };
+import { Stack } from '../Layout/'
+const [state, setState] = useState({ checked: false, loading: false })
 const onChange = ({ checked }) => {
-    setState({ checked: checked });
+    setState({ checked: checked })
 }
 const onLoadingChange = ({ checked }) => {
-    setState({ checked: checked, loading: true });
+    setState({ checked: checked, loading: true })
 
     setTimeout(() => {
-      setState({ loading: false });
+      setState({ loading: false })
     }, 2000)
 }
 

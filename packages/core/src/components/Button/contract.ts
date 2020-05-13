@@ -1,5 +1,5 @@
 import React from 'react'
-import { MarginProperties, DimensionProperties, ValignProperties } from '../../styled-system/'
+import { MarginProperties, DimensionProperties, AlignProperties } from '../../styled-system/'
 import { ButtonTheme } from './theme'
 
 type Element = HTMLButtonElement | HTMLLinkElement
@@ -7,7 +7,7 @@ type Element = HTMLButtonElement | HTMLLinkElement
 // export enum trick allows per-platform declaration merging
 export enum ButtonPreset { primary, default }
 
-export interface ButtonProps extends MarginProperties, DimensionProperties, ValignProperties {
+export interface ButtonProps extends MarginProperties, DimensionProperties, AlignProperties {
   children?: React.ReactNode
   /** Размер кнопки */
   size?: 's' | 'm' | 'l'

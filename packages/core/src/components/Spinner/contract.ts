@@ -7,8 +7,6 @@ export interface SpinnerProps extends MarginProperties {
   color?: keyof Theme['palette']
   /** Размер */
   size?: number | 's' | 'm' | 'l' | 'auto'
-  /** Толщина */
-  thickness?: number
   /** Цветовые варианты */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Скорость вращения */

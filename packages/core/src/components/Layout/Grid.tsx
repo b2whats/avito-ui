@@ -1,5 +1,4 @@
 import React from 'react'
-import { omit, pick } from '../../utils/'
 import { useTheme } from '../../theme/'
 import { createClassName } from '../../styled-system/'
 import { GridProps } from './contract'
@@ -9,7 +8,9 @@ const gridWrapperClassName = createClassName<GridProps>(
   (_, props) => ({
     display: 'block',
     width: 1,
-    ...omit(props, 'align', 'valign'),
+    ...props,
+    align: undefined,
+    valign: undefined,
   }),
   (textRules, { debug }) => (`
     &::before {
@@ -28,7 +29,8 @@ const gridWrapperClassName = createClassName<GridProps>(
 const gridClassName = createClassName<GridProps>(
   (_, props) => ({
     display: 'flex',
-    ...pick(props, 'align', 'valign'),
+    align: props.align,
+    valign: props.valign,
   }),
   (textRules, { spacing, spacingY, debug }, { space, palette }) => (`
     flex-wrap: wrap;

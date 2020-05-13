@@ -36,15 +36,3 @@ import { Stack } from '../Layout/';
   <Spinner speed={0.9}/> 
 </Stack>
 ```
-
-### Толщина
-
-```js
-import { Stack } from '../Layout/';
-
-<Stack spacing='m'>
-  <Spinner />
-  <Spinner thickness={1}/>
-  <Spinner thickness={4}/> 
-</Stack>
-```

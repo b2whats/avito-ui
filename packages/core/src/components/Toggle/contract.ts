@@ -1,9 +1,11 @@
 import React from 'react'
-import { MarginProperties, DimensionProperties, ValignProperties } from '../../styled-system/'
+import { ToggleTheme } from './theme'
+import { MarginProperties, DimensionProperties, AlignProperties, FoldThemeParamsReturn } from '../../styled-system/'
 
 type ChildrenProps = {
   checked: boolean | 'mixed',
   loading?: boolean,
+  Icon?: FoldThemeParamsReturn<ToggleTheme>['Icon']
 }
 
 type onChangeProps = {
@@ -13,7 +15,7 @@ type onChangeProps = {
   type: 'checkbox' | 'radio',
 }
 
-export interface ToggleProps extends MarginProperties, DimensionProperties, ValignProperties {
+export interface ToggleProps extends MarginProperties, DimensionProperties, AlignProperties {
   children?(props: ChildrenProps): React.ReactNode,
   /** Размер */
   size?: 's' | 'm' | 'l',

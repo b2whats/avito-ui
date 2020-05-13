@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTheme, mergeTheme } from '../../theme/'
 import { Toggle } from '../Toggle/'
-import { Icon } from '../Icon/'
 import { CheckboxProps } from './contract'
 import { checkboxTheme } from './theme'
 
@@ -18,11 +17,7 @@ const Checkbox = ({ override, ...props }: CheckboxProps) => {
 
   return (
     <Toggle {...props} mode='checkbox' override={componentTheme}>
-      {({ checked }) => (
-        checked === 'mixed' ? <Icon name='checkbox-intermediate' size='auto' /> :
-        checked === true ? <Icon name='checkbox-checked' size='auto' /> :
-        undefined
-      )}
+      {({ checked, Icon }) => checked && Icon && <Icon.component {...Icon.props} size='auto' />}
     </Toggle>
   )
 }
