@@ -57,6 +57,9 @@ const inputClassName = createClassName<InputCoreProps, {}>(
     -webkit-text-fill-color: currentcolor;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 
+    text-overflow: ellipsis;
+    overflow: hidden;
+
     &[disabled] {
       cursor: inherit;
     }
