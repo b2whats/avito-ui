@@ -120,7 +120,7 @@ export type BorderProperties = Partial<{
 }>
 
 type OtherProperties = BorderProperties & Partial<{
-  focus: boolean,
+  focus: boolean | string,
   disabled: boolean,
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   adjacentSelector: string,
