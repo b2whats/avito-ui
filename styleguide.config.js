@@ -61,7 +61,16 @@ module.exports = {
     return componentPath.replace(/\.tsx?$/, '.md')
   },
   pagePerSection: true,
-  components: ['packages/{core,mobile-components,web-components}/src/components/**/[A-Z]*.tsx'],
+  sections: [{
+    name: 'Компоненты',
+    components: ['packages/{core,mobile-components,web-components}/src/components/**/[A-Z]*.tsx'],
+  }, {
+    name: 'Токены',
+    sections: [{
+      name: 'Палитра',
+      content: './palette.md',
+    }],
+  }],
   propsParser: (inputPath, ...rest) => {
     // include platform-specific prop extensions
     const coreRE = /\/core\//
@@ -82,6 +91,8 @@ module.exports = {
         'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponentRenderer'),
         'rsg-components/Examples/ExamplesRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/Examples/ExamplesRenderer'),
         '@avito/icons$': path.resolve(__dirname, 'packages/icons/src/'),
+        '@avito/tokens$': path.resolve(__dirname, 'packages/tokens/src/'),
+        '@avito/core$': path.resolve(__dirname, 'packages/core/src/'),
       },
     },
     module: {
