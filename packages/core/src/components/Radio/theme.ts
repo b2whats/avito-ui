@@ -5,6 +5,7 @@ import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 
 export type RadioTheme = {
+  defaultProps?: Partial<RadioProps>,
   scheme: {
     Toggle?: SchemeType<RadioProps>,
     Switch?: SchemeType<RadioProps>,
@@ -14,6 +15,11 @@ export type RadioTheme = {
 }
 
 export const radioTheme: RadioTheme = {
+  defaultProps: {
+    variant: 'primary',
+    size: 'm',
+    shape: 'circle',
+  },
   scheme: {
     Switch: {
       style: {

@@ -1,7 +1,8 @@
 //@ts-nocheck
 import React from 'react'
-import { Icon, Text, Stack, ListItem, Checkbox } from '../../'
+import { Text, Stack, ListItem } from '../../'
 import { css } from '@avito/core'
+import { CheckmarkIcon, CrossIcon } from '@avito/icons'
 
 const styles = {
   root: css`
@@ -38,7 +39,7 @@ export function SelectPopup({
     <div css={styles.root}>
       <div css={styles.header}>
         <span css={styles.close}>
-          <Icon name='close' size='l' onClick={onCancel} />
+          <CrossIcon size='l' onClick={onCancel} />
         </span>
         <Text bold>{title}</Text>
       </div>
@@ -47,7 +48,7 @@ export function SelectPopup({
           <ListItem
             key={item[keyProperty]}
             label={item[displayProperty]}
-            after={<Checkbox shape='circle' checked={selectedKey === item[keyProperty]} />}
+            after={selectedKey === item[keyProperty] && <CheckmarkIcon />}
             onClick={() => onConfirm(item[keyProperty])}
           />
         ))}

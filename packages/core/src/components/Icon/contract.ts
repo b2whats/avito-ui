@@ -24,6 +24,9 @@ export interface BaseIconProps extends SpaceProperties, ColorProperties, AlignPr
   shadow?: boolean | string
   /** Переопределиь тему компонента */
   override?: IconTheme
+  /** Состояние disabled */
+  disabled?: boolean
+
 
   onClick?: MouseHandler
 }

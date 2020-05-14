@@ -1,37 +1,37 @@
+## Интерактивный пример
+
 ```js
-import { Stack } from '../Layout/'
-const [state, setState] = useState({ checked: false, loading: false })
+import { Stack } from '../Layout/';
+const [state, setState] = useState(false)
 const onChange = ({ checked }) => {
-    setState({ checked: checked })
-}
-const onLoadingChange = ({ checked }) => {
-    setState({ checked: checked, loading: true })
+  setState(checked);
+};
 
-    setTimeout(() => {
-      setState({ loading: false })
-    }, 2000)
-}
+<Switcher checked={state} onChange={onChange} label='Teкст рядом' />
+```
 
-const longText = 'Французская художница, входившая в круг художников в Париже, ставших известными как импрессионисты.';
+## Состояния
 
-<Stack spacing='m'>
-  <Stack spacing='m' column width={300}>
-    <Switcher checked={state.checked} onChange={onChange} label='Teкст рядом' />
-    <Switcher checked={state.checked} onChange={onLoadingChange} label='Teкст рядом' loading={state.loading} />
-    <Switcher checked={state.checked} onChange={onLoadingChange} label='Teкст рядом' loading />
-    <Switcher checked={state.checked} onChange={onChange} variant='secondary' label='Teкст рядом' />
-    <Switcher checked={state.checked} onChange={onChange} variant='success' label='Teкст рядом' />
-    <Switcher checked={state.checked} onChange={onChange} variant='warning' label='Teкст рядом' />
-    <Switcher checked={state.checked} onChange={onChange} variant='error' label='Teкст рядом' />
-    <Switcher checked={state.checked} onChange={onChange} label='Teкст рядом' labelPosition='start'/>
-    <Switcher checked indeterminate label='Teкст рядом'/>
-    <Switcher label='Teкст рядом' disabled/>
-    <Switcher checked label='Teкст рядом' disabled/>
-    <Switcher checked={state.checked} onChange={onChange} label='Teкст рядом' description={longText}/>
-    <Switcher checked label='Teкст рядом' description={longText} disabled/>
-    <Switcher checked label={longText} />
-  </Stack>
+```js
+import { Stack } from '../Layout/';
+const [state, setState] = useState(false);
+
+<Stack spacing='m' column>
+  <Switcher label='Не выбран' checked={false} />
+  <Switcher checked label='Выбран' />
+  <Switcher disabled label='Не выбран, неактивный' checked={false} />
+  <Switcher checked disabled label='Выбран, неактивный' />
 </Stack>
 ```
 
+## Положение текста
 
+```js
+import { Stack } from '../Layout/';
+const [state, setState] = useState(false);
+
+<Stack spacing='m' column>
+  <Switcher label='После контрола' checked={false} />
+  <Switcher label='До контрола' labelPosition='start' checked={false} />
+</Stack>
+```

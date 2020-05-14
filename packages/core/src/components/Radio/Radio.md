@@ -1,16 +1,16 @@
 ## Интерактивный пример
 
 ```js
-import { Stack } from '../Layout/'
-const [state, setState] = useState(false)
+import { Stack, Group } from '../Layout/'
+const [state, setState] = useState(1)
 const onChange = ({ value }) => {
-  setState(value);
+  setState(value)
 };
 
-<Stack spacing='m' column>
-  <Radio name='radio' value='1' checked={state === '1'} label='Teкст рядом' />
-  <Radio name='radio' value='2' checked={state === '2'} label='Teкст рядом' />
-</Stack>
+<Group spacing='m' mode='radio' column value={state} onChange={onChange}>
+  <Radio value={1} label='Teкст рядом' />
+  <Radio value={2} label='Teкст рядом' />
+</Group>
 ```
 
 ## Состояния

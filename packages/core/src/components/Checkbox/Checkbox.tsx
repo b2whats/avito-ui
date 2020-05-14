@@ -9,9 +9,7 @@ const Checkbox = ({ override, ...props }: CheckboxProps) => {
   const componentTheme = mergeTheme(checkboxTheme, theme.Checkbox, override)
 
   props = {
-    variant: 'primary',
-    size: 'm',
-    shape: 'square',
+    ...componentTheme.defaultProps,
     ...props,
   }
 

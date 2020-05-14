@@ -46,9 +46,7 @@ const Switcher = ({ override, ...props }: SwitcherProps) => {
   const componentTheme = mergeTheme(switcherTheme, theme.Switcher, override)
 
   props = {
-    variant: 'primary',
-    size: 'm',
-    shape: 'pill',
+    ...componentTheme.defaultProps,
     ...props,
   }
 

@@ -1,14 +1,10 @@
-import { SchemeType } from '../../styled-system/'
-import { BaseIconProps } from './contract'
+import { DeepPartial, IconTheme } from '@avito/core'
 
-export type IconTheme = {
-  defaultProps?: Partial<BaseIconProps>,
-  scheme: {
-    Icon: SchemeType<BaseIconProps>,
-  }
-}
-
-export const iconTheme: IconTheme = {
+export const iconTheme: DeepPartial<IconTheme> = {
+  defaultProps: {
+    area: 3,
+    size: 'm',
+  },
   scheme: {
     Icon: {
       size: {
@@ -55,6 +51,16 @@ export const iconTheme: IconTheme = {
           },
         },
       },
+      name: {
+        checkmark: {
+          style: {
+            color: 'blue500',
+            colorDisabled: 'gray28',
+          },
+        },
+      },
     },
   },
+  // @ts-ignore - временно, пока не будет найдено решения передачи выбранной темы в примеры
+  platform: 'mobile',
 }

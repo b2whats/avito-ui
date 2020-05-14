@@ -4,6 +4,7 @@ import { TextProps } from '../Text/contract'
 import { IconProps } from '../Icon/contract'
 
 export type ToggleTheme = {
+  defaultProps?: Partial<ToggleProps>,
   scheme: {
     Toggle: SchemeType<ToggleProps>,
     Switch: SchemeType<ToggleProps>,
@@ -13,6 +14,9 @@ export type ToggleTheme = {
 }
 
 export const toggleTheme: ToggleTheme = {
+  defaultProps: {
+    labelPosition: 'end',
+  },
   scheme: {
     Toggle: {},
     Switch: {},
