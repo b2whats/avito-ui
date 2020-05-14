@@ -64,6 +64,13 @@ const inputClassName = createClassName<InputCoreProps, {}>(
       cursor: inherit;
     }
 
+    &::-webkit-inner-spin-button {
+      display: none
+    }
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
+
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
