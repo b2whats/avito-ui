@@ -1,7 +1,16 @@
 import { DeepPartial, CheckboxTheme, dsl } from '@avito/core'
+import { CheckboxCheckedIcon, CheckboxIndeterminateIcon } from '../Icon'
 
 export const checkboxTheme: DeepPartial<CheckboxTheme> = {
   scheme: {
+    Icon: {
+      checked: {
+        component: CheckboxCheckedIcon,
+      },
+      indeterminate: {
+        component: CheckboxIndeterminateIcon,
+      },
+    },
     Switch: {
       style: {
         borderRadius: 2,

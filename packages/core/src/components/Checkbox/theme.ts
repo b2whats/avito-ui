@@ -1,4 +1,3 @@
-import { CheckboxIndeterminateIcon, CheckboxCheckedIcon } from '../Icon/'
 import { CheckboxProps } from './contract'
 import { ToggleTheme } from '../Toggle'
 
@@ -12,14 +11,7 @@ export const checkboxTheme: CheckboxTheme = {
   },
   scheme: {
     Switch: {},
-    Icon: {
-      checked: {
-        component: CheckboxCheckedIcon,
-      },
-      indeterminate: {
-        component: CheckboxIndeterminateIcon,
-      },
-    },
+    Icon: {},
     Label: {},
     Toggle: {},
   },
