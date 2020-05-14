@@ -1,3 +1,5 @@
+import { IconProps } from '@avito/core/src'
+
 export { AddIcon } from './AddIcon'
 export { AddNoteIcon } from './AddNoteIcon'
 export { AddWithFoneIcon } from './AddWithFoneIcon'
@@ -97,3 +99,6 @@ export { WalletIcon } from './WalletIcon'
 export { WebIcon } from './WebIcon'
 export { WideListViewIcon } from './WideListViewIcon'
 export { YoutubeIcon } from './YoutubeIcon'
+
+export interface ExternalIcons {
+}
