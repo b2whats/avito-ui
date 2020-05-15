@@ -62,14 +62,16 @@ module.exports = {
   },
   pagePerSection: true,
   sections: [{
-    name: 'Компоненты',
-    components: ['packages/{core,mobile-components,web-components}/src/components/**/[A-Z]*.tsx'],
-  }, {
     name: 'Токены',
+    sectionDepth: 1,
     sections: [{
       name: 'Палитра',
       content: './palette.md',
     }],
+  }, {
+    name: 'Компоненты',
+    sectionDepth: 1,
+    components: ['packages/{core,mobile-components,web-components}/src/components/**/[A-Z]*.tsx'],
   }],
   propsParser: (inputPath, ...rest) => {
     // include platform-specific prop extensions
