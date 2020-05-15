@@ -5,6 +5,7 @@ import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 
 export type SwitcherTheme = {
+  defaultProps?: Partial<SwitcherProps>,
   scheme: {
     Toggle?: SchemeType<SwitcherProps>,
     Switch?: SchemeType<SwitcherProps>,
@@ -14,6 +15,11 @@ export type SwitcherTheme = {
 }
 
 export const switcherTheme: SwitcherTheme = {
+  defaultProps: {
+    variant: 'primary',
+    size: 'm',
+    shape: 'pill',
+  },
   scheme: {
     Switch: {
       style: {

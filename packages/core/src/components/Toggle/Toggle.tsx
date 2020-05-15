@@ -76,7 +76,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
   const setTouchRef = usePrevent3DTouch()
 
   props = {
-    labelPosition: 'end',
+    ...componentTheme.defaultProps,
     ...props,
   }
 

@@ -10,4 +10,3 @@ export const CrossIcon = (props: IconProps) => (
 )
 
 CrossIcon.platform = 'mobile'
-CrossIcon.platform = 'component'

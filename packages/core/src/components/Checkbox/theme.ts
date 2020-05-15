@@ -5,6 +5,7 @@ import { TextProps } from '../Text/contract'
 import { IconProps } from '../Icon/contract'
 
 export type CheckboxTheme = {
+  defaultProps?: Partial<CheckboxProps>,
   scheme: {
     Toggle?: SchemeType<CheckboxProps>,
     Switch?: SchemeType<CheckboxProps>,
@@ -14,6 +15,11 @@ export type CheckboxTheme = {
 }
 
 export const checkboxTheme: CheckboxTheme = {
+  defaultProps: {
+    variant: 'primary',
+    size: 'm',
+    shape: 'square',
+  },
   scheme: {
     Switch: {
       style: {

@@ -9,9 +9,7 @@ const Radio = ({ override, ...props}: RadioProps) => {
   const componentTheme = mergeTheme(radioTheme, theme.Radio, override)
 
   props = {
-    variant: 'primary',
-    size: 'm',
-    shape: 'circle',
+    ...componentTheme.defaultProps,
     ...props,
   }
 

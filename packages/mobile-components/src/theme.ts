@@ -3,6 +3,7 @@ import { mobile } from '@avito/tokens'
 import { ListItemTheme } from './components/List/'
 import { SegmentButtonTheme } from './components/SegmentButton/'
 import { buttonTheme } from './components/Button/theme'
+import { iconTheme } from './components/Icon/theme'
 
 declare module '@avito/core' {
   interface Theme {
@@ -13,8 +14,5 @@ declare module '@avito/core' {
 
 export const theme = mergeTheme(mobile as Theme, {
   Button: buttonTheme,
-  Icon: {
-    // @ts-ignore - временно, пока не будет найдено решения передачи выбранной темы в примеры
-    platform: 'mobile', 
-  },
+  Icon: iconTheme,
 })
