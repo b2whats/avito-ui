@@ -45,6 +45,11 @@ export const inputTheme: DeepPartial<InputTheme> = {
         },
       },
     },
+    InputCore: {
+      props: {
+        pb: 1,
+      },
+    },
     Input: {
       style: {
         borderRadius: 5,

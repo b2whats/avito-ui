@@ -18,7 +18,11 @@ export const inputTheme: DeepPartial<InputTheme> = {
       size: dsl.propMap('ml', gapSize),
     },
     Prefix: {
-      size: dsl.propMap('mr', gapSize),
+      size: dsl.propMap('mr', {
+        s: 4,
+        m: 6,
+        l: 8,
+      }),
     },
     Input: {
       style: {

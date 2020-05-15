@@ -1,6 +1,6 @@
 import { SchemeType } from '../../styled-system/'
 import { dsl } from '../../theme'
-import { InputProps } from './contract'
+import { InputProps, InputCoreProps } from './contract'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 
@@ -12,6 +12,7 @@ export type InputTheme = {
     InputField: SchemeType<InputProps>,
     Prefix: SchemeType<InputProps, TextProps>,
     Input: SchemeType<InputProps>,
+    InputCore: SchemeType<InputProps, InputCoreProps>,
     Postfix: SchemeType<InputProps, TextProps>,
     IconAfter: SchemeType<InputProps, IconProps>,
   },
@@ -56,8 +57,8 @@ export const inputTheme: InputTheme = {
         ml: 4,
       },
     },
-    InputField: {
-    },
+    InputField: {},
+    InputCore: {},
     Input: {
       style: {
         focus: true,
