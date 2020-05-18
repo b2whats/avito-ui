@@ -1,4 +1,3 @@
-import { CrossIcon } from '@avito/icons'
 import { SchemeType } from '../../styled-system/'
 import { TextareaProps } from './contract'
 import { IconProps } from '../Icon/contract'
@@ -15,7 +14,6 @@ export const textareaTheme: TextareaTheme = {
   deletePlaceholderOnFocus: true,
   scheme: {
     IconClear: {
-      component: CrossIcon,
       props: {
         color: 'gray28',
         area: 10,

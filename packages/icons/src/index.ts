@@ -1,3 +1,5 @@
+import { IconProps } from '@avito/core/src'
+
 export { AddIcon } from './AddIcon'
 export { AddNoteIcon } from './AddNoteIcon'
 export { AddWithFoneIcon } from './AddWithFoneIcon'
@@ -22,7 +24,6 @@ export { ChevronWideIcon } from './ChevronWideIcon'
 export { ClearIcon } from './ClearIcon'
 export { CopyIcon } from './CopyIcon'
 export { CropIcon } from './CropIcon'
-export { CrossIcon } from './CrossIcon'
 export { DeliveryIcon } from './DeliveryIcon'
 export { DiscountIcon } from './DiscountIcon'
 export { EditIcon } from './EditIcon'
@@ -97,3 +98,7 @@ export { WalletIcon } from './WalletIcon'
 export { WebIcon } from './WebIcon'
 export { WideListViewIcon } from './WideListViewIcon'
 export { YoutubeIcon } from './YoutubeIcon'
+
+export interface ExternalIcons {
+  CrossIcon: React.FunctionComponent<IconProps>
+}

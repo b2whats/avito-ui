@@ -2,6 +2,11 @@
 
 exports[`mobile theme button theme snap 1`] = `
 Object {
+  "defaultProps": Object {
+    "preset": "primary",
+    "size": "m",
+    "type": "button",
+  },
   "scheme": Object {
     "Button": Object {
       "iconAfter": Object {
@@ -284,7 +289,8 @@ Object {
         "primary": Object {
           "style": Object {
             "bg": "blue500",
-            "bgActive": "blue800",
+            "bgActive": "blue600",
+            "bgChecked": "blue600",
             "bgDisabled": "blue300",
             "color": "white",
             "colorDisabled": "blue50",
@@ -325,7 +331,7 @@ Object {
         "borderRadius": 3,
         "borderStyle": "solid",
         "borderWidth": 1,
-        "focus": true,
+        "focus": false,
         "px": 16,
       },
     },
@@ -405,7 +411,176 @@ Object {
         },
       },
       "props": Object {
-        "size": "s",
+        "dense": true,
+        "size": "m",
+      },
+    },
+  },
+}
+`;
+
+exports[`mobile theme input theme snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "kind": "default",
+    "size": "m",
+    "variant": "primary",
+  },
+  "deletePlaceholderOnFocus": true,
+  "scheme": Object {
+    "IconAfter": Object {
+      "clearable": Object {
+        "props": Object {
+          "area": 10,
+          "name": "cross",
+        },
+      },
+      "props": Object {
+        "color": "gray28",
+      },
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "mx": 10,
+            "size": "m",
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "mx": 10,
+            "size": "s",
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "mx": 8,
+            "size": "s",
+          },
+        },
+      },
+    },
+    "IconBefore": Object {
+      "props": Object {
+        "color": "gray28",
+        "ml": 10,
+        "mr": 8,
+      },
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "size": "m",
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "size": "s",
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "size": "s",
+          },
+        },
+      },
+    },
+    "Input": Object {
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "fontSize": 16,
+            "height": "l",
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "fontSize": 16,
+            "height": "m",
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "fontSize": 12,
+            "height": "s",
+          },
+        },
+      },
+      "style": Object {
+        "borderRadius": 5,
+        "color": "black",
+        "colorDisabled": "gray40",
+        "focus": true,
+        "placeholderColor": "gray48",
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "bg": "red50",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "bg": "gray4",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "bg": "gray8",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "bg": "green50",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "bg": "orange50",
+          },
+        },
+      },
+    },
+    "InputField": Object {
+      "clearable": Object {
+        "style": Object {
+          "pr": "none",
+        },
+      },
+      "iconAfter": Object {
+        "style": Object {
+          "pr": "none",
+        },
+      },
+      "iconBefore": Object {
+        "style": Object {
+          "pl": "none",
+        },
+      },
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "px": 16,
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "px": 16,
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "px": 12,
+          },
+        },
+      },
+    },
+    "Postfix": Object {
+      "props": Object {
+        "ml": 4,
+      },
+    },
+    "Prefix": Object {
+      "props": Object {
+        "mr": 4,
       },
     },
   },

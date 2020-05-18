@@ -18,8 +18,6 @@ const toggleClassName = createClassName<ToggleProps, typeof toggleTheme>(
   (textRules) => (`
     position: relative;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
 
@@ -57,7 +55,7 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
   (textRules) => (`
     transition: background-color 0.2s ease 0s;
     -webkit-user-select: none;
-  
+
     &::before {
       content: 'x';
       width: 0px;
@@ -88,7 +86,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
       ref.current.indeterminate = props.indeterminate
     }
   }, [props.indeterminate])
-  
+
   const checked = groupProps.indeterminate ? 'mixed' as const : Boolean(groupProps.checked)
 
   const aria = {

@@ -1,6 +1,5 @@
 import { theme as mobile } from '@avito/mobile-components'
-import { theme as web, pikTheme } from '@avito/web-components'
-import { MobileIcon, WebIcon, HomeIcon } from '@avito/icons'
+import { theme as web, pikTheme, MobileIcon, WebIcon, HomeIcon } from '@avito/web-components'
 
 
 export const themes = {

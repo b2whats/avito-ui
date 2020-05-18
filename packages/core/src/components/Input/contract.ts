@@ -1,8 +1,9 @@
-import React from 'react'
-import { MarginProperties } from '../../styled-system/'
+import React, { Props } from 'react'
+import { MarginProperties, PaddingProperties } from '../../styled-system/'
 import { InputTheme } from './theme'
+import { IconProps } from '../Icon'
 
-export interface InputCoreProps {
+export interface InputCoreProps extends PaddingProperties {
   /** Автоматическая ширина поля */
   autoSize?: boolean
   /** Id */
@@ -41,6 +42,8 @@ export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginPro
   clearable?: boolean | 'always'
   /** Состояние загрузки */
   loading?: boolean
+  /** Внешний вид кнопки */
+  kind: 'default' | 'outline'
   /** Цветовые варианты */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Тип текстового поля */

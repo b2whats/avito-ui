@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { Tokens } from '@avito/tokens'
+import { Tokens, tokens } from '@avito/tokens'
 
 type Theme = Tokens
 
@@ -182,10 +182,15 @@ type UnionToIntersection<U> = (boolean extends U ? (k: U)=>void : U extends any 
 type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 type OnlyLiteralString<T> = T extends string ? T : never
 type IsChildren<T> = React.ReactNode extends T ? true : false
+type Computable<T, Arg> = { [K in keyof T]: (T[K] | ((arg: Arg) => T[K])) }
 
-export type SchemeType<Props extends { [K in keyof Props]: Props[K] }, ComponentsProps = never, ExtraStyleProps = {}> = {
-  style?: Partial<StyleProperties & ExtraStyleProps>,
-  props?: Partial<ComponentsProps>,
+export type SchemeType<
+  Props extends { [K in keyof Props]: Props[K] },
+  ComponentsProps = never,
+  ExtraStyleProps = {}
+> = {
+  style?: Partial<Computable<StyleProperties & ExtraStyleProps, Props>>,
+  props?: Partial<Computable<ComponentsProps, Props>>,
   // Срабатывает ошибка рекурсии https://github.com/microsoft/TypeScript/issues/34933 в компоненте Icon
   // Если написать так React.FunctionComponent<ComponentsProps>
   component?: any,
@@ -294,7 +299,16 @@ const maps = {
   },
 }
 
-export const foldScheme = (scheme: any, props: any) => {
+const execComputables = (object: object, arg: any) => {
+  for (const key in object) {
+    if (typeof object[key] === 'function') {
+      object[key] = object[key](arg)
+    }
+  }
+  return object
+}
+
+export const foldScheme = (scheme: any, props: any, only?: 'props' | 'style' | 'component') => {
   const result = {
     style: {},
     props: {},
@@ -304,13 +318,13 @@ export const foldScheme = (scheme: any, props: any) => {
   if (!scheme) return result
 
   for (const prop in scheme) {
-    if (['style', 'props'].includes(prop)) {
+    if (['style', 'props'].includes(prop) && (!only || only === prop)) {
       Object.assign(result[prop], scheme[prop])
 
       continue
     }
 
-    if (prop === 'component') {
+    if (prop === 'component' && (!only || only === prop)) {
       result.component = scheme.component
 
       continue
@@ -321,7 +335,7 @@ export const foldScheme = (scheme: any, props: any) => {
 
     const switchBranch = nestedConfig[value]
     if (switchBranch) {
-      const data = foldScheme(switchBranch, props)
+      const data = foldScheme(switchBranch, props, only)
 
       Object.assign(result.style, data.style)
       Object.assign(result.props, data.props)
@@ -331,7 +345,7 @@ export const foldScheme = (scheme: any, props: any) => {
     }
 
     if (value) {
-      const data = foldScheme(nestedConfig, props)
+      const data = foldScheme(nestedConfig, props, only)
 
       Object.assign(result.style, data.style)
       Object.assign(result.props, data.props)
@@ -339,11 +353,21 @@ export const foldScheme = (scheme: any, props: any) => {
     }
   }
 
+  execComputables(result.props, props)
+  execComputables(result.style, props)
+
   return result
 }
 
-export const getStyles = (params: StyleProperties & Display, {font, dimension, space, palette, focus, shape}: Tokens) => {
-  let css = 'box-sizing: border-box;'
+const baseStyle = ({ font }: Tokens) => `
+  box-sizing: border-box;
+  ${font.smoothing.webkit ? `-webkit-font-smoothing: ${font.smoothing.webkit};` : ''}
+  ${font.smoothing.moz ? `-moz-osx-font-smoothing: ${font.smoothing.moz};` : ''}
+`
+
+export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
+  let css = baseStyle(tokens)
+  const { font, dimension, space, palette, focus, shape } = tokens
 
   if (!params) return css
 
@@ -796,12 +820,14 @@ export const getStyles = (params: StyleProperties & Display, {font, dimension, s
   return css
 }
 
+type FoldedItemTheme<ItemTheme> = ItemTheme extends SchemeType<infer InProps, infer OutProps, infer ExtraStyle> ? {
+  style: StyleProperties & ExtraStyle,
+  props: OutProps,
+  component: React.FunctionComponent<OutProps> | React.ComponentClass<OutProps>,
+} : never
+
 export type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { scheme: object } ? {
-  [K in keyof ComponentTheme['scheme']]: {
-    style: ComponentTheme['scheme'][K] extends SchemeType<any, any, infer S> ? StyleProperties & S : never,
-    props: ComponentTheme['scheme'][K] extends SchemeType<any, infer R> ? R : never,
-    component: ComponentTheme['scheme'][K] extends SchemeType<any, infer R> ? React.FunctionComponent<R> | React.ComponentClass<R> : never,
-  }
+  [K in keyof ComponentTheme['scheme']]: FoldedItemTheme<ComponentTheme['scheme'][K]>
 } : never
 
 export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(props: any, { scheme }: T): FoldThemeParamsReturn<T> {
@@ -815,7 +841,11 @@ export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(pr
   return result
 }
 
-type valueof<T, Key = null> = T[Key extends keyof T ? Key : keyof T]
+export function deriveThemeProps<Props extends object>(props: Props, theme: { deriveProps?: SchemeType<any, any, any> }): Partial<Props> {
+  return foldScheme(theme.deriveProps, props).props
+}
+
+type valueof<T, Key = string> = T[Key extends keyof T ? Key : keyof T]
 type ThemeStyle<ComponentTheme, Key> = ComponentTheme extends object
   ? valueof<FoldThemeParamsReturn<ComponentTheme>, Key>['style']
   : never
@@ -825,7 +855,7 @@ interface Selector<Props, ComponentTheme, Key> {
   f: (props: Props, theme: Theme) => any;
 }
 
-export function createClassName<Props, ComponentTheme extends object | null = null, PrimaryComponent = null>(
+export function createClassName<Props, ComponentTheme extends object | null = null, PrimaryComponent = string>(
   createRule: (schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>, props: Props, theme: Theme) => StyleProperties & Display,
   createUserRule?: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>) => any
 ): Selector<Props, ComponentTheme, PrimaryComponent>[ComponentTheme extends object ? 't' : 'f']  {

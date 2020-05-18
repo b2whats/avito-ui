@@ -13,11 +13,11 @@ export class Select extends PureComponent {
     displayProperty: 'title',
     required: false,
   }
-  
+
   state = {
     isPopupOpened: false,
   }
-  
+
   render() {
     const { title, items, keyProperty, displayProperty, required, selectedKey, ...props } = this.props
     const { isPopupOpened } = this.state
