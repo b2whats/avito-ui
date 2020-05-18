@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Props } from 'react'
 import { MarginProperties, PaddingProperties } from '../../styled-system/'
 import { InputTheme } from './theme'
+import { IconProps } from '../Icon'
 
 export interface InputCoreProps extends PaddingProperties {
   /** Автоматическая ширина поля */

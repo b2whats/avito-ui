@@ -24,7 +24,6 @@ export { ChevronWideIcon } from './ChevronWideIcon'
 export { ClearIcon } from './ClearIcon'
 export { CopyIcon } from './CopyIcon'
 export { CropIcon } from './CropIcon'
-export { CrossIcon } from './CrossIcon'
 export { DeliveryIcon } from './DeliveryIcon'
 export { DiscountIcon } from './DiscountIcon'
 export { EditIcon } from './EditIcon'
@@ -101,4 +100,5 @@ export { WideListViewIcon } from './WideListViewIcon'
 export { YoutubeIcon } from './YoutubeIcon'
 
 export interface ExternalIcons {
+  CrossIcon: React.FunctionComponent<IconProps>
 }

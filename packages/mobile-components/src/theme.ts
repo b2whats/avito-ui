@@ -1,3 +1,4 @@
+import { CrossIcon } from './icons'
 import { Theme, mergeTheme } from '@avito/core'
 import { mobile } from '@avito/tokens'
 import { ListItemTheme } from './components/List/'
@@ -17,4 +18,11 @@ export const theme = mergeTheme(mobile as Theme, {
   Button: buttonTheme,
   Icon: iconTheme,
   Input: inputTheme,
+  Textarea: {
+    scheme: {
+      IconClear: {
+        component: CrossIcon,
+      },
+    },
+  },
 })

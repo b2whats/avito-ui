@@ -2,7 +2,7 @@
 import React from 'react'
 import { Text, Stack, ListItem } from '../../'
 import { css } from '@avito/core'
-import { CheckmarkIcon, CrossIcon } from '@avito/icons'
+import { CheckmarkIcon, CrossIcon } from '../../icons'
 
 const styles = {
   root: css`

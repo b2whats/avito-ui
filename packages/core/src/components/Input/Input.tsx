@@ -5,7 +5,6 @@ import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from '../Icon/'
 import { Text, TextProps } from '../Text/'
-import { CrossIcon } from '@avito/icons'
 import { InputCore as InputCoreComponent } from './InputCore'
 import { InputProps } from './contract'
 import { inputTheme } from './theme'
@@ -56,10 +55,14 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
   props = {
     ...componentTheme.defaultProps,
     ...props,
+  }
+  props = {
+    ...props,
     value,
     onChange,
     clearable,
-    iconAfter: clearable ? <CrossIcon /> : props.iconAfter,
+    // apply iconAfter theme if clearable
+    iconAfter: clearable ? true : props.iconAfter,
     placeholder: inputTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
@@ -101,7 +104,7 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
   )
 
   const iconAfter = renderIconSlot(
-    props.iconAfter,
+    IconAfter.component ? <IconAfter.component /> : props.iconAfter,
     clearable ? { ...IconAfter.props, onClick: handleClear } : IconAfter.props)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
