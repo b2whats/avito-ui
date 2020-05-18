@@ -3,6 +3,7 @@ import { web } from '@avito/tokens'
 import { CrossIcon } from './icons'
 import { buttonTheme } from './components/Button/theme'
 import { inputTheme } from './components/Input/theme'
+import { textTheme } from './components/Text/theme'
 
 export const theme = mergeTheme(web as Theme, {
   Button: buttonTheme,
@@ -22,6 +23,7 @@ export const theme = mergeTheme(web as Theme, {
     },
   },
   Input: inputTheme,
+  Text: textTheme,
   Textarea: {
     scheme: {
       IconClear: {

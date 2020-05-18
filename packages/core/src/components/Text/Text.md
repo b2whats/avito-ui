@@ -1,4 +1,12 @@
-### Size
+### Размер
+
+::: platform mobile
+`size` — размер текста: от `xs` до `xxl` или число (px)
+:::
+
+::: platform web
+`size` — размер текста: от `xs` до `xxxl` или число (px)
+:::
 
 ```jsx
 import { Stack } from '../Layout/';
@@ -37,7 +45,23 @@ import { Stack } from '../Layout/';
 </Stack>
 ```
 
-### Dense
+### Заголовки
+
+У текста есть 5 зарезервированных пресетов для заголовков разного уровня:
+
+```jsx
+<Stack spacing='m' column>
+  <Text preset='title'>title</Text>
+  <Text preset='title-small'>title-small</Text>
+  <Text preset='heading-large'>heading-large</Text>
+  <Text preset='heading'>heading</Text>
+  <Text preset='heading-small'>heading-small</Text>
+</Stack>
+```
+
+### Высота строки
+
+`dense` ужимает высоту строки
 
 ```jsx
 import { Stack } from '../Layout/';
@@ -78,7 +102,9 @@ const Row = p => <Stack spacing={10} valign='top' {...p} />;
 </Stack>
 ```
 
-### Color
+### Цвет
+
+`variant` — семантический цвет текста, `color` — произвольный
 
 ```jsx
 import { Stack } from '../Layout/';
@@ -101,7 +127,12 @@ import { Stack } from '../Layout/';
 </Stack>
 ```
 
-### Styles
+### Стили
+
+- `strike` — зачеркнуть текст. Можно указать цвет.
+- `underline` — подчеркнуть текст. Можно указать стиль (`dashed`, `dotted`).
+- `letterSpacing` — межбуквенный интервал, px
+- `uppercase` — КАПС
 
 ```jsx
 import { Stack } from '../Layout/';
@@ -117,7 +148,9 @@ import { Stack } from '../Layout/';
     <Text letterSpacing={2}>letter-spacing</Text>
 </Stack>
 ```
-### Align
+### Выравнивание
+
+`align` управляет выключкой:
 
 ```jsx
 import { Stack } from '../Layout/';
@@ -131,7 +164,7 @@ const text = 'В 2017, 2018 и 2019 гг. в ООО «КЕХ еКоммерц» 
 </Stack>
 ```
 
-### Vertical align
+`valignSelf` — вертикальное выравнивание:
 
 ```jsx
 import { Stack } from '../Layout/';
@@ -145,7 +178,9 @@ import { Stack } from '../Layout/';
 </Stack>
 ```
 
-### Trancate
+### Обрезка
+
+`truncale` ограничивает текст одной строкой и добавляет многоточие, если не влезает.
 
 ```jsx
 import { Stack } from '../Layout/';
@@ -154,23 +189,19 @@ const text = 'В 2017, 2018 и 2019 гг. в ООО «КЕХ еКоммерц» 
 <Text truncate>{text}</Text>
 ```
 
-### Custom
+### crop
+
+`crop` [подгоняет](https://medium.com/eightshapes-llc/cropping-away-negative-impacts-of-line-height-84d744e016ce) размер бокса к тексту. Не сочетается с `truncate`.
 
 ```jsx
 import { Stack } from '../Layout/';
 
-<Stack spacing={12} column>
-    <Text>
-      Продажа двухкомнатных квартир вторичное жилье в Петропавловске-Камчатском
-      <Text color='gray52'>12 567 456</Text>
-    </Text>
-    <Stack spacing={12}>
-      <CardDoc>
-        <Text>Normal</Text>
-      </CardDoc>
-      <CardDoc>
-        <Text crop>Crop</Text>
-      </CardDoc>
-    </Stack>
+<Stack spacing={12}>
+  <CardDoc>
+    <Text>Большая<br/>строка</Text>
+  </CardDoc>
+  <CardDoc>
+    <Text crop>Большая<br/>строка</Text>
+  </CardDoc>
 </Stack>
 ```

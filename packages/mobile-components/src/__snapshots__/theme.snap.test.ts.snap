@@ -412,6 +412,7 @@ Object {
       },
       "props": Object {
         "dense": true,
+        "ml": -1,
         "size": "m",
       },
     },
@@ -430,9 +431,9 @@ Object {
   "scheme": Object {
     "IconAfter": Object {
       "clearable": Object {
+        "component": [Function],
         "props": Object {
           "area": 10,
-          "name": "cross",
         },
       },
       "props": Object {
@@ -539,6 +540,11 @@ Object {
         },
       },
     },
+    "InputCore": Object {
+      "props": Object {
+        "pb": 1,
+      },
+    },
     "InputField": Object {
       "clearable": Object {
         "style": Object {
@@ -581,6 +587,90 @@ Object {
     "Prefix": Object {
       "props": Object {
         "mr": 4,
+      },
+    },
+  },
+}
+`;
+
+exports[`mobile theme text theme snap 1`] = `
+Object {
+  "deriveProps": Object {
+    "preset": Object {
+      "heading": Object {
+        "props": Object {
+          "dense": true,
+          "mb": 22,
+          "size": "l",
+        },
+      },
+      "heading-large": Object {
+        "props": Object {
+          "bold": true,
+          "dense": true,
+          "mb": 22,
+          "size": "l",
+        },
+      },
+      "heading-small": Object {
+        "props": Object {
+          "mb": 16,
+          "size": "m",
+        },
+      },
+      "title": Object {
+        "props": Object {
+          "mb": 36,
+          "size": "xxl",
+        },
+      },
+      "title-small": Object {
+        "props": Object {
+          "bold": true,
+          "dense": true,
+          "mb": 26,
+          "size": "xl",
+        },
+      },
+    },
+  },
+  "scheme": Object {
+    "Text": Object {
+      "dense": Object {
+        "style": Object {
+          "lineHeight": "dense",
+        },
+      },
+      "style": Object {
+        "fontSize": [Function],
+        "lineHeight": "normal",
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "color": "red500",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "color": "blue500",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "color": "gray52",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "color": "green500",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "color": "yellow500",
+          },
+        },
       },
     },
   },
