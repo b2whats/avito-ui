@@ -3,6 +3,8 @@ import { MarginProperties, PaddingProperties } from '../../styled-system/'
 import { InputTheme } from './theme'
 import { IconProps } from '../Icon'
 
+export enum InputPreset {}
+
 export interface InputCoreProps extends PaddingProperties {
   /** Автоматическая ширина поля */
   autoSize?: boolean
@@ -62,4 +64,6 @@ export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginPro
   ref?: React.Ref<HTMLInputElement>
   /** Переопределиь тему компонента */
   override?: InputTheme
+  /** пресет */
+  preset?: keyof typeof InputPreset,
 }

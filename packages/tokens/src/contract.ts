@@ -38,7 +38,7 @@ type Font = {
   },
 }
 
-type Palette = {
+export type Palette = {
   blue50:  string,
   blue100: string,
   blue200: string,

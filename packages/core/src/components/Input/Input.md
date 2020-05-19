@@ -48,6 +48,20 @@
 </Stack>
 ```
 
+::: platform web
+## Пресет
+
+`preset='inverse'` — белый инпут для размещения на цветном фоне (десктоп / пик)
+
+```jsx { "props": { "style": { "background": "#f5f5f5" } } }
+<Stack column spacing='s' width={250}>
+  <Input preset='inverse' placeholder="inverse" />
+  <Input preset='inverse' value="disabled" disabled />
+</Stack>
+```
+:::
+
+
 ## Очистка
 
 `clearable` добавляет в конце инпута крестик очистки. `true` показывает крестик только при фокусе, `'always'` — всегда.
