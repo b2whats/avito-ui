@@ -13,7 +13,10 @@
     "test:snap": "jest '.snap.test.ts'",
     "test:unit": "jest '(?<!.snap).test.ts'",
     "test:server": "cross-env NODE_ENV=test jest --config=server/jest.config.js",
-    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json"
+    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
+    "prerelease": "lerna version --no-push",
+    "release": "lerna publish from-git --yes",
+    "postrelease": "git push --follow-tags origin"
   },
   "husky": {
     "hooks": {

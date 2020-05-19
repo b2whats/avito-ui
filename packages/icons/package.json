@@ -3,10 +3,11 @@
   "version": "0.0.9",
   "private": false,
   "description": "icons",
-  "main": "register/index.js",
-  "types": "register/index.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "files": [
-    "register"
+    "build",
+    "src"
   ],
   "scripts": {
     "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",

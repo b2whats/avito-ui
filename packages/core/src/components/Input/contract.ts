@@ -1,7 +1,6 @@
-import React, { Props } from 'react'
+import React from 'react'
 import { MarginProperties, PaddingProperties } from '../../styled-system/'
 import { InputTheme } from './theme'
-import { IconProps } from '../Icon'
 
 export enum InputPreset {}
 
