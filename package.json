@@ -44,8 +44,6 @@
     "@babel/preset-typescript": "^7.3.3",
     "@emotion/babel-preset-css-prop": "^10.0.14",
     "@types/jest": "^25.2.1",
-    "@types/react": "^16.8.20",
-    "@types/react-dom": "^16.8.4",
     "@typescript-eslint/eslint-plugin": "^2.11.0",
     "@typescript-eslint/parser": "^2.11.0",
     "babel-jest": "^25.3.0",
@@ -80,5 +78,9 @@
   ],
   "engines": {
     "node": ">=12.1.0"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8"
   }
 }

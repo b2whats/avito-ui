@@ -1,34 +1,44 @@
 import React, { useRef, useLayoutEffect, useState, useMemo } from 'react'
+import { animated, Transition } from 'react-spring'
 import { createPopper } from '@popperjs/core'
+import { useTheme, mergeTheme } from '../../theme/'
 import { Portal } from '../Portal/'
 import { useRefHook } from '../../hooks/'
 import { PositionerProps } from './contract'
+import { positionerTheme } from './theme'
 
-const getModifiers = (props: PositionerProps) => {
-  const modifiers = ['offset', 'arrow', 'flip']
+const getModifiers = (props: Partial<PositionerProps>) => {
+  const modifiers = ['offset', 'arrow', 'flip', 'preventOverflow']
 
   return modifiers.map(param => param in props
     && { name: param, enabled: Boolean(props[param]), options: props[param] || {} }
   ).filter(Boolean) as PositionerProps['modifiers']
 }
 
-const getTrigger = (trigger?: 'click' | 'hover') => trigger && ({
+const getEventsType = (trigger?: 'click' | 'hover') => trigger && ({
   click: ['click'],
   hover: ['mouseenter', 'mouseleave'],
 })[trigger]
 
-export const Positioner = ({ usePortal, ...props }: PositionerProps) => {
+export const Positioner = ({ usePortal, animation, delay, override, children, ...props }: PositionerProps) => {
+  const theme = useTheme()
+  const { transitions, defaultProps } = mergeTheme(positionerTheme, theme.Positioner, override)
   const [init, setInit] = useState(false)
   const [visible, setVisible] = useState(false)
   const [targetRef, setTarget] = useRefHook<HTMLElement>()
   const referenceRef = useRef<Element | null>(null)
   const setReference = (node: Element | null) => node && (referenceRef.current = node.nextElementSibling)
 
+  props = {
+    ...defaultProps,
+    ...props,
+  }
+
   const show = props.target && !props.trigger || visible
 
   const options = useMemo(() => ({
-    strategy: props.strategy || 'absolute',
-    placement: props.placement || 'bottom',
+    strategy: props.strategy,
+    placement: props.placement,
     modifiers: props.modifiers || getModifiers(props),
   }), [
     props.modifiers,
@@ -50,32 +60,48 @@ export const Positioner = ({ usePortal, ...props }: PositionerProps) => {
     const popper = createPopper(reference, target, options)
 
     return popper.destroy
-  }, [show, options])
+  }, [show, options, animation])
 
   useLayoutEffect(() => {
     const reference = referenceRef.current
-    const trigger = getTrigger(props.trigger)
-    const onToggle = () => setVisible(state => !state)
+    const eventsType = getEventsType(props.trigger)
+    let timerId: number
+    const onToggle = ({ type }: any) => {
+      clearTimeout(timerId)
 
-    if (reference === null || !trigger) return
+      timerId = setTimeout(() => setVisible(state => ({
+        click: !state,
+        mouseenter: true,
+        mouseleave: false,
+      }[type])), delay)
+    }
 
-    trigger.forEach(event => reference.addEventListener(event, onToggle))
+    if (reference === null || !eventsType) return
+
+    eventsType.forEach(type => reference.addEventListener(type, onToggle))
 
     return () => {
-      trigger.forEach(event => reference.removeEventListener(event, onToggle))
+      eventsType.forEach(type => reference.removeEventListener(type, onToggle))
     }
-  }, [props.trigger])
+  }, [props.trigger, delay])
 
-  const Wrapper = usePortal ? Portal : React.Fragment
-  const popper = show && <div ref={setTarget}>{props.target}</div>
+  const reference = typeof children === 'string'
+    ? <span>{children}</span>
+    : children
+
+  const target = animation ?
+    <Transition items={show} {...(transitions[animation] || animation)}>
+      {(style, item) => item && <animated.div ref={setTarget} style={style}>{props.target}</animated.div>}
+    </Transition> :
+    show && <div ref={setTarget}>{props.target}</div>
 
   return (
     <React.Fragment>
       {!init && <div ref={setReference} hidden />}
-      {props.children}
-      <Wrapper>
-        {popper}
-      </Wrapper>
+      {reference}
+      <Portal turn={usePortal}>
+        {target}
+      </Portal>
     </React.Fragment>
   )
 }

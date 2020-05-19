@@ -1,3 +1,5 @@
 export interface PortalProps {
-  children: React.ReactNode
+  children?: any
+  /* Рендер в контексе портала */
+  turn?: boolean
 }

@@ -23,6 +23,8 @@ export interface BaseIconProps extends BorderProperties, DimensionProperties, Sp
   shadow?: boolean | string
   /** Состояние disabled */
   disabled?: boolean
+  /** Переопределиь тему компонента */
+  override?: IconTheme
 
   onClick?: MouseHandler
 }

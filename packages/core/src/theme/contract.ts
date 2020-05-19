@@ -9,6 +9,7 @@ import { SwitcherTheme } from '../components/Switcher/theme'
 import { TextTheme } from '../components/Text/theme'
 import { TextareaTheme } from '../components/Textarea/theme'
 import { ToggleTheme } from '../components/Toggle/theme'
+import { PositionerTheme } from '../components/Positioner/theme'
 
 export interface Theme extends Tokens {
   Button: Partial<ButtonTheme>
@@ -21,4 +22,5 @@ export interface Theme extends Tokens {
   Text: Partial<TextTheme>
   Textarea: Partial<TextareaTheme>
   Toggle: Partial<ToggleTheme>
+  Positioner: Partial<PositionerTheme>
 }

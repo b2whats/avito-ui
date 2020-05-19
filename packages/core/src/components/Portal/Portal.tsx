@@ -1,6 +1,4 @@
-import React from 'react'
 import { createPortal } from 'react-dom'
-import { createPopper, Instance } from '@popperjs/core'
 import { PortalProps } from './contract'
 
 let container: Element | null = null
@@ -10,5 +8,9 @@ if (typeof document !== 'undefined') {
   document.body.appendChild(container)
 }
 
-export const Portal = ({ children }: PortalProps) => container && children ? createPortal(children, container) : null
+export const Portal = ({ turn, children }: PortalProps)  => {
+  if (!container || !children) return null
+
+  return turn ? createPortal(children, container) : children
+}
 

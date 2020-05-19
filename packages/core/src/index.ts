@@ -23,6 +23,9 @@ export * from './components/Layout/'
 
 export { toggleTheme, ToggleTheme } from './components/Toggle'
 export { Portal } from './components/Portal/'
+export * from './components/Portal/'
+export { Positioner } from './components/Positioner/'
+export * from './components/Positioner/'
 
 export { useRefHook, usePrevent3DTouch, useMeasure, useUncontrolledInputHook, useWindowSize } from './hooks/'
 export { default as styled, css, keyframes, foldThemeParams } from './styled-system/'

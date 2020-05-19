@@ -7,8 +7,11 @@ const [state, setState] = useState(false)
 const onToggle = () => setState(state => !state);
 
 <Stack spacing='m'>
-  <Positioner target={<Box>123</Box>} trigger='hover'>
+  <Positioner target={123} trigger='hover' animation='fade' >
     <Spinner />
+  </Positioner>
+  <Positioner target={123} trigger='click' animation='fade' >
+    123
   </Positioner>
   <Button onClick={onToggle}>Toggle</Button>
 </Stack>

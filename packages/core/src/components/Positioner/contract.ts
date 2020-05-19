@@ -1,5 +1,6 @@
 import { Placement, StrictModifiers } from '@popperjs/core'
 import { MarginProperties } from '../../styled-system'
+import { PositionerTheme } from './theme'
 
 type Modifiers = StrictModifiers extends object ? Required<StrictModifiers> : never
 type FindByName<Union, Name> = Union extends { name: Name, options: any } ? Union['options'] | false : never
@@ -23,6 +24,12 @@ export interface PositionerProps extends MarginProperties {
   usePortal?: boolean
   /* Стратегия появления target элемента */
   trigger?: 'click' | 'hover'
+  /* Задержка при появлении ms */
+  delay?: number
+  /* Стратегия появления target элемента */
+  animation?: 'fade'
   /* Позволяе переопределить все модификаторы popper, другие параметры перестают влиять */
   modifiers?: StrictModifiers[]
+  /** Переопределиь тему компонента */
+  override?: PositionerTheme
 }
