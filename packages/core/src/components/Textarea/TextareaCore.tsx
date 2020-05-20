@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect } from 'react'
 import { css } from '../../styled-system/'
-import { filterProps } from '../../utils/'
+import { filterProps, invokeAll } from '../../utils/'
 import { useRefHook } from '../../hooks/'
 import { TextareaCoreProps } from './contract'
 
@@ -59,11 +59,9 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
     }
   }
 
-  const preventClick = (event: React.MouseEvent<HTMLTextAreaElement>) => {
+  const preventClick = invokeAll((event) => {
     if (event.detail === 0) event.stopPropagation()
-
-    props.onClick && props.onClick(event)
-  }
+  }, props.onClick)
 
   useLayoutEffect(() => {
     const node = textarea.current

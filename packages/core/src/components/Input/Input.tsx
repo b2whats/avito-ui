@@ -1,5 +1,5 @@
 import React, { isValidElement, useState } from 'react'
-import { setNativeValue } from '../../utils/'
+import { setNativeValue, invokeAll } from '../../utils/'
 import { useTheme, mergeTheme } from '../../theme/'
 import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
@@ -63,15 +63,8 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
     placeholder: inputTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
-  const handleFocus: InputProps['onFocus'] = (event) => {
-    setFocus(true)
-    onFocus && onFocus(event)
-  }
-
-  const handleBlur: InputProps['onBlur'] = (event) => {
-    setFocus(false)
-    onBlur && onBlur(event)
-  }
+  const handleFocus = invokeAll(() => setFocus(true), onFocus)
+  const handleBlur = invokeAll(() => setFocus(false), onBlur)
 
   // Отменяем моргание фокуса при повторных кликах внутри контейнера с инпутом
   // Проверка нужна что бы не блокировать выделениие в самом инпуте

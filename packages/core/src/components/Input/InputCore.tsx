@@ -1,6 +1,6 @@
 import React from 'react'
 import { css, keyframes } from '../../styled-system/'
-import { filterProps } from '../../utils/'
+import { filterProps, invokeAll } from '../../utils/'
 import { InputCoreProps } from './contract'
 
 const autofill = keyframes`
@@ -31,7 +31,7 @@ const inputField = css`
     padding-right: 2px;
   }
 
-  @-moz-document url-prefix() { 
+  @-moz-document url-prefix() {
     & > input {
       height: 100%;
     }
@@ -96,11 +96,9 @@ export const InputCore = React.forwardRef((props: InputCoreProps, ref: React.Ref
 
   // Прерываем всплытие события click вызванное триггером label, без отмены событие клика будет вызвано дважды
   // Когда мы триггерим клик по инпуту через лейбл в свойстве detail будет значение 0, так как клик был програмный
-  const preventClick = (event: React.MouseEvent<HTMLInputElement>) => {
+  const preventClick = invokeAll((event) => {
     if (event.detail === 0) event.stopPropagation()
-
-    props.onClick && props.onClick(event)
-  }
+  }, props.onClick)
 
   const text = props.autoSize ? props.value || props.placeholder || '' : undefined
 

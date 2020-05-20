@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { setNativeValue } from '../../utils/'
+import { setNativeValue, invokeAll } from '../../utils/'
 import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
 import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
@@ -33,15 +33,8 @@ export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props 
     placeholder: componentTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
-  const handleFocus: TextareaProps['onFocus'] = (event) => {
-    setFocus(true)
-    onFocus && onFocus(event)
-  }
-
-  const handleBlur: TextareaProps['onBlur'] = (event) => {
-    setFocus(false)
-    onBlur && onBlur(event)
-  }
+  const handleFocus = invokeAll(() => setFocus(true), onFocus)
+  const handleBlur = invokeAll(() => setFocus(false), onBlur)
 
   const handlePreventBlur = (event: React.MouseEvent<HTMLElement>) => {
     if (event.target['tagName'] !== 'TEXTAREA') event.preventDefault()

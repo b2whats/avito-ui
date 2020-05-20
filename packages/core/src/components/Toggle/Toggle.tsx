@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useTheme, mergeTheme } from '../../theme/'
-import { filterProps } from '../../utils/'
+import { filterProps, invokeAll } from '../../utils/'
 import { useRefHook, usePrevent3DTouch } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { useGroupHook } from '../Layout/'
@@ -110,11 +110,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
     event.preventDefault()
   }
 
-  const preventLabelClick = (event: React.MouseEvent<HTMLInputElement>) => {
-    event.stopPropagation()
-
-    groupProps.onClick && groupProps.onClick(event)
-  }
+  const preventLabelClick = invokeAll((e: React.SyntheticEvent) => e.stopPropagation(), props.onClick)
 
   const onChange = () => {
     const value = {
