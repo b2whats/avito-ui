@@ -2,5 +2,6 @@ export { mergeTheme } from './mergeTheme'
 export { useTheme } from './useTheme'
 export { ThemeProvider } from './ThemeProvider'
 export { Theme } from './contract'
+export { avitoComponent } from './avitoComponent'
 
 export { dsl } from './dsl'

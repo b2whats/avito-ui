@@ -1,6 +1,6 @@
 import React from 'react'
 import { filterProps } from '../../utils/'
-import { useTheme, mergeTheme } from '../../theme/'
+import { avitoComponent } from '../../theme/'
 import { css, keyframes, foldThemeParams, createClassName } from '../../styled-system/'
 import { BaseIconProps } from './contract'
 import { iconTheme } from './theme'
@@ -57,23 +57,15 @@ const shadowMask = (
   </filter>
 )
 
-export const Icon = ({ override, ...props }: BaseIconProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(iconTheme, theme.Icon, override)
-
-  props = {
-    ...componentTheme.defaultProps,
-    ...props,
-  }
-
+export const Icon = avitoComponent('Icon', iconTheme)((props: BaseIconProps, { theme, tokens }) => {
   const aria = {
     role: 'img',
     'aria-hidden': true,
     'data-icon': props.name,
   }
 
-  const { Icon } = foldThemeParams(props, componentTheme)
-  const iconStyle = iconClassName(props, theme, Icon.style)
+  const { Icon } = foldThemeParams(props, theme)
+  const iconStyle = iconClassName(props, tokens, Icon.style)
 
   return (
     <svg {...filterProps(props)} css={iconStyle} {...aria}>
@@ -82,4 +74,4 @@ export const Icon = ({ override, ...props }: BaseIconProps) => {
       { props.children }
     </svg>
   )
-}
+})

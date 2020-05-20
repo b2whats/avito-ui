@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
+import { avitoComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { TextProps } from './contract'
 import { textTheme } from './theme'
@@ -37,14 +37,9 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
   `)
 )
 
-const Text = ({ children, override, ...props }: TextProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(textTheme, theme.Text, override)
-  console.log('pre', props)
-  props = componentTheme.deriveProps(props)
-  console.log('post', props)
-  const { Text } = foldThemeParams(props, componentTheme)
-  const textStyle = textClassName(props, theme, Text.style)
+const Text = avitoComponent('Text', textTheme)(({ children, ...props }: TextProps, { theme, tokens }) => {
+  const { Text } = foldThemeParams(props, theme)
+  const textStyle = textClassName(props, tokens, Text.style)
   const Tag = props.as || 'span'
 
   return (
@@ -52,6 +47,6 @@ const Text = ({ children, override, ...props }: TextProps) => {
       { children }
     </Tag>
   )
-}
+})
 
 export default Text

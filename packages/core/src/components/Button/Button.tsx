@@ -1,7 +1,7 @@
 import React, { isValidElement, ReactNode } from 'react'
 import { filterProps } from '../../utils/'
 import { useRefHook } from '../../hooks/'
-import { useTheme, mergeTheme } from '../../theme/'
+import { avitoComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Text as TextComponent, TextProps } from '../Text/'
 import { IconProps } from '../Icon/'
@@ -103,15 +103,11 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
   `)
 )
 
-export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref: React.Ref<HTMLButtonElement | HTMLLinkElement>) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(buttonTheme, theme.Button, override)
-
-  props = {
-    ...componentTheme.defaultProps,
-    ...props,
-  }
-
+export const Button = avitoComponent('Button', buttonTheme)((
+  props: ButtonProps,
+  { theme, tokens },
+  ref: React.Ref<HTMLButtonElement | HTMLLinkElement>
+) => {
   if (props.href) {
     props.type = undefined
   }
@@ -125,8 +121,8 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
     'aria-busy': groupProps.loading,
   }
 
-  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams(groupProps, componentTheme)
-  const buttonStyle = buttonClassName(groupProps, theme, Button.style)
+  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams(groupProps, theme)
+  const buttonStyle = buttonClassName(groupProps, tokens, Button.style)
 
   const Tag = props.href ? 'a' : 'button'
 
@@ -154,7 +150,5 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
     </Tag>
   )
 })
-
-Button.displayName = 'Button'
 
 export default Button

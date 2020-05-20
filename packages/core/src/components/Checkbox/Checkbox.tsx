@@ -1,23 +1,13 @@
 import React from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
 import { Toggle } from '../Toggle/'
 import { CheckboxProps } from './contract'
 import { checkboxTheme } from './theme'
+import { avitoComponent } from '../../theme'
 
-const Checkbox = ({ override, ...props }: CheckboxProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(checkboxTheme, theme.Checkbox, override)
-
-  props = {
-    ...componentTheme.defaultProps,
-    ...props,
-  }
-
-  return (
-    <Toggle {...props} mode='checkbox' override={componentTheme}>
-      {({ checked, Icon }) => checked && Icon && <Icon.component {...Icon.props} size='auto' />}
-    </Toggle>
-  )
-}
+export const Checkbox = avitoComponent('Checkbox', checkboxTheme)((props: CheckboxProps, { theme }) => (
+  <Toggle {...props} mode='checkbox' override={theme}>
+    {({ checked, Icon }) => checked && Icon && <Icon.component {...Icon.props} size='auto' />}
+  </Toggle>
+))
 
 export default Checkbox

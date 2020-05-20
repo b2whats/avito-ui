@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
+import { avitoComponent } from '../../theme/'
 import { filterProps, invokeAll } from '../../utils/'
 import { useRefHook, usePrevent3DTouch } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
@@ -69,15 +69,11 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
   `)
 )
 
-const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(toggleTheme, theme.Toggle, override)
+const Toggle = avitoComponent('Toggle', toggleTheme)((
+  { className, children, ...props }: ToggleProps,
+  { theme, tokens }
+) => {
   const setTouchRef = usePrevent3DTouch()
-
-  props = {
-    ...componentTheme.defaultProps,
-    ...props,
-  }
 
   const [ref, setRef] = useRefHook<HTMLInputElement>()
 
@@ -123,9 +119,9 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
     groupProps.onChange && groupProps.onChange(value)
   }
 
-  const { Toggle, Switch, Icon, Label } = foldThemeParams(groupProps, componentTheme)
-  const toggleStyle = toggleClassName(groupProps, theme, Toggle.style)
-  const switchStyle = switchClassName(groupProps, theme, Switch.style)
+  const { Toggle, Switch, Icon, Label } = foldThemeParams(groupProps, theme)
+  const toggleStyle = toggleClassName(groupProps, tokens, Toggle.style)
+  const switchStyle = switchClassName(groupProps, tokens, Switch.style)
   const label = props.label && <Text {...Label.props} crop>{props.label}</Text>
 
   return (
@@ -138,6 +134,6 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
       {props.labelPosition === 'end' && label}
     </label>
   )
-}
+})
 
 export default Toggle

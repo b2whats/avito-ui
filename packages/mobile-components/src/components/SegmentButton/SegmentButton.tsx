@@ -41,7 +41,7 @@ const buttonClassName = createClassName<SegmentButtonProps, typeof segmentButton
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    
+
     &::-moz-focus-inner {
       border: 0;
     }
@@ -125,7 +125,7 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
         case 'ArrowLeft':
           event.preventDefault()
           next = (next.previousElementSibling || ref.current!.lastChild) as HTMLButtonElement
-          break  
+          break
       }
 
     } while (next && (next.disabled || next.type !== 'button') && exit--)

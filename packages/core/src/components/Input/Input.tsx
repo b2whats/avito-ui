@@ -1,6 +1,6 @@
 import React, { isValidElement, useState } from 'react'
 import { setNativeValue, invokeAll } from '../../utils/'
-import { useTheme, mergeTheme } from '../../theme/'
+import { avitoComponent } from '../../theme/'
 import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from '../Icon/'
@@ -41,9 +41,11 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
   `)
 )
 
-export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(inputTheme, theme.Input, override)
+export const Input = avitoComponent('Input', inputTheme)((
+  { onFocus, onBlur, override, ...props }: InputProps,
+  { theme, tokens },
+  ref: React.Ref<any>
+) => {
   const [inputRef, setRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
   const [value, onChange] = useUncontrolledInputHook(props)
@@ -53,7 +55,10 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
     (props.clearable === 'always' || props.clearable && focus))
 
   props = {
+<<<<<<< HEAD
     ...componentTheme.defaultProps,
+=======
+>>>>>>> 1f45261... MDP-1243: Add avitoComponent helper
     ...props,
     value,
     onChange,
@@ -76,9 +81,15 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
     setNativeValue(inputRef.current, '')
   }
 
+<<<<<<< HEAD
   const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, componentTheme)
   const inputStyle = inputClassName(props, theme, Input.style)
   const inputFieldStyle = inputFieldClassName(props, theme, InputField.style)
+=======
+  const { Input, IconBefore, InputCore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, theme)
+  const inputStyle = inputClassName(props, tokens, Input.style)
+  const inputFieldStyle = inputFieldClassName(props, tokens, InputField.style)
+>>>>>>> 1f45261... MDP-1243: Add avitoComponent helper
 
   const renderIconSlot = (icon: InputProps['iconBefore'] | InputProps['iconAfter'], iconProps: IconProps) => (
     typeof icon === 'function' ? icon({ ...props, iconProps, focus, handleClear }) :

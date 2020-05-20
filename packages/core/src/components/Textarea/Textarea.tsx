@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { setNativeValue, invokeAll } from '../../utils/'
 import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
-import { useTheme, mergeTheme } from '../../theme/'
+import { avitoComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { TextareaCore } from './TextareaCore'
 import { TextareaProps } from './contract'
@@ -16,9 +16,12 @@ const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
   })
 )
 
-export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props }: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(textareaTheme, theme.Textarea, override)
+
+export const Textarea = avitoComponent('Textarea', textareaTheme)((
+  { onFocus, onBlur, ...props }: TextareaProps,
+  { theme, tokens },
+  ref: React.Ref<HTMLTextAreaElement>
+) => {
   const [textareaRef, setTextareaRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
   const [value, onChange] = useUncontrolledInputHook(props)
@@ -30,7 +33,7 @@ export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props 
     value,
     onChange,
     clearable: props.clearable === 'always' || Boolean(props.clearable && value && focus),
-    placeholder: componentTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
+    placeholder: theme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
   const handleFocus = invokeAll(() => setFocus(true), onFocus)
@@ -44,8 +47,8 @@ export const Textarea = React.forwardRef(({ override, onFocus, onBlur, ...props 
     setNativeValue(textareaRef.current, '')
   }
 
-  const { Textarea, IconClear } = foldThemeParams(props, componentTheme)
-  const wrapperStyle = wrapperClassName(props, theme, Textarea.style)
+  const { Textarea, IconClear } = foldThemeParams(props, theme)
+  const wrapperStyle = wrapperClassName(props, tokens, Textarea.style)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
 

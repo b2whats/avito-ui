@@ -8,7 +8,7 @@ export const mergeTheme = <T extends object>(
   defaultTheme: T,
   globalOverride: DeepPartial<T> = defaultKey,
   localOverride: DeepPartial<T> = defaultKey
-): T & { deriveProps: T extends { deriveProps?: (p: infer Props) => any } ? (p: Props) => Partial<Props> : never } => {
+): T & { deriveProps: T extends { deriveProps?: (p: infer Props) => any } ? (p: Props) => Props : never } => {
   let cursor = cache
 
   if (!cursor.has(defaultTheme)) {
