@@ -1,6 +1,6 @@
 {
   "name": "@avito/mobile-components",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "private": false,
   "description": "Components for mobile web",
   "main": "build/index.js",
