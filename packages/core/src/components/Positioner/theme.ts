@@ -15,6 +15,7 @@ export const positionerTheme: PositionerTheme = {
   },
   transitions: {
     fade: {
+      initial: { opacity: 1 },
       from: { position: 'absolute', opacity: 0 },
       enter: { opacity: 1 },
       leave: { opacity: 0 },

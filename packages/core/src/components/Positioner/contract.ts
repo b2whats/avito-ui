@@ -24,6 +24,8 @@ export interface PositionerProps extends MarginProperties {
   usePortal?: boolean
   /* Стратегия появления target элемента */
   trigger?: 'click' | 'hover'
+  /* Показать или спрятать target  */
+  open?: boolean
   /* Задержка при появлении ms */
   delay?: number
   /* Стратегия появления target элемента */
