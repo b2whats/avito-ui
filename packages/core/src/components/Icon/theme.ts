@@ -1,12 +1,9 @@
-import { SchemeType } from '../../styled-system/'
+import { ComponentTheme, Slot } from '../../styled-system/'
 import { BaseIconProps } from './contract'
 
-export type IconTheme = {
-  defaultProps?: Partial<BaseIconProps>,
-  scheme: {
-    Icon: SchemeType<BaseIconProps>,
-  }
-}
+export type IconTheme = ComponentTheme<BaseIconProps, {
+  Icon: Slot,
+}>
 
 export const iconTheme: IconTheme = {
   scheme: {

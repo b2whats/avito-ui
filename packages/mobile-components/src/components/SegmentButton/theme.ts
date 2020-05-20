@@ -1,13 +1,11 @@
-import { SchemeType } from '@avito/core'
+import { ComponentTheme, Slot } from '@avito/core'
 import { SegmentButtonProps } from './contract'
 
-export type SegmentButtonTheme = {
-  scheme: {
-    Group: SchemeType<SegmentButtonProps>,
-    Button: SchemeType<SegmentButtonProps>,
-    Slide: SchemeType<SegmentButtonProps>,
-  },
-}
+export type SegmentButtonTheme = ComponentTheme<SegmentButtonProps, {
+  Group: Slot,
+  Button: Slot,
+  Slide: Slot,
+}>
 
 export const segmentButtonTheme: SegmentButtonTheme = {
   scheme: {

@@ -1,22 +1,20 @@
-import { SchemeType } from '../../styled-system/'
+import { Slot, ComponentTheme } from '../../styled-system/'
 import { dsl } from '../../theme'
 import { InputProps } from './contract'
 import { CrossIcon } from '../Icon/'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 
-export type InputTheme = {
-  defaultProps: Partial<InputProps>,
+export type InputTheme = ComponentTheme<InputProps, {
+  IconBefore: Slot<IconProps>,
+  InputField: Slot,
+  Prefix: Slot<TextProps>,
+  Input: Slot,
+  Postfix: Slot<TextProps>,
+  IconAfter: Slot<IconProps>,
+}, {
   deletePlaceholderOnFocus: boolean,
-  scheme: {
-    IconBefore: SchemeType<InputProps, IconProps>,
-    InputField: SchemeType<InputProps>,
-    Prefix: SchemeType<InputProps, TextProps>,
-    Input: SchemeType<InputProps>,
-    Postfix: SchemeType<InputProps, TextProps>,
-    IconAfter: SchemeType<InputProps, IconProps>,
-  },
-}
+}>
 
 export const inputTheme: InputTheme = {
   defaultProps: {

@@ -207,6 +207,17 @@ export type SchemeType<
         : SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps>
 }
 
+export interface Slot<OutProps = never, ExtraStyles = {}> {}
+export type ComponentTheme<Props, Scheme = {}, Extras = {}> = Extras & {
+  defaultProps?: Partial<Props>,
+  deriveProps?: (props: Props) => Partial<Props>,
+  scheme: {
+    [K in keyof Scheme]: Scheme[K] extends (Slot<infer OutProps, infer ExtraStyles> | undefined)
+      ? SchemeType<Props, OutProps, ExtraStyles>
+      : Scheme[K]
+  }
+}
+
 const computedCrop = (crop: number, targetHeight: number) => {
   const value = (crop + (targetHeight - 1) * 16) / 32
 

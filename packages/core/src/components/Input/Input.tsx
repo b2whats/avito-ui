@@ -55,10 +55,6 @@ export const Input = avitoComponent('Input', inputTheme)((
     (props.clearable === 'always' || props.clearable && focus))
 
   props = {
-<<<<<<< HEAD
-    ...componentTheme.defaultProps,
-=======
->>>>>>> 1f45261... MDP-1243: Add avitoComponent helper
     ...props,
     value,
     onChange,
@@ -81,15 +77,9 @@ export const Input = avitoComponent('Input', inputTheme)((
     setNativeValue(inputRef.current, '')
   }
 
-<<<<<<< HEAD
-  const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, componentTheme)
-  const inputStyle = inputClassName(props, theme, Input.style)
-  const inputFieldStyle = inputFieldClassName(props, theme, InputField.style)
-=======
-  const { Input, IconBefore, InputCore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, theme)
+  const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, theme)
   const inputStyle = inputClassName(props, tokens, Input.style)
   const inputFieldStyle = inputFieldClassName(props, tokens, InputField.style)
->>>>>>> 1f45261... MDP-1243: Add avitoComponent helper
 
   const renderIconSlot = (icon: InputProps['iconBefore'] | InputProps['iconAfter'], iconProps: IconProps) => (
     typeof icon === 'function' ? icon({ ...props, iconProps, focus, handleClear }) :

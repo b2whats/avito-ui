@@ -1,19 +1,17 @@
-import { SchemeType } from '../../styled-system/'
+import { ComponentTheme, Slot } from '../../styled-system/'
 import { ButtonProps } from './contract'
 import { TextProps } from '../Text/contract'
 import { IconProps } from '../Icon/contract'
 import { SpinnerProps } from '../Spinner/contract'
 
-export type ButtonTheme = {
-  defaultProps?: Partial<ButtonProps>,
-  scheme: {
-    Button: SchemeType<ButtonProps, never, { pressedOffset: number, overlay: string, }>,
-    IconBefore: SchemeType<ButtonProps, IconProps>,
-    Text: SchemeType<ButtonProps, TextProps>,
-    IconAfter: SchemeType<ButtonProps, IconProps>,
-    Spinner: SchemeType<ButtonProps, SpinnerProps>,
-  },
-}
+
+export type ButtonTheme = ComponentTheme<ButtonProps, {
+  Button: Slot<never, { pressedOffset: number, overlay: string, }>,
+  IconBefore: Slot<IconProps>,
+  Text: Slot<TextProps>,
+  IconAfter: Slot<IconProps>,
+  Spinner: Slot<SpinnerProps>,
+}>
 
 export const buttonTheme: ButtonTheme = {
   defaultProps: {

@@ -1,13 +1,9 @@
-import { SpinnerIcon } from '../Icon/'
-import { SchemeType } from '../../styled-system/'
+import { SpinnerIcon } from '../Icon'
+import { Slot, ComponentTheme } from '../../styled-system/'
 import { SpinnerProps } from './contract'
 import { IconProps } from '../Icon'
 
-export type SpinnerTheme = {
-  scheme: {
-    Spinner: SchemeType<SpinnerProps, IconProps>,
-  }
-}
+export type SpinnerTheme = ComponentTheme<SpinnerProps, { Spinner: Slot<IconProps> }>
 
 export const spinnerTheme: SpinnerTheme = {
   scheme: {

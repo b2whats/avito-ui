@@ -1,13 +1,8 @@
-import { SchemeType } from '../../styled-system/'
+import { Slot, ComponentTheme } from '../../styled-system/'
 import { dsl } from '../../theme'
 import { TextProps } from './contract'
 
-export type TextTheme = {
-  deriveProps?: (props: TextProps) => Partial<TextProps>
-  scheme: {
-    Text: SchemeType<TextProps>,
-  },
-}
+export type TextTheme = ComponentTheme<TextProps, { Text: Slot }>
 
 export const textTheme: TextTheme = {
   scheme: {

@@ -1,17 +1,14 @@
-import { SchemeType } from '../../styled-system/'
+import { ComponentTheme, Slot } from '../../styled-system/'
 import { ToggleProps } from './contract'
 import { TextProps } from '../Text/contract'
 import { IconProps } from '../Icon/contract'
 
-export type ToggleTheme<Props = ToggleProps> = {
-  defaultProps?: Partial<Props>,
-  scheme: {
-    Toggle: SchemeType<Props>,
-    Switch: SchemeType<Props>,
-    Icon: SchemeType<Props, IconProps>,
-    Label: SchemeType<Props, TextProps>,
-  },
-}
+export type ToggleTheme<Props = ToggleProps> = ComponentTheme<Props, {
+  Toggle: Slot,
+  Switch: Slot,
+  Icon: Slot<IconProps>,
+  Label: Slot<TextProps>,
+}>
 
 export const toggleTheme: ToggleTheme = {
   defaultProps: {

@@ -8,6 +8,8 @@ import { Text } from '../Text/'
 import { ToggleProps } from './contract'
 import { toggleTheme } from './theme'
 
+import { LinkHTMLAttributes } from 'react'
+
 const toggleClassName = createClassName<ToggleProps, typeof toggleTheme>(
   (_, props) => ({
     display: 'inline-flex',
@@ -80,7 +82,7 @@ const Toggle = avitoComponent('Toggle', toggleTheme)((
   const groupProps = useGroupHook(ref, props)
 
   // Uncontrolled input for demos
-  if (theme._demo && !groupProps.onChange && groupProps.mode === 'checkbox') {
+  if (tokens._demo && !groupProps.onChange && groupProps.mode === 'checkbox') {
     const [checked, onChange] = useState(groupProps.checked || false)
     groupProps.checked = checked
     groupProps.onChange = v => onChange(v.checked)

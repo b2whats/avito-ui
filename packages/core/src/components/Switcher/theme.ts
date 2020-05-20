@@ -1,18 +1,15 @@
-import { SwitcherIcon } from '../Icon/'
-import { SchemeType } from '../../styled-system/'
+import { SwitcherIcon } from '../Icon'
+import { Slot, ComponentTheme } from '../../styled-system/'
 import { SwitcherProps } from './contract'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 
-export type SwitcherTheme = {
-  defaultProps?: Partial<SwitcherProps>,
-  scheme: {
-    Toggle?: SchemeType<SwitcherProps>,
-    Switch?: SchemeType<SwitcherProps>,
-    Icon?: SchemeType<SwitcherProps, IconProps>,
-    Label?: SchemeType<SwitcherProps, TextProps>,
-  },
-}
+export type SwitcherTheme = ComponentTheme<SwitcherProps, {
+  Toggle?: Slot,
+  Switch?: Slot,
+  Icon?: Slot<IconProps>,
+  Label?: Slot<TextProps>,
+}>
 
 export const switcherTheme: SwitcherTheme = {
   defaultProps: {
