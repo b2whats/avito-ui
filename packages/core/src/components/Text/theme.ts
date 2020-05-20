@@ -3,7 +3,7 @@ import { dsl } from '../../theme'
 import { TextProps } from './contract'
 
 export type TextTheme = {
-  deriveProps?: SchemeType<TextProps, TextProps>
+  deriveProps?: (props: TextProps) => Partial<TextProps>
   scheme: {
     Text: SchemeType<TextProps>,
   },

@@ -864,10 +864,6 @@ export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(pr
   return result
 }
 
-export function deriveThemeProps<Props extends object>(props: Props, theme: { deriveProps?: SchemeType<any, any, any> }): Partial<Props> {
-  return foldScheme(theme.deriveProps, props).props
-}
-
 type valueof<T, Key = string> = T[Key extends keyof T ? Key : keyof T]
 type ThemeStyle<ComponentTheme, Key> = ComponentTheme extends object
   ? valueof<FoldThemeParamsReturn<ComponentTheme>, Key>['style']
