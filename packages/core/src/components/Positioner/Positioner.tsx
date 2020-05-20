@@ -20,7 +20,7 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
   const { transitions, defaultProps } = mergeTheme(positionerTheme, theme.Positioner, override)
   const [init, setInit] = useState(false)
   const [localOpen, setLocalOpen] = useState(() => Boolean(open))
-  const [targetRef, setTarget] = useRefHook<HTMLElement>(props.name)
+  const [targetRef, setTarget] = useRefHook<HTMLElement>()
   const referenceRef = useRef<Element | null>(null)
   const setReference = (node: Element | null) => node && (referenceRef.current = node.nextElementSibling)
   const openTimerId = useRef<number>()
@@ -70,9 +70,9 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
     if (reference === null || target === null) return
 
     const popper = createPopper(reference, target, options)
-    console.log('init popper', props.name, target)
+    //console.log('init popper', props.name, target)
     return () => {
-      console.log('destroy popper', props.name, target)
+      //console.log('destroy popper', props.name, target)
       popper.destroy()
     }
   }, [localOpen, options, animation])
