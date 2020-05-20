@@ -17,19 +17,18 @@ const ListItem = ({ children, override, ...props }: ListItemProps) => {
   const [bounds, setMeasureRef] = useMeasure()
   const [_, setRef] = useRefHook(setMeasureRef)
 
-  props.beforeValign = bounds && props.beforeValign === 'auto' && listItemTheme.beforeTreshold < bounds.height
-    ? 'top'
-    : 'middle'
+  const beforeValign = props.beforeValign === 'auto'
+    ? bounds && listItemTheme.beforeTreshold < bounds.height ? 'top' : 'middle'
+    : props.beforeValign
 
-  props.afterValign = bounds && props.afterValign === 'auto' && listItemTheme.afterTreshold < bounds.height
-    ? 'top'
-    : 'middle'
-  
+  const afterValign = props.afterValign === 'auto'
+    ? bounds && listItemTheme.afterTreshold < bounds.height ? 'top' : 'middle'
+    : props.afterValign
 
   const { ListItem, Before, StackText, Label, Caption, Link, After } = foldThemeParams(props, componentTheme)
 
-  const before = props.before && <Box {...Before.props} valignSelf={props.beforeValign}>{props.before}</Box>
-  const after = props.after && <Box {...After.props} valignSelf={props.afterValign}>{props.after}</Box>
+  const before = props.before && <Box {...Before.props} valignSelf={beforeValign}>{props.before}</Box>
+  const after = props.after && <Box {...After.props} valignSelf={afterValign}>{props.after}</Box>
 
   const renderSlot = (Component: any, element: React.ReactNode, props?: TextProps) => (
     typeof element === 'string' ? <Component {...props}>{element}</Component> :
