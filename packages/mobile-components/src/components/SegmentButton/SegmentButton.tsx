@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { filterProps } from '@avito/core'
 import { useRefHook } from '@avito/core'
-import { mergeTheme, useTheme } from '@avito/core'
+import { avitoComponent } from '@avito/core'
 import { useWindowSize } from '@avito/core'
 import { foldThemeParams, createClassName } from '@avito/core'
 import { SegmentButtonProps } from './contract'
@@ -68,16 +68,11 @@ type Geometry = {
   [key in string]: { transform: string, width: number, height: number }
 }
 
-const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentButtonProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(segmentButtonTheme, theme.SegmentButton, override)
+const SegmentButton = avitoComponent('SegmentButton', segmentButtonTheme)((
+  { options, name, onChange, ...props }: SegmentButtonProps,
+  { theme, tokens }
+) => {
   const windowSize = useWindowSize()
-
-  props = {
-    size: 'm',
-    ...props,
-    value: !props.value && options && options.length > 0 ? options[0].value : props.value,
-  }
 
   const [ref, setRef] = useRefHook<HTMLElement>()
   const [geometry, setGeometry] = useState<Geometry>({})
@@ -99,10 +94,10 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
     setGeometry(geometry)
   }, [windowSize.innerWidth])
 
-  const { Group, Button, Slide } = foldThemeParams(props, componentTheme)
-  const groupStyle = groupClassName(props, theme, Group.style)
-  const buttonStyle = buttonClassName(props, theme, Button.style)
-  const slideStyle = slideClassName(props, theme, Slide.style)
+  const { Group, Button, Slide } = foldThemeParams(props, theme)
+  const groupStyle = groupClassName(props, tokens, Group.style)
+  const buttonStyle = buttonClassName(props, tokens, Button.style)
+  const slideStyle = slideClassName(props, tokens, Slide.style)
 
   const onClick = (value: SegmentButtonProps['value']) => {
     if (value === props.value) return
@@ -160,6 +155,6 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
       })}
     </div>
   )
-}
+})
 
 export default SegmentButton

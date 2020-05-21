@@ -27,8 +27,6 @@ export const Textarea = avitoComponent('Textarea', textareaTheme)((
   const [value, onChange] = useUncontrolledInputHook(props)
 
   props = {
-    variant: 'primary',
-    size: 'm',
     ...props,
     value,
     onChange,

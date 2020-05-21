@@ -8,6 +8,12 @@ export type SegmentButtonTheme = ComponentTheme<SegmentButtonProps, {
 }>
 
 export const segmentButtonTheme: SegmentButtonTheme = {
+  defaultProps: {
+    size: 'm',
+  },
+  deriveProps: ({ value, options }) => ({
+    value: !value && options && options.length > 0 ? options[0].value : value,
+  }),
   scheme: {
     Group: {
       style: {

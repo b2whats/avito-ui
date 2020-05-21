@@ -18,6 +18,7 @@ export const buttonTheme: ButtonTheme = {
     size: 'm',
     type: 'button',
   },
+  deriveProps: p => ({ type: p.href ? undefined: p.type }),
   scheme: {
     Spinner: {
       size: {
@@ -78,6 +79,8 @@ export const buttonTheme: ButtonTheme = {
     },
     Text: {
       props: {
+        crop: true,
+        valignSelf: 'middle',
         size: 'm',
         ml: -1,
       },

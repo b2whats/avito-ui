@@ -50,7 +50,7 @@ export interface TextProps extends MarginProperties, DimensionProperties, AlignP
   block?: boolean
   /** Пресет компонента */
   preset?: 'title' | 'title-small' | 'heading-large' | 'heading' | 'heading-small'
-  /** Переопределиь тему компонента */  
+  /** Переопределиь тему компонента */
   override?: TextTheme
 
   onMouseDown?(event: React.MouseEvent<HTMLElement>): void

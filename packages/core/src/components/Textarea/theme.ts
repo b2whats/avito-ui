@@ -12,6 +12,10 @@ export type TextareaTheme = ComponentTheme<TextareaProps, {
 
 export const textareaTheme: TextareaTheme = {
   deletePlaceholderOnFocus: true,
+  defaultProps: {
+    variant: 'primary',
+    size: 'm',
+  },
   scheme: {
     IconClear: {
       component: CrossIcon,

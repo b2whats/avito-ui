@@ -108,10 +108,6 @@ export const Button = avitoComponent('Button', buttonTheme)((
   { theme, tokens },
   ref: React.Ref<HTMLButtonElement | HTMLLinkElement>
 ) => {
-  if (props.href) {
-    props.type = undefined
-  }
-
   const [componentRef, setRef] = useRefHook(ref)
   const groupProps = useGroupHook(componentRef, props)
 
@@ -144,7 +140,7 @@ export const Button = avitoComponent('Button', buttonTheme)((
       {props.iconBefore &&
         renderIconSlot(props.iconBefore, IconBefore.props)}
       {props.children &&
-        renderTextSlot(props.children, { crop: true, valignSelf: 'middle', ...Text.props })}
+        renderTextSlot(props.children, Text.props)}
       {props.iconAfter &&
         renderIconSlot(props.iconAfter, IconAfter.props)}
     </Tag>

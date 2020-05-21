@@ -75,8 +75,6 @@ const Toggle = avitoComponent('Toggle', toggleTheme)((
   { className, children, ...props }: ToggleProps,
   { theme, tokens }
 ) => {
-  const setTouchRef = usePrevent3DTouch()
-
   const [ref, setRef] = useRefHook<HTMLInputElement>()
 
   const groupProps = useGroupHook(ref, props)
@@ -127,9 +125,14 @@ const Toggle = avitoComponent('Toggle', toggleTheme)((
   const label = props.label && <Text {...Label.props} crop>{props.label}</Text>
 
   return (
-    <label ref={setTouchRef} css={toggleStyle} {...aria} onMouseDown={preventFocus} >
+    <label ref={usePrevent3DTouch()} css={toggleStyle} {...aria} onMouseDown={preventFocus} >
       {props.labelPosition === 'start' && label}
-      <input {...filterProps(groupProps)} ref={setRef} type={props.mode} onChange={onChange} onClick={preventLabelClick}/>
+      <input
+        {...filterProps(groupProps)}
+        ref={setRef}
+        type={props.mode}
+        onChange={onChange}
+        onClick={preventLabelClick} />
       <div css={switchStyle} className={className}>
         {children && children({ checked, loading: props.loading, Icon })}
       </div>
