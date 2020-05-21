@@ -7,6 +7,7 @@ const [state, setState] = useState('default')
 ;
 
 <Stack spacing='m' column align='left'>
+  <Text bold mb={5}>Текст на кнопке</Text>
   <Input minWidth={200} inline value={state} onChange={({ target: { value } }) => setState(value)}/>
   <Button>{state}</Button>
 </Stack>
