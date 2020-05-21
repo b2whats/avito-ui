@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
-    "outDir": "./register"
+    "outDir": "./build"
   },
   "include": ["./src"],
 }
