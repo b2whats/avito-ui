@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { avitoComponent } from '../../theme/'
 import { filterProps, invokeAll } from '../../utils/'
-import { useRefHook, usePrevent3DTouch } from '../../hooks/'
+import { usePrevent3DTouch } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { useGroupHook } from '../Layout/'
 import { Text } from '../Text/'
 import { ToggleProps } from './contract'
 import { toggleTheme } from './theme'
-
-import { LinkHTMLAttributes } from 'react'
 
 const toggleClassName = createClassName<ToggleProps, typeof toggleTheme>(
   (_, props) => ({
@@ -71,12 +69,11 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
   `)
 )
 
-const Toggle = avitoComponent('Toggle', toggleTheme)((
-  { className, children, ...props }: ToggleProps,
-  { theme, tokens }
+const Toggle = avitoComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputElement>((
+  { className, children, ...props },
+  { theme, tokens },
+  [ref, setRef]
 ) => {
-  const [ref, setRef] = useRefHook<HTMLInputElement>()
-
   const groupProps = useGroupHook(ref, props)
 
   // Uncontrolled input for demos

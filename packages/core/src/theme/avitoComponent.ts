@@ -2,16 +2,18 @@ import { useTheme } from '../theme'
 import { mergeTheme } from './mergeTheme'
 import { Theme } from './contract'
 import { DeepPartial } from '../utils'
-import { forwardRef, Ref, FunctionComponent } from 'react'
+import { forwardRef, Ref, FunctionComponent, MutableRefObject } from 'react'
 import { Tokens } from '@avito/tokens'
+import { useRefHook } from '../hooks'
 
 type AvitoProps<ThemeType> = {
   override?: DeepPartial<ThemeType>
 }
+type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => void]
 
 export function avitoComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType) {
-  return <Props extends AvitoProps<ThemeType>, RefType>(
-    render: (props: Props, theme: { theme: ThemeType, tokens: Tokens }, ref: React.Ref<RefType>) => JSX.Element
+  return <Props extends AvitoProps<ThemeType>, RefType = HTMLElement>(
+    render: (props: Props, theme: { theme: ThemeType, tokens: Tokens }, ref: RefContainer<RefType>) => JSX.Element
   ) => {
     const WrappedComponent = forwardRef((props: Props, ref: Ref<RefType>) => {
       const globalTheme = useTheme()
@@ -23,7 +25,7 @@ export function avitoComponent<ThemeType extends object>(name: keyof Theme, them
       return render(
         componentTheme.deriveProps(props) as Props,
         { theme: componentTheme, tokens: globalTheme },
-        ref)
+        useRefHook(ref))
     })
     return WrappedComponent as unknown as FunctionComponent<Props>
   }

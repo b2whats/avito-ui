@@ -1,6 +1,5 @@
 import React, { isValidElement, ReactNode } from 'react'
 import { filterProps } from '../../utils/'
-import { useRefHook } from '../../hooks/'
 import { avitoComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Text as TextComponent, TextProps } from '../Text/'
@@ -103,13 +102,11 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
   `)
 )
 
-export const Button = avitoComponent('Button', buttonTheme)((
-  props: ButtonProps,
-  { theme, tokens },
-  ref: React.Ref<HTMLButtonElement | HTMLLinkElement>
-) => {
-  const [componentRef, setRef] = useRefHook(ref)
-  const groupProps = useGroupHook(componentRef, props)
+export const Button = avitoComponent('Button', buttonTheme)<
+  ButtonProps,
+  HTMLButtonElement | HTMLLinkElement
+>((props, { theme, tokens }, [ref, setRef] ) => {
+  const groupProps = useGroupHook(ref, props)
 
   const aria = {
     'aria-checked': groupProps.checked,

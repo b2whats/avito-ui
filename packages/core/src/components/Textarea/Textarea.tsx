@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { setNativeValue, invokeAll } from '../../utils/'
-import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
+import { useUncontrolledInputHook } from '../../hooks/'
 import { avitoComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { TextareaCore } from './TextareaCore'
@@ -17,12 +17,11 @@ const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
 )
 
 
-export const Textarea = avitoComponent('Textarea', textareaTheme)((
-  { onFocus, onBlur, ...props }: TextareaProps,
+export const Textarea = avitoComponent('Textarea', textareaTheme)<TextareaProps, HTMLTextAreaElement>((
+  { onFocus, onBlur, ...props },
   { theme, tokens },
-  ref: React.Ref<HTMLTextAreaElement>
+  [textareaRef, setTextareaRef]
 ) => {
-  const [textareaRef, setTextareaRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
   const [value, onChange] = useUncontrolledInputHook(props)
 

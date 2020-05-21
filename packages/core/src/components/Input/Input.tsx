@@ -1,7 +1,7 @@
 import React, { isValidElement, useState } from 'react'
 import { setNativeValue, invokeAll } from '../../utils/'
 import { avitoComponent } from '../../theme/'
-import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
+import { useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from '../Icon/'
 import { Text, TextProps } from '../Text/'
@@ -41,12 +41,11 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
   `)
 )
 
-export const Input = avitoComponent('Input', inputTheme)((
-  { onFocus, onBlur, override, ...props }: InputProps,
+export const Input = avitoComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
+  { onFocus, onBlur, override, ...props },
   { theme, tokens },
-  ref: React.Ref<any>
+  [inputRef, setRef]
 ) => {
-  const [inputRef, setRef] = useRefHook(ref)
   const [focus, setFocus] = useState(false)
   const [value, onChange] = useUncontrolledInputHook(props)
   const clearable = Boolean(
@@ -100,14 +99,18 @@ export const Input = avitoComponent('Input', inputTheme)((
   )
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
-  const autoSize = props.postfix ? true : false
 
   return (
     <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
-        <InputCore {...props} autoSize={autoSize} ref={setRef} onFocus={handleFocus} onBlur={handleBlur}/>
+        <InputCore
+          {...props}
+          autoSize={Boolean(props.postfix)}
+          ref={setRef}
+          onFocus={handleFocus}
+          onBlur={handleBlur} />
         {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
       </div>
       {iconAfter}
