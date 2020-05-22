@@ -1832,6 +1832,871 @@ Object {
 }
 `;
 
+exports[`mobile theme switcher fuzz: {"variant":"error","checked":false,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray12",
+      "bgActive": "gray28",
+      "bgDisabled": "gray4",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"error","checked":false,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"error","checked":true,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "red500",
+      "bgActive": "red700",
+      "bgDisabled": "gray28",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"error","checked":true,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"primary","checked":false,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray12",
+      "bgActive": "gray28",
+      "bgDisabled": "gray8",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"primary","checked":false,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"primary","checked":true,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "blue500",
+      "bgActive": "blue700",
+      "bgDisabled": "blue300",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"primary","checked":true,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":false,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray12",
+      "bgActive": "gray28",
+      "bgDisabled": "gray4",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":false,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":true,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray48",
+      "bgActive": "gray56",
+      "bgDisabled": "gray28",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":true,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"success","checked":false,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray12",
+      "bgActive": "gray28",
+      "bgDisabled": "gray4",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"success","checked":false,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"success","checked":true,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green700",
+      "bgDisabled": "gray28",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"success","checked":true,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"warning","checked":false,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray12",
+      "bgActive": "gray28",
+      "bgDisabled": "gray4",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"warning","checked":false,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"warning","checked":true,"loading":false} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "orange500",
+      "bgActive": "orange700",
+      "bgDisabled": "gray28",
+      "color": "white",
+      "focus": true,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher fuzz: {"variant":"warning","checked":true,"loading":true} 1`] = `
+Object {
+  "Icon": Object {
+    "component": [Function],
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+      "height": 25,
+      "p": 3,
+      "width": 48,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme switcher snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "labelPosition": "end",
+    "shape": "pill",
+    "size": "m",
+    "variant": "primary",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "Icon": Object {
+      "component": [Function],
+    },
+    "Label": Object {
+      "disabled": Object {
+        "props": Object {
+          "color": "gray48",
+        },
+      },
+      "labelPosition": Object {
+        "end": Object {
+          "props": Object {
+            "ml": 16,
+          },
+        },
+        "start": Object {
+          "props": Object {
+            "mr": 16,
+          },
+        },
+      },
+      "props": Object {
+        "size": "m",
+      },
+    },
+    "Switch": Object {
+      "loading": Object {
+        "style": Object {
+          "align": "center",
+          "bg": "transparent",
+          "bgActive": "transparent",
+          "bgDisabled": "transparent",
+          "color": "gray28",
+          "focus": false,
+        },
+      },
+      "style": Object {
+        "focus": true,
+        "height": 25,
+        "p": 3,
+        "width": 48,
+      },
+      "variant": Object {
+        "error": Object {
+          "checked": Object {
+            "style": Object {
+              "bg": "red500",
+              "bgActive": "red700",
+              "bgDisabled": "gray28",
+            },
+          },
+          "style": Object {
+            "bg": "gray12",
+            "bgActive": "gray28",
+            "bgDisabled": "gray4",
+            "color": "white",
+          },
+        },
+        "primary": Object {
+          "checked": Object {
+            "style": Object {
+              "bg": "blue500",
+              "bgActive": "blue700",
+              "bgDisabled": "blue300",
+            },
+          },
+          "style": Object {
+            "bg": "gray12",
+            "bgActive": "gray28",
+            "bgDisabled": "gray8",
+            "color": "white",
+          },
+        },
+        "secondary": Object {
+          "checked": Object {
+            "style": Object {
+              "bg": "gray48",
+              "bgActive": "gray56",
+              "bgDisabled": "gray28",
+            },
+          },
+          "style": Object {
+            "bg": "gray12",
+            "bgActive": "gray28",
+            "bgDisabled": "gray4",
+            "color": "white",
+          },
+        },
+        "success": Object {
+          "checked": Object {
+            "style": Object {
+              "bg": "green500",
+              "bgActive": "green700",
+              "bgDisabled": "gray28",
+            },
+          },
+          "style": Object {
+            "bg": "gray12",
+            "bgActive": "gray28",
+            "bgDisabled": "gray4",
+            "color": "white",
+          },
+        },
+        "warning": Object {
+          "checked": Object {
+            "style": Object {
+              "bg": "orange500",
+              "bgActive": "orange700",
+              "bgDisabled": "gray28",
+            },
+          },
+          "style": Object {
+            "bg": "gray12",
+            "bgActive": "gray28",
+            "bgDisabled": "gray4",
+            "color": "white",
+          },
+        },
+      },
+    },
+    "Toggle": Object {},
+  },
+}
+`;
+
 exports[`mobile theme text theme snap 1`] = `
 Object {
   "mapProps": [Function],

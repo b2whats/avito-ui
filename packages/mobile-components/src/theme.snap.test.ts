@@ -1,8 +1,9 @@
 import { mergeTheme, foldThemeParams, CheckboxTheme, RadioTheme } from '@avito/core'
-import { buttonTheme, inputTheme, textTheme, checkboxTheme, toggleTheme, radioTheme } from '@avito/core'
+import { buttonTheme, inputTheme, textTheme, checkboxTheme, toggleTheme, radioTheme, switcherTheme } from '@avito/core'
 import { theme } from './theme'
 
 const variant = ['primary', 'secondary', 'success', 'error', 'warning']
+const withToggle = (override: any) => mergeTheme(toggleTheme, theme.Toggle, override)
 
 describe('mobile theme', () => {
   it('button theme snap', () => {
@@ -15,29 +16,30 @@ describe('mobile theme', () => {
     expect(mergeTheme(textTheme, theme.Text)).toMatchSnapshot()
   })
 
-  describe('checkbox', () => {
-    const prebuiltTheme = mergeTheme(toggleTheme as any, theme.Toggle, mergeTheme(checkboxTheme, theme.Checkbox))
-    const propValues = {
-      variant,
-      checked: [true, false],
-      shape: ['circle', 'square'],
-    }
-
-    it('snap', () => expect(prebuiltTheme).toMatchSnapshot())
-    it('fuzz', () => fuzz(propValues, prebuiltTheme))
+  describeTheme('checkbox', withToggle(mergeTheme(checkboxTheme, theme.Checkbox)), {
+    variant,
+    checked: [true, false],
+    shape: ['circle', 'square'],
   })
 
-  describe('radio', () => {
-    const prebuiltTheme = mergeTheme(toggleTheme as any, theme.Toggle, mergeTheme(radioTheme, theme.Radio))
-    const propValues = {
-      variant,
-      checked: [true, false],
-    }
+  describeTheme('radio', withToggle(mergeTheme(radioTheme, theme.Radio)), {
+    variant,
+    checked: [true, false],
+  })
 
-    it('snap', () => expect(prebuiltTheme).toMatchSnapshot())
-    it('fuzz', () => fuzz(propValues, prebuiltTheme))
+  describeTheme('switcher', withToggle(mergeTheme(switcherTheme, theme.Switcher)), {
+    variant,
+    checked: [true, false],
+    loading: [true, false],
   })
 })
+
+function describeTheme(name: string, theme: any, propValues: { [K: string]: any[] }) {
+  describe(name, () => {
+    it('snap', () => expect(theme).toMatchSnapshot())
+    it('fuzz', () => fuzz(propValues, theme))
+  })
+}
 
 function cartesian<T extends { [K: string]: any[] }>(valuesByKey: T): { [K in keyof T]: any }[] {
   let res: any[] = [{}]

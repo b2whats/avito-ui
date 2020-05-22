@@ -1,4 +1,5 @@
 import { mobile } from '@avito/tokens'
+import { Theme } from '@avito/core'
 import { ListItemTheme } from './components/List/'
 import { SegmentButtonTheme } from './components/SegmentButton/'
 import { buttonTheme } from './components/Button/theme'
@@ -17,7 +18,7 @@ declare module '@avito/core' {
 }
 
 export const theme = {
-  ...mobile,
+  ...(mobile as Theme),
   Button: buttonTheme,
   Checkbox: checkboxTheme,
   Icon: iconTheme,
