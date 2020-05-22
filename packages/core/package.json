@@ -1,6 +1,6 @@
 {
   "name": "@avito/core",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": false,
   "description": "Shared utilities for desktop / mav versions of avito design system",
   "author": "vyuklepov <vyuklepov@avito.ru>",
@@ -24,7 +24,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@avito/icons": "^0.0.13",
+    "@avito/icons": "^0.0.14",
     "@avito/tokens": "^0.0.11",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
