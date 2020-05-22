@@ -31,7 +31,7 @@ const ListItem = ({ children, override, ...props }: ListItemProps) => {
   const after = props.after && <Box {...After.props} valignSelf={afterValign}>{props.after}</Box>
 
   const renderSlot = (Component: any, element: React.ReactNode, props?: TextProps) => (
-    typeof element === 'string' ? <Component {...props}>{element}</Component> :
+    typeof element === 'string' && element ? <Component {...props}>{element}</Component> :
     typeof element === 'function' ? element(props) :
     isValidElement(element) ? <element.type {...props} {...element.props} /> :
     undefined

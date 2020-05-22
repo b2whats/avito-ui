@@ -21,7 +21,7 @@ export type TextProperties = Partial<{
 }>
 
 type Width = number
-type Height = 's' | 'm' | 'l' | number
+type Height = 's' | 'm' | 'l' | 'auto' | number
 
 export type DimensionProperties = Partial<{
   /** Ширина блока */
@@ -503,7 +503,12 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       case 'minHeight':
       case 'maxHeight':
         value = dimension.rowHeight[value] || value
-        css += `${maps.dimension[param]}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
+        
+        if (value === 'auto') {
+          css += `${maps.dimension[param]}: auto;`
+        } else {
+          css += `${maps.dimension[param]}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
+        }
 
         break
       case 'display':
