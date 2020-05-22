@@ -84,5 +84,3 @@ export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ..
     <textarea css={textareaStyle} {...filterProps(props)} onClick={preventClick} />
   )
 })
-
-TextareaCore.displayName = 'TextareaCore'

@@ -1,13 +1,13 @@
 import React, { isValidElement } from 'react'
 import { useRefHook, useMeasure } from '@avito/core'
 import { foldThemeParams } from '@avito/core'
-import { avitoComponent } from '@avito/core'
+import { uiComponent } from '@avito/core'
 import { Stack, Box } from '@avito/core'
 import { Text, TextProps } from '@avito/core'
 import { ListItemProps } from './contract'
 import { listItemTheme } from './theme'
 
-const ListItem = avitoComponent('ListItem', listItemTheme)(({ children, ...props }: ListItemProps, { theme }) => {
+const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...props }: ListItemProps, { theme }) => {
   // Необходимо прервать 3DTouch что бы он не прерывал событие клика
   // TODO: Протестировать на телефоне с HapticTouch
   //const setTouchRef = usePrevent3DTouch()

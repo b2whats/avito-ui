@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '../../styled-system/'
-import { avitoComponent } from '../../theme/'
+import { uiComponent } from '../../theme/'
 import { Toggle } from '../Toggle/'
 import { Spinner } from '../Spinner/'
 import { SwitcherProps } from './contract'
@@ -40,7 +40,7 @@ const circleStyle = () => css`
   }
 `
 
-const Switcher = avitoComponent('Switcher', switcherTheme)((props: SwitcherProps, { theme }) => {
+const Switcher = uiComponent('Switcher', switcherTheme)((props: SwitcherProps, { theme }) => {
   return (
     <Toggle css={circleStyle} {...props} mode='checkbox' override={theme}>
       {({ loading, Icon }) => (loading

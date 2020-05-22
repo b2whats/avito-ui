@@ -1,6 +1,6 @@
 import React from 'react'
 import { filterProps } from '../../utils/'
-import { avitoComponent } from '../../theme/'
+import { uiComponent } from '../../theme/'
 import { css, keyframes, foldThemeParams, createClassName } from '../../styled-system/'
 import { BaseIconProps } from './contract'
 import { iconTheme } from './theme'
@@ -57,7 +57,7 @@ const shadowMask = (
   </filter>
 )
 
-export const Icon = avitoComponent('Icon', iconTheme)((props: BaseIconProps, { theme, tokens }) => {
+export const Icon = uiComponent('Icon', iconTheme)((props: BaseIconProps, { theme, tokens }) => {
   const aria = {
     role: 'img',
     'aria-hidden': true,

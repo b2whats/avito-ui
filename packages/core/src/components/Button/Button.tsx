@@ -1,6 +1,6 @@
 import React, { isValidElement, ReactNode } from 'react'
 import { filterProps } from '../../utils/'
-import { avitoComponent } from '../../theme/'
+import { uiComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Text as TextComponent, TextProps } from '../Text/'
 import { IconProps } from '../Icon/'
@@ -102,7 +102,7 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
   `)
 )
 
-export const Button = avitoComponent('Button', buttonTheme)<
+export const Button = uiComponent('Button', buttonTheme)<
   ButtonProps,
   HTMLButtonElement | HTMLLinkElement
 >((props, { theme, tokens }, [ref, setRef] ) => {

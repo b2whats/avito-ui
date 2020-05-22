@@ -3,7 +3,7 @@ import { TextTheme, TextProps, dsl } from '@avito/core'
 const headingPreset = (size: TextProps['size']) => ({ size, bold: true })
 
 export const textTheme: Partial<TextTheme> = {
-  deriveProps: ({ preset }) => {
+  mapProps: ({ preset }) => {
     switch (preset) {
       case 'title': return headingPreset('xxxl')
       case 'title-small': return headingPreset('xxl')

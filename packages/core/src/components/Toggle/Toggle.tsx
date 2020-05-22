@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { avitoComponent } from '../../theme/'
+import { uiComponent } from '../../theme/'
 import { filterProps, invokeAll } from '../../utils/'
 import { usePrevent3DTouch } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
@@ -69,7 +69,7 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
   `)
 )
 
-const Toggle = avitoComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputElement>((
+const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputElement>((
   { className, children, ...props },
   { theme, tokens },
   [ref, setRef]

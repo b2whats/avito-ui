@@ -1,7 +1,7 @@
 import { TextTheme } from '@avito/core'
 
 export const textTheme: Partial<TextTheme> = {
-  deriveProps: ({ preset }) => {
+  mapProps: ({ preset }) => {
     switch (preset) {
       case 'title':
         return {

@@ -1,4 +1,4 @@
-import { useTheme } from '../theme'
+import { useTheme } from '.'
 import { mergeTheme } from './mergeTheme'
 import { Theme } from './contract'
 import { DeepPartial } from '../utils'
@@ -11,7 +11,7 @@ type AvitoProps<ThemeType> = {
 }
 type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => void]
 
-export function avitoComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType) {
+export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType) {
   return <Props extends AvitoProps<ThemeType>, RefType = HTMLElement>(
     render: (props: Props, theme: { theme: ThemeType, tokens: Tokens }, ref: RefContainer<RefType>) => JSX.Element
   ) => {
@@ -23,10 +23,11 @@ export function avitoComponent<ThemeType extends object>(name: keyof Theme, them
         ...props,
       }
       return render(
-        componentTheme.deriveProps(props) as Props,
+        componentTheme.mapProps(props) as Props,
         { theme: componentTheme, tokens: globalTheme },
         useRefHook(ref))
     })
+    WrappedComponent.displayName = name
     return WrappedComponent as unknown as FunctionComponent<Props>
   }
 }

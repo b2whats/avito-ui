@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { setNativeValue, invokeAll } from '../../utils/'
 import { useUncontrolledInputHook } from '../../hooks/'
-import { avitoComponent } from '../../theme/'
+import { uiComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { TextareaCore } from './TextareaCore'
 import { TextareaProps } from './contract'
@@ -17,7 +17,7 @@ const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
 )
 
 
-export const Textarea = avitoComponent('Textarea', textareaTheme)<TextareaProps, HTMLTextAreaElement>((
+export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HTMLTextAreaElement>((
   { onFocus, onBlur, ...props },
   { theme, tokens },
   [textareaRef, setTextareaRef]
@@ -56,5 +56,3 @@ export const Textarea = avitoComponent('Textarea', textareaTheme)<TextareaProps,
     </label>
   )
 })
-
-Textarea.displayName = 'Textarea'

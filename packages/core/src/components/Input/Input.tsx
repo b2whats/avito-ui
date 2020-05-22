@@ -1,6 +1,6 @@
 import React, { isValidElement, useState } from 'react'
 import { setNativeValue, invokeAll } from '../../utils/'
-import { avitoComponent } from '../../theme/'
+import { uiComponent } from '../../theme/'
 import { useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from '../Icon/'
@@ -41,7 +41,7 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
   `)
 )
 
-export const Input = avitoComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
+export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
   { onFocus, onBlur, override, ...props },
   { theme, tokens },
   [inputRef, setRef]
@@ -117,5 +117,3 @@ export const Input = avitoComponent('Input', inputTheme)<InputProps, HTMLInputEl
     </label>
   )
 })
-
-Input.displayName = 'Input'

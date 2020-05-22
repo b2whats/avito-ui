@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { filterProps } from '@avito/core'
 import { useRefHook } from '@avito/core'
-import { avitoComponent } from '@avito/core'
+import { uiComponent } from '@avito/core'
 import { useWindowSize } from '@avito/core'
 import { foldThemeParams, createClassName } from '@avito/core'
 import { SegmentButtonProps } from './contract'
@@ -68,7 +68,7 @@ type Geometry = {
   [key in string]: { transform: string, width: number, height: number }
 }
 
-const SegmentButton = avitoComponent('SegmentButton', segmentButtonTheme)((
+const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
   { options, name, onChange, ...props }: SegmentButtonProps,
   { theme, tokens }
 ) => {

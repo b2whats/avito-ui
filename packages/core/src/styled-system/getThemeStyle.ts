@@ -210,7 +210,7 @@ export type SchemeType<
 export interface Slot<OutProps = never, ExtraStyles = {}> {}
 export type ComponentTheme<Props, Scheme = {}, Extras = {}> = Extras & {
   defaultProps?: Partial<Props>,
-  deriveProps?: (props: Props) => Partial<Props>,
+  mapProps?: (props: Props) => Partial<Props>,
   scheme: {
     [K in keyof Scheme]: Scheme[K] extends (Slot<infer OutProps, infer ExtraStyles> | undefined)
       ? SchemeType<Props, OutProps, ExtraStyles>
@@ -531,7 +531,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       case 'minHeight':
       case 'maxHeight':
         value = dimension.rowHeight[value] || value
-        
+
         if (value === 'auto') {
           css += `${maps.dimension[param]}: auto;`
         } else {

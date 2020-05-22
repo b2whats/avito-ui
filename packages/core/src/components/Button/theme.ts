@@ -18,7 +18,7 @@ export const buttonTheme: ButtonTheme = {
     size: 'm',
     type: 'button',
   },
-  deriveProps: p => ({ type: p.href ? undefined: p.type }),
+  mapProps: p => ({ type: p.href ? undefined: p.type }),
   scheme: {
     Spinner: {
       size: {
