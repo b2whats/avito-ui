@@ -1871,7 +1871,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"error","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -1944,7 +1948,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"error","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -2017,7 +2025,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"primary","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -2090,7 +2102,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"primary","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -2163,7 +2179,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -2236,7 +2256,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -2309,7 +2333,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"success","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -2382,7 +2410,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"success","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -2455,7 +2487,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"warning","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -2528,7 +2564,11 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"warning","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Spinner",
+      "render": [Function],
+    },
     "props": Object {},
     "style": Object {},
   },
@@ -2574,6 +2614,13 @@ Object {
   "scheme": Object {
     "Icon": Object {
       "component": [Function],
+      "loading": Object {
+        "component": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Spinner",
+          "render": [Function],
+        },
+      },
     },
     "Label": Object {
       "disabled": Object {
@@ -2598,6 +2645,44 @@ Object {
       },
     },
     "Switch": Object {
+      "checked": Object {
+        "style": Object {
+          "bgDisabled": "gray28",
+        },
+        "variant": Object {
+          "error": Object {
+            "style": Object {
+              "bg": "red500",
+              "bgActive": "red700",
+            },
+          },
+          "primary": Object {
+            "style": Object {
+              "bg": "blue500",
+              "bgActive": "blue700",
+              "bgDisabled": "blue300",
+            },
+          },
+          "secondary": Object {
+            "style": Object {
+              "bg": "gray48",
+              "bgActive": "gray56",
+            },
+          },
+          "success": Object {
+            "style": Object {
+              "bg": "green500",
+              "bgActive": "green700",
+            },
+          },
+          "warning": Object {
+            "style": Object {
+              "bg": "orange500",
+              "bgActive": "orange700",
+            },
+          },
+        },
+      },
       "loading": Object {
         "style": Object {
           "align": "center",
@@ -2609,85 +2694,19 @@ Object {
         },
       },
       "style": Object {
+        "bg": "gray12",
+        "bgActive": "gray28",
+        "bgDisabled": "gray4",
+        "color": "white",
         "focus": true,
         "height": 25,
         "p": 3,
         "width": 48,
       },
       "variant": Object {
-        "error": Object {
-          "checked": Object {
-            "style": Object {
-              "bg": "red500",
-              "bgActive": "red700",
-              "bgDisabled": "gray28",
-            },
-          },
-          "style": Object {
-            "bg": "gray12",
-            "bgActive": "gray28",
-            "bgDisabled": "gray4",
-            "color": "white",
-          },
-        },
         "primary": Object {
-          "checked": Object {
-            "style": Object {
-              "bg": "blue500",
-              "bgActive": "blue700",
-              "bgDisabled": "blue300",
-            },
-          },
           "style": Object {
-            "bg": "gray12",
-            "bgActive": "gray28",
             "bgDisabled": "gray8",
-            "color": "white",
-          },
-        },
-        "secondary": Object {
-          "checked": Object {
-            "style": Object {
-              "bg": "gray48",
-              "bgActive": "gray56",
-              "bgDisabled": "gray28",
-            },
-          },
-          "style": Object {
-            "bg": "gray12",
-            "bgActive": "gray28",
-            "bgDisabled": "gray4",
-            "color": "white",
-          },
-        },
-        "success": Object {
-          "checked": Object {
-            "style": Object {
-              "bg": "green500",
-              "bgActive": "green700",
-              "bgDisabled": "gray28",
-            },
-          },
-          "style": Object {
-            "bg": "gray12",
-            "bgActive": "gray28",
-            "bgDisabled": "gray4",
-            "color": "white",
-          },
-        },
-        "warning": Object {
-          "checked": Object {
-            "style": Object {
-              "bg": "orange500",
-              "bgActive": "orange700",
-              "bgDisabled": "gray28",
-            },
-          },
-          "style": Object {
-            "bg": "gray12",
-            "bgActive": "gray28",
-            "bgDisabled": "gray4",
-            "color": "white",
           },
         },
       },

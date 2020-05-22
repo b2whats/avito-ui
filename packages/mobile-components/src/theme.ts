@@ -7,6 +7,7 @@ import { iconTheme } from './components/Icon/theme'
 import { checkboxTheme } from './components/Checkbox/theme'
 import { inputTheme } from './components/Input/theme'
 import { radioTheme } from './components/Radio/theme'
+import { switcherTheme } from './components/Switcher/theme'
 import { textTheme } from './components/Text/theme'
 import { toggleTheme } from './components/Toggle/theme'
 
@@ -24,6 +25,7 @@ export const theme = {
   Icon: iconTheme,
   Input: inputTheme,
   Radio: radioTheme,
+  Switcher: switcherTheme,
   Text: textTheme,
   Toggle: toggleTheme,
 }

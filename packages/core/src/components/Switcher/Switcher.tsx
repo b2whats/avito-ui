@@ -2,7 +2,6 @@ import React from 'react'
 import { css } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
 import { Toggle } from '../Toggle/'
-import { Spinner } from '../Spinner/'
 import { SwitcherProps } from './contract'
 import { switcherTheme } from './theme'
 
@@ -43,10 +42,7 @@ const circleStyle = () => css`
 const Switcher = uiComponent('Switcher', switcherTheme)((props: SwitcherProps, { theme }) => {
   return (
     <Toggle css={circleStyle} {...props} mode='checkbox' override={theme}>
-      {({ loading, Icon }) => (loading
-        ? <Spinner size='auto' />
-        : Icon && <Icon.component {...Icon.props} size='auto' />
-      )}
+      {({ Icon }) => Icon && <Icon.component {...Icon.props} size='auto' />}
     </Toggle>
   )
 })
