@@ -15,8 +15,8 @@
 ```jsx
 <Stack spacing='m' column>
   <Input width={200} placeholder='200px' />
-  <Input inline width={0.5} placeholder='50%' />
-  <Grid spacing='s' debug>
+  <Input width={0.5} placeholder='50%' />
+  <Grid spacing='s'>
     <Box width={6/12}><Input placeholder='6 колонок' /></Box>
     <Box width={4/12}><Input placeholder='4 колонки' /></Box>
     <Box width={2/12}><Input placeholder='2 колонки' /></Box>
@@ -79,9 +79,10 @@
 
 ```jsx
 import { DeliveryIcon, HelpIcon, SportIcon } from '@avito/icons'
-import { Spinner } from '../Spinner'
-const help = e => {
-  e.stopPropagation()
+import { Spinner } from '../Spinner/'
+const help = event => {
+  event.stopPropagation()
+
   alert('help')
 };
 
@@ -89,11 +90,33 @@ const help = e => {
   <Input iconBefore={ <DeliveryIcon /> } value='в начале' />
   <Input iconBefore={ <DeliveryIcon color='red300' /> } value="цветная" />
   <Input iconAfter={ <Spinner /> } value="спиннер" />
-  <Input
-    iconAfter={ <HelpIcon colorHover='red300' onClick={help} /> }
-    value="с действием по клику"
-  />
   <Input iconAfter={ <SportIcon /> } value="clearable" clearable value='clearable' />
+</Stack>
+```
+
+Иконки в компоненте могут быть кликабельные, что бы иконка вела себя как кнопка, необходимо прерывать собыие клика по ней, что бы `input`
+не получал фокус.  
+Не забывайте у кликабельных иконок устанавливать область клика `area`: `number` для мобильных устройств
+
+```jsx
+import { DeliveryIcon, HelpIcon, SportIcon } from '@avito/icons'
+import { Spinner } from '../Spinner'
+const [active, activeToggle] = useState(false)
+const onIconClick = prevent => event => {
+  prevent && event.preventDefault()
+
+  activeToggle(active => !active)
+};
+
+<Stack spacing='m' column>
+  <Input
+    iconAfter={ <HelpIcon color={active ? 'yellow500' : 'gray28' } onClick={onIconClick(false)} area={10} /> }
+    value="с действием по клику с получением фокуса"
+  />
+  <Input
+    iconAfter={ <HelpIcon color={active ? 'yellow500' : 'gray28' } onClick={onIconClick(true)} area={10} /> }
+    value="с действием по клику без установки фокуса"
+  />
 </Stack>
 ```
 
@@ -146,8 +169,8 @@ const onChange = ({ target }) => {
 }
 
 const onFavoriteClick = (event) => {
-  //event.preventDefault()
-  console.log('onFavoriteClick', event.target)
+  event.preventDefault()
+
   setState(state => ({ ...state, favorite: !state.favorite }))
 };
 

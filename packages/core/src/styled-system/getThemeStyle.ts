@@ -360,14 +360,12 @@ export const foldScheme = (scheme: any, props: any, only?: 'props' | 'style' | '
   return result
 }
 
-const baseStyle = ({ font }: Tokens) => `
+const baseStyle = () => `
   box-sizing: border-box;
-  ${font.smoothing.webkit ? `-webkit-font-smoothing: ${font.smoothing.webkit};` : ''}
-  ${font.smoothing.moz ? `-moz-osx-font-smoothing: ${font.smoothing.moz};` : ''}
 `
 
 export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
-  let css = baseStyle(tokens)
+  let css = baseStyle()
   const { font, dimension, space, palette, focus, shape } = tokens
 
   if (!params) return css

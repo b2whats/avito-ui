@@ -101,6 +101,8 @@ module.exports = {
         '@avito/icons$': path.resolve(__dirname, 'packages/icons/src/'),
         '@avito/tokens$': path.resolve(__dirname, 'packages/tokens/src/'),
         '@avito/core$': path.resolve(__dirname, 'packages/core/src/'),
+        '@avito/mobile-components$': path.resolve(__dirname, 'packages/mobile-components/src/'),
+        '@avito/web-components$': path.resolve(__dirname, 'packages/web-components/src/'),
       },
     },
     module: {

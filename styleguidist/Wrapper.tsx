@@ -4,6 +4,10 @@ import { Page } from '@avito/mobile-components'
 import { store } from './store'
 import { observer } from 'mobx-react-lite'
 
+import * as iconss from '@avito/mobile-components'
+
+console.log('dd', iconss)
+
 export default observer((props: { children: React.ReactNode }) => {
   return (
     <ThemeProvider defaultTheme={store.theme.platformTheme} theme={store.theme.theme as any}>

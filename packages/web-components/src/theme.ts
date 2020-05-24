@@ -1,34 +1,15 @@
-import { mergeTheme, Theme } from '@avito/core'
 import { web } from '@avito/tokens'
-import { CrossIcon } from './icons'
 import { buttonTheme } from './components/Button/theme'
 import { inputTheme } from './components/Input/theme'
+import { iconTheme } from './components/Icon/theme'
 import { textTheme } from './components/Text/theme'
+import { textareaTheme } from './components/Textarea/theme'
 
-export const theme = mergeTheme(web as Theme, {
+export const theme = {
+  ...web,
   Button: buttonTheme,
-  Icon: {
-    // @ts-ignore - временно, пока не будет найдено решения передачи выбранной темы в примеры
-    platform: 'web',
-    scheme: {
-      Icon: {
-        size: {
-          l: {
-            style: {
-              height: 28,
-            },
-          },
-        },
-      },
-    },
-  },
+  Icon: iconTheme,
   Input: inputTheme,
   Text: textTheme,
-  Textarea: {
-    scheme: {
-      IconClear: {
-        component: CrossIcon,
-      },
-    },
-  },
-})
+  Textarea: textareaTheme,
+}

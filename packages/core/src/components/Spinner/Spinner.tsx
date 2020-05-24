@@ -8,10 +8,10 @@ const Spinner = ({ speed, override, ...props }: SpinnerProps) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(spinnerTheme, theme.Spinner, override)
 
-  const { Icon } = foldThemeParams(props, componentTheme)
+  const { Spinner } = foldThemeParams(props, componentTheme)
 
   return (
-    <Icon.component {...Icon.props} {...props} spin={speed || true} />
+    <Spinner.component {...Spinner.props} {...props} spin={speed || true} />
   )
 }
 

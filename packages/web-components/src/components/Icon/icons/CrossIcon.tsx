@@ -7,4 +7,4 @@ export const CrossIcon = (props: IconProps) => (
   </Icon>
 )
 
-CrossIcon.platform = 'web'
+CrossIcon.category = 'component'

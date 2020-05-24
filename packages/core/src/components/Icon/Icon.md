@@ -65,8 +65,8 @@ import { Box } from '../Layout/';
 ```
 
 ## Параметры цвета
-Параметр `color` устанавливае заливку иконки. Доступны все значения из палитры.
-По умолчанию иконка наследует цвет родителя.
+Параметр `color`, `colorHover` устанавливае заливку иконки. Доступны все значения из палитры.  
+По умолчанию иконка наследует цвет родителя.  
 
 ```js
 import { SearchIcon } from '@avito/icons'
@@ -75,6 +75,7 @@ import { Stack } from '../Layout/';
 <Stack spacing='m'>
   <SearchIcon />
   <SearchIcon color='blue500' />
+  <SearchIcon color='blue500' colorHover='red500' />
 </Stack>
 ```
 
@@ -133,6 +134,54 @@ import { Stack } from '../Layout/';
   <ArrowIcon spin={5} />
 </Stack>
 ```
+
+### Системные иконки
+В каждом платформенном пакете, есть иконки которые используются в компонентах, они так же доступны для ипорта и создания своих компонентов
+
+::: platform web
+```jsx static
+import { CrossIcon } from '@avito/web-components'
+```
+
+```js
+import * as components from '@avito/web-components'
+import { Text } from '../Text/'
+import { Stack, Box } from '../Layout/';
+
+<Stack wrap>
+  {Object.keys(components).map((name) => (
+    components[name].category === 'component' &&
+      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
+        {React.createElement(components[name])}
+        <Text size='xs' mt={8} align='center'>{name}</Text>
+      </Box>
+  ))}
+</Stack>
+```
+:::
+
+::: platform mobile
+```jsx static
+import { CrossIcon } from '@avito/mobile-components'
+```
+
+```js
+import * as components from '@avito/mobile-components'
+import { Text } from '../Text/'
+import { Stack, Box } from '../Layout/';
+
+<Stack wrap>
+  {Object.keys(components).map((name) => (
+    components[name].category === 'component' &&
+      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
+        {React.createElement(components[name])}
+        <Text size='xs' mt={8} align='center'>{name}</Text>
+      </Box>
+  ))}
+</Stack>
+```
+:::
+
 
 ### Список иконок
 Для копирования названия иконки, просто кликните по ней

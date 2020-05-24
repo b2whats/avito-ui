@@ -1,5 +1,5 @@
 import { DeepPartial, InputTheme, dsl } from '@avito/core'
-import { CrossIcon } from '../../icons'
+import { CrossIcon } from '../Icon/'
 
 const gapSize = {
   s: 7,

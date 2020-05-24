@@ -24,7 +24,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@avito/icons": "^0.0.15",
     "@avito/tokens": "^0.0.11",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",

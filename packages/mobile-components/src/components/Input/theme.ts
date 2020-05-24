@@ -1,9 +1,8 @@
 import { DeepPartial, InputTheme, dsl } from '@avito/core'
-import { CrossIcon } from '../../icons'
 
 export const inputTheme: DeepPartial<InputTheme> = {
   defaultProps: {
-    kind: 'default',
+    kind: 'fill',
   },
   scheme: {
     IconBefore: {
@@ -18,9 +17,6 @@ export const inputTheme: DeepPartial<InputTheme> = {
         m: 10,
         l: 10,
       }),
-      clearable: {
-        component: CrossIcon,
-      },
     },
     Prefix: {
       props: {
@@ -42,16 +38,6 @@ export const inputTheme: DeepPartial<InputTheme> = {
         style: {
           pr: 'none',
         },
-      },
-      clearable: {
-        style: {
-          pr: 'none',
-        },
-      },
-    },
-    InputCore: {
-      props: {
-        pb: 1,
       },
     },
     Input: {

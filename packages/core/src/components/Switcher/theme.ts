@@ -1,4 +1,4 @@
-import { SwitcherIcon } from '@avito/icons'
+import { SwitcherIcon } from '../Icon/'
 import { SchemeType } from '../../styled-system/'
 import { SwitcherProps } from './contract'
 import { IconProps } from '../Icon/contract'

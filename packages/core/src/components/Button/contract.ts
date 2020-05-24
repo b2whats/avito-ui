@@ -16,7 +16,7 @@ export interface ButtonProps extends MarginProperties, DimensionProperties, Alig
   /** Значение кнопки */
   value?: string | number
   /** Внешний вид кнопки */
-  kind?: 'default' | 'outline' | 'flat'
+  kind?: 'fill' | 'outline' | 'flat'
   /** Нажатое состояние кнопки */
   checked?: boolean
   /** Неактивная кнопка */

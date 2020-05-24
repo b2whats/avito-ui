@@ -12,6 +12,8 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
   }),
   (textRules, { strike }, { palette }) => (`
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     li& {
       list-style: none;
@@ -46,7 +48,7 @@ const Text = ({ children, override, ...props }: TextProps) => {
   const Tag = props.as || 'span'
 
   return (
-    <Tag css={textStyle} {...Text.props} data-component='text'>
+    <Tag css={textStyle} {...Text.props} >
       { children }
     </Tag>
   )

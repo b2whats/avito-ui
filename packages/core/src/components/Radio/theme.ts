@@ -1,4 +1,4 @@
-import { RadioCheckedIcon } from '@avito/icons'
+import { RadioCheckedIcon } from '../Icon/'
 import { SchemeType } from '../../styled-system/'
 import { RadioProps } from './contract'
 import { IconProps } from '../Icon/contract'

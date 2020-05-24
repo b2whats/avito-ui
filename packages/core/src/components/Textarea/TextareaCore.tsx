@@ -23,6 +23,8 @@ const textareaStyle = css`
   background-color: transparent;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-text-fill-color: currentcolor;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &[disabled] {
     cursor: inherit;
