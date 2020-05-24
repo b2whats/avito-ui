@@ -1,7 +1,7 @@
 import { SchemeType } from '../../styled-system/'
 import { TextareaProps } from './contract'
 import { IconProps } from '../Icon/contract'
-import { CrossIcon } from '../Icon'
+import { CrossIcon } from '../Icon/'
 
 export type TextareaTheme = {
   deletePlaceholderOnFocus: boolean,

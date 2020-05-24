@@ -1,7 +1,7 @@
 import { SchemeType } from '../../styled-system/'
 import { dsl } from '../../theme'
 import { InputProps } from './contract'
-import { CrossIcon } from '../Icon'
+import { CrossIcon } from '../Icon/'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 
