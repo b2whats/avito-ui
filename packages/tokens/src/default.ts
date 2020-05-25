@@ -46,8 +46,6 @@ export const tokens: Tokens = {
       height: 1,
       offset: 0,
     },
-
-    smoothing: {},
   },
   palette,
   dimension: {

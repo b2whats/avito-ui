@@ -1,13 +1,15 @@
 import React from 'react'
-import { observer } from 'mobx-react-lite'
 import ReactComponent from 'react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponent'
 import getInfoFromHash from 'react-styleguidist/lib/client/utils/getInfoFromHash'
 import Markdown from 'react-styleguidist/lib/client/rsg-components/Markdown'
-import { store } from '../store'
+import { ThemeStore } from '../store'
+import { useStore } from 'effector-react'
 import { platformFromPath } from '../utils'
 
 // Прячем неподдерживаемые платформой компоненты
-export default observer((props: any) => {
+const ReactComponentWrapper = (props: any) => {
+  const store = useStore(ThemeStore)
+
   const platform = platformFromPath(props.component.filepath)
   if (platform !== 'universal' && store.platform !== platform) {
     // Прячем в списке компонентов
@@ -20,4 +22,6 @@ export default observer((props: any) => {
     return <Markdown text={message} />
   }
   return <ReactComponent { ...props } />
-})
+}
+
+export default ReactComponentWrapper

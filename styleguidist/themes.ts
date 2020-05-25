@@ -19,4 +19,4 @@ export const themes = [{
   platformTheme: web,
   title: 'Пик',
   theme: pikTheme,
-}]
+}] as const

@@ -61,6 +61,4 @@ export const iconTheme: DeepPartial<IconTheme> = {
       },
     },
   },
-  // @ts-ignore - временно, пока не будет найдено решения передачи выбранной темы в примеры
-  platform: 'mobile',
 }

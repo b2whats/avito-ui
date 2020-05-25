@@ -103,7 +103,7 @@ import { Radio } from '../Radio/'
 import * as icons from '@avito/icons'
 
 const [props, setProps] = useState({})
-const { Icon: { platform } } = useTheme()
+const { platform } = useStore(ThemeStore)
 
 const onChange = ({ name, value }) => {
   setProps(state => ({

@@ -188,14 +188,14 @@ import { Stack, Box } from '../Layout/';
 
 ```js
 import * as icons from '@avito/icons'
-import { useTheme } from '../../theme/'
 import { Text } from '../Text/'
-import { Stack, Box } from '../Layout/';
+import { Stack, Box } from '../Layout/'
+
+const { platform } = useStore(ThemeStore);
 
 <Stack wrap>
   {Object.keys(icons).map((name) => (
-    !['component', 'playground'].includes(icons[name].category) &&
-    [undefined, 'mobile'].includes(icons[name].platform) &&
+    [undefined, platform].includes(icons[name].platform) &&
       <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
         {React.createElement(icons[name])}
         <Text size='xs' mt={8} align='center'>{name}</Text>

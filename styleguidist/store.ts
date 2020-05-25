@@ -1,15 +1,13 @@
-import { observable, action } from 'mobx'
+import { createDomain } from 'effector'
 import { themes } from './themes'
 
 export type Platform = 'web' | 'mobile'
-export const store = observable({
-  platform: themes[0].platform,
-  theme: themes[0],
-  setTheme(theme: typeof themes[0]) {
-    this.platform = theme.platform as Platform
-    this.theme = theme
-  },
-}, {
-  setTheme: action,
-})
-;(window as any).store = store
+
+const ThemeDomain = createDomain()
+
+type Store = typeof themes[0]
+
+export const setTheme = ThemeDomain.event<Store>()
+
+export const ThemeStore = ThemeDomain.store<Store>(themes[0])
+  .on(setTheme, (_, theme) => ({ ...theme }))
