@@ -10,6 +10,8 @@ export const platformFromPath = (path: string) => {
   return 'universal'
 }
 
+const skip = (index: number) => ({ type: 'skip', index }) as const
+
 /**
  * Extended markdown for platform-specific example rendering:
  *
@@ -34,7 +36,7 @@ export function filterMarkdown(examples: Example[], targetPlatform: Theme) {
       }
       isInsideBlock = true
       isSkipping = targetPlatform !== condPlatform(item.content)
-      return
+      return skip(item.index)
     }
 
     if (blockEndRE.test(item.content)) {
@@ -43,31 +45,44 @@ export function filterMarkdown(examples: Example[], targetPlatform: Theme) {
       }
       isInsideBlock = false
       isSkipping = false
-      return
+      return skip(item.index)
     }
 
     // Preserve example positions to use styleguidist's index-based react keys
-    return isSkipping ? { type: 'skip' as const } : item
-  }).filter(b => b != null && (b.type === 'skip' || b.content.trim())) as Example[]
+    return isSkipping ? skip(item.index) : item
+  }) as Example[]
   if (isInsideBlock) {
     fail('Unterminated block')
   }
-  return res
+  return restoreIndexing(res)
 }
 
 function splitMarkdownConditionals(markdown: Example[]) {
-  return markdown.reduce((acc, item) =>
+  return markdown.reduce((acc, item, index) =>
     acc.concat(item.type === 'code'
-      ? item
+      ? { ...item, index }
       : item.content.split(/(?:^|\n)\s*(:::[^\n]*)/)
         .filter(c => c.length)
-        .map(content => ({ ...item, content }))),
+        .map(content => ({ ...item, content, index }))),
     [] as Example[])
+}
+
+function restoreIndexing(split: Example[]) {
+  const res: Example[] = []
+  split.forEach(item => {
+    const base = res[item.index!] || ({ type: 'skip', content: '' }) as Example
+    if (item.type !== 'skip') {
+      Object.assign(base, item, { content: base.content + item.content })
+    }
+    res[item.index!] = base
+  })
+  return res
 }
 
 type Example = {
   type: 'markdown' | 'code' | 'skip',
-  content: string
+  content: string,
+  index: number
 }
 const conditionRE = /^::: *platform +(\w+) *$/
 const blockEndRE = /^::: *$/
