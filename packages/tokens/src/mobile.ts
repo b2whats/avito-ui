@@ -46,6 +46,8 @@ export const mobile: Tokens = {
       height: 1,
       offset: 0,
     },
+
+    smoothing: 'antialiased',
   },
   palette,
   dimension: {

@@ -31,6 +31,8 @@ type Font = {
     height: number,
     offset: number,
   },
+
+  smoothing: 'none' | 'auto' | 'antialiased' | 'subpixel',
 }
 
 export type Palette = {

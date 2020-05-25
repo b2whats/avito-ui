@@ -6,7 +6,7 @@ type Theme = Tokens
 export type TextProperties = Partial<{
   fontFamily: string,
   fontSize: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | number | string,
-  lineHeight: 'none' | 'normal' | 'dense' | number,
+  lineHeight: 'inherit' | 'none' | 'normal' | 'dense' | number,
   letterSpacing: number,
   fontWeight: 'light' | 'normal' | 'bold',
   italic: boolean,
@@ -18,6 +18,7 @@ export type TextProperties = Partial<{
   truncate: boolean,
   crop: boolean,
   underline: boolean | 'dotted' | 'dashed',
+  smoothing: 'none' | 'auto' | 'antialiased' | 'subpixel',
 }>
 
 type Width = number
@@ -298,6 +299,16 @@ const maps = {
     borderColorChecked: 'border-color',
     borderColorDisabled: 'border-color',
   },
+  webkitSmoothing: {
+    auto: 'auto',
+    antialiased: 'antialiased',
+    subpixel: 'subpixel-antialiased',
+  },
+  mozSmoothing: {
+    auto: 'auto',
+    antialiased: 'grayscale',
+    subpixel: 'grayscale',
+  },
 }
 
 const execComputables = (object: object, arg: any) => {
@@ -485,6 +496,15 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
           line-height: 1;
           padding-bottom: ${font.underline.offset}px;
           border-bottom: ${font.underline.height}px ${typeof value === 'string' ? value : 'solid'} currentColor;
+        `
+
+        break
+      case 'smoothing':
+        if (value === 'none') break
+
+        css += `
+          -webkit-font-smoothing: ${maps.webkitSmoothing[value]};
+          -moz-osx-font-smoothing: ${maps.mozSmoothing[value]};
         `
 
         break

@@ -6,11 +6,12 @@ import { PageProps } from './contract'
 const pageClassName = createClassName<PageProps>(
   (_, props, { font }) => ({
     display: 'block',
-    ...props,
+    smoothing: font.smoothing,
     color: font.defaultColor,
     lineHeight: font.defaultLineHeight,
     fontFamily: font.fontFamily,
     fontSize: font.defaultFontSize,
+    ...props,
   })
 )
 

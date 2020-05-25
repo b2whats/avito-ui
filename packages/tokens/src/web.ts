@@ -46,6 +46,8 @@ export const web: Tokens = {
       height: 1,
       offset: 0,
     },
+
+    smoothing: 'none',
   },
   palette,
   dimension: {

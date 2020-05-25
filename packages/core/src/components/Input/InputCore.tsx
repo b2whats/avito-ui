@@ -10,6 +10,7 @@ const autofill = keyframes`
   }
 `
 
+// @-moz-document url-prefix() - стили только дла FF
 const inputField = css`
   width: 100%;
   height: 100%;
@@ -30,22 +31,27 @@ const inputField = css`
     padding-right: 2px;
   }
 
+  @-moz-document url-prefix() { 
+    & > input {
+      height: 100%;
+    }
+  }
+
   & > input {
     box-sizing: border-box;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    bottom: 0;
     padding: 0px;
-    padding-bottom: 1px;
     margin: 0px;
     border-width: 0;
     visibility: visible;
     font-size: inherit;
     font-family: inherit;
     font-weight: inherit;
-    line-height: normal;
+    line-height: inherit;
     color: inherit;
     outline: none;
     background-color: transparent;
