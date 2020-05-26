@@ -2762,3 +2762,1072 @@ Object {
   },
 }
 `;
+
+exports[`mobile theme textarea fuzz: {"variant":"error","clearable":false,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "red100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"error","clearable":false,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "red100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"error","clearable":false,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "red100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"error","clearable":true,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "red100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"error","clearable":true,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "red100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"error","clearable":true,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "red100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":false,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray4",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":false,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray4",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":false,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray4",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":true,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray4",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":true,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray4",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":true,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray4",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":false,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray8",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":false,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray8",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":false,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray8",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":true,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray8",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":true,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray8",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":true,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray8",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"success","clearable":false,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "green100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"success","clearable":false,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "green100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"success","clearable":false,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "green100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"success","clearable":true,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "green100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"success","clearable":true,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "green100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"success","clearable":true,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "green100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":false,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "orange100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":false,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "orange100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":false,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "orange100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":true,"size":"l"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "l",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "orange100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "l",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 16,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":true,"size":"m"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "m",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "orange100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "lineHeight": "normal",
+      "minHeight": "m",
+      "placeholderColor": "gray48",
+      "px": 16,
+      "py": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":true,"size":"s"} 1`] = `
+Object {
+  "IconClear": Object {
+    "component": [Function],
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": true,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "orange100",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 12,
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray48",
+      "px": 12,
+      "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme textarea snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "size": "m",
+    "variant": "primary",
+  },
+  "deletePlaceholderOnFocus": true,
+  "mapProps": [Function],
+  "scheme": Object {
+    "IconClear": Object {
+      "component": [Function],
+      "props": Object {
+        "area": 10,
+        "color": "gray28",
+        "visible": [Function],
+      },
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "size": "l",
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "size": "m",
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "size": "s",
+          },
+        },
+      },
+    },
+    "Textarea": Object {
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "fontSize": 16,
+            "minHeight": "l",
+            "px": 16,
+            "py": 16,
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "fontSize": 16,
+            "minHeight": "m",
+            "px": 16,
+            "py": 12,
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "fontSize": 12,
+            "minHeight": "s",
+            "px": 12,
+            "py": 10,
+          },
+        },
+      },
+      "style": Object {
+        "borderRadius": 5,
+        "focus": true,
+        "lineHeight": "normal",
+        "placeholderColor": "gray48",
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "bg": "red100",
+            "color": "black",
+            "colorDisabled": "gray40",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "bg": "gray4",
+            "color": "black",
+            "colorDisabled": "gray40",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "bg": "gray8",
+            "color": "black",
+            "colorDisabled": "gray40",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "bg": "green100",
+            "color": "black",
+            "colorDisabled": "gray40",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "bg": "orange100",
+            "color": "black",
+            "colorDisabled": "gray40",
+          },
+        },
+      },
+    },
+  },
+}
+`;
