@@ -43,16 +43,16 @@ export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginPro
   clearable?: boolean | 'always'
   /** Состояние загрузки */
   loading?: boolean
-  /** Внешний вид кнопки */
-  kind: 'default' | 'outline'
+  /** Внешний вид компонента */
+  kind: 'fill' | 'outline'
   /** Цветовые варианты */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Тип текстового поля */
   type?: 'text' | 'number' | 'phone' | 'email'
   /** Иконка в начале */
-  iconBefore?: string | React.ReactNode
+  iconBefore?: React.ReactNode
   /** Иконка в конце */
-  iconAfter?: string | React.ReactNode
+  iconAfter?: React.ReactNode
   /** Иконка перед инпутом */
   prefix?: string | React.ReactNode
   /** Иконка после инпута */

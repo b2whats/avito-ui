@@ -1,11 +1,11 @@
 import React, { isValidElement, useState } from 'react'
-import { setNativeValue, filterProps } from '../../utils/'
+import { setNativeValue } from '../../utils/'
 import { useTheme, mergeTheme } from '../../theme/'
 import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from '../Icon/'
 import { Text, TextProps } from '../Text/'
-import { InputCore as InputCoreComponent } from './InputCore'
+import { InputCore } from './InputCore'
 import { InputProps } from './contract'
 import { inputTheme } from './theme'
 
@@ -55,9 +55,6 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
   props = {
     ...componentTheme.defaultProps,
     ...props,
-  }
-  props = {
-    ...props,
     value,
     onChange,
     clearable,
@@ -86,7 +83,7 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
     setNativeValue(inputRef.current, '')
   }
 
-  const { Input, IconBefore, InputCore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, componentTheme)
+  const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, componentTheme)
   const inputStyle = inputClassName(props, theme, Input.style)
   const inputFieldStyle = inputFieldClassName(props, theme, InputField.style)
 
@@ -105,7 +102,8 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
 
   const iconAfter = renderIconSlot(
     IconAfter.component ? <IconAfter.component /> : props.iconAfter,
-    clearable ? { ...IconAfter.props, onClick: handleClear } : IconAfter.props)
+    clearable ? { ...IconAfter.props, onClick: handleClear } : IconAfter.props
+  )
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
   const autoSize = props.postfix ? true : false
@@ -115,14 +113,7 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
-        <InputCoreComponent
-          {...InputCore.props}
-          {...filterProps(props)}
-          autoSize={autoSize}
-          ref={setRef}
-          onClick={props.onClick}
-          onFocus={handleFocus}
-          onBlur={handleBlur} />
+        <InputCore {...props} autoSize={autoSize} ref={setRef} onFocus={handleFocus} onBlur={handleBlur}/>
         {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
       </div>
       {iconAfter}

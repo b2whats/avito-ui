@@ -1,6 +1,7 @@
 import { SchemeType } from '../../styled-system/'
 import { TextareaProps } from './contract'
 import { IconProps } from '../Icon/contract'
+import { CrossIcon } from '../Icon/'
 
 export type TextareaTheme = {
   deletePlaceholderOnFocus: boolean,
@@ -14,6 +15,7 @@ export const textareaTheme: TextareaTheme = {
   deletePlaceholderOnFocus: true,
   scheme: {
     IconClear: {
+      component: CrossIcon,
       props: {
         color: 'gray28',
         area: 10,

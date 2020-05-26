@@ -1,15 +1,17 @@
 import React from 'react'
 import { ThemeProvider } from '@avito/core'
 import { Page } from '@avito/mobile-components'
-import { store } from './store'
-import { observer } from 'mobx-react-lite'
+import { ThemeStore } from './store'
+import { useStore } from 'effector-react'
 
-export default observer((props: { children: React.ReactNode }) => {
+export default function Wrapper(props: { children: React.ReactNode }) {
+  const { theme, platformTheme } = useStore(ThemeStore)
+
   return (
-    <ThemeProvider defaultTheme={store.theme.platformTheme} theme={store.theme.theme as any}>
+    <ThemeProvider defaultTheme={platformTheme} theme={theme}>
       <Page>
         {props.children}
       </Page>
     </ThemeProvider>
   )
-})
+}

@@ -9,7 +9,7 @@ export interface TextProps extends MarginProperties, DimensionProperties, AlignP
   /** Размер текста фолбек */
   fontSize?: number
   /** Коэффициент для высоты строки */
-  lineHeight?: number | 'none'
+  lineHeight?: number | 'none' | 'inherit'
   /** Уплотненная высота строки */
   dense?: boolean
   /** Расстояние между буквами */

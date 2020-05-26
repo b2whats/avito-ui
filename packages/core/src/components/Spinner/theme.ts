@@ -1,17 +1,17 @@
-import { SpinnerIcon } from '@avito/icons'
+import { SpinnerIcon } from '../Icon/'
 import { SchemeType } from '../../styled-system/'
 import { SpinnerProps } from './contract'
 import { IconProps } from '../Icon'
 
 export type SpinnerTheme = {
   scheme: {
-    Icon: SchemeType<SpinnerProps, IconProps>,
+    Spinner: SchemeType<SpinnerProps, IconProps>,
   }
 }
 
 export const spinnerTheme: SpinnerTheme = {
   scheme: {
-    Icon: {
+    Spinner: {
       component: SpinnerIcon,
       size: {
         s: {

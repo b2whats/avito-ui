@@ -1,11 +1,15 @@
 import { useState } from 'react'
+import { useStore } from 'effector-react'
 import * as helpers from './components'
+import { ThemeStore } from './store'
 
 for (const name in helpers) {
   global[name] = helpers[name]
 }
 
 global['useState'] = useState
+global['useStore'] = useStore
+global['ThemeStore'] = ThemeStore
 
 global['copyText'] = (text: string) => {
   const textNode = document.createElement('textarea')

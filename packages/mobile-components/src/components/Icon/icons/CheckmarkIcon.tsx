@@ -9,4 +9,4 @@ export const CheckmarkIcon = (props: IconProps) => (
   </Icon>
 )
 
-CheckmarkIcon.platform = 'mobile'
+CheckmarkIcon.category = 'component'

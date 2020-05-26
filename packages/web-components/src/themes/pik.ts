@@ -1,5 +1,5 @@
 import { Theme, dsl, DeepPartial, StyleProperties, Colors } from '@avito/core'
-import { CrossIcon } from './PikCrossIcon'
+import { CrossIcon } from '@avito/core'
 
 declare module '@avito/core' {
   enum InputPreset { inverse }
@@ -10,10 +10,6 @@ export const pikTheme: DeepPartial<Theme> = {
     fontFamily: 'Avito,"Helvetica Neue",Helvetica,sans-serif',
     fontSize: {
       xl: 24,
-    },
-    smoothing: {
-      webkit: 'antialiased',
-      moz: 'grayscale',
     },
   },
   dimension: {
@@ -95,11 +91,6 @@ export const pikTheme: DeepPartial<Theme> = {
   },
   Input: {
     scheme: {
-      InputCore: {
-        props: {
-          pb: -1,
-        },
-      },
       Input: {
         style: {
           placeholderColor: 'gray44',

@@ -121,7 +121,7 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
         },
       },
       kind: {
-        default: {
+        fill: {
           style: {
             bg: 'blue50',
             bgHover: 'blue60',

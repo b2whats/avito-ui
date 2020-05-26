@@ -1,6 +1,6 @@
 {
   "name": "@avito/icons",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "private": false,
   "description": "icons",
   "main": "build/index.js",

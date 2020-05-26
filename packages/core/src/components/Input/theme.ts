@@ -1,6 +1,7 @@
 import { SchemeType } from '../../styled-system/'
 import { dsl } from '../../theme'
-import { InputProps, InputCoreProps } from './contract'
+import { InputProps } from './contract'
+import { CrossIcon } from '../Icon/'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 
@@ -12,7 +13,6 @@ export type InputTheme = {
     InputField: SchemeType<InputProps>,
     Prefix: SchemeType<InputProps, TextProps>,
     Input: SchemeType<InputProps>,
-    InputCore: SchemeType<InputProps, InputCoreProps>,
     Postfix: SchemeType<InputProps, TextProps>,
     IconAfter: SchemeType<InputProps, IconProps>,
   },
@@ -40,6 +40,7 @@ export const inputTheme: InputTheme = {
         color: 'gray28',
       },
       clearable: {
+        component: CrossIcon,
         props: {
           area: 10,
         },
@@ -58,7 +59,6 @@ export const inputTheme: InputTheme = {
       },
     },
     InputField: {},
-    InputCore: {},
     Input: {
       style: {
         focus: true,

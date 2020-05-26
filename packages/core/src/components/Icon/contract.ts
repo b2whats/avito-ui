@@ -27,7 +27,6 @@ export interface BaseIconProps extends SpaceProperties, ColorProperties, AlignPr
   /** Состояние disabled */
   disabled?: boolean
 
-
   onClick?: MouseHandler
 }
 

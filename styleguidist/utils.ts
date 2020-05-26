@@ -1,5 +1,3 @@
-import { Theme } from './store'
-
 export const platformFromPath = (path: string) => {
   if (/\/web-components\//.test(path)) {
     return 'web'
@@ -22,7 +20,7 @@ const skip = (index: number) => ({ type: 'skip', index }) as const
  * Inspired by https://v1.vuepress.vuejs.org/guide/markdown.html#custom-containers
  * Nested conditional blocks are disallowed.
  */
-export function filterMarkdown(examples: Example[], targetPlatform: Theme) {
+export function filterMarkdown(examples: Example[], targetPlatform: string) {
   let isSkipping = false
   let isInsideBlock = false
   const fail = (message: string, item?: any) => {

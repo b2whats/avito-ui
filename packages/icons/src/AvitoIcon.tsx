@@ -11,4 +11,3 @@ export const AvitoIcon = (props: IconProps) => (
 )
 
 AvitoIcon.platform = 'mobile'
-AvitoIcon.category = 'playground'

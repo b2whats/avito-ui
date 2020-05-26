@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, IconProps } from '@avito/core'
+import { Icon, IconProps } from '../'
 
 export const SwitcherIcon = (props: IconProps) => (
   <Icon {...props} viewBox='0 0 250 250' name='switcher'>
@@ -7,5 +7,4 @@ export const SwitcherIcon = (props: IconProps) => (
   </Icon>
 )
 
-SwitcherIcon.platform = 'mobile'
 SwitcherIcon.category = 'component'

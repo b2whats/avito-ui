@@ -32,10 +32,7 @@ type Font = {
     offset: number,
   },
 
-  smoothing: {
-    webkit?: 'none' | 'antialiased' | 'subpixel-antialiased',
-    moz?: 'grayscale',
-  },
+  smoothing?: 'auto' | 'antialiased' | 'subpixel',
 }
 
 export type Palette = {

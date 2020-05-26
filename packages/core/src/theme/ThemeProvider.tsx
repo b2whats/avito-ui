@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming'
 import { tokens, Tokens } from '@avito/tokens'
-import { isMobileSafari } from '../utils/'
+import { isMobileSafari, DeepPartial } from '../utils/'
 import { mergeTheme } from './mergeTheme'
 import { useTheme } from './useTheme'
 import { Theme } from './contract'
 
-type ProviderProps = { children: React.ReactNode, defaultTheme?: Tokens, theme?: Partial<Theme> }
+type ProviderProps = { children: React.ReactNode, defaultTheme?: Tokens, theme?: DeepPartial<Theme> }
 
 export function ThemeProvider({ defaultTheme = tokens, theme, children }: ProviderProps) {
   const globalTheme = useTheme()

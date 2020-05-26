@@ -4386,6 +4386,18 @@ ee-first@1.1.1:
   resolved "http://npm.msk.avito.ru/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+effector-react@^20.7.2:
+  version "20.7.2"
+  resolved "http://npm.msk.avito.ru/effector-react/-/effector-react-20.7.2.tgz#e22ab98339b3c8737f0918a9d9fd87c406cd22ca"
+  integrity sha512-oVGD6hwKeZtym0lQL7voB09Pb3lFGFJPkQ4TIj8LiGPDTesZvowr3PhnTRIOWFJ1XAjuM/kDSjVZnZikJYeRBg==
+
+effector@^20.15.6:
+  version "20.15.6"
+  resolved "http://npm.msk.avito.ru/effector/-/effector-20.15.6.tgz#5aac3c1267c6d2d433f3b71f1c1c1d929c218554"
+  integrity sha512-4x33ZH00a02ZiAchuJP9iHisXHS4RAIzWqUVdNdO00Vkz8XU0vFM6Cm378wQjgE5szOA8GtCQvhmy6i1yiR8dQ==
+  dependencies:
+    symbol-observable "^1.2.0"
+
 ejs@^2.6.1:
   version "2.7.4"
   resolved "http://npm.msk.avito.ru/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
@@ -8268,16 +8280,6 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.3:
   dependencies:
     minimist "^1.2.5"
 
-mobx-react-lite@^2.0.4:
-  version "2.0.5"
-  resolved "http://npm.msk.avito.ru/mobx-react-lite/-/mobx-react-lite-2.0.5.tgz#a17296938d34c5dd5e1f2666d57e8f799741cad3"
-  integrity sha512-7ifvIAHqxGDgVidRiSNIKLenZaspfhSDz9nkyWiyyZlqHbVTnxqNcB1jnQHEE9Kycl75Z//dN3IoQNeqWWsZ4g==
-
-mobx@^5.15.4:
-  version "5.15.4"
-  resolved "http://npm.msk.avito.ru/mobx/-/mobx-5.15.4.tgz#9da1a84e97ba624622f4e55a0bf3300fb931c2ab"
-  integrity sha512-xRFJxSU2Im3nrGCdjSuOTFmxVDGeqOHL+TyADCGbT0k4HHqGmx5u2yaHNryvoORpI4DfbzjJ5jPmuv+d7sioFw==
-
 mock-socket@^8.0.5:
   version "8.1.1"
   resolved "http://npm.msk.avito.ru/mock-socket/-/mock-socket-8.1.1.tgz#31a1e4bca1e6a7983b8b7c55c089b995a36f4d36"
@@ -11256,6 +11258,11 @@ supports-hyperlinks@^2.0.0:
   dependencies:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
+
+symbol-observable@^1.2.0:
+  version "1.2.0"
+  resolved "http://npm.msk.avito.ru/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
 
 symbol-tree@^3.2.2:
   version "3.2.4"

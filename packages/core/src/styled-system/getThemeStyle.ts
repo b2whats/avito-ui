@@ -6,11 +6,12 @@ type Theme = Tokens
 export type TextProperties = Partial<{
   fontFamily: string,
   fontSize: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | number | string,
-  lineHeight: 'none' | 'normal' | 'dense' | number,
+  lineHeight: 'inherit' | 'none' | 'normal' | 'dense' | number,
   letterSpacing: number,
   fontWeight: 'light' | 'normal' | 'bold',
   italic: boolean,
   noWrap: boolean,
+  wrap: boolean,
   pre: boolean,
   bold: boolean,
   light: boolean,
@@ -18,6 +19,7 @@ export type TextProperties = Partial<{
   truncate: boolean,
   crop: boolean,
   underline: boolean | 'dotted' | 'dashed',
+  smoothing: 'auto' | 'antialiased' | 'subpixel',
 }>
 
 type Width = number
@@ -298,6 +300,16 @@ const maps = {
     borderColorChecked: 'border-color',
     borderColorDisabled: 'border-color',
   },
+  webkitSmoothing: {
+    auto: 'auto',
+    antialiased: 'antialiased',
+    subpixel: 'subpixel-antialiased',
+  },
+  mozSmoothing: {
+    auto: 'auto',
+    antialiased: 'grayscale',
+    subpixel: 'grayscale',
+  },
 }
 
 const execComputables = (object: object, arg: any) => {
@@ -360,14 +372,12 @@ export const foldScheme = (scheme: any, props: any, only?: 'props' | 'style' | '
   return result
 }
 
-const baseStyle = ({ font }: Tokens) => `
+const baseStyle = () => `
   box-sizing: border-box;
-  ${font.smoothing.webkit ? `-webkit-font-smoothing: ${font.smoothing.webkit};` : ''}
-  ${font.smoothing.moz ? `-moz-osx-font-smoothing: ${font.smoothing.moz};` : ''}
 `
 
 export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
-  let css = baseStyle(tokens)
+  let css = baseStyle()
   const { font, dimension, space, palette, focus, shape } = tokens
 
   if (!params) return css
@@ -435,7 +445,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'wrap':
-        css += 'flex-wrap: wrap;'
+        css += 'flex-wrap: wrap; word-break: break-all;'
 
         break
       case 'uppercase':
@@ -487,6 +497,13 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
           line-height: 1;
           padding-bottom: ${font.underline.offset}px;
           border-bottom: ${font.underline.height}px ${typeof value === 'string' ? value : 'solid'} currentColor;
+        `
+
+        break
+      case 'smoothing':
+        css += `
+          -webkit-font-smoothing: ${maps.webkitSmoothing[value]};
+          -moz-osx-font-smoothing: ${maps.mozSmoothing[value]};
         `
 
         break

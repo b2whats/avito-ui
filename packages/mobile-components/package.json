@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "@avito/core": "^0.0.9",
-    "@avito/icons": "^0.0.14",
     "@avito/tokens": "^0.0.11"
   },
   "devDependencies": {

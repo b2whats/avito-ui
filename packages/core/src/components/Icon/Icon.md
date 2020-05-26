@@ -1,5 +1,5 @@
 ## Подключение
-Для того что бы ваш бандл имел минимальный размер, иконки были разделены на отдельно подключаемые компоненты.
+Для того чтобы ваш бандл имел минимальный размер, иконки были разделены на отдельно подключаемые компоненты.
 ```jsx static
 import { SearchIcon } from '@avito/icons'
 
@@ -8,7 +8,7 @@ import { SearchIcon } from '@avito/icons'
 <SearchIcon />
 ```
 
-Что бы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в локальном репозитории так и в репозитории с иконками
+Чтобы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в локальном репозитории так и в репозитории с иконками
 
 ```js static
 import React from 'react'
@@ -65,8 +65,8 @@ import { Box } from '../Layout/';
 ```
 
 ## Параметры цвета
-Параметр `color` устанавливае заливку иконки. Доступны все значения из палитры.
-По умолчанию иконка наследует цвет родителя.
+Параметр `color`, `colorHover` устанавливае заливку иконки. Доступны все значения из палитры.  
+По умолчанию иконка наследует цвет родителя.  
 
 ```js
 import { SearchIcon } from '@avito/icons'
@@ -75,6 +75,7 @@ import { Stack } from '../Layout/';
 <Stack spacing='m'>
   <SearchIcon />
   <SearchIcon color='blue500' />
+  <SearchIcon color='blue500' colorHover='red500' />
 </Stack>
 ```
 
@@ -134,19 +135,67 @@ import { Stack } from '../Layout/';
 </Stack>
 ```
 
+### Системные иконки
+В каждом платформенном пакете есть иконки, которые используются в компонентах. Они также доступны для импорта и создания своих компонентов.
+
+::: platform web
+```jsx static
+import { CrossIcon } from '@avito/web-components'
+```
+
+```js
+import * as components from '@avito/web-components'
+import { Text } from '../Text/'
+import { Stack, Box } from '../Layout/';
+
+<Stack wrap>
+  {Object.keys(components).map((name) => (
+    components[name].category === 'component' &&
+      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
+        {React.createElement(components[name])}
+        <Text size='xs' mt={8} align='center' wrap>{name}</Text>
+      </Box>
+  ))}
+</Stack>
+```
+:::
+
+::: platform mobile
+```jsx static
+import { CrossIcon } from '@avito/mobile-components'
+```
+
+```js
+import * as components from '@avito/mobile-components'
+import { Text } from '../Text/'
+import { Stack, Box } from '../Layout/';
+
+<Stack wrap>
+  {Object.keys(components).map((name) => (
+    components[name].category === 'component' &&
+      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
+        {React.createElement(components[name])}
+        <Text size='xs' mt={8} align='center'>{name}</Text>
+      </Box>
+  ))}
+</Stack>
+```
+:::
+
+
 ### Список иконок
 Для копирования названия иконки, просто кликните по ней
 
 ```js
 import * as icons from '@avito/icons'
-import { useTheme } from '../../theme/'
 import { Text } from '../Text/'
-import { Stack, Box } from '../Layout/';
+import { Stack, Box } from '../Layout/'
+
+const { platform } = useStore(ThemeStore);
 
 <Stack wrap>
   {Object.keys(icons).map((name) => (
-    !['component', 'playground'].includes(icons[name].category) &&
-    [undefined, 'mobile'].includes(icons[name].platform) &&
+    [undefined, platform].includes(icons[name].platform) &&
       <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
         {React.createElement(icons[name])}
         <Text size='xs' mt={8} align='center'>{name}</Text>

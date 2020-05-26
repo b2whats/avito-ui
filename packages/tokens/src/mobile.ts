@@ -47,10 +47,7 @@ export const mobile: Tokens = {
       offset: 0,
     },
 
-    smoothing: {
-      webkit: 'antialiased',
-      moz: 'grayscale',
-    },
+    smoothing: 'antialiased',
   },
   palette,
   dimension: {
