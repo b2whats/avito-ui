@@ -5,6 +5,41 @@ declare module '@avito/core' {
   enum InputPreset { inverse }
 }
 
+const textControlTheme = {
+  style: {
+    placeholderColor: 'gray44',
+    borderWidth: 1,
+    borderRadius: 4,
+    bgFocus: 'white',
+    focus: false,
+  },
+  variant: dsl.styleMap({
+    primary: pikInput('gray4', 'gray16'),
+    secondary: pikInput('gray8', 'gray20'),
+    error: pikInput('red50', 'red300'),
+    warning: pikInput('orange50', 'orange300'),
+    success: pikInput('green50', 'green300'),
+  }),
+  size: dsl.styleMap('px', {
+    s: 16,
+    m: 16,
+    l: 16,
+  }),
+  preset: {
+    inverse: {
+      variant: {
+        primary: {
+          style: {
+            bg: 'white',
+            bgDisabled: 'white',
+            borderColor: 'white',
+          },
+        },
+      },
+    },
+  },
+}
+
 export const pikTheme: DeepPartial<Theme> = {
   font: {
     fontFamily: 'Avito,"Helvetica Neue",Helvetica,sans-serif',
@@ -91,44 +126,19 @@ export const pikTheme: DeepPartial<Theme> = {
   },
   Input: {
     scheme: {
-      Input: {
-        style: {
-          placeholderColor: 'gray44',
-          borderWidth: 1,
-          borderRadius: 4,
-          bgFocus: 'white',
-          focus: false,
-        },
-        variant: dsl.styleMap({
-          primary: pikInput('gray4', 'gray16'),
-          secondary: pikInput('gray8', 'gray20'),
-          error: pikInput('red50', 'red300'),
-          warning: pikInput('orange50', 'orange300'),
-          success: pikInput('green50', 'green300'),
-        }),
-        size: dsl.styleMap('px', {
-          s: 16,
-          m: 16,
-          l: 16,
-        }),
-        preset: {
-          inverse: {
-            variant: {
-              primary: {
-                style: {
-                  bg: 'white',
-                  bgDisabled: 'white',
-                  borderColor: 'white',
-                },
-              },
-            },
-          },
-        },
-      },
+      Input: textControlTheme,
       IconAfter: {
         clearable: {
           component: CrossIcon,
         },
+      },
+    },
+  },
+  Textarea: {
+    scheme: {
+      Textarea: textControlTheme,
+      IconClear: {
+        component: CrossIcon,
       },
     },
   },
