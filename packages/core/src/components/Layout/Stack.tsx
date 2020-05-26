@@ -18,7 +18,7 @@ const stackClassName = createClassName<StackProps>(
     ` : ''}
 
     ${spacingCross ? `
-      & > * { margin-${column ? 'right' : 'bottom'}: ${space[spacingCross] || spacingCross}px; }
+      && > * { margin-${column ? 'right' : 'bottom'}: ${space[spacingCross] || spacingCross}px; }
     ` : ''}
 
     ${debug ? `

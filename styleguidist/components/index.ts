@@ -1,1 +1,2 @@
-export { default as CardDoc } from './CardDoc'
+export { CardDoc } from './CardDoc'
+export { ScrollBox } from './ScrollBox'

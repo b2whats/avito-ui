@@ -1,4 +1,4 @@
-import { Tokens, Palette } from '@avito/tokens'
+import { Tokens } from '@avito/tokens'
 import { ButtonTheme } from '../components/Button/theme'
 import { CheckboxTheme } from '../components/Checkbox/theme'
 import { IconTheme } from '../components/Icon/theme'
@@ -10,6 +10,7 @@ import { TextTheme } from '../components/Text/theme'
 import { TextareaTheme } from '../components/Textarea/theme'
 import { ToggleTheme } from '../components/Toggle/theme'
 import { PositionerTheme } from '../components/Positioner/theme'
+import { TooltipTheme } from '../components/Tooltip/theme'
 
 export interface Theme extends Tokens {
   Button: Partial<ButtonTheme>
@@ -23,4 +24,5 @@ export interface Theme extends Tokens {
   Textarea: Partial<TextareaTheme>
   Toggle: Partial<ToggleTheme>
   Positioner: Partial<PositionerTheme>
+  Tooltip: Partial<TooltipTheme>
 }

@@ -1,11 +1,10 @@
 import { Placement, StrictModifiers } from '@popperjs/core'
-import { MarginProperties } from '../../styled-system'
 import { PositionerTheme } from './theme'
 
 type Modifiers = StrictModifiers extends object ? Required<StrictModifiers> : never
 type FindByName<Union, Name> = Union extends { name: Name, options: any } ? Union['options'] | false : never
 
-export interface PositionerProps extends MarginProperties {
+export interface PositionerProps {
   children: React.ReactNode
   target?: React.ReactNode
   /* Позиция target */
@@ -18,6 +17,8 @@ export interface PositionerProps extends MarginProperties {
   arrow?: FindByName<Modifiers, 'arrow'>
   /* Параметры для переполнения */
   preventOverflow?: FindByName<Modifiers, 'preventOverflow'>
+  /* Параметры для скррытия target когда reference вышел за область видимости */
+  hide?: FindByName<Modifiers, 'hide'>
   /* Описывает стратегию позиционирования */
   strategy?: 'fixed' | 'absolute',
   /* Отрендерить в контексте портала */
@@ -34,4 +35,9 @@ export interface PositionerProps extends MarginProperties {
   modifiers?: StrictModifiers[]
   /** Переопределиь тему компонента */
   override?: PositionerTheme
+
+  /** Событие клика вне target и reference */
+  onOutsideClick?: () => void
+  /* Событие после закрытия target */
+  onClose: () => void
 }

@@ -129,8 +129,8 @@ type OtherProperties = BorderProperties & Partial<{
   disabled: boolean,
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   adjacentSelector: string,
-  shape?: 'pill' | 'square' | 'circle'
-  trancate: boolean
+  shape?: 'pill' | 'square' | 'circle',
+  shadow?: string | boolean,
 }>
 
 export type Colors = keyof Tokens['palette'] | 'transparent' | (string & {})
@@ -781,6 +781,11 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
             width = `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
           }
         }
+
+        break
+      }
+      case 'shadow': {
+        css += `box-shadow: ${value};`
 
         break
       }
