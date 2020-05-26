@@ -22,6 +22,7 @@ export const textareaTheme: TextareaTheme = {
       props: {
         color: 'gray28',
         area: 10,
+        visible: props => Boolean(props.clearable),
       },
       size: {
         s: {
