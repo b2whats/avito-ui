@@ -59,7 +59,7 @@ const text = 'В 2017, 2018 и 2019 гг. в ООО «КЕХ еКоммерц» 
 <Stack spacing='m' spacingCross='m' wrap>
   <Textarea autoSize value="autoSize" />
   <Textarea autoSize maxRows={3} value="autoSize до 3 строк" />
-  <Textarea autoSize rows={1} maxRows={3} value="autoSize от 1 до 3 строк" />
+  <Textarea autoSize minWidth={350} rows={3} maxRows={5} value="autoSize от 3 до 5 строк" />
 </Stack>
 ```
 

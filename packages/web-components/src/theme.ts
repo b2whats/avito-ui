@@ -5,8 +5,8 @@ import { inputTheme } from './components/Input/theme'
 import { iconTheme } from './components/Icon/theme'
 import { radioTheme } from './components/Radio/theme'
 import { textTheme } from './components/Text/theme'
-import { textareaTheme } from './components/Textarea/theme'
 import { switcherTheme } from './components/Switcher/theme'
+import { textareaTheme } from './components/Textarea/theme'
 import { toggleTheme } from './components/Toggle/theme'
 
 export const theme = {

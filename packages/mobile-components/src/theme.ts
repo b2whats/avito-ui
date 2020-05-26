@@ -9,6 +9,7 @@ import { inputTheme } from './components/Input/theme'
 import { radioTheme } from './components/Radio/theme'
 import { switcherTheme } from './components/Switcher/theme'
 import { textTheme } from './components/Text/theme'
+import { textareaTheme } from './components/Textarea/theme'
 import { toggleTheme } from './components/Toggle/theme'
 
 declare module '@avito/core' {
@@ -27,5 +28,6 @@ export const theme = {
   Radio: radioTheme,
   Switcher: switcherTheme,
   Text: textTheme,
+  Textarea: textareaTheme,
   Toggle: toggleTheme,
 }
