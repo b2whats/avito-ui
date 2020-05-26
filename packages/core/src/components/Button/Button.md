@@ -7,6 +7,7 @@ const [state, setState] = useState('default')
 ;
 
 <Stack spacing='m' column align='left'>
+  <Text bold mb={5}>Текст на кнопке</Text>
   <Input minWidth={200} inline value={state} onChange={({ target: { value } }) => setState(value)}/>
   <Button>{state}</Button>
 </Stack>
@@ -210,9 +211,9 @@ import { SearchIcon } from '@avito/icons'
 import { Text } from '../Text/'
 ;
 
-<Stack spacing={10} column>
-  <Stack p={10} spacing={10} valign='middle' wrap>
-    <Text>accent</Text>
+<Stack column>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} spacingCross={10} valign='middle' wrap>
+    <Text width={120}>accent</Text>
     <Button preset='accent'>Кнопка</Button>
     <Button preset='accent' disabled>Кнопка</Button>
     <Button preset='accent' loading>Кнопка</Button>
@@ -220,8 +221,8 @@ import { Text } from '../Text/'
     <Button preset='accent' shape='square' iconBefore={<SearchIcon />} />
     <Button preset='accent' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
-  <Stack p={10} spacing={10} valign='middle' wrap>
-    <Text>secondary</Text>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} valign='middle' wrap>
+    <Text width={120}>secondary</Text>
     <Button preset='secondary'>Кнопка</Button>
     <Button preset='secondary' disabled>Кнопка</Button>
     <Button preset='secondary' loading>Кнопка</Button>
@@ -229,8 +230,8 @@ import { Text } from '../Text/'
     <Button preset='secondary' shape='square' iconBefore={<SearchIcon />} />
     <Button preset='secondary' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
-  <Stack p={10} spacing={10} valign='middle' wrap>
-    <Text>default</Text>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} valign='middle' wrap>
+    <Text width={120}>default</Text>
     <Button preset='default'>Кнопка</Button>
     <Button preset='default' disabled>Кнопка</Button>
     <Button preset='default' loading>Кнопка</Button>
@@ -238,8 +239,8 @@ import { Text } from '../Text/'
     <Button preset='default' shape='square' iconBefore={<SearchIcon />} />
     <Button preset='default' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
-  <Stack p={10} spacing={10} bg='gray4' valign='middle' wrap>
-    <Text>defaultOnSurface</Text>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} bg='gray4' valign='middle' wrap>
+    <Text width={120}>defaultOnSurface</Text>
     <Button preset='defaultOnSurface'>Кнопка</Button>
     <Button preset='defaultOnSurface' disabled>Кнопка</Button>
     <Button preset='defaultOnSurface' loading>Кнопка</Button>
@@ -247,8 +248,8 @@ import { Text } from '../Text/'
     <Button preset='defaultOnSurface' shape='square' iconBefore={<SearchIcon />} />
     <Button preset='defaultOnSurface' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
-  <Stack p={10} spacing={10} bg='gray84' valign='middle' wrap>
-    <Text color='white'>defaultDark</Text>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} bg='gray84' valign='middle' wrap>
+    <Text width={120} color='white'>defaultDark</Text>
     <Button preset='defaultDark'>Кнопка</Button>
     <Button preset='defaultDark' disabled>Кнопка</Button>
     <Button preset='defaultDark' loading>Кнопка</Button>
@@ -256,8 +257,8 @@ import { Text } from '../Text/'
     <Button preset='defaultDark' shape='square' iconBefore={<SearchIcon />} />
     <Button preset='defaultDark' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
-  <Stack p={10} spacing={10} valign='middle' wrap>
-    <Text>outline</Text>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} valign='middle' wrap>
+    <Text width={120}>outline</Text>
     <Button preset='outline'>Кнопка</Button>
     <Button preset='outline' disabled>Кнопка</Button>
     <Button preset='outline' loading>Кнопка</Button>
@@ -265,8 +266,8 @@ import { Text } from '../Text/'
     <Button preset='outline' shape='square' iconBefore={<SearchIcon />} />
     <Button preset='outline' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
-  <Stack p={10} spacing={10} valign='middle' wrap>
-    <Text>pay</Text>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} valign='middle' wrap>
+    <Text width={120}>pay</Text>
     <Button preset='pay'>Кнопка</Button>
     <Button preset='pay' disabled>Кнопка</Button>
     <Button preset='pay' loading>Кнопка</Button>
@@ -274,8 +275,8 @@ import { Text } from '../Text/'
     <Button preset='pay' shape='square' iconBefore={<SearchIcon />} />
     <Button preset='pay' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
-  <Stack p={10} spacing={10} valign='middle' wrap>
-    <Text>appInstall</Text>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} valign='middle' wrap>
+    <Text width={120}>appInstall</Text>
     <Button preset='appInstall'>Кнопка</Button>
     <Button preset='appInstall' disabled>Кнопка</Button>
     <Button preset='appInstall' loading>Кнопка</Button>
@@ -283,8 +284,8 @@ import { Text } from '../Text/'
     <Button preset='appInstall' shape='square' iconBefore={<SearchIcon />} />
     <Button preset='appInstall' shape='circle' iconBefore={<SearchIcon />} />
   </Stack>
-  <Stack p={10} spacing={10} valign='middle' wrap>
-    <Text>linkIncreased</Text>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} valign='middle' wrap>
+    <Text width={120}>linkIncreased</Text>
     <Button preset='linkIncreased'>Кнопка</Button>
     <Button preset='linkIncreased' disabled>Кнопка</Button>
     <Button preset='linkIncreased' loading>Кнопка</Button>

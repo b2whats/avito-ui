@@ -5,12 +5,14 @@ import { platformFromPath } from './utils'
 import { store } from './store'
 
 export default observer(function ComponentsList(props: any) {
-  const items = props.items.sort((a: any, b: any) => {
+  // only sort components
+  const useSort = props.items.some((e: any) => e.hasExample)
+  const items = useSort ? props.items.sort((a: any, b: any) => {
     return +(a.name > b.name) || -(a.name < b.name)
   }).filter((item: any) => {
     const platform = platformFromPath(item.filepath)
     return platform === 'universal' || platform === store.platform
-  })
+  }) : props.items
 
   return <DefaultComponentsList items={items} />
 })
