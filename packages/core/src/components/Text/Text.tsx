@@ -12,8 +12,6 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
   }),
   (textRules, { strike }, { palette }) => (`
     margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 
     li& {
       list-style: none;

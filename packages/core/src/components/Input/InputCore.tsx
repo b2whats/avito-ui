@@ -57,8 +57,6 @@ const inputField = css`
     background-color: transparent;
     -webkit-text-fill-color: currentcolor;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     text-overflow: ellipsis;
     overflow: hidden;
   }
