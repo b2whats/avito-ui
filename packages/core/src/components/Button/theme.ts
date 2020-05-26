@@ -18,7 +18,6 @@ export const buttonTheme: ButtonTheme = {
     size: 'm',
     type: 'button',
   },
-  mapProps: p => ({ type: p.href ? undefined: p.type }),
   scheme: {
     Spinner: {
       size: {

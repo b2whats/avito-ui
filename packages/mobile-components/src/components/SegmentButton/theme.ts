@@ -11,9 +11,6 @@ export const segmentButtonTheme: SegmentButtonTheme = {
   defaultProps: {
     size: 'm',
   },
-  mapProps: ({ value, options }) => ({
-    value: !value && options && options.length > 0 ? options[0].value : value,
-  }),
   scheme: {
     Group: {
       style: {
