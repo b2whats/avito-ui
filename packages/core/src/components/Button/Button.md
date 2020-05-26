@@ -102,7 +102,7 @@ import { Stack, Box, Group } from '../Layout/'
 import { Radio } from '../Radio/'
 import * as icons from '@avito/icons'
 
-const [props, setProps] = useState({})
+const [props, setProps] = useState({ position: 'iconBefore' })
 const { platform } = useStore(ThemeStore)
 
 const onChange = ({ name, value }) => {

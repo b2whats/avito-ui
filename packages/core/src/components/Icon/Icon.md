@@ -153,7 +153,7 @@ import { Stack, Box } from '../Layout/';
     components[name].category === 'component' &&
       <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
         {React.createElement(components[name])}
-        <Text size='xs' mt={8} align='center'>{name}</Text>
+        <Text size='xs' mt={8} align='center' wrap>{name}</Text>
       </Box>
   ))}
 </Stack>

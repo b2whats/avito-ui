@@ -6,13 +6,13 @@ export const themes = [{
   platform: 'mobile',
   platformTheme: mobile,
   title: 'Мav',
-  theme: {},
+  theme: undefined,
 }, {
   name: 'web',
   platform: 'web',
   platformTheme: web,
   title: 'Веб',
-  theme: {},
+  theme: undefined,
 }, {
   name: 'pik',
   platform: 'web',

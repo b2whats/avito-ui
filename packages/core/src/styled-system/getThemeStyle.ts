@@ -11,6 +11,7 @@ export type TextProperties = Partial<{
   fontWeight: 'light' | 'normal' | 'bold',
   italic: boolean,
   noWrap: boolean,
+  wrap: boolean,
   pre: boolean,
   bold: boolean,
   light: boolean,
@@ -18,7 +19,7 @@ export type TextProperties = Partial<{
   truncate: boolean,
   crop: boolean,
   underline: boolean | 'dotted' | 'dashed',
-  smoothing: 'none' | 'auto' | 'antialiased' | 'subpixel',
+  smoothing: 'auto' | 'antialiased' | 'subpixel',
 }>
 
 type Width = number
@@ -444,7 +445,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'wrap':
-        css += 'flex-wrap: wrap;'
+        css += 'flex-wrap: wrap; word-break: break-all;'
 
         break
       case 'uppercase':
@@ -500,8 +501,6 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'smoothing':
-        if (value === 'none') break
-
         css += `
           -webkit-font-smoothing: ${maps.webkitSmoothing[value]};
           -moz-osx-font-smoothing: ${maps.mozSmoothing[value]};

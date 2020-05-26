@@ -5,7 +5,7 @@ import { ThemeStore } from '../store'
 import { useStore } from 'effector-react'
 
 export default function PlatformExamples(props: any) {
-  const store = useStore(ThemeStore)
+  const { platform } = useStore(ThemeStore)
 
-  return <Examples {...props} examples={filterMarkdown(props.examples, store.platform)} />
+  return <Examples {...props} examples={filterMarkdown(props.examples, platform)} />
 }
