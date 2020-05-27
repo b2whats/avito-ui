@@ -1,7 +1,7 @@
-import { TooltipTheme } from '@avito/core'
+import { DeepPartial, TooltipTheme } from '@avito/core'
 import { CrossIcon } from '../Icon/'
 
-export const tooltipTheme: TooltipTheme = {
+export const tooltipTheme: DeepPartial<TooltipTheme> = {
   defaultProps: {
     offset: {
       offset: [0, 10],
@@ -36,7 +36,7 @@ export const tooltipTheme: TooltipTheme = {
       style: {
         width: 10,
         height: 10,
-        offset: 5,
+        offset: 4,
       },
     },
     Close: {

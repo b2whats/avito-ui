@@ -1,6 +1,6 @@
-import { TooltipTheme } from '@avito/core'
+import { DeepPartial, TooltipTheme } from '@avito/core'
 
-export const tooltipTheme: TooltipTheme = {
+export const tooltipTheme: DeepPartial<TooltipTheme> = {
   defaultProps: {
     offset: {
       offset: [0, 7],
