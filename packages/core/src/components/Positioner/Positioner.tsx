@@ -57,9 +57,8 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
 
     if (!animation) {
       popper.current.destroy()
-    }
-
-    if (item && phase === 'leave') {
+      popper.current = undefined
+    } else if (item && phase === 'leave') {
       popper.current.destroy()
       popper.current = undefined
     }
@@ -143,18 +142,20 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
     }
   }, [trigger, delay])
 
-  const target = animation ?
+  const target = typeof props.target === 'function' ? props.target({ handleToggle }) : props.target
+
+  const targetWrapper = animation ?
     <Transition items={localOpen} {...(transitions[animation] || animation)} onRest={handlePopperDestroy}>
-      {(style, item) => item && <animated.div ref={localOpen ? setTarget : undefined} style={style}>{props.target}</animated.div>}
+      {(style, item) => item && <animated.div ref={localOpen ? setTarget : undefined} style={style}>{target}</animated.div>}
     </Transition> :
-    localOpen && <div ref={setTarget}>{props.target}</div>
+    localOpen && <div ref={setTarget}>{target}</div>
 
   return (
     <React.Fragment>
       {!init && <div ref={setReference} hidden />}
       {children}
       <Portal turn={usePortal}>
-        {target}
+        {targetWrapper}
       </Portal>
     </React.Fragment>
   )

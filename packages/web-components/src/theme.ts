@@ -8,6 +8,7 @@ import { textTheme } from './components/Text/theme'
 import { switcherTheme } from './components/Switcher/theme'
 import { textareaTheme } from './components/Textarea/theme'
 import { toggleTheme } from './components/Toggle/theme'
+import { tooltipTheme } from './components/Tooltip/theme'
 
 export const theme = {
   ...web,
@@ -20,4 +21,5 @@ export const theme = {
   Text: textTheme,
   Textarea: textareaTheme,
   Toggle: toggleTheme,
+  Tooltip: tooltipTheme,
 }

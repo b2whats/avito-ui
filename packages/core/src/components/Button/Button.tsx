@@ -144,5 +144,3 @@ export const Button = uiComponent('Button', buttonTheme)<
     </Tag>
   )
 })
-
-export default Button

@@ -1,7 +1,7 @@
 import React, { useRef, useLayoutEffect, useState, useMemo, useCallback } from 'react'
 import { useTheme, mergeTheme } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
-import { Positioner } from '../Positioner/'
+import { Positioner, PositionerProps } from '../Positioner/'
 import { TooltipProps } from './contract'
 import { tooltipTheme } from './theme'
 
@@ -13,12 +13,12 @@ const tooltipClassName = createClassName<Omit<TooltipProps, 'minWidth' | 'width'
   })
 )
 
-const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Tooltip'>(
+const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Arrow'>(
   (themeStyle) => ({
     display: 'inline-block',
     ...themeStyle,
   }),
-  (textRules, _, __, schemeStyle) => `
+  (textRules, _, __, themeStyle) => `
     box-sizing: border-box;
     visibility: hidden;
     background-color: inherit;
@@ -33,19 +33,20 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Toolt
       vertical-align: top;
       visibility: visible;
       background-color: inherit;
+      border-radius: inherit;
     }
 
     [data-popper-placement^='top'] & {
-      bottom: -${schemeStyle.width!/2}px;
+      bottom: -${themeStyle.offset}px;
     }
     [data-popper-placement^='bottom'] & {
-      top: -${schemeStyle.width!/2}px;
+      top: -${themeStyle.offset}px;
     }
     [data-popper-placement^='left'] & {
-      right: -${schemeStyle.width!/2}px;
+      right: -${themeStyle.offset}px;
     }
     [data-popper-placement^='right'] & {
-      left: -${schemeStyle.width!/2}px;
+      left: -${themeStyle.offset}px;
     }
 
     ${textRules}
@@ -65,13 +66,14 @@ export const Tooltip = ({ minWidth, width, maxWidth, content, override, ...props
     minWidth, width, maxWidth,
   }), [minWidth, width, maxWidth])
 
-  const { Tooltip, Arrow, CloseIcon } = foldThemeParams(props, componentTheme)
+  const { Tooltip, Arrow, Close } = foldThemeParams(props, componentTheme)
   const tooltipStyle = tooltipClassName(props, theme, Tooltip.style)
   const arrowStyle = arrowClassName(props, theme, Arrow.style)
 
-  const target = (
+  const target: PositionerProps['target'] = ({ handleToggle }) => (
     <div css={tooltipStyle}>
       {props.arrow && <div css={arrowStyle} data-popper-arrow />}
+      {props.closeIcon && Close.component && <Close.component {...Close.props} onClick={() => handleToggle(false)} />}
       {content}
     </div>
   )

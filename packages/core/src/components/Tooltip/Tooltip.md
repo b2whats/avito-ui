@@ -32,7 +32,7 @@ const placement = [
     ))} 
   </Stack>
   <ScrollBox>
-    <Tooltip {...props} content={text} onOutsideClick={onOutsideClick}>
+    <Tooltip {...props} content={text} closeIcon onOutsideClick={onOutsideClick}>
       <Box bg='gray8' width={200} height={150}></Box>
     </Tooltip>
   </ScrollBox>

@@ -4,9 +4,12 @@ import { PositionerTheme } from './theme'
 
 type Modifiers = StrictModifiers extends object ? Required<StrictModifiers> : never
 type FindByName<Union, Name> = Union extends { name: Name, options: any } ? Union['options'] | false : never
+type TargetProps = {
+  handleToggle: (open: boolean) => void
+}
 export interface PositionerProps {
   children: React.ReactNode
-  target?: any
+  target?: React.ReactNode | ((props: TargetProps) => React.ReactNode)
   /* Позиция target */
   placement?: Placement
   /* Смещение target оносиельно reference */
