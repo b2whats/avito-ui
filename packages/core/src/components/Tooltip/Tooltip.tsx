@@ -5,9 +5,9 @@ import { Positioner } from '../Positioner/'
 import { TooltipProps } from './contract'
 import { tooltipTheme } from './theme'
 
-const tooltipClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Tooltip'>(
+const tooltipClassName = createClassName<Omit<TooltipProps, 'minWidth' | 'width' | 'maxWidth'>, typeof tooltipTheme, 'Tooltip'>(
   (themeStyle, props) => ({
-    display: 'inline-block',
+    display: 'block',
     ...themeStyle,
     ...props,
   })
@@ -52,7 +52,7 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Toolt
   `
 )
 
-export const Tooltip = ({ override, content, ...props }: TooltipProps) => {
+export const Tooltip = ({ minWidth, width, maxWidth, content, override, ...props }: TooltipProps) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(tooltipTheme, theme.Tooltip, override)
 
@@ -61,19 +61,23 @@ export const Tooltip = ({ override, content, ...props }: TooltipProps) => {
     ...props,
   }
 
+  const targetWidth = useMemo(() => ({
+    minWidth, width, maxWidth,
+  }), [minWidth, width, maxWidth])
+
   const { Tooltip, Arrow, CloseIcon } = foldThemeParams(props, componentTheme)
   const tooltipStyle = tooltipClassName(props, theme, Tooltip.style)
   const arrowStyle = arrowClassName(props, theme, Arrow.style)
 
   const target = (
     <div css={tooltipStyle}>
-      <div css={arrowStyle} data-popper-arrow></div>
+      {props.arrow && <div css={arrowStyle} data-popper-arrow />}
       {content}
     </div>
   )
 
   return (
-    <Positioner {...props} target={target}>
+    <Positioner {...props} target={target} targetWidth={targetWidth}>
       {props.children}
     </Positioner>
   )

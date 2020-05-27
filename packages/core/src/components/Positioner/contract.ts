@@ -1,12 +1,12 @@
 import { Placement, StrictModifiers } from '@popperjs/core'
+import { TargetWidthModifier } from './modifiers/'
 import { PositionerTheme } from './theme'
 
 type Modifiers = StrictModifiers extends object ? Required<StrictModifiers> : never
 type FindByName<Union, Name> = Union extends { name: Name, options: any } ? Union['options'] | false : never
-
 export interface PositionerProps {
   children: React.ReactNode
-  target?: React.ReactNode
+  target?: any
   /* Позиция target */
   placement?: Placement
   /* Смещение target оносиельно reference */
@@ -15,6 +15,8 @@ export interface PositionerProps {
   flip?: FindByName<Modifiers, 'flip'>
   /* Параметры для срелки */
   arrow?: FindByName<Modifiers, 'arrow'>
+  /* Стилевые параметры для target */
+  targetWidth?: TargetWidthModifier['options']
   /* Параметры для переполнения */
   preventOverflow?: FindByName<Modifiers, 'preventOverflow'>
   /* Параметры для скррытия target когда reference вышел за область видимости */
@@ -38,6 +40,8 @@ export interface PositionerProps {
 
   /** Событие клика вне target и reference */
   onOutsideClick?: () => void
-  /* Событие после закрытия target */
+  /* Событие появления target */
+  onOpen: () => void
+  /* Событие закрытия target */
   onClose: () => void
 }

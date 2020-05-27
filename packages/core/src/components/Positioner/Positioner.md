@@ -17,8 +17,8 @@ const onOutsideClick = React.useCallback(() => { console.log('onOutsideClick') }
     <Button size='s' onClick={onToggleAnimation}>Animation {props.animation ? 'off' : 'on'}</Button>
   </Stack>
   <ScrollBox>
-    <Positioner {...props} target={'Target'} onOutsideClick={onOutsideClick}>
-      Reference
+    <Positioner {...props} target={<div>'Target'</div>} onOutsideClick={onOutsideClick}>
+      <div>Reference</div>
     </Positioner>
   </ScrollBox>
 </Stack>

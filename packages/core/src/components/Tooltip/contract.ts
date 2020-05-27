@@ -1,10 +1,20 @@
 import { PositionerProps, PositionerTheme } from '../Positioner/'
+import { SpaceProperties, DimensionProperties, ColorProperties, BorderProperties, LayoutProperties, TextProperties } from '../../styled-system/'
 
-export interface TooltipProps extends Omit<PositionerProps, 'target'> {
+type StyleProps = SpaceProperties & ColorProperties & Omit<DimensionProperties, 'minWidth' | 'width' | 'maxWidth'> & BorderProperties & LayoutProperties & TextProperties
+export interface TooltipProps extends Omit<PositionerProps, 'target' | 'targetWidth'>, StyleProps {
   /** Контент */
   content?: React.ReactNode
+  /** Ширина */
+  width?: 'reference' | number
+  /** Минимальная ширина */
+  minWidth?: 'reference' | number
+  /** Максимальная ширина */
+  maxWidth?: 'reference' | number
+
+  /* Внешний вид */
   preset?: 'light' | 'attention' | 'dark'
-  /** Переопределиь тему компонента */
+  /* Переопределиь тему компонента */
   override?: PositionerTheme
   /* Добавляет крестик закрыития */
   onClose: () => void

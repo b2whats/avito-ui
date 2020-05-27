@@ -50,6 +50,12 @@ export const tooltipTheme: TooltipTheme = {
         height: 10,
       },
     },
-    CloseIcon: {},
+    CloseIcon: {
+      style: {
+        position: 'absolute',
+        right: 10,
+        top: 10,
+      },
+    },
   },
 }

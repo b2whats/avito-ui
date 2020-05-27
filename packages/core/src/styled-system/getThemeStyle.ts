@@ -109,6 +109,14 @@ export type LayoutProperties = AlignProperties & Partial<{
   wrap: boolean,
   /** Положение элемента в потоке */
   position: 'relative' | 'absolute' | 'static' | 'fixed',
+  /* Расстояние от верхнего края */
+  top: number,
+  /* Расстояние от нижнего края */
+  bottom: number,
+  /* Расстояние от левого края */
+  left: number,
+  /* Расстояние от правого края */
+  right: number,
   /** Добавляет скролл */
   scroll?: boolean
 }>
@@ -744,6 +752,13 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         break
       case 'position':
         css += `position: ${value};`
+
+        break
+      case 'top':
+      case 'bottom':
+      case 'left':
+      case 'right':
+        css += `${param}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
 
         break
       case 'focus': {

@@ -1,21 +1,26 @@
 import React, { useRef, useLayoutEffect, useState, useMemo, useCallback } from 'react'
 import { animated, Transition } from 'react-spring'
-import { createPopper, Instance } from '@popperjs/core'
+import { popperGenerator, defaultModifiers, Instance } from '@popperjs/core/lib/popper'
 import { useTheme, mergeTheme } from '../../theme/'
 import { Portal } from '../Portal/'
 import { useRefHook } from '../../hooks/'
 import { PositionerProps } from './contract'
 import { positionerTheme } from './theme'
+import { targetWidth } from './modifiers/'
+
+const createPopper = popperGenerator({
+  defaultModifiers: [...defaultModifiers, targetWidth],
+})
 
 const getModifiers = (props: Partial<PositionerProps>) => {
-  const modifiers = ['offset', 'arrow', 'flip', 'preventOverflow', 'hide']
+  const modifiers = ['offset', 'arrow', 'flip', 'preventOverflow', 'hide', 'targetWidth']
 
   return modifiers.map(param => param in props
     && { name: param, enabled: Boolean(props[param]), options: props[param] || {} }
   ).filter(Boolean) as PositionerProps['modifiers']
 }
 
-export const Positioner = ({ usePortal, animation, delay, open, trigger, override, children, onOutsideClick, onClose, ...props }: PositionerProps) => {
+export const Positioner = ({ usePortal, animation, delay, open, trigger, override, children, onOutsideClick, onClose, onOpen, ...props }: PositionerProps) => {
   const theme = useTheme()
   const { transitions, defaultProps } = mergeTheme(positionerTheme, theme.Positioner, override)
   const [init, setInit] = useState(false)
@@ -44,6 +49,7 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
     props.hide,
     props.flip,
     props.preventOverflow,
+    props.targetWidth,
   ])
 
   const handlePopperDestroy = useCallback((_?: any, { item, phase }: any = {}) => {
@@ -55,27 +61,33 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
 
     if (item && phase === 'leave') {
       popper.current.destroy()
+      popper.current = undefined
     }
   }, [animation])
 
   const handleToggle = useCallback((event) => {
-    let value = typeof event === 'boolean' ? event : event.type
+    let type = typeof event === 'boolean' ? event : event.type
 
     clearTimeout(openTimerId.current)
 
     openTimerId.current = setTimeout(() => {
-      setLocalOpen(open => ({
-        true: true,
-        false: false,
-        click: !open,
-        mouseenter: true,
-        mouseleave: false,
-      }[value]))
+      setLocalOpen(open => {
+        const value = {
+          true: true,
+          false: false,
+          click: !open,
+          mouseenter: true,
+          mouseleave: false,
+        }[type]
 
-      onClose && onClose()
+        value && onOpen && onOpen()
+        !value && onClose && onClose()
+        
+        return value
+      })
     }, delay)
 
-  }, [delay, onClose])
+  }, [delay, onClose, onOpen])
 
   const handleOutsideClick = useCallback((event: MouseEvent) => {
     const target = targetRef.current
@@ -101,8 +113,13 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
 
     if (reference === null || target === null) return
 
-    target.style.margin = '0px'
-    popper.current = createPopper(reference, target, options)
+    if (!popper.current) {
+      target.style.margin = '0px'
+      popper.current = createPopper(reference, target, options)
+    } else {
+      popper.current.setOptions(options)
+    }
+
     onOutsideClick && document.addEventListener('click', handleOutsideClick, true)
 
     return () => {
