@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useStore } from 'effector-react'
 import * as helpers from './components'
 import { ThemeStore } from './store'
@@ -8,6 +8,7 @@ for (const name in helpers) {
 }
 
 global['useState'] = useState
+global['useRef'] = useRef
 global['useStore'] = useStore
 global['ThemeStore'] = ThemeStore
 

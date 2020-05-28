@@ -77,6 +77,9 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
           click: !open,
           mouseenter: true,
           mouseleave: false,
+          focus: true,
+          blur: false,
+          scroll: false,
         }[type]
 
         value && onOpen && onOpen()
@@ -120,21 +123,29 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
     }
 
     onOutsideClick && document.addEventListener('click', handleOutsideClick, true)
+    props.closeWhenScrolling && document.addEventListener('scroll', handleToggle)
 
     return () => {
+      console.log('destroy')
       handlePopperDestroy()
       onOutsideClick && document.removeEventListener('click', handleOutsideClick, true)
+      props.closeWhenScrolling && document.removeEventListener('scroll', handleToggle)
     }
-  }, [localOpen, options, handleOutsideClick, handlePopperDestroy])
+  }, [localOpen, options, usePortal, animation, handleOutsideClick])
 
   useLayoutEffect(() => {
     const reference = referenceRef.current
     const eventsType = trigger && {
       click: ['click'],
       hover: ['mouseenter', 'mouseleave'],
+      focus: ['focus', 'blur'],
     }[trigger]
 
     if (reference === null || !eventsType) return
+    if (trigger === 'focus') {
+      (reference as HTMLElement).tabIndex = -1;
+      (reference as HTMLElement).style.outline = 'none'
+    }
     eventsType.forEach(type => reference.addEventListener(type, handleToggle))
 
     return () => {

@@ -29,13 +29,15 @@ export interface PositionerProps {
   /* Отрендерить в контексте портала */
   usePortal?: boolean
   /* Стратегия появления target элемента */
-  trigger?: 'click' | 'hover'
+  trigger?: 'click' | 'hover' | 'focus'
   /* Показать или спрятать target  */
   open?: boolean
   /* Задержка при появлении ms */
   delay?: number
   /* Стратегия появления target элемента */
   animation?: 'fade'
+  /* Спрятать при скроле */
+  closeWhenScrolling?: boolean
   /* Позволяе переопределить все модификаторы popper, другие параметры перестают влиять */
   modifiers?: StrictModifiers[]
   /** Переопределиь тему компонента */

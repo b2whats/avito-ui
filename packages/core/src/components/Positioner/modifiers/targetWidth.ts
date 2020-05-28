@@ -6,7 +6,7 @@ type Options = {
   width: Width,
   maxWidth: Width
 }
-export type TargetWidthModifier = Modifier<'targetWidth', Options>;
+export type TargetWidthModifier = Modifier<'targetWidth', Options>
 
 export const targetWidth: TargetWidthModifier = {
   name: 'targetWidth',
