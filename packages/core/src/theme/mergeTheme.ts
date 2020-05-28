@@ -5,8 +5,8 @@ const cache = new WeakMap()
 const defaultKey = {}
 
 export const mergeTheme = <T extends object>(
-  defaultTheme: T, 
-  globalOverride: DeepPartial<T> = defaultKey, 
+  defaultTheme: T,
+  globalOverride: DeepPartial<T> = defaultKey,
   localOverride: DeepPartial<T> = defaultKey
 ): T => {
   let cursor = cache

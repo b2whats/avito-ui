@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTheme, mergeTheme } from '../../theme/'
 import { filterProps } from '../../utils/'
 import { useRefHook, usePrevent3DTouch } from '../../hooks/'
@@ -50,6 +50,7 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
     shrink: false,
     shape: props.shape,
     adjacentSelector: 'input',
+    variant: props.variant,
     ...themeStyle,
   }),
   (textRules) => (`
@@ -80,6 +81,13 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
 
   const [ref, setRef] = useRefHook<HTMLInputElement>()
   const groupProps = useGroupHook(ref, props)
+
+  // Uncontrolled input for demos
+  if (theme._demo && !groupProps.onChange) {
+    const [checked, onChange] = useState(groupProps.checked || false)
+    groupProps.checked = checked
+    groupProps.onChange = v => onChange(v.checked)
+  }
 
   useEffect(() => {
     if (props.indeterminate !== undefined && ref.current) {

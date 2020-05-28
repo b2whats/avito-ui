@@ -3,19 +3,20 @@ import { ToggleProps } from './contract'
 import { TextProps } from '../Text/contract'
 import { IconProps } from '../Icon/contract'
 
-export type ToggleTheme = {
-  defaultProps?: Partial<ToggleProps>,
+export type ToggleTheme<Props = ToggleProps> = {
+  defaultProps?: Partial<Props>,
   scheme: {
-    Toggle: SchemeType<ToggleProps>,
-    Switch: SchemeType<ToggleProps>,
-    Icon: SchemeType<ToggleProps, IconProps>,
-    Label: SchemeType<ToggleProps, TextProps>,
+    Toggle: SchemeType<Props>,
+    Switch: SchemeType<Props>,
+    Icon: SchemeType<Props, IconProps>,
+    Label: SchemeType<Props, TextProps>,
   },
 }
 
 export const toggleTheme: ToggleTheme = {
   defaultProps: {
     labelPosition: 'end',
+    size: 'm',
   },
   scheme: {
     Toggle: {},
@@ -28,18 +29,6 @@ export const toggleTheme: ToggleTheme = {
       disabled: {
         props: {
           color: 'gray48',
-        },
-      },
-      labelPosition: {
-        start: {
-          props: {
-            mr: 16,
-          },
-        },
-        end: {
-          props: {
-            ml: 16,
-          },
         },
       },
     },
