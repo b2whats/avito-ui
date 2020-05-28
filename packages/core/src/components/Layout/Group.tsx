@@ -1,5 +1,6 @@
 import React, { useRef, useContext, useState, useEffect } from 'react'
 import scrollIntoView from 'scroll-into-view-if-needed'
+import { useTheme } from '../../theme'
 import { GroupProps } from './contract'
 import { Stack } from './Stack'
 
@@ -35,20 +36,20 @@ export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObj
   if (!groupContext) return targetProps as T
 
   const [positions, setPositions] = useState<string>('')
-  
+
   useEffect(() => {
     if (groupContext && ref.current !== null) {
       groupContext.elements.current.push(ref.current)
-      
+
       let node: HTMLElement | null = ref.current
       let prevNode = null
-  
-      while (node) { 
+
+      while (node) {
         if (node.matches('[role*=group]')) {
           let pos = []
           node.firstElementChild === prevNode && (pos.push('first'))
           node.lastElementChild === prevNode && (pos.push('last'))
-          
+
           setPositions(pos.join(' '))
           break
         } else {
@@ -79,12 +80,15 @@ export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObj
     const checked = groupContext.checked && groupContext.checked.includes(targetProps.value)
     const isFirstChecked = !groupContext.checked && positions.includes('first')
 
-    targetProps.checked = checked || false
-    targetProps.role = groupContext.mode
-    targetProps.disabled = groupContext.disabled
-    targetProps.tabIndex = (checked && !targetProps.disabled) || isFirstChecked || groupContext.mode !== 'radio' ? 0 : -1
-    targetProps.onClick = groupContext.onClick
-    targetProps.onKeyDown = groupContext.onKeyDown
+    targetProps = {
+      checked: checked || false,
+      role: groupContext.mode,
+      disabled: groupContext.disabled,
+      tabIndex: (checked && !targetProps.disabled) || isFirstChecked || groupContext.mode !== 'radio' ? 0 : -1,
+      onClick: groupContext.onClick,
+      onKeyDown: groupContext.onKeyDown,
+      ...targetProps,
+    }
   }
 
   return targetProps as T & GroupTargetHook
@@ -93,6 +97,12 @@ export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObj
 
 const Group = ({ children, block, mode, value, name, disabled, onChange, ...props }: GroupProps) => {
   const elements =  useRef<(HTMLInputElement | HTMLButtonElement)[]>([])
+
+  if (!onChange && useTheme()._demo && mode === 'radio') {
+    const [fallbackValue, fallbackChange] = useState(value)
+    onChange = e => fallbackChange(e.value)
+    value = fallbackValue
+  }
 
   const onClick = (event: React.MouseEvent<HTMLElement>) => {
     if (!onChange || !mode) return
@@ -149,7 +159,7 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
           event.preventDefault()
           currentIndex = currentIndex === 0 ? count - 1 : currentIndex - 1
           next = elements.current[currentIndex]
-          break  
+          break
       }
     } while (next && next.disabled)
 
@@ -160,7 +170,7 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
   }
 
   const orientation = props.column ? 'vertical' : 'horizontal'
-  
+
   const context: GroupContext = {
     onClick: onChange ? onClick : undefined,
     onKeyDown: mode === 'radio' ? onKeyDown : undefined,
@@ -184,7 +194,7 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
     <GroupContext.Provider value={context}>
       <Stack inline={!block} {...props} {...aria}>{children}</Stack>
     </GroupContext.Provider>
-  ) 
+  )
 }
 
 export default Group

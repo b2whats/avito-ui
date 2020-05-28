@@ -1,6 +1,8 @@
-import { mergeTheme, foldThemeParams, CheckboxTheme } from '@avito/core'
-import { buttonTheme, inputTheme, textTheme, checkboxTheme, toggleTheme } from '@avito/core'
+import { mergeTheme, foldThemeParams, CheckboxTheme, RadioTheme } from '@avito/core'
+import { buttonTheme, inputTheme, textTheme, checkboxTheme, toggleTheme, radioTheme } from '@avito/core'
 import { theme } from './theme'
+
+const variant = ['primary', 'secondary', 'success', 'error', 'warning']
 
 describe('mobile theme', () => {
   it('button theme snap', () => {
@@ -16,9 +18,20 @@ describe('mobile theme', () => {
   describe('checkbox', () => {
     const prebuiltTheme = mergeTheme(toggleTheme as any, theme.Toggle, mergeTheme(checkboxTheme, theme.Checkbox))
     const propValues = {
-      variant: ['primary', 'secondary', 'success', 'error', 'warning'],
+      variant,
       checked: [true, false],
       shape: ['circle', 'square'],
+    }
+
+    it('snap', () => expect(prebuiltTheme).toMatchSnapshot())
+    it('fuzz', () => fuzz(propValues, prebuiltTheme))
+  })
+
+  describe('radio', () => {
+    const prebuiltTheme = mergeTheme(toggleTheme as any, theme.Toggle, mergeTheme(radioTheme, theme.Radio))
+    const propValues = {
+      variant,
+      checked: [true, false],
     }
 
     it('snap', () => expect(prebuiltTheme).toMatchSnapshot())

@@ -15,6 +15,11 @@ export const toggleTheme: DeepPartial<ToggleTheme> = {
           },
         },
       },
+      disabled: {
+        props: {
+          color: 'gray48',
+        },
+      },
     },
   },
 }

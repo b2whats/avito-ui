@@ -80,10 +80,11 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
   }
 
   const [ref, setRef] = useRefHook<HTMLInputElement>()
+
   const groupProps = useGroupHook(ref, props)
 
   // Uncontrolled input for demos
-  if (theme._demo && !groupProps.onChange) {
+  if (theme._demo && !groupProps.onChange && groupProps.mode === 'checkbox') {
     const [checked, onChange] = useState(groupProps.checked || false)
     groupProps.checked = checked
     groupProps.onChange = v => onChange(v.checked)
@@ -112,7 +113,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
   const preventLabelClick = (event: React.MouseEvent<HTMLInputElement>) => {
     event.stopPropagation()
 
-    props.onClick && props.onClick(event)
+    groupProps.onClick && groupProps.onClick(event)
   }
 
   const onChange = () => {
@@ -123,7 +124,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
       type: aria.role,
     }
 
-    props.onChange && props.onChange(value)
+    groupProps.onChange && groupProps.onChange(value)
   }
 
   const { Toggle, Switch, Icon, Label } = foldThemeParams(groupProps, componentTheme)

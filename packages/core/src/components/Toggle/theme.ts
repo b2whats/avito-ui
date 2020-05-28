@@ -26,11 +26,6 @@ export const toggleTheme: ToggleTheme = {
       props: {
         size: 'm',
       },
-      disabled: {
-        props: {
-          color: 'gray48',
-        },
-      },
     },
   },
 }

@@ -10,8 +10,13 @@ export const checkboxTheme: CheckboxTheme = {
     size: 'm',
   },
   scheme: {
-    Switch: {},
     Icon: {},
+    Switch: {
+      style: {
+        color: 'white',
+        bgDisabled: 'gray4',
+      },
+    },
     Label: {},
     Toggle: {},
   },
