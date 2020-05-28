@@ -55,10 +55,7 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
   const handlePopperDestroy = useCallback((_?: any, { item, phase }: any = {}) => {
     if (!popper.current) return
 
-    if (!animation) {
-      popper.current.destroy()
-      popper.current = undefined
-    } else if (item && phase === 'leave') {
+    if (!animation || (item && phase === 'leave')) {
       popper.current.destroy()
       popper.current = undefined
     }
