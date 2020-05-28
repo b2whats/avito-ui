@@ -5,7 +5,7 @@ import { Toggle } from '../Toggle/'
 import { SwitcherProps } from './contract'
 import { switcherTheme } from './theme'
 
-const circleStyle = () => css`
+const circleStyle = (positionLoading: boolean) => css`
   &::before {
     transition: width .2s ease .05s;
     width: 0%;
@@ -35,13 +35,13 @@ const circleStyle = () => css`
 
   [aria-busy='true'] > &&::before,
   [aria-busy='true'] > &&::after {
-    width: 0%;
+    ${positionLoading ? '' : 'width: 0%;'}
   }
 `
 
 const Switcher = uiComponent('Switcher', switcherTheme)((props: SwitcherProps, { theme }) => {
   return (
-    <Toggle css={circleStyle} {...props} mode='checkbox' override={theme}>
+    <Toggle css={circleStyle(theme.positionLoading)} {...props} mode='checkbox' override={theme}>
       {({ Icon }) => Icon && <Icon.component {...Icon.props} size='auto' />}
     </Toggle>
   )

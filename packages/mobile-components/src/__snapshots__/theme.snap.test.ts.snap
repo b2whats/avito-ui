@@ -2611,6 +2611,7 @@ Object {
     "variant": "primary",
   },
   "mapProps": [Function],
+  "positionLoading": false,
   "scheme": Object {
     "Icon": Object {
       "component": [Function],
