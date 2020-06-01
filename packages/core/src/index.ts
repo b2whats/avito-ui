@@ -1,3 +1,4 @@
+export * from './components/Avatar'
 export { Button } from './components/Button/'
 export * from './components/Button/'
 export type { ButtonPreset } from './components/Button/contract'

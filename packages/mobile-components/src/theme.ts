@@ -1,5 +1,6 @@
 import { Theme } from '@avito/core'
 import { mobile } from '@avito/tokens'
+import { avatarTheme } from './components/Avatar/theme'
 import { buttonTheme } from './components/Button/theme'
 import { checkboxTheme } from './components/Checkbox/theme'
 import { CheckmarkTheme } from './components/Checkmark'
@@ -25,6 +26,7 @@ declare module '@avito/core' {
 
 export const theme = {
   ...mobile,
+  Avatar: avatarTheme,
   Button: buttonTheme,
   Checkbox: checkboxTheme,
   Icon: iconTheme,
