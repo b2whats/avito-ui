@@ -5,6 +5,7 @@ export const avatarTheme: DeepPartial<AvatarTheme> = {
     Wrapper: {
       style: {
         bg: 'gray4',
+        overlayActive: 'black24',
       },
       type: {
         shop: {

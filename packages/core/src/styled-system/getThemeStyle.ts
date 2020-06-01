@@ -159,6 +159,7 @@ export type ColorProperties = Partial<{
   colorFocus: Colors,
   /** Цвет контента в неакттивном состоянии */
   colorDisabled: Colors,
+
   /** Цвет фона */
   bg: Colors,
   /** Цвет фона при наведении */
@@ -173,6 +174,7 @@ export type ColorProperties = Partial<{
   bgFocus: Colors,
   /** Цвет фона в неакттивном состоянии */
   bgDisabled: Colors,
+
   /** Цвет ганиц */
   borderColor: Colors,
   /** Цвет границ при наведении */
@@ -187,8 +189,24 @@ export type ColorProperties = Partial<{
   borderColorFocus: Colors,
   /** Цвет границ в неакттивном состоянии */
   borderColorDisabled: Colors,
+
   /** Цвет текста у плейсхолдера */
   placeholderColor: Colors,
+
+  /** цвет оверлея */
+  overlay: Colors,
+  /** Цвет оверлея при наведении */
+  overlayHover: Colors,
+  /** Цвет оверлея при наведении */
+  overlayActive: Colors,
+  /** Цвет оверлея посещенной ссылки */
+  overlayVisited: Colors,
+  /** Цвет оверлея в выбранном состоянии */
+  overlayChecked: Colors,
+  /** Цвет оверлея в состоянии фокуса */
+  overlayFocus: Colors,
+  /** Цвет оверлея в неакттивном состоянии */
+  overlayDisabled: Colors,
 }>
 
 export type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties
@@ -413,6 +431,25 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
   let display = ''
   let width = ''
 
+  const colorRule = (param: string, value: Colors) => {
+    if (!/^overlay/.test(param)) {
+      return `${maps.color[param]}: ${palette[value] || value};`
+    }
+    const { borderWidth = 0 } = params
+    return `
+      &::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: -${borderWidth}px;
+        right: -${borderWidth}px;
+        top: -${borderWidth}px;
+        bottom: -${borderWidth}px;
+        border-radius: inherit;
+        background: ${palette[value] || value};
+      }
+    `
+  }
 
   for (const _param in params) {
     const param = _param as keyof typeof params
@@ -700,43 +737,50 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       case 'color':
       case 'bg':
       case 'borderColor':
-        css += `${maps.color[param]}: ${palette[value] || value};`
+      case 'overlay':
+        css += colorRule(param, value)
 
         break
       case 'colorHover':
       case 'bgHover':
       case 'borderColorHover':
-        hoverState.push(`${maps.color[param]}: ${palette[value] || value};`)
+      case 'overlayHover':
+        hoverState.push(colorRule(param, value))
 
         break
       case 'colorActive':
       case 'bgActive':
       case 'borderColorActive':
-        activeState.push(`${maps.color[param]}: ${palette[value] || value};`)
+      case 'overlayActive':
+        activeState.push(colorRule(param, value))
 
         break
       case 'colorVisited':
       case 'bgVisited':
       case 'borderColorVisited':
-        visitedState.push(`${maps.color[param]}: ${palette[value] || value};`)
+      case 'overlayVisited':
+        visitedState.push(colorRule(param, value))
 
         break
       case 'colorFocus':
       case 'bgFocus':
       case 'borderColorFocus':
-        focusState.push(`${maps.color[param]}: ${palette[value] || value};`)
+      case 'overlayFocus':
+        focusState.push(colorRule(param, value))
 
         break
       case 'colorChecked':
       case 'bgChecked':
       case 'borderColorChecked':
-        checkedState.push(`${maps.color[param]}: ${palette[value] || value};`)
+      case 'overlayChecked':
+        checkedState.push(colorRule(param, value))
 
         break
       case 'colorDisabled':
       case 'bgDisabled':
       case 'borderColorDisabled':
-        disabledState.push(`${maps.color[param]}: ${palette[value] || value};`)
+      case 'overlayDisabled':
+        disabledState.push(colorRule(param, value))
 
         break
       case 'placeholderColor':
