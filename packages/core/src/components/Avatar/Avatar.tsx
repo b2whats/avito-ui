@@ -1,7 +1,8 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { Children, ReactNode, useState, useEffect, isValidElement } from 'react'
 import { foldThemeParams, createClassName, css } from '../../styled-system'
 import { uiComponent } from '../../theme'
 import { filterProps, omit } from '../../utils'
+import { IconProps } from '../Icon'
 import { AvatarProps } from './contract'
 import { avatarTheme } from './theme'
 
@@ -32,17 +33,22 @@ export const Avatar = uiComponent('Avatar', avatarTheme)<
   const onError = () => setFallback(true)
   useEffect(() => setFallback(props.src == null), [props.src])
 
-  const { Wrapper, Badge } = foldThemeParams({ ...props, isFallback }, theme)
+  const { Wrapper, Badge, Fallback } = foldThemeParams({ ...props, isFallback }, theme)
   const aria = {
     role: props.onClick ? 'button' : 'img',
     'aria-disabled': props.disabled,
   }
+  const renderFallback = (children: ReactNode, props: IconProps) => (
+    isValidElement(children) ? <children.type {...props} {...children.props} /> :
+    typeof children === 'function' ? Children.only(children(props)) :
+    <Fallback.component {...props} />)
 
   // FIXME put onClick on img / fallback for easier badge clicks?
   return (
-    <span css={avatarClassName(props, tokens, Wrapper.style)} {...aria} {...filterProps(omit(props, 'src', 'alt'))}>
-      { !isFallback &&
-        <img alt={props.alt} css={imageClassName} draggable='false' src={props.src} onError={onError} /> }
+    <span css={avatarClassName(props, tokens, Wrapper.style)} {...aria} {...filterProps(omit(props, 'src'))}>
+      { isFallback
+        ? renderFallback(props.children, Fallback.props)
+        : <img alt={props.alt} css={imageClassName} draggable='false' src={props.src} onError={onError} /> }
       { props.badge &&
         <props.badge.type {...Badge.props} {...props.badge.props} /> }
     </span>

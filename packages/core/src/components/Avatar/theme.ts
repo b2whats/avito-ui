@@ -1,15 +1,18 @@
 import { ComponentTheme, Slot } from '../../styled-system'
+import { IconProps, UserIcon, CompanyUserIcon, ShopUserIcon } from '../Icon'
 import { BoxProps } from '../Layout'
 import { AvatarProps } from './contract'
 
 export type AvatarTheme = ComponentTheme<AvatarProps, {
   Wrapper: Slot,
   Badge: Slot<BoxProps>,
+  Fallback: Slot<IconProps>,
 }>
 
 export const avatarTheme: AvatarTheme = {
   defaultProps: {
     size: 20,
+    type: 'person',
   },
   scheme: {
     Wrapper: {
@@ -25,6 +28,9 @@ export const avatarTheme: AvatarTheme = {
       isFallback: {
         style: {
           bg: 'gray4',
+          color: 'gray28',
+          valign: 'middle',
+          align: 'center',
         },
       },
     },
@@ -35,6 +41,20 @@ export const avatarTheme: AvatarTheme = {
         bottom: 0,
         width: p => p.size / 4,
         height: p => p.size / 4,
+      },
+    },
+    Fallback: {
+      component: UserIcon,
+      props: {
+        size: p => 0.48 * p.size,
+      },
+      type: {
+        company: {
+          component: CompanyUserIcon,
+        },
+        shop: {
+          component: ShopUserIcon,
+        },
       },
     },
   },

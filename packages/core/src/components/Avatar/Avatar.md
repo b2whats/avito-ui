@@ -70,14 +70,47 @@ const { src } = document.getElementById('sample-image');
 </Stack>
 ```
 
-## Ошибки
+## Аватары без картинки
+
+Вместо `src` можно передать элементы в `children` — например, сделать аватар с иконкой или текстом.
 
 ```jsx
-const { src } = document.getElementById('sample-image');
+import { CourierIcon } from '@avito/icons';
 
-<Stack spacing='m' valign='middle'>
-  <Avatar src={src} size={60} />
-  <Avatar src='garbage' size={60} />
-  <Avatar size={60} />
+<Stack spacing='s'>
+  <Avatar size={60}>
+    {props => <CourierIcon {...props} />}
+  </Avatar>
+  <Avatar bg='green400' color='white' size={60}>
+    <Text size='xxl' crop>М</Text>
+  </Avatar>
+</Stack>
+```
+
+## Ошибки
+
+Если нет `src` или картинка не загрузилась, аватар переходит в фоллбек-состояние и показывает `children` или стандрартную иконку. У каждого `type` иконка своя.
+
+```jsx
+import { StatusErrorIcon } from '@avito/icons';
+
+<Stack spacing='m' column>
+  <Stack spacing='s' valign='middle'>
+    <Text minWidth={60}>Ошибки</Text>
+    <Avatar src='garbage' size={40} />
+    <Avatar size={40} />
+  </Stack>
+
+  <Stack spacing='s' valign='middle'>
+    <Text minWidth={60}>Иконки</Text>
+
+    <Avatar size={40} />
+    <Avatar type='company' size={40} />
+    <Avatar type='shop' size={40} />
+
+    <Avatar size={40}>
+      {props => <StatusErrorIcon {...props} />}
+    </Avatar>
+  </Stack>
 </Stack>
 ```
