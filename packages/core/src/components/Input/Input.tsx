@@ -1,7 +1,7 @@
 import React, { isValidElement, useState } from 'react'
-import { setNativeValue } from '../../utils/'
-import { useTheme, mergeTheme } from '../../theme/'
-import { useRefHook, useUncontrolledInputHook } from '../../hooks/'
+import { setNativeValue, invokeAll } from '../../utils/'
+import { uiComponent } from '../../theme/'
+import { useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { IconProps } from '../Icon/'
 import { Text, TextProps } from '../Text/'
@@ -41,10 +41,11 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
   `)
 )
 
-export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(inputTheme, theme.Input, override)
-  const [inputRef, setRef] = useRefHook(ref)
+export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
+  { onFocus, onBlur, ...props },
+  { theme, tokens },
+  [inputRef, setRef]
+) => {
   const [focus, setFocus] = useState(false)
   const [value, onChange] = useUncontrolledInputHook(props)
   const clearable = Boolean(
@@ -53,7 +54,6 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
     (props.clearable === 'always' || props.clearable && focus))
 
   props = {
-    ...componentTheme.defaultProps,
     ...props,
     value,
     onChange,
@@ -63,15 +63,8 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
     placeholder: inputTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
-  const handleFocus: InputProps['onFocus'] = (event) => {
-    setFocus(true)
-    onFocus && onFocus(event)
-  }
-
-  const handleBlur: InputProps['onBlur'] = (event) => {
-    setFocus(false)
-    onBlur && onBlur(event)
-  }
+  const handleFocus = invokeAll(() => setFocus(true), onFocus)
+  const handleBlur = invokeAll(() => setFocus(false), onBlur)
 
   // Отменяем моргание фокуса при повторных кликах внутри контейнера с инпутом
   // Проверка нужна что бы не блокировать выделениие в самом инпуте
@@ -83,9 +76,9 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
     setNativeValue(inputRef.current, '')
   }
 
-  const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, componentTheme)
-  const inputStyle = inputClassName(props, theme, Input.style)
-  const inputFieldStyle = inputFieldClassName(props, theme, InputField.style)
+  const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, theme)
+  const inputStyle = inputClassName(props, tokens, Input.style)
+  const inputFieldStyle = inputFieldClassName(props, tokens, InputField.style)
 
   const renderIconSlot = (icon: InputProps['iconBefore'] | InputProps['iconAfter'], iconProps: IconProps) => (
     typeof icon === 'function' ? icon({ ...props, iconProps, focus, handleClear }) :
@@ -106,19 +99,21 @@ export const Input = React.forwardRef(({ onFocus, onBlur, override, ...props }: 
   )
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
-  const autoSize = props.postfix ? true : false
 
   return (
     <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
-        <InputCore {...props} autoSize={autoSize} ref={setRef} onFocus={handleFocus} onBlur={handleBlur}/>
+        <InputCore
+          {...props}
+          autoSize={Boolean(props.postfix)}
+          ref={setRef}
+          onFocus={handleFocus}
+          onBlur={handleBlur} />
         {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
       </div>
       {iconAfter}
     </label>
   )
 })
-
-Input.displayName = 'Input'

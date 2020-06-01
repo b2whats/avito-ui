@@ -1,5 +1,4 @@
 import { SpaceProperties, DimensionProperties } from '@avito/core'
-import { ListItemTheme } from './theme'
 
 export interface ListItemProps extends SpaceProperties, DimensionProperties {
   /** Контент до текста */
@@ -22,8 +21,6 @@ export interface ListItemProps extends SpaceProperties, DimensionProperties {
   disabled?: boolean
   /** Инлайновое поведение */
   inline?: boolean
-  /** Переопределиь тему компонента */
-  override?: ListItemTheme
-  
+
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }

@@ -1,7 +1,6 @@
 import React, { isValidElement, ReactNode } from 'react'
 import { filterProps } from '../../utils/'
-import { useRefHook } from '../../hooks/'
-import { useTheme, mergeTheme } from '../../theme/'
+import { uiComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Text as TextComponent, TextProps } from '../Text/'
 import { IconProps } from '../Icon/'
@@ -103,21 +102,12 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
   `)
 )
 
-export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref: React.Ref<HTMLButtonElement | HTMLLinkElement>) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(buttonTheme, theme.Button, override)
-
-  props = {
-    ...componentTheme.defaultProps,
-    ...props,
-  }
-
-  if (props.href) {
-    props.type = undefined
-  }
-
-  const [componentRef, setRef] = useRefHook(ref)
-  const groupProps = useGroupHook(componentRef, props)
+export const Button = uiComponent('Button', buttonTheme)<
+  ButtonProps,
+  HTMLButtonElement | HTMLLinkElement
+>((props, { theme, tokens }, [ref, setRef] ) => {
+  props.type = props.href ? undefined: props.type
+  const groupProps = useGroupHook(ref, props)
 
   const aria = {
     'aria-checked': groupProps.checked,
@@ -125,8 +115,8 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
     'aria-busy': groupProps.loading,
   }
 
-  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams(groupProps, componentTheme)
-  const buttonStyle = buttonClassName(groupProps, theme, Button.style)
+  const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams(groupProps, theme)
+  const buttonStyle = buttonClassName(groupProps, tokens, Button.style)
 
   const Tag = props.href ? 'a' : 'button'
 
@@ -148,13 +138,11 @@ export const Button = React.forwardRef(({ override, ...props }: ButtonProps, ref
       {props.iconBefore &&
         renderIconSlot(props.iconBefore, IconBefore.props)}
       {props.children &&
-        renderTextSlot(props.children, { crop: true, valignSelf: 'middle', ...Text.props })}
+        renderTextSlot(props.children, Text.props)}
       {props.iconAfter &&
         renderIconSlot(props.iconAfter, IconAfter.props)}
     </Tag>
   )
 })
-
-Button.displayName = 'Button'
 
 export default Button

@@ -1828,7 +1828,7 @@ Object {
 
 exports[`mobile theme text theme snap 1`] = `
 Object {
-  "deriveProps": Object {
+  "mapProps": Object {
     "preset": Object {
       "heading": Object {
         "props": Object {

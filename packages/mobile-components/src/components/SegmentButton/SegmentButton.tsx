@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { filterProps } from '@avito/core'
 import { useRefHook } from '@avito/core'
-import { mergeTheme, useTheme } from '@avito/core'
+import { uiComponent } from '@avito/core'
 import { useWindowSize } from '@avito/core'
 import { foldThemeParams, createClassName } from '@avito/core'
 import { SegmentButtonProps } from './contract'
@@ -41,7 +41,7 @@ const buttonClassName = createClassName<SegmentButtonProps, typeof segmentButton
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    
+
     &::-moz-focus-inner {
       border: 0;
     }
@@ -68,16 +68,12 @@ type Geometry = {
   [key in string]: { transform: string, width: number, height: number }
 }
 
-const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentButtonProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(segmentButtonTheme, theme.SegmentButton, override)
+const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
+  { options, name, onChange, ...props }: SegmentButtonProps,
+  { theme, tokens }
+) => {
+  props.value = !props.value && options && options.length > 0 ? options[0].value : props.value
   const windowSize = useWindowSize()
-
-  props = {
-    size: 'm',
-    ...props,
-    value: !props.value && options && options.length > 0 ? options[0].value : props.value,
-  }
 
   const [ref, setRef] = useRefHook<HTMLElement>()
   const [geometry, setGeometry] = useState<Geometry>({})
@@ -99,10 +95,10 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
     setGeometry(geometry)
   }, [windowSize.innerWidth])
 
-  const { Group, Button, Slide } = foldThemeParams(props, componentTheme)
-  const groupStyle = groupClassName(props, theme, Group.style)
-  const buttonStyle = buttonClassName(props, theme, Button.style)
-  const slideStyle = slideClassName(props, theme, Slide.style)
+  const { Group, Button, Slide } = foldThemeParams(props, theme)
+  const groupStyle = groupClassName(props, tokens, Group.style)
+  const buttonStyle = buttonClassName(props, tokens, Button.style)
+  const slideStyle = slideClassName(props, tokens, Slide.style)
 
   const onClick = (value: SegmentButtonProps['value']) => {
     if (value === props.value) return
@@ -125,7 +121,7 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
         case 'ArrowLeft':
           event.preventDefault()
           next = (next.previousElementSibling || ref.current!.lastChild) as HTMLButtonElement
-          break  
+          break
       }
 
     } while (next && (next.disabled || next.type !== 'button') && exit--)
@@ -160,6 +156,6 @@ const SegmentButton = ({ options, name, override, onChange, ...props }: SegmentB
       })}
     </div>
   )
-}
+})
 
 export default SegmentButton

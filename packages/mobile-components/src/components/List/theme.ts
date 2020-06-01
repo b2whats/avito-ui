@@ -1,21 +1,20 @@
-import { SchemeType } from '@avito/core'
+import { Slot, ComponentTheme } from '@avito/core'
 import { ListItemProps } from './contract'
 import { TextProps } from '@avito/core'
 import { StackProps, BoxProps } from '@avito/core'
 
-export type ListItemTheme = {
+export type ListItemTheme = ComponentTheme<ListItemProps, {
+  ListItem: Slot<StackProps>,
+  Before: Slot<BoxProps>,
+  StackText: Slot<StackProps>,
+  Label: Slot<TextProps>,
+  Link: Slot<TextProps>,
+  Caption: Slot<TextProps>,
+  After: Slot<BoxProps>,
+}, {
   beforeTreshold: number,
   afterTreshold: number,
-  scheme: {
-    ListItem: SchemeType<ListItemProps, StackProps>,
-    Before: SchemeType<ListItemProps, BoxProps>,
-    StackText: SchemeType<ListItemProps, StackProps>,
-    Label: SchemeType<ListItemProps, TextProps>,
-    Link: SchemeType<ListItemProps, TextProps>,
-    Caption: SchemeType<ListItemProps, TextProps>,
-    After: SchemeType<ListItemProps, BoxProps>,
-  },
-}
+}>
 
 export const listItemTheme: ListItemTheme = {
   beforeTreshold: 82,

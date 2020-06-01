@@ -1,43 +1,39 @@
 import { TextTheme } from '@avito/core'
 
 export const textTheme: Partial<TextTheme> = {
-  deriveProps: {
-    preset: {
-      title: {
-        props: {
+  mapProps: ({ preset }) => {
+    switch (preset) {
+      case 'title':
+        return {
           mb: 36,
           size: 'xxl',
-        },
-      },
-      'title-small': {
-        props: {
+        }
+      case 'title-small':
+        return {
           dense: true,
           bold: true,
           mb: 26,
           size: 'xl',
-        },
-      },
-      'heading-large': {
-        props: {
+        }
+      case 'heading-large':
+        return {
           dense: true,
           bold: true,
           mb: 22,
           size: 'l',
-        },
-      },
-      'heading': {
-        props: {
+        }
+      case 'heading':
+        return {
           dense: true,
           mb: 22,
           size: 'l',
-        },
-      },
-      'heading-small': {
-        props: {
+        }
+      case 'heading-small':
+        return {
           mb: 16,
           size: 'm',
-        },
-      },
-    },
+        }
+    }
+    return {}
   },
 }

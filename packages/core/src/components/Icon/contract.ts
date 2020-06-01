@@ -1,6 +1,5 @@
 import React from 'react'
 import { SpaceProperties, ColorProperties, AlignProperties, PaddingProperties } from '../../styled-system/'
-import { IconTheme } from './theme'
 
 type MouseHandler = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
 
@@ -22,8 +21,6 @@ export interface BaseIconProps extends SpaceProperties, ColorProperties, AlignPr
   area?: number
   /** Добавляет тень для иконки */
   shadow?: boolean | string
-  /** Переопределиь тему компонента */
-  override?: IconTheme
   /** Состояние disabled */
   disabled?: boolean
 

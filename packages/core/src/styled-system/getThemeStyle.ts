@@ -207,6 +207,17 @@ export type SchemeType<
         : SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps>
 }
 
+export interface Slot<OutProps = never, ExtraStyles = {}> {}
+export type ComponentTheme<Props, Scheme = {}, Extras = {}> = Extras & {
+  defaultProps?: Partial<Props>,
+  mapProps?: (props: Props) => Partial<Props>,
+  scheme: {
+    [K in keyof Scheme]: Scheme[K] extends (Slot<infer OutProps, infer ExtraStyles> | undefined)
+      ? SchemeType<Props, OutProps, ExtraStyles>
+      : Scheme[K]
+  }
+}
+
 const computedCrop = (crop: number, targetHeight: number) => {
   const value = (crop + (targetHeight - 1) * 16) / 32
 
@@ -520,7 +531,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       case 'minHeight':
       case 'maxHeight':
         value = dimension.rowHeight[value] || value
-        
+
         if (value === 'auto') {
           css += `${maps.dimension[param]}: auto;`
         } else {
@@ -862,10 +873,6 @@ export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(pr
   }
 
   return result
-}
-
-export function deriveThemeProps<Props extends object>(props: Props, theme: { deriveProps?: SchemeType<any, any, any> }): Partial<Props> {
-  return foldScheme(theme.deriveProps, props).props
 }
 
 type valueof<T, Key = string> = T[Key extends keyof T ? Key : keyof T]

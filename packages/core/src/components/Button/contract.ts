@@ -1,6 +1,5 @@
 import React from 'react'
 import { MarginProperties, DimensionProperties, AlignProperties } from '../../styled-system/'
-import { ButtonTheme } from './theme'
 
 type Element = HTMLButtonElement | HTMLLinkElement
 
@@ -43,10 +42,6 @@ export interface ButtonProps extends MarginProperties, DimensionProperties, Alig
   href?: string
   /** Пресеты */
   preset?: keyof typeof ButtonPreset
-  /** Ссылка на дом ноду */
-  ref?: React.Ref<Element>
-  /** Переопределиь тему компонента */
-  override?: Partial<ButtonTheme>
 
   onClick?(event: React.MouseEvent<Element>): void
   onKeyDown?(event: React.KeyboardEvent<Element>): void

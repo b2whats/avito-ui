@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '../../styled-system/'
-import { useTheme, mergeTheme } from '../../theme/'
+import { uiComponent } from '../../theme/'
 import { Toggle } from '../Toggle/'
 import { Spinner } from '../Spinner/'
 import { SwitcherProps } from './contract'
@@ -40,23 +40,15 @@ const circleStyle = () => css`
   }
 `
 
-const Switcher = ({ override, ...props }: SwitcherProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(switcherTheme, theme.Switcher, override)
-
-  props = {
-    ...componentTheme.defaultProps,
-    ...props,
-  }
-
+const Switcher = uiComponent('Switcher', switcherTheme)((props: SwitcherProps, { theme }) => {
   return (
-    <Toggle css={circleStyle} {...props} mode='checkbox' override={componentTheme}>
+    <Toggle css={circleStyle} {...props} mode='checkbox' override={theme}>
       {({ loading, Icon }) => (loading
         ? <Spinner size='auto' />
         : Icon && <Icon.component {...Icon.props} size='auto' />
       )}
     </Toggle>
   )
-}
+})
 
 export default Switcher

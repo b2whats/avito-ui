@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
-import { filterProps } from '../../utils/'
-import { useRefHook, usePrevent3DTouch } from '../../hooks/'
+import { uiComponent } from '../../theme/'
+import { filterProps, invokeAll } from '../../utils/'
+import { usePrevent3DTouch } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { useGroupHook } from '../Layout/'
 import { Text } from '../Text/'
@@ -69,22 +69,15 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
   `)
 )
 
-const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(toggleTheme, theme.Toggle, override)
-  const setTouchRef = usePrevent3DTouch()
-
-  props = {
-    ...componentTheme.defaultProps,
-    ...props,
-  }
-
-  const [ref, setRef] = useRefHook<HTMLInputElement>()
-
+const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputElement>((
+  { className, children, ...props },
+  { theme, tokens },
+  [ref, setRef]
+) => {
   const groupProps = useGroupHook(ref, props)
 
   // Uncontrolled input for demos
-  if (theme._demo && !groupProps.onChange && groupProps.mode === 'checkbox') {
+  if (tokens._demo && !groupProps.onChange && groupProps.mode === 'checkbox') {
     const [checked, onChange] = useState(groupProps.checked || false)
     groupProps.checked = checked
     groupProps.onChange = v => onChange(v.checked)
@@ -110,11 +103,7 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
     event.preventDefault()
   }
 
-  const preventLabelClick = (event: React.MouseEvent<HTMLInputElement>) => {
-    event.stopPropagation()
-
-    groupProps.onClick && groupProps.onClick(event)
-  }
+  const preventLabelClick = invokeAll((e: React.SyntheticEvent) => e.stopPropagation(), props.onClick)
 
   const onChange = () => {
     const value = {
@@ -127,21 +116,26 @@ const Toggle = ({ className, children, override, ...props }: ToggleProps) => {
     groupProps.onChange && groupProps.onChange(value)
   }
 
-  const { Toggle, Switch, Icon, Label } = foldThemeParams(groupProps, componentTheme)
-  const toggleStyle = toggleClassName(groupProps, theme, Toggle.style)
-  const switchStyle = switchClassName(groupProps, theme, Switch.style)
+  const { Toggle, Switch, Icon, Label } = foldThemeParams(groupProps, theme)
+  const toggleStyle = toggleClassName(groupProps, tokens, Toggle.style)
+  const switchStyle = switchClassName(groupProps, tokens, Switch.style)
   const label = props.label && <Text {...Label.props} crop>{props.label}</Text>
 
   return (
-    <label ref={setTouchRef} css={toggleStyle} {...aria} onMouseDown={preventFocus} >
+    <label ref={usePrevent3DTouch()} css={toggleStyle} {...aria} onMouseDown={preventFocus} >
       {props.labelPosition === 'start' && label}
-      <input {...filterProps(groupProps)} ref={setRef} type={props.mode} onChange={onChange} onClick={preventLabelClick}/>
+      <input
+        {...filterProps(groupProps)}
+        ref={setRef}
+        type={props.mode}
+        onChange={onChange}
+        onClick={preventLabelClick} />
       <div css={switchStyle} className={className}>
         {children && children({ checked, loading: props.loading, Icon })}
       </div>
       {props.labelPosition === 'end' && label}
     </label>
   )
-}
+})
 
 export default Toggle

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
-import { foldThemeParams, createClassName, deriveThemeProps } from '../../styled-system/'
+import { uiComponent } from '../../theme/'
+import { foldThemeParams, createClassName } from '../../styled-system/'
 import { TextProps } from './contract'
 import { textTheme } from './theme'
 
@@ -37,12 +37,9 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
   `)
 )
 
-const Text = ({ children, override, ...props }: TextProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(textTheme, theme.Text, override)
-  props = { ...props, ...deriveThemeProps(props, componentTheme) }
-  const { Text } = foldThemeParams(props, componentTheme)
-  const textStyle = textClassName(props, theme, Text.style)
+const Text = uiComponent('Text', textTheme)(({ children, ...props }: TextProps, { theme, tokens }) => {
+  const { Text } = foldThemeParams(props, theme)
+  const textStyle = textClassName(props, tokens, Text.style)
   const Tag = props.as || 'span'
 
   return (
@@ -50,6 +47,6 @@ const Text = ({ children, override, ...props }: TextProps) => {
       { children }
     </Tag>
   )
-}
+})
 
 export default Text

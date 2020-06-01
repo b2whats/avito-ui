@@ -1,16 +1,13 @@
 import React, { isValidElement } from 'react'
 import { useRefHook, useMeasure } from '@avito/core'
 import { foldThemeParams } from '@avito/core'
-import { mergeTheme, useTheme } from '@avito/core'
+import { uiComponent } from '@avito/core'
 import { Stack, Box } from '@avito/core'
 import { Text, TextProps } from '@avito/core'
 import { ListItemProps } from './contract'
 import { listItemTheme } from './theme'
 
-const ListItem = ({ children, override, ...props }: ListItemProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(listItemTheme, theme.ListItem, override)
-
+const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...props }: ListItemProps, { theme }) => {
   // Необходимо прервать 3DTouch что бы он не прерывал событие клика
   // TODO: Протестировать на телефоне с HapticTouch
   //const setTouchRef = usePrevent3DTouch()
@@ -25,7 +22,8 @@ const ListItem = ({ children, override, ...props }: ListItemProps) => {
     ? bounds && listItemTheme.afterTreshold < bounds.height ? 'top' : 'middle'
     : props.afterValign
 
-  const { ListItem, Before, StackText, Label, Caption, Link, After } = foldThemeParams(props, componentTheme)
+
+  const { ListItem, Before, StackText, Label, Caption, Link, After } = foldThemeParams(props, theme)
 
   const before = props.before && <Box {...Before.props} valignSelf={beforeValign}>{props.before}</Box>
   const after = props.after && <Box {...After.props} valignSelf={afterValign}>{props.after}</Box>
@@ -58,6 +56,6 @@ const ListItem = ({ children, override, ...props }: ListItemProps) => {
       {after}
     </Stack>
   )
-}
+})
 
 export default ListItem

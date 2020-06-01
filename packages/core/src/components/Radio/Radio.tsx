@@ -1,23 +1,13 @@
 import React from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
 import { Toggle } from '../Toggle/'
 import { RadioProps } from './contract'
 import { radioTheme } from './theme'
+import { uiComponent } from '../../theme'
 
-const Radio = ({ override, ...props}: RadioProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(radioTheme, theme.Radio, override)
-
-  props = {
-    ...componentTheme.defaultProps,
-    ...props,
-  }
-
-  return (
-    <Toggle {...props} mode='radio' override={componentTheme}>
-      {({ checked, Icon }) => checked && Icon && <Icon.component {...Icon.props} size='auto' />}
-    </Toggle>
-  )
-}
+const Radio = uiComponent('Radio', radioTheme)((props: RadioProps, { theme }) => (
+  <Toggle {...props} mode='radio' override={theme}>
+    {({ checked, Icon }) => checked && Icon && <Icon.component {...Icon.props} size='auto' />}
+  </Toggle>
+))
 
 export default Radio

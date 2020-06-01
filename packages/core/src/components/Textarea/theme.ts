@@ -1,18 +1,21 @@
-import { SchemeType } from '../../styled-system/'
+import { Slot, ComponentTheme } from '../../styled-system/'
 import { TextareaProps } from './contract'
 import { IconProps } from '../Icon/contract'
 import { CrossIcon } from '../Icon/'
 
-export type TextareaTheme = {
+export type TextareaTheme = ComponentTheme<TextareaProps, {
+  Textarea: Slot,
+  IconClear: Slot<IconProps>,
+}, {
   deletePlaceholderOnFocus: boolean,
-  scheme: {
-    Textarea: SchemeType<TextareaProps>,
-    IconClear: SchemeType<TextareaProps, IconProps>,
-  },
-}
+}>
 
 export const textareaTheme: TextareaTheme = {
   deletePlaceholderOnFocus: true,
+  defaultProps: {
+    variant: 'primary',
+    size: 'm',
+  },
   scheme: {
     IconClear: {
       component: CrossIcon,
