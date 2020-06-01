@@ -34,6 +34,8 @@ export const Avatar = uiComponent('Avatar', avatarTheme)<
   useEffect(() => setFallback(props.src == null), [props.src])
 
   const { Wrapper, Badge, Fallback } = foldThemeParams({ ...props, isFallback }, theme)
+
+  const Tag = props.as || 'span'
   const aria = {
     role: props.onClick ? 'button' : 'img',
     'aria-disabled': props.disabled,
@@ -45,12 +47,12 @@ export const Avatar = uiComponent('Avatar', avatarTheme)<
 
   // FIXME put onClick on img / fallback for easier badge clicks?
   return (
-    <span css={avatarClassName(props, tokens, Wrapper.style)} {...aria} {...filterProps(omit(props, 'src'))}>
+    <Tag css={avatarClassName(props, tokens, Wrapper.style)} {...aria} {...filterProps(omit(props, 'src'))}>
       { isFallback
         ? renderFallback(props.children, Fallback.props)
         : <img alt={props.alt} css={imageClassName} draggable='false' src={props.src} onError={onError} /> }
       { props.badge &&
         <props.badge.type {...Badge.props} {...props.badge.props} /> }
-    </span>
+    </Tag>
   )
 })

@@ -1,3 +1,4 @@
+import { ComponentType } from 'react'
 import { BoxProps } from '../Layout'
 
 export interface AvatarProps extends BoxProps {
@@ -10,5 +11,6 @@ export interface AvatarProps extends BoxProps {
   onClick?: any;
   href?: any;
   isFallback?: boolean;
+  as?: ComponentType<any> | string,
 }
 
