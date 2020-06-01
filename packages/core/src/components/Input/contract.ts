@@ -1,6 +1,5 @@
 import React from 'react'
 import { MarginProperties, PaddingProperties } from '../../styled-system/'
-import { InputTheme } from './theme'
 
 export enum InputPreset {}
 
@@ -25,8 +24,6 @@ export interface InputCoreProps extends PaddingProperties {
   readOnly?: boolean
   /** Класс элемента */
   className?: string
-  /** Ссылка на дом ноду */
-  ref?: React.Ref<HTMLInputElement>
 
   onClick?(event: React.MouseEvent<HTMLInputElement>): void
   onChange?(event: React.ChangeEvent<HTMLInputElement>): void
@@ -59,10 +56,6 @@ export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginPro
   postfix?: string | React.ReactNode
   /** Инлайновое поведение */
   inline?: boolean
-  /** Ссылка на дом ноду */
-  ref?: React.Ref<HTMLInputElement>
-  /** Переопределиь тему компонента */
-  override?: InputTheme
   /** пресет */
   preset?: keyof typeof InputPreset,
 }

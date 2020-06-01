@@ -34,7 +34,6 @@ export interface StackProps extends LayoutProps {
   spacingCross?: keyof Theme['space'] | number
   /** Изменить тег */
   as?: string
-  ref?: (node: HTMLElement | null) => void
 
   /** @ignore */
   debug?: boolean

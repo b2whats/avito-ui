@@ -1,5 +1,4 @@
-import { MarginProperties } from '@avito/core' 
-import { SegmentButtonTheme } from './theme'
+import { MarginProperties } from '@avito/core'
 
 type onChangeProps = {
   name?: string,
@@ -13,7 +12,7 @@ type Options = {
 }
 
 export interface SegmentButtonProps extends MarginProperties {
-  options?: Options[] 
+  options?: Options[]
   /** Размер кнопки */
   size?: 's' | 'm' | 'l'
   /** Имя */
@@ -22,8 +21,6 @@ export interface SegmentButtonProps extends MarginProperties {
   disabled?: boolean
   /** Выбранные элементы */
   value?: number | string
-  /** Переопределиь тему компонента */
-  override?: SegmentButtonTheme
   /** Событие изменения значения */
   onChange?: (props: onChangeProps) => void
 }

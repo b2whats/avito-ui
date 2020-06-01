@@ -8,7 +8,7 @@ import { spinnerTheme } from './theme'
 const Spinner = uiComponent('Spinner', spinnerTheme)(({ speed, ...props }: SpinnerProps, { theme }) => {
   const { Spinner } = foldThemeParams(props, theme)
   return (
-    <Spinner.component {...Spinner.props} {...omit(props, 'override')} spin={speed || true} />
+    <Spinner.component {...Spinner.props} {...props} spin={speed || true} />
   )
 })
 

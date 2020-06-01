@@ -42,7 +42,7 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
 )
 
 export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
-  { onFocus, onBlur, override, ...props },
+  { onFocus, onBlur, ...props },
   { theme, tokens },
   [inputRef, setRef]
 ) => {

@@ -6,18 +6,19 @@ import { forwardRef, Ref, FunctionComponent, MutableRefObject } from 'react'
 import { Tokens } from '@avito/tokens'
 import { useRefHook } from '../hooks'
 
-type AvitoProps<ThemeType> = {
-  override?: DeepPartial<ThemeType>
-}
 type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => void]
 
 export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType) {
-  return <Props extends AvitoProps<ThemeType>, RefType = HTMLElement>(
+  return <Props, RefType = HTMLElement>(
     render: (props: Props, theme: { theme: ThemeType, tokens: Tokens }, ref: RefContainer<RefType>) => JSX.Element
   ) => {
-    const WrappedComponent = forwardRef((props: Props, ref: Ref<RefType>) => {
+    type ExternalProps = Props & {
+      override?: DeepPartial<ThemeType>,
+      ref?: Ref<RefType>,
+    }
+    const WrappedComponent = forwardRef(({ override, ...props }: ExternalProps, ref: Ref<RefType>) => {
       const globalTheme = useTheme()
-      const componentTheme = mergeTheme(theme, globalTheme[name] as DeepPartial<ThemeType>, props.override)
+      const componentTheme = mergeTheme(theme, globalTheme[name] as DeepPartial<ThemeType>, override)
       props = {
         ...(componentTheme as any).defaultProps,
         ...props,
@@ -28,6 +29,6 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
         useRefHook(ref))
     })
     WrappedComponent.displayName = name
-    return WrappedComponent as unknown as FunctionComponent<Props>
+    return WrappedComponent as unknown as FunctionComponent<ExternalProps>
   }
 }

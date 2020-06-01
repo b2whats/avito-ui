@@ -1,6 +1,5 @@
 import React from 'react'
 import { MarginProperties, AlignProperties } from '../../styled-system/'
-import { TextareaTheme } from './theme'
 
 export interface TextareaCoreProps {
   /** Автоматическая высота поля */
@@ -25,8 +24,6 @@ export interface TextareaCoreProps {
   id?: string
   /** Позиция элемента при фокусе */
   tabIndex?: number
-  /** Ссылка на дом ноду */
-  ref?: React.Ref<HTMLTextAreaElement>
 
   onClick?(event: React.MouseEvent<HTMLTextAreaElement>): void
   onChange?(event: React.ChangeEvent<HTMLTextAreaElement>): void
@@ -45,6 +42,4 @@ export interface TextareaProps extends Omit<TextareaCoreProps, 'className'>, Ali
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Инлайновое поведение */
   inline?: boolean
-  /** Переопределиь тему компонента */
-  override?: TextareaTheme
 }
