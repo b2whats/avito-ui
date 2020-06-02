@@ -15,7 +15,14 @@ const avatarClassName = createClassName<AvatarProps, typeof avatarTheme>(
     ...themeStyle,
     ...props,
   }),
-  (textRules, { }, _, themeStyle) => (`
+  (textRules, { badgeGapSize, badgeGapColor }, { palette }) => (`
+    user-select: none;
+    & *:nth-child(2) {
+      /* position badge above overlay */
+      z-index: 1;
+      ${ badgeGapSize && badgeGapColor ?
+        `box-shadow: 0 0 0 ${badgeGapSize}px ${palette[badgeGapColor] || badgeGapColor};` : ''}
+    }
     ${textRules}
   `)
 )

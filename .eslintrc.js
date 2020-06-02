@@ -56,6 +56,10 @@ module.exports = {
     'react/jsx-wrap-multilines': ['error'],
     'no-duplicate-imports': ['error'],
     'import/first': ['error'],
+    'no-restricted-imports': ['error', {
+      // TODO: restore once icon imports are fixed
+      // 'patterns': ['*/src'],
+    }],
     'import/order': ['error', {
       groups: ['external', 'internal', 'parent', 'index', 'sibling'],
       alphabetize: {

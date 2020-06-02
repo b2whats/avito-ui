@@ -13,7 +13,12 @@ export const avatarTheme: AvatarTheme = {
   defaultProps: {
     size: 20,
     type: 'person',
+    badgeGapColor: 'white',
   },
+  mapProps: props => ({
+    badgeGapSize: props.size > 40 ? 2 : 1,
+    ...props,
+  }),
   scheme: {
     Wrapper: {
       style: {
