@@ -1,78 +1,99 @@
-## Состояние
+## Размеры
+
+`size` — размер поля: `s`, `m` или `l`.
 
 ```jsx
-import { Stack } from '../Layout/'
-const text = 'В 2017, 2018 и 2019 гг. в ООО «КЕХ еКоммерц» была проведена специальная оценка условий труда.';
-
-<Stack column spacing={10}>
-  <Textarea placeholder='Плэйсхолдер' />
-  <Textarea placeholder='Неактивное с плэйсхолдером' disabled />
-  <Textarea placeholder='Ошибка с плэйсхолдером' variant='error' />
-  <Textarea value='Введенный текст' />
-  <Textarea value='Неактивное с введенным текстом' disabled />
-  <Textarea value='Ошибка с введенным текстом' variant='error' />
-</Stack>
-```
-
-## Размер
-
-```jsx
-import { Stack } from '../Layout/'
 const text = 'В 2017, 2018 и 2019 гг. в ООО «КЕХ еКоммерц» была проведена специальная оценка условий труда.';
 
 <Stack column spacing={10}>
   <Textarea size='s' value={text} />
-  <Textarea value={text} />
+  <Textarea size='m' value={text} />
   <Textarea size='l' value={text} />
 </Stack>
 ```
 
-## Количество строк
-```jsx
-import { Stack } from '../Layout/';
+### Ширина
 
-<Stack column spacing={10}>
+Поле занимает всю ширину родителя, если не указан явный `width` в пикселях или процентах. Ширину по сетке задают через `Grid + Box`.
+
+```jsx
+<Stack spacing='m' column>
+  <Textarea width={200} placeholder='200px' />
+  <Textarea inline width={0.5} placeholder='50%' />
+  <Grid spacing='s' debug>
+    <Box width={6/12}><Textarea block placeholder='6 колонок' /></Box>
+    <Box width={4/12}><Textarea block placeholder='4 колонки' /></Box>
+    <Box width={2/12}><Textarea block placeholder='2 колонки' /></Box>
+  </Grid>
+</Stack>
+```
+
+### Количество строк
+
+`rows` — явная высота в строках
+
+```jsx
+<Stack spacing='m' spacingCross='m' wrap>
+  <Textarea value='По умолчанию' />
   <Textarea rows={1} value='1' />
   <Textarea rows={2} value='2\n2' />
   <Textarea rows={3} value='3\n3\n3' />
-  <Textarea rows={4} value='4\n4\n4\n4' />
 </Stack>
 ```
 
-## Максимальное количество строк
-```jsx
-import { Stack } from '../Layout/';
+`resizable` позволяет пользователю менять размер поля. `maxRows` — максимальное количество строк, `rows` — по умолчанию. Ширину можно ограничить через `maxWidth`.
 
-<Stack column spacing={10}>
-  <Textarea rows={4} maxRows={2} value='4(max2)\n4\n4\n4' />
+```jsx
+<Stack spacing='m' spacingCross='m' wrap>
+  <Textarea resizable value='resizable' />
+  <Textarea resizable maxWidth={200} value='resizable, до 200px по ширине' />
+  <Textarea resizable rows={3} value='resizable, 3 строки по умолчанию' />
+  <Textarea resizable rows={3} maxRows={5} value='resizable до 5 строк, 3 по умолчанию' />
 </Stack>
 ```
 
-## Вычисляемая высота
-```jsx
-import { Stack } from '../Layout/'
-const [state, setState] = useState({ })
-const onChange = ({ target }) => {
-  setState(state => ({ ...state, [target.name]: target.value }))
-};
+`autoSize` подстраивает высоту поля к количеству введенных строк. `maxRows` — максимальное количество строк,
+`rows` — минимальное.
 
-<Stack column spacing={10}>
-  <Textarea name='1' autoSize value={state['1']} onChange={onChange} />
-  <Textarea name='2' autoSize maxRows={3} value={state['2']} onChange={onChange} />
-  <Textarea name='3' autoSize rows={3} maxRows={5} value={state['3']} onChange={onChange} />
+```jsx
+<Stack spacing='m' spacingCross='m' wrap>
+  <Textarea autoSize value="autoSize" />
+  <Textarea autoSize maxRows={3} value="autoSize до 3 строк" />
+  <Textarea autoSize minWidth={350} rows={3} maxRows={5} value="autoSize от 3 до 5 строк" />
 </Stack>
 ```
 
-## Очищаемое поле
-```jsx
-import { Stack } from '../Layout/'
-const [state, setState] = useState({ })
-const onChange = ({ target }) => {
-  setState(state => ({ ...state, [target.name]: target.value }))
-};
+## Состояния
 
-<Stack column spacing={10}>
-  <Textarea name='1' value={state['1']} clearable onChange={onChange} />
-  <Textarea name='2' value={state['2']} clearable='always' onChange={onChange} />
+`variant` — семантический цвет поля.
+
+```jsx
+<Stack spacing='m' spacingCross='m' wrap>
+  <Textarea placeholder="primary" />
+  <Textarea placeholder="secondary" variant='secondary' />
+  <Textarea placeholder="success" variant='success' />
+  <Textarea placeholder="warning" variant='warning' />
+  <Textarea placeholder="error" variant='error' />
+</Stack>
+```
+
+`disabled` отключает поле:
+
+```jsx
+<Stack spacing='m'>
+  <Textarea value="enabled" />
+  <Textarea disabled value="disabled со значением" />
+</Stack>
+```
+
+
+## Очистка
+
+`clearable` добавляет крестик очистки. `true` показывает крестик только при фокусе, `'always'` — всегда.
+
+```jsx
+<Stack spacing='m'>
+  <Textarea placeholder="clearable" value="clearable" clearable />
+  <Textarea placeholder="clearable='always'" value="clearable='always'" clearable='always' />
 </Stack>
 ```

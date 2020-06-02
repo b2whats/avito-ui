@@ -45,6 +45,9 @@ export type DimensionProperties = Partial<{
 }>
 
 type Display = { display: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex' | null }
+export interface VisibilityProperties {
+  visible?: boolean
+}
 
 type SpaceValues = keyof Theme['space'] | 'none' | 'auto' | number
 
@@ -179,7 +182,7 @@ export type ColorProperties = Partial<{
   placeholderColor: Colors,
 }>
 
-export type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties & OtherProperties
+export type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties & OtherProperties & VisibilityProperties
 type UnionToIntersection<U> = (boolean extends U ? (k: U)=>void : U extends any ? (k: U)=>void : never) extends ((k: infer I)=>void) ? I : never
 type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 type OnlyLiteralString<T> = T extends string ? T : never
@@ -758,6 +761,9 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       }
+      case 'visible':
+        css += value === false ? 'visibility: hidden;' : ''
+        break
       case 'disabled':
         if (!value) break
 

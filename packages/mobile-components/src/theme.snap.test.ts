@@ -1,5 +1,5 @@
 import { mergeTheme, foldThemeParams, CheckboxTheme, RadioTheme } from '@avito/core'
-import { buttonTheme, inputTheme, textTheme, checkboxTheme, toggleTheme, radioTheme, switcherTheme } from '@avito/core'
+import { buttonTheme, inputTheme, textTheme, checkboxTheme, toggleTheme, textareaTheme, radioTheme, switcherTheme } from '@avito/core'
 import { theme } from './theme'
 
 const variant = ['primary', 'secondary', 'success', 'error', 'warning']
@@ -31,6 +31,12 @@ describe('mobile theme', () => {
     variant,
     checked: [true, false],
     loading: [true, false],
+  })
+
+  describeTheme('textarea', mergeTheme(textareaTheme, theme.Textarea), {
+    variant,
+    clearable: [true, false],
+    size: ['s', 'm', 'l'],
   })
 })
 

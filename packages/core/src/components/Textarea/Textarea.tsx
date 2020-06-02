@@ -24,12 +24,13 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
 ) => {
   const [focus, setFocus] = useState(false)
   const [value, onChange] = useUncontrolledInputHook(props)
+  const hasClear = Boolean(props.clearable)
 
   props = {
     ...props,
     value,
     onChange,
-    clearable: props.clearable === 'always' || Boolean(props.clearable && value && focus),
+    clearable: Boolean(value && !props.disabled && (props.clearable === 'always' || props.clearable && focus)),
     placeholder: theme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
@@ -52,7 +53,10 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
   return (
     <label css={wrapperStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       <TextareaCore {...props} ref={setTextareaRef} onFocus={handleFocus} onBlur={handleBlur}/>
-      {props.clearable && <IconClear.component {...IconClear.props} valignSelf={undefined} onClick={handleClear} />}
+      { hasClear && <IconClear.component
+        {...IconClear.props}
+        valignSelf={undefined}
+        onClick={handleClear} /> }
     </label>
   )
 })
