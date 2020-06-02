@@ -10,6 +10,9 @@ const tooltipClassName = createClassName<Omit<TooltipProps, 'minWidth' | 'width'
     display: 'block',
     ...themeStyle,
     ...props,
+    minWidth: undefined,
+    width: undefined,
+    maxWidth: undefined,
   })
 )
 
@@ -53,7 +56,7 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Arrow
   `
 )
 
-export const Tooltip = ({ minWidth, width, maxWidth, content, override, ...props }: TooltipProps) => {
+export const Tooltip = ({ content, override, ...props }: TooltipProps) => {
   const theme = useTheme()
   const componentTheme = mergeTheme(tooltipTheme, theme.Tooltip, override)
 
@@ -62,24 +65,20 @@ export const Tooltip = ({ minWidth, width, maxWidth, content, override, ...props
     ...props,
   }
 
-  const targetWidth = useMemo(() => ({
-    minWidth, width, maxWidth,
-  }), [minWidth, width, maxWidth])
-
   const { Tooltip, Arrow, Close } = foldThemeParams(props, componentTheme)
   const tooltipStyle = tooltipClassName(props, theme, Tooltip.style)
   const arrowStyle = arrowClassName(props, theme, Arrow.style)
 
-  const target: PositionerProps['target'] = ({ handleToggle }) => (
+  const target: PositionerProps['target'] = ({ close }) => (
     <div css={tooltipStyle}>
       {props.arrow && <div css={arrowStyle} data-popper-arrow />}
-      {props.closeIcon && Close.component && <Close.component {...Close.props} onClick={() => handleToggle(false)} />}
+      {props.closable && Close.component && <Close.component {...Close.props} onClick={close} />}
       {content}
     </div>
   )
 
   return (
-    <Positioner {...props} target={target} targetWidth={targetWidth}>
+    <Positioner {...props} target={target}>
       {props.children}
     </Positioner>
   )

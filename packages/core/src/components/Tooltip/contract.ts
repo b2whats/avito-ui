@@ -7,16 +7,10 @@ export enum TooltipPreset {}
 export interface TooltipProps extends Omit<PositionerProps, 'target' | 'targetWidth'>, StyleProps {
   /** Контент */
   content?: React.ReactNode
-  /** Ширина */
-  width?: 'reference' | number
-  /** Минимальная ширина */
-  minWidth?: 'reference' | number
-  /** Максимальная ширина */
-  maxWidth?: 'reference' | number
   /* Внешний вид */
   preset?: keyof typeof TooltipPreset
   /* Добавляет крестик закрыития */
-  closeIcon?: boolean
+  closable?: boolean
   /* Переопределиь тему компонента */
   override?: PositionerTheme
 }

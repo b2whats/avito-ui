@@ -1,47 +1,159 @@
-import React, { useRef, useLayoutEffect, useState, useMemo, useCallback } from 'react'
+import React, { useRef, useState, useMemo, useCallback, useEffect, Children } from 'react'
 import { animated, Transition } from 'react-spring'
-import { popperGenerator, defaultModifiers, Instance } from '@popperjs/core/lib/popper'
+import { popperGenerator, defaultModifiers, StrictModifiers } from '@popperjs/core/lib/popper'
 import { useTheme, mergeTheme } from '../../theme/'
+import { useIsomorphicLayoutEffect } from '../../hooks/'
 import { Portal } from '../Portal/'
-import { useRefHook } from '../../hooks/'
 import { PositionerProps } from './contract'
 import { positionerTheme } from './theme'
-import { targetWidth } from './modifiers/'
+import { targetWidth, customApplyStyles, TargetWidthModifier  } from './modifiers/'
 
-const createPopper = popperGenerator({
-  defaultModifiers: [...defaultModifiers, targetWidth],
+
+type Nodes = {
+  tmp: HTMLElement,
+  parent: HTMLElement,
+  comment: Comment,
+} | null
+
+const HTMLComment = React.forwardRef<Comment, { text: string }>(({ text }, ref) => {
+  const nodes = React.useRef<Nodes>(null)
+
+  const setRef = useCallback((node) => {
+    if (node) {
+      const { tmp, parent, comment } = nodes.current = {
+        tmp: node,
+        parent: node.parentNode,
+        comment: document.createComment(text),
+      }
+
+      if (parent && parent.contains(tmp)) {
+        parent.replaceChild(comment, tmp)
+      }
+    } else {
+      nodes.current = null
+    }
+
+    if (!ref) return
+    const commentNode = nodes.current && nodes.current.comment
+
+    if (typeof ref === 'function') {
+      ref(commentNode)
+    } else if (typeof ref === 'object') {
+      ref.current = commentNode
+    }
+
+  }, [])
+
+  useIsomorphicLayoutEffect(() => () => {
+    if (!nodes.current) return
+
+    const { tmp, parent, comment } = nodes.current
+
+    if(parent && tmp && comment) {
+      parent.replaceChild(tmp, comment)
+    }
+  }, [])
+
+  return <span ref={setRef} hidden />
 })
 
-const getModifiers = (props: Partial<PositionerProps>) => {
-  const modifiers = ['offset', 'arrow', 'flip', 'preventOverflow', 'hide', 'targetWidth']
+HTMLComment.displayName = 'HTMLComment'
 
-  return modifiers.map(param => param in props
-    && { name: param, enabled: Boolean(props[param]), options: props[param] || {} }
-  ).filter(Boolean) as PositionerProps['modifiers']
+const createPopper = popperGenerator({
+  defaultModifiers: [...defaultModifiers, customApplyStyles, targetWidth],
+})
+
+const getModifiers = ({ minWidth, width, maxWidth, ...props}: Partial<PositionerProps>) => {
+  const modifiersName = ['offset', 'arrow', 'flip', 'preventOverflow', 'hide'] as const
+  const modifiers: (StrictModifiers | Partial<TargetWidthModifier>)[] = []
+
+  modifiersName.forEach(name => {
+    if (name in props) {
+      modifiers.push({ name, enabled: Boolean(props[name]), options: props[name] || undefined })
+    }
+  })
+
+  if (minWidth || width || maxWidth) {
+    modifiers.push({ name: 'targetWidth', enabled: true, options: { minWidth, width, maxWidth } })
+  }
+
+  return modifiers
 }
 
-export const Positioner = ({ usePortal, animation, delay, open, trigger, override, children, onOutsideClick, onClose, onOpen, ...props }: PositionerProps) => {
+type EventHandle = {
+  handleToggle: (open: boolean) => void
+  reference: HTMLElement
+  targetRef: React.MutableRefObject<HTMLDivElement | null>
+  trigger: PositionerProps['trigger']
+}
+class TriggerEvents implements EventListenerObject {
+  handleToggle: EventHandle['handleToggle']
+  targetRef: EventHandle['targetRef']
+  trigger: EventHandle['trigger']
+  reference: EventHandle['reference']
+
+  constructor({ handleToggle, targetRef, trigger, reference }: EventHandle) {
+    this.handleToggle = handleToggle
+    this.targetRef = targetRef
+    this.trigger = trigger
+    this.reference = reference
+  }
+
+  handleEvent(event: Event) {
+    this[event.type] && this[event.type](event)
+  }
+
+  click() {
+    if (this.targetRef.current) {
+      this.handleToggle(false)
+    } else {
+      this.handleToggle(true)
+    }
+  }
+
+  keydown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      this.handleToggle(false)
+    }
+  }
+
+  mouseenter() { this.handleToggle(true) }
+  mouseleave() { this.handleToggle(false) }
+
+  focus() { this.handleToggle(true) }
+  blur() { this.handleToggle(false) }
+}
+
+export const wrapEvent = (theirHandler, ourHandler) => event => {
+  if (theirHandler) {
+    theirHandler(event)
+  }
+
+  if (ourHandler) {
+    ourHandler(event)
+  }
+}
+
+export const Positioner = ({ override, onOutsideClick, ...props }: PositionerProps) => {
   const theme = useTheme()
-  const { transitions, defaultProps } = mergeTheme(positionerTheme, theme.Positioner, override)
-  const [init, setInit] = useState(false)
-  const [localOpen, setLocalOpen] = useState(() => Boolean(open))
-  const [targetRef, setTarget] = useRefHook<HTMLElement>()
-  const referenceRef = useRef<Element | null>(null)
-  const setReference = (node: Element | null) => node && (referenceRef.current = node.nextElementSibling)
-  const openTimerId = useRef<number>()
-  const popper = useRef<Instance>()
+  const componentTheme = mergeTheme(positionerTheme, theme.Positioner, override)
+
+  const [localOpen, setLocalOpen] = useState(Boolean(props.open))
+  const targetRef = useRef<HTMLDivElement | null>(null)
+  const referenceRef = useRef<HTMLElement | null>(null)
+  const anchorRef = useRef<Comment | null>(null)
+  const toggleTimerId = useRef<number>()
 
   props = {
-    ...defaultProps,
+    ...componentTheme.defaultProps,
     ...props,
   }
 
   const options = useMemo(() => ({
     strategy: props.strategy,
     placement: props.placement,
-    modifiers: props.modifiers || getModifiers(props),
+    modifiers: getModifiers(props),
   }), [
-    props.modifiers,
     props.placement,
     props.strategy,
     props.offset,
@@ -49,120 +161,154 @@ export const Positioner = ({ usePortal, animation, delay, open, trigger, overrid
     props.hide,
     props.flip,
     props.preventOverflow,
-    props.targetWidth,
+    props.minWidth,
+    props.width,
+    props.maxWidth,
+    props.animation,
   ])
 
-  const handlePopperDestroy = useCallback((_?: any, { item, phase }: any = {}) => {
-    if (!popper.current) return
+  const handleToggle = useCallback((toggle: boolean) => {
+    clearTimeout(toggleTimerId.current)
 
-    if (!animation || (item && phase === 'leave')) {
-      popper.current.destroy()
-      popper.current = undefined
-    }
-  }, [animation])
+    toggleTimerId.current = setTimeout(() => {
+      setLocalOpen(toggle)
 
-  const handleToggle = useCallback((event) => {
-    let type = typeof event === 'boolean' ? event : event.type
+      toggle
+        ? props.onOpen && props.onOpen()
+        : props.onClose && props.onClose()
+    }, toggle ? props.delayIn : props.delayOut)
 
-    clearTimeout(openTimerId.current)
+  }, [props.delayIn, props.delayOut, props.onClose, props.onOpen])
 
-    openTimerId.current = setTimeout(() => {
-      setLocalOpen(open => {
-        const value = {
-          true: true,
-          false: false,
-          click: !open,
-          mouseenter: true,
-          mouseleave: false,
-          focus: true,
-          blur: false,
-          scroll: false,
-        }[type]
+  // Следим за изменением reference и обновляем DOM ноду
+  useIsomorphicLayoutEffect(() => {
+    referenceRef.current = props.children && anchorRef.current
+      ? anchorRef.current.nextElementSibling as HTMLElement
+      : null
+  })
 
-        value && onOpen && onOpen()
-        !value && onClose && onClose()
-        
-        return value
-      })
-    }, delay)
+  // Обрабатываем внещний стейт open
+  useIsomorphicLayoutEffect(() => {
+    if (props.open === undefined || props.open === localOpen) return
 
-  }, [delay, onClose, onOpen])
+    handleToggle(props.open)
+  }, [props.open])
 
-  const handleOutsideClick = useCallback((event: MouseEvent) => {
+  // Создаем инстанс popper
+  useIsomorphicLayoutEffect(() => {
     const target = targetRef.current
     const reference = referenceRef.current
 
-    if (target === null || reference === null) return
+    if (!reference || !target) return
 
-    if (target.contains(event.target as Node) || reference.contains(event.target as Node)) return
-
-    onOutsideClick && onOutsideClick()
-  }, [onOutsideClick])
-
-  useLayoutEffect(() => {
-    if (open === undefined || open === localOpen) return
-
-    handleToggle(open)
-  }, [open])
-
-  useLayoutEffect(() => {
-    !init && setInit(true)
-    const target = targetRef.current
-    const reference = referenceRef.current
-
-    if (reference === null || target === null) return
-
-    if (!popper.current) {
-      target.style.margin = '0px'
-      popper.current = createPopper(reference, target, options)
-    } else {
-      popper.current.setOptions(options)
-    }
-
-    onOutsideClick && document.addEventListener('click', handleOutsideClick, true)
-    props.closeWhenScrolling && document.addEventListener('scroll', handleToggle)
+    target.style.margin = '0px'
+    const popper = createPopper(reference, target, options)
 
     return () => {
-      console.log('destroy')
-      handlePopperDestroy()
-      onOutsideClick && document.removeEventListener('click', handleOutsideClick, true)
-      props.closeWhenScrolling && document.removeEventListener('scroll', handleToggle)
+      popper.destroy()
     }
-  }, [localOpen, options, usePortal, animation, handleOutsideClick])
+  }, [localOpen, options])
 
-  useLayoutEffect(() => {
+  // Устанавливаем глобальный обрабочики при открытии
+  useEffect(() => {
+    const target = targetRef.current
     const reference = referenceRef.current
-    const eventsType = trigger && {
+
+    if (!reference || !target) return
+
+    const handleScroll = () => handleToggle(false)
+    const handlePressEsc = (event: KeyboardEvent) => event.key === 'Escape' && handleToggle(false)
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (target.contains(event.target as Node) || reference.contains(event.target as Node)) return
+
+      handleToggle(false)
+    }
+
+    props.closeOnOutsideClick && document.addEventListener('click', handleOutsideClick, true)
+    props.closeOnScroll && document.addEventListener('scroll', handleScroll)
+    props.closeOnEsc && document.addEventListener('keydown', handlePressEsc)
+    return () => {
+      props.closeOnOutsideClick && document.removeEventListener('click', handleOutsideClick, true)
+      props.closeOnScroll && document.removeEventListener('scroll', handleScroll)
+      props.closeOnEsc && document.removeEventListener('keydown', handlePressEsc)
+
+    }
+  }, [localOpen, handleToggle, props.closeOnOutsideClick, props.closeOnScroll, props.closeOnEsc])
+
+  const reference = Children.only(props.children)
+
+  let eventHandlers = {}
+
+  if (props.trigger === 'click') {
+    eventHandlers = {
+      onClick: (event: MouseEvent) => {
+        reference.props.onClick && reference.props.onClick(event)
+        handleToggle(!localOpen)
+      },
+    }
+  }
+
+  if (props.trigger === 'hover') {
+    eventHandlers = {
+      onFocus: wrapEvent(child.props.onFocus, onOpen),
+      onKeyDown: wrapEvent(child.props.onKeyDown, event => {
+        if (event.key === 'Escape') {
+          setTimeout(onClose, 300)
+        }
+      }),
+      onBlur: wrapEvent(child.props.onBlur, onClose),
+      onMouseEnter: wrapEvent(child.props.onMouseEnter, () => {
+        isHoveringRef.current = true
+        openTimeout.current = setTimeout(onOpen, 300)
+      }),
+      onMouseLeave: wrapEvent(child.props.onMouseLeave, () => {
+        isHoveringRef.current = false
+        if (openTimeout.current) {
+          clearTimeout(openTimeout.current)
+          openTimeout.current = null
+        }
+        setTimeout(() => {
+          if (isHoveringRef.current === false) {
+            onClose()
+          }
+        }, 300)
+      }),
+    }
+  }
+
+  useIsomorphicLayoutEffect(() => {
+    const reference = referenceRef.current
+
+    if (!reference || !props.trigger) return
+
+    const eventsType = {
       click: ['click'],
       hover: ['mouseenter', 'mouseleave'],
-      focus: ['focus', 'blur'],
-    }[trigger]
+    }[props.trigger]
 
-    if (reference === null || !eventsType) return
-    if (trigger === 'focus') {
-      (reference as HTMLElement).tabIndex = -1;
-      (reference as HTMLElement).style.outline = 'none'
-    }
-    eventsType.forEach(type => reference.addEventListener(type, handleToggle))
+    const handlers = new TriggerEvents({ handleToggle, trigger: props.trigger, targetRef, reference })
+
+    eventsType.forEach(type => reference.addEventListener(type, handlers))
 
     return () => {
-      eventsType.forEach(type => reference.removeEventListener(type, handleToggle))
+      eventsType.forEach(type => reference.removeEventListener(type, handlers))
     }
-  }, [trigger, delay])
+  }, [props.trigger, props.closeOnEsc, handleToggle])
 
-  const target = typeof props.target === 'function' ? props.target({ handleToggle }) : props.target
+  const target = typeof props.target === 'function' ? props.target({ close: () => handleToggle(false) }) : props.target
 
-  const targetWrapper = animation ?
-    <Transition items={localOpen} {...(transitions[animation] || animation)} onRest={handlePopperDestroy}>
-      {(style, item) => item && <animated.div ref={localOpen ? setTarget : undefined} style={style}>{target}</animated.div>}
+  const targetWrapper = props.animation ?
+    <Transition items={localOpen} {...(componentTheme.transitions[props.animation])}>
+      {(style, item) => item && <animated.div ref={localOpen ? targetRef : undefined} style={style}>{target}</animated.div>}
     </Transition> :
-    localOpen && <div ref={setTarget}>{target}</div>
+    localOpen && <div ref={targetRef}>{target}</div>
 
+  console.log('render', localOpen)
   return (
     <React.Fragment>
-      {!init && <div ref={setReference} hidden />}
-      {children}
-      <Portal turn={usePortal}>
+      <HTMLComment ref={anchorRef} text='positioner anchor' />
+      {Children.only(props.children)}
+      <Portal turn={props.usePortal}>
         {targetWrapper}
       </Portal>
     </React.Fragment>

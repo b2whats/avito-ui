@@ -10,7 +10,7 @@ export type TargetWidthModifier = Modifier<'targetWidth', Options>
 
 export const targetWidth: TargetWidthModifier = {
   name: 'targetWidth',
-  enabled: true,
+  enabled: false,
   fn: () => {},
   phase: 'beforeWrite',
   requires: ['computeStyles'],

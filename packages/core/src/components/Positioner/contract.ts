@@ -1,14 +1,16 @@
 import { Placement, StrictModifiers } from '@popperjs/core'
 import { TargetWidthModifier } from './modifiers/'
-import { PositionerTheme } from './theme'
+import { PositionerTheme, TransitionProps } from './theme'
 
 type Modifiers = StrictModifiers extends object ? Required<StrictModifiers> : never
 type FindByName<Union, Name> = Union extends { name: Name, options: any } ? Union['options'] | false : never
 type TargetProps = {
-  handleToggle: (open: boolean) => void
+  close: () => void
 }
+type TargetWidth = 'reference' | number
+
 export interface PositionerProps {
-  children: React.ReactNode
+  children: React.ReactElement
   target?: React.ReactNode | ((props: TargetProps) => React.ReactNode)
   /* Позиция target */
   placement?: Placement
@@ -18,28 +20,38 @@ export interface PositionerProps {
   flip?: FindByName<Modifiers, 'flip'>
   /* Параметры для срелки */
   arrow?: FindByName<Modifiers, 'arrow'>
-  /* Стилевые параметры для target */
-  targetWidth?: TargetWidthModifier['options']
+  /** Ширина target */
+  width?: TargetWidth
+  /** Минимальная ширина target */
+  minWidth?: TargetWidth
+  /** Максимальная ширина target */
+  maxWidth?: TargetWidth
   /* Параметры для переполнения */
   preventOverflow?: FindByName<Modifiers, 'preventOverflow'>
-  /* Параметры для скррытия target когда reference вышел за область видимости */
+  /* Параметры для скрытия target когда reference вышел за область видимости */
   hide?: FindByName<Modifiers, 'hide'>
   /* Описывает стратегию позиционирования */
   strategy?: 'fixed' | 'absolute',
   /* Отрендерить в контексте портала */
   usePortal?: boolean
   /* Стратегия появления target элемента */
-  trigger?: 'click' | 'hover' | 'focus'
+  trigger?: 'click' | 'hover'
   /* Показать или спрятать target  */
   open?: boolean
-  /* Задержка при появлении ms */
-  delay?: number
-  /* Стратегия появления target элемента */
-  animation?: 'fade'
+  /* Спрятать target при нажатии Escape */
+  closeOnEsc?: boolean
+  /* Спрятать target при потере фокуса */
+  closeOnBlur?: boolean
+  /* Спрятать target при клике вне target и reference */
+  closeOnOutsideClick?: boolean
   /* Спрятать при скроле */
-  closeWhenScrolling?: boolean
-  /* Позволяе переопределить все модификаторы popper, другие параметры перестают влиять */
-  modifiers?: StrictModifiers[]
+  closeOnScroll?: boolean
+  /* Задержка при открытии ms */
+  delayIn?: number
+  /* Задержка при закрытии ms */
+  delayOut?: number
+  /* Анимация */
+  animation?: 'fade' | TransitionProps
   /** Переопределиь тему компонента */
   override?: PositionerTheme
 
