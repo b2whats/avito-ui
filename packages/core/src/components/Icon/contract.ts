@@ -1,9 +1,9 @@
 import React from 'react'
-import { SpaceProperties, ColorProperties, AlignProperties, PaddingProperties } from '../../styled-system/'
+import { SpaceProperties, ColorProperties, AlignProperties, DimensionProperties, BorderProperties } from '../../styled-system/'
 
 type MouseHandler = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
 
-export interface BaseIconProps extends SpaceProperties, ColorProperties, AlignProperties, PaddingProperties {
+export interface BaseIconProps extends BorderProperties, DimensionProperties, SpaceProperties, ColorProperties, AlignProperties {
   children: React.ReactNode
   /** Имя */
   name: string,
