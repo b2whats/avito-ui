@@ -51,14 +51,6 @@ export const iconTheme: DeepPartial<IconTheme> = {
           },
         },
       },
-      name: {
-        checkmark: {
-          style: {
-            color: 'blue500',
-            colorDisabled: 'gray28',
-          },
-        },
-      },
     },
   },
 }
