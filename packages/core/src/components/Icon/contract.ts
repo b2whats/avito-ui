@@ -24,8 +24,6 @@ export interface BaseIconProps extends StyleProps {
   shadow?: boolean | string
   /** Состояние disabled */
   disabled?: boolean
-  /** Переопределиь тему компонента */
-  override?: IconTheme
 
   onClick?: MouseHandler
 }

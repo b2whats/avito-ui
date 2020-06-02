@@ -1,5 +1,5 @@
-import React, { useRef, useLayoutEffect, useState, useMemo, useCallback } from 'react'
-import { useTheme, mergeTheme } from '../../theme/'
+import React from 'react'
+import { uiComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Positioner, PositionerProps } from '../Positioner/'
 import { TooltipProps } from './contract'
@@ -56,18 +56,10 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Arrow
   `
 )
 
-export const Tooltip = ({ content, override, ...props }: TooltipProps) => {
-  const theme = useTheme()
-  const componentTheme = mergeTheme(tooltipTheme, theme.Tooltip, override)
-
-  props = {
-    ...componentTheme.defaultProps,
-    ...props,
-  }
-
-  const { Tooltip, Arrow, Close } = foldThemeParams(props, componentTheme)
-  const tooltipStyle = tooltipClassName(props, theme, Tooltip.style)
-  const arrowStyle = arrowClassName(props, theme, Arrow.style)
+export const Tooltip = uiComponent('Tooltip', tooltipTheme)(({ content, ...props }: TooltipProps, { theme, tokens }) => {
+  const { Tooltip, Arrow, Close } = foldThemeParams(props, theme)
+  const tooltipStyle = tooltipClassName(props, tokens, Tooltip.style)
+  const arrowStyle = arrowClassName(props, tokens, Arrow.style)
 
   const target: PositionerProps['target'] = ({ close }) => (
     <div css={tooltipStyle}>
@@ -82,4 +74,4 @@ export const Tooltip = ({ content, override, ...props }: TooltipProps) => {
       {props.children}
     </Positioner>
   )
-}
+})

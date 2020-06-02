@@ -1,13 +1,9 @@
 import { DeepPartial, IconTheme } from '@avito/core'
 
 export const iconTheme: DeepPartial<IconTheme> = {
-  deriveProps: {
-    onClick: {
-      props: {
-        area: 5,
-      },
-    },
-  },
+  mapProps: ({ onClick }) => ({
+    ...onClick && { area: 5 },
+  }),
   defaultProps: {
     size: 'm',
   },

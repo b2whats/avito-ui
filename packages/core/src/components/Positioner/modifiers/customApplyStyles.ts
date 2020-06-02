@@ -3,5 +3,27 @@ import type { ApplyStylesModifier } from '@popperjs/core/lib/modifiers/applyStyl
 
 export const customApplyStyles: ApplyStylesModifier = {
   ...applyStyles,
-  effect(args) { applyStyles.effect!(args); return () => {} },
+  effect({ state }) {
+    const initialStyles = {
+      popper: {
+        position: state.options.strategy,
+        left: '0',
+        top: '0',
+        bottom: 'auto', 
+        right: 'auto',
+        margin: '0',
+      },
+      arrow: {
+        position: 'absolute',
+      },
+      reference: {},
+    }
+  
+    Object.assign(state.elements.popper.style, initialStyles.popper)
+  
+    if (state.elements.arrow) {
+      Object.assign(state.elements.arrow.style, initialStyles.arrow)
+    }
+    return () => {}
+  },
 }

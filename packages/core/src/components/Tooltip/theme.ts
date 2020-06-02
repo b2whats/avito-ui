@@ -1,15 +1,12 @@
-import { SchemeType } from '../../styled-system/'
+import { ComponentTheme, Slot } from '../../styled-system/'
 import { IconProps } from '../Icon/contract'
 import { TooltipProps } from './contract'
 
-export type TooltipTheme = {
-  defaultProps?: Partial<TooltipProps>,
-  scheme: {
-    Tooltip: SchemeType<TooltipProps>,
-    Close: SchemeType<TooltipProps, IconProps>,
-    Arrow: SchemeType<TooltipProps, never, { offset: number }>,
-  },
-}
+export type TooltipTheme = ComponentTheme<TooltipProps, {
+  Tooltip: Slot,
+  Close: Slot<IconProps>,
+  Arrow: Slot<never, { offset: number }>,
+}>
 
 export const tooltipTheme: TooltipTheme = {
   defaultProps: {

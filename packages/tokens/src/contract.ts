@@ -196,8 +196,7 @@ type Shape = {
   },
 }
 
-interface Demo {
-}
+type Demo = {}
 
 export type Tokens = {
   focus: Focus,

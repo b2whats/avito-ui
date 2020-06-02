@@ -1,6 +1,6 @@
-import { useCallback, useRef, MutableRefObject } from 'react'
+import { useCallback, useRef, Ref } from 'react'
 
-export function useRefHook<T>(...refs: (MutableRefObject<T> | ((instance: T | null) => void))[]) {
+export function useRefHook<T>(...refs: Ref<T>[]) {
   const ref = useRef<T | null>(null)
   const setRef = useCallback((node) => {
     ref.current = node

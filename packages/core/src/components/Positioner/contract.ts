@@ -1,6 +1,5 @@
 import { Placement, StrictModifiers } from '@popperjs/core'
-import { TargetWidthModifier } from './modifiers/'
-import { PositionerTheme, TransitionProps } from './theme'
+import { TransitionProps } from './theme'
 
 type Modifiers = StrictModifiers extends object ? Required<StrictModifiers> : never
 type FindByName<Union, Name> = Union extends { name: Name, options: any } ? Union['options'] | false : never
@@ -40,11 +39,9 @@ export interface PositionerProps {
   open?: boolean
   /* Спрятать target при нажатии Escape */
   closeOnEsc?: boolean
-  /* Спрятать target при потере фокуса */
-  closeOnBlur?: boolean
   /* Спрятать target при клике вне target и reference */
   closeOnOutsideClick?: boolean
-  /* Спрятать при скроле */
+  /* Спрятать target при скроле */
   closeOnScroll?: boolean
   /* Задержка при открытии ms */
   delayIn?: number
@@ -52,11 +49,7 @@ export interface PositionerProps {
   delayOut?: number
   /* Анимация */
   animation?: 'fade' | TransitionProps
-  /** Переопределиь тему компонента */
-  override?: PositionerTheme
 
-  /** Событие клика вне target и reference */
-  onOutsideClick?: () => void
   /* Событие появления target */
   onOpen: () => void
   /* Событие закрытия target */
