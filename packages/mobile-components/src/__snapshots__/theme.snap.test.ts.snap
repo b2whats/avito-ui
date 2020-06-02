@@ -7,6 +7,7 @@ Object {
     "size": "m",
     "type": "button",
   },
+  "mapProps": [Function],
   "scheme": Object {
     "Button": Object {
       "iconAfter": Object {
@@ -411,9 +412,11 @@ Object {
         },
       },
       "props": Object {
+        "crop": true,
         "dense": true,
         "ml": -1,
         "size": "m",
+        "valignSelf": "middle",
       },
     },
   },
@@ -1128,6 +1131,7 @@ Object {
     "size": "m",
     "variant": "primary",
   },
+  "mapProps": [Function],
   "scheme": Object {
     "Icon": Object {
       "checked": Object {
@@ -1232,6 +1236,7 @@ Object {
     "variant": "primary",
   },
   "deletePlaceholderOnFocus": true,
+  "mapProps": [Function],
   "scheme": Object {
     "IconAfter": Object {
       "clearable": Object {
@@ -1745,6 +1750,7 @@ Object {
     "size": "m",
     "variant": "primary",
   },
+  "mapProps": [Function],
   "scheme": Object {
     "Icon": Object {
       "checked": Object {
@@ -1828,45 +1834,7 @@ Object {
 
 exports[`mobile theme text theme snap 1`] = `
 Object {
-  "mapProps": Object {
-    "preset": Object {
-      "heading": Object {
-        "props": Object {
-          "dense": true,
-          "mb": 22,
-          "size": "l",
-        },
-      },
-      "heading-large": Object {
-        "props": Object {
-          "bold": true,
-          "dense": true,
-          "mb": 22,
-          "size": "l",
-        },
-      },
-      "heading-small": Object {
-        "props": Object {
-          "mb": 16,
-          "size": "m",
-        },
-      },
-      "title": Object {
-        "props": Object {
-          "mb": 36,
-          "size": "xxl",
-        },
-      },
-      "title-small": Object {
-        "props": Object {
-          "bold": true,
-          "dense": true,
-          "mb": 26,
-          "size": "xl",
-        },
-      },
-    },
-  },
+  "mapProps": [Function],
   "scheme": Object {
     "Text": Object {
       "dense": Object {
