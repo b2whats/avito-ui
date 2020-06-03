@@ -1,3 +1,3 @@
-export { Text } from './Text'
+export { Link } from './Link'
 export * from './contract'
 export * from './theme'

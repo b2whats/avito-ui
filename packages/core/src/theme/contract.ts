@@ -11,6 +11,7 @@ import { TextareaTheme } from '../components/Textarea/theme'
 import { ToggleTheme } from '../components/Toggle/theme'
 import { PositionerTheme } from '../components/Positioner/theme'
 import { TooltipTheme } from '../components/Tooltip/theme'
+import { LinkTheme } from '../components/Link/theme'
 
 export interface Theme extends Tokens {
   Button: Partial<ButtonTheme>
@@ -25,4 +26,5 @@ export interface Theme extends Tokens {
   Toggle: Partial<ToggleTheme>
   Positioner: Partial<PositionerTheme>
   Tooltip: Partial<TooltipTheme>
+  Link: Partial<LinkTheme>
 }

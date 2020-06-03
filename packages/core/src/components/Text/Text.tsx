@@ -11,8 +11,6 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
     ...props,
   }),
   (textRules, { strike }, { palette }) => (`
-    margin: 0;
-
     li& {
       list-style: none;
     }
@@ -37,7 +35,7 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
   `)
 )
 
-const Text = uiComponent('Text', textTheme)(({ children, ...props }: TextProps, { theme, tokens }) => {
+export const Text = uiComponent('Text', textTheme)(({ children, ...props }: TextProps, { theme, tokens }) => {
   const { Text } = foldThemeParams(props, theme)
   const textStyle = textClassName(props, tokens, Text.style)
   const Tag = props.as || 'span'
@@ -48,5 +46,3 @@ const Text = uiComponent('Text', textTheme)(({ children, ...props }: TextProps, 
     </Tag>
   )
 })
-
-export default Text

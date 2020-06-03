@@ -1,8 +1,8 @@
 import React from 'react'
 import { Theme } from '../../theme/'
-import { MarginProperties, DimensionProperties, AlignProperties } from '../../styled-system/'
+import { MarginProperties, DimensionProperties, AlignProperties, ColorProperties } from '../../styled-system/'
 
-export interface TextProps extends MarginProperties, DimensionProperties, AlignProperties {
+export interface TextProps extends MarginProperties, DimensionProperties, AlignProperties, ColorProperties {
   /** Размер текста */
   size?: keyof Theme['font']['fontSize']
   /** Размер текста фолбек */
@@ -40,9 +40,7 @@ export interface TextProps extends MarginProperties, DimensionProperties, AlignP
   /** Цветовые варианты текста */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Текстовая нода */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'strong' | 'em' | 'label' | 'li'
-  /** Цвет текста */
-  color?: keyof Theme['palette']
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'strong' | 'em' | 'label' | 'li' | 'a'
   /** Инлайновое поведение */
   inline?: boolean
   /** Блочное поведение */

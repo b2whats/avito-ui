@@ -2,7 +2,7 @@ import { useTheme } from '.'
 import { mergeTheme } from './mergeTheme'
 import { Theme } from './contract'
 import { DeepPartial } from '../utils'
-import { forwardRef, Ref, FunctionComponent, MutableRefObject, ReactNode } from 'react'
+import { forwardRef, Ref, FunctionComponent, MutableRefObject } from 'react'
 import { Tokens } from '@avito/tokens'
 import { useRefHook } from '../hooks'
 
@@ -10,7 +10,7 @@ type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => 
 
 export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType) {
   return <Props, RefType = HTMLElement>(
-    render: (props: Props, theme: { theme: ThemeType, tokens: Tokens }, ref: RefContainer<RefType>) => ReactNode
+    render: (props: Props, theme: { theme: ThemeType, tokens: Tokens }, ref: RefContainer<RefType>) => JSX.Element
   ) => {
     type ExternalProps = Props & {
       override?: DeepPartial<ThemeType>,
@@ -23,13 +23,13 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
         ...(componentTheme as any).defaultProps,
         ...props,
       }
-
       return render(
         componentTheme.mapProps(props) as Props,
         { theme: componentTheme, tokens: globalTheme },
-        useRefHook(ref)) as React.ReactElement
+        useRefHook(ref))
     })
     WrappedComponent.displayName = name
-    return WrappedComponent as unknown as FunctionComponent<ExternalProps>
+    type Component =<T extends object>(props: ExternalProps & T) => JSX.Element
+    return WrappedComponent as unknown as Component
   }
 }

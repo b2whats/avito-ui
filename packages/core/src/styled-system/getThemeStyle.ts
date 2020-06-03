@@ -141,7 +141,7 @@ type OtherProperties = BorderProperties & Partial<{
   shadow?: string | boolean,
 }>
 
-export type Colors = keyof Tokens['palette'] | 'transparent' | (string & {})
+export type Colors = keyof Tokens['palette'] | 'transparent' | 'inherit' | (string & {})
 
 export type ColorProperties = Partial<{
   /** Цвет контента */
