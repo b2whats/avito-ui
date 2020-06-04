@@ -1,5 +1,6 @@
 import React from 'react'
 import { uiComponent } from '../../theme/'
+import { filterProps } from '../../utils/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { TextProps } from './contract'
 import { textTheme } from './theme'
@@ -13,6 +14,10 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
   (textRules, { strike }, { palette }) => (`
     li& {
       list-style: none;
+    }
+
+    a& {
+      text-decoration: none;
     }
 
     ${strike ? `
@@ -41,7 +46,7 @@ export const Text = uiComponent('Text', textTheme)(({ children, ...props }: Text
   const Tag = props.as || 'span'
 
   return (
-    <Tag css={textStyle} {...Text.props} >
+    <Tag css={textStyle} {...filterProps(props)}>
       { children }
     </Tag>
   )

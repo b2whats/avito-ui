@@ -1,8 +1,8 @@
 import React from 'react'
 import { Theme } from '../../theme/'
-import { MarginProperties, DimensionProperties, AlignProperties, ColorProperties } from '../../styled-system/'
+import { MarginProperties, DimensionProperties, AlignProperties, ColorProperties, LayoutProperties } from '../../styled-system/'
 
-export interface TextProps extends MarginProperties, DimensionProperties, AlignProperties, ColorProperties {
+export interface TextProps extends MarginProperties, DimensionProperties, AlignProperties, ColorProperties, LayoutProperties {
   /** Размер текста */
   size?: keyof Theme['font']['fontSize']
   /** Размер текста фолбек */
@@ -21,8 +21,6 @@ export interface TextProps extends MarginProperties, DimensionProperties, AlignP
   light?: boolean
   /** Курсивное начертание */
   italic?: boolean
-  /** Наследование стиля от родителя */
-  inherit?: boolean
   /** Текст в верхнем регистре */
   uppercase?: boolean
   /** Перечеркнутый текст */
@@ -47,6 +45,4 @@ export interface TextProps extends MarginProperties, DimensionProperties, AlignP
   block?: boolean
   /** Пресет компонента */
   preset?: 'title' | 'title-small' | 'heading-large' | 'heading' | 'heading-small'
-
-  onMouseDown?(event: React.MouseEvent<HTMLElement>): void
 }

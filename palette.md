@@ -23,22 +23,22 @@ const Color = ({ name, fullLabel, isDark }) => {
   <Text>gray# — оттенки серого без прозрачности</Text>
   <Stack wrap>
     <Color name="white" fullLabel />
-    {byHue('gray').map(color => <Color name={color} />)}
+    {byHue('gray').map(color => <Color key={color} name={color} />)}
     <Color name="black" fullLabel isDark/>
   </Stack>
 
   <Text>black# — оттенки серого через прозрачность</Text>
   <Stack wrap>
     <Color name="white" fullLabel />
-    {byHue('black').filter(k => k !== 'black').map(color => <Color name={color} />)}
+    {byHue('black').filter(k => k !== 'black').map(color => <Color key={color} name={color} />)}
     <Color name="black" fullLabel isDark />
   </Stack>
 
   <Text>Цвета</Text>
   {hues.map(hue =>
-    <Stack wrap>
+    <Stack key={hue} wrap>
       <Text valignSelf="middle" width={80} color={`${hue}700`}>{hue}</Text>
-      {byHue(hue).map(color => <Color name={color} />)}
+      {byHue(hue).map(color => <Color key={color} name={color} />)}
     </Stack>
   )}
 </Stack>

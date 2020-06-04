@@ -10,6 +10,20 @@ export const linkTheme: LinkTheme = {
     variant: 'primary',
   },
   scheme: {
-    Link: {},
+    Link: {
+      props: {},
+      variant: {}, // Пустые объекты определяют порядок мержа
+      inherit: {
+        props: {
+          underline: true,
+          color: 'inherit',
+        },
+      },
+      noVisited: {
+        props: {
+          colorVisited: undefined,
+        },  
+      },
+    },
   },
 }
