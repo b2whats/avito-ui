@@ -188,6 +188,9 @@ type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 type OnlyLiteralString<T> = T extends string ? T : never
 type IsChildren<T> = React.ReactNode extends T ? true : false
 type Computable<T, Arg> = { [K in keyof T]: (T[K] | ((arg: Arg) => T[K])) }
+// String literals on unions, maybe optional
+// preset: 'force' | 'none', preset: 'force' and preset?: 'force' will all pass
+type IsSwitchable<T> = IsUnion<NonNullable<T>> extends true ? true : T extends string | undefined ? true : false
 
 export type SchemeType<
   Props extends { [K in keyof Props]: Props[K] },
@@ -200,14 +203,9 @@ export type SchemeType<
   // Если написать так React.FunctionComponent<ComponentsProps>
   component?: any,
 } & {
-  [Key in keyof Props]?: IsChildren<Props[Key]> extends true
-    ? SchemeType<Omit<Props, Key>, ComponentsProps>
-    : IsUnion<NonNullable<Props[Key]>> extends true
-      ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps> }
-      // single-value props, as in preset: 'force' or preset?: 'force'
-      : Props[Key] extends string | undefined
-        ? { [K in OnlyLiteralString<Props[Key]>]?: SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps> }
-        : SchemeType<Omit<Props, Key>, ComponentsProps, ExtraStyleProps>
+  [Key in keyof Props]?: IsSwitchable<Props[Key]> extends true
+    ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Props, ComponentsProps, ExtraStyleProps> }
+    : SchemeType<Props, ComponentsProps, ExtraStyleProps>
 }
 
 export interface Slot<OutProps = never, ExtraStyles = {}> {}
