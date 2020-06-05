@@ -95,7 +95,7 @@ const help = event => {
 ```
 
 Иконки в компоненте могут быть кликабельные, чтобы иконка вела себя как кнопка, необходимо прерывать собыие клика по ней, чтобы `input`
-не получал фокус.  
+не получал фокус.
 Не забывайте у кликабельных иконок устанавливать область клика `area`: `number` для мобильных устройств
 
 ```jsx
@@ -154,6 +154,23 @@ import { Button } from '../Button';
     <Button type="submit">Проверить</Button>
   </Stack>
 </form>
+```
+
+## Форматирование и маски
+
+```jsx
+import { useMemo } from 'react'
+
+const numberFormatter = useMemo(() => ({
+  format(str) {
+    const r = parseInt(str.replace(/[^\d]+/gi, ''), 10);
+    return r ? r.toLocaleString('RU') : '';
+  }
+}), []);
+
+<Stack column spacing='s' width={250}>
+  <Input formatter={numberFormatter} />
+</Stack>
 ```
 
 ## Кейс: поисковая строка

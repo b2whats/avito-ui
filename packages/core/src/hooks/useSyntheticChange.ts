@@ -1,12 +1,35 @@
-import { ChangeEvent, ChangeEventHandler } from 'react'
+import { ChangeEventHandler, useRef, ChangeEvent } from 'react'
+import { useRifm } from 'rifm'
 import { ChangeHandler } from '../utils'
 
-export function useSyntheticChange<Value, Element>(value: Value | undefined, onChange: ChangeHandler<Value, Element>) {
-  const wrappedChange: ChangeEventHandler<Element> = ({ target }: any) => {
-    onChange({ value: target.value, target, name: target.name })
+export type FormatterOptions = Omit<
+  typeof useRifm extends (options: infer Options) => any ? Options : never,
+  'value' | 'onChange'>
+
+export function useSyntheticChange<Value, Element extends (HTMLInputElement | HTMLTextAreaElement)>(
+  value: Value | undefined,
+  onChange: ChangeHandler<Value, Element>,
+  options?: FormatterOptions
+): [string, ChangeEventHandler<Element>] {
+  const stringValue = value === null || value === undefined ? '' : String(value)
+  if (!options) {
+    return [
+      stringValue,
+      ({ target }) => onChange({ value: target.value as any, target, name: target.name }),
+    ]
   }
+
+  const target = useRef<Element | null>(null)
+  const rifmProps = useRifm({
+    value: stringValue,
+    onChange: (value: any) => onChange({ value, target: target.current! }),
+    ...options,
+  })
   return [
-    value === null || value === undefined ? '' : String(value),
-    wrappedChange,
-  ] as const
+    rifmProps.value,
+    e => {
+      target.current = e.target
+      rifmProps.onChange(e as ChangeEvent<any>)
+    },
+  ]
 }
