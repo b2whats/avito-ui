@@ -23,7 +23,7 @@ declare module '@avito/core' {
 }
 
 export const theme = {
-  ...(mobile as Theme),
+  ...mobile,
   Button: buttonTheme,
   Checkbox: checkboxTheme,
   Icon: iconTheme,

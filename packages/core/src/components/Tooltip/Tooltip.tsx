@@ -1,5 +1,6 @@
 import React from 'react'
 import { uiComponent } from '../../theme/'
+import { filterProps } from '../../utils/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { Positioner, PositionerProps } from '../Positioner/'
 import { TooltipProps } from './contract'
@@ -22,7 +23,6 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Arrow
     ...themeStyle,
   }),
   (textRules, _, __, themeStyle) => `
-    box-sizing: border-box;
     visibility: hidden;
     background-color: inherit;
 
@@ -62,7 +62,7 @@ export const Tooltip = uiComponent('Tooltip', tooltipTheme)(({ content, ...props
   const arrowStyle = arrowClassName(props, tokens, Arrow.style)
 
   const target: PositionerProps['target'] = ({ close }) => (
-    <div css={tooltipStyle}>
+    <div css={tooltipStyle} {...filterProps(props)}>
       {props.arrow && <div css={arrowStyle} data-popper-arrow />}
       {props.closable && Close.component && <Close.component {...Close.props} onClick={close} />}
       {content}

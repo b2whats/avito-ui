@@ -10,6 +10,7 @@ export type TooltipTheme = ComponentTheme<TooltipProps, {
 
 export const tooltipTheme: TooltipTheme = {
   defaultProps: {
+    animation: 'fade',
     arrow: {
       padding: 8,
     },
@@ -18,7 +19,6 @@ export const tooltipTheme: TooltipTheme = {
     Tooltip: {
       style: {
         bg: 'white',
-        p: 16,
       },
     },
     Arrow: {

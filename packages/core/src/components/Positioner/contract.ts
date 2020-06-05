@@ -13,17 +13,17 @@ export interface PositionerProps {
   target?: React.ReactNode | ((props: TargetProps) => React.ReactNode)
   /* Позиция target */
   placement?: Placement
-  /* Смещение target оносиельно reference */
+  /* Смещение target относиельно reference */
   offset?: FindByName<Modifiers, 'offset'>
   /* Перемещение при нехватке места */
   flip?: FindByName<Modifiers, 'flip'>
   /* Параметры для срелки */
   arrow?: FindByName<Modifiers, 'arrow'>
-  /** Ширина target */
+  /* Ширина target */
   width?: TargetWidth
-  /** Минимальная ширина target */
+  /* Минимальная ширина target */
   minWidth?: TargetWidth
-  /** Максимальная ширина target */
+  /* Максимальная ширина target */
   maxWidth?: TargetWidth
   /* Параметры для переполнения */
   preventOverflow?: FindByName<Modifiers, 'preventOverflow'>
