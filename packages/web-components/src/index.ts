@@ -3,6 +3,7 @@ export { Button, Text, Icon, Checkbox, Radio, Switcher, Input, Textarea, Spinner
 export * from './components/Icon/'
 
 export { theme } from './theme'
+export { useTheme } from '@avito/core'
 export { ThemeProvider } from './ThemeProvider'
 
 export { pikTheme } from './themes'

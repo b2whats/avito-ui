@@ -7,4 +7,5 @@ export { Select } from './components/Select/'
 export * from './components/Icon/'
 
 export { theme } from './theme'
+export { useTheme } from '@avito/core'
 export { ThemeProvider } from './ThemeProvider'

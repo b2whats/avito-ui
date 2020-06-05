@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 
 const { parse } = require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
   // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
@@ -55,6 +56,24 @@ module.exports = {
       ],
     },
   },
+  updateExample(props, exampleFilePath) {
+    const { settings = {}, lang } = props
+
+    if (typeof settings.file === 'string') {
+      const filepath = path.resolve(exampleFilePath, settings.file)
+
+      settings.static = true
+
+      delete settings.file
+      return {
+        content: fs.readFileSync(filepath, 'utf8'),
+        settings,
+        lang,
+      }
+    }
+
+    return props
+  },
   require: [path.resolve(__dirname, 'styleguidist/setup.ts')],
   context: {
     Stack: path.resolve(__dirname, './packages/core/src/components/Layout/Stack'),
@@ -71,8 +90,14 @@ module.exports = {
     name: 'Токены',
     sectionDepth: 1,
     sections: [{
+      name: 'Начало работы',
+      content: './getting-started.md',
+    }, {
       name: 'Палитра',
       content: './palette.md',
+    }, {
+      name: 'Настройка темы',
+      content: './theme.md',
     }],
   }, {
     name: 'Компоненты',
