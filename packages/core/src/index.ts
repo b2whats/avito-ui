@@ -40,3 +40,5 @@ export { filterProps, DeepPartial, omit } from './utils/'
 export * from './styled-system/'
 export { ThemeProvider, useTheme, mergeTheme, dsl, uiComponent } from './theme/'
 export type { Theme } from './theme/'
+
+export * from './formatters'

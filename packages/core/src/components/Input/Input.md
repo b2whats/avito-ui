@@ -158,18 +158,93 @@ import { Button } from '../Button';
 
 ## Форматирование и маски
 
+`formatter` управляет форматированием текста в инпуте. Мы предоставляем `numberFormatter`, который разбивает числа на разряды. Обратите внимание, что `type="tel"`.
+
+```jsx
+import { numberFormatter } from '@avito/core';
+const [value, setValue] = useState('9999');
+
+<Stack spacing='s'>
+  <Input
+    type='tel'
+    formatter={numberFormatter}
+    value={value}
+    onChange={e => setValue(e.value === '' ? null : Number(e.value))} />
+  <Input
+    value={value}
+    onChange={e => setValue(e.value)} />
+</Stack>
+```
+
+Другие форматы чисел задаются через `numberFormatter.configure`:
+
+```jsx
+import { useMemo } from 'react'
+import { Checkbox } from '../Checkbox'
+import { numberFormatter } from '@avito/core'
+
+const [value, setValue] = useState('9999')
+const [config, setConfig] = useState({
+  maxIntDigits: 15,
+  maxFracDigits: 0,
+  positiveOnly: false,
+})
+const customNumberFormatter = useMemo(
+  () => numberFormatter.setup(config),
+  [config.maxIntDigits, config.maxFracDigits, config.positiveOnly]);
+
+<Stack spacing='s'>
+  <Stack column spacing='s'>
+    <Stack column>
+      <Text>maxIntDigits</Text>
+      <Input
+        type='number'
+        min={1}
+        max={999}
+        value={config.maxIntDigits}
+        onChange={e => setConfig({ ...config, maxIntDigits: e.value })} />
+    </Stack>
+    <Stack column>
+      <Text>maxFracDigits</Text>
+      <Input
+        type='number'
+        min={0}
+        max={999}
+        value={config.maxFracDigits}
+        onChange={e => setConfig({ ...config, maxFracDigits: e.value })} />
+    </Stack>
+    <Checkbox
+      label="positiveOnly"
+      checked={config.positiveOnly}
+      onChange={e => setConfig({ ...config, positiveOnly: e.checked })} />
+  </Stack>
+  <Stack column spacing='s'>
+    <Text mb={0}>Форматированные числа</Text>
+    <Input type='tel' formatter={customNumberFormatter} value={value} onChange={e => setValue(e.value)} />
+
+    <Text mb={0}>value внутри</Text>
+    <Input value={value} onChange={e => setValue(e.value)} />
+  </Stack>
+</Stack>
+```
+
+Внутри используем `rifm`, так что вы можете задать любой другой формат или маску, создав свой `formatter` с <a href="https://github.com/realadvisor/rifm/#api" target='blank'>rifm-опцями</a>. Например, так можно отформатировать номер карты (4 группы по 4 цифры):
+
 ```jsx
 import { useMemo } from 'react'
 
-const numberFormatter = useMemo(() => ({
-  format(str) {
-    const r = parseInt(str.replace(/[^\d]+/gi, ''), 10);
-    return r ? r.toLocaleString('RU') : '';
-  }
+const digits = str => str.replace(/[^\d]+/gi, '')
+const cardFormatter = useMemo(() => ({
+  format: str => digits(str).substring(0, 16).replace(/.{4}(?=.)/g, s => `${s} `)
+}), []);
+const cardMask = useMemo(() => ({
+  ...cardFormatter,
+  replace: str => digits(str).padEnd(16, '_').replace(/.{4}(?=.)/g, s => `${s} `)
 }), []);
 
 <Stack column spacing='s' width={250}>
-  <Input formatter={numberFormatter} />
+  <Input formatter={cardFormatter} />
+  <Input formatter={cardMask} />
 </Stack>
 ```
 

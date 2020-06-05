@@ -1,15 +1,12 @@
 import { ChangeEventHandler, useRef, ChangeEvent } from 'react'
 import { useRifm } from 'rifm'
+import { Formatter } from '../formatters'
 import { ChangeHandler } from '../utils'
-
-export type FormatterOptions = Omit<
-  typeof useRifm extends (options: infer Options) => any ? Options : never,
-  'value' | 'onChange'>
 
 export function useSyntheticChange<Value, Element extends (HTMLInputElement | HTMLTextAreaElement)>(
   value: Value | undefined,
   onChange: ChangeHandler<Value, Element>,
-  options?: FormatterOptions
+  options?: Formatter
 ): [string, ChangeEventHandler<Element>] {
   const stringValue = value === null || value === undefined ? '' : String(value)
   if (!options) {
@@ -19,10 +16,11 @@ export function useSyntheticChange<Value, Element extends (HTMLInputElement | HT
     ]
   }
 
+  const { parse = v => v } = options
   const target = useRef<Element | null>(null)
   const rifmProps = useRifm({
     value: stringValue,
-    onChange: (value: any) => onChange({ value, target: target.current! }),
+    onChange: (value: any) => onChange({ value: parse(value) as any, target: target.current! }),
     ...options,
   })
   return [

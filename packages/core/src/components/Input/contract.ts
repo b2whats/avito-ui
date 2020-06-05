@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormatterOptions } from '../../hooks/useSyntheticChange'
+import { Formatter } from '../../formatters'
 import { MarginProperties, PaddingProperties } from '../../styled-system/'
 import { ChangeHandler } from '../../utils'
 
@@ -41,7 +41,7 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   /** Синтетическое изменение */
   onChange?: ChangeHandler<string | number | undefined, HTMLInputElement>
   /** Форматирование и маски */
-  formatter?: FormatterOptions
+  formatter?: Formatter
   /** Крестик очистки */
   clearable?: boolean | 'always'
   /** Состояние загрузки */
