@@ -1,5 +1,5 @@
 import React, { isValidElement, useState } from 'react'
-import { useUncontrolledInputHook } from '../../hooks/'
+import { useUncontrolledInputHook, useSyntheticChange } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
 import { clearValue, invokeAll } from '../../utils/'
@@ -47,7 +47,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   [inputRef, setRef]
 ) => {
   const [focus, setFocus] = useState(false)
-  const [value, onChange] = useUncontrolledInputHook(props)
+  const [value, onChange] = useSyntheticChange(...useUncontrolledInputHook(props))
   const clearable = Boolean(
     value &&
     !props.disabled && !props.readOnly &&
@@ -56,7 +56,6 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   props = {
     ...props,
     value,
-    onChange,
     clearable,
     // apply iconAfter theme if clearable
     iconAfter: clearable ? true : props.iconAfter,
@@ -106,6 +105,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
         <InputCore
           {...props}
+          onChange={onChange}
           autoSize={Boolean(props.postfix)}
           ref={setRef}
           onFocus={handleFocus}
