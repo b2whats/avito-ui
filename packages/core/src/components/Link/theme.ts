@@ -19,11 +19,6 @@ export const linkTheme: LinkTheme = {
           color: 'inherit',
         },
       },
-      noVisited: {
-        props: {
-          colorVisited: undefined,
-        },  
-      },
     },
   },
 }

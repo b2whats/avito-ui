@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ComponentType } from 'react'
 import { Theme } from '../../theme/'
 import { MarginProperties, DimensionProperties, AlignProperties, ColorProperties, LayoutProperties } from '../../styled-system/'
 
@@ -38,7 +38,7 @@ export interface TextProps extends MarginProperties, DimensionProperties, AlignP
   /** Цветовые варианты текста */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Текстовая нода */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'strong' | 'em' | 'label' | 'li' | 'a'
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'strong' | 'em' | 'label' | 'li' | 'a' | ComponentType
   /** Инлайновое поведение */
   inline?: boolean
   /** Блочное поведение */
