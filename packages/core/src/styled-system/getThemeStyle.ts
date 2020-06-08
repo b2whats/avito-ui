@@ -756,7 +756,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       case 'bottom':
       case 'left':
       case 'right':
-        css += `${param}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
+        css += `${param}: ${Math.abs(value) > 1 ? `${value}px` : `${value * 100}%`};`
 
         break
       case 'focus': {
