@@ -27,9 +27,11 @@
     "@avito/tokens": "^0.0.11",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@popperjs/core": "^2.4.0",
     "deepmerge": "^4.2.2",
     "emotion": "^10.0.27",
     "emotion-theming": "^10.0.27",
+    "react-spring": "^9.0.0-rc.3",
     "scroll-into-view-if-needed": "^2.2.20"
   },
   "gitHead": "11b9263aff30f1789f0a59d1bb5a003130ff524c"

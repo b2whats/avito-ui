@@ -109,6 +109,14 @@ export type LayoutProperties = AlignProperties & Partial<{
   wrap: boolean,
   /** Положение элемента в потоке */
   position: 'relative' | 'absolute' | 'static' | 'fixed',
+  /* Расстояние от верхнего края */
+  top: number,
+  /* Расстояние от нижнего края */
+  bottom: number,
+  /* Расстояние от левого края */
+  left: number,
+  /* Расстояние от правого края */
+  right: number,
   /** Добавляет скролл */
   scroll?: boolean
 }>
@@ -129,8 +137,8 @@ type OtherProperties = BorderProperties & Partial<{
   disabled: boolean,
   variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error',
   adjacentSelector: string,
-  shape?: 'pill' | 'square' | 'circle'
-  trancate: boolean
+  shape?: 'pill' | 'square' | 'circle',
+  shadow?: string | boolean,
 }>
 
 export type Colors = keyof Tokens['palette'] | 'transparent' | (string & {})
@@ -744,6 +752,13 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         css += `position: ${value};`
 
         break
+      case 'top':
+      case 'bottom':
+      case 'left':
+      case 'right':
+        css += `${param}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
+
+        break
       case 'focus': {
         css += 'outline: none;'
 
@@ -779,6 +794,13 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
             width = `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
           }
         }
+
+        break
+      }
+      case 'shadow': {
+        if (typeof value !== 'string') break
+        
+        css += `box-shadow: ${value};`
 
         break
       }

@@ -12,6 +12,7 @@ import { switcherTheme } from './components/Switcher/theme'
 import { textTheme } from './components/Text/theme'
 import { textareaTheme } from './components/Textarea/theme'
 import { toggleTheme } from './components/Toggle/theme'
+import { tooltipTheme } from './components/Tooltip/theme'
 
 declare module '@avito/core' {
   interface Theme {
@@ -22,7 +23,7 @@ declare module '@avito/core' {
 }
 
 export const theme = {
-  ...(mobile as Theme),
+  ...mobile,
   Button: buttonTheme,
   Checkbox: checkboxTheme,
   Icon: iconTheme,
@@ -32,4 +33,5 @@ export const theme = {
   Text: textTheme,
   Textarea: textareaTheme,
   Toggle: toggleTheme,
+  Tooltip: tooltipTheme,
 }

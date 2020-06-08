@@ -1,17 +1,17 @@
 import { useCallback, useRef, Ref } from 'react'
 
-export function useRefHook<T>(...refs: Array<Ref<T>>) {
+export function useRefHook<T>(...refs: Ref<T>[]) {
   const ref = useRef<T | null>(null)
   const setRef = useCallback((node) => {
     ref.current = node
 
-    refs.forEach(resolvableRef => {
-      if (!resolvableRef) return
+    refs.forEach(ref => {
+      if (!ref) return
       
-      if (typeof resolvableRef === 'function') {
-        resolvableRef(node)
+      if (typeof ref === 'function') {
+        ref(node)
       } else {
-        (resolvableRef as any).current = node
+        (ref as any).current = node
       }
     })
   }, [])

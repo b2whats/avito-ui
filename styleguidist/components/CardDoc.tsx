@@ -10,7 +10,7 @@ const insetMap = {
   square: ['16px', '16px'],
 }
 
-const CardDoc = styled('div')<CardProps>`
+export const CardDoc = styled('div')<CardProps>`
   box-sizing: border-box;
   line-height: 0;
   ${({ inset, width }) => `

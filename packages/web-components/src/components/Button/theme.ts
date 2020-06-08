@@ -1,6 +1,6 @@
-import { DeepPartial, ButtonTheme } from '@avito/core'
+import { DeepPartial, ButtonTheme, StyleProperties } from '@avito/core'
 
-const fillTheme = (hue: string): ButtonTheme['scheme']['Button']['style'] => ({
+const fillTheme = (hue: string): StyleProperties => ({
   bg: `${hue}500`,
   bgHover: `${hue}600`,
   bgActive: `${hue}700`,

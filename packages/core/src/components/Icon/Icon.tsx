@@ -19,11 +19,11 @@ const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
     ...props,
     height: props.size === 'auto' ? 1 : themeStyle.height || props.size,
   }),
-  (textRules, { spin, rotate, area = 0, onClick, shadow }) => css`
+  (textRules, { spin, rotate, area, shadow }) => css`
     fill: currentColor;
     height: 1em;
 
-    ${onClick ? `
+    ${area ? `
       overflow: visible;
       cursor: pointer;
 
@@ -60,6 +60,7 @@ const shadowMask = (
 export const Icon = uiComponent('Icon', iconTheme)((props: BaseIconProps, { theme, tokens }) => {
   const aria = {
     role: 'img',
+    tabIndex: props.onClick ? 0 : -1,
     'aria-hidden': true,
     'data-icon': props.name,
   }
@@ -70,7 +71,7 @@ export const Icon = uiComponent('Icon', iconTheme)((props: BaseIconProps, { them
   return (
     <svg {...filterProps(props)} css={iconStyle} {...aria}>
       {props.shadow && shadowMask}
-      {props.onClick && <rect x='0' y='0' width='100%' height='100%' />}
+      {props.area && <rect x='0' y='0' width='100%' height='100%' />}
       { props.children }
     </svg>
   )
