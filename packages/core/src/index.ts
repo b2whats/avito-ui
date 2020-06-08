@@ -1,6 +1,8 @@
 export * from './components/Avatar'
 export { Button } from './components/Button/'
 export * from './components/Button/'
+export { Badge } from './components/Badge/'
+export * from './components/Badge/'
 export type { ButtonPreset } from './components/Button/contract'
 export { Text } from './components/Text/'
 export * from './components/Text/'

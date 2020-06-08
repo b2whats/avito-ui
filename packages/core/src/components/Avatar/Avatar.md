@@ -75,7 +75,7 @@ const sizes = [120, 80, 64, 52, 32, 28, 24, 20];
 `badge` — небольшой элемент, прилепленный к краю аватара: онлайн-индикатор или дополнительное действие. По умолчанию в 4 раза меньше самого аватара. _Вырез_ на аватаре настраивается через `badgeGapSize`, а в `badgeGapColor` передают цвет фона. Остальные стили, (в том числе положение через `top` / `right` / `bottom` / `left`) настраивются на компоненте значка.
 
 ```jsx
-import { Box } from '../Layout'
+import { Badge } from '../Badge'
 import { Text } from '../Text'
 import { EditIcon } from '@avito/icons'
 const { src } = document.getElementById('sample-image');
@@ -84,38 +84,39 @@ const { src } = document.getElementById('sample-image');
   <Avatar
     src={src}
     size={60}
-    badge={<Box bg='green500' shape='circle' />} />
+    badge={<Badge bg='green500' shape='circle' />} />
   <Box bg='gray12' p={4}>
     <Avatar
       src={src}
       size={60}
-      badgeGapSize={4}
-      badgeGapColor='gray12'
-      badge={<Box bg='green600' top={0} shape='circle' />} />
+      badge={<Badge gapSize={4} gapColor='gray12' bg='green600' top={0} shape='circle' />} />
   </Box>
   <Avatar
     src={src}
     size={60}
     badge={
-      <Text size='s' width='auto' height='auto' bg='green500' color='white' shape='pill' px={5}>20</Text>
+      <Badge gapSize={2} width='auto' height='auto' bg='green500' color='white' shape='pill' px={5}>
+        <Text size='s'>20</Text>
+      </Badge>
     }
   />
   <Avatar
     src={src}
     size={60}
-    badgeGapSize={3}
     badge={
-      <EditIcon
-        size={25}
+      <Badge
+        gapSize={3}
         shape='circle'
         width='auto'
+        height='auto'
         bottom='auto'
         right={-15}
-        p={5}
         bg='gray12'
         bgHover='gray28'
-        color='white'
-        onClick={() => alert('edit')} />} />
+        onClick={() => alert('edit')}
+        valignSelf='middle'
+      ><EditIcon size={25} p={5} color='white' /></Badge>}
+  />
 </Stack>
 ```
 

@@ -9,8 +9,6 @@ export interface AvatarProps extends BoxProps {
   type?: 'person' | 'company' | 'shop';
   disabled?: boolean;
   badge?: React.ReactElement;
-  badgeGapSize?: number;
-  badgeGapColor?: Colors;
   onClick?: any;
   href?: any;
   isFallback?: boolean;

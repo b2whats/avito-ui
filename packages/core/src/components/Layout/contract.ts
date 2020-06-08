@@ -1,5 +1,5 @@
 import { ReactText } from 'react'
-import { SpaceProperties, DimensionProperties, ColorProperties, BorderProperties, LayoutProperties, TextProperties } from '../../styled-system/'
+import { StyleProperties, SpaceProperties, DimensionProperties, ColorProperties, BorderProperties, LayoutProperties, TextProperties } from '../../styled-system/'
 import { Theme } from '../../theme/'
 
 type LayoutProps = SpaceProperties & ColorProperties & DimensionProperties & BorderProperties
@@ -21,7 +21,7 @@ export interface PageProps extends LayoutProps {
   children?: React.ReactNode
 }
 
-export interface BoxProps extends LayoutProps {
+export interface BoxProps extends StyleProperties {
   /** Содержание */
   children?: React.ReactNode
 }
