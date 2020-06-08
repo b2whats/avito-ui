@@ -2,7 +2,7 @@ import React, { isValidElement, useState } from 'react'
 import { useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { setNativeValue, invokeAll } from '../../utils/'
+import { clearValue, invokeAll } from '../../utils/'
 import { IconProps } from '../Icon/'
 import { Text, TextProps } from '../Text/'
 import { InputProps } from './contract'
@@ -72,9 +72,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
     if (event.target['tagName'] !== 'INPUT') event.preventDefault()
   }
 
-  const handleClear = () => {
-    setNativeValue(inputRef.current, '')
-  }
+  const handleClear = () => clearValue(inputRef.current)
 
   const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, theme)
   const inputStyle = inputClassName(props, tokens, Input.style)

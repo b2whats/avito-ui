@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { setNativeValue, invokeAll } from '../../utils/'
+import { invokeAll, clearValue } from '../../utils/'
 import { TextareaProps } from './contract'
 import { TextareaCore } from './TextareaCore'
 import { textareaTheme } from './theme'
@@ -41,9 +41,7 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
     if (event.target['tagName'] !== 'TEXTAREA') event.preventDefault()
   }
 
-  const handleClear = () => {
-    setNativeValue(textareaRef.current, '')
-  }
+  const handleClear = () => clearValue(textareaRef.current)
 
   const { Textarea, IconClear } = foldThemeParams(props, theme)
   const wrapperStyle = wrapperClassName(props, tokens, Textarea.style)
