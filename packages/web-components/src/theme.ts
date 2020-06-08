@@ -9,6 +9,7 @@ import { switcherTheme } from './components/Switcher/theme'
 import { textareaTheme } from './components/Textarea/theme'
 import { toggleTheme } from './components/Toggle/theme'
 import { tooltipTheme } from './components/Tooltip/theme'
+import { linkTheme } from './components/Link/theme'
 
 export const theme = {
   ...web,
@@ -22,4 +23,5 @@ export const theme = {
   Textarea: textareaTheme,
   Toggle: toggleTheme,
   Tooltip: tooltipTheme,
+  Link: linkTheme,
 }

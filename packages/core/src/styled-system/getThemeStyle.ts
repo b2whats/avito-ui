@@ -45,9 +45,10 @@ export type DimensionProperties = Partial<{
 }>
 
 type Display = { display: 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex' | null }
-export interface VisibilityProperties {
-  visible?: boolean
-}
+export type VisibilityProperties = Partial<{
+  visible: boolean,
+  opacity: number
+}>
 
 type SpaceValues = keyof Theme['space'] | 'none' | 'auto' | number
 
@@ -118,7 +119,7 @@ export type LayoutProperties = AlignProperties & Partial<{
   /* Расстояние от правого края */
   right: number,
   /** Добавляет скролл */
-  scroll?: boolean
+  scroll: boolean
 }>
 
 export type BorderProperties = Partial<{
@@ -141,7 +142,7 @@ type OtherProperties = BorderProperties & Partial<{
   shadow?: string | boolean,
 }>
 
-export type Colors = keyof Tokens['palette'] | 'transparent' | (string & {})
+export type Colors = keyof Tokens['palette'] | 'transparent' | 'inherit' | (string & {})
 
 export type ColorProperties = Partial<{
   /** Цвет контента */
@@ -392,12 +393,8 @@ export const foldScheme = (scheme: any, props: any, only?: 'props' | 'style' | '
   return result
 }
 
-const baseStyle = () => `
-  box-sizing: border-box;
-`
-
 export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
-  let css = baseStyle()
+  let css = 'box-sizing: border-box;'
   const { font, dimension, space, palette, focus, shape } = tokens
 
   if (!params) return css
@@ -511,10 +508,9 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         break
       }
       case 'underline':
-        display = 'inline-block'
         css += `
           cursor: pointer;
-          line-height: 1;
+          
           padding-bottom: ${font.underline.offset}px;
           border-bottom: ${font.underline.height}px ${typeof value === 'string' ? value : 'solid'} currentColor;
         `
@@ -776,6 +772,9 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       }
       case 'visible':
         css += value === false ? 'visibility: hidden;' : ''
+        break
+      case 'opacity':
+        css += `opacity: ${value};`
         break
       case 'disabled':
         if (!value) break

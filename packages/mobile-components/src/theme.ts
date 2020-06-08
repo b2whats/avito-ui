@@ -13,6 +13,7 @@ import { textTheme } from './components/Text/theme'
 import { textareaTheme } from './components/Textarea/theme'
 import { toggleTheme } from './components/Toggle/theme'
 import { tooltipTheme } from './components/Tooltip/theme'
+import { linkTheme } from './components/Link/theme'
 
 declare module '@avito/core' {
   interface Theme {
@@ -34,4 +35,5 @@ export const theme = {
   Textarea: textareaTheme,
   Toggle: toggleTheme,
   Tooltip: tooltipTheme,
+  Link: linkTheme,
 }
