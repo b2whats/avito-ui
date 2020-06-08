@@ -69,7 +69,7 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
   `)
 )
 
-const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputElement>((
+export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputElement>((
   { className, children, ...props },
   { theme, tokens },
   [ref, setRef]
@@ -137,5 +137,3 @@ const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputElement>
     </label>
   )
 })
-
-export default Toggle

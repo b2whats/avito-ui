@@ -9,5 +9,3 @@ export const Checkbox = uiComponent('Checkbox', checkboxTheme)((props: CheckboxP
     {({ checked, Icon }) => checked && Icon && <Icon.component {...Icon.props} size='auto' />}
   </Toggle>
 ))
-
-export default Checkbox

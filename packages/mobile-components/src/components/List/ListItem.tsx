@@ -7,7 +7,7 @@ import { Text, TextProps } from '@avito/core'
 import { ListItemProps } from './contract'
 import { listItemTheme } from './theme'
 
-const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...props }: ListItemProps, { theme }) => {
+export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...props }: ListItemProps, { theme }) => {
   // Необходимо прервать 3DTouch что бы он не прерывал событие клика
   // TODO: Протестировать на телефоне с HapticTouch
   //const setTouchRef = usePrevent3DTouch()
@@ -57,5 +57,3 @@ const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...props }:
     </Stack>
   )
 })
-
-export default ListItem

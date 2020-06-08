@@ -68,7 +68,7 @@ type Geometry = {
   [key in string]: { transform: string, width: number, height: number }
 }
 
-const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
+export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
   { options, name, onChange, ...props }: SegmentButtonProps,
   { theme, tokens }
 ) => {
@@ -157,5 +157,3 @@ const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
     </div>
   )
 })
-
-export default SegmentButton
