@@ -6,7 +6,11 @@ import { LinkProps } from './contract'
 import { linkTheme } from './theme'
 
 export const Link = uiComponent('Link', linkTheme)(({ children, ...props }: LinkProps, { theme }) => {
-  if (props.noVisited) props.colorVisited = undefined
+  if (props.noVisited) {
+    props.colorVisited = undefined
+    props.bgVisited = undefined
+    props.borderColorVisited = undefined
+  }
   
   const { Link } = foldThemeParams(props, theme)
 
