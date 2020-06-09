@@ -1,6 +1,6 @@
 {
   "name": "@avito/core",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": false,
   "description": "Shared utilities for desktop / mav versions of avito design system",
   "author": "vyuklepov <vyuklepov@avito.ru>",
