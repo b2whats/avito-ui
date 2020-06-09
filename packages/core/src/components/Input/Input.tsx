@@ -46,6 +46,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   { theme, tokens },
   [inputRef, setRef]
 ) => {
+  const renderCore = props.renderCore || (p => <InputCore {...p} />)
   const [focus, setFocus] = useState(false)
   const [safeValue, safeOnChange] = useUncontrolledInputHook(props)
   const [value, onChange] = useSyntheticChange(safeValue, safeOnChange, mask)
@@ -69,7 +70,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   // Отменяем моргание фокуса при повторных кликах внутри контейнера с инпутом
   // Проверка нужна что бы не блокировать выделениие в самом инпуте
   const handlePreventBlur = (event: React.MouseEvent<HTMLElement>) => {
-    if (event.target['tagName'] !== 'INPUT') event.preventDefault()
+    if (event.target !== inputRef.current) event.preventDefault()
   }
 
   const handleClear = () => clearValue(inputRef.current)
@@ -104,16 +105,18 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
-        <InputCore
-          {...props}
-          onChange={onChange}
-          autoSize={Boolean(props.postfix)}
-          ref={setRef}
-          onFocus={handleFocus}
-          onBlur={handleBlur} />
+        {renderCore({
+          ...props,
+          onChange,
+          autoSize: Boolean(props.postfix),
+          ref: setRef,
+          onFocus: handleFocus,
+          onBlur: handleBlur,
+        })}
         {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
       </div>
       {iconAfter}
+
     </label>
   )
 })
