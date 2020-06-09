@@ -1,5 +1,5 @@
 import React from 'react'
-import { css, uiComponent, Input, InputProps, InputTheme } from '@avito/core'
+import { css, uiComponent, Input, InputProps, InputTheme, filterProps } from '@avito/core'
 import { SelectProps } from './contract'
 import { selectTheme } from './theme'
 
@@ -8,24 +8,31 @@ const selectStyle = css`
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
   height: 100%;
   border: none;
   opacity: 0;
+
+  /* Включить клик */
+  pointer-events: auto;
 `
 
-export const Select = uiComponent('Select', selectTheme)((
-  { options, getValue, getText, ...props }: SelectProps,
-  { theme }
-) => {
+export const Select = uiComponent('Select', selectTheme)(({
+  options = [{ value: 1, label: 'one' }, { value: 2, label: 'two' }],
+  getValue = option => option.value,
+  getText = option => option.label,
+  placeholder,
+  ...props
+}: SelectProps,{ theme }) => {
   const renderCore: InputProps['renderCore'] = props => {
-    const selectedOption = options.find(option => getValue(option) === props.value)
+    const selectedOption = options.find(option => getValue(option) == props.value)
+    // Fixme: InputCore theme?
     return (<>
-      {selectedOption ? getText(selectedOption) : ''}
+      {selectedOption
+        ? getText(selectedOption)
+        : (placeholder && <span data-placeholder>{placeholder}</span>)}
       <select
-        {...(props as any)}
+        {...filterProps(props)}
         css={selectStyle}
       >
         {options.map(option => {
