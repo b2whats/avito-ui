@@ -185,7 +185,7 @@ const placement = [
   </Stack>
   <ScrollBox>
     <Tooltip {...props} content={<div onClick={() => console.log('click')}>{text}</div>} >
-      <Box bg='gray8' width={200} align='center' valign='middle' pre p={10}>
+      <Box bg='gray8' width={250} align='center' valign='middle' pre p={10}>
         {JSON.stringify(props, null, '   ')
           .replace('{\n', '')
           .replace('}', '')

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useMemo, useCallback, useEffect, Children, cloneElement, HTMLAttributes } from 'react'
 import { animated, Transition } from 'react-spring'
-import { popperGenerator, defaultModifiers, StrictModifiers } from '@popperjs/core/lib/popper'
+import { createPopper, StrictModifiers } from '@popperjs/core'
 import { uiComponent } from '../../theme/'
 import { invokeAll } from '../../utils/'
 import { useIsomorphicLayoutEffect } from '../../hooks/'
@@ -10,13 +10,9 @@ import { PositionerProps } from './contract'
 import { positionerTheme } from './theme'
 import { targetWidth, customApplyStyles, TargetWidthModifier  } from './modifiers/'
 
-const createPopper = popperGenerator({
-  defaultModifiers: [...defaultModifiers, customApplyStyles, targetWidth],
-})
-
 const getModifiers = ({ minWidth, width, maxWidth, ...props}: Partial<PositionerProps>) => {
   const modifiersName = ['offset', 'arrow', 'flip', 'preventOverflow', 'hide'] as const
-  const modifiers: (StrictModifiers | Partial<TargetWidthModifier>)[] = []
+  const modifiers: (StrictModifiers | Partial<TargetWidthModifier>)[] = [customApplyStyles, targetWidth]
 
   modifiersName.forEach(name => {
     if (name in props) {

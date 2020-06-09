@@ -1,8 +1,6 @@
-import applyStyles from '@popperjs/core/lib/modifiers/applyStyles'
 import type { ApplyStylesModifier } from '@popperjs/core/lib/modifiers/applyStyles'
 
-export const customApplyStyles: ApplyStylesModifier = {
-  ...applyStyles,
+export const customApplyStyles: Partial<ApplyStylesModifier> = {
   effect({ state }) {
     const initialStyles = {
       popper: {
