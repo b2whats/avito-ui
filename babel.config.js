@@ -34,17 +34,17 @@ const config = {
       '@babel/plugin-syntax-dynamic-import',
     ]
 
-    if (isServer || isTest) {
-      plugins.push([
-        'module-resolver',
-        {
-          cwd: 'babelrc', // Установить корень проекта
-          alias: {
-            '^@avito/([^/]+)$': './packages/\\1/src',
-          },
+    plugins.push([
+      'module-resolver',
+      {
+        cwd: 'babelrc', // Установить корень проекта
+        alias: isServer || isTest ? {
+          '^@avito/([^/]+)$': './packages/\\1/src',
+        } : {
+          '^@avito/([^/]+)/src/(.+)': '@avito/\\1/build/\\2',
         },
-      ])
-    }
+      },
+    ])
 
     return plugins
   })(),

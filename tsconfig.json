@@ -14,7 +14,6 @@
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "./packages",
-    "experimentalDecorators": true,
     "paths": {
       "@avito/*": ["../node_modules/@avito/*/src"],
     },

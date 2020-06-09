@@ -13,12 +13,6 @@ export const linkTheme: LinkTheme = {
     Link: {
       props: {},
       variant: {}, // Пустые объекты определяют порядок мержа
-      inherit: {
-        props: {
-          underline: true,
-          color: 'inherit',
-        },
-      },
     },
   },
 }

@@ -51,7 +51,7 @@ export interface PositionerProps {
   animation?: 'fade' | TransitionProps
 
   /* Событие появления target */
-  onOpen: () => void
+  onOpen?: () => void
   /* Событие закрытия target */
-  onClose: () => void
+  onClose?: () => void
 }
