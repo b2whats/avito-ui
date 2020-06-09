@@ -1,11 +1,8 @@
-import { ComponentType } from 'react'
-import { Colors } from '@avito/core'
+import { ComponentType, ImgHTMLAttributes } from 'react'
 import { BoxProps } from '../Layout'
 
-export interface AvatarProps extends BoxProps {
-  src: string;
+export interface AvatarProps extends BoxProps, Pick<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'> {
   size: number;
-  alt?: string;
   type?: 'person' | 'company' | 'shop';
   disabled?: boolean;
   badge?: React.ReactElement;

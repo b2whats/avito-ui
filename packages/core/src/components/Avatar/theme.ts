@@ -24,6 +24,7 @@ export const avatarTheme: AvatarTheme = {
         height: p => p.size,
         borderRadius: 'circle',
         overlayDisabled: 'rgba(255, 255, 255, 0.5)',
+        fontSize: p => 0.6 * p.size,
       },
       isFallback: {
         style: {

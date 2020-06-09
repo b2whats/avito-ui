@@ -9,11 +9,11 @@ const { src } = document.getElementById('sample-image');
 <Stack spacing='m' valign='middle'>
   <Stack column>
     <Text align='center'>onClick</Text>
-    <Avatar src={src} size={60} onClick={() => alert('click')} />
+    <Avatar src={src} size={60} alt='Оксана Петрова' onClick={() => alert('click')} />
   </Stack>
   <Stack column>
     <Text align='center'>Ссылка</Text>
-    <Avatar src={src} size={60} as='a' href='/' target='_blank' />
+    <Avatar src={src} size={60} as='a' href='/' alt='Оксана Петрова' target='_blank' />
   </Stack>
 </Stack>
 ```
@@ -150,14 +150,18 @@ import { CourierIcon } from '@avito/icons';
     {props => <CourierIcon {...props} />}
   </Avatar>
   <Avatar bg='green400' color='white' size={60}>
-    <Text size='xxl' crop>М</Text>
+    М
   </Avatar>
+  <Avatar bg='green400' color='white' size={60} alt='Акакий' />
 </Stack>
 ```
 
 ## Ошибки
 
-Если нет `src` или картинка не загрузилась, аватар переходит в фоллбек-состояние и показывает `children` или стандрартную иконку. У каждого `type` иконка своя.
+Если нет `src` или картинка не загрузилась, аватар переходит в фоллбек-состояние и показывает:
+- `children`;
+- первую букву `alt`;
+- стандрартную иконку (своя у каждого `type`).
 
 ```jsx
 import { StatusErrorIcon } from '@avito/icons';
@@ -166,6 +170,7 @@ import { StatusErrorIcon } from '@avito/icons';
   <Stack spacing='s' valign='middle'>
     <Text minWidth={60}>Ошибки</Text>
     <Avatar src='garbage' size={40} />
+    <Avatar src='garbage' size={40} alt='viktor' />
     <Avatar size={40} />
   </Stack>
 

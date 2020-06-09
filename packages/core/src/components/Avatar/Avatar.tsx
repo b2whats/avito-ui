@@ -3,6 +3,7 @@ import { foldThemeParams, createClassName, css } from '../../styled-system'
 import { uiComponent } from '../../theme'
 import { filterProps, omit } from '../../utils'
 import { IconProps } from '../Icon'
+import { Text } from '../Text'
 import { AvatarProps } from './contract'
 import { avatarTheme } from './theme'
 
@@ -41,21 +42,24 @@ export const Avatar = uiComponent('Avatar', avatarTheme)<
   const { Wrapper, Badge, Fallback } = foldThemeParams({ ...props, isFallback }, theme)
 
   const Tag = props.as || 'span'
+  const alt = props.alt || 'Пользователь'
   const aria = {
     role: props.onClick ? 'button' : 'img',
     'aria-disabled': props.disabled,
   }
-  const renderFallback = (children: ReactNode, props: IconProps) => (
-    isValidElement(children) ? <children.type {...props} {...children.props} /> :
-    typeof children === 'function' ? Children.only(children(props)) :
-    <Fallback.component {...props} />)
+  const renderFallback = (children: ReactNode, fallbackProps: IconProps) => (
+    isValidElement(children) ? <children.type {...fallbackProps} {...children.props} /> :
+    typeof children === 'function' ? Children.only(children(fallbackProps)) :
+    typeof children === 'string' ? <Text crop>{children}</Text> :
+    typeof props.alt === 'string' ? <Text crop>{props.alt[0].toUpperCase()}</Text> :
+    <Fallback.component {...fallbackProps} />)
 
   // FIXME put onClick on img / fallback for easier badge clicks?
   return (
     <Tag css={avatarClassName(props, tokens, Wrapper.style)} {...aria} {...filterProps(omit(props, 'src'))}>
       { isFallback
         ? renderFallback(props.children, Fallback.props)
-        : <img alt={props.alt} css={imageClassName} draggable='false' src={props.src} onError={onError} /> }
+        : <img css={imageClassName} draggable='false' src={props.src} onError={onError} alt={alt} /> }
       { props.badge &&
         <props.badge.type {...Badge.props} {...props.badge.props} /> }
     </Tag>
