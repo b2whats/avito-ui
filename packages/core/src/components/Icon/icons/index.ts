@@ -1,5 +1,6 @@
 export { CheckboxCheckedIcon } from './CheckboxCheckedIcon'
 export { CheckboxIndeterminateIcon } from './CheckboxIndeterminateIcon'
+export { ChevronNarrowIcon } from './ChevronNarrowIcon'
 export { CrossIcon } from './CrossIcon'
 export { SpinnerIcon } from './SpinnerIcon'
 export { SwitcherIcon } from './SwitcherIcon'

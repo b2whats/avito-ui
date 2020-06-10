@@ -1,5 +1,5 @@
 import React from 'react'
-import { css, uiComponent, Input, InputProps, InputTheme, filterProps } from '@avito/core'
+import { css, uiComponent, Input, InputProps, InputTheme, filterProps, ChevronNarrowIcon } from '@avito/core'
 import { SelectProps } from './contract'
 import { selectTheme } from './theme'
 
@@ -26,7 +26,6 @@ export const Select = uiComponent('Select', selectTheme)(({
 }: SelectProps,{ theme }) => {
   const renderCore: InputProps['renderCore'] = props => {
     const selectedOption = options.find(option => getValue(option) == props.value)
-    // Fixme: InputCore theme?
     return (<>
       {selectedOption
         ? getText(selectedOption)
@@ -42,5 +41,12 @@ export const Select = uiComponent('Select', selectTheme)(({
       </select>
     </>)
   }
-  return <Input {...props} override={theme as InputTheme} renderCore={renderCore} />
+  return (
+    <Input
+      {...props}
+      override={theme as InputTheme}
+      renderCore={renderCore}
+      iconAfter={<ChevronNarrowIcon rotate={180} />}
+    />
+  )
 })
