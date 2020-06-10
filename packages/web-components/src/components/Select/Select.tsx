@@ -1,5 +1,5 @@
 import React from 'react'
-import { css, uiComponent, Input, InputProps, InputTheme, filterProps, ChevronNarrowIcon } from '@avito/core'
+import { css, uiComponent, Text, Input, InputProps, InputTheme, filterProps, ChevronNarrowIcon } from '@avito/core'
 import { SelectProps } from './contract'
 import { selectTheme } from './theme'
 
@@ -29,10 +29,11 @@ export const Select = uiComponent('Select', selectTheme)(({
 }: SelectProps,{ theme }) => {
   const renderCore: InputProps['renderCore'] = props => {
     const selectedOption = options.find(option => getValue(option) == props.value)
+    const textState = selectedOption ? {} : { 'data-placeholder': true }
     return (<>
-      {selectedOption
-        ? getText(selectedOption)
-        : (placeholder && <span data-placeholder>{placeholder}</span>)}
+      <Text truncate {...textState}>
+        {selectedOption ? getText(selectedOption) : placeholder}
+      </Text>
       {!props.readOnly && (
         <select
           {...filterProps(props)}
