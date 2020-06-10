@@ -158,7 +158,7 @@ import { Button } from '../Button';
 
 ## Форматирование и маски
 
-`formatter` управляет форматированием текста в инпуте. Мы предоставляем `numberFormatter`, который разбивает числа на разряды. Обратите внимание, что `type="tel"`.
+`mask` управляет форматированием текста в инпуте. Мы предоставляем `numberFormatter`, который разбивает числа на разряды. Обратите внимание, что `type="tel"`.
 
 ```jsx
 import { numberFormatter } from '@avito/core';
@@ -167,7 +167,7 @@ const [value, setValue] = useState('9999');
 <Stack spacing='s'>
   <Input
     type='tel'
-    formatter={numberFormatter}
+    mask={numberFormatter}
     value={value}
     onChange={e => setValue(e.value === '' ? null : Number(e.value))} />
   <Input
@@ -220,7 +220,7 @@ const customNumberFormatter = useMemo(
   </Stack>
   <Stack column spacing='s'>
     <Text mb={0}>Форматированные числа</Text>
-    <Input type='tel' formatter={customNumberFormatter} value={value} onChange={e => setValue(e.value)} />
+    <Input type='tel' mask={customNumberFormatter} value={value} onChange={e => setValue(e.value)} />
 
     <Text mb={0}>value внутри</Text>
     <Input value={value} onChange={e => setValue(e.value)} />
@@ -228,7 +228,7 @@ const customNumberFormatter = useMemo(
 </Stack>
 ```
 
-Внутри используем `rifm`, так что вы можете задать любой другой формат или маску, создав свой `formatter` с <a href="https://github.com/realadvisor/rifm/#api" target='blank'>rifm-опцями</a>. Например, так можно отформатировать номер карты (4 группы по 4 цифры):
+Внутри используем `rifm`, так что вы можете задать любой другой формат, создав свою маску с <a href="https://github.com/realadvisor/rifm/#api" target='blank'>rifm-опцями</a>. Например, так можно отформатировать номер карты (4 группы по 4 цифры):
 
 ```jsx
 import { useMemo } from 'react'
@@ -243,8 +243,8 @@ const cardMask = useMemo(() => ({
 }), []);
 
 <Stack column spacing='s' width={250}>
-  <Input formatter={cardFormatter} />
-  <Input formatter={cardMask} />
+  <Input mask={cardFormatter} />
+  <Input mask={cardMask} />
 </Stack>
 ```
 

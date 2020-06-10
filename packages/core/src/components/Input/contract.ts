@@ -41,7 +41,7 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   /** Синтетическое изменение */
   onChange?: ChangeHandler<string | number | undefined, HTMLInputElement>
   /** Форматирование и маски */
-  formatter?: Formatter
+  mask?: Formatter
   /** Крестик очистки */
   clearable?: boolean | 'always'
   /** Состояние загрузки */

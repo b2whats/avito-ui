@@ -42,13 +42,13 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
 )
 
 export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
-  { onFocus, onBlur, formatter, ...props },
+  { onFocus, onBlur, mask, ...props },
   { theme, tokens },
   [inputRef, setRef]
 ) => {
   const [focus, setFocus] = useState(false)
   const [safeValue, safeOnChange] = useUncontrolledInputHook(props)
-  const [value, onChange] = useSyntheticChange(safeValue, safeOnChange, formatter)
+  const [value, onChange] = useSyntheticChange(safeValue, safeOnChange, mask)
   const clearable = Boolean(
     value &&
     !props.disabled && !props.readOnly &&
