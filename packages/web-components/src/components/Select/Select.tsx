@@ -17,10 +17,8 @@ const selectStyle = css`
   pointer-events: auto;
 `
 
-const placceholderValue = '__dummy__'
-
 export const Select = uiComponent('Select', selectTheme)(({
-  options = [{ value: 1, label: 'one' }, { value: 2, label: 'two' }],
+  options = [],
   getValue = option => option.value,
   getText = option => option.label,
   placeholderOption = 'Не выбрано',

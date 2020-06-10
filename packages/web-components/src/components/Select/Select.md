@@ -55,7 +55,6 @@ import { DeliveryIcon, HelpIcon, SportIcon } from '@avito/icons'
 import { Spinner } from '@avito/core/';
 
 <Stack spacing='m' column width={250}>
-  <Select iconBefore={ <DeliveryIcon /> } />
   <Select iconBefore={ <DeliveryIcon color='red300' /> } />
   <Select iconAfter={ <Spinner /> } />
 </Stack>
@@ -69,12 +68,16 @@ import { Spinner } from '@avito/core/';
 
 ```jsx
 import { DeliveryIcon, HelpIcon } from '@avito/icons';
+const numberOptions = [
+  { label: '20 000', value: 20000 },
+  { label: '40 000', value: 40000 }
+];
 
 <Stack column spacing='s' width={250}>
-  <Select placeholder='Укажите цену,' postfix='₽' />
-  <Select prefix='от' />
-  <Select iconBefore={ <DeliveryIcon /> } prefix="до" postfix='₽' iconAfter={ <HelpIcon /> } />
-  <Select prefix={<Text color='blue500'>синий</Text>} />
+  <Select options={numberOptions} placeholder='Укажите цену,' postfix='₽' />
+  <Select options={numberOptions} prefix='от' />
+  <Select options={numberOptions} iconBefore={ <DeliveryIcon /> } prefix="до" postfix='₽' iconAfter={ <HelpIcon /> } />
+  <Select options={numberOptions} prefix={<Text color='blue500'>синий</Text>} />
 </Stack>
 ```
 
