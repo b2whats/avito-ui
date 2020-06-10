@@ -133,6 +133,13 @@ export const pikTheme: DeepPartial<Theme> = {
       },
     },
   },
+  Select: {
+    scheme: {
+      Input: {
+        size: dsl.styleMap('pr', { s: 11, m: 11, l: 11 }),
+      },
+    },
+  },
   Textarea: {
     scheme: {
       Textarea: textControlTheme,

@@ -83,4 +83,48 @@ const numberOptions = [
 
 ---
 
-Также селект поддерживает все пропы [Input](#/Компоненты/Input), кроме `clearable`.
+Также селект поддерживает все пропы [Input](#/Компоненты/Input), кроме `clearable`:
+
+```jsx
+import { Button } from '@avito/core';
+
+<Stack column spacing='m'>
+  <Stack spacing='m' valign='baseline'>
+    <Text  minWidth={150} >size</Text>
+    <Select size='s' placeholder='маленький' />
+    <Select size='m' placeholder='средний' />
+    <Select size='l' placeholder='большой' />
+  </Stack>
+
+  <Stack spacing='m'>
+    <Text minWidth={150} valignSelf='middle'>variant</Text>
+    <Select variant='primary' placeholder='primary' />
+    <Select variant='secondary' placeholder='secondary' />
+    <Select variant='success' placeholder='success' />
+    <Select variant='warning' placeholder='warning' />
+    <Select variant='error' placeholder='error' />
+  </Stack>
+
+  <Stack spacing='m'>
+    <Text minWidth={150} valignSelf='middle'>Отключение</Text>
+    <Select
+      disabled
+      width={200}
+      options={[{ label: 'disabled', value: 'disabled' }]}
+      value='disabled' />
+    <Select
+      readOnly
+      width={200}
+      options={[{ label: 'disabled', value: 'disabled' }, { label: 'readOnly', value: 'readOnly' }]}
+      value='readOnly' />
+  </Stack>
+
+  <form onSubmit={e => e.preventDefault() || alert('valid')}>
+    <Stack spacing='m' >
+      <Text minWidth={150} valignSelf='middle'>required</Text>
+      <Select width={200} required options={[{ label: 'да', value: 'y' }]} />
+      <Button type='submit'>проверить</Button>
+    </Stack>
+  </form>
+</Stack>
+```

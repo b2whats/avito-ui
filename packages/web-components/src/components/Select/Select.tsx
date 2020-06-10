@@ -33,16 +33,18 @@ export const Select = uiComponent('Select', selectTheme)(({
       {selectedOption
         ? getText(selectedOption)
         : (placeholder && <span data-placeholder>{placeholder}</span>)}
-      <select
-        {...filterProps(props)}
-        css={selectStyle}
-      >
-        {(!p.value || clearable) && <option value=''>{placeholderOption}</option>}
-        {options.map(option => {
-          const value = getValue(option)
-          return <option key={value} value={value}>{getText(option)}</option>
-        })}
-      </select>
+      {!props.readOnly && (
+        <select
+          {...filterProps(props)}
+          css={selectStyle}
+        >
+          {(!props.value || clearable) && <option value=''>{placeholderOption}</option>}
+          {options.map(option => {
+            const value = getValue(option)
+            return <option key={value} value={value}>{getText(option)}</option>
+          })}
+        </select>
+      )}
     </>)
   }
   value = (!value && !placeholderOption && options[0]) ? getValue(options[0]) : value
