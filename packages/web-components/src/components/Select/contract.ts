@@ -4,4 +4,6 @@ export interface SelectProps<Option = any> extends Omit<InputProps, 'clearable' 
   options?: Option[];
   getText?: (option: Option) => string;
   getValue?: (option: Option) => string;
+  placeholderOption?: string;
+  clearable?: boolean;
 }

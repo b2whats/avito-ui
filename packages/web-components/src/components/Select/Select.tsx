@@ -17,11 +17,16 @@ const selectStyle = css`
   pointer-events: auto;
 `
 
+const placceholderValue = '__dummy__'
+
 export const Select = uiComponent('Select', selectTheme)(({
   options = [{ value: 1, label: 'one' }, { value: 2, label: 'two' }],
   getValue = option => option.value,
   getText = option => option.label,
+  placeholderOption = 'Не выбрано',
+  clearable = true,
   placeholder,
+  value,
   ...props
 }: SelectProps,{ theme }) => {
   const renderCore: InputProps['renderCore'] = props => {
@@ -34,6 +39,7 @@ export const Select = uiComponent('Select', selectTheme)(({
         {...filterProps(props)}
         css={selectStyle}
       >
+        {(!p.value || clearable) && <option value=''>{placeholderOption}</option>}
         {options.map(option => {
           const value = getValue(option)
           return <option key={value} value={value}>{getText(option)}</option>
@@ -41,12 +47,14 @@ export const Select = uiComponent('Select', selectTheme)(({
       </select>
     </>)
   }
+  value = (!value && !placeholderOption && options[0]) ? getValue(options[0]) : value
   return (
     <Input
+      iconAfter={<ChevronNarrowIcon rotate={180} />}
       {...props}
+      value={value}
       override={theme as InputTheme}
       renderCore={renderCore}
-      iconAfter={<ChevronNarrowIcon rotate={180} />}
     />
   )
 })
