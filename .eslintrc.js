@@ -47,6 +47,12 @@ module.exports = {
     'space-infix-ops': ['error'],
     'space-in-parens': ['error'],
     'react/prop-types': 'off',
+    'react/jsx-curly-spacing': ['error'],
+    'react/jsx-equals-spacing': ['error'],
+    'react/jsx-key': ['error'],
+    'react/jsx-props-no-multi-spaces': ['error'],
+    'react/jsx-tag-spacing': ['error'],
+    'react/jsx-wrap-multilines': ['error'],
     'no-duplicate-imports': ['error'],
     'import/first': ['error'],
     'import/order': ['error', {

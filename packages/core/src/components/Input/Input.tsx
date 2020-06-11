@@ -90,7 +90,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   const renderTextSlot = (text: InputProps['prefix'] | InputProps['postfix'], textProps: TextProps) => (
     typeof text === 'string' ? <Text {...textProps} color={textColor()} pre>{text}</Text> :
     typeof text === 'function' ? text({ ...props, focus }) :
-    React.isValidElement(text) ? <text.type {...textProps} {...text.props} color={textColor(text.props.color)}/> :
+    React.isValidElement(text) ? <text.type {...textProps} {...text.props} color={textColor(text.props.color)} /> :
     undefined
   )
 

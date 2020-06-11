@@ -52,7 +52,7 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
 
   return (
     <label css={wrapperStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
-      <TextareaCore {...props} ref={setTextareaRef} onFocus={handleFocus} onBlur={handleBlur}/>
+      <TextareaCore {...props} ref={setTextareaRef} onFocus={handleFocus} onBlur={handleBlur} />
       { hasClear && <IconClear.component
         {...IconClear.props}
         valignSelf={undefined}

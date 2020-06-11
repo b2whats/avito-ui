@@ -134,7 +134,7 @@ export const Button = uiComponent('Button', buttonTheme)<
   return (
     <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(groupProps)} >
       {props.loading &&
-        <SpinnerComponent {...Spinner.props}/>}
+        <SpinnerComponent {...Spinner.props} />}
       {props.iconBefore &&
         renderIconSlot(props.iconBefore, IconBefore.props)}
       {props.children &&

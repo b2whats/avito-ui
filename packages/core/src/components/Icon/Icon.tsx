@@ -53,7 +53,7 @@ const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
 
 const shadowMask = (
   <filter id='shadow' x='-50%' y='-50%' width='200%' height='200%' filterUnits='objectBoundingBox'>
-    <feDropShadow dx='0.05' dy='0.05' stdDeviation='1' floodColor='#a9a9a9' floodOpacity='0.8'/>
+    <feDropShadow dx='0.05' dy='0.05' stdDeviation='1' floodColor='#a9a9a9' floodOpacity='0.8' />
   </filter>
 )
 
