@@ -3,6 +3,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:import/typescript',
+    'plugin:jsx-a11y/strict',
   ],
   parserOptions: {
     ecmaVersion: 2018,
@@ -63,6 +64,10 @@ module.exports = {
       },
     }],
     'import/no-default-export': ['error'],
+    'jsx-a11y/no-noninteractive-element-interactions': ['warn'],
+    'jsx-a11y/label-has-associated-control': ['error'],
+    // it's deprecated
+    'jsx-a11y/label-has-for': ['off'],
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
   },

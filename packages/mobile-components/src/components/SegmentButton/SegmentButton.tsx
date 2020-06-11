@@ -142,6 +142,7 @@ export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
             value={item.value}
             onClick={() => onClick(item.value)}
             onKeyDown={onKeyDown}
+            role='radio'
             aria-checked={checked}
             disabled={props.disabled || item.disabled}
             tabIndex={checked ? 0 : -1}
