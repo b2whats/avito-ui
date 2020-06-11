@@ -36,7 +36,7 @@ type Font = {
 }
 
 export type Palette = {
-  blue50:  string,
+  blue50: string,
   blue100: string,
   blue200: string,
   blue300: string,
@@ -47,7 +47,7 @@ export type Palette = {
   blue800: string,
   blue900: string,
 
-  green50:  string,
+  green50: string,
   green100: string,
   green200: string,
   green300: string,
@@ -58,7 +58,7 @@ export type Palette = {
   green800: string,
   green900: string,
 
-  red50:  string,
+  red50: string,
   red100: string,
   red200: string,
   red300: string,
@@ -69,7 +69,7 @@ export type Palette = {
   red800: string,
   red900: string,
 
-  yellow50:  string,
+  yellow50: string,
   yellow100: string,
   yellow200: string,
   yellow300: string,
@@ -80,7 +80,7 @@ export type Palette = {
   yellow800: string,
   yellow900: string,
 
-  purple50:  string,
+  purple50: string,
   purple100: string,
   purple200: string,
   purple300: string,
@@ -91,7 +91,7 @@ export type Palette = {
   purple800: string,
   purple900: string,
 
-  orange50:  string,
+  orange50: string,
   orange100: string,
   orange200: string,
   orange300: string,
@@ -102,8 +102,8 @@ export type Palette = {
   orange800: string,
   orange900: string,
 
-  gray4:  string,
-  gray8:  string,
+  gray4: string,
+  gray8: string,
   gray12: string,
   gray16: string,
   gray20: string,
@@ -128,8 +128,8 @@ export type Palette = {
   gray96: string,
 
   black: string,
-  black4:  string,
-  black8:  string,
+  black4: string,
+  black8: string,
   black12: string,
   black16: string,
   black20: string,

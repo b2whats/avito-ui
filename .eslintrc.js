@@ -1,24 +1,24 @@
-module.exports =  {
+module.exports = {
   parser: '@typescript-eslint/parser',
-  extends:  [
+  extends: [
     'plugin:react/recommended',
     'plugin:import/typescript',
   ],
-  parserOptions:  {
+  parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
-    ecmaFeatures:  {
-      jsx:  true,
+    ecmaFeatures: {
+      jsx: true,
     },
   },
-  settings:  {
-    react:  {
-      version:  'detect',
+  settings: {
+    react: {
+      version: 'detect',
     },
     'import/internal-regex': '^@avito/',
   },
   plugins: ['import'],
-  rules:  {
+  rules: {
     'indent': ['error', 2, { 'SwitchCase': 1, 'flatTernaryExpressions': true, 'ignoredNodes': ['ConditionalExpression'] }],
     'comma-dangle': ['error', {
       'functions': 'never',
@@ -37,6 +37,15 @@ module.exports =  {
       ignoreComments: true,
       ignoreTemplateLiterals: true,
     }],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-multi-spaces': ['error'],
+    'array-bracket-spacing': ['error'],
+    'block-spacing': ['error'],
+    'func-call-spacing': ['error'],
+    'key-spacing': ['error'],
+    'keyword-spacing': ['error'],
+    'space-infix-ops': ['error'],
+    'space-in-parens': ['error'],
     'react/prop-types': 'off',
     'no-duplicate-imports': ['error'],
     'import/first': ['error'],

@@ -8,7 +8,7 @@ if (typeof document !== 'undefined') {
   document.body.appendChild(container)
 }
 
-export const Portal = ({ active = true, children }: PortalProps)  => {
+export const Portal = ({ active = true, children }: PortalProps) => {
   if (!container || !children) return null
 
   return active ? createPortal(children, container) : children

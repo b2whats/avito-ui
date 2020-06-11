@@ -926,7 +926,7 @@ export function createClassName<Props, ComponentTheme extends object | null = nu
     props: Props,
     theme: Theme,
     schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>) => any
-): Selector<Props, ComponentTheme, PrimaryComponent>[ComponentTheme extends object ? 't' : 'f']  {
+): Selector<Props, ComponentTheme, PrimaryComponent>[ComponentTheme extends object ? 't' : 'f'] {
   return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme, PrimaryComponent>) => {
     const styles = createRule(schemeStyle as any, props, theme)
     const textRules = getStyles(styles, theme)

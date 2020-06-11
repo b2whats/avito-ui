@@ -63,7 +63,7 @@ export function useGroupHook<T extends GroupTargetHook>(
 
       const checked = groupContext.checked && groupContext.checked.includes(targetProps.value)
 
-      if (groupContext.mode === 'radio' && checked ) {
+      if (groupContext.mode === 'radio' && checked) {
         scrollIntoView(ref.current, {
           behavior: 'smooth',
           scrollMode: 'if-needed',
@@ -99,7 +99,7 @@ export function useGroupHook<T extends GroupTargetHook>(
 
 
 export const Group = ({ children, block, mode, value, name, disabled, onChange, ...props }: GroupProps) => {
-  const elements =  useRef<(HTMLInputElement | HTMLButtonElement)[]>([])
+  const elements = useRef<(HTMLInputElement | HTMLButtonElement)[]>([])
 
   if (!onChange && useTheme()._demo && mode === 'radio') {
     const [fallbackValue, fallbackChange] = useState(value)

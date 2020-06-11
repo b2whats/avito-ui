@@ -105,8 +105,8 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
 export const Button = uiComponent('Button', buttonTheme)<
   ButtonProps,
   HTMLButtonElement | HTMLLinkElement
->((props, { theme, tokens }, [ref, setRef] ) => {
-  props.type = props.href ? undefined: props.type
+>((props, { theme, tokens }, [ref, setRef]) => {
+  props.type = props.href ? undefined : props.type
   const groupProps = useGroupHook(ref, props)
 
   const aria = {

@@ -4,7 +4,7 @@ export const toggleTheme: DeepPartial<ToggleTheme> = {
   scheme: {
     Label: {
       props: {
-        size: p =>  p.size,
+        size: p => p.size,
         valignSelf: 'middle',
       },
       labelPosition: {

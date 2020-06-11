@@ -7,7 +7,7 @@ import { invokeAll } from '../../utils/'
 import { NodeResolver } from '../NodeResolver/'
 import { Portal } from '../Portal/'
 import { PositionerProps } from './contract'
-import { targetWidth, customApplyStyles, TargetWidthModifier  } from './modifiers/'
+import { targetWidth, customApplyStyles, TargetWidthModifier } from './modifiers/'
 import { positionerTheme } from './theme'
 
 const getModifiers = ({ minWidth, width, maxWidth, ...props}: Partial<PositionerProps>) => {
