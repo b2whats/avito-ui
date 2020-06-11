@@ -12,7 +12,7 @@ const boxClassName = createClassName<BoxProps>(
   })
 )
 
-const Box = ({ children, ...props }: BoxProps) => {
+export const Box = ({ children, ...props }: BoxProps) => {
   const theme = useTheme()
   const boxStyle = boxClassName(props, theme)
 
@@ -22,5 +22,3 @@ const Box = ({ children, ...props }: BoxProps) => {
     </div>
   )
 }
-
-export default Box

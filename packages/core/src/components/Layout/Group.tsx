@@ -95,7 +95,7 @@ export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObj
 }
 
 
-const Group = ({ children, block, mode, value, name, disabled, onChange, ...props }: GroupProps) => {
+export const Group = ({ children, block, mode, value, name, disabled, onChange, ...props }: GroupProps) => {
   const elements =  useRef<(HTMLInputElement | HTMLButtonElement)[]>([])
 
   if (!onChange && useTheme()._demo && mode === 'radio') {
@@ -196,5 +196,3 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
     </GroupContext.Provider>
   )
 }
-
-export default Group

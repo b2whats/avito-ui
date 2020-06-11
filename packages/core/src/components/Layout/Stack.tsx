@@ -49,5 +49,3 @@ export const Stack = React.forwardRef(({ as, children, ...props }: StackProps, r
 })
 
 Stack.displayName = 'Stack'
-
-export default Stack

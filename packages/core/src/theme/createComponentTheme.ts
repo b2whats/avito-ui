@@ -3,7 +3,7 @@ import deepmerge from 'deepmerge'
 const cache = new WeakMap()
 const defaultKey = {}
 
-const createComponentTheme = <T extends object>(componentName: string, componentTheme: T) => (theme: any, override: Partial<T> = defaultKey): T => {
+export const createComponentTheme = <T extends object>(componentName: string, componentTheme: T) => (theme: any, override: Partial<T> = defaultKey): T => {
   let cursor = cache
   const globalComponentTheme = theme[componentName] || defaultKey
 
@@ -23,5 +23,3 @@ const createComponentTheme = <T extends object>(componentName: string, component
 
   return cursor.get(override)
 }
-
-export default createComponentTheme

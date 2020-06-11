@@ -34,7 +34,7 @@ export type { TooltipPreset } from './components/Tooltip/contract'
 export { NodeResolver } from './components/NodeResolver/'
 
 export { useRefHook, usePrevent3DTouch, useMeasure, useUncontrolledInputHook, useWindowSize } from './hooks/'
-export { default as styled, css, keyframes, foldThemeParams } from './styled-system/'
+export { styled, css, keyframes, foldThemeParams } from './styled-system/'
 export type { Colors } from './styled-system'
 export { filterProps, DeepPartial, omit } from './utils/'
 export * from './styled-system/'

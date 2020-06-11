@@ -64,7 +64,7 @@ const gridClassName = createClassName<GridProps>(
   `)
 )
 
-const Grid = ({ children, ...props }: GridProps) => {
+export const Grid = ({ children, ...props }: GridProps) => {
   const theme = useTheme()
   const gridWrapperStyle = gridWrapperClassName(props, theme)
   const gridStyle = gridClassName(props, theme)
@@ -77,5 +77,3 @@ const Grid = ({ children, ...props }: GridProps) => {
     </div>
   )
 }
-
-export default Grid
