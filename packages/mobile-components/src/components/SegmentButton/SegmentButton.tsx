@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { filterProps } from '@avito/core'
-import { useRefHook } from '@avito/core'
-import { uiComponent } from '@avito/core'
-import { useWindowSize } from '@avito/core'
-import { foldThemeParams, createClassName } from '@avito/core'
+import { filterProps, useRefHook, uiComponent, useWindowSize, foldThemeParams, createClassName } from '@avito/core'
 import { SegmentButtonProps } from './contract'
 import { segmentButtonTheme } from './theme'
 

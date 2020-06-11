@@ -1,9 +1,5 @@
 import React, { isValidElement } from 'react'
-import { useRefHook, useMeasure } from '@avito/core'
-import { foldThemeParams } from '@avito/core'
-import { uiComponent } from '@avito/core'
-import { Stack, Box } from '@avito/core'
-import { Text, TextProps } from '@avito/core'
+import { useRefHook, useMeasure, foldThemeParams, uiComponent, Stack, Box, Text, TextProps } from '@avito/core'
 import { ListItemProps } from './contract'
 import { listItemTheme } from './theme'
 

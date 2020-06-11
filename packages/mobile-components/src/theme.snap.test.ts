@@ -1,5 +1,15 @@
-import { mergeTheme, foldThemeParams, CheckboxTheme, RadioTheme } from '@avito/core'
-import { buttonTheme, inputTheme, textTheme, checkboxTheme, toggleTheme, textareaTheme, radioTheme, switcherTheme } from '@avito/core'
+import {
+  mergeTheme,
+  foldThemeParams,
+  buttonTheme,
+  inputTheme,
+  textTheme,
+  checkboxTheme,
+  toggleTheme,
+  textareaTheme,
+  radioTheme,
+  switcherTheme
+} from '@avito/core'
 import { theme } from './theme'
 
 const variant = ['primary', 'secondary', 'success', 'error', 'warning']
