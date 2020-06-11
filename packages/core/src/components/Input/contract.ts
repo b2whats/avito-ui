@@ -15,7 +15,7 @@ export interface InputCoreProps extends PaddingProperties {
   /** Тип */
   type?: string
   /** Значение */
-  value?: string | number
+  value?: string | number | null
   /** Подсказка */
   placeholder?: string
   /** Неактивное состояние */
@@ -39,7 +39,7 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   /** Размер */
   size?: 's' | 'm' | 'l'
   /** Синтетическое изменение */
-  onChange?: ChangeHandler<string | number | undefined, HTMLInputElement>
+  onChange?: ChangeHandler<string | number | null, HTMLInputElement>
   /** Форматирование и маски */
   mask?: Formatter
   /** Крестик очистки */

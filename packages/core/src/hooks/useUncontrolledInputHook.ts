@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { ChangeHandler } from '../utils'
 
 type Props<Value, Element> = {
-  value?: Value
-  onChange?: ChangeHandler<Value, Element>
+  value?: Value | null
+  onChange?: ChangeHandler<Value | null, Element>
 }
 
 export const useUncontrolledInputHook = <Value, Element>(props: Props<Value, Element>) => {

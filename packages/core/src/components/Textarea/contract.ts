@@ -12,7 +12,7 @@ export interface TextareaCoreProps {
   /** Имя */
   name?: string
   /** Значение */
-  value?: string
+  value?: string | null
   /** Подсказка */
   placeholder?: string
   /** Неактивное состояние */
@@ -37,7 +37,7 @@ export interface TextareaCoreProps {
 export interface TextareaProps extends Omit<TextareaCoreProps, 'className' | 'onChange'>, AlignProperties, MarginProperties {
   /** Размер */
   size?: 's' | 'm' | 'l'
-  onChange: ChangeHandler<string, HTMLTextAreaElement>
+  onChange: ChangeHandler<string | null, HTMLTextAreaElement>
   /** Крестик очистки */
   clearable?: boolean | 'always'
   /** Цветовые варианты */
