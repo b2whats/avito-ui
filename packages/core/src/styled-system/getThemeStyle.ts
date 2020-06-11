@@ -191,8 +191,11 @@ export type ColorProperties = Partial<{
   placeholderColor: Colors,
 }>
 
-export type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties & ColorProperties & OtherProperties & VisibilityProperties
-type UnionToIntersection<U> = (boolean extends U ? (k: U)=>void : U extends any ? (k: U)=>void : never) extends ((k: infer I)=>void) ? I : never
+export type StyleProperties = TextProperties & DimensionProperties & SpaceProperties & LayoutProperties
+  & ColorProperties & OtherProperties & VisibilityProperties
+type UnionToIntersection<U> =
+  (boolean extends U ? (k: U)=>void : U extends any ? (k: U)=>void : never) extends ((k: infer I)=>void)
+  ? I : never
 type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 type OnlyLiteralString<T> = T extends string ? T : never
 type IsChildren<T> = React.ReactNode extends T ? true : false
@@ -510,7 +513,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       case 'underline':
         css += `
           cursor: pointer;
-          
+
           padding-bottom: ${font.underline.offset}px;
           border-bottom: ${font.underline.height}px ${typeof value === 'string' ? value : 'solid'} currentColor;
         `
@@ -889,7 +892,10 @@ export type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { sch
   [K in keyof ComponentTheme['scheme']]: FoldedItemTheme<ComponentTheme['scheme'][K]>
 } : never
 
-export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(props: any, { scheme }: T): FoldThemeParamsReturn<T> {
+export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(
+  props: any,
+  { scheme }: T
+): FoldThemeParamsReturn<T> {
   const result: any = {}
 
   let name: keyof typeof scheme
@@ -911,8 +917,15 @@ interface Selector<Props, ComponentTheme, Key> {
 }
 
 export function createClassName<Props, ComponentTheme extends object | null = null, PrimaryComponent = string>(
-  createRule: (schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>, props: Props, theme: Theme) => StyleProperties & Display,
-  createUserRule?: (textRules: string, props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>) => any
+  createRule: (
+    schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>,
+    props: Props,
+    theme: Theme) => StyleProperties & Display,
+  createUserRule?: (
+    textRules: string,
+    props: Props,
+    theme: Theme,
+    schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>) => any
 ): Selector<Props, ComponentTheme, PrimaryComponent>[ComponentTheme extends object ? 't' : 'f']  {
   return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme, PrimaryComponent>) => {
     const styles = createRule(schemeStyle as any, props, theme)

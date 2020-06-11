@@ -30,6 +30,13 @@ module.exports =  {
     'quotes': ['error', 'single'],
     'jsx-quotes': ['error', 'prefer-single'],
     'semi': ['error', 'never'],
+    'max-len': ['error', {
+      code: 120,
+      ignoreStrings: true,
+      ignoreRegExpLiterals: true,
+      ignoreComments: true,
+      ignoreTemplateLiterals: true,
+    }],
     'react/prop-types': 'off',
     'no-duplicate-imports': ['error'],
     'import/first': ['error'],

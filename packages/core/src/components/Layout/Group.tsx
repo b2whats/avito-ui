@@ -30,7 +30,10 @@ type GroupTargetHook = {
 
 export const GroupContext = React.createContext<GroupContext | null>(null)
 
-export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObject<HTMLElement | null>, targetProps: T): T & GroupTargetHook {
+export function useGroupHook<T extends GroupTargetHook>(
+  ref: React.MutableRefObject<HTMLElement | null>,
+  targetProps: T
+): T & GroupTargetHook {
   const groupContext = useContext(GroupContext)
 
   if (!groupContext) return targetProps as T

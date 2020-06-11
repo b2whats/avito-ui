@@ -29,7 +29,10 @@ const textareaStyle = css`
   }
 `
 
-export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ...props }: TextareaCoreProps, ref: React.Ref<HTMLTextAreaElement>) => {
+export const TextareaCore = React.forwardRef((
+  { maxRows, autoSize, resizable, ...props }: TextareaCoreProps,
+  ref: React.Ref<HTMLTextAreaElement>
+) => {
   const [textarea, setRef] = useRefHook(ref)
 
   props = {

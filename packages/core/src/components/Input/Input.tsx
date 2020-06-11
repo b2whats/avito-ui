@@ -86,10 +86,11 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
     undefined
   )
 
+  const textColor = (activeColor?: any) => focus || props.value ? activeColor : Input.style.placeholderColor
   const renderTextSlot = (text: InputProps['prefix'] | InputProps['postfix'], textProps: TextProps) => (
-    typeof text === 'string' ? <Text {...textProps} color={focus || props.value ? undefined : Input.style.placeholderColor as any} pre>{text}</Text> :
+    typeof text === 'string' ? <Text {...textProps} color={textColor()} pre>{text}</Text> :
     typeof text === 'function' ? text({ ...props, focus }) :
-    React.isValidElement(text) ? <text.type {...textProps} {...text.props} color={focus || props.value ? text.props.color : Input.style.placeholderColor}/> :
+    React.isValidElement(text) ? <text.type {...textProps} {...text.props} color={textColor(text.props.color)}/> :
     undefined
   )
 

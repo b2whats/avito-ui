@@ -10,7 +10,11 @@ type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => 
 
 export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType) {
   return <Props, RefType = HTMLElement>(
-    render: (props: Props, theme: { theme: ThemeType, tokens: Tokens }, ref: RefContainer<RefType>) => JSX.Element | null
+    render: (
+      props: Props,
+      theme: { theme: ThemeType, tokens: Tokens },
+      ref: RefContainer<RefType>
+    ) => JSX.Element | null
   ) => {
     type ExternalProps = Props & {
       override?: DeepPartial<ThemeType>,

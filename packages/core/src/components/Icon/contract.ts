@@ -2,7 +2,8 @@ import React from 'react'
 import { SpaceProperties, ColorProperties, AlignProperties, DimensionProperties, BorderProperties, LayoutProperties, VisibilityProperties } from '../../styled-system/'
 
 type MouseHandler = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
-type StyleProps = AlignProperties & SpaceProperties & ColorProperties & DimensionProperties & BorderProperties & LayoutProperties & VisibilityProperties
+type StyleProps = AlignProperties & SpaceProperties & ColorProperties & DimensionProperties
+  & BorderProperties & LayoutProperties & VisibilityProperties
 
 export interface BaseIconProps extends StyleProps {
   children: React.ReactNode
