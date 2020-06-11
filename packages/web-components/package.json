@@ -5,16 +5,19 @@
   "description": "Components for desctop web",
   "author": "vyuklepov <vyuklepov@avito.ru>",
   "license": "MIT",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
+  "types": "types/index.d.ts",
   "files": [
-    "build",
-    "src"
+    "cjs",
+    "es",
+    "types"
   ],
   "scripts": {
-    "build": "yarn build:js && yarn build:types",
-    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
-    "build:js": "cross-env NODE_ENV=production babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward --delete-dir-on-start",
+    "build": "yarn build:cjs & yarn build:es & yarn build:types",
+    "build:types": "rm -rf types && tsc -p tsconfig.json --emitDeclarationOnly",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src --out-dir cjs --extensions \".ts,.tsx\" --source-maps --root-mode=upward --delete-dir-on-start",
+    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel src --out-dir es --extensions \".ts,.tsx\" --source-maps --root-mode=upward --delete-dir-on-start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "yarn build",
     "typecheck": "tsc --noEmit"

@@ -9,7 +9,8 @@ import template from './template'
 
 const port = 3000
 const server = express()
-server.use(express.static(__dirname + '/public'))
+
+server.use('/static', express.static('./public'))
 
 server.get('/', (req, res) => {
   let cache = createCache()

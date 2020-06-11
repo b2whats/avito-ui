@@ -1,7 +1,6 @@
 const path = require('path')
 const { DEBUG, BABEL_ENV, NODE_ENV, TARGET } = process.env
 const isProduction = NODE_ENV === 'production'
-const isTest = NODE_ENV === 'test'
 const isServer = TARGET === 'server'
 
 const config = {
@@ -13,7 +12,7 @@ const config = {
           browsers: ['last 1 version'],
         },
         loose: true,
-        modules: BABEL_ENV === 'cjs' || NODE_ENV === 'test' ? 'commonjs' : false,
+        modules: BABEL_ENV === 'cjs' || isServer ? 'commonjs' : false,
         debug: Boolean(DEBUG),
       },
     ],
@@ -22,7 +21,7 @@ const config = {
     [
       '@emotion/babel-preset-css-prop',
       {
-        'sourceMap': NODE_ENV === 'test' ? false : true,
+        'sourceMap': isServer ? false : true,
       },
     ],
   ],
@@ -38,10 +37,10 @@ const config = {
       'module-resolver',
       {
         cwd: 'babelrc', // Установить корень проекта
-        alias: isServer || isTest ? {
+        alias: isServer ? {
           '^@avito/([^/]+)$': './packages/\\1/src',
         } : {
-          '^@avito/([^/]+)/src/(.+)': '@avito/\\1/build/\\2',
+          '^@avito/([^/]+)/src/(.+)': ([, name, path]) => `@avito/${name}/${BABEL_ENV}/${path}`,
         },
       },
     ])

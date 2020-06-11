@@ -1,5 +1,8 @@
 node_modules
 build
+types
+cjs
+es
 public
 lerna-debug.log
 npm-debug.log

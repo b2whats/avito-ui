@@ -6,12 +6,10 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
-    "build",
-    "src"
+    "build"
   ],
   "scripts": {
-    "build": "yarn clean && tsc -b tsconfig.json",
-    "clean": "rm -rf ./build && rm -rf tsconfig.tsbuildinfo",
+    "build": "rm -rf build && tsc -b tsconfig.json",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "yarn build"
   },

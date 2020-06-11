@@ -1,3 +1,6 @@
 build
+cjs
+es
+types
 node_modules
 public

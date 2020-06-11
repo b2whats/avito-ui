@@ -1,8 +1,10 @@
+const path = require('path')
+
 module.exports = {
   target: 'node',
   entry: __dirname + '/server.js',
   output: {
-    filename: '[name].js',
+    filename: 'server.js',
     path: __dirname + '/public',
   },
   resolve: {
@@ -15,8 +17,14 @@ module.exports = {
     rules: [
       {
         test: /\.(t|j)sx?$/,
-        exclude: /node_modules/,
+        include: [
+          /node_modules\/@avito/,
+          path.resolve(__dirname),
+        ],
         loader: 'babel-loader',
+        options: {
+          rootMode: 'upward',
+        },
         //sideEffects: false,
       },
     ],
