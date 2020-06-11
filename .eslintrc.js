@@ -2,6 +2,7 @@ module.exports =  {
   parser: '@typescript-eslint/parser',
   extends:  [
     'plugin:react/recommended',
+    'plugin:import/typescript',
   ],
   parserOptions:  {
     ecmaVersion: 2018,
@@ -14,7 +15,9 @@ module.exports =  {
     react:  {
       version:  'detect',
     },
+    'import/internal-regex': '^@avito/',
   },
+  plugins: ['import'],
   rules:  {
     'indent': ['error', 2, { 'SwitchCase': 1, 'flatTernaryExpressions': true, 'ignoredNodes': ['ConditionalExpression'] }],
     'comma-dangle': ['error', {
@@ -27,6 +30,10 @@ module.exports =  {
     'semi': ['error', 'never'],
     'react/prop-types': 'off',
     'no-duplicate-imports': ['error'],
+    'import/first': ['error'],
+    'import/order': ['error', {
+      groups: ['external', 'internal', 'parent', 'index', 'sibling'],
+    }],
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
   },

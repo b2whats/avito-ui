@@ -1,7 +1,7 @@
 //@ts-nocheck
 import React from 'react'
-import { Text, Stack, ListItem, Checkmark } from '../../'
 import { css } from '@avito/core'
+import { Text, Stack, ListItem, Checkmark } from '../../'
 import { CrossIcon } from '../Icon/'
 
 const styles = {

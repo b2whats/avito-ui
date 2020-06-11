@@ -1,10 +1,10 @@
-import { useTheme } from '.'
-import { mergeTheme } from './mergeTheme'
-import { Theme } from './contract'
-import { DeepPartial } from '../utils'
 import { forwardRef, Ref, MutableRefObject } from 'react'
 import { Tokens } from '@avito/tokens'
+import { DeepPartial } from '../utils'
 import { useRefHook } from '../hooks'
+import { useTheme } from '.'
+import { Theme } from './contract'
+import { mergeTheme } from './mergeTheme'
 
 type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => void]
 

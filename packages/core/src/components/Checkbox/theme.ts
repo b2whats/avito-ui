@@ -1,5 +1,5 @@
-import { CheckboxProps } from './contract'
 import { ToggleTheme } from '../Toggle'
+import { CheckboxProps } from './contract'
 
 export type CheckboxTheme = ToggleTheme<CheckboxProps>
 
