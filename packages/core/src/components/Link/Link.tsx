@@ -1,6 +1,6 @@
 import React from 'react'
-import { uiComponent } from '../../theme'
 import { foldThemeParams } from '../../styled-system'
+import { uiComponent } from '../../theme'
 import { Text } from '../Text/'
 import { LinkProps } from './contract'
 import { linkTheme } from './theme'

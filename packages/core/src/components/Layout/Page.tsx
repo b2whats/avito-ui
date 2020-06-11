@@ -1,6 +1,6 @@
 import React from 'react'
-import { useTheme } from '../../theme/'
 import { createClassName } from '../../styled-system/'
+import { useTheme } from '../../theme/'
 import { PageProps } from './contract'
 
 const pageClassName = createClassName<PageProps>(

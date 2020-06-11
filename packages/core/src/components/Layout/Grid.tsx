@@ -1,6 +1,6 @@
 import React from 'react'
-import { useTheme } from '../../theme/'
 import { createClassName } from '../../styled-system/'
+import { useTheme } from '../../theme/'
 import { GridProps } from './contract'
 
 // &::before хак против выпадания отрицательных margins из родителя для правильного задания высоты

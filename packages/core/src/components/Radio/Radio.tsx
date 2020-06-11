@@ -1,6 +1,6 @@
 import React from 'react'
-import { Toggle } from '../Toggle/'
 import { uiComponent } from '../../theme'
+import { Toggle } from '../Toggle/'
 import { RadioProps } from './contract'
 import { radioTheme } from './theme'
 

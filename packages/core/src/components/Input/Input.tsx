@@ -1,12 +1,12 @@
 import React, { isValidElement, useState } from 'react'
-import { setNativeValue, invokeAll } from '../../utils/'
-import { uiComponent } from '../../theme/'
 import { useUncontrolledInputHook } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
+import { uiComponent } from '../../theme/'
+import { setNativeValue, invokeAll } from '../../utils/'
 import { IconProps } from '../Icon/'
 import { Text, TextProps } from '../Text/'
-import { InputCore } from './InputCore'
 import { InputProps } from './contract'
+import { InputCore } from './InputCore'
 import { inputTheme } from './theme'
 
 

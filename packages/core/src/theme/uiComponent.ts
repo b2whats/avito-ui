@@ -1,7 +1,7 @@
 import { forwardRef, Ref, MutableRefObject } from 'react'
 import { Tokens } from '@avito/tokens'
-import { DeepPartial } from '../utils'
 import { useRefHook } from '../hooks'
+import { DeepPartial } from '../utils'
 import { useTheme } from '.'
 import { Theme } from './contract'
 import { mergeTheme } from './mergeTheme'

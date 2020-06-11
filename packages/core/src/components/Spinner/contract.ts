@@ -1,5 +1,5 @@
-import { Theme } from '../../theme/'
 import { MarginProperties } from '../../styled-system/'
+import { Theme } from '../../theme/'
 
 export interface SpinnerProps extends MarginProperties {
   /** Цвет */

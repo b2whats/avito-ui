@@ -1,7 +1,7 @@
 import React from 'react'
-import { filterProps } from '../../utils/'
-import { uiComponent } from '../../theme/'
 import { css, keyframes, foldThemeParams, createClassName } from '../../styled-system/'
+import { uiComponent } from '../../theme/'
+import { filterProps } from '../../utils/'
 import { BaseIconProps } from './contract'
 import { iconTheme } from './theme'
 

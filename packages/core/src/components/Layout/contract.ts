@@ -1,6 +1,6 @@
 import { ReactText } from 'react'
-import { Theme } from '../../theme/'
 import { SpaceProperties, DimensionProperties, ColorProperties, BorderProperties, LayoutProperties, TextProperties } from '../../styled-system/'
+import { Theme } from '../../theme/'
 
 type LayoutProps = SpaceProperties & ColorProperties & DimensionProperties & BorderProperties & LayoutProperties & TextProperties
 

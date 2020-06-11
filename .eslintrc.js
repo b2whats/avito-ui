@@ -33,6 +33,10 @@ module.exports =  {
     'import/first': ['error'],
     'import/order': ['error', {
       groups: ['external', 'internal', 'parent', 'index', 'sibling'],
+      alphabetize: {
+        order: 'asc',
+        caseInsensitive: true,
+      },
     }],
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",

@@ -1,7 +1,7 @@
 import React from 'react'
+import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
 import { filterProps } from '../../utils/'
-import { foldThemeParams, createClassName } from '../../styled-system/'
 import { TextProps } from './contract'
 import { textTheme } from './theme'
 

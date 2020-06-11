@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { setNativeValue, invokeAll } from '../../utils/'
 import { useUncontrolledInputHook } from '../../hooks/'
-import { uiComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
-import { TextareaCore } from './TextareaCore'
+import { uiComponent } from '../../theme/'
+import { setNativeValue, invokeAll } from '../../utils/'
 import { TextareaProps } from './contract'
+import { TextareaCore } from './TextareaCore'
 import { textareaTheme } from './theme'
 
 const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(

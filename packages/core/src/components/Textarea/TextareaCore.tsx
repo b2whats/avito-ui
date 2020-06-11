@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect } from 'react'
+import { useRefHook } from '../../hooks/'
 import { css } from '../../styled-system/'
 import { filterProps, invokeAll } from '../../utils/'
-import { useRefHook } from '../../hooks/'
 import { TextareaCoreProps } from './contract'
 
 const textareaStyle = css`
