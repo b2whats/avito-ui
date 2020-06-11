@@ -16,7 +16,7 @@ export function ThemeProvider({ defaultTheme = tokens, theme, children }: Provid
     // необходимо для mobile safari что бы в нем работали состояния :active
     isMobileSafari && document.body.setAttribute('ontouchstart', '')
   }, [])
-  
+
   return (
     <EmotionThemeProvider theme={currentTeme}>
       {children}

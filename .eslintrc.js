@@ -25,6 +25,8 @@ module.exports =  {
       'arrays': 'always-multiline',
       'objects': 'always-multiline',
     }],
+    'eol-last': ['error'],
+    'no-trailing-spaces': ['error'],
     'quotes': ['error', 'single'],
     'jsx-quotes': ['error', 'prefer-single'],
     'semi': ['error', 'never'],

@@ -1,6 +1,6 @@
 export function setNativeValue(element: HTMLElement | null, value: any) {
   if (!element) return
-  
+
   const elementDescriptor = Object.getOwnPropertyDescriptor(element, 'value')
   const valueSetter = elementDescriptor ? elementDescriptor.set : null
   const prototype = Object.getPrototypeOf(element)

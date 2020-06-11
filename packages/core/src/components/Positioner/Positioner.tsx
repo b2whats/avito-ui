@@ -146,7 +146,7 @@ export const Positioner = uiComponent('Positioner', positionerTheme)((props: Pos
           ...aria,
           ...eventHandlers,
         })}
-      </NodeResolver> 
+      </NodeResolver>
       <Portal active={props.usePortal}>
         <Transition items={localOpen} {...animation}>
           {(style, item) => item && <animated.div ref={targetRef} style={style}>{target}</animated.div>}

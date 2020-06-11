@@ -798,7 +798,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       }
       case 'shadow': {
         if (typeof value !== 'string') break
-        
+
         css += `box-shadow: ${value};`
 
         break

@@ -11,7 +11,7 @@ export const Link = uiComponent('Link', linkTheme)(({ children, ...props }: Link
     props.bgVisited = undefined
     props.borderColorVisited = undefined
   }
-  
+
   const { Link } = foldThemeParams(props, theme)
 
   return (

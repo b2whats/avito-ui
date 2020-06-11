@@ -7,7 +7,7 @@ export function useRefHook<T>(...refs: Ref<T>[]) {
 
     refs.forEach(ref => {
       if (!ref) return
-      
+
       if (typeof ref === 'function') {
         ref(node)
       } else {
