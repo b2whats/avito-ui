@@ -1,5 +1,5 @@
-import { CrossIcon } from '../Icon/'
 import { TextareaTheme, DeepPartial, dsl } from '@avito/core'
+import { CrossIcon } from '../Icon/'
 
 export const textareaTheme: DeepPartial<TextareaTheme> = {
   scheme: {

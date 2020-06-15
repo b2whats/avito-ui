@@ -1,8 +1,8 @@
-import { RadioCheckedIcon } from '../Icon/'
 import { Slot, ComponentTheme } from '../../styled-system/'
-import { RadioProps } from './contract'
+import { RadioCheckedIcon } from '../Icon/'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
+import { RadioProps } from './contract'
 
 export type RadioTheme = ComponentTheme<RadioProps, {
   Toggle?: Slot,

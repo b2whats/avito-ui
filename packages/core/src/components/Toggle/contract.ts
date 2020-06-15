@@ -1,6 +1,6 @@
 import React from 'react'
-import { ToggleTheme } from './theme'
 import { MarginProperties, DimensionProperties, AlignProperties, FoldThemeParamsReturn } from '../../styled-system/'
+import { ToggleTheme } from './theme'
 
 type ChildrenProps = {
   checked: boolean | 'mixed',

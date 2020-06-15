@@ -1,8 +1,9 @@
-import { Theme } from '../../theme/'
 import { ReactText } from 'react'
 import { SpaceProperties, DimensionProperties, ColorProperties, BorderProperties, LayoutProperties, TextProperties } from '../../styled-system/'
+import { Theme } from '../../theme/'
 
-type LayoutProps = SpaceProperties & ColorProperties & DimensionProperties & BorderProperties & LayoutProperties & TextProperties
+type LayoutProps = SpaceProperties & ColorProperties & DimensionProperties & BorderProperties
+  & LayoutProperties & TextProperties
 
 export interface GridProps extends LayoutProps {
   /** Горизонтальный отступ между дочерними блоками */

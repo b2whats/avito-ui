@@ -46,7 +46,7 @@ export const NodeResolver = forwardRef<Element, { children: React.ReactElement }
 
     const { tmp, parent, anchor } = nodes.current
 
-    if(parent && tmp && anchor) {
+    if (parent && tmp && anchor) {
       parent.replaceChild(tmp, anchor)
     }
 

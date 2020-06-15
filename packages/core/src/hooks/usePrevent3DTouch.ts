@@ -17,12 +17,12 @@ export const usePrevent3DTouch = () => {
       isPrevented.current = true
     }
   }, [])
-  
+
   const restoreClick = useCallback((event: any) => {
     if (isPrevented.current) {
       event.stopPropagation()
       event.currentTarget.click()
-  
+
       isPrevented.current = false
     }
   }, [])
@@ -40,6 +40,6 @@ export const usePrevent3DTouch = () => {
 
     ref.current = node
   }, [])
-  
+
   return setRef
 }

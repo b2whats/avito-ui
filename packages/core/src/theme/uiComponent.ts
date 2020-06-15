@@ -1,16 +1,20 @@
-import { useTheme } from '.'
-import { mergeTheme } from './mergeTheme'
-import { Theme } from './contract'
-import { DeepPartial } from '../utils'
 import { forwardRef, Ref, MutableRefObject } from 'react'
 import { Tokens } from '@avito/tokens'
 import { useRefHook } from '../hooks'
+import { DeepPartial } from '../utils'
+import { useTheme } from '.'
+import { Theme } from './contract'
+import { mergeTheme } from './mergeTheme'
 
 type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => void]
 
 export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType) {
   return <Props, RefType = HTMLElement>(
-    render: (props: Props, theme: { theme: ThemeType, tokens: Tokens }, ref: RefContainer<RefType>) => JSX.Element | null
+    render: (
+      props: Props,
+      theme: { theme: ThemeType, tokens: Tokens },
+      ref: RefContainer<RefType>
+    ) => JSX.Element | null
   ) => {
     type ExternalProps = Props & {
       override?: DeepPartial<ThemeType>,

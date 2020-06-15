@@ -1,8 +1,8 @@
 import React from 'react'
+import { uiComponent } from '../../theme'
 import { Toggle } from '../Toggle/'
 import { RadioProps } from './contract'
 import { radioTheme } from './theme'
-import { uiComponent } from '../../theme'
 
 export const Radio = uiComponent('Radio', radioTheme)((props: RadioProps, { theme }) => (
   <Toggle {...props} mode='radio' override={theme}>

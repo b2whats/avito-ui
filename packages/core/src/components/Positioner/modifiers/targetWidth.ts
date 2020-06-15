@@ -24,7 +24,7 @@ export const targetWidth: TargetWidthModifier = {
         state.elements.popper.style[property] = Math.abs(value) > 1 ? `${value}px` : `${value * 100}%`
       }
     }
-    
+
     return () => {}
   },
 }

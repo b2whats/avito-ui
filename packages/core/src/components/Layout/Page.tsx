@@ -1,6 +1,6 @@
 import React from 'react'
-import { useTheme } from '../../theme/'
 import { createClassName } from '../../styled-system/'
+import { useTheme } from '../../theme/'
 import { PageProps } from './contract'
 
 const pageClassName = createClassName<PageProps>(
@@ -15,7 +15,7 @@ const pageClassName = createClassName<PageProps>(
   })
 )
 
-const Page = ({ children, ...props }: PageProps) => {
+export const Page = ({ children, ...props }: PageProps) => {
   const theme = useTheme()
   const pageStyle = pageClassName(props, theme)
 
@@ -25,5 +25,3 @@ const Page = ({ children, ...props }: PageProps) => {
     </div>
   )
 }
-
-export default Page

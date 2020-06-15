@@ -1,7 +1,7 @@
 import React from 'react'
-import { filterProps } from '../../utils/'
-import { useTheme } from '../../theme/'
 import { createClassName } from '../../styled-system/'
+import { useTheme } from '../../theme/'
+import { filterProps } from '../../utils/'
 import { BoxProps } from './contract'
 
 const boxClassName = createClassName<BoxProps>(
@@ -12,7 +12,7 @@ const boxClassName = createClassName<BoxProps>(
   })
 )
 
-const Box = ({ children, ...props }: BoxProps) => {
+export const Box = ({ children, ...props }: BoxProps) => {
   const theme = useTheme()
   const boxStyle = boxClassName(props, theme)
 
@@ -22,5 +22,3 @@ const Box = ({ children, ...props }: BoxProps) => {
     </div>
   )
 }
-
-export default Box

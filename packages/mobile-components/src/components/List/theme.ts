@@ -1,7 +1,5 @@
-import { Slot, ComponentTheme } from '@avito/core'
+import { Slot, ComponentTheme, TextProps, StackProps, BoxProps } from '@avito/core'
 import { ListItemProps } from './contract'
-import { TextProps } from '@avito/core'
-import { StackProps, BoxProps } from '@avito/core'
 
 export type ListItemTheme = ComponentTheme<ListItemProps, {
   ListItem: Slot<StackProps>,

@@ -7,7 +7,7 @@ export const customApplyStyles: Partial<ApplyStylesModifier> = {
         position: state.options.strategy,
         left: '0',
         top: '0',
-        bottom: 'auto', 
+        bottom: 'auto',
         right: 'auto',
         margin: '0',
       },
@@ -16,9 +16,9 @@ export const customApplyStyles: Partial<ApplyStylesModifier> = {
       },
       reference: {},
     }
-  
+
     Object.assign(state.elements.popper.style, initialStyles.popper)
-  
+
     if (state.elements.arrow) {
       Object.assign(state.elements.arrow.style, initialStyles.arrow)
     }

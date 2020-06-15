@@ -1,5 +1,5 @@
-import { PositionerProps } from '../Positioner/'
 import { SpaceProperties, DimensionProperties, ColorProperties, BorderProperties, LayoutProperties, TextProperties } from '../../styled-system/'
+import { PositionerProps } from '../Positioner/'
 
 type StyleProps = SpaceProperties & ColorProperties & Omit<DimensionProperties, 'minWidth' | 'width' | 'maxWidth'> & BorderProperties & LayoutProperties & TextProperties
 export enum TooltipPreset {}

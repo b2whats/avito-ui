@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { setNativeValue, invokeAll } from '../../utils/'
 import { useUncontrolledInputHook } from '../../hooks/'
-import { uiComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
-import { TextareaCore } from './TextareaCore'
+import { uiComponent } from '../../theme/'
+import { setNativeValue, invokeAll } from '../../utils/'
 import { TextareaProps } from './contract'
+import { TextareaCore } from './TextareaCore'
 import { textareaTheme } from './theme'
 
 const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
@@ -52,7 +52,7 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
 
   return (
     <label css={wrapperStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
-      <TextareaCore {...props} ref={setTextareaRef} onFocus={handleFocus} onBlur={handleBlur}/>
+      <TextareaCore {...props} ref={setTextareaRef} onFocus={handleFocus} onBlur={handleBlur} />
       { hasClear && <IconClear.component
         {...IconClear.props}
         valignSelf={undefined}

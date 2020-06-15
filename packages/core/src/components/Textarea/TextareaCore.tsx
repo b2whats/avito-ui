@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect } from 'react'
+import { useRefHook } from '../../hooks/'
 import { css } from '../../styled-system/'
 import { filterProps, invokeAll } from '../../utils/'
-import { useRefHook } from '../../hooks/'
 import { TextareaCoreProps } from './contract'
 
 const textareaStyle = css`
@@ -29,7 +29,10 @@ const textareaStyle = css`
   }
 `
 
-export const TextareaCore = React.forwardRef(({ maxRows, autoSize, resizable, ...props }: TextareaCoreProps, ref: React.Ref<HTMLTextAreaElement>) => {
+export const TextareaCore = React.forwardRef((
+  { maxRows, autoSize, resizable, ...props }: TextareaCoreProps,
+  ref: React.Ref<HTMLTextAreaElement>
+) => {
   const [textarea, setRef] = useRefHook(ref)
 
   props = {

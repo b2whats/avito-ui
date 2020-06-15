@@ -1,14 +1,14 @@
+import { createPopper, StrictModifiers } from '@popperjs/core'
 import React, { useRef, useState, useMemo, useCallback, useEffect, Children, cloneElement, HTMLAttributes } from 'react'
 import { animated, Transition } from 'react-spring'
-import { createPopper, StrictModifiers } from '@popperjs/core'
+import { useIsomorphicLayoutEffect } from '../../hooks/'
 import { uiComponent } from '../../theme/'
 import { invokeAll } from '../../utils/'
-import { useIsomorphicLayoutEffect } from '../../hooks/'
-import { Portal } from '../Portal/'
 import { NodeResolver } from '../NodeResolver/'
+import { Portal } from '../Portal/'
 import { PositionerProps } from './contract'
+import { targetWidth, customApplyStyles, TargetWidthModifier } from './modifiers/'
 import { positionerTheme } from './theme'
-import { targetWidth, customApplyStyles, TargetWidthModifier  } from './modifiers/'
 
 const getModifiers = ({ minWidth, width, maxWidth, ...props}: Partial<PositionerProps>) => {
   const modifiersName = ['offset', 'arrow', 'flip', 'preventOverflow', 'hide'] as const
@@ -146,7 +146,7 @@ export const Positioner = uiComponent('Positioner', positionerTheme)((props: Pos
           ...aria,
           ...eventHandlers,
         })}
-      </NodeResolver> 
+      </NodeResolver>
       <Portal active={props.usePortal}>
         <Transition items={localOpen} {...animation}>
           {(style, item) => item && <animated.div ref={targetRef} style={style}>{target}</animated.div>}

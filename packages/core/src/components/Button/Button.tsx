@@ -1,11 +1,11 @@
 import React, { isValidElement, ReactNode } from 'react'
-import { filterProps } from '../../utils/'
-import { uiComponent } from '../../theme/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
-import { Text as TextComponent, TextProps } from '../Text/'
+import { uiComponent } from '../../theme/'
+import { filterProps } from '../../utils/'
 import { IconProps } from '../Icon/'
-import { Spinner as SpinnerComponent } from '../Spinner/'
 import { useGroupHook } from '../Layout/Group'
+import { Spinner as SpinnerComponent } from '../Spinner/'
+import { Text as TextComponent, TextProps } from '../Text/'
 import { ButtonProps } from './contract'
 import { buttonTheme } from './theme'
 
@@ -105,8 +105,8 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
 export const Button = uiComponent('Button', buttonTheme)<
   ButtonProps,
   HTMLButtonElement | HTMLLinkElement
->((props, { theme, tokens }, [ref, setRef] ) => {
-  props.type = props.href ? undefined: props.type
+>((props, { theme, tokens }, [ref, setRef]) => {
+  props.type = props.href ? undefined : props.type
   const groupProps = useGroupHook(ref, props)
 
   const aria = {
@@ -134,7 +134,7 @@ export const Button = uiComponent('Button', buttonTheme)<
   return (
     <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(groupProps)} >
       {props.loading &&
-        <SpinnerComponent {...Spinner.props}/>}
+        <SpinnerComponent {...Spinner.props} />}
       {props.iconBefore &&
         renderIconSlot(props.iconBefore, IconBefore.props)}
       {props.children &&

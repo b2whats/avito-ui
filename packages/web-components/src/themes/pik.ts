@@ -1,5 +1,4 @@
-import { Theme, dsl, DeepPartial, StyleProperties, Colors } from '@avito/core'
-import { CrossIcon } from '@avito/core'
+import { Theme, dsl, DeepPartial, StyleProperties, Colors, CrossIcon } from '@avito/core'
 
 declare module '@avito/core' {
   enum InputPreset { inverse }

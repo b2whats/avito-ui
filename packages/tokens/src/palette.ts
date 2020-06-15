@@ -1,4 +1,6 @@
 import { Tokens } from './contract'
+/*eslint key-spacing: ["error", { "align": value }]*/
+
 export const palette: Tokens['palette'] = {
   blue50:  '#E6F6FF',
   blue100: '#CCECFF',
@@ -91,7 +93,7 @@ export const palette: Tokens['palette'] = {
   gray92: '#141414',
   gray96: '#0a0a0a',
 
-  black: 'rgba(0, 0, 0, 1)',
+  black:   'rgba(0, 0, 0, 1)',
   black4:  'rgba(0, 0, 0, 0.04)',
   black8:  'rgba(0, 0, 0, 0.08)',
   black12: 'rgba(0, 0, 0, 0.12)',

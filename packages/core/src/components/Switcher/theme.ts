@@ -1,7 +1,7 @@
 import { Slot, ComponentTheme } from '../../styled-system/'
-import { SwitcherProps } from './contract'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
+import { SwitcherProps } from './contract'
 
 export type SwitcherTheme = ComponentTheme<SwitcherProps, {
   Toggle?: Slot,

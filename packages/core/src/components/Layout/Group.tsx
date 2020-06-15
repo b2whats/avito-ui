@@ -30,7 +30,10 @@ type GroupTargetHook = {
 
 export const GroupContext = React.createContext<GroupContext | null>(null)
 
-export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObject<HTMLElement | null>, targetProps: T): T & GroupTargetHook {
+export function useGroupHook<T extends GroupTargetHook>(
+  ref: React.MutableRefObject<HTMLElement | null>,
+  targetProps: T
+): T & GroupTargetHook {
   const groupContext = useContext(GroupContext)
 
   if (!groupContext) return targetProps as T
@@ -60,7 +63,7 @@ export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObj
 
       const checked = groupContext.checked && groupContext.checked.includes(targetProps.value)
 
-      if (groupContext.mode === 'radio' && checked ) {
+      if (groupContext.mode === 'radio' && checked) {
         scrollIntoView(ref.current, {
           behavior: 'smooth',
           scrollMode: 'if-needed',
@@ -95,8 +98,8 @@ export function useGroupHook<T extends GroupTargetHook>(ref: React.MutableRefObj
 }
 
 
-const Group = ({ children, block, mode, value, name, disabled, onChange, ...props }: GroupProps) => {
-  const elements =  useRef<(HTMLInputElement | HTMLButtonElement)[]>([])
+export const Group = ({ children, block, mode, value, name, disabled, onChange, ...props }: GroupProps) => {
+  const elements = useRef<(HTMLInputElement | HTMLButtonElement)[]>([])
 
   if (!onChange && useTheme()._demo && mode === 'radio') {
     const [fallbackValue, fallbackChange] = useState(value)
@@ -196,5 +199,3 @@ const Group = ({ children, block, mode, value, name, disabled, onChange, ...prop
     </GroupContext.Provider>
   )
 }
-
-export default Group

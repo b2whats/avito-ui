@@ -1,7 +1,7 @@
 import { Slot, ComponentTheme } from '../../styled-system/'
-import { TextareaProps } from './contract'
-import { IconProps } from '../Icon/contract'
 import { CrossIcon } from '../Icon/'
+import { IconProps } from '../Icon/contract'
+import { TextareaProps } from './contract'
 
 export type TextareaTheme = ComponentTheme<TextareaProps, {
   Textarea: Slot,
