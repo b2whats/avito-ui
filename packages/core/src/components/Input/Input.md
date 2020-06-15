@@ -156,60 +156,49 @@ import { Button } from '../Button';
 </form>
 ```
 
-## Форматирование и маски
+## `InputNumber`
 
-`mask` управляет форматированием текста в инпуте. Мы предоставляем `numberFormatter`, который разбивает числа на разряды. Обратите внимание на `type="tel"`. В `onChange` приходит не реакт-событие — в `value` лежит значение без форматирования, а форматированное значение все еще можно достать через `target`.
+`InputNumber` — специальный инпут для ввода чисел с форматированием. В `onChange` получаем js-число или `''` при пустом инпуте.
 
 ```jsx
-import { numberFormatter } from '@avito/core';
-const [value, setValue] = useState('9999');
+import { InputNumber } from './InputNumber';
+const [value, setValue] = useState(9999);
 
-<Stack spacing='s'>
-  <Input
-    type='tel'
-    mask={numberFormatter}
-    value={value}
-    onChange={e => setValue(e.value === '' ? null : Number(e.value))} />
-  <Input
-    value={value}
-    onChange={e => setValue(e.value)} />
+<Stack spacing='s' spacingCross='s' wrap>
+  <Stack column width={200}>
+    <Text>InputNumber</Text>
+    <InputNumber value={value} onChange={e => setValue(e.value)} />
+  </Stack>
+  <Stack column width={200}>
+    <Text>Внешний value</Text>
+    <Input value={value} onChange={e => setValue(e.value)} />
+    <Text size='s'>тип: {value == null ? 'null' : typeof value}</Text>
+  </Stack>
 </Stack>
 ```
 
-Другие форматы чисел задаются через `numberFormatter.configure`:
+Другие форматы чисел задают через опции:
 
 ```jsx
 import { useMemo } from 'react'
+import { InputNumber } from './InputNumber'
+import { numberFormatter } from '../../formatters'
 import { Checkbox } from '../Checkbox'
-import { numberFormatter } from '@avito/core'
 
 const [value, setValue] = useState('9999')
-const [config, setConfig] = useState({
-  maxIntDigits: 15,
-  maxFracDigits: 0,
-  positiveOnly: false,
-})
-const customNumberFormatter = useMemo(
-  () => numberFormatter.setup(config),
-  [config.maxIntDigits, config.maxFracDigits, config.positiveOnly]);
+const [config, setConfig] = useState(numberFormatter.settings);
 
 <Stack spacing='s'>
   <Stack column spacing='s'>
     <Stack column>
       <Text>maxIntDigits</Text>
-      <Input
-        type='number'
-        min={1}
-        max={999}
+      <InputNumber
         value={config.maxIntDigits}
         onChange={e => setConfig({ ...config, maxIntDigits: e.value })} />
     </Stack>
     <Stack column>
       <Text>maxFracDigits</Text>
-      <Input
-        type='number'
-        min={0}
-        max={999}
+      <InputNumber
         value={config.maxFracDigits}
         onChange={e => setConfig({ ...config, maxFracDigits: e.value })} />
     </Stack>
@@ -218,17 +207,19 @@ const customNumberFormatter = useMemo(
       checked={config.positiveOnly}
       onChange={e => setConfig({ ...config, positiveOnly: e.checked })} />
   </Stack>
-  <Stack column spacing='s'>
-    <Text mb={0}>Форматированные числа</Text>
-    <Input type='tel' mask={customNumberFormatter} value={value} onChange={e => setValue(e.value)} />
+  <Stack column spacing='s' width={200}>
+    <Text mb={0}>InputNumber</Text>
+    <InputNumber {...config} value={value} onChange={e => setValue(e.value)} />
 
-    <Text mb={0}>value внутри</Text>
+    <Text mb={0}>Внешний value</Text>
     <Input value={value} onChange={e => setValue(e.value)} />
   </Stack>
 </Stack>
 ```
 
-Внутри используем `rifm`, так что вы можете задать любой другой формат, создав свою маску с <a href="https://github.com/realadvisor/rifm/#api" target='blank'>rifm-опцями</a>. Например, так можно отформатировать номер карты (4 группы по 4 цифры):
+## Форматирование и маски
+
+`mask` управляет форматированием текста в инпуте. В `onChange` приходит не реакт-событие — в `value` лежит значение без форматирования, а форматированное значение все еще можно достать через `target`. Внутри используем `rifm`, так что вы можете задать любой другой формат, создав свою маску с <a href="https://github.com/realadvisor/rifm/#api" target='blank'>rifm-опцями</a>. Например, так можно отформатировать номер карты (4 группы по 4 цифры):
 
 ```jsx
 import { useMemo } from 'react'

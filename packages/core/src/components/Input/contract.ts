@@ -1,11 +1,11 @@
-import React, { Ref } from 'react'
-import { Formatter } from '../../formatters'
+import React, { Ref, InputHTMLAttributes } from 'react'
+import type { Formatter, NumberFormatterSettings } from '../../formatters'
 import { MarginProperties, PaddingProperties } from '../../styled-system/'
 import { ChangeHandler } from '../../utils'
 
 export enum InputPreset {}
 
-export interface InputCoreProps extends PaddingProperties {
+export interface InputCoreProps extends PaddingProperties, Pick<InputHTMLAttributes<HTMLInputElement>, 'inputMode'> {
   ref: Ref<HTMLInputElement>
   /** Автоматическая ширина поля */
   autoSize?: boolean
@@ -52,7 +52,7 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   /** Цветовые варианты */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Тип текстового поля */
-  type?: 'text' | 'number' | 'phone' | 'email'
+  type?: 'text' | 'number' | 'phone' | 'email' | 'tel'
   /** Иконка в начале */
   iconBefore?: React.ReactNode
   /** Иконка в конце */
@@ -67,3 +67,6 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   preset?: keyof typeof InputPreset,
   renderCore?: (props: InputCoreProps) => JSX.Element
 }
+
+export interface InputNumberProps extends Omit<InputProps, 'type' | 'formatter'>, NumberFormatterSettings {}
+

@@ -1,2 +1,3 @@
 export * from './Formatter'
-export { numberFormatter } from './numberFormatter'
+export * from './makeFormatter'
+export { numberFormatter, NumberFormatterSettings } from './numberFormatter'

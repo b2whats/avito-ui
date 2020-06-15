@@ -1,4 +1,4 @@
-import { makeFormatter } from './Formatter'
+import { makeFormatter } from './makeFormatter'
 
 export const numberFormatter = makeFormatter(({ positiveOnly, maxIntDigits, maxFracDigits }) => {
   const accept = new RegExp([
@@ -34,5 +34,7 @@ export const numberFormatter = makeFormatter(({ positiveOnly, maxIntDigits, maxF
 }, {
   maxIntDigits: 15,
   maxFracDigits: 0,
-  positiveOnly: false,
+  positiveOnly: true,
 })
+
+export type NumberFormatterSettings = typeof numberFormatter.settings
