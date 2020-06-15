@@ -1,6 +1,7 @@
 import React, { useState, useMemo, InputHTMLAttributes } from 'react'
 import { numberFormatter, NumberFormatterSettings } from '../../formatters'
 import { useIsomorphicLayoutEffect } from '../../hooks'
+import { invokeAll } from '../../utils'
 import { InputNumberProps } from './contract'
 import { Input } from './Input'
 
@@ -30,6 +31,16 @@ export const InputNumber = ({ onChange = () => {}, ...props }: InputNumberProps)
           onChange({ ...event, value: numericValue })
         }
       }}
+      onKeyDown={invokeAll(props.onKeyDown, e => {
+        const target = e.target as HTMLInputElement
+        if (e.key === 'ArrowUp') {
+          onChange({ value: (outerValue || 0) + 1, target })
+          e.preventDefault()
+        } else if (e.key === 'ArrowDown') {
+          onChange({ value: (outerValue || 0) - 1, target })
+          e.preventDefault()
+        }
+      })}
     />
   )
 }
