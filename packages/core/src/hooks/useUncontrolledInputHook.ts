@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { ChangeHandler } from '../utils'
 
-type Props = {
-  value?: null | number | string
-  onChange?: (event: any) => void
+type Props<Value, Element> = {
+  value?: Value | null
+  onChange?: ChangeHandler<Value | null, Element>
 }
 
-export const useUncontrolledInputHook = (props: Props) => {
+export const useUncontrolledInputHook = <Value, Element>(props: Props<Value, Element>) => {
   let { value, onChange } = props
 
   if (!onChange) {
     const [innerValue, setValue] = useState(props.value)
 
-    onChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setValue(event.target.value)
-    }
+    onChange = event => setValue(event.value)
 
     useEffect(() => {
       setValue(props.value)
@@ -21,8 +20,6 @@ export const useUncontrolledInputHook = (props: Props) => {
 
     value = innerValue
   }
-
-  value = value === null || value === undefined ? '' : String(value)
 
   return [value, onChange] as const
 }

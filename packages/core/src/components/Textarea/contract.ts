@@ -1,5 +1,6 @@
 import React from 'react'
 import { MarginProperties, AlignProperties } from '../../styled-system/'
+import { ChangeHandler } from '../../utils'
 
 export interface TextareaCoreProps {
   /** Автоматическая высота поля */
@@ -11,7 +12,7 @@ export interface TextareaCoreProps {
   /** Имя */
   name?: string
   /** Значение */
-  value?: string
+  value?: string | null
   /** Подсказка */
   placeholder?: string
   /** Неактивное состояние */
@@ -33,9 +34,10 @@ export interface TextareaCoreProps {
   onMouseDown?(event: React.MouseEvent<HTMLTextAreaElement>): void
 }
 
-export interface TextareaProps extends Omit<TextareaCoreProps, 'className'>, AlignProperties, MarginProperties {
+export interface TextareaProps extends Omit<TextareaCoreProps, 'className' | 'onChange'>, AlignProperties, MarginProperties {
   /** Размер */
   size?: 's' | 'm' | 'l'
+  onChange: ChangeHandler<string | null, HTMLTextAreaElement>
   /** Крестик очистки */
   clearable?: boolean | 'always'
   /** Цветовые варианты */

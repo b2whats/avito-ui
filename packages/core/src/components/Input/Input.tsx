@@ -1,5 +1,5 @@
 import React, { isValidElement, useState } from 'react'
-import { useUncontrolledInputHook } from '../../hooks/'
+import { useUncontrolledInputHook, useSyntheticChange } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
 import { clearValue, invokeAll } from '../../utils/'
@@ -42,12 +42,13 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
 )
 
 export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
-  { onFocus, onBlur, ...props },
+  { onFocus, onBlur, mask, ...props },
   { theme, tokens },
   [inputRef, setRef]
 ) => {
   const [focus, setFocus] = useState(false)
-  const [value, onChange] = useUncontrolledInputHook(props)
+  const [safeValue, safeOnChange] = useUncontrolledInputHook(props)
+  const [value, onChange] = useSyntheticChange(safeValue, safeOnChange, mask)
   const clearable = Boolean(
     value &&
     !props.disabled && !props.readOnly &&
@@ -56,7 +57,6 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   props = {
     ...props,
     value,
-    onChange,
     clearable,
     // apply iconAfter theme if clearable
     iconAfter: clearable ? true : props.iconAfter,
@@ -106,6 +106,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
         <InputCore
           {...props}
+          onChange={onChange}
           autoSize={Boolean(props.postfix)}
           ref={setRef}
           onFocus={handleFocus}

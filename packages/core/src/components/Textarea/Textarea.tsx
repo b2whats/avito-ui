@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useUncontrolledInputHook } from '../../hooks/'
+import { useUncontrolledInputHook, useSyntheticChange } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
 import { invokeAll, clearValue } from '../../utils/'
@@ -23,13 +23,12 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
   [textareaRef, setTextareaRef]
 ) => {
   const [focus, setFocus] = useState(false)
-  const [value, onChange] = useUncontrolledInputHook(props)
+  const [value, onChange] = useSyntheticChange(...useUncontrolledInputHook(props))
   const hasClear = Boolean(props.clearable)
 
   props = {
     ...props,
     value,
-    onChange,
     clearable: Boolean(value && !props.disabled && (props.clearable === 'always' || props.clearable && focus)),
     placeholder: theme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
@@ -50,7 +49,12 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
 
   return (
     <label css={wrapperStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
-      <TextareaCore {...props} ref={setTextareaRef} onFocus={handleFocus} onBlur={handleBlur} />
+      <TextareaCore
+        {...props}
+        onChange={onChange}
+        ref={setTextareaRef}
+        onFocus={handleFocus}
+        onBlur={handleBlur} />
       { hasClear && <IconClear.component
         {...IconClear.props}
         valignSelf={undefined}

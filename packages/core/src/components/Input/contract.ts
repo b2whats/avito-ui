@@ -1,5 +1,7 @@
 import React from 'react'
+import { Formatter } from '../../formatters'
 import { MarginProperties, PaddingProperties } from '../../styled-system/'
+import { ChangeHandler } from '../../utils'
 
 export enum InputPreset {}
 
@@ -13,7 +15,7 @@ export interface InputCoreProps extends PaddingProperties {
   /** Тип */
   type?: string
   /** Значение */
-  value?: string | number
+  value?: string | number | null
   /** Подсказка */
   placeholder?: string
   /** Неактивное состояние */
@@ -33,9 +35,13 @@ export interface InputCoreProps extends PaddingProperties {
   onMouseDown?(event: React.MouseEvent<HTMLInputElement>): void
 }
 
-export interface InputProps extends Omit<InputCoreProps, 'className'>, MarginProperties {
+export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange'>, MarginProperties {
   /** Размер */
   size?: 's' | 'm' | 'l'
+  /** Синтетическое изменение */
+  onChange?: ChangeHandler<string | number | null, HTMLInputElement>
+  /** Форматирование и маски */
+  mask?: Formatter
   /** Крестик очистки */
   clearable?: boolean | 'always'
   /** Состояние загрузки */
