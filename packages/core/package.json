@@ -1,6 +1,6 @@
 {
   "name": "@avito/core",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "private": false,
   "description": "Shared utilities for desktop / mav versions of avito design system",
   "author": "vyuklepov <vyuklepov@avito.ru>",
@@ -26,7 +26,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@avito/tokens": "^0.0.15",
+    "@avito/tokens": "^0.0.16",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@popperjs/core": "^2.4.2",
