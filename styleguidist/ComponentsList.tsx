@@ -8,7 +8,7 @@ export default function ComponentsList(props: any) {
   const theme = useStore(ThemeStore)
 
   // only sort components
-  const useSort = props.items.some((e: any) => e.hasExample)
+  const useSort = props.items.some((e: any) => e.hasExamples)
   const items = useSort ? props.items.sort((a: any, b: any) => {
     return +(a.name > b.name) || -(a.name < b.name)
   }).filter((item: any) => {

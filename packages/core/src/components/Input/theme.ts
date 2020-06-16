@@ -5,7 +5,7 @@ import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 import { InputProps } from './contract'
 
-export type InputTheme = ComponentTheme<InputProps, {
+export type InputTheme<Props = InputProps> = ComponentTheme<Props, {
   IconBefore: Slot<IconProps>,
   InputField: Slot,
   Prefix: Slot<TextProps>,

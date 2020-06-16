@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Ref } from 'react'
 import { Formatter } from '../../formatters'
 import { MarginProperties, PaddingProperties } from '../../styled-system/'
 import { ChangeHandler } from '../../utils'
@@ -6,6 +6,7 @@ import { ChangeHandler } from '../../utils'
 export enum InputPreset {}
 
 export interface InputCoreProps extends PaddingProperties {
+  ref: Ref<HTMLInputElement>
   /** Автоматическая ширина поля */
   autoSize?: boolean
   /** Id */
@@ -64,4 +65,5 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   inline?: boolean
   /** пресет */
   preset?: keyof typeof InputPreset,
+  renderCore?: (props: InputCoreProps) => JSX.Element
 }

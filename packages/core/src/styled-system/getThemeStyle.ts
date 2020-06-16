@@ -140,6 +140,7 @@ type OtherProperties = BorderProperties & Partial<{
   adjacentSelector: string,
   shape?: 'pill' | 'square' | 'circle',
   shadow?: string | boolean,
+  pointerEvents: boolean,
 }>
 
 export type Colors = keyof Tokens['palette'] | 'transparent' | 'inherit' | (string & {})
@@ -785,7 +786,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'placeholderColor':
-        css += `&::placeholder, & *::placeholder {color: ${palette[value] || value};-webkit-text-fill-color: currentcolor;}`
+        css += `&::placeholder, & *::placeholder, & *[data-placeholder] {color: ${palette[value] || value};-webkit-text-fill-color: currentcolor;}`
 
         break
       case 'borderStyle':
@@ -857,6 +858,10 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         css += `box-shadow: ${value};`
 
+        break
+      }
+      case 'pointerEvents': {
+        css += `pointer-events: ${value ? 'auto' : 'none'};`
         break
       }
       default:
