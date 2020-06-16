@@ -1,6 +1,11 @@
 {
   "name": "@avito/mobile-components",
   "version": "0.0.20",
+  "repository": {
+    "type": "git",
+    "url": "http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components",
+    "directory": "packages/mobile-components"
+  }, 
   "private": false,
   "description": "Components for mobile web",
   "main": "cjs/index.js",
@@ -9,8 +14,7 @@
   "files": [
     "cjs",
     "es",
-    "types",
-    "src"
+    "types"
   ],
   "scripts": {
     "build": "yarn build:cjs & yarn build:es & yarn build:types",

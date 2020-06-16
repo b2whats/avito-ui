@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Tooltip } from '@avito/mobile-components'
+import { Button, Tooltip } from '@avito/mobile-components/'
 import { ThemeProvider } from '@avito/mobile-components'
 
 class App extends Component {

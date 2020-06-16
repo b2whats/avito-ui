@@ -93,6 +93,7 @@ export const Positioner = uiComponent('Positioner', positionerTheme)((props: Pos
     if (!reference || !target) return
 
     const handleScroll = () => handleToggle(false)
+    const handleСlick = () => handleToggle(false)
     const handlePressEsc = (event: KeyboardEvent) => event.key === 'Escape' && handleToggle(false)
     const handleOutsideClick = (event: MouseEvent) => {
       if (target.contains(event.target as Node) || reference.contains(event.target as Node)) return
@@ -101,10 +102,12 @@ export const Positioner = uiComponent('Positioner', positionerTheme)((props: Pos
     }
 
     props.closeOnOutsideClick && document.addEventListener('click', handleOutsideClick, true)
+    props.closeOnClick && document.addEventListener('click', handleСlick)
     props.closeOnScroll && document.addEventListener('scroll', handleScroll)
     props.closeOnEsc && document.addEventListener('keydown', handlePressEsc)
     return () => {
       props.closeOnOutsideClick && document.removeEventListener('click', handleOutsideClick, true)
+      props.closeOnClick && document.removeEventListener('click', handleСlick)
       props.closeOnScroll && document.removeEventListener('scroll', handleScroll)
       props.closeOnEsc && document.removeEventListener('keydown', handlePressEsc)
 
@@ -146,8 +149,8 @@ export const Positioner = uiComponent('Positioner', positionerTheme)((props: Pos
           ...aria,
           ...eventHandlers,
         })}
-      </NodeResolver>
-      <Portal active={props.usePortal}>
+      </NodeResolver> 
+      <Portal active={Boolean(props.usePortal)}>
         <Transition items={localOpen} {...animation}>
           {(style, item) => item && <animated.div ref={targetRef} style={style}>{target}</animated.div>}
         </Transition>

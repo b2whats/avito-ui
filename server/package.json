@@ -14,8 +14,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@avito/core": "^0.0.12",
-    "@avito/mobile-components": "^0.0.15",
+    "@avito/core": "^0.0.13",
+    "@avito/mobile-components": "^0.0.16",
     "@avito/tokens": "^0.0.12",
     "@babel/core": "^7.10.2",
     "@babel/node": "^7.10.1",

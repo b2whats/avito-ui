@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/Tooltip/contract.ts"],"names":[],"mappings":";;AAAA","sourcesContent":["import '@avito/core'\n\ndeclare module '@avito/core' {\n  enum TooltipPreset { light, attention, dark }\n}\n"],"file":"contract.js"}

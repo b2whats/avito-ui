@@ -1,8 +1,26 @@
+const resolver = require('babel-plugin-module-resolver')
+const resolve = require('enhanced-resolve')
 const path = require('path')
 const { DEBUG, BABEL_ENV, NODE_ENV, TARGET } = process.env
 const isProduction = NODE_ENV === 'production'
 const isTest = NODE_ENV === 'test'
 const isServer = TARGET === 'server'
+
+const resolverTs = resolve.create.sync({
+  extensions: ['.ts', '.tsx', '.js', '.json'],
+})
+
+const updateExtension = (sourcePath, currentFile, opts) => {
+  if (!sourcePath.startsWith('.')) return null
+
+  const resolvedPath = resolverTs(path.dirname(currentFile), sourcePath)
+
+  if (!resolvedPath.includes('index')) {
+    return sourcePath + '.esm'
+  }
+
+  return null
+}
 
 const config = {
   presets: [
@@ -32,28 +50,21 @@ const config = {
       },
     ],
   ],
-  plugins: (() => {
-    let plugins = [
-      '@babel/transform-runtime',
-      ['@babel/plugin-proposal-object-rest-spread', { 'loose': true, 'useBuiltIns': true }],
-      '@babel/plugin-proposal-class-properties',
-      '@babel/plugin-syntax-dynamic-import',
-    ]
-
-    plugins.push([
-      'module-resolver',
-      {
-        cwd: 'babelrc', // Установить корень проекта
-        alias: isServer || isTest ? {
-          '^@avito/([^/]+)$': './packages/\\1/src',
-        } : {
-          '^@avito/([^/]+)/src/(.+)': ([, name, path]) => `@avito/${name}/${BABEL_ENV}/${path}`,
-        },
+  plugins: [
+    ['@babel/transform-runtime', {
+      useESModules: BABEL_ENV === 'esm',
+    }],
+    '@babel/plugin-proposal-object-rest-spread',
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-syntax-dynamic-import',
+    ['module-resolver', {
+      root: ['./'], // Установить корень проекта
+      alias: isServer || isTest && {
+        '^@avito/([^/]+)$': './packages/\\1/src',
       },
-    ])
-
-    return plugins
-  })(),
+      resolvePath: BABEL_ENV === 'esm' && updateExtension,
+    }],
+  ],
 }
 
 if (DEBUG) {
