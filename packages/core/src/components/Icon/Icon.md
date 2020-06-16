@@ -65,8 +65,8 @@ import { Box } from '../Layout/';
 ```
 
 ## Параметры цвета
-Параметр `color`, `colorHover` устанавливае заливку иконки. Доступны все значения из палитры.  
-По умолчанию иконка наследует цвет родителя.  
+Параметр `color`, `colorHover` устанавливае заливку иконки. Доступны все значения из палитры.
+По умолчанию иконка наследует цвет родителя.
 
 ```js
 import { SearchIcon } from '@avito/icons'
@@ -196,6 +196,7 @@ const { platform } = useStore(ThemeStore);
 <Stack wrap>
   {Object.keys(icons).map((name) => (
     [undefined, platform].includes(icons[name].platform) &&
+    typeof icons[name] === 'function' &&
       <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
         {React.createElement(icons[name])}
         <Text size='xs' mt={8} align='center'>{name}</Text>
