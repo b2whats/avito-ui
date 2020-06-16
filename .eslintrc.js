@@ -18,7 +18,10 @@ module.exports = {
     },
     'import/internal-regex': '^@avito/',
   },
-  plugins: ['import'],
+  plugins: [
+    '@typescript-eslint',
+    'import',
+  ],
   rules: {
     'indent': ['error', 2, { 'SwitchCase': 1, 'flatTernaryExpressions': true, 'ignoredNodes': ['ConditionalExpression'] }],
     'comma-dangle': ['error', {
@@ -54,8 +57,8 @@ module.exports = {
     'react/jsx-props-no-multi-spaces': ['error'],
     'react/jsx-tag-spacing': ['error'],
     'react/jsx-wrap-multilines': ['error'],
-    'no-duplicate-imports': ['error'],
     'import/first': ['error'],
+    'import/no-duplicates': ['error'],
     'no-restricted-imports': ['error', {
       // TODO: restore once icon imports are fixed
       // 'patterns': ['*/src'],

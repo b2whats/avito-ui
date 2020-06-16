@@ -1,5 +1,6 @@
 import React, { useState, useMemo, InputHTMLAttributes } from 'react'
-import { numberFormatter, NumberFormatterSettings } from '../../formatters'
+import { numberFormatter } from '../../formatters'
+import type { NumberFormatterSettings } from '../../formatters'
 import { useIsomorphicLayoutEffect } from '../../hooks'
 import { invokeAll } from '../../utils'
 import { InputNumberProps } from './contract'
