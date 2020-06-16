@@ -10,6 +10,7 @@ export const avatarTheme: DeepPartial<AvatarTheme> = {
       type: {
         shop: {
           style: {
+            shape: undefined,
             borderRadius: 5,
           },
         },

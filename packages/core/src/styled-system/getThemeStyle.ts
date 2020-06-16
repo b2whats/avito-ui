@@ -619,6 +619,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       case 'borderRadius':
         if (params.shape === 'circle' || params.shape === 'pill') break
 
+        // NOTE: для круга лучше использовать shape
         css += `border-radius: ${value === 'circle' ? '100' : shape.borderRadius[value] || value}px;`
 
         break
@@ -830,7 +831,15 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'shape': {
-        if (value === 'circle' || value === 'pill') {
+        if (value === 'circle') {
+          /**
+           * Блинк округляет большой радиус до целого вниз, заметно на маленьких кружочках нечетной высоты
+           * https://jr.avito.ru/browse/MDP-1395
+           */
+          css += 'border-radius: 50%;'
+        }
+        if (value === 'pill') {
+          // не совсем круглые колбаски пусть уж будут
           css += 'border-radius: 100px;'
         }
         if (value === 'circle' || value === 'square') {
