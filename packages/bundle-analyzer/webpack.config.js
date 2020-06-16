@@ -1,9 +1,11 @@
-const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const Visualizer = require('webpack-visualizer-plugin')
+
+const path = require('path')
 
 module.exports = {
   entry: {
-    mobile: path.join( __dirname, '../mobile-components/src/index.ts'),
+    mobile: path.join(__dirname, '../mobile-components/src/index.ts'),
     web: path.join(__dirname, '../web-components/src/index.ts'),
   },
   mode: 'production',
@@ -21,8 +23,9 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  plugins: [new Visualizer()],
+  plugins: [new Visualizer(), new BundleAnalyzerPlugin()],
   externals: {
     'react': 'React',
+    'react-dom': 'React',
   },
 }
