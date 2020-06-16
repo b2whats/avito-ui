@@ -22,7 +22,7 @@ export const avatarTheme: AvatarTheme = {
         valignSelf: 'middle',
         width: p => p.size,
         height: p => p.size,
-        borderRadius: 'circle',
+        shape: 'circle',
         overlayDisabled: 'rgba(255, 255, 255, 0.5)',
         fontSize: p => 0.6 * p.size,
       },
