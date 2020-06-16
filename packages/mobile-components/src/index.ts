@@ -1,4 +1,4 @@
-export { Button, Text, Icon, Checkbox, Radio, Switcher, Input, Textarea, Spinner, Stack, Grid, Box, Group, Page, Link, Portal, Positioner, Tooltip } from '@avito/core'
+export { Avatar, Badge, Button, Text, Icon, Checkbox, Radio, Switcher, Input, Textarea, Spinner, Stack, Grid, Box, Group, Page, Link, Portal, Positioner, Tooltip } from '@avito/core'
 
 export { Checkmark } from './components/Checkmark/'
 export { ListItem } from './components/List/'

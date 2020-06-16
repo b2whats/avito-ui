@@ -1,4 +1,6 @@
 import { Tokens } from '@avito/tokens'
+import { AvatarTheme } from '../components/Avatar'
+import { BadgeTheme } from '../components/Badge'
 import { ButtonTheme } from '../components/Button/theme'
 import { CheckboxTheme } from '../components/Checkbox/theme'
 import { IconTheme } from '../components/Icon/theme'
@@ -14,6 +16,8 @@ import { ToggleTheme } from '../components/Toggle/theme'
 import { TooltipTheme } from '../components/Tooltip/theme'
 
 export interface Theme extends Tokens {
+  Avatar: Partial<AvatarTheme>
+  Badge: Partial<BadgeTheme>
   Button: Partial<ButtonTheme>
   Checkbox: Partial<CheckboxTheme>
   Icon: Partial<IconTheme>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, IconProps } from '@avito/core'
+import { Icon, IconProps } from '../'
 
 export const UserIcon = (props: IconProps) => (
   <Icon {...props} viewBox='0 0 24 24' name='user'>
