@@ -1,6 +1,6 @@
 {
   "name": "@avito/mobile-components",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "private": false,
   "description": "Components for mobile web",
   "main": "cjs/index.js",
@@ -27,8 +27,8 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/core": "^0.0.16",
-    "@avito/tokens": "^0.0.16"
+    "@avito/core": "^0.0.17",
+    "@avito/tokens": "^0.0.17"
   },
   "devDependencies": {
     "react": "^16.8.6",

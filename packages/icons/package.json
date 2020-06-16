@@ -1,6 +1,6 @@
 {
   "name": "@avito/icons",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "private": false,
   "description": "icons",
   "main": "cjs/index.js",
@@ -26,7 +26,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/core": "^0.0.16"
+    "@avito/core": "^0.0.17"
   },
   "devDependencies": {
     "react": "^16.8.6",
