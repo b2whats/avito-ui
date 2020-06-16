@@ -81,5 +81,8 @@
   ],
   "engines": {
     "node": ">=12.1.0"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-async-to-generator": "^7.10.1"
   }
 }

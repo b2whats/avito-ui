@@ -37,6 +37,7 @@ const config = {
     ['@babel/transform-runtime', {
       useESModules: BABEL_ENV === 'esm',
     }],
+    '@babel/plugin-transform-async-to-generator'
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
