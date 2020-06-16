@@ -1,4 +1,4 @@
-## 0.0.15
+## 0.0.16
 - New component: Select
 
 ## 0.0.13
