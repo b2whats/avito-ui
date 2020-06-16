@@ -1,7 +1,8 @@
+const docgen = require('react-docgen-typescript')
 const fs = require('fs')
 const path = require('path')
 
-const { parse } = require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
+const { parse } = docgen.withCustomConfig('./tsconfig.json', {
   // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
   propFilter: (prop, component) => {
     if (!prop.parent) {
@@ -99,13 +100,13 @@ module.exports = {
     sectionDepth: 1,
     sections: [{
       name: 'Начало работы',
-      content: './getting-started.md',
+      content: './docs/getting-started.md',
     }, {
       name: 'Палитра',
-      content: './palette.md',
+      content: './docs/palette.md',
     }, {
       name: 'Настройка темы',
-      content: './theme.md',
+      content: './docs/theme.md',
     }],
   }, {
     name: 'Компоненты',
@@ -131,6 +132,7 @@ module.exports = {
         // переопределил ReactComponent - стандартный Renderer отвалился
         'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponentRenderer'),
         'rsg-components/Examples/ExamplesRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/Examples/ExamplesRenderer'),
+        '@avito/core/icons$': path.resolve(__dirname, 'packages/core/src/components/Icon/icons'),
         '@avito/icons$': path.resolve(__dirname, 'packages/icons/src/'),
         '@avito/tokens$': path.resolve(__dirname, 'packages/tokens/src/'),
         '@avito/core$': path.resolve(__dirname, 'packages/core/src/'),

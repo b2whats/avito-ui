@@ -2,7 +2,7 @@
 
 ### Интерфейс темы
 
-```ts { "file": "../packages/tokens/src/contract.ts" }
+```ts { "file": "../../packages/tokens/src/contract.ts" }
 ```
 
 ### Переопределение параметров темы
