@@ -1,5 +1,6 @@
 import { ComponentTheme, Slot } from '../../styled-system'
-import { IconProps, UserIcon, CompanyUserIcon, ShopUserIcon } from '../Icon'
+import { IconProps } from '../Icon/'
+import { UserIcon, CompanyUserIcon, ShopUserIcon } from '../Icon/icons/'
 import { BoxProps } from '../Layout'
 import { AvatarProps } from './contract'
 

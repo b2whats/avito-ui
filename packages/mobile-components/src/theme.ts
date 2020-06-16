@@ -1,4 +1,3 @@
-import { Theme } from '@avito/core'
 import { mobile } from '@avito/tokens'
 import { avatarTheme } from './components/Avatar/theme'
 import { buttonTheme } from './components/Button/theme'

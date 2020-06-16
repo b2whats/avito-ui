@@ -1,4 +1,4 @@
-export * from '@avito/core/src/components/Icon/icons/'
+export * from '@avito/core/icons'
 
 export { CrossIcon } from './icons/CrossIcon'
 export { CheckboxCheckedIcon } from './icons/CheckboxCheckedIcon'

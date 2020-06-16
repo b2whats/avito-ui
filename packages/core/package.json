@@ -10,19 +10,27 @@
   "description": "Shared utilities for desktop / mav versions of avito design system",
   "author": "vyuklepov <vyuklepov@avito.ru>",
   "license": "MIT",
-  "main": "./index.js",
-  "module": "./index.esm.js",
-  "types": "./index.d.ts",
-  "publishConfig": {
-    "directory": "build"
+  "sideEffects": false,
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "types/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "cjs/*": ["types/*"],
+      "esm/*": ["types/*"]
+    }
   },
+  "files": [
+    "cjs",
+    "esm",
+    "types",
+    "icons"
+  ],
   "scripts": {
-    "build": "yarn build:clean && yarn build:cjs & yarn build:esm & yarn build:types && yarn build:copy",
-    "build:clean": "rm -rf ./build",
-    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
-    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward",
-    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src --out-dir build --extensions \".ts,.tsx\" --source-maps --root-mode=upward --out-file-extension .esm.js",
-    "build:copy": "node ../../scripts/copy-files.js",
+    "build": "yarn build:cjs & yarn build:esm & yarn build:types",
+    "build:types": "rm -rf ./types && tsc -p tsconfig.json --emitDeclarationOnly",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src --out-dir cjs --extensions \".ts,.tsx\" --source-maps --root-mode=upward --delete-dir-on-start",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src --out-dir esm --extensions \".ts,.tsx\" --source-maps --root-mode=upward --delete-dir-on-start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "yarn build",
     "typecheck": "tsc --noEmit"
@@ -39,6 +47,5 @@
     "rifm": "^0.12.0",
     "scroll-into-view-if-needed": "^2.2.20"
   },
-  "sideEffects": false,
   "gitHead": "11b9263aff30f1789f0a59d1bb5a003130ff524c"
 }

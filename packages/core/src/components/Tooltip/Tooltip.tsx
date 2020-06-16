@@ -58,7 +58,7 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme>(
 
 export const Tooltip = uiComponent('Tooltip', tooltipTheme)(({ content, ...props }: TooltipProps, { theme, tokens }) => {
   if (!content) return props.children
-  
+
   const { Tooltip, Arrow, Close } = foldThemeParams(props, theme)
   const tooltipStyle = tooltipClassName(props, tokens, Tooltip.style)
   const arrowStyle = arrowClassName(props, tokens, Arrow.style)

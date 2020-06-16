@@ -123,7 +123,7 @@ export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputE
   const label = props.label && <Text {...Label.props} crop>{props.label}</Text>
 
   return (
-    <label ref={usePrevent3DTouch()} css={toggleStyle} {...aria} onMouseDown={preventFocus} >
+    <label ref={usePrevent3DTouch()} css={toggleStyle} {...aria} onMouseDown={preventFocus}>
       {props.labelPosition === 'start' && label}
       <input
         {...filterProps(groupProps)}

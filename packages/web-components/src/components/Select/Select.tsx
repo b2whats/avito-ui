@@ -1,5 +1,6 @@
 import React from 'react'
-import { css, uiComponent, Text, Input, InputProps, InputTheme, filterProps, ChevronNarrowIcon } from '@avito/core'
+import { css, uiComponent, Text, Input, InputProps, InputTheme, filterProps } from '@avito/core'
+import { ChevronNarrowIcon } from '@avito/core/icons'
 import { SelectProps } from './contract'
 import { selectTheme } from './theme'
 

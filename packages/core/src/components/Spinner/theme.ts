@@ -1,5 +1,6 @@
 import { Slot, ComponentTheme } from '../../styled-system/'
-import { SpinnerIcon, IconProps } from '../Icon'
+import { IconProps } from '../Icon/'
+import { SpinnerIcon } from '../Icon/icons/'
 import { SpinnerProps } from './contract'
 
 export type SpinnerTheme = ComponentTheme<SpinnerProps, { Spinner: Slot<IconProps> }>

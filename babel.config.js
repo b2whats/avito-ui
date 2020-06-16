@@ -1,26 +1,9 @@
-const resolver = require('babel-plugin-module-resolver')
-const resolve = require('enhanced-resolve')
+/* eslint-disable no-console */
 const path = require('path')
 const { DEBUG, BABEL_ENV, NODE_ENV, TARGET } = process.env
 const isProduction = NODE_ENV === 'production'
 const isTest = NODE_ENV === 'test'
 const isServer = TARGET === 'server'
-
-const resolverTs = resolve.create.sync({
-  extensions: ['.ts', '.tsx', '.js', '.json'],
-})
-
-const updateExtension = (sourcePath, currentFile, opts) => {
-  if (!sourcePath.startsWith('.')) return null
-
-  const resolvedPath = resolverTs(path.dirname(currentFile), sourcePath)
-
-  if (!resolvedPath.includes('index')) {
-    return sourcePath + '.esm'
-  }
-
-  return null
-}
 
 const config = {
   presets: [
@@ -60,9 +43,9 @@ const config = {
     ['module-resolver', {
       root: ['./'], // Установить корень проекта
       alias: isServer || isTest && {
+        '^@avito/core/icons$': './packages/core/src/components/Icon/icons',
         '^@avito/([^/]+)$': './packages/\\1/src',
       },
-      resolvePath: BABEL_ENV === 'esm' && updateExtension,
     }],
   ],
 }

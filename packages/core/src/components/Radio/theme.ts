@@ -1,6 +1,6 @@
 import { Slot, ComponentTheme } from '../../styled-system/'
-import { RadioCheckedIcon } from '../Icon/'
 import { IconProps } from '../Icon/contract'
+import { RadioCheckedIcon } from '../Icon/icons/'
 import { TextProps } from '../Text/contract'
 import { RadioProps } from './contract'
 

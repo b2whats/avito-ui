@@ -1,14 +1,11 @@
-export {
-  Avatar, Badge, Button, Text, Icon, Checkbox, Radio, Switcher, Input, InputNumber,
-  Textarea, Spinner, Stack, Grid, Box, Group, Page, Link, Portal, Positioner, Tooltip
-} from '@avito/core'
+export * from '@avito/core'
 
-export { Checkmark } from './components/Checkmark/'
-export { ListItem } from './components/List/'
-export { SegmentButton } from './components/SegmentButton/'
-export { Select } from './components/Select/'
+export * from './components/Checkmark/'
+export * from './components/List/'
+export * from './components/SegmentButton/'
+export * from './components/Select/'
 export * from './components/Icon/'
 
-export { theme } from './theme'
-export { useTheme } from '@avito/core'
+export * from './theme'
+
 export { ThemeProvider } from './ThemeProvider'

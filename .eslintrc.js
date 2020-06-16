@@ -71,7 +71,7 @@ module.exports = {
       },
     }],
     'import/no-default-export': ['error'],
-    'jsx-a11y/no-noninteractive-element-interactions': ['warn'],
+    'jsx-a11y/no-noninteractive-element-interactions': ['off'],
     'jsx-a11y/label-has-associated-control': ['error'],
     // it's deprecated
     'jsx-a11y/label-has-for': ['off'],
