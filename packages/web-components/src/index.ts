@@ -3,6 +3,7 @@ export {
   Textarea, Spinner, Stack, Grid, Box, Group, Page, Portal, Positioner, Tooltip, Link
 } from '@avito/core'
 
+export { Select } from './components/Select/'
 export * from './components/Icon/'
 
 export { theme } from './theme'

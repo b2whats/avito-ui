@@ -1,4 +1,4 @@
-## 0.0.16
+## 0.0.17
 - New comnponents: Avatar, Badge, InputNumber
 - Added formatters
 - Fixed undo after Input clear
