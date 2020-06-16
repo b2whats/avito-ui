@@ -14,20 +14,18 @@ describe('numberFormatter', () => {
       expect(pipe('123456789')).toBe('123 456 789')
     })
     it('excludes disallowed symbols', () => expect(pipe('  1 a2  b 3c  ')).toBe('123'))
-    it('trims fraction', () => expect(pipe('123.45')).toBe('123'))
+    it('trims fraction', () => expect(pipe('1.23')).toBe('123'))
     it('trims big numbers', () => {
       expect(pipe('12345678901234567890')).toBe('123 456 789 012 345')
       expect(pipe('    12345678901234567890')).toBe('123 456 789 012 345')
     })
   })
 
-  describe('negative numbers', () => {
-    it('preserves minus sign by default', () => {
-      expect(pipeFormatter(numberFormatter)('-123')).toBe('-123')
-    })
-    it('removes sign if positiveOnly = true', () => {
-      expect(pipeFormatter(numberFormatter.setup({ positiveOnly: true }))('-123')).toBe('123')
-    })
+  describe('positiveOnly', () => {
+    const pipe = pipeFormatter(numberFormatter.setup({ positiveOnly: false }))
+    it('removes sign by default', () => expect(pipeFormatter(numberFormatter)('-123')).toBe('123'))
+    it('preserves minus sign when positiveOnly=false', () => expect(pipe('-123')).toBe('-123'))
+    it('trims second minus sign', () => expect(pipe('-1-2')).toBe('-12'))
   })
 
   describe('leading zeroes', () => {
@@ -38,7 +36,7 @@ describe('numberFormatter', () => {
   })
 
   describe('maxIntDigits', () => {
-    const pipe = pipeFormatter(numberFormatter.setup({ maxIntDigits: 3 }))
+    const pipe = pipeFormatter(numberFormatter.setup({ maxIntDigits: 3, positiveOnly: false }))
     it('is configurable', () => expect(pipe('12345')).toBe('123'))
     it('does not include minus sign', () => expect(pipe('-123')).toBe('-123'))
     it('does not include leading zeroes', () => expect(pipe('0123')).toBe('123'))

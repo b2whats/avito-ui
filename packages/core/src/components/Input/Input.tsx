@@ -101,6 +101,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
       <div css={inputFieldStyle}>
