@@ -1,7 +1,7 @@
 import React from 'react'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { filterProps, markerId } from '../../utils/'
+import { filterProps } from '../../utils/'
 import { Positioner, PositionerProps } from '../Positioner/'
 import { TooltipProps } from './contract'
 import { tooltipTheme } from './theme'

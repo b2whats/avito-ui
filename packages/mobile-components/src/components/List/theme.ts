@@ -2,13 +2,13 @@ import { Slot, ComponentTheme, TextProps, StackProps, BoxProps } from '@avito/co
 import { ListItemProps } from './contract'
 
 export type ListItemTheme = ComponentTheme<ListItemProps, {
-  ListItem: Slot<StackProps>,
-  Before: Slot<BoxProps>,
-  StackText: Slot<StackProps>,
-  Label: Slot<TextProps>,
-  Link: Slot<TextProps>,
-  Caption: Slot<TextProps>,
-  After: Slot<BoxProps>,
+  ListItem: Slot<StackProps>
+  Before: Slot<BoxProps>
+  StackText: Slot<StackProps>
+  Label: Slot<TextProps>
+  Link: Slot<TextProps>
+  Caption: Slot<TextProps>
+  After: Slot<BoxProps>
 }>
 
 export const listItemTheme: ListItemTheme = {

@@ -5,9 +5,9 @@ import { BoxProps } from '../Layout'
 import { AvatarProps } from './contract'
 
 export type AvatarTheme = ComponentTheme<AvatarProps, {
-  Wrapper: Slot,
-  Badge: Slot<BoxProps>,
-  Fallback: Slot<IconProps>,
+  Wrapper: Slot
+  Badge: Slot<BoxProps>
+  Fallback: Slot<IconProps>
 }>
 
 export const avatarTheme: AvatarTheme = {

@@ -23,7 +23,11 @@ module.exports = {
     'import',
   ],
   rules: {
-    'indent': ['error', 2, { 'SwitchCase': 1, 'flatTernaryExpressions': true, 'ignoredNodes': ['ConditionalExpression'] }],
+    'indent': ['error', 2, {
+      'SwitchCase': 1,
+      'flatTernaryExpressions': true,
+      'ignoredNodes': ['ConditionalExpression'],
+    }],
     'comma-dangle': ['error', {
       'functions': 'never',
       'arrays': 'always-multiline',
@@ -47,9 +51,9 @@ module.exports = {
     'block-spacing': ['error'],
     'func-call-spacing': ['error'],
     'key-spacing': ['error'],
-    'keyword-spacing': ['error'],
     'space-infix-ops': ['error'],
     'space-in-parens': ['error'],
+    // React
     'react/prop-types': 'off',
     'react/jsx-curly-spacing': ['error'],
     'react/jsx-equals-spacing': ['error'],
@@ -57,6 +61,7 @@ module.exports = {
     'react/jsx-props-no-multi-spaces': ['error'],
     'react/jsx-tag-spacing': ['error'],
     'react/jsx-wrap-multilines': ['error'],
+    // import
     'import/first': ['error'],
     'import/no-duplicates': ['error'],
     'no-restricted-imports': ['error', {
@@ -70,10 +75,29 @@ module.exports = {
       },
     }],
     'import/no-default-export': ['error'],
+    // a11y
     'jsx-a11y/no-noninteractive-element-interactions': ['off'],
     'jsx-a11y/label-has-associated-control': ['error'],
-    // it's deprecated
-    'jsx-a11y/label-has-for': ['off'],
+    'jsx-a11y/label-has-for': ['off'], // it's deprecated
+    // TS-specific
+    '@typescript-eslint/type-annotation-spacing': ['error'],
+    '@typescript-eslint/no-inferrable-types': ['error'],
+    '@typescript-eslint/no-unused-vars': ['error', {
+      'varsIgnorePattern': '^_',
+      'argsIgnorePattern': '^_',
+      'args': 'after-used',
+      'ignoreRestSiblings': true,
+    }],
+    '@typescript-eslint/keyword-spacing': ['error'],
+    '@typescript-eslint/comma-spacing': ['error'],
+    '@typescript-eslint/member-delimiter-style': ['error', {
+      'multiline': {
+        'delimiter': 'none',
+      },
+      'singleline': {
+        'delimiter': 'comma',
+      },
+    }],
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
   },

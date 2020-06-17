@@ -30,7 +30,7 @@ export interface PositionerProps {
   /* Параметры для скрытия target когда reference вышел за область видимости */
   hide?: FindByName<Modifiers, 'hide'>
   /* Описывает стратегию позиционирования */
-  strategy?: 'fixed' | 'absolute',
+  strategy?: 'fixed' | 'absolute'
   /* Отрендерить в контексте портала */
   usePortal?: boolean
   /* Стратегия появления target элемента */

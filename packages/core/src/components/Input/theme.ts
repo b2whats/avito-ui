@@ -5,12 +5,12 @@ import { TextProps } from '../Text/contract'
 import { InputProps } from './contract'
 
 export type InputTheme<Props = InputProps> = ComponentTheme<Props, {
-  IconBefore: Slot<IconProps>,
-  InputField: Slot,
-  Prefix: Slot<TextProps>,
-  Input: Slot,
-  Postfix: Slot<TextProps>,
-  IconAfter: Slot<IconProps>,
+  IconBefore: Slot<IconProps>
+  InputField: Slot
+  Prefix: Slot<TextProps>
+  Input: Slot
+  Postfix: Slot<TextProps>
+  IconAfter: Slot<IconProps>
 }>
 
 export const inputTheme: InputTheme = {

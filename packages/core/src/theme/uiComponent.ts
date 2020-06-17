@@ -9,8 +9,8 @@ import { mergeTheme } from './mergeTheme'
 type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => void]
 
 export interface UiComponentProps<ThemeType, RefType> {
-  override?: DeepPartial<ThemeType>,
-  ref?: Ref<RefType>,
+  override?: DeepPartial<ThemeType>
+  ref?: Ref<RefType>
   marker?: string
 }
 
@@ -19,10 +19,10 @@ type Options = {
 }
 
 type InternalProps<ThemeType, Tokens> = {
-  theme: ThemeType,
-  tokens: Tokens,
-  testId: ReturnType<typeof withMarker>[0],
-  marker: ReturnType<typeof withMarker>[1],
+  theme: ThemeType
+  tokens: Tokens
+  testId: ReturnType<typeof withMarker>[0]
+  marker: ReturnType<typeof withMarker>[1]
 }
 
 export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType, options: Options = {}) {

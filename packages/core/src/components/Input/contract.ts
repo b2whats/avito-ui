@@ -65,7 +65,7 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   /** Инлайновое поведение */
   inline?: boolean
   /** пресет */
-  preset?: keyof typeof InputPreset,
+  preset?: keyof typeof InputPreset
   renderCore?: (props: InputCoreProps) => JSX.Element
 }
 

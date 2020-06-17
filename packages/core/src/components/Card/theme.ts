@@ -5,8 +5,8 @@ import { BoxProps } from '../Layout/'
 import { CardProps } from './contract'
 
 export type CardTheme = ComponentTheme<CardProps, {
-  Card: Slot<BoxProps>,
-  Close: Slot<IconProps>,
+  Card: Slot<BoxProps>
+  Close: Slot<IconProps>
 }>
 
 export const cardTheme: CardTheme = {

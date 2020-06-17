@@ -1,4 +1,4 @@
-import { TextTheme, TextProps, dsl } from '@avito/core'
+import { TextTheme, TextProps } from '@avito/core'
 
 const headingPreset = (size: TextProps['size']) => ({ size, bold: true })
 

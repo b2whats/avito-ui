@@ -16,7 +16,7 @@ const inputClassName = createClassName<InputProps, typeof inputTheme>(
     ...themeStyle,
     ...props,
   }),
-  (textRules, props) => (`
+  (textRules) => (`
     position: relative;
     font-family: inherit;
     align-items: center;

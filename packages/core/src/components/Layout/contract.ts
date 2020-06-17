@@ -1,5 +1,5 @@
 import { ReactText } from 'react'
-import { StyleProperties, SpaceProperties, DimensionProperties, ColorProperties, BorderProperties, LayoutProperties, TextProperties } from '../../styled-system/'
+import { StyleProperties } from '../../styled-system/'
 import { Theme } from '../../theme/'
 
 export interface GridProps extends StyleProperties {

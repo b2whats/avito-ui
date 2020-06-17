@@ -2,7 +2,7 @@ import { ComponentTheme, Slot } from '../../styled-system/'
 import { BaseIconProps } from './contract'
 
 export type IconTheme = ComponentTheme<BaseIconProps, {
-  Icon: Slot,
+  Icon: Slot
 }>
 
 export const iconTheme: IconTheme = {

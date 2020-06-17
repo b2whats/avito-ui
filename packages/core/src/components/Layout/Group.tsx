@@ -5,28 +5,28 @@ import { GroupProps } from './contract'
 import { Stack } from './Stack'
 
 type GroupContext = {
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void,
-  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void,
-  checked?: (string | number | undefined | null)[],
-  block?: boolean,
-  spacing?: boolean,
-  disabled?: boolean,
-  mode?: 'radio' | 'checkbox',
-  elements: React.MutableRefObject<any[]>,
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
+  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void
+  checked?: (string | number | undefined | null)[]
+  block?: boolean
+  spacing?: boolean
+  disabled?: boolean
+  mode?: 'radio' | 'checkbox'
+  elements: React.MutableRefObject<any[]>
   orientation: 'horizontal' | 'vertical'
   marker?: string
 }
 
 type GroupTargetHook = {
-  grow?: boolean,
-  role?: 'radio' | 'checkbox',
-  tabIndex?: number,
-  disabled?: boolean,
-  'data-group'?: string,
-  checked?: boolean,
-  onClick?: (event: any) => void,
-  onKeyDown?: (event: any) => void,
-  [key: string]: any,
+  grow?: boolean
+  role?: 'radio' | 'checkbox'
+  tabIndex?: number
+  disabled?: boolean
+  'data-group'?: string
+  checked?: boolean
+  onClick?: (event: any) => void
+  onKeyDown?: (event: any) => void
+  [key: string]: any
 }
 
 export const GroupContext = React.createContext<GroupContext | null>(null)

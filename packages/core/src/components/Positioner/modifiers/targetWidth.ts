@@ -2,8 +2,8 @@ import { Modifier } from '@popperjs/core'
 
 type Width = 'reference' | number
 type Options = {
-  minWidth: Width,
-  width: Width,
+  minWidth: Width
+  width: Width
   maxWidth: Width
 }
 export type TargetWidthModifier = Modifier<'targetWidth', Options>

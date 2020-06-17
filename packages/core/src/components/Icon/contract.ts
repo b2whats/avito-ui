@@ -8,9 +8,9 @@ type StyleProps = AlignProperties & SpaceProperties & ColorProperties & Dimensio
 export interface BaseIconProps extends StyleProps {
   children: React.ReactNode
   /** Имя */
-  name: string,
+  name: string
   /** Размеры конейнера с иконкой */
-  viewBox: string,
+  viewBox: string
   /** Размер иконки */
   size?: number | 's' | 'm' | 'l' | 'auto'
   /** Поворот иконки */

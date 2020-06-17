@@ -1,5 +1,5 @@
 import React from 'react'
-import { variant } from '../../../test'
+// import { variant } from '../../../test'
 import { UserIcon } from '../Icon/icons'
 
 export const buttonMock = ({
