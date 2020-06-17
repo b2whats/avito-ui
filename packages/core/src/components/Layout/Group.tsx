@@ -105,7 +105,7 @@ export const Group = ({ children, block, mode, value, name, disabled, marker, on
 
   if (!onChange && useTheme()._demo && mode === 'radio') {
     const [fallbackValue, fallbackChange] = useState(value)
-    onChange = e => fallbackChange(e.value)
+    onChange = event => fallbackChange(event.value)
     value = fallbackValue
   }
 

@@ -21,11 +21,11 @@ export const avatarTheme: AvatarTheme = {
         color: 'white',
         align: 'center',
         valignSelf: 'middle',
-        width: p => p.size,
-        height: p => p.size,
+        width: props => props.size,
+        height: props => props.size,
         shape: 'circle',
         overlayDisabled: 'rgba(255, 255, 255, 0.5)',
-        fontSize: p => 0.6 * p.size,
+        fontSize: props => 0.6 * props.size,
       },
       isFallback: {
         style: {
@@ -41,14 +41,14 @@ export const avatarTheme: AvatarTheme = {
         position: 'absolute',
         right: 0,
         bottom: 0,
-        width: p => p.size / 4,
-        height: p => p.size / 4,
+        width: props => props.size / 4,
+        height: props => props.size / 4,
       },
     },
     Fallback: {
       component: UserIcon,
       props: {
-        size: p => 0.48 * p.size,
+        size: props => 0.48 * props.size,
       },
       type: {
         company: {

@@ -17,7 +17,7 @@ export const InputNumber = ({ onChange = () => {}, ...props }: InputNumberProps)
   }, [outerValue])
   const formatter = useMemo(
     () => numberFormatter.setup(props),
-    numberFormatter.settingKeys.map(k => props[k]))
+    numberFormatter.settingKeys.map(key => props[key]))
 
   return (
     <Input
@@ -32,23 +32,23 @@ export const InputNumber = ({ onChange = () => {}, ...props }: InputNumberProps)
           onChange({ ...event, value: numericValue })
         }
       }}
-      onKeyDown={invokeAll(props.onKeyDown, e => {
-        const target = e.target as HTMLInputElement
-        if (e.key === 'ArrowUp') {
+      onKeyDown={invokeAll(props.onKeyDown, event => {
+        const target = event.target as HTMLInputElement
+        if (event.key === 'ArrowUp') {
           onChange({ value: (outerValue || 0) + 1, target })
-          e.preventDefault()
-        } else if (e.key === 'ArrowDown') {
+          event.preventDefault()
+        } else if (event.key === 'ArrowDown') {
           onChange({ value: (outerValue || 0) - 1, target })
-          e.preventDefault()
+          event.preventDefault()
         }
       })}
     />
   )
 }
 
-function numberOrEmpty(v: any) {
-  const numeric = Number(v)
-  const isSafeCast = typeof v === 'number' || (typeof v === 'string' && v !== '')
+function numberOrEmpty(value: any) {
+  const numeric = Number(value)
+  const isSafeCast = typeof value === 'number' || (typeof value === 'string' && value !== '')
   return isSafeCast && !Number.isNaN(numeric) ? numeric : ''
 }
 

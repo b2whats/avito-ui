@@ -45,6 +45,10 @@ module.exports = {
       ignoreComments: true,
       ignoreTemplateLiterals: true,
     }],
+    'id-length': ['error', {
+      'properties': 'never',
+      'exceptions': ['_'],
+    }],
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-multi-spaces': ['error'],
     'array-bracket-spacing': ['error'],

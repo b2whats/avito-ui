@@ -26,7 +26,7 @@ export const numberFormatter = makeFormatter(({ positiveOnly, maxIntDigits, maxF
       if (!maxFracDigits) return prettyInt
       return `${prettyInt}${sep}${frac.substring(0, maxFracDigits)}`
     },
-    replace: v => v.replace(',', '.'),
+    replace: value => value.replace(',', '.'),
     parse(stringValue: string) {
       return (stringValue.match(accept) || []).join('')
     },

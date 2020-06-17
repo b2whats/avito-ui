@@ -45,7 +45,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   { theme, tokens, testId },
   [inputRef, setRef]
 ) => {
-  const renderCore = props.renderCore || (p => <InputCore {...p} />)
+  const renderCore = props.renderCore || (props => <InputCore {...props} />)
   const [focus, focusProps] = useFocus(props)
   const [safeValue, safeOnChange] = useUncontrolledInputHook(props)
   const [value, onChange] = useSyntheticChange(safeValue, safeOnChange, mask)
