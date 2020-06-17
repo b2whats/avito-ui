@@ -4,7 +4,10 @@ const path = require('path')
 const { parse } = require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
   // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
   propFilter: (prop, component) => {
-    return !prop.parent || prop.parent.fileName.indexOf('node_modules') < 0
+    if (!prop.parent) {
+      throw new Error(`Prop ${prop.name} of ${component.name} must be declared via TS interface, not type - got ${JSON.stringify(prop, null, 2)}`)
+    }
+    return !/node_modules\/(?!@avito)/.test(prop.parent.fileName)
   },
   shouldRemoveUndefinedFromOptional: true,
 })

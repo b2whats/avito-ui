@@ -8,6 +8,11 @@ import { mergeTheme } from './mergeTheme'
 
 type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => void]
 
+interface UiComponentProps<ThemeType, RefType> {
+  override?: DeepPartial<ThemeType>,
+  ref?: Ref<RefType>,
+}
+
 export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType) {
   return <Props, RefType = HTMLElement>(
     render: (
@@ -16,10 +21,7 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
       ref: RefContainer<RefType>
     ) => JSX.Element | null
   ) => {
-    type ExternalProps = Props & {
-      override?: DeepPartial<ThemeType>,
-      ref?: Ref<RefType>,
-    }
+    type ExternalProps = Props & UiComponentProps<ThemeType, RefType>
     const WrappedComponent = forwardRef(({ override, ...props }: ExternalProps, ref: Ref<RefType>) => {
       const globalTheme = useTheme()
       const componentTheme = mergeTheme(theme, globalTheme[name] as DeepPartial<ThemeType>, override)
