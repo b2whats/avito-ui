@@ -10141,9 +10141,9 @@ react-docgen-displayname-handler@^3.0.0:
     ast-types "0.13.3"
 
 react-docgen-typescript@^1.12.5:
-  version "1.16.4"
-  resolved "http://npm.msk.avito.ru/react-docgen-typescript/-/react-docgen-typescript-1.16.4.tgz#9a9674d25a02704c5e3dafa76f7ea928aca336a3"
-  integrity sha512-9NkfxDnLB+zYPRE4JBWoNc/JB0N1YWkZEq91al4F/e6BGMKHtAOESaEmrqdooxBLlxDhGKUGCXhPGJHHsG6bFQ==
+  version "1.17.1"
+  resolved "http://npm.msk.avito.ru/react-docgen-typescript/-/react-docgen-typescript-1.17.1.tgz#6df6a5bf9b340e45ed3f1590515013ba71d3078b"
+  integrity sha512-JahR6AvNOQ2+HC+jIzMuFw6VctUnComz84W5AlRVF53wOq2yRR0xosQ3NShjU7mC27McgfzoFKKzL5UBN86FXw==
 
 react-docgen@^5.0.0:
   version "5.3.0"
