@@ -1,4 +1,5 @@
 import { DeepPartial, ToggleTheme, dsl, Colors } from '@avito/core'
+import { controlOutlineVariants } from '../../utils'
 
 export const toggleTheme: DeepPartial<ToggleTheme> = {
   defaultProps: {
@@ -37,13 +38,7 @@ export const toggleTheme: DeepPartial<ToggleTheme> = {
         borderWidth: 1,
         focus: true,
       },
-      variant: dsl.styleMap({
-        primary: outline('gray20', 'gray28'),
-        secondary: outline('gray4', 'gray10'),
-        success: outline('green500', 'green600'),
-        warning: outline('orange500', 'orange600'),
-        error: outline('red500', 'red600'),
-      }),
+      variant: controlOutlineVariants,
       checked: {
         style: {
           bgDisabled: 'gray20',
@@ -63,13 +58,6 @@ export const toggleTheme: DeepPartial<ToggleTheme> = {
       },
     },
   },
-}
-
-function outline(borderBase: Colors, bgHover: Colors) {
-  return {
-    borderColor: borderBase,
-    borderColorHover: bgHover,
-  }
 }
 
 function fill(bg: Colors, hover: Colors) {
