@@ -23,6 +23,10 @@ const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
     fill: currentColor;
     height: 1em;
 
+    &:focus {
+      outline: none;
+    }
+
     ${area ? `
       overflow: visible;
       cursor: pointer;
