@@ -31,7 +31,7 @@ export type SchemeType<
 }
 
 export interface Slot<OutProps = never, ExtraStyles = {}> {}
-export type ComponentTheme<Props, Scheme = {}, Extras = {}> = Extras & {
+export type ComponentTheme<Props, Scheme = {}> = {
   defaultProps?: Partial<Props>,
   mapProps?: (props: Props) => Partial<Props>,
   scheme: {

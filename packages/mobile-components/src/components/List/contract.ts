@@ -22,5 +22,8 @@ export interface ListItemProps extends SpaceProperties, DimensionProperties {
   /** Инлайновое поведение */
   inline?: boolean
 
+  beforeTreshold?: number
+  afterTreshold?: number
+
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }

@@ -1,10 +1,9 @@
-import React from 'react'
 import { DeepPartial, SwitcherTheme, dsl, Box, Spinner } from '@avito/core'
 
 export const switcherTheme: DeepPartial<SwitcherTheme> = {
-  positionLoading: true,
   defaultProps: {
     shape: 'square',
+    positionLoading: true,
   },
   scheme: {
     Switch: {

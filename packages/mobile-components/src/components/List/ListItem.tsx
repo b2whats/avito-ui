@@ -11,11 +11,11 @@ export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...p
   const [_, setRef] = useRefHook(setMeasureRef)
 
   const beforeValign = props.beforeValign === 'auto'
-    ? bounds && listItemTheme.beforeTreshold < bounds.height ? 'top' : 'middle'
+    ? bounds && props.beforeTreshold! < bounds.height ? 'top' : 'middle'
     : props.beforeValign
 
   const afterValign = props.afterValign === 'auto'
-    ? bounds && listItemTheme.afterTreshold < bounds.height ? 'top' : 'middle'
+    ? bounds && props.afterTreshold! < bounds.height ? 'top' : 'middle'
     : props.afterValign
 
 

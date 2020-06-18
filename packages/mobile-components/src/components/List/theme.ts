@@ -9,14 +9,13 @@ export type ListItemTheme = ComponentTheme<ListItemProps, {
   Link: Slot<TextProps>,
   Caption: Slot<TextProps>,
   After: Slot<BoxProps>,
-}, {
-  beforeTreshold: number,
-  afterTreshold: number,
 }>
 
 export const listItemTheme: ListItemTheme = {
-  beforeTreshold: 82,
-  afterTreshold: 82,
+  defaultProps: {
+    beforeTreshold: 82,
+    afterTreshold: 82,
+  },
   scheme: {
     ListItem: {
       props: {
