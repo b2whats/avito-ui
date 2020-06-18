@@ -60,8 +60,7 @@ module.exports = {
     'import/first': ['error'],
     'import/no-duplicates': ['error'],
     'no-restricted-imports': ['error', {
-      // TODO: restore once icon imports are fixed
-      // 'patterns': ['*/src'],
+      'patterns': ['*/src'],
     }],
     'import/order': ['error', {
       groups: ['external', 'internal', 'parent', 'index', 'sibling'],
