@@ -63,7 +63,7 @@ const shadowMask = (
 
 export const Icon = uiComponent('Icon', iconTheme)((props: BaseIconProps, { theme, tokens }) => {
   const aria = {
-    role: 'img',
+    role: props.role || (props.onClick ? 'button' : 'img'),
     tabIndex: props.onClick ? 0 : -1,
     'aria-hidden': true,
     'data-icon': props.name,
