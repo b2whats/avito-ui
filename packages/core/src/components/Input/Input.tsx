@@ -9,7 +9,6 @@ import { InputProps } from './contract'
 import { InputCore } from './InputCore'
 import { inputTheme } from './theme'
 
-
 const inputClassName = createClassName<InputProps, typeof inputTheme>(
   (themeStyle, props) => ({
     display: 'flex',

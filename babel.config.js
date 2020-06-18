@@ -11,9 +11,12 @@ const config = {
       '@babel/preset-env',
       {
         targets: {
-          browsers: ['last 1 version'],
           ie: '11',
+          safari: '9',
         },
+        shippedProposals: true,
+        useBuiltIns: 'usage',
+        corejs: '3.6',
         loose: true,
         modules: BABEL_ENV === 'cjs' || isServer || isTest ? 'commonjs' : false,
         debug: Boolean(DEBUG),
@@ -34,13 +37,8 @@ const config = {
     ],
   ],
   plugins: [
-    ['@babel/transform-runtime', {
-      useESModules: BABEL_ENV === 'esm',
-    }],
-    '@babel/plugin-transform-async-to-generator',
-    '@babel/plugin-proposal-object-rest-spread',
-    '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
+    ['@babel/transform-runtime', { useESModules: BABEL_ENV === 'esm' }],
     ['module-resolver', {
       root: ['./'], // Установить корень проекта
       alias: isServer || isTest && {

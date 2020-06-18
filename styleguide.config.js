@@ -2,6 +2,57 @@ const docgen = require('react-docgen-typescript')
 const fs = require('fs')
 const path = require('path')
 
+const isIE = process.argv.includes('ie')
+
+const ieLoader = {
+  test: /\.js$/,
+  include: [
+    new RegExp(
+      `node_modules/(?=(${[
+        '@react-spring/animated',
+        '@react-spring/core',
+        '@react-spring/shared',
+        '@react-spring/web',
+        'rifm',
+        'fluids',
+        'acorn-jsx',
+        'estree-walker',
+        'regexpu-core',
+        'effector-react',
+        'effector',
+        'unicode-match-property-ecmascript',
+        'unicode-match-property-value-ecmascript',
+        'react-dev-utils',
+        'ansi-styles',
+        'ansi-regex',
+        'chalk',
+        'strip-ansi',
+        'react-styleguidist',
+      ].join('|')})/).*`
+    ),
+  ],
+  use: {
+    loader: 'babel-loader',
+    options: {
+      babelrc: false,
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            modules: 'commonjs',
+            useBuiltIns: 'usage',
+            corejs: 3,
+            targets: {
+              ie: '11',
+              safari: '9',
+            },
+          },
+        ],
+      ],
+    },
+  },
+}
+
 const { parse } = docgen.withCustomConfig('./tsconfig.json', {
   // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
   propFilter: (prop, component) => {
@@ -14,36 +65,41 @@ const { parse } = docgen.withCustomConfig('./tsconfig.json', {
 })
 
 module.exports = {
-  styles: ({ mq }) => ({
-    Code: {
-      code: {
-        color: '#e83e8c',
-        background: 'rgba(232, 62, 140, 0.1)',
-        padding: '2px 4px',
-        borderRadius: '4px',
-      },
-    },
-    StyleGuide: {
-      // Move mobile menu to top
-      [mq.small]: {
-        root: {
-          display: 'flex',
-          flexDirection: 'column-reverse',
+  styles: function (props) {
+    var style = {
+      Table: {
+        cell: {
+          '&:last-child': {
+            width: 'auto',
+          },
         },
       },
-      // Prevent overflow
-      content: {
-        maxWidth: '100%',
-      },
-    },
-    Table: {
-      cell: {
-        '&:last-child': {
-          width: 'auto',
+      Code: {
+        code: {
+          color: '#e83e8c',
+          background: 'rgba(232, 62, 140, 0.1)',
+          padding: '2px 4px',
+          borderRadius: '4px',
         },
       },
-    },
-  }),
+      StyleGuide: {
+        // Prevent overflow
+        content: {
+          maxWidth: '100%',
+        },
+      },
+    }
+
+    // Move mobile menu to top
+    style.StyleGuide[props.mq.small] = {
+      root: {
+        display: 'flex',
+        flexDirection: 'column-reverse',
+      },
+    }
+
+    return style
+  },
   styleguideDir: 'public',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
@@ -63,6 +119,11 @@ module.exports = {
           href: '/font.css',
         },
       ],
+      ...isIE && { scripts: [
+        {
+          src: 'https://polyfill.io/v3/polyfill.min.js',
+        },
+      ]},
     },
   },
   updateExample(props, exampleFilePath) {
@@ -125,6 +186,7 @@ module.exports = {
     return parse(withContracts, ...rest)
   },
   webpackConfig: {
+    devtool: 'inline-source-map',
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.json'],
       mainFields: ['browser', 'module', 'main'],
@@ -152,7 +214,7 @@ module.exports = {
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
-      ],
+      ].concat(isIE ? ieLoader : []),
     },
   },
 }

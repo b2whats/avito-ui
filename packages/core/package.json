@@ -16,8 +16,12 @@
   "types": "types/index.d.ts",
   "typesVersions": {
     "*": {
-      "cjs/*": ["types/*"],
-      "esm/*": ["types/*"]
+      "cjs/*": [
+        "types/*"
+      ],
+      "esm/*": [
+        "types/*"
+      ]
     }
   },
   "files": [
@@ -40,6 +44,8 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@popperjs/core": "^2.4.2",
+    "core-js": "^3.6.5",
+    "corejs": "^1.0.0",
     "deepmerge": "^4.2.2",
     "emotion": "^10.0.27",
     "emotion-theming": "^10.0.27",

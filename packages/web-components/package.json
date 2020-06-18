@@ -5,7 +5,7 @@
     "type": "git",
     "url": "http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components",
     "directory": "packages/web-components"
-  }, 
+  },
   "private": false,
   "description": "Components for desctop web",
   "author": "vyuklepov <vyuklepov@avito.ru>",
@@ -15,8 +15,12 @@
   "types": "types/index.d.ts",
   "typesVersions": {
     "*": {
-      "cjs/*": ["types/*"],
-      "esm/*": ["types/*"]
+      "cjs/*": [
+        "types/*"
+      ],
+      "esm/*": [
+        "types/*"
+      ]
     }
   },
   "files": [
@@ -39,7 +43,8 @@
   },
   "dependencies": {
     "@avito/core": "^0.0.17",
-    "@avito/tokens": "^0.0.17"
+    "@avito/tokens": "^0.0.17",
+    "corejs": "^1.0.0"
   },
   "devDependencies": {
     "react": "^16.8.6",

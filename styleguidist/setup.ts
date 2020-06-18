@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react'
 import { useStore } from 'effector-react'
+import { useState, useRef } from 'react'
 import * as helpers from './components'
 import { ThemeStore } from './store'
 
