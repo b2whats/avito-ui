@@ -1,6 +1,9 @@
 import { DeepPartial, ToggleTheme, dsl, Colors } from '@avito/core'
 
 export const toggleTheme: DeepPartial<ToggleTheme> = {
+  defaultProps: {
+    size: 's',
+  },
   scheme: {
     Label: {
       props: {

@@ -63,7 +63,7 @@ import { Text } from '../Text/';
 :::platform web
 ## Размер
 
-`size` — размер чекбокса: `s` / `m` (по умолчанию) / `l`
+`size` — размер радиокнопки: `s` / `m` / `l`
 
 ```js
 import { Group } from '../Layout/';

@@ -2,6 +2,9 @@ import { TextareaTheme, DeepPartial, dsl } from '@avito/core'
 import { CrossIcon } from '../Icon/'
 
 export const textareaTheme: DeepPartial<TextareaTheme> = {
+  defaultProps: {
+    size: 's',
+  },
   scheme: {
     Textarea: {
       style: {

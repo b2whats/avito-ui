@@ -10,6 +10,7 @@ const fillTheme = (hue: string): StyleProperties => ({
 
 export const buttonTheme: DeepPartial<ButtonTheme> = {
   defaultProps: {
+    size: 's',
     preset: 'default',
   },
   scheme: {

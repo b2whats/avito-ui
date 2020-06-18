@@ -9,6 +9,7 @@ const gapSize = {
 
 export const inputTheme: DeepPartial<InputTheme> = {
   defaultProps: {
+    size: 's',
     kind: 'outline',
   },
   scheme: {

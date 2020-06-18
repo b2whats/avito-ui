@@ -69,6 +69,9 @@ export const pikTheme: DeepPartial<Theme> = {
     },
   },
   Button: {
+    defaultProps: {
+      size: 'm',
+    },
     scheme: {
       Button: {
         style: {
@@ -124,6 +127,9 @@ export const pikTheme: DeepPartial<Theme> = {
     },
   },
   Input: {
+    defaultProps: {
+      size: 'm',
+    },
     scheme: {
       Input: textControlTheme,
       IconAfter: {
@@ -141,11 +147,19 @@ export const pikTheme: DeepPartial<Theme> = {
     },
   },
   Textarea: {
+    defaultProps: {
+      size: 'm',
+    },
     scheme: {
       Textarea: textControlTheme,
       IconClear: {
         component: CrossIcon,
       },
+    },
+  },
+  Toggle: {
+    defaultProps: {
+      size: 'm',
     },
   },
 }

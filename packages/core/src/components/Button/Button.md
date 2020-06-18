@@ -28,14 +28,19 @@ import { Stack } from '../Layout/';
 
 ## Размеры
 
-Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`.
-По умолчанию `m`
+Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`. По умолчанию
+:::platform web
+`s`
+:::
+:::platform mobile
+`m`
+:::
 ```js
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
   <Button size='s'>Size: s</Button>
-  <Button>Size: m</Button>
+  <Button size='m'>Size: m</Button>
   <Button size='l'>Size: l</Button>
 </Stack>
 ```

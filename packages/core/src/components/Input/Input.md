@@ -5,7 +5,7 @@
 ```jsx
 <Stack spacing='m' column width={250}>
   <Input size='s' placeholder='Маленький' />
-  <Input placeholder='Средний (по умолчанию)' />
+  <Input size='m' placeholder='Средний' />
   <Input size='l' placeholder='Большой' />
 </Stack>
 ```

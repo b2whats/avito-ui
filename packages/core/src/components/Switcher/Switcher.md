@@ -58,7 +58,7 @@ import { Text } from '../Text/';
 :::platform web
 ## Размер
 
-`size` — размер свитчера: `s` / `m` (по умолчанию) / `l`
+`size` — размер свитчера: `s` / `m` / `l`
 
 ```js
 <Stack spacing='m' column>
