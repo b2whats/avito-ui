@@ -1,6 +1,6 @@
 {
   "name": "@avito/core",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "repository": {
     "type": "git",
     "url": "http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components",
@@ -40,7 +40,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@avito/tokens": "^0.0.17",
+    "@avito/tokens": "^0.0.18",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@popperjs/core": "^2.4.2",
