@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import BasePropsRenderer from 'react-styleguidist/lib/client/rsg-components/Props/PropsRenderer'
 import { styled } from '@avito/core'
-import { Button, Stack, Box, ChevronNarrowIcon } from '@avito/web-components'
+import { Button, Stack, Box, Link, ChevronNarrowIcon } from '@avito/web-components'
 
 const prettyType = (prop: any) => {
   const parentType = prop.parent.name
@@ -9,7 +9,7 @@ const prettyType = (prop: any) => {
     return 'Dimension'
   }
   if (parentType === 'ColorProperties') {
-    return 'Color'
+    return <Link href='#/Токены/Палитра'>Color</Link>
   }
   if (prop.type.name.includes('ReactElement')) {
     return 'ReactElement'
