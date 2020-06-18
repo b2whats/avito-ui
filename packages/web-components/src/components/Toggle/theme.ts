@@ -57,6 +57,11 @@ export const toggleTheme: DeepPartial<ToggleTheme> = {
         }),
       },
     },
+    Toggle: {
+      style: {
+        cursor: 'pointer',
+      },
+    },
   },
 }
 

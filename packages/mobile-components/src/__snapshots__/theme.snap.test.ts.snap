@@ -1243,6 +1243,7 @@ Object {
         "component": [Function],
         "props": Object {
           "area": 10,
+          "size": [Function],
         },
       },
       "props": Object {
@@ -1252,19 +1253,16 @@ Object {
         "l": Object {
           "props": Object {
             "mx": 10,
-            "size": "m",
           },
         },
         "m": Object {
           "props": Object {
             "mx": 10,
-            "size": "s",
           },
         },
         "s": Object {
           "props": Object {
             "mx": 8,
-            "size": "s",
           },
         },
       },
@@ -1274,23 +1272,7 @@ Object {
         "color": "gray28",
         "ml": 10,
         "mr": 8,
-      },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
+        "size": [Function],
       },
     },
     "Input": Object {
@@ -1298,19 +1280,16 @@ Object {
         "l": Object {
           "style": Object {
             "fontSize": 16,
-            "height": "l",
           },
         },
         "m": Object {
           "style": Object {
             "fontSize": 16,
-            "height": "m",
           },
         },
         "s": Object {
           "style": Object {
             "fontSize": 12,
-            "height": "s",
           },
         },
       },
@@ -1319,6 +1298,7 @@ Object {
         "color": "black",
         "colorDisabled": "gray40",
         "focus": true,
+        "height": [Function],
         "placeholderColor": "gray48",
       },
       "variant": Object {

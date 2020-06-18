@@ -51,6 +51,7 @@ export const inputTheme: DeepPartial<InputTheme> = {
         placeholderColor: 'gray40',
         colorDisabled: 'gray64',
         bgDisabled: 'gray4',
+        cursor: 'text',
       },
       size: dsl.styleMap({
         s: {

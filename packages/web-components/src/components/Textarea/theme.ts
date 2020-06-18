@@ -16,6 +16,7 @@ export const textareaTheme: DeepPartial<TextareaTheme> = {
         colorDisabled: 'gray64',
         bgDisabled: 'gray4',
         fontSize: props => props.size,
+        cursor: 'text',
       },
       size: dsl.styleMap({
         s: {

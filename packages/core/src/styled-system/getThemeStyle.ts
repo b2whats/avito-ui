@@ -1,5 +1,6 @@
 import { css } from '@emotion/core'
-import { Tokens, tokens } from '@avito/tokens'
+import { CSSProperties } from 'react'
+import { Tokens } from '@avito/tokens'
 
 type Theme = Tokens
 
@@ -141,6 +142,7 @@ type OtherProperties = BorderProperties & Partial<{
   shape?: 'pill' | 'square' | 'circle',
   shadow?: string | boolean,
   pointerEvents: boolean,
+  cursor: CSSProperties['cursor']
 }>
 
 export type Colors = keyof Tokens['palette'] | 'transparent' | 'inherit' | (string & {})
@@ -508,6 +510,10 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         break
       case 'uppercase':
         css += 'text-transform: uppercase;'
+
+        break
+      case 'cursor':
+        css += value ? `cursor: ${value};` : ''
 
         break
       case 'truncate':
