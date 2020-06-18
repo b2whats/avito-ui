@@ -6,15 +6,13 @@ import { TextareaProps } from './contract'
 export type TextareaTheme = ComponentTheme<TextareaProps, {
   Textarea: Slot,
   IconClear: Slot<IconProps>,
-}, {
-  deletePlaceholderOnFocus: boolean,
 }>
 
 export const textareaTheme: TextareaTheme = {
-  deletePlaceholderOnFocus: true,
   defaultProps: {
     variant: 'primary',
     size: 'm',
+    deletePlaceholderOnFocus: true,
   },
   scheme: {
     IconClear: {

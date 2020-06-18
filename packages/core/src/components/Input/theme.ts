@@ -11,16 +11,14 @@ export type InputTheme<Props = InputProps> = ComponentTheme<Props, {
   Input: Slot,
   Postfix: Slot<TextProps>,
   IconAfter: Slot<IconProps>,
-}, {
-  deletePlaceholderOnFocus: boolean,
 }>
 
 export const inputTheme: InputTheme = {
   defaultProps: {
     variant: 'primary',
     size: 'm',
+    deletePlaceholderOnFocus: true,
   },
-  deletePlaceholderOnFocus: true,
   scheme: {
     IconBefore: {
       props: {

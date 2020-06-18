@@ -27,6 +27,7 @@ export interface InputCoreProps extends PaddingProperties, Pick<InputHTMLAttribu
   readOnly?: boolean
   /** Класс элемента */
   className?: string
+  deletePlaceholderOnFocus?: boolean
 
   onClick?(event: React.MouseEvent<HTMLInputElement>): void
   onChange?(event: React.ChangeEvent<HTMLInputElement>): void

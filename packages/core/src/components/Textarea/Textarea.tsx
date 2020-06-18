@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { useUncontrolledInputHook, useSyntheticChange } from '../../hooks/'
+import React from 'react'
+import { useUncontrolledInputHook, useSyntheticChange, useFocus } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { invokeAll, clearValue } from '../../utils/'
+import { clearValue } from '../../utils/'
 import { TextareaProps } from './contract'
 import { TextareaCore } from './TextareaCore'
 import { textareaTheme } from './theme'
@@ -13,16 +13,23 @@ const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
     valign: 'top',
     ...themeStyle,
     ...props,
-  })
+  }),
+  (textRules, props) => (`
+    ${props.deletePlaceholderOnFocus ? `& *:focus::placeholder {
+      color: transparent;
+    }` : ''}
+
+    ${textRules}
+  `)
 )
 
 
 export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HTMLTextAreaElement>((
-  { onFocus, onBlur, ...props },
+  props,
   { theme, tokens },
   [textareaRef, setTextareaRef]
 ) => {
-  const [focus, setFocus] = useState(false)
+  const [focus, focusProps] = useFocus(props)
   const [value, onChange] = useSyntheticChange(...useUncontrolledInputHook(props))
   const hasClear = Boolean(props.clearable)
 
@@ -30,11 +37,7 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
     ...props,
     value,
     clearable: Boolean(value && !props.disabled && (props.clearable === 'always' || props.clearable && focus)),
-    placeholder: theme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
-
-  const handleFocus = invokeAll(() => setFocus(true), onFocus)
-  const handleBlur = invokeAll(() => setFocus(false), onBlur)
 
   const handlePreventBlur = (event: React.MouseEvent<HTMLElement>) => {
     if (event.target['tagName'] !== 'TEXTAREA') event.preventDefault()
@@ -51,10 +54,9 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
     <label css={wrapperStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
       <TextareaCore
         {...props}
+        {...focusProps}
         onChange={onChange}
-        ref={setTextareaRef}
-        onFocus={handleFocus}
-        onBlur={handleBlur} />
+        ref={setTextareaRef} />
       { hasClear && <IconClear.component
         {...IconClear.props}
         valignSelf={undefined}

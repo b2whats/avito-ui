@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useRef, ChangeEvent } from 'react'
+import { ChangeEventHandler, useRef, ChangeEvent, useCallback } from 'react'
 import { useRifm } from 'rifm'
 import { Formatter } from '../formatters'
 import { ChangeHandler } from '../utils'
@@ -12,7 +12,7 @@ export function useSyntheticChange<Value, Element extends (HTMLInputElement | HT
   if (!options) {
     return [
       stringValue,
-      ({ target }) => onChange({ value: target.value as any, target, name: target.name }),
+      useCallback(({ target }) => onChange({ value: target.value as any, target, name: target.name }), [onChange]),
     ]
   }
 

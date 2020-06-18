@@ -85,7 +85,7 @@ const inputField = css`
   }
 `
 
-export const InputCore = React.forwardRef((props: InputCoreProps, ref: React.Ref<HTMLInputElement>) => {
+export const InputCore = React.memo(React.forwardRef((props: InputCoreProps, ref: React.Ref<HTMLInputElement>) => {
   props = {
     type: 'text',
     autoCorrect: 'off',
@@ -107,6 +107,6 @@ export const InputCore = React.forwardRef((props: InputCoreProps, ref: React.Ref
       <input {...filterProps(props)} onClick={preventClick} />
     </div>
   )
-})
+}))
 
 InputCore.displayName = 'InputCore'

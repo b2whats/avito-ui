@@ -26,6 +26,8 @@ export interface TextareaCoreProps {
   /** Позиция элемента при фокусе */
   tabIndex?: number
 
+  deletePlaceholderOnFocus?: boolean
+
   onClick?(event: React.MouseEvent<HTMLTextAreaElement>): void
   onChange?(event: React.ChangeEvent<HTMLTextAreaElement>): void
   onFocus?(event: React.FocusEvent<HTMLTextAreaElement>): void
