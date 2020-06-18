@@ -1,3 +1,4 @@
+## 0.0.18
 ## 0.0.17
 - New comnponents: Avatar, Badge, InputNumber
 - Added formatters
