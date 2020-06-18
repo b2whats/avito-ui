@@ -8,6 +8,7 @@
   },
   "private": false,
   "description": "Components for mobile web",
+  "license": "MIT",
   "sideEffects": false,
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -36,7 +37,6 @@
     "prepublishOnly": "yarn build",
     "typecheck": "tsc --noEmit"
   },
-  "license": "MIT",
   "peerDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

@@ -8,6 +8,7 @@
   },  
   "private": false,
   "description": "icons",
+  "license": "MIT",
   "sideEffects": false,
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -32,7 +33,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "typecheck": "tsc --noEmit"
   },
-  "license": "MIT",
   "peerDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

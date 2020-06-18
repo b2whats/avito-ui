@@ -10,6 +10,7 @@
   "description": "Components for desctop web",
   "author": "vyuklepov <vyuklepov@avito.ru>",
   "license": "MIT",
+  "sideEffects": false,
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "types/index.d.ts",
@@ -44,7 +45,7 @@
   "dependencies": {
     "@avito/core": "^0.0.17",
     "@avito/tokens": "^0.0.17",
-    "corejs": "^1.0.0"
+    "core-js": "^3.6.5"
   },
   "devDependencies": {
     "react": "^16.8.6",

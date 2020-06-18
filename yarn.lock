@@ -4168,11 +4168,6 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   resolved "http://npm.msk.avito.ru/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
-corejs@^1.0.0:
-  version "1.0.0"
-  resolved "http://npm.msk.avito.ru/corejs/-/corejs-1.0.0.tgz#6d19351be6bb85ec96c60fd69c9ce087ad3f0d66"
-  integrity sha1-bRk1G+a7heyWxg/WnJzgh60/DWY=
-
 cosmiconfig@^6.0.0:
   version "6.0.0"
   resolved "http://npm.msk.avito.ru/cosmiconfig/-/cosmiconfig-6.0.0.tgz#da4fee853c52f6b1e6935f41c1a2fc50bd4a9982"
