@@ -44,8 +44,7 @@
   },
   "dependencies": {
     "@avito/core": "^0.0.18",
-    "@avito/tokens": "^0.0.18",
-    "core-js": "^3.6.5"
+    "@avito/tokens": "^0.0.18"
   },
   "devDependencies": {
     "react": "^16.8.6",

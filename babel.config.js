@@ -10,13 +10,7 @@ const config = {
     [
       '@babel/preset-env',
       {
-        targets: {
-          ie: '11',
-          safari: '9',
-        },
         shippedProposals: true,
-        useBuiltIns: 'usage',
-        corejs: '3.6',
         loose: true,
         modules: BABEL_ENV === 'cjs' || isServer || isTest ? 'commonjs' : false,
         debug: Boolean(DEBUG),
