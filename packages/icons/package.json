@@ -1,6 +1,6 @@
 {
   "name": "@avito/icons",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "repository": {
     "type": "git",
     "url": "http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components",
@@ -42,7 +42,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/core": "^0.0.18"
+    "@avito/core": "^0.0.19"
   },
   "devDependencies": {
     "react": "^16.8.6",
