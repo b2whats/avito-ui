@@ -71,12 +71,12 @@ export const pikTheme: DeepPartial<Theme> = {
   Button: {
     defaultProps: {
       size: 'm',
+      pressedOffset: 0,
     },
     scheme: {
       Button: {
         style: {
           borderRadius: 4,
-          pressedOffset: 0,
         },
         size: {
           s: {

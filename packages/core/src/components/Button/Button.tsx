@@ -9,7 +9,7 @@ import { Text as TextComponent, TextProps } from '../Text/'
 import { ButtonProps } from './contract'
 import { buttonTheme } from './theme'
 
-const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button'>(
+const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
   (themeStyle, props) => ({
     display: 'inline-block',
     shrink: false,
@@ -17,7 +17,7 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
     ...props,
     ...(props.shape === 'circle' || props.shape === 'square') && { p: 'none' },
   }),
-  (textRules, { kind }, _, themeStyle) => (`
+  (textRules, { kind, pressedOffset }, _, themeStyle) => (`
     font-family: inherit;
     cursor: pointer;
     text-align: center;
@@ -74,9 +74,9 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme, 'Button
       bottom: 0;
     }
 
-    ${ themeStyle.pressedOffset ? `
+    ${ pressedOffset ? `
       &:not(:disabled):active > *, &[data-state~=active] > *  {
-        transform: translateY(1px);
+        transform: translateY(${pressedOffset}px);
       }
     ` : '' }
 

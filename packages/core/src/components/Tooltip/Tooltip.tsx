@@ -6,7 +6,7 @@ import { Positioner, PositionerProps } from '../Positioner/'
 import { TooltipProps } from './contract'
 import { tooltipTheme } from './theme'
 
-const tooltipClassName = createClassName<Omit<TooltipProps, 'minWidth' | 'width' | 'maxWidth'>, typeof tooltipTheme, 'Tooltip'>(
+const tooltipClassName = createClassName<Omit<TooltipProps, 'minWidth' | 'width' | 'maxWidth'>, typeof tooltipTheme>(
   (themeStyle, props) => ({
     display: 'block',
     ...themeStyle,
@@ -17,12 +17,12 @@ const tooltipClassName = createClassName<Omit<TooltipProps, 'minWidth' | 'width'
   })
 )
 
-const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Arrow'>(
+const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme>(
   (themeStyle) => ({
     display: 'inline-block',
     ...themeStyle,
   }),
-  (textRules, _, __, themeStyle) => `
+  (textRules, { arrowOffset }) => `
     visibility: hidden;
     background-color: inherit;
 
@@ -40,16 +40,16 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme, 'Arrow
     }
 
     [data-popper-placement^='top'] & {
-      bottom: -${themeStyle.offset}px;
+      bottom: -${arrowOffset}px;
     }
     [data-popper-placement^='bottom'] & {
-      top: -${themeStyle.offset}px;
+      top: -${arrowOffset}px;
     }
     [data-popper-placement^='left'] & {
-      right: -${themeStyle.offset}px;
+      right: -${arrowOffset}px;
     }
     [data-popper-placement^='right'] & {
-      left: -${themeStyle.offset}px;
+      left: -${arrowOffset}px;
     }
 
     ${textRules}

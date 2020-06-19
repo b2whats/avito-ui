@@ -5,7 +5,7 @@ import { TooltipProps } from './contract'
 export type TooltipTheme = ComponentTheme<TooltipProps, {
   Tooltip: Slot,
   Close: Slot<IconProps>,
-  Arrow: Slot<never, { offset: number }>,
+  Arrow: Slot<never>,
 }>
 
 export const tooltipTheme: TooltipTheme = {
@@ -14,6 +14,7 @@ export const tooltipTheme: TooltipTheme = {
     arrow: {
       padding: 8,
     },
+    arrowOffset: 5,
   },
   scheme: {
     Tooltip: {
@@ -25,7 +26,6 @@ export const tooltipTheme: TooltipTheme = {
       style: {
         width: 10,
         height: 10,
-        offset: 5,
       },
     },
     Close: {},

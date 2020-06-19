@@ -8,6 +8,7 @@ export const tooltipTheme: DeepPartial<TooltipTheme> = {
     arrow: {
       padding: 12,
     },
+    arrowOffset: 4,
   },
   scheme: {
     Tooltip: {
@@ -24,7 +25,6 @@ export const tooltipTheme: DeepPartial<TooltipTheme> = {
         width: 10,
         height: 10,
         rounded: 2,
-        offset: 4,
       },
     },
     Close: {},
