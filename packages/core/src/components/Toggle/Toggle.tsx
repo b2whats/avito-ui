@@ -104,7 +104,7 @@ export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputE
     event.preventDefault()
   }
 
-  const preventLabelClick = invokeAll((e: React.SyntheticEvent) => e.stopPropagation(), props.onClick)
+  const preventLabelClick = invokeAll((event: React.SyntheticEvent) => event.stopPropagation(), groupProps.onClick)
 
   const onChange = () => {
     const value = {

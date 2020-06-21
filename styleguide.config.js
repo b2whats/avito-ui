@@ -121,7 +121,7 @@ module.exports = {
       ],
       ...isIE && { scripts: [
         {
-          src: 'https://polyfill.io/v3/polyfill.min.js',
+          src: 'https://polyfill.io/v3/polyfill.min.js?features=default%2Ces2015%2Ces2016',
         },
       ]},
     },

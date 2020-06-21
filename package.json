@@ -48,6 +48,7 @@
     "benchmark": "^2.1.4",
     "circular-dependency-plugin": "^5.0.2",
     "concurrently": "^5.1.0",
+    "core-js": "^3.6.5",
     "create-emotion-server": "^10.0.14",
     "cross-env": "^7.0.2",
     "deepmerge": "^4.0.0",
@@ -77,6 +78,5 @@
   ],
   "engines": {
     "node": ">=12.1.0"
-  },
-  "dependencies": {}
+  }
 }

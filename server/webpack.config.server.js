@@ -8,7 +8,7 @@ module.exports = {
     path: __dirname + '/public',
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js', '.json' ],
+    extensions: ['.tsx', '.ts', '.js', '.json'],
   },
   optimization: {
     minimize: false,
