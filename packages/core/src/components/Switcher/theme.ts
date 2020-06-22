@@ -15,9 +15,5 @@ export type SwitcherTheme = ComponentTheme<SwitcherProps, {
 
 export const switcherTheme: SwitcherTheme = {
   positionLoading: false,
-  defaultProps: {
-    variant: 'primary',
-    size: 'm',
-  },
   scheme: {},
 }

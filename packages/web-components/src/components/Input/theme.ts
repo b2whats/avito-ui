@@ -1,4 +1,5 @@
-import { DeepPartial, InputTheme, dsl } from '@avito/core'
+import { DeepPartial, InputTheme, dsl, Colors } from '@avito/core'
+import { controlOutlineVariants } from '../../utils'
 import { CrossIcon } from '../Icon/'
 
 const gapSize = {
@@ -9,6 +10,7 @@ const gapSize = {
 
 export const inputTheme: DeepPartial<InputTheme> = {
   defaultProps: {
+    size: 's',
     kind: 'outline',
   },
   scheme: {
@@ -50,6 +52,7 @@ export const inputTheme: DeepPartial<InputTheme> = {
         placeholderColor: 'gray40',
         colorDisabled: 'gray64',
         bgDisabled: 'gray4',
+        cursor: 'text',
       },
       size: dsl.styleMap({
         s: {
@@ -65,14 +68,7 @@ export const inputTheme: DeepPartial<InputTheme> = {
           px: gapSize.l,
         },
       }),
-      variant: dsl.styleMap('borderColor', {
-        primary: 'gray20',
-        // FIXME: How to style it?
-        secondary: 'gray8',
-        success: 'green500',
-        warning: 'orange500',
-        error: 'red500',
-      }),
+      variant: controlOutlineVariants,
     },
   },
 }

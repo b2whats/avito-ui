@@ -4,7 +4,6 @@ import { DeepPartial, SwitcherTheme, dsl, Box, Spinner } from '@avito/core'
 export const switcherTheme: DeepPartial<SwitcherTheme> = {
   positionLoading: true,
   defaultProps: {
-    size: 's',
     shape: 'square',
   },
   scheme: {

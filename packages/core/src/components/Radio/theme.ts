@@ -13,8 +13,6 @@ export type RadioTheme = ComponentTheme<RadioProps, {
 
 export const radioTheme: RadioTheme = {
   defaultProps: {
-    variant: 'primary',
-    size: 'm',
     shape: 'circle',
   },
   scheme: {

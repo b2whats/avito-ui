@@ -1,7 +1,11 @@
-import { TextareaTheme, DeepPartial, dsl } from '@avito/core'
+import { TextareaTheme, DeepPartial, dsl, Colors } from '@avito/core'
+import { controlOutlineVariants } from '../../utils'
 import { CrossIcon } from '../Icon/'
 
 export const textareaTheme: DeepPartial<TextareaTheme> = {
+  defaultProps: {
+    size: 's',
+  },
   scheme: {
     Textarea: {
       style: {
@@ -13,6 +17,7 @@ export const textareaTheme: DeepPartial<TextareaTheme> = {
         colorDisabled: 'gray64',
         bgDisabled: 'gray4',
         fontSize: props => props.size,
+        cursor: 'text',
       },
       size: dsl.styleMap({
         s: {
@@ -28,13 +33,7 @@ export const textareaTheme: DeepPartial<TextareaTheme> = {
           py: 8,
         },
       }),
-      variant: dsl.styleMap('borderColor', {
-        primary: 'gray20',
-        secondary: 'gray8',
-        success: 'green500',
-        warning: 'orange500',
-        error: 'red500',
-      }),
+      variant: controlOutlineVariants,
     },
     IconClear: {
       component: CrossIcon,

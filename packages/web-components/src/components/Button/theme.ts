@@ -10,8 +10,12 @@ const fillTheme = (hue: string): StyleProperties => ({
 
 export const buttonTheme: DeepPartial<ButtonTheme> = {
   defaultProps: {
+    size: 's',
     preset: 'default',
   },
+  mapProps: ({ kind, preset }) => ({
+    kind: kind || (preset === 'default' ? 'outline' : 'fill'),
+  }),
   scheme: {
     Button: {
       style: {

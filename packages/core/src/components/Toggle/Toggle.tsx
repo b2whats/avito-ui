@@ -9,11 +9,12 @@ import { ToggleProps } from './contract'
 import { toggleTheme } from './theme'
 
 const toggleClassName = createClassName<ToggleProps, typeof toggleTheme>(
-  (_, props) => ({
+  (themeStyle, props) => ({
     display: 'inline-flex',
     valign: 'baseline',
     ...props,
     shape: undefined,
+    ...themeStyle,
   }),
   (textRules) => (`
     position: relative;

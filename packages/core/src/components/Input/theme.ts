@@ -1,5 +1,4 @@
 import { Slot, ComponentTheme } from '../../styled-system/'
-import { dsl } from '../../theme'
 import { CrossIcon } from '../Icon/'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
@@ -26,12 +25,8 @@ export const inputTheme: InputTheme = {
     IconBefore: {
       props: {
         color: 'gray28',
+        size: ({ size }) => size === 'l' ? 'm' : 's',
       },
-      size: dsl.propMap('size', {
-        s: 's',
-        m: 's',
-        l: 'm',
-      } as const),
     },
     IconAfter: {
       props: {
@@ -41,13 +36,9 @@ export const inputTheme: InputTheme = {
         component: CrossIcon,
         props: {
           area: 10,
+          size: ({ size }) => size === 'l' ? 'm' : 's',
         },
       },
-      size: dsl.propMap('size', {
-        s: 's',
-        m: 's',
-        l: 'm',
-      } as const),
     },
     Prefix: {
     },
@@ -60,12 +51,8 @@ export const inputTheme: InputTheme = {
     Input: {
       style: {
         focus: true,
+        height: ({ size }) => size,
       },
-      size: dsl.styleMap('height', {
-        s: 's',
-        m: 'm',
-        l: 'l',
-      } as const),
     },
   },
 }

@@ -13,6 +13,7 @@ export type ToggleTheme<Props = ToggleProps> = ComponentTheme<Props, {
 export const toggleTheme: ToggleTheme = {
   defaultProps: {
     labelPosition: 'end',
+    variant: 'primary',
     size: 'm',
   },
   scheme: {

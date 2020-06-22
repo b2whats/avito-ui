@@ -23,6 +23,10 @@ const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
     fill: currentColor;
     height: 1em;
 
+    &:focus {
+      outline: none;
+    }
+
     ${area ? `
       overflow: visible;
       cursor: pointer;
@@ -59,7 +63,7 @@ const shadowMask = (
 
 export const Icon = uiComponent('Icon', iconTheme)((props: BaseIconProps, { theme, tokens }) => {
   const aria = {
-    role: 'img',
+    role: props.role || (props.onClick ? 'button' : 'img'),
     tabIndex: props.onClick ? 0 : -1,
     'aria-hidden': true,
     'data-icon': props.name,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import { SpaceProperties, ColorProperties, AlignProperties, DimensionProperties, BorderProperties, LayoutProperties, VisibilityProperties } from '../../styled-system/'
 
 type MouseHandler = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
@@ -25,6 +25,8 @@ export interface BaseIconProps extends StyleProps {
   shadow?: boolean | string
   /** Состояние disabled */
   disabled?: boolean
+  /** ARIA-роль */
+  role?: HTMLAttributes<any>['role']
 
   onClick?: MouseHandler
 }
