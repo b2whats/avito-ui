@@ -3363,3 +3363,16 @@ yaml@^1.7.2:
   version "1.10.0"
   resolved "http://npm.msk.avito.ru/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
   integrity sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
+
+"~@file:.":
+  version "0.0.1"
+  dependencies:
+    "@avito/core" "^0.0.13"
+    "@avito/mobile-components" "^0.0.16"
+    "@avito/tokens" "^0.0.12"
+    "@babel/cli" "^7.10.3"
+    "@babel/core" "^7.10.2"
+    "@babel/node" "^7.10.1"
+    cross-env "^7.0.2"
+    webpack "^4.43.0"
+    "~" "file:../../../../Library/Caches/Yarn/v6/npm--0.0.1-b04779e7-6970-4e01-be2d-13d23752e03f-1592831815048/node_modules/~"

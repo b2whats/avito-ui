@@ -1,5 +1,7 @@
 import { a } from './internnal'
 
-a.padEnd(1,1)
+const c = a.padEnd(1,1)
 
 const fn = () => {}
+
+export { c, fn }

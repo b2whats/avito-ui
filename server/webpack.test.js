@@ -13,6 +13,7 @@ module.exports = {
   optimization: {
     minimize: false,
   },
+  devtool: false,
   module: {
     rules: [
       {
@@ -24,7 +25,8 @@ module.exports = {
       },
     ],
   },
-  mode: 'production',
+  mode: 'development',
+  //mode: 'production',
   //--display-reasons --progress
   stats: 'verbose',
 }
