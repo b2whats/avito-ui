@@ -147,7 +147,7 @@ interface OtherProperties extends BorderProperties {
   shape?: 'pill' | 'square' | 'circle',
   shadow?: string | boolean,
   pointerEvents?: boolean,
-  cursor: CSSProperties['cursor']
+  cursor?: CSSProperties['cursor']
 }
 
 export type Colors = keyof Tokens['palette'] | 'transparent' | 'inherit' | (string & {})
