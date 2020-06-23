@@ -15,7 +15,11 @@ const b = {
 b.b.padEnd(5, '_')
 const c = aaa.b.padStart(5, '_')
 
+class A {
+  data ={}
+}
+
 
 export {
-  c
+  c, A
 }

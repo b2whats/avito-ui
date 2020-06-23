@@ -7,13 +7,14 @@ module.exports = {
       '@babel/preset-env',
       {
         modules: false,
+        shippedProposals: true,
         loose: true,
-        //forceAllTransforms: true,
+        // forceAllTransforms: true,
         // useBuiltIns: 'entry',
         // corejs: 3,
         targets: {
-          ie: '11',
-          //chrome: '81',
+          //ie: '11',
+          chrome: '81',
           //safari: '9',
           // browsers: ['last 1 versions'],
         },
@@ -24,7 +25,7 @@ module.exports = {
   plugins: [
     ['@babel/transform-runtime',
       {
-        'absoluteRuntime': false,
+        'absoluteRuntime': true,
         //'corejs': 3,
         'helpers': true,
         'regenerator': false,
