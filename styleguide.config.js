@@ -1,6 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 
+const isProfiling = process.env.PROFILING
+
 const { parse } = require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
   // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
   propFilter: (prop, component) => {
@@ -136,6 +138,11 @@ module.exports = {
         '@avito/core$': path.resolve(__dirname, 'packages/core/src/'),
         '@avito/mobile-components$': path.resolve(__dirname, 'packages/mobile-components/src/'),
         '@avito/web-components$': path.resolve(__dirname, 'packages/web-components/src/'),
+
+        ...(isProfiling ? {
+          'react-dom$': 'react-dom/profiling',
+          'scheduler/tracing': 'scheduler/tracing-profiling',
+        } : {}),
       },
     },
     module: {
