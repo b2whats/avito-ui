@@ -1,4 +1,4 @@
-import { forwardRef, Ref, MutableRefObject } from 'react'
+import { forwardRef, Ref, MutableRefObject, memo } from 'react'
 import { Tokens } from '@avito/tokens'
 import { useRefHook } from '../hooks'
 import { DeepPartial } from '../utils'
@@ -36,6 +36,6 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
     })
     WrappedComponent.displayName = name
     type Component =<T extends object>(props: ExternalProps & T) => JSX.Element
-    return WrappedComponent as unknown as Component
+    return memo(WrappedComponent) as unknown as Component
   }
 }
