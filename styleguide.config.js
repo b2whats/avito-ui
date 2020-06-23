@@ -1,15 +1,15 @@
-const path = require('path')
 const fs = require('fs')
+const path = require('path')
 
 const { parse } = require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
   // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
   propFilter: (prop, component) => {
-    if (prop.parent == null) {
-      return true
+    if (!prop.parent) {
+      throw new Error(`Prop ${prop.name} of ${component.name} must be declared via TS interface, not type - got ${JSON.stringify(prop, null, 2)}`)
     }
-
-    return prop.parent.fileName.indexOf('node_modules') < 0
+    return !/node_modules\/(?!@avito)/.test(prop.parent.fileName)
   },
+  shouldRemoveUndefinedFromOptional: true,
 })
 
 module.exports = {
@@ -35,11 +35,19 @@ module.exports = {
         maxWidth: '100%',
       },
     },
+    Table: {
+      cell: {
+        '&:last-child': {
+          width: 'auto',
+        },
+      },
+    },
   }),
   styleguideDir: 'public',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
     ComponentsListRenderer: path.join(__dirname, 'styleguidist/ComponentsList'),
+    PropsRenderer: path.join(__dirname, 'styleguidist/components/PropsRenderer'),
     StyleGuideRenderer: path.join(__dirname, 'styleguidist/components/StyleGuideRenderer'),
     ReactComponent: path.join(__dirname, 'styleguidist/components/ReactComponent'),
     TableOfContentsRenderer: path.join(__dirname, 'styleguidist/components/TableOfContentsRenderer'),
@@ -117,7 +125,7 @@ module.exports = {
   },
   webpackConfig: {
     resolve: {
-      extensions: [ '.tsx', '.ts', '.js', '.json' ],
+      extensions: ['.tsx', '.ts', '.js', '.json'],
       mainFields: ['browser', 'module', 'main'],
       alias: {
         // переопределил ReactComponent - стандартный Renderer отвалился
