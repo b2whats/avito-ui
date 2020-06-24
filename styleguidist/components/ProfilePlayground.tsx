@@ -1,11 +1,12 @@
-import React, { ReactNode, Profiler, ProfilerProps, useState, useCallback, useMemo, useEffect, useReducer } from 'react'
-import { quantile, sampleStandardDeviation } from 'simple-statistics'
-import { Stack } from '@avito/web-components'
+import React, { ReactNode, Profiler, ProfilerProps, useState, useCallback, useEffect, useReducer } from 'react'
+import { quantile } from 'simple-statistics'
+import { profiler } from '@avito/core'
 
 interface ProfileProps extends ProfilerProps {
   render: (key: any) => ReactNode
   count?: number
 }
+
 
 const BatchProfiler = React.memo(({ rev, count = 100, render, ...pass }: ProfileProps & { rev: number }) => (
   rev
@@ -13,18 +14,6 @@ const BatchProfiler = React.memo(({ rev, count = 100, render, ...pass }: Profile
     : null
 ))
 BatchProfiler.displayName = 'BatchProfiler'
-
-const describeExperiment = (stats: any) => {
-  const data = stats.data.map(stat => stat.actual)
-  return data.length ? {
-    updater: stats.updater,
-    median: quantile(data, 0.5).toFixed(2),
-    q05: quantile(data, 0.05).toFixed(2),
-    q95: quantile(data, 0.95).toFixed(2),
-    std: data.length >= 2 ? sampleStandardDeviation(data).toFixed(2) : NaN,
-    count: data.length,
-  } : {}
-}
 
 export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProps, 'onRender'> & { runCount?: number }) => {
   const [rev, setState] = useState(1)
@@ -69,7 +58,10 @@ export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProp
     if (countdown) updateTypes[updater]()
   }, [countdown, updater])
   const startBench = (updater: keyof typeof updateTypes, runCount = 1) => {
-    dispatch({ type: 'start', countdown: runCount, updater })
+    requestAnimationFrame(() => {
+      profiler.clearOwnEntries()
+      dispatch({ type: 'start', countdown: runCount, updater })
+    })
   }
 
   const onRender = useCallback(((
@@ -78,7 +70,18 @@ export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProp
     actual, // время, затраченное на рендер зафиксированного обновления
     base // предполагаемое время рендера всего поддерева без кеширования
   ) => {
-    dispatch({ type: 'iter', stat: { actual, base } })
+    profiler.start('layout')
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        profiler.end('layout')
+        const internals = {}
+        profiler.getOwnEntries().forEach(entry => {
+          internals[entry.name] = (internals[entry.name] || 0) + entry.duration
+        })
+        profiler.clearOwnEntries()
+        dispatch({ type: 'iter', stat: { actual, ...internals } })
+      })
+    })
   }) as ProfilerProps['onRender'], [])
 
   return (
@@ -87,11 +90,62 @@ export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProp
       <button onClick={() => startBench('remount')}>remount</button>
       <button onClick={() => startBench('remount', runCount)}>bench</button>
 
-      {stats.map((experiment, i) => <div key={i}>{JSON.stringify(describeExperiment(experiment))}</div>)}
+      <Stats data={stats} />
 
-      <Stack column spacing='s' height={200} scroll>
+      <div style={{ height: '200px', overflow: 'auto' }}>
         <BatchProfiler {...props} rev={rev} onRender={onRender} />
-      </Stack>
+      </div>
     </div>
   )
+}
+
+function Stats({ data }) {
+  return (
+    <div style={{ height: '200px', overflow: 'auto' }}>
+      {data.filter(stat => stat.data.length).map((experiment, i) => {
+        const { updater, count, variables } = describeExperiment(experiment)
+        return (
+          <div key={i}>
+            {updater}, {count} runs:
+            <table>
+              {variables.map(({ name, stat }) => (
+                <tr key={name}>
+                  <td>{name}</td>
+                  <td style={{ textAlign: 'right' }}>{stat.median.toFixed(2)}</td>
+                  <td style={{ textAlign: 'right' }}>{stat.q025.toFixed(2)}</td>
+                  <td style={{ textAlign: 'right' }}>{stat.q975.toFixed(2)}</td>
+                </tr>
+              ))}
+            </table>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+
+function describeExperiment(stats: { data: { actual: number }[], updater: string }) {
+  return {
+    updater: stats.updater,
+    variables: keyUnion(stats.data).map(name => ({
+      name,
+      stat: describeVar(stats.data.map(observation => observation[name] || 0)),
+    })).sort((stat1, stat2) => stat2.stat.median - stat1.stat.median),
+    count: stats.data.length,
+  }
+}
+
+function describeVar(varStat: any[]) {
+  return {
+    median: quantile(varStat, 0.5),
+    q025: quantile(varStat, 0.025),
+    q975: quantile(varStat, 0.975),
+  }
+}
+
+function keyUnion(data: object[]) {
+  const keys = new Set<string>()
+  data.forEach(item => Object.keys(item).forEach(key => keys.add(key)))
+  return Array.from(keys)
 }
