@@ -3,42 +3,52 @@ import { quantile } from 'simple-statistics'
 import { profiler } from '@avito/core'
 
 interface ProfileProps extends ProfilerProps {
-  render: (key: any) => ReactNode
+  render: (key: any, props: object) => ReactNode
   count?: number
+  componentProps: object
 }
 
 
-const BatchProfiler = React.memo(({ rev, count = 100, render, ...pass }: ProfileProps & { rev: number }) => (
+const BatchProfiler = React.memo(({
+  rev, count = 100, render, componentProps, ...pass
+}: ProfileProps & { rev: number }) => (
   rev
-    ? <Profiler {...pass}>{(new Array(count)).fill(0).map((e, i) => render(i))}</Profiler>
+    ? <Profiler {...pass}>{(new Array(count)).fill(0).map((e, i) => render(i, componentProps))}</Profiler>
     : null
 ))
 BatchProfiler.displayName = 'BatchProfiler'
 
 export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProps, 'onRender'> & { runCount?: number }) => {
-  const [rev, setState] = useState(1)
+  const [{ rev, componentProps }, setState] = useState({ rev: 1, componentProps: {} })
   const updateTypes = {
     remount() {
-      setState(0)
-      setTimeout(() => setState(1), 100)
+      setState({ rev: 0, componentProps })
+      setTimeout(() => setState({ rev: 1, componentProps }), 100)
     },
     noopRerender() {
-      setState(rev + 1)
+      setState({ rev: rev + 1, componentProps })
+    },
+    padingDrift() {
+      setState({ rev, componentProps: { ...componentProps, pl: (componentProps.pl || 0) + 1 } })
+    },
+    paddingToggle() {
+      setState({ rev, componentProps: { ...componentProps, pl: 5 * Number(!componentProps.pl) } })
+    },
+    callbackShred() {
+      setState({ rev, componentProps: { ...componentProps, onClick: () => {} } })
     },
   }
   const [{ stats, countdown, updater }, dispatch] = useReducer((state, action) => {
     const [lastStat, ...oldStats] = state.stats
     switch (action.type) {
       case 'start':
-        const nextStats = [{ updater: action.updater, data: [] }]
-          .concat(lastStat || [])
-          .concat(oldStats)
         return {
           ...state,
-          stats: nextStats,
+          stats: [{ updater: state.updater, data: [] }, ...(lastStat || []), ...oldStats],
           countdown: action.countdown,
-          updater: action.updater,
         }
+      case 'setUpdater':
+        return { ...state, updater: action.updater }
       case 'iter':
         if (!lastStat || !state.countdown) return state
         return {
@@ -57,19 +67,14 @@ export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProp
   useEffect(() => {
     if (countdown) updateTypes[updater]()
   }, [countdown, updater])
-  const startBench = (updater: keyof typeof updateTypes, runCount = 1) => {
+  const startBench = (runCount = 1) => {
     requestAnimationFrame(() => {
       profiler.clearOwnEntries()
-      dispatch({ type: 'start', countdown: runCount, updater })
+      dispatch({ type: 'start', countdown: runCount })
     })
   }
 
-  const onRender = useCallback(((
-    id, // проп "id" из дерева компонента Profiler, для которого было зафиксировано изменение
-    phase, // либо "mount" (если дерево было смонтировано), либо "update" (если дерево было повторно отрендерено)
-    actual, // время, затраченное на рендер зафиксированного обновления
-    base // предполагаемое время рендера всего поддерева без кеширования
-  ) => {
+  const onRender = useCallback(((id,phase, actual) => {
     profiler.start('layout')
     requestAnimationFrame(() => {
       setTimeout(() => {
@@ -86,14 +91,16 @@ export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProp
 
   return (
     <div>
-      <button onClick={() => startBench('noopRerender')}>re-render</button>
-      <button onClick={() => startBench('remount')}>remount</button>
-      <button onClick={() => startBench('remount', runCount)}>bench</button>
+      <select value={updater} onChange={e => dispatch({ type: 'setUpdater', updater: e.target.value })}>
+        {Object.keys(updateTypes).map(updater => <option key={updater} value={updater}>{updater}</option>)}
+      </select>
+      <button onClick={() => startBench()}>once</button>
+      <button onClick={() => startBench(runCount)}>bench</button>
 
       <Stats data={stats} />
 
       <div style={{ height: '200px', overflow: 'auto' }}>
-        <BatchProfiler {...props} rev={rev} onRender={onRender} />
+        <BatchProfiler {...props} rev={rev} componentProps={componentProps} onRender={onRender} />
       </div>
     </div>
   )
