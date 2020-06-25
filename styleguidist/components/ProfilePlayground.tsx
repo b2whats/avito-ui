@@ -51,11 +51,12 @@ export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProp
           updater: action.updater,
         }
       case 'iter':
-        return lastStat ? {
+        if (!lastStat || !state.countdown) return state
+        return {
           ...state,
           countdown: state.countdown - 1,
           stats: [{ ...lastStat, data: [...lastStat.data, action.stat] }, ...oldStats],
-        } : state
+        }
     }
     return state
   }, {
