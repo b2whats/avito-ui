@@ -1,17 +1,9 @@
-const hasPerformance = Boolean(typeof performance !== 'undefined' && performance.mark && performance.measure)
-
 export class Profiler {
-  private namespace = 'avitoCore'
+  private namespace = 'core'
   private scope = [this.namespace]
   private managedNames = new Set<string>()
 
-  private isActive = hasPerformance
-  public enable() {
-    this.isActive = hasPerformance && true
-  }
-  public disable() {
-    this.isActive = false
-  }
+  public isActive = false
 
   private manageName = (...parts: string[]) => {
     const name = [...this.scope, ...parts].join('.')

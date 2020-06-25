@@ -23,7 +23,10 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
   ) => {
     type ExternalProps = Props & UiComponentProps<ThemeType, RefType>
     render = profiler.withMeasure('render')(render)
-    const WrappedComponent = forwardRef(({ override, ...props }: ExternalProps, ref: Ref<RefType>) => {
+    const WrappedComponent = forwardRef(profiler.withMeasure(name)((
+      { override, ...props }: ExternalProps,
+      ref: Ref<RefType>
+    ) => {
       profiler.start('uiComponent')
       const globalTheme = useTheme()
       const componentTheme = mergeTheme(theme, globalTheme[name] as DeepPartial<ThemeType>, override)
@@ -35,7 +38,7 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
       profiler.end('uiComponent')
 
       return render(mappedProps, { theme: componentTheme, tokens: globalTheme }, refArg)
-    })
+    }))
     WrappedComponent.displayName = name
     type Component =<T extends object>(props: ExternalProps & T) => JSX.Element
     return memo(WrappedComponent) as unknown as Component

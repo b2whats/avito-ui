@@ -300,9 +300,3 @@ const renderIcon = ({loading, focus, iconProps}) => (loading
   />
 </Stack>
 ```
-
-## Perf test
-
-```jsx
-<ProfilePlayground render={(key, props) => <Input {...props} key={key} value="999" />} id="input" />
-```

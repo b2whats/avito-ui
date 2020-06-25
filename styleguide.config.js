@@ -108,6 +108,9 @@ module.exports = {
     }, {
       name: 'Настройка темы',
       content: './theme.md',
+    }, {
+      name: 'Производительность',
+      content: './benchmark/Benchmark.md',
     }],
   }, {
     name: 'Компоненты',

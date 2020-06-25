@@ -1,6 +1,9 @@
+import { useStore } from 'effector-react'
 import React, { ReactNode, Profiler, ProfilerProps, useState, useCallback, useEffect, useReducer } from 'react'
 import { quantile } from 'simple-statistics'
 import { profiler } from '@avito/core'
+import { StyleguideStore, setProfiling } from '../store'
+
 
 interface ProfileProps extends ProfilerProps {
   render: (key: any, props: object) => ReactNode
@@ -19,6 +22,7 @@ const BatchProfiler = React.memo(({
 BatchProfiler.displayName = 'BatchProfiler'
 
 export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProps, 'onRender'> & { runCount?: number }) => {
+  const { detailedProfiling } = useStore(StyleguideStore)
   const [{ rev, componentProps }, setState] = useState({ rev: 1, componentProps: {} })
   const updateTypes = {
     remount() {
@@ -96,6 +100,10 @@ export const ProfilePlayground = ({ runCount = 100, ...props }: Omit<ProfileProp
       </select>
       <button onClick={() => startBench()}>once</button>
       <button onClick={() => startBench(runCount)}>bench</button>
+      <label>
+        <input type='checkbox' checked={detailedProfiling} onChange={e => setProfiling(e.target.checked)} />
+        detailed profiles (but slower)
+      </label>
 
       <Stats data={stats} />
 

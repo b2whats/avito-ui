@@ -2,7 +2,7 @@ import { useStore } from 'effector-react'
 import { useState, useRef } from 'react'
 import * as helpers from './components'
 import { ProfilePlayground } from './components/ProfilePlayground'
-import { ThemeStore } from './store'
+import { StyleguideStore } from './store'
 
 for (const name in helpers) {
   global[name] = helpers[name]
@@ -11,7 +11,7 @@ for (const name in helpers) {
 global['useState'] = useState
 global['useRef'] = useRef
 global['useStore'] = useStore
-global['ThemeStore'] = ThemeStore
+global['StyleguideStore'] = StyleguideStore
 global['ProfilePlayground'] = ProfilePlayground
 
 global['copyText'] = (text: string) => {
