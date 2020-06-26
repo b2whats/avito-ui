@@ -11,4 +11,5 @@ export interface TooltipProps extends Omit<PositionerProps, 'target' | 'targetWi
   preset?: keyof typeof TooltipPreset
   /* Добавляет крестик закрыития */
   closable?: boolean
+  arrowOffset?: number
 }

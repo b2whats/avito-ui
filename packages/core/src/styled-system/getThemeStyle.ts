@@ -16,27 +16,26 @@ type IsSwitchable<T> = IsUnion<NonNullable<T>> extends true ? true : T extends s
 
 export type SchemeType<
   Props extends { [K in keyof Props]: Props[K] },
-  ComponentsProps = never,
-  ExtraStyleProps = {}
+  ComponentsProps = never
 > = {
-  style?: Partial<Computable<StyleProperties & ExtraStyleProps, Props>>,
+  style?: Partial<Computable<StyleProperties, Props>>,
   props?: Partial<Computable<ComponentsProps, Props>>,
   // Срабатывает ошибка рекурсии https://github.com/microsoft/TypeScript/issues/34933 в компоненте Icon
   // Если написать так React.FunctionComponent<ComponentsProps>
   component?: any,
 } & {
   [Key in keyof Props]?: IsSwitchable<Props[Key]> extends true
-    ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Props, ComponentsProps, ExtraStyleProps> }
-    : SchemeType<Props, ComponentsProps, ExtraStyleProps>
+    ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Props, ComponentsProps> }
+    : SchemeType<Props, ComponentsProps>
 }
 
-export interface Slot<OutProps = never, ExtraStyles = {}> {}
-export type ComponentTheme<Props, Scheme = {}, Extras = {}> = Extras & {
+export interface Slot<OutProps = never> {}
+export type ComponentTheme<Props, Scheme = {}> = {
   defaultProps?: Partial<Props>,
   mapProps?: (props: Props) => Partial<Props>,
   scheme: {
-    [K in keyof Scheme]: Scheme[K] extends (Slot<infer OutProps, infer ExtraStyles> | undefined)
-      ? SchemeType<Props, OutProps, ExtraStyles>
+    [K in keyof Scheme]: Scheme[K] extends (Slot<infer OutProps> | undefined)
+      ? SchemeType<Props, OutProps>
       : Scheme[K]
   }
 }
@@ -735,8 +734,8 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
   return css
 }
 
-type FoldedItemTheme<ItemTheme> = ItemTheme extends SchemeType<infer InProps, infer OutProps, infer ExtraStyle> ? {
-  style: StyleProperties & ExtraStyle,
+type FoldedItemTheme<ItemTheme> = ItemTheme extends SchemeType<infer InProps, infer OutProps> ? {
+  style: StyleProperties,
   props: OutProps,
   component: React.FunctionComponent<OutProps> | React.ComponentClass<OutProps>,
 } : never
@@ -759,35 +758,24 @@ export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(
   return result
 }
 
-type valueof<T, Key = string> = T[Key extends keyof T ? Key : keyof T]
-type ThemeStyle<ComponentTheme, Key> = ComponentTheme extends object
-  ? valueof<FoldThemeParamsReturn<ComponentTheme>, Key>['style']
-  : never
-
-interface Selector<Props, ComponentTheme, Key> {
-  t: (props: Props, theme: Theme, schemeStyle: ThemeStyle<ComponentTheme, Key>) => any;
-  f: (props: Props, theme: Theme) => any;
-}
-
-export function createClassName<Props, ComponentTheme extends object | null = null, PrimaryComponent = string>(
+export function createClassName<Props, ComponentTheme extends object | null = null>(
   createRule: (
-    schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>,
+    schemeStyle: StyleProperties,
     props: Props,
     theme: Theme) => StyleProperties & Display,
   createUserRule?: (
     textRules: string,
     props: Props,
     theme: Theme,
-    schemeStyle: ThemeStyle<ComponentTheme, PrimaryComponent>) => any
-): Selector<Props, ComponentTheme, PrimaryComponent>[ComponentTheme extends object ? 't' : 'f'] {
-  return (props: Props, theme: Theme, schemeStyle?: ThemeStyle<ComponentTheme, PrimaryComponent>) => {
+    schemeStyle: StyleProperties) => any
+) {
+  return (props: Props, theme: Theme, schemeStyle?: ComponentTheme extends object ? StyleProperties : never) => {
     const styles = createRule(schemeStyle as any, props, theme)
     const textRules = getStyles(styles, theme)
 
     const resultRules = createUserRule
       ? createUserRule(textRules, props, theme, schemeStyle as any)
       : textRules
-
 
     return typeof resultRules === 'string' ? css`${resultRules}` : resultRules
   }

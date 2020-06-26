@@ -12,15 +12,13 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
   defaultProps: {
     size: 's',
     preset: 'default',
+    pressedOffset: 1,
   },
   mapProps: ({ kind, preset }) => ({
     kind: kind || (preset === 'default' ? 'outline' : 'fill'),
   }),
   scheme: {
     Button: {
-      style: {
-        pressedOffset: -1,
-      },
       multiline: {
         style: {
           py: 9,

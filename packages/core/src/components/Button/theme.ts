@@ -6,7 +6,7 @@ import { ButtonProps } from './contract'
 
 
 export type ButtonTheme = ComponentTheme<ButtonProps, {
-  Button: Slot<never, { pressedOffset: number }>,
+  Button: Slot<never>,
   IconBefore: Slot<IconProps>,
   Text: Slot<TextProps>,
   IconAfter: Slot<IconProps>,

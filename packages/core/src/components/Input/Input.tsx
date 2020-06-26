@@ -1,8 +1,8 @@
-import React, { isValidElement, useState } from 'react'
-import { useUncontrolledInputHook, useSyntheticChange } from '../../hooks/'
+import React, { isValidElement } from 'react'
+import { useUncontrolledInputHook, useSyntheticChange, useFocus } from '../../hooks/'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { clearValue, invokeAll } from '../../utils/'
+import { clearValue } from '../../utils/'
 import { IconProps } from '../Icon/'
 import { Text, TextProps } from '../Text/'
 import { InputProps } from './contract'
@@ -17,10 +17,14 @@ const inputClassName = createClassName<InputProps, typeof inputTheme>(
     ...themeStyle,
     ...props,
   }),
-  (textRules) => (`
+  (textRules, props) => (`
     position: relative;
     font-family: inherit;
     align-items: center;
+
+    ${props.deletePlaceholderOnFocus ? `& *:focus::placeholder {
+      color: transparent;
+    }` : ''}
 
     ${textRules}
   `)
@@ -42,12 +46,12 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
 )
 
 export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
-  { onFocus, onBlur, mask, ...props },
+  { mask, ...props },
   { theme, tokens },
   [inputRef, setRef]
 ) => {
   const renderCore = props.renderCore || (p => <InputCore {...p} />)
-  const [focus, setFocus] = useState(false)
+  const [focus, focusProps] = useFocus(props)
   const [safeValue, safeOnChange] = useUncontrolledInputHook(props)
   const [value, onChange] = useSyntheticChange(safeValue, safeOnChange, mask)
   const clearable = Boolean(
@@ -61,11 +65,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
     clearable,
     // apply iconAfter theme if clearable
     iconAfter: clearable ? true : props.iconAfter,
-    placeholder: inputTheme.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
-
-  const handleFocus = invokeAll(() => setFocus(true), onFocus)
-  const handleBlur = invokeAll(() => setFocus(false), onBlur)
 
   // Отменяем моргание фокуса при повторных кликах внутри контейнера с инпутом
   // Проверка нужна что бы не блокировать выделениие в самом инпуте
@@ -108,11 +108,10 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
         {renderCore({
           ...props,
+          ...focusProps,
           onChange,
           autoSize: Boolean(props.postfix),
           ref: setRef,
-          onFocus: handleFocus,
-          onBlur: handleBlur,
         })}
         {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
       </div>

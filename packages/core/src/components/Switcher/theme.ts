@@ -8,12 +8,11 @@ export type SwitcherTheme = ComponentTheme<SwitcherProps, {
   Switch?: Slot,
   Icon?: Slot<IconProps>,
   Label?: Slot<TextProps>,
-}, {
-  // сдвигать checked + loading вправо
-  positionLoading: boolean,
 }>
 
 export const switcherTheme: SwitcherTheme = {
-  positionLoading: false,
+  defaultProps: {
+    positionLoading: false,
+  },
   scheme: {},
 }

@@ -43,6 +43,8 @@ export interface ButtonProps extends MarginProperties, DimensionProperties, Alig
   /** Пресеты */
   preset?: keyof typeof ButtonPreset
 
+  pressedOffset?: number
+
   onClick?(event: React.MouseEvent<Element>): void
   onKeyDown?(event: React.KeyboardEvent<Element>): void
   onFocus?(event: React.FocusEvent<Element>): void

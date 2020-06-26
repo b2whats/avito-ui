@@ -29,7 +29,7 @@ const textareaStyle = css`
   }
 `
 
-export const TextareaCore = React.forwardRef((
+export const TextareaCore = React.memo(React.forwardRef((
   { maxRows, autoSize, resizable, ...props }: TextareaCoreProps,
   ref: React.Ref<HTMLTextAreaElement>
 ) => {
@@ -86,4 +86,6 @@ export const TextareaCore = React.forwardRef((
   return (
     <textarea css={textareaStyle} {...filterProps(props)} onClick={preventClick} />
   )
-})
+}))
+
+TextareaCore.displayName = 'TextareaCore'

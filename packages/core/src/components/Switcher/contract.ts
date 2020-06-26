@@ -1,3 +1,6 @@
 import { ToggleProps } from '../Toggle/contract'
 
-export type SwitcherProps = Omit<ToggleProps, 'children' | 'className' | 'mode' | 'indeterminate'>
+export interface SwitcherProps extends Omit<ToggleProps, 'children' | 'className' | 'mode' | 'indeterminate'> {
+  /** сдвигать checked + loading вправо */
+  positionLoading?: boolean,
+}
