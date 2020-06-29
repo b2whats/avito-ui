@@ -8,6 +8,7 @@
   },
   "private": false,
   "description": "tokens",
+  "sideEffects": false,
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
