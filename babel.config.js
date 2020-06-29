@@ -11,25 +11,31 @@ const config = {
       {
         targets: {
           browsers: ['last 1 version'],
+          ie: '11',
         },
         loose: true,
         modules: BABEL_ENV === 'cjs' || isServer || isTest ? 'commonjs' : false,
         debug: Boolean(DEBUG),
+        useBuiltIns: 'entry',
+        corejs: {
+          version: 2,
+        },
       },
     ],
     '@babel/preset-typescript',
-    '@babel/preset-react',
+    ['@babel/preset-react', { useBuiltIns: true }],
     [
       '@emotion/babel-preset-css-prop',
       {
         'sourceMap': isServer || isTest ? false : true,
+        'useBuiltIns': true,
       },
     ],
   ],
   plugins: (() => {
     let plugins = [
       '@babel/transform-runtime',
-      '@babel/plugin-proposal-object-rest-spread',
+      ['@babel/plugin-proposal-object-rest-spread', { 'loose': true, 'useBuiltIns': true }],
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-syntax-dynamic-import',
     ]
