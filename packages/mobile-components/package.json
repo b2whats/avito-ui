@@ -1,6 +1,6 @@
 {
   "name": "@avito/mobile-components",
-  "version": "0.0.24-alpha.0",
+  "version": "0.0.25-beta.0",
   "repository": {
     "type": "git",
     "url": "http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components",
@@ -43,7 +43,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/core": "^0.0.21-alpha.0",
+    "@avito/core": "^0.0.22-beta.0",
     "@avito/tokens": "^0.0.19-alpha.0"
   },
   "devDependencies": {
