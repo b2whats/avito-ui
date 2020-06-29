@@ -15,8 +15,9 @@ const config = {
         modules: BABEL_ENV === 'cjs' || isServer || isTest ? 'commonjs' : false,
         debug: Boolean(DEBUG),
         useBuiltIns: 'entry',
-        corejs: {
-          version: 2,
+        targets: {
+          safari: '9',
+          ie: '11',
         },
       },
     ],
