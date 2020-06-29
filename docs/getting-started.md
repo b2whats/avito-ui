@@ -1,12 +1,12 @@
-Установите пакет с компонентами и его зависимости
+Установите пакет с компонентами
 ::: platform mobile
 ```bash static
-npm install @avito/mobile-components @avito/icons 
+npm install @avito/mobile-components
 ```
 :::
 ::: platform web
 ```bash static
-npm install @avito/web-components @avito/icons 
+npm install @avito/web-components
 ```
 :::
 

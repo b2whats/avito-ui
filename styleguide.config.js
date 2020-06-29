@@ -195,7 +195,6 @@ module.exports = {
         'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponentRenderer'),
         'rsg-components/Examples/ExamplesRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/Examples/ExamplesRenderer'),
         '@avito/core/icons$': path.resolve(__dirname, 'packages/core/src/components/Icon/icons'),
-        '@avito/icons$': path.resolve(__dirname, 'packages/icons/src/'),
         '@avito/tokens$': path.resolve(__dirname, 'packages/tokens/src/'),
         '@avito/core$': path.resolve(__dirname, 'packages/core/src/'),
         '@avito/mobile-components$': path.resolve(__dirname, 'packages/mobile-components/src/'),

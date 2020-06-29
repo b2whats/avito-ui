@@ -1,0 +1,6 @@
+{
+  "sideEffects": false,
+  "main": "../cjs/components/Icon/index.js",
+  "module": "../esm/components/Icon/index.js",
+  "types": "../types/components/Icon/index.d.ts"
+}

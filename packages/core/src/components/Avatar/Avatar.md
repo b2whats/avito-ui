@@ -72,21 +72,20 @@ const sizes = [120, 80, 64, 52, 32, 28, 24, 20];
 
 ## Badge
 
-`badge` — небольшой элемент, прилепленный к краю аватара: онлайн-индикатор или дополнительное действие. По умолчанию в 4 раза меньше самого аватара. _Вырез_ на аватаре настраивается через `badgeGapSize`, а в `badgeGapColor` передают цвет фона. Остальные стили, (в том числе положение через `top` / `right` / `bottom` / `left`) настраивются на компоненте значка.
+`badge` — небольшой элемент, прилепленный к краю аватара: онлайн-индикатор или дополнительное действие. По умолчанию в 4 раза меньше самого аватара. _Вырез_ на аватаре настраивается через `badgeGapSize`, а в `badgeGapColor` передают цвет фона. Остальные стили, (в том числе положение через `top` / `right` / `bottom` / я на компоненте значка.
 
 ```jsx
 import { Badge } from '../Badge'
 import { Text } from '../Text'
-import { EditIcon } from '@avito/icons'
-const { src } = document.getElementById('sample-image');
-
+import { EditIcon } from '../'
+const { src } = document.getElementByI
 <Stack spacing='m' valign='middle'>
   <Avatar
     src={src}
     size={60}
     badge={<Badge bg='green500' shape='circle' />} />
   <Box bg='gray12' p={4}>
-    <Avatar
+    <Ava
       src={src}
       size={60}
       badge={<Badge gapSize={4} gapColor='gray12' bg='green600' top={0} shape='circle' />} />
