@@ -329,7 +329,7 @@ Object {
       },
       "style": Object {
         "borderColor": "transparent",
-        "borderRadius": 3,
+        "borderRadius": 5,
         "borderStyle": "solid",
         "borderWidth": 1,
         "focus": false,
@@ -1231,11 +1231,11 @@ Object {
 exports[`mobile theme input theme snap 1`] = `
 Object {
   "defaultProps": Object {
+    "deletePlaceholderOnFocus": true,
     "kind": "fill",
     "size": "m",
     "variant": "primary",
   },
-  "deletePlaceholderOnFocus": true,
   "mapProps": [Function],
   "scheme": Object {
     "IconAfter": Object {
@@ -2586,12 +2586,12 @@ exports[`mobile theme switcher snap 1`] = `
 Object {
   "defaultProps": Object {
     "labelPosition": "end",
+    "positionLoading": false,
     "shape": "pill",
     "size": "m",
     "variant": "primary",
   },
   "mapProps": [Function],
-  "positionLoading": false,
   "scheme": Object {
     "Icon": Object {
       "component": [Function],
@@ -3706,10 +3706,10 @@ Object {
 exports[`mobile theme textarea snap 1`] = `
 Object {
   "defaultProps": Object {
+    "deletePlaceholderOnFocus": true,
     "size": "m",
     "variant": "primary",
   },
-  "deletePlaceholderOnFocus": true,
   "mapProps": [Function],
   "scheme": Object {
     "IconClear": Object {
