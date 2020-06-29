@@ -15,6 +15,7 @@ const config = {
         modules: BABEL_ENV === 'cjs' || isServer || isTest ? 'commonjs' : false,
         debug: Boolean(DEBUG),
         useBuiltIns: 'entry',
+        corejs: 3,
         targets: {
           safari: '9',
           ie: '11',
@@ -35,8 +36,8 @@ const config = {
     '@babel/plugin-syntax-dynamic-import',
     ['@babel/transform-runtime', { useESModules: BABEL_ENV === 'esm' }],
     ['module-resolver', {
-      root: ['./'], // Установить корень проекта
-      alias: isServer || isTest && {
+      cwd: 'babelrc',
+      alias: (isServer || isTest) && {
         '^@avito/core/icons$': './packages/core/src/components/Icon/icons',
         '^@avito/([^/]+)$': './packages/\\1/src',
       },

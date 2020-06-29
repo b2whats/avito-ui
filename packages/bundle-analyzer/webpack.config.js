@@ -23,7 +23,10 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  plugins: [new Visualizer(), new BundleAnalyzerPlugin()],
+  plugins: [
+    new Visualizer(),
+    // new BundleAnalyzerPlugin(),
+  ],
   externals: {
     'react': 'React',
     'react-dom': 'React',

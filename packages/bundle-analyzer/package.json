@@ -13,8 +13,8 @@
     "url": "ssh://git@stash.msk.avito.ru:7999/mds/ui-web-components.git"
   },
   "scripts": {
-    "build:packages": "cross-env NODE_ENV=server webpack",
-    "stats": "cross-env NODE_ENV=server webpack --json > stats.json",
+    "build:packages": "cross-env TARGET=server DEBUG=true webpack",
+    "stats": "cross-env TARGET=server webpack --json > stats.json",
     "size:compressed": "yarn build:packages > /dev/null && for file in dist/*.js; do echo $file\\\\t$(gzip -c $file | wc -c) bytes ; done"
   },
   "devDependencies": {
