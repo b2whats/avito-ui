@@ -21,6 +21,8 @@ module.exports = {
         debug: true,
       },
     ],
+    '@babel/preset-typescript',
+    ['@babel/preset-react', { useBuiltIns: true }],
   ],
   plugins: [
     ['@babel/transform-runtime',

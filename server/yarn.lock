@@ -7,10 +7,10 @@
   resolved "http://npm.msk.avito.ru/@alloc%2ftypes/-/types-1.2.6.tgz#316665569ac0af7cab481f3916ac178f38dd1c66"
   integrity sha512-uCxcUiMUVjLmUa/SCbtY4ghiqHllYNSOEXJqVmIlJdWi0201VSzjnomYlVJ6VneO/C4h96DG7s0nibhVKtQB6w==
 
-"@avito/core@^0.0.21-alpha.0":
-  version "0.0.21-alpha.0"
-  resolved "http://npm.msk.avito.ru/@avito%2fcore/-/core-0.0.21-alpha.0.tgz#447e86b59d76f1f04d13516291688e3dff6bcd29"
-  integrity sha512-qNjhoNQ35uOAl5k+CUpICtzALGeqyFWy7o4M8hPcvC7oFrC2JWPIliZxpqUoI/PuLtYaAK5y8Xewa02A3Rl5OA==
+"@avito/core@^0.0.22-beta.0":
+  version "0.0.22-beta.0"
+  resolved "http://npm.msk.avito.ru/@avito%2fcore/-/core-0.0.22-beta.0.tgz#6e5cc799dbd395d3ae6994f9cd2c90b7c1b31351"
+  integrity sha512-WZ/crUOHcdJBBrw1FvE0uBqgE/le8IEcL3ZwLWSy42S8dYCpaQjicUT669cZCf3i4VAeyFLqeuhELrmPA+llLQ==
   dependencies:
     "@avito/tokens" "^0.0.19-alpha.0"
     "@emotion/core" "^10.0.28"
@@ -23,12 +23,12 @@
     rifm "^0.12.0"
     scroll-into-view-if-needed "^2.2.20"
 
-"@avito/mobile-components@^0.0.24-alpha.0":
-  version "0.0.24-alpha.0"
-  resolved "http://npm.msk.avito.ru/@avito%2fmobile-components/-/mobile-components-0.0.24-alpha.0.tgz#343e6f5c7c6d6590ac6559a909d2685db0c2c28f"
-  integrity sha512-Plgcx3dFStCrlt+kMiyX9yIxIynkZpdrF+uwKJK7b+Vttlokr2QdUNo2r+sbco1/FTmnaRkaAClXS0yMGDLo0w==
+"@avito/mobile-components@^0.0.25-beta.0":
+  version "0.0.25-beta.0"
+  resolved "http://npm.msk.avito.ru/@avito%2fmobile-components/-/mobile-components-0.0.25-beta.0.tgz#3367729e7b1eeb492ff9abdc6ddf2df3564cd9c1"
+  integrity sha512-WsAQtvv92HgZkE7XC7gvRf4+qCfn16S42V0fXmIZE49ogJO2DCUSXtgvib4J1s6u5gvlGndCyAlZop7jzJO39g==
   dependencies:
-    "@avito/core" "^0.0.21-alpha.0"
+    "@avito/core" "^0.0.22-beta.0"
     "@avito/tokens" "^0.0.19-alpha.0"
 
 "@avito/tokens@^0.0.19-alpha.0":

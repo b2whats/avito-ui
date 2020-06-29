@@ -1,7 +1,8 @@
-import type { ApplyStylesModifier } from '@popperjs/core/lib/modifiers/applyStyles'
+import type { Modifier } from '@popperjs/core'
 
-export const customApplyStyles: Partial<ApplyStylesModifier> = {
-  effect({ state }) {
+export const customApplyStyles: Partial<Modifier<'applyStyles', { zIndex: number }>> = {
+  name: 'applyStyles',
+  effect({ state, options }) {
     const initialStyles = {
       popper: {
         position: state.options.strategy,
@@ -10,7 +11,7 @@ export const customApplyStyles: Partial<ApplyStylesModifier> = {
         bottom: 'auto',
         right: 'auto',
         margin: '0',
-        zIndex: 1,
+        zIndex: options.zIndex || 5,
       },
       arrow: {
         position: 'absolute',

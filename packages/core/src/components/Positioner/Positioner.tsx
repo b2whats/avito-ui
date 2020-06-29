@@ -10,9 +10,9 @@ import { PositionerProps } from './contract'
 import { targetWidth, customApplyStyles, TargetWidthModifier } from './modifiers/'
 import { positionerTheme } from './theme'
 
-const getModifiers = ({ minWidth, width, maxWidth, ...props}: Partial<PositionerProps>) => {
+const getModifiers = ({ minWidth, width, maxWidth, zIndex, ...props}: Partial<PositionerProps>) => {
   const modifiersName = ['offset', 'arrow', 'flip', 'preventOverflow', 'hide'] as const
-  const modifiers: (StrictModifiers | Partial<TargetWidthModifier>)[] = [customApplyStyles, targetWidth]
+  const modifiers: (StrictModifiers | Partial<TargetWidthModifier>)[] = []
 
   modifiersName.forEach(name => {
     if (name in props) {
@@ -21,8 +21,10 @@ const getModifiers = ({ minWidth, width, maxWidth, ...props}: Partial<Positioner
   })
 
   if (minWidth || width || maxWidth) {
-    modifiers.push({ name: 'targetWidth', enabled: true, options: { minWidth, width, maxWidth } })
+    modifiers.push({ ...targetWidth, options: { minWidth, width, maxWidth } })
   }
+
+  modifiers.push({ ...customApplyStyles, options: { zIndex } })
 
   return modifiers
 }

@@ -51,6 +51,8 @@ export interface PositionerProps {
   delayOut?: number
   /* Анимация */
   animation?: 'fade' | TransitionProps
+  /* Позиция в стеке */
+  zIndex?: number
 
   /* Событие появления target */
   onOpen?: () => void
