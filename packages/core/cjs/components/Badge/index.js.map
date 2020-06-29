@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../src/components/Badge/index.ts"],"names":[],"mappings":";;;;;;;;AAAA;;;;AACA;;AAAA;AAAA;AAAA;AAAA;AAAA;;AACA;;AAAA;AAAA;AAAA;AAAA;AAAA","sourcesContent":["export { Badge } from './Badge'\nexport * from './contract'\nexport * from './theme'\n"],"file":"index.js"}

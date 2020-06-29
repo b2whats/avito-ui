@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../src/components/Button/contract.ts"],"names":[],"mappings":"AAAA,OAAO,aAAP","sourcesContent":["import '@avito/core'\n\ndeclare module '@avito/core' {\n  enum ButtonPreset {\n    newDefault = 100,\n    success,\n    warning,\n    error,\n  }\n}\n"],"file":"contract.js"}

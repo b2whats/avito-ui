@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../src/components/Spinner/index.ts"],"names":["Spinner"],"mappings":"AAAA,SAASA,OAAT;AACA;AACA","sourcesContent":["export { Spinner } from './Spinner'\nexport * from './contract'\nexport * from './theme'\n"],"file":"index.js"}
