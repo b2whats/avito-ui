@@ -1852,9 +1852,13 @@ exports[`mobile theme switcher fuzz: {"variant":"error","checked":false,"loading
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -1929,9 +1933,13 @@ exports[`mobile theme switcher fuzz: {"variant":"error","checked":true,"loading"
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -2006,9 +2014,13 @@ exports[`mobile theme switcher fuzz: {"variant":"primary","checked":false,"loadi
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -2083,9 +2095,13 @@ exports[`mobile theme switcher fuzz: {"variant":"primary","checked":true,"loadin
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -2160,9 +2176,13 @@ exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":false,"loa
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -2237,9 +2257,13 @@ exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":true,"load
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -2314,9 +2338,13 @@ exports[`mobile theme switcher fuzz: {"variant":"success","checked":false,"loadi
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -2391,9 +2419,13 @@ exports[`mobile theme switcher fuzz: {"variant":"success","checked":true,"loadin
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -2468,9 +2500,13 @@ exports[`mobile theme switcher fuzz: {"variant":"warning","checked":false,"loadi
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -2545,9 +2581,13 @@ exports[`mobile theme switcher fuzz: {"variant":"warning","checked":true,"loadin
 Object {
   "Icon": Object {
     "component": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "displayName": "Spinner",
-      "render": [Function],
+      "$$typeof": Symbol(react.memo),
+      "compare": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Spinner",
+        "render": [Function],
+      },
     },
     "props": Object {},
     "style": Object {},
@@ -2597,9 +2637,13 @@ Object {
       "component": [Function],
       "loading": Object {
         "component": Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "displayName": "Spinner",
-          "render": [Function],
+          "$$typeof": Symbol(react.memo),
+          "compare": null,
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "Spinner",
+            "render": [Function],
+          },
         },
       },
     },
