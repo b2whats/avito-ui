@@ -42,6 +42,6 @@ export type { Colors } from './styled-system'
 export { filterProps, DeepPartial, omit } from './utils/'
 export * from './styled-system/'
 export { ThemeProvider, useTheme, mergeTheme, dsl, uiComponent } from './theme/'
-export type { Theme } from './theme/'
+export type { Theme, UiComponentProps } from './theme/'
 
 export * from './formatters'

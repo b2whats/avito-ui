@@ -8,7 +8,7 @@ import { mergeTheme } from './mergeTheme'
 
 type RefContainer<Element> = [MutableRefObject<Element | null>, (e: Element) => void]
 
-interface UiComponentProps<ThemeType, RefType> {
+export interface UiComponentProps<ThemeType, RefType> {
   override?: DeepPartial<ThemeType>,
   ref?: Ref<RefType>,
 }
