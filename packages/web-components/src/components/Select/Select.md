@@ -51,7 +51,7 @@ const options = [{ label: 'Рыбка', value: 'fish' }, { label: 'Пирожо�
 `iconBefore` и `iconAfter` — слоты для иконок. Обратите внимание, что `iconAfter` закрывает стрелку — не увлекайтесь им.
 
 ```jsx
-import { DeliveryIcon, HelpIcon, SportIcon } from '@avito/icons'
+import { DeliveryIcon, HelpIcon, SportIcon } from '../Icon'
 import { Spinner } from '@avito/core/';
 
 <Stack spacing='m' column width={250}>
@@ -67,7 +67,7 @@ import { Spinner } from '@avito/core/';
 `prefix` и `postfix` — слоты для постоянно видимого текста вокруг значения. Сочетаются с иконками.
 
 ```jsx
-import { DeliveryIcon, HelpIcon } from '@avito/icons';
+import { DeliveryIcon, HelpIcon } from '../Icon';
 const numberOptions = [
   { label: '20 000', value: 20000 },
   { label: '40 000', value: 40000 }

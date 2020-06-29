@@ -52,7 +52,7 @@ import { Stack } from '../Layout/';
 ```js
 import { Text } from '../Text/';
 import { Stack } from '../Layout/';
-import { SearchIcon } from '@avito/icons';
+import { SearchIcon } from '../Icon';
 
 <Stack column spacing='m'>
   <Stack spacing='m'>
@@ -105,10 +105,9 @@ Component - `<SearchIcon color='black'/>`. Автоматически перед
 import { useTheme } from '../../theme/'
 import { Stack, Box, Group } from '../Layout/'
 import { Radio } from '../Radio/'
-import * as icons from '@avito/icons'
+import * as icons from '../Icon/'
 
 const [props, setProps] = useState({ position: 'iconBefore' })
-const { platform } = useStore(ThemeStore)
 
 const onChange = ({ name, value }) => {
   setProps(state => ({
@@ -127,7 +126,7 @@ const onChange = ({ name, value }) => {
       <Radio label='Справа' value='iconAfter' />
     </Group>
     <select value={props.name} name='name' onChange={({ target: { name, value } }) => onChange({ name, value })} >
-      {Object.keys(icons).map((name) => [undefined, platform].includes(icons[name].platform) && (
+      {Object.keys(icons).map((name) => typeof icons[name] === 'function' && (
         <option key={name} value={name}>{name}</option>
       ))}
     </select>
@@ -137,7 +136,7 @@ const onChange = ({ name, value }) => {
 
 
 ```js
-import { SearchIcon } from '@avito/icons'
+import { SearchIcon } from '../Icon'
 import { Text } from '../Text/'
 import { Stack } from '../Layout/'
 import { Icon } from '../Icon/';
@@ -212,7 +211,7 @@ import { Stack } from '../Layout/';
 ::: platform mobile
 ```js
 import { Stack } from '../Layout/'
-import { SearchIcon } from '@avito/icons'
+import { SearchIcon } from '../Icon'
 import { Text } from '../Text/'
 ;
 

@@ -1,14 +1,16 @@
 ## Подключение
 Для того чтобы ваш бандл имел минимальный размер, иконки были разделены на отдельно подключаемые компоненты.
 ```jsx static
-import { SearchIcon } from '@avito/icons'
+import { SearchIcon } from '@avito/mobile-components/icons'
 
 ...
 
 <SearchIcon />
 ```
 
-Чтобы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в локальном репозитории так и в репозитории с иконками
+Чтобы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в локальном репозитории так и в репозитории  
+`@avito/core` - общие иконки, будут доступны и в мобильном и в веб пакете с компонентами
+`@avito/(platform)-components` - будут доступны только в платформенном пакете с компонентами
 
 ```js static
 import React from 'react'
@@ -35,7 +37,7 @@ AddNoteIcon.platform = 'mobile'
 Размер `auto` позволяет занять всю доступную высоту контейнера иконки.
 
 ```js
-import { SearchIcon } from '@avito/icons'
+import { SearchIcon } from '../Icon/'
 import { Box } from '../Layout/';
 
 <Stack spacing='m'>
@@ -69,7 +71,7 @@ import { Box } from '../Layout/';
 По умолчанию иконка наследует цвет родителя.
 
 ```js
-import { SearchIcon } from '@avito/icons'
+import { SearchIcon } from '../Icon/'
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
@@ -83,7 +85,7 @@ import { Stack } from '../Layout/';
 Параметр `shadow`: `boolean` устанавливае тень иконки.
 
 ```js
-import { SearchIcon } from '@avito/icons'
+import { SearchIcon } from '../Icon/'
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
@@ -97,7 +99,7 @@ import { Stack } from '../Layout/';
 Параметр `area`: `number` позволяе контролировать размер этой области, измеряется в `px`
 
 ```js
-import { SearchIcon } from '@avito/icons'
+import { SearchIcon } from '../Icon/'
 import { Stack } from '../Layout/';
 const onClick = () => {};
 
@@ -109,7 +111,7 @@ const onClick = () => {};
 Направление вращения начинается так же как и у параметров `margin` `padding`, то есть сверху
 
 ```js
-import { ArrowIcon } from '@avito/icons'
+import { ArrowIcon } from '../Icon/'
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
@@ -125,7 +127,7 @@ import { Stack } from '../Layout/';
 Скорость вращения можно регулировать передав число, значение измеряется в секундах
 
 ```js
-import { ArrowIcon } from '@avito/icons'
+import { ArrowIcon } from '../Icon/'
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
@@ -135,71 +137,21 @@ import { Stack } from '../Layout/';
 </Stack>
 ```
 
-### Системные иконки
-В каждом платформенном пакете есть иконки, которые используются в компонентах. Они также доступны для импорта и создания своих компонентов.
-
+### Список иконок
+Все иконки находятся в текущем пакете с которым вы работаете
 ::: platform web
 ```jsx static
-import { CrossIcon } from '@avito/web-components'
-```
-
-```js
-import * as components from '@avito/web-components'
-import { Text } from '../Text/'
-import { Stack, Box } from '../Layout/';
-
-<Stack wrap>
-  {Object.keys(components).map((name) => (
-    components[name].category === 'component' &&
-      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
-        {React.createElement(components[name])}
-        <Text size='xs' mt={8} align='center' wrap>{name}</Text>
-      </Box>
-  ))}
-</Stack>
-```
-:::
-
-::: platform mobile
-```jsx static
-import { CrossIcon } from '@avito/mobile-components'
-```
-
-```js
-import * as components from '@avito/mobile-components'
-import { Text } from '../Text/'
-import { Stack, Box } from '../Layout/';
-
-<Stack wrap>
-  {Object.keys(components).map((name) => (
-    components[name].category === 'component' &&
-      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
-        {React.createElement(components[name])}
-        <Text size='xs' mt={8} align='center'>{name}</Text>
-      </Box>
-  ))}
-</Stack>
-```
-:::
-
-
-### Список иконок
-Все остальные иконки находятся в отдельном пакете с иконками
-```jsx static
-import { EndCallIcon } from '@avito/icons'
+import { EndCallIcon } from '@avito/web-components/icons'
 ```
 Для копирования названия иконки, просто кликните по ней
 
 ```js
-import * as icons from '@avito/icons'
+import * as icons from '@avito/web-components/icons'
 import { Text } from '../Text/'
-import { Stack, Box } from '../Layout/'
-
-const { platform } = useStore(ThemeStore);
+import { Stack, Box } from '../Layout/';
 
 <Stack wrap>
   {Object.keys(icons).map((name) => (
-    [undefined, platform].includes(icons[name].platform) &&
     typeof icons[name] === 'function' &&
       <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
         {React.createElement(icons[name])}
@@ -208,3 +160,26 @@ const { platform } = useStore(ThemeStore);
   ))}
 </Stack>
 ```
+:::
+::: platform mobile
+```jsx static
+import { EndCallIcon } from '@avito/mobile-components/icons'
+```
+Для копирования названия иконки, просто кликните по ней
+
+```js
+import * as icons from '@avito/mobile-components/icons'
+import { Text } from '../Text/'
+import { Stack, Box } from '../Layout/';
+
+<Stack wrap>
+  {Object.keys(icons).map((name) => (
+    typeof icons[name] === 'function' &&
+      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
+        {React.createElement(icons[name])}
+        <Text size='xs' mt={8} align='center'>{name}</Text>
+      </Box>
+  ))}
+</Stack>
+```
+:::

@@ -7,12 +7,12 @@
   resolved "http://npm.msk.avito.ru/@alloc%2ftypes/-/types-1.2.6.tgz#316665569ac0af7cab481f3916ac178f38dd1c66"
   integrity sha512-uCxcUiMUVjLmUa/SCbtY4ghiqHllYNSOEXJqVmIlJdWi0201VSzjnomYlVJ6VneO/C4h96DG7s0nibhVKtQB6w==
 
-"@avito/core@^0.0.13":
-  version "0.0.13"
-  resolved "http://npm.msk.avito.ru/@avito%2fcore/-/core-0.0.13.tgz#f1eec6fad4760f294876f6364f5992d789d9250d"
-  integrity sha512-EgL2wm+VFR/tjmAmKxeQU4VzfVKiRRg1mY5YdvAnDEvB2lqqSQoly2FsSOEnoBGd9plJ9ycyeNblqJV9Nsf9PQ==
+"@avito/core@^0.0.20":
+  version "0.0.20"
+  resolved "http://npm.msk.avito.ru/@avito%2fcore/-/core-0.0.20.tgz#aa056eb99d277535b33763ee6a91dfd5e2fc8a0e"
+  integrity sha512-F1eMvHbujfLbV2egcTRs2KD9Yiai9+O+l4/nmqAwPXsQTPmQtqqz7g5kvFvwxDpEumSLjb3X/554timT6mA12g==
   dependencies:
-    "@avito/tokens" "^0.0.13"
+    "@avito/tokens" "^0.0.18"
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
     "@popperjs/core" "^2.4.2"
@@ -20,27 +20,21 @@
     emotion "^10.0.27"
     emotion-theming "^10.0.27"
     react-spring "^9.0.0-rc.3"
+    rifm "^0.12.0"
     scroll-into-view-if-needed "^2.2.20"
 
-"@avito/mobile-components@^0.0.16":
-  version "0.0.16"
-  resolved "http://npm.msk.avito.ru/@avito%2fmobile-components/-/mobile-components-0.0.16.tgz#f7834f1f25232e0f7ec175c1694e586bce1ac31e"
-  integrity sha512-YhRXR2A2kPeejJPTO/SAs9FpmM4Zzc2aaotbepSpjycaSrlkqNen3OVKCLqmVmgYiDtt0zp5vVudRpuP3YHv/g==
+"@avito/mobile-components@^0.0.23":
+  version "0.0.23"
+  resolved "http://npm.msk.avito.ru/@avito%2fmobile-components/-/mobile-components-0.0.23.tgz#3b4b3ca1f7dc44460b851d3b42fab7ec32a9e199"
+  integrity sha512-msGsJHtJ98E+fiBAFyb+3mpsU8l+TEHgcADHd6nW0NFd07t9zAbb27bhNMH46bCkgbb9NcUWOhpkTj7dVepcgA==
   dependencies:
-    "@avito/core" "^0.0.13"
-    "@avito/tokens" "^0.0.13"
+    "@avito/core" "^0.0.20"
+    "@avito/tokens" "^0.0.18"
 
-"@avito/tokens@^0.0.12":
-  version "0.0.12"
-  resolved "http://npm.msk.avito.ru/@avito%2ftokens/-/tokens-0.0.12.tgz#18ee66d6ea2dc46dd5b7668e90a903ab59a718b1"
-  integrity sha512-f9hGvBNFnAQe5z7HdKL1r57cS9D0L+Zeck6zTBLi8+pgPGYcNR2RjkfDMkYgoE4j7ckFLUHnSvW4bSB47BgixA==
-  dependencies:
-    deepmerge "^4.0.0"
-
-"@avito/tokens@^0.0.13":
-  version "0.0.13"
-  resolved "http://npm.msk.avito.ru/@avito%2ftokens/-/tokens-0.0.13.tgz#2eafb5465dab61ec4ed509017c4d4439489ae67a"
-  integrity sha512-VwzgcmL6OlGMn7sP+06pmZVTv7uJ21sUwU5Qdz0jxWXWMZjtoxJb1AkRSzv/SeHf7OwV6PDzO9H6hNmN4dr8Og==
+"@avito/tokens@^0.0.18":
+  version "0.0.18"
+  resolved "http://npm.msk.avito.ru/@avito%2ftokens/-/tokens-0.0.18.tgz#ca0b61506b687f4918635f33544e40f81a4c48e8"
+  integrity sha512-DC63MtvR1qYhFzISHkCbPgu6hUq9l1edLv5cm0/Ft4NlMu7JVw7eXUQLMLhv5sGE6yaiYS+XBSLucGoNg1rr4Q==
   dependencies:
     deepmerge "^4.0.0"
 
@@ -2778,6 +2772,11 @@ ret@~0.1.10:
   resolved "http://npm.msk.avito.ru/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
+rifm@^0.12.0:
+  version "0.12.0"
+  resolved "http://npm.msk.avito.ru/rifm/-/rifm-0.12.0.tgz#8d3a9dc0de9c190e0de9bdc8861a91a221dc1341"
+  integrity sha512-PqOl+Mo2lyqrKiD34FPlnQ+ksD3F+a62TQlphiZshgriyHdfjn6jGyqUZhd+s3nsMYXwXYDdjrrv8wX7QsOG3g==
+
 rimraf@^2.5.4, rimraf@^2.6.3:
   version "2.7.1"
   resolved "http://npm.msk.avito.ru/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
@@ -3363,16 +3362,3 @@ yaml@^1.7.2:
   version "1.10.0"
   resolved "http://npm.msk.avito.ru/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
   integrity sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
-
-"~@file:.":
-  version "0.0.1"
-  dependencies:
-    "@avito/core" "^0.0.13"
-    "@avito/mobile-components" "^0.0.16"
-    "@avito/tokens" "^0.0.12"
-    "@babel/cli" "^7.10.3"
-    "@babel/core" "^7.10.2"
-    "@babel/node" "^7.10.1"
-    cross-env "^7.0.2"
-    webpack "^4.43.0"
-    "~" "file:../../../../Library/Caches/Yarn/v6/npm--0.0.1-b04779e7-6970-4e01-be2d-13d23752e03f-1592831815048/node_modules/~"

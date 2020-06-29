@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon, IconProps } from '../'
+import { IconProps } from '../contract'
+import { Icon } from '../Icon'
 
 export const FavoritesItemIcon = (props: IconProps) => (
   <Icon {...props} viewBox='0 0 36 36' name='favotites-item'>

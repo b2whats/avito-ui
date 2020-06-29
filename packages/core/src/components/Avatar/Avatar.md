@@ -77,15 +77,15 @@ const sizes = [120, 80, 64, 52, 32, 28, 24, 20];
 ```jsx
 import { Badge } from '../Badge'
 import { Text } from '../Text'
-import { EditIcon } from '../'
-const { src } = document.getElementByI
+import { EditIcon } from '../Icon'
+const { src } = document.getElementById;
 <Stack spacing='m' valign='middle'>
   <Avatar
     src={src}
     size={60}
     badge={<Badge bg='green500' shape='circle' />} />
   <Box bg='gray12' p={4}>
-    <Ava
+    <Avatar
       src={src}
       size={60}
       badge={<Badge gapSize={4} gapColor='gray12' bg='green600' top={0} shape='circle' />} />
@@ -114,7 +114,7 @@ const { src } = document.getElementByI
         bgHover='gray28'
         onClick={() => alert('edit')}
         valignSelf='middle'
-      ><EditIcon size={25} p={5} color='white' /></Badge>}
+      ><CrossIcon size={25} p={5} color='white' /></Badge>}
   />
 </Stack>
 ```
@@ -142,7 +142,7 @@ const { src } = document.getElementById('sample-image');
 Вместо `src` можно передать элементы в `children` — например, сделать аватар с иконкой или текстом.
 
 ```jsx
-import { CourierIcon } from '@avito/icons';
+import { CourierIcon } from '../Icon';
 
 <Stack spacing='s'>
   <Avatar size={60}>
@@ -163,7 +163,7 @@ import { CourierIcon } from '@avito/icons';
 - стандрартную иконку (своя у каждого `type`).
 
 ```jsx
-import { StatusErrorIcon } from '@avito/icons';
+import { StatusErrorIcon } from '../Icon';
 
 <Stack spacing='m' column>
   <Stack spacing='s' valign='middle'>

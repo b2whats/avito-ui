@@ -39,6 +39,8 @@ const config = {
       cwd: 'babelrc',
       alias: (isServer || isTest) && {
         '^@avito/core/icons$': './packages/core/src/components/Icon/icons',
+        '^@avito/mobile-components/icons$': './packages/mobile-components/src/components/Icon',
+        '^@avito/web-components/icons$': './packages/web-components/src/components/Icon',
         '^@avito/([^/]+)$': './packages/\\1/src',
       },
     }],

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon, IconProps } from '../'
+import { IconProps } from '../contract'
+import { Icon } from '../Icon'
 
 export const OpenInNewIcon = (props: IconProps) => (
   <Icon {...props} viewBox='0 0 24 24' name='open-in-new'>

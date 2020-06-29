@@ -2,7 +2,7 @@
 
 ```js
 import { Stack } from '../Layout/';
-const [state, setState] = useState(f
+const [state, setState] = useState(false)
 const onChange = ({ checked }) => {
   setState(checked);
 };

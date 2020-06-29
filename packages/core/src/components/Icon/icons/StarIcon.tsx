@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon, IconProps } from '../'
+import { IconProps } from '../contract'
+import { Icon } from '../Icon'
 
 export const StarIcon = (props: IconProps) => (
   <Icon {...props} viewBox='0 0 14 14' name='star'>
