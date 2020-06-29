@@ -10,6 +10,7 @@ export const customApplyStyles: Partial<ApplyStylesModifier> = {
         bottom: 'auto',
         right: 'auto',
         margin: '0',
+        zIndex: 1,
       },
       arrow: {
         position: 'absolute',

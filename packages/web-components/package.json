@@ -27,7 +27,8 @@
   "files": [
     "cjs",
     "esm",
-    "types"
+    "types",
+    "icons"
   ],
   "scripts": {
     "build": "yarn build:cjs & yarn build:esm & yarn build:types",

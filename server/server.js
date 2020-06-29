@@ -4,7 +4,7 @@ import createEmotionServer from 'create-emotion-server'
 import express from 'express'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import App from './App'
+import { App } from './App'
 import template from './template'
 
 const port = 3000

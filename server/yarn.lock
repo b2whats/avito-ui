@@ -7,12 +7,12 @@
   resolved "http://npm.msk.avito.ru/@alloc%2ftypes/-/types-1.2.6.tgz#316665569ac0af7cab481f3916ac178f38dd1c66"
   integrity sha512-uCxcUiMUVjLmUa/SCbtY4ghiqHllYNSOEXJqVmIlJdWi0201VSzjnomYlVJ6VneO/C4h96DG7s0nibhVKtQB6w==
 
-"@avito/core@^0.0.20":
-  version "0.0.20"
-  resolved "http://npm.msk.avito.ru/@avito%2fcore/-/core-0.0.20.tgz#aa056eb99d277535b33763ee6a91dfd5e2fc8a0e"
-  integrity sha512-F1eMvHbujfLbV2egcTRs2KD9Yiai9+O+l4/nmqAwPXsQTPmQtqqz7g5kvFvwxDpEumSLjb3X/554timT6mA12g==
+"@avito/core@^0.0.21-alpha.0":
+  version "0.0.21-alpha.0"
+  resolved "http://npm.msk.avito.ru/@avito%2fcore/-/core-0.0.21-alpha.0.tgz#447e86b59d76f1f04d13516291688e3dff6bcd29"
+  integrity sha512-qNjhoNQ35uOAl5k+CUpICtzALGeqyFWy7o4M8hPcvC7oFrC2JWPIliZxpqUoI/PuLtYaAK5y8Xewa02A3Rl5OA==
   dependencies:
-    "@avito/tokens" "^0.0.18"
+    "@avito/tokens" "^0.0.19-alpha.0"
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
     "@popperjs/core" "^2.4.2"
@@ -23,18 +23,18 @@
     rifm "^0.12.0"
     scroll-into-view-if-needed "^2.2.20"
 
-"@avito/mobile-components@^0.0.23":
-  version "0.0.23"
-  resolved "http://npm.msk.avito.ru/@avito%2fmobile-components/-/mobile-components-0.0.23.tgz#3b4b3ca1f7dc44460b851d3b42fab7ec32a9e199"
-  integrity sha512-msGsJHtJ98E+fiBAFyb+3mpsU8l+TEHgcADHd6nW0NFd07t9zAbb27bhNMH46bCkgbb9NcUWOhpkTj7dVepcgA==
+"@avito/mobile-components@^0.0.24-alpha.0":
+  version "0.0.24-alpha.0"
+  resolved "http://npm.msk.avito.ru/@avito%2fmobile-components/-/mobile-components-0.0.24-alpha.0.tgz#343e6f5c7c6d6590ac6559a909d2685db0c2c28f"
+  integrity sha512-Plgcx3dFStCrlt+kMiyX9yIxIynkZpdrF+uwKJK7b+Vttlokr2QdUNo2r+sbco1/FTmnaRkaAClXS0yMGDLo0w==
   dependencies:
-    "@avito/core" "^0.0.20"
-    "@avito/tokens" "^0.0.18"
+    "@avito/core" "^0.0.21-alpha.0"
+    "@avito/tokens" "^0.0.19-alpha.0"
 
-"@avito/tokens@^0.0.18":
-  version "0.0.18"
-  resolved "http://npm.msk.avito.ru/@avito%2ftokens/-/tokens-0.0.18.tgz#ca0b61506b687f4918635f33544e40f81a4c48e8"
-  integrity sha512-DC63MtvR1qYhFzISHkCbPgu6hUq9l1edLv5cm0/Ft4NlMu7JVw7eXUQLMLhv5sGE6yaiYS+XBSLucGoNg1rr4Q==
+"@avito/tokens@^0.0.19-alpha.0":
+  version "0.0.19-alpha.0"
+  resolved "http://npm.msk.avito.ru/@avito%2ftokens/-/tokens-0.0.19-alpha.0.tgz#248c6896ccf5416145d67af14eea7deacd86ebc0"
+  integrity sha512-Q11dZVEp06KDdeJUrKmeESqlrH7LqR/qZDABhugLh8d9Y32FJLhH0NT3613lzojybZvXxzvC78PI+gvH+kvALA==
   dependencies:
     deepmerge "^4.0.0"
 

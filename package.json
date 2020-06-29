@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
+    "prestart": "cross-env TARGET=server styleguidist server",
     "start": "cross-env TARGET=server styleguidist server",
     "build": "cross-env TARGET=server NODE_ENV=production styleguidist build",
     "bench": "cross-env BABEL_ENV=cjs TARGET=server NODE_ENV=production babel-node benchmark/index.js --extensions \".js,.ts,.tsx\"",
@@ -13,7 +14,10 @@
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
     "prerelease": "lerna version --no-push",
     "release": "lerna publish from-git --yes",
-    "postrelease": "git push --follow-tags origin"
+    "postrelease": "git push --follow-tags origin",
+    "prerelease:beta": "lerna version --no-push --preid beta",
+    "release:beta": "lerna publish from-git --yes --dist-tag beta",
+    "postrelease:beta": "git push --follow-tags origin"
   },
   "husky": {
     "hooks": {
