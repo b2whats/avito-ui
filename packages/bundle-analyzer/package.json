@@ -1,7 +1,7 @@
 {
   "name": "@avito/bundle-analyzer",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Analyze @avito/* bundle sizes",
   "author": "vyuklepov <vyuklepov@avito.ru>",
   "license": "ISC",
