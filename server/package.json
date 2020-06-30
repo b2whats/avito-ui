@@ -17,9 +17,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@avito/core": "^0.0.22-beta.0",
-    "@avito/mobile-components": "^0.0.25-beta.0",
-    "@avito/tokens": "^0.0.19-alpha.0",
+    "@avito/core": "^0.0.22",
+    "@avito/mobile-components": "^0.0.25",
+    "@avito/tokens": "^0.0.19",
     "@babel/cli": "^7.10.3",
     "@babel/core": "^7.10.2",
     "@babel/node": "^7.10.1",
