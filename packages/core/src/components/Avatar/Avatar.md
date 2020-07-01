@@ -77,7 +77,7 @@ const sizes = [120, 80, 64, 52, 32, 28, 24, 20];
 ```jsx
 import { Badge } from '../Badge'
 import { Text } from '../Text'
-import { EditIcon } from '../Icon'
+import { EditIcon } from '../Icon/icons'
 const { src } = document.getElementById;
 <Stack spacing='m' valign='middle'>
   <Avatar
@@ -142,7 +142,7 @@ const { src } = document.getElementById('sample-image');
 Вместо `src` можно передать элементы в `children` — например, сделать аватар с иконкой или текстом.
 
 ```jsx
-import { CourierIcon } from '../Icon';
+import { CourierIcon } from '../Icon/icons';
 
 <Stack spacing='s'>
   <Avatar size={60}>
@@ -163,7 +163,7 @@ import { CourierIcon } from '../Icon';
 - стандрартную иконку (своя у каждого `type`).
 
 ```jsx
-import { StatusErrorIcon } from '../Icon';
+import { StatusErrorIcon } from '../Icon/icons';
 
 <Stack spacing='m' column>
   <Stack spacing='s' valign='middle'>

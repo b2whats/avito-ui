@@ -73,29 +73,6 @@ import { Text } from '../Text/';
 ```
 :::
 
-
-:::platform mobile
-## Форма
-
-`shape='circe'` делает чекбокс круглым
-
-```js
-<Stack spacing='m'>
-  <Stack spacing='m' column>
-    <Checkbox label='Квадратный'/>
-    <Checkbox checked indeterminate label='Квадратный'/>
-    <Checkbox checked label='Квадратный'/>
-  </Stack>
-  <Stack spacing='m' column>
-    <Checkbox shape='circle' label='Круглый' />
-    <Checkbox checked indeterminate shape='circle' label='Круглый' />
-    <Checkbox checked shape='circle' label='Круглый' />
-</Stack>
-</Stack>
-```
-:::
-
-
 ## Положение текста
 
 `labelPosition="start"` меняет чекбокс и лейбл местами

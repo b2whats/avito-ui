@@ -37,7 +37,7 @@ AddNoteIcon.platform = 'mobile'
 Размер `auto` позволяет занять всю доступную высоту контейнера иконки.
 
 ```js
-import { SearchIcon } from '../Icon/'
+import { SearchIcon } from '../Icon/icons/'
 import { Box } from '../Layout/';
 
 <Stack spacing='m'>
@@ -71,7 +71,7 @@ import { Box } from '../Layout/';
 По умолчанию иконка наследует цвет родителя.
 
 ```js
-import { SearchIcon } from '../Icon/'
+import { SearchIcon } from '../Icon/icons/'
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
@@ -85,7 +85,7 @@ import { Stack } from '../Layout/';
 Параметр `shadow`: `boolean` устанавливае тень иконки.
 
 ```js
-import { SearchIcon } from '../Icon/'
+import { SearchIcon } from '../Icon/icons/'
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
@@ -99,7 +99,7 @@ import { Stack } from '../Layout/';
 Параметр `area`: `number` позволяе контролировать размер этой области, измеряется в `px`
 
 ```js
-import { SearchIcon } from '../Icon/'
+import { SearchIcon } from '../Icon/icons/'
 import { Stack } from '../Layout/';
 const onClick = () => {};
 
@@ -111,7 +111,7 @@ const onClick = () => {};
 Направление вращения начинается так же как и у параметров `margin` `padding`, то есть сверху
 
 ```js
-import { ArrowIcon } from '../Icon/'
+import { ArrowIcon } from '../Icon/icons/'
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>
@@ -127,7 +127,7 @@ import { Stack } from '../Layout/';
 Скорость вращения можно регулировать передав число, значение измеряется в секундах
 
 ```js
-import { ArrowIcon } from '../Icon/'
+import { ArrowIcon } from '../Icon/icons/'
 import { Stack } from '../Layout/';
 
 <Stack spacing='m'>

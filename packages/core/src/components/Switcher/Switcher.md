@@ -14,21 +14,13 @@ const onChange = ({ checked }) => setState(checked);
 import { Text } from '../Text/';
 
 <Stack spacing='m' column>
-  <Stack spacing='m'>
-    <Text width={0.2}>Обычный</Text>
-    <Switcher label='Не выбран' />
-    <Switcher checked label='Выбран' />
-  </Stack>
+
   <Stack spacing='m'>
     <Text width={0.2}>loading</Text>
     <Switcher loading label='Не выбран' />
     <Switcher checked loading label='Выбран' />
   </Stack>
-  <Stack spacing='m'>
-    <Text width={0.2}>disabled</Text>
-    <Switcher disabled label='Не выбран' />
-    <Switcher checked disabled label='Выбран' />
-  </Stack>
+
 </Stack>
 ```
 

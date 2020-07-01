@@ -52,7 +52,7 @@ import { Stack } from '../Layout/';
 ```js
 import { Text } from '../Text/';
 import { Stack } from '../Layout/';
-import { SearchIcon } from '../Icon';
+import { SearchIcon } from '../Icon/icons';
 
 <Stack column spacing='m'>
   <Stack spacing='m'>
@@ -105,7 +105,7 @@ Component - `<SearchIcon color='black'/>`. Автоматически перед
 import { useTheme } from '../../theme/'
 import { Stack, Box, Group } from '../Layout/'
 import { Radio } from '../Radio/'
-import * as icons from '../Icon/'
+import * as icons from '../Icon/icons/'
 
 const [props, setProps] = useState({ position: 'iconBefore' })
 
@@ -136,10 +136,9 @@ const onChange = ({ name, value }) => {
 
 
 ```js
-import { SearchIcon } from '../Icon'
+import { SearchIcon } from '../Icon/icons'
 import { Text } from '../Text/'
-import { Stack } from '../Layout/'
-import { Icon } from '../Icon/';
+import { Stack } from '../Layout/';
 
 <Stack spacing='m' align='left' column>
   <Button iconBefore={SearchIcon}>Кнопка</Button>
@@ -195,11 +194,13 @@ import { Box, Grid } from '../Layout/';
 
 Кнопка может выполнять роль ссылки, достаточно передать парамер `href`
 ```js
-import { Text } from '../Text/';
+import { Text } from '../Text/'
+import { SearchIcon } from '../Icon/icons/'
 import { Stack } from '../Layout/';
 
 <Stack spacing={10}>
   <Button href='https://example.com'>Ссылка</Button>
+  <Button href='https://example.com' iconBefore={SearchIcon}>Ссылка</Button>
   <Button href='https://example.com' disabled>Неактивная сылка</Button>
 </Stack>
 ```
@@ -211,7 +212,7 @@ import { Stack } from '../Layout/';
 ::: platform mobile
 ```js
 import { Stack } from '../Layout/'
-import { SearchIcon } from '../Icon'
+import { SearchIcon } from '../Icon/icons'
 import { Text } from '../Text/'
 ;
 

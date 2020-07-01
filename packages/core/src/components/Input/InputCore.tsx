@@ -1,6 +1,6 @@
 import React from 'react'
 import { css, keyframes } from '../../styled-system/'
-import { filterProps, invokeAll } from '../../utils/'
+import { filterProps, invokeAll, isIE } from '../../utils/'
 import { InputCoreProps } from './contract'
 
 const autofill = keyframes`
@@ -10,28 +10,19 @@ const autofill = keyframes`
   }
 `
 
-// @-moz-document url-prefix() - стили только дла FF
+const safariFix = keyframes`
+  from { opacity: 1; }
+  to { opacity: 1; }
+`
+
 const inputField = css`
   width: 100%;
   height: 100%;
-  flex-shrink: 1;
   display: inline-block;
   position: relative;
-  visibility: hidden;
   min-width: 5px;
 
-  &[data-value] {
-    width: auto;
-  }
-
-  &[data-value]::before {
-    content: attr(data-value);
-    display: inline-block;
-    white-space: pre;
-    padding-right: 2px;
-  }
-
-  @-moz-document url-prefix() {
+  @-moz-document url-prefix() { /* FF */
     & > input {
       height: 100%;
     }
@@ -47,7 +38,6 @@ const inputField = css`
     padding: 0px;
     margin: 0px;
     border-width: 0;
-    visibility: visible;
     font-size: inherit;
     font-family: inherit;
     font-weight: inherit;
@@ -59,6 +49,10 @@ const inputField = css`
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  @media all and (-ms-high-contrast:none) {
+    & > input { height: 100% } /* IE11 */
   }
 
   & > [disabled] {
@@ -83,6 +77,19 @@ const inputField = css`
   & > input::-ms-reveal {
     display: none;
   }
+
+  &[data-value] {
+    width: auto;
+  }
+
+  &[data-value]::after {
+    visibility: hidden;
+    animation: ${safariFix} infinite 1s; /* Safari не обновляет значение в data-attr */
+    content: attr(data-value);
+    display: inline-block;
+    white-space: pre;
+    padding-right: 2px;
+  }
 `
 
 export const InputCore = React.memo(React.forwardRef((props: InputCoreProps, ref: React.Ref<HTMLInputElement>) => {
@@ -91,6 +98,7 @@ export const InputCore = React.memo(React.forwardRef((props: InputCoreProps, ref
     autoCorrect: 'off',
     spellCheck: false,
     ...props,
+    unselectable: isIE && props.readOnly ? 'on' : undefined, // IE11 мигает курсор
     ref,
   } as InputCoreProps
 

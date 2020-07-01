@@ -5,9 +5,10 @@ import { filterProps, isIE } from '../../utils/'
 import { BaseIconProps } from './contract'
 import { iconTheme } from './theme'
 
+/* IE11 вращает не по центру, transform-origin должен быть тут */
 const spinAnimation = keyframes`
-  0% { transform: rotate(0deg) }
-  100% { transform: rotate(360deg) }
+  0% { transform: rotate(0deg); transform-origin: 50% 50%;  }
+  100% { transform: rotate(360deg); transform-origin: 50% 50%; }
 `
 
 const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
@@ -75,7 +76,7 @@ export const Icon = uiComponent('Icon', iconTheme)((props: BaseIconProps, { them
 
     const [,,w, h] = node.getAttribute('viewBox').split(' ')
     const ratio = Number(w) / Number(h)
-    const { height } = node.getBoundingClientRect()
+    const height = node.clientHeight
 
     node.style.width = height * ratio + 'px'
   }
