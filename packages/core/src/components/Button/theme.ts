@@ -96,7 +96,7 @@ export const buttonTheme: ButtonTheme = {
     },
     Button: {
       style: {
-        borderRadius: 3,
+        borderRadius: 5,
         px: 16,
         borderWidth: 1,
         borderStyle: 'solid',
