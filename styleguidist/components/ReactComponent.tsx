@@ -1,18 +1,17 @@
+import { useStore } from 'effector-react'
 import React from 'react'
 import ReactComponent from 'react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponent'
-import { ThemeStore } from '../store'
-import { useStore } from 'effector-react'
+import { StyleguideStore } from '../store'
 import { platformFromPath } from '../utils'
 
 // Прячем неподдерживаемые платформой компоненты
 const ReactComponentWrapper = (props: any) => {
-  const theme = useStore(ThemeStore)
+  const { platform } = useStore(StyleguideStore)
 
-  const platform = platformFromPath(props.component.filepath)
-  if (platform !== 'universal' && theme.platform !== platform) {
+  if (!['universal', platform].includes(platformFromPath(props.component.filepath))) {
     return null
   }
-  return <ReactComponent { ...props } />
+  return <ReactComponent {...props} />
 }
 
 export default ReactComponentWrapper

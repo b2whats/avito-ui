@@ -191,7 +191,7 @@ import * as icons from '@avito/icons'
 import { Text } from '../Text/'
 import { Stack, Box } from '../Layout/'
 
-const { platform } = useStore(ThemeStore);
+const { platform } = useStore(StyleguideStore);
 
 <Stack wrap>
   {Object.keys(icons).map((name) => (
