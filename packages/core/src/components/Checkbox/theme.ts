@@ -4,9 +4,6 @@ import { CheckboxProps } from './contract'
 export type CheckboxTheme = ToggleTheme<CheckboxProps>
 
 export const checkboxTheme: CheckboxTheme = {
-  defaultProps: {
-    shape: 'square',
-  },
   scheme: {
     Icon: {},
     Switch: {

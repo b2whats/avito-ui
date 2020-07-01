@@ -40,13 +40,9 @@ const circleStyle = (positionLoading?: boolean) => css`
 `
 
 export const Switcher = uiComponent('Switcher', switcherTheme)((props: SwitcherProps, { theme }) => {
-  console.log(222,theme)
   return (
     <Toggle css={circleStyle(props.positionLoading)} {...props} mode='checkbox' override={theme}>
-      {({ Icon }) => {
-        console.log(Icon)
-        return Icon && <Icon.component {...Icon.props} size='auto' />
-      }}
+      {({ Icon }) => Icon && <Icon.component {...Icon.props} size='auto' />}
     </Toggle>
   )
 })
