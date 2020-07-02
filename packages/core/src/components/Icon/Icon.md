@@ -8,22 +8,20 @@ import { SearchIcon } from '@avito/mobile-components/icons'
 <SearchIcon />
 ```
 
-Чтобы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в локальном репозитории так и в репозитории  
+Чтобы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в локальном репозитории так и в репозитории
 `@avito/core` - общие иконки, будут доступны и в мобильном и в веб пакете с компонентами
 `@avito/(platform)-components` - будут доступны только в платформенном пакете с компонентами
 
 ```js static
 import React from 'react'
-import { Icon } from '@avito/core'
+import { makeIcon } from '@avito/core'
 
-export const AddNoteIcon = (props) => (
-  <Icon {...props} viewBox='0 0 24 24' name='add-note'>
-      <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M4 2a1 1 0 011-1h14a1 1 0 011 1v12.083A6.036 6.036 0 0019 14a5.973 5.973 0 00-3.318 1H7v2h6.803A5.972 5.972 0 0013 20c0 .34.028.675.083 1H5a1 1 0 01-1-1V2zm13 3H7v2h10V5zM7 10h10v2H7v-2zm11 9v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z'
-    />
-  </Icon>
+export const AddNoteIcon = makeIcon({ viewBox: '0 0 24 24', name: 'add-note' },
+  <path
+    fillRule='evenodd'
+    clipRule='evenodd'
+    d='M4 2a1 1 0 011-1h14a1 1 0 011 1v12.083A6.036 6.036 0 0019 14a5.973 5.973 0 00-3.318 1H7v2h6.803A5.972 5.972 0 0013 20c0 .34.028.675.083 1H5a1 1 0 01-1-1V2zm13 3H7v2h10V5zM7 10h10v2H7v-2zm11 9v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z'
+  />
 )
 
 AddNoteIcon.platform = 'mobile'
@@ -152,7 +150,7 @@ import { Stack, Box } from '../Layout/';
 
 <Stack wrap>
   {Object.keys(icons).map((name) => (
-    typeof icons[name] === 'function' &&
+    (typeof icon === 'function' || typeof icon.type === 'function') &&
       <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
         {React.createElement(icons[name])}
         <Text size='xs' mt={8} align='center'>{name}</Text>
@@ -173,8 +171,8 @@ import { Text } from '../Text/'
 import { Stack, Box } from '../Layout/';
 
 <Stack wrap>
-  {Object.keys(icons).map((name) => (
-    typeof icons[name] === 'function' &&
+  {Object.entries(icons).map(([name, icon]) => (
+    (typeof icon === 'function' || typeof icon.type === 'function') &&
       <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
         {React.createElement(icons[name])}
         <Text size='xs' mt={8} align='center'>{name}</Text>
