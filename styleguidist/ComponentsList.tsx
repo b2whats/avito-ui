@@ -1,11 +1,11 @@
+import { useStore } from 'effector-react'
 import React from 'react'
 import DefaultComponentsList from 'react-styleguidist/lib/client/rsg-components/ComponentsList/ComponentsListRenderer'
+import { StyleguideStore } from './store'
 import { platformFromPath } from './utils'
-import { ThemeStore } from './store'
-import { useStore } from 'effector-react'
 
 export default function ComponentsList(props: any) {
-  const theme = useStore(ThemeStore)
+  const theme = useStore(StyleguideStore)
 
   // only sort components
   const useSort = props.items.some((e: any) => e.hasExamples)

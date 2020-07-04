@@ -1,3 +1,5 @@
+import { profiler } from './profiler'
+
 export { default as isPropValid } from '@emotion/is-prop-valid'
 export { omit } from './omit'
 export { pick } from './pick'
@@ -7,3 +9,4 @@ export { isMobileSafari, isIE } from './isBrowser'
 export { invokeAll } from './invokeAll'
 export { isMergeableObject } from './isMergeableObject'
 export * from './types'
+export { profiler, Profiler } from './profiler'

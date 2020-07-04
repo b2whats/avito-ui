@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "cross-env TARGET=server styleguidist server",
+    "start:profiling": "cross-env TARGET=server NODE_ENV=production PROFILING=1 styleguidist server",
     "build": "cross-env TARGET=server NODE_ENV=production styleguidist build",
     "bench": "cross-env BABEL_ENV=cjs TARGET=server NODE_ENV=production babel-node benchmark/index.js --extensions \".js,.ts,.tsx\"",
     "lint": "eslint ./packages/*/src --ext .js,.ts,.tsx",
@@ -70,6 +71,7 @@
     "react-docgen-typescript": "^1.12.5",
     "react-dom": "^16.8.6",
     "react-styleguidist": "^11.0.5",
+    "simple-statistics": "^7.1.0",
     "typescript": "3.8.3",
     "webpack": "^4.28.3",
     "webpack-bundle-analyzer": "^3.3.2",

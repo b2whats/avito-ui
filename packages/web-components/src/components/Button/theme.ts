@@ -174,5 +174,17 @@ export const buttonTheme: DeepPartial<ButtonTheme> = {
         },
       },
     },
+    Spinner: {
+      props: {
+        variant: undefined,
+      },
+      preset: {
+        default: {
+          props: {
+            variant: 'primary',
+          },
+        },
+      },
+    },
   },
 }

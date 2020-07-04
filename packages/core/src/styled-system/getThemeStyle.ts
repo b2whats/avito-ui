@@ -1,5 +1,6 @@
 import { css } from '@emotion/core'
 import { Tokens } from '@avito/tokens'
+import { profiler } from '../utils'
 import { StyleProperties, Display, Colors } from './types'
 
 type Theme = Tokens
@@ -744,10 +745,9 @@ export type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { sch
   [K in keyof ComponentTheme['scheme']]: FoldedItemTheme<ComponentTheme['scheme'][K]>
 } : never
 
-export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(
-  props: any,
-  { scheme }: T
-): FoldThemeParamsReturn<T> {
+export const foldThemeParams = profiler.withMeasure('fold')(function foldThemeParams<
+  T extends { scheme: { [key: string]: any } }
+>(props: any, { scheme }: T): FoldThemeParamsReturn<T> {
   const result: any = {}
 
   let name: keyof typeof scheme
@@ -756,7 +756,7 @@ export function foldThemeParams<T extends { scheme: { [key: string]: any } }>(
   }
 
   return result
-}
+})
 
 export function createClassName<Props, ComponentTheme extends object | null = null>(
   createRule: (
@@ -769,7 +769,11 @@ export function createClassName<Props, ComponentTheme extends object | null = nu
     theme: Theme,
     schemeStyle: StyleProperties) => any
 ) {
-  return (props: Props, theme: Theme, schemeStyle?: ComponentTheme extends object ? StyleProperties : never) => {
+  return profiler.withMeasure('classname')((
+    props: Props,
+    theme: Theme,
+    schemeStyle?: ComponentTheme extends object ? StyleProperties : never
+  ) => {
     const styles = createRule(schemeStyle as any, props, theme)
     const textRules = getStyles(styles, theme)
 
@@ -778,7 +782,7 @@ export function createClassName<Props, ComponentTheme extends object | null = nu
       : textRules
 
     return typeof resultRules === 'string' ? css`${resultRules}` : resultRules
-  }
+  })
 }
 
 function assertExhaustive<K>(v: K) {}
