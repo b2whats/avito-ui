@@ -1,6 +1,6 @@
-import { SpaceProperties, DimensionProperties } from '@avito/core'
+import { SpaceProperties, DimensionProperties, CommonAttributes } from '@avito/core'
 
-export interface ListItemProps extends SpaceProperties, DimensionProperties {
+export interface ListItemProps extends SpaceProperties, DimensionProperties, CommonAttributes {
   /** Контент до текста */
   before?: React.ReactNode
   /** Выравнивание контента до текста */
@@ -24,6 +24,4 @@ export interface ListItemProps extends SpaceProperties, DimensionProperties {
 
   beforeTreshold?: number
   afterTreshold?: number
-
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }

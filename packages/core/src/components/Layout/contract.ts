@@ -1,8 +1,9 @@
 import { ReactText } from 'react'
 import { StyleProperties } from '../../styled-system/'
 import { Theme } from '../../theme/'
+import { CommonAttributes } from '../../utils/'
 
-export interface GridProps extends StyleProperties {
+export interface GridProps extends StyleProperties, CommonAttributes {
   /** Горизонтальный отступ между дочерними блоками */
   spacing: keyof Theme['space'] | number
   /** Верикальный отступ между дочерними блоками */
@@ -18,12 +19,12 @@ export interface PageProps extends StyleProperties {
   children?: React.ReactNode
 }
 
-export interface BoxProps extends StyleProperties {
+export interface BoxProps extends StyleProperties, CommonAttributes<HTMLDivElement> {
   /** Содержание */
   children?: React.ReactNode
 }
 
-export interface StackProps extends StyleProperties {
+export interface StackProps extends StyleProperties, CommonAttributes<HTMLDivElement> {
   /** Содержание */
   children?: React.ReactNode
   /** Отступ между дочерними блоками по главной оси */
@@ -37,14 +38,7 @@ export interface StackProps extends StyleProperties {
   debug?: boolean
 }
 
-type onChangeProps = {
-  name?: string
-  mode?: string
-  type: string
-  value?: ReactText | ReactText[] | null
-}
-
-export interface GroupProps extends StyleProperties {
+export interface GroupProps extends StyleProperties, CommonAttributes<HTMLDivElement, ReactText | ReactText[] | null> {
   /** Содержание */
   children?: React.ReactNode
   /** Горизонтальный отступ между дочерними блоками */
@@ -57,7 +51,4 @@ export interface GroupProps extends StyleProperties {
   mode?: 'checkbox' | 'radio'
   /** Выбранные элементы */
   value?: ReactText | ReactText[] | null
-
-  /** Событие изменения значения */
-  onChange?: (props: onChangeProps) => void
 }

@@ -94,10 +94,7 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
   `)
 )
 
-export const Button = uiComponent('Button', buttonTheme)<
-  ButtonProps,
-  HTMLButtonElement | HTMLLinkElement
->((props, { theme, tokens, ref }) => {
+export const Button = uiComponent('Button', buttonTheme)<ButtonProps>((props, { theme, tokens, ref }) => {
   props.type = props.href ? undefined : props.type
   const groupProps = useGroupHook(ref, props)
   const [testId] = withMarker(groupProps.marker)

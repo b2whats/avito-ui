@@ -1,10 +1,9 @@
-import React, { ComponentType } from 'react'
-import { SpaceProperties, DimensionProperties, AlignProperties, ColorProperties, LayoutProperties } from '../../styled-system/'
+import { ComponentType } from 'react'
+import { StyleProperties } from '../../styled-system/'
 import { Theme } from '../../theme/'
+import { CommonAttributes } from '../../utils/'
 
-export interface TextProps extends
-  SpaceProperties, DimensionProperties, AlignProperties, ColorProperties, LayoutProperties
-{
+export interface TextProps extends StyleProperties, CommonAttributes<HTMLDivElement> {
   /** Размер текста */
   size?: keyof Theme['font']['fontSize']
   /** Размер текста фолбек */
@@ -15,8 +14,6 @@ export interface TextProps extends
   dense?: boolean
   /** Расстояние между буквами */
   letterSpacing?: number
-  /** Текстовое содержание */
-  children?: React.ReactNode
   /** Жирное начертание */
   bold?: boolean
   /** Легкое начертание */

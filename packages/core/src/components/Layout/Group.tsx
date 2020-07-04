@@ -19,7 +19,7 @@ type GroupContext = {
 
 type GroupTargetHook = {
   grow?: boolean
-  role?: 'radio' | 'checkbox'
+  role?: string
   tabIndex?: number
   disabled?: boolean
   'data-group'?: string

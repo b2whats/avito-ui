@@ -29,16 +29,19 @@ export const InputNumber = ({ onChange = () => {}, ...props }: InputNumberProps)
         setStringValue(event.value || '')
         const numericValue = numberOrEmpty(event.value)
         if (!numericEquals(numericValue, outerValue)) {
-          onChange({ ...event, value: numericValue })
+          onChange({ ...event, formattedValue: numericValue })
         }
       }}
       onKeyDown={invokeAll(props.onKeyDown, event => {
         const target = event.target as HTMLInputElement
+        let value = outerValue || 0
         if (event.key === 'ArrowUp') {
-          onChange({ value: (outerValue || 0) + 1, target })
+          value += 1
+          onChange({ formattedValue: value, target, value: String(value) })
           event.preventDefault()
         } else if (event.key === 'ArrowDown') {
-          onChange({ value: (outerValue || 0) - 1, target })
+          value -= 1
+          onChange({ formattedValue: value, target, value: String(value) })
           event.preventDefault()
         }
       })}

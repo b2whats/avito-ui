@@ -1,13 +1,11 @@
 import React from 'react'
-import { MarginProperties, DimensionProperties, AlignProperties } from '../../styled-system/'
-
-type Element = HTMLButtonElement | HTMLLinkElement
+import { StyleProperties } from '../../styled-system/'
+import { CommonAttributes } from '../../utils/'
 
 // export enum trick allows per-platform declaration merging
 export enum ButtonPreset { primary, default }
 
-export interface ButtonProps extends MarginProperties, DimensionProperties, AlignProperties {
-  children?: React.ReactNode
+export interface ButtonProps extends StyleProperties, CommonAttributes<HTMLButtonElement | HTMLLinkElement> {
   /** Размер кнопки */
   size?: 's' | 'm' | 'l'
   /** Имя кнопки */
@@ -36,18 +34,10 @@ export interface ButtonProps extends MarginProperties, DimensionProperties, Alig
   multiline?: boolean
   /** Кнопка занимает всю ширину */
   block?: boolean
-  /** Id елемента */
-  id?: string
   /** Ссылка для перехода */
   href?: string
   /** Пресеты */
   preset?: keyof typeof ButtonPreset
 
   pressedOffset?: number
-
-  onClick?(event: React.MouseEvent<Element>): void
-  onKeyDown?(event: React.KeyboardEvent<Element>): void
-  onFocus?(event: React.FocusEvent<Element>): void
-  onBlur?(event: React.FocusEvent<Element>): void
 }
-

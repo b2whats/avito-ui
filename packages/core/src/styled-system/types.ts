@@ -6,7 +6,7 @@ import { Tokens } from '@avito/tokens'
 
 export interface TextProperties {
   fontFamily?: string
-  fontSize?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | number | string
+  fontSize?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | number | (string & {})
   lineHeight?: 'inherit' | 'none' | 'normal' | 'dense' | number
   letterSpacing?: number
   fontWeight?: 'light' | 'normal' | 'bold'

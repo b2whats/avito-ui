@@ -1,13 +1,13 @@
-import { ChangeEventHandler, useRef, ChangeEvent, useCallback } from 'react'
+import { useRef, ChangeEvent, useCallback } from 'react'
 import { useRifm } from 'rifm'
 import { Formatter } from '../formatters'
-import { ChangeHandler } from '../utils'
+import { ChangeEventHandler } from '../utils/'
 
 export function useSyntheticChange<Value, Element extends (HTMLInputElement | HTMLTextAreaElement)>(
   value: Value | undefined,
-  onChange: ChangeHandler<Value, Element>,
+  onChange: ChangeEventHandler<Value, Element>,
   options?: Formatter
-): [string, ChangeEventHandler<Element>] {
+): [string, (event: ChangeEvent<Element>) => void] {
   const stringValue = value === null || value === undefined ? '' : String(value)
   if (!options) {
     return [
