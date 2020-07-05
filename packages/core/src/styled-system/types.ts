@@ -148,6 +148,7 @@ interface OtherProperties extends BorderProperties {
   shadow?: string | boolean,
   pointerEvents?: boolean,
   cursor?: CSSProperties['cursor']
+  marker?: string
 }
 
 export type Colors = keyof Tokens['palette'] | 'transparent' | 'inherit' | (string & {})

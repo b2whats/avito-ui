@@ -14,6 +14,7 @@ type GroupContext = {
   mode?: 'radio' | 'checkbox',
   elements: React.MutableRefObject<any[]>,
   orientation: 'horizontal' | 'vertical'
+  marker?: string
 }
 
 type GroupTargetHook = {
@@ -90,6 +91,7 @@ export function useGroupHook<T extends GroupTargetHook>(
       tabIndex: (checked && !targetProps.disabled) || isFirstChecked || groupContext.mode !== 'radio' ? 0 : -1,
       onClick: groupContext.onClick,
       onKeyDown: groupContext.onKeyDown,
+      marker: groupContext.marker,
       ...targetProps,
     }
   }
@@ -98,7 +100,7 @@ export function useGroupHook<T extends GroupTargetHook>(
 }
 
 
-export const Group = ({ children, block, mode, value, name, disabled, onChange, ...props }: GroupProps) => {
+export const Group = ({ children, block, mode, value, name, disabled, marker, onChange, ...props }: GroupProps) => {
   const elements = useRef<(HTMLInputElement | HTMLButtonElement)[]>([])
 
   if (!onChange && useTheme()._demo && mode === 'radio') {
@@ -186,6 +188,7 @@ export const Group = ({ children, block, mode, value, name, disabled, onChange, 
     disabled,
     elements,
     orientation,
+    marker,
   }
 
   const aria = {

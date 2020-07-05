@@ -29,7 +29,7 @@ const getModifiers = ({ minWidth, width, maxWidth, zIndex, ...props}: Partial<Po
   return modifiers
 }
 
-export const Positioner = uiComponent('Positioner', positionerTheme)((props: PositionerProps, { theme }) => {
+export const Positioner = uiComponent('Positioner', positionerTheme)((props: PositionerProps, { theme }, _, testId) => {
   const [localOpen, setLocalOpen] = useState(Boolean(props.open))
   const targetRef = useRef<HTMLDivElement | null>(null)
   const referenceRef = useRef<HTMLElement | null>(null)
@@ -150,11 +150,12 @@ export const Positioner = uiComponent('Positioner', positionerTheme)((props: Pos
         {cloneElement(reference, {
           ...aria,
           ...eventHandlers,
+          ...testId('reference'),
         })}
       </NodeResolver>
       <Portal active={Boolean(props.usePortal)}>
         <Transition items={localOpen} {...animation}>
-          {(style, item) => item && <animated.div ref={targetRef} style={style}>{target}</animated.div>}
+          {(style, item) => item && <animated.div ref={targetRef} style={style} {...testId('target')}>{target}</animated.div>}
         </Transition>
       </Portal>
     </React.Fragment>
