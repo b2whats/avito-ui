@@ -27,7 +27,7 @@ export const Select = uiComponent('Select', selectTheme)(({
   placeholder,
   value,
   ...props
-}: SelectProps, { theme }, _, testId) => {
+}: SelectProps, { theme, testId }) => {
   const renderCore: InputProps['renderCore'] = props => {
     const selectedOption = options.find(option => getValue(option) == props.value)
     const textState = selectedOption ? {} : { 'data-placeholder': true }

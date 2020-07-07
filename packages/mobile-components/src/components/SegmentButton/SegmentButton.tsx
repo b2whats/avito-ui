@@ -66,9 +66,7 @@ type Geometry = {
 
 export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
   { options, name, onChange, ...props }: SegmentButtonProps,
-  { theme, tokens },
-  _,
-  testId
+  { theme, tokens, testId }
 ) => {
   props.value = !props.value && options && options.length > 0 ? options[0].value : props.value
   const windowSize = useWindowSize()
