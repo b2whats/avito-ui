@@ -26,9 +26,8 @@ const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
 
 export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HTMLTextAreaElement>((
   props,
-  { theme, tokens },
-  [textareaRef, setTextareaRef],
-  testId
+  { theme, tokens, testId },
+  [textareaRef, setTextareaRef]
 ) => {
   const [focus, focusProps] = useFocus(props)
   const [value, onChange] = useSyntheticChange(...useUncontrolledInputHook(props))

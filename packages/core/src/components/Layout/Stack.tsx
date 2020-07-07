@@ -1,7 +1,7 @@
 import React from 'react'
 import { createClassName } from '../../styled-system/'
 import { useTheme } from '../../theme/'
-import { filterProps } from '../../utils/'
+import { filterProps, withMarker } from '../../utils/'
 import { StackProps } from './contract'
 
 const stackClassName = createClassName<StackProps>(
@@ -39,10 +39,11 @@ const stackClassName = createClassName<StackProps>(
 export const Stack = React.forwardRef(({ as, children, ...props }: StackProps, ref: React.Ref<HTMLElement>) => {
   const theme = useTheme()
   const stackStyle = stackClassName(props, theme)
+  const testId = withMarker(props.marker)
   const Tag = as || 'div'
 
   return (
-    <Tag ref={ref} css={stackStyle} {...filterProps(props)}>
+    <Tag ref={ref} css={stackStyle} {...filterProps(props)} {...testId()}>
       { children }
     </Tag>
   )

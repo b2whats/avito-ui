@@ -42,9 +42,8 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
 
 export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
   { mask, ...props },
-  { theme, tokens },
-  [inputRef, setRef],
-  testId
+  { theme, tokens, testId },
+  [inputRef, setRef]
 ) => {
   const renderCore = props.renderCore || (p => <InputCore {...p} />)
   const [focus, focusProps] = useFocus(props)

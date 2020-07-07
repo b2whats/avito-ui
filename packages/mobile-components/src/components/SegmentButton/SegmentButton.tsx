@@ -148,7 +148,7 @@ export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
             aria-checked={checked}
             disabled={props.disabled || item.disabled}
             tabIndex={checked ? 0 : -1}
-            {...testId(`button(${item.value})`)}
+            {...testId('button', item.value)}
           >
             {item.text}
           </button>

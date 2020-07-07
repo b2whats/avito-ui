@@ -62,7 +62,7 @@ const shadowMask = (
   </filter>
 )
 
-export const Icon = uiComponent('Icon', iconTheme)<BaseIconProps, SVGSVGElement>((props, { theme, tokens }, _, testId) => {
+export const Icon = uiComponent('Icon', iconTheme)<BaseIconProps, SVGSVGElement>((props, { theme, tokens, testId }) => {
   const aria = {
     role: props.role || (props.onClick ? 'button' : 'img'),
     tabIndex: props.onClick ? 0 : undefined,

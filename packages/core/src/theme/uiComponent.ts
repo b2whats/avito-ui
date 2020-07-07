@@ -18,9 +18,8 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
   return <Props, RefType = HTMLElement>(
     render: (
       props: Props & { marker?: string },
-      theme: { theme: ThemeType, tokens: Tokens },
+      internal: { theme: ThemeType, tokens: Tokens, testId: ReturnType<typeof withMarker> },
       ref: RefContainer<RefType>,
-      testId: ReturnType<typeof withMarker>
     ) => JSX.Element | null
   ) => {
     type ExternalProps = Props & UiComponentProps<ThemeType, RefType>
@@ -40,7 +39,7 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
       const testId = withMarker(props.marker)
       profiler.end('uiComponent')
 
-      return render(mappedProps, { theme: componentTheme, tokens: globalTheme }, refArg, testId)
+      return render(mappedProps, { theme: componentTheme, tokens: globalTheme, testId }, refArg)
     }))
     WrappedComponent.displayName = name
     type Component = <T extends object>(props: ExternalProps & (T extends unknown ? {} : T)) => JSX.Element

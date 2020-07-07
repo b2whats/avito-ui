@@ -29,7 +29,7 @@ const getModifiers = ({ minWidth, width, maxWidth, zIndex, ...props}: Partial<Po
   return modifiers
 }
 
-export const Positioner = uiComponent('Positioner', positionerTheme)((props: PositionerProps, { theme }, _, testId) => {
+export const Positioner = uiComponent('Positioner', positionerTheme)((props: PositionerProps, { theme, testId }) => {
   const [localOpen, setLocalOpen] = useState(Boolean(props.open))
   const targetRef = useRef<HTMLDivElement | null>(null)
   const referenceRef = useRef<HTMLElement | null>(null)

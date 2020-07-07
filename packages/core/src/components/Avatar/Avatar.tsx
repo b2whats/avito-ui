@@ -34,7 +34,7 @@ const imageClassName = css`
 export const Avatar = uiComponent('Avatar', avatarTheme)<
   AvatarProps,
   HTMLImageElement
->((props, { theme, tokens }, [_, setRef], testId) => {
+>((props, { theme, tokens, testId }, [_, setRef]) => {
   const [isFallback, setFallback] = useState(props.src == null)
   const onError = () => setFallback(true)
   useEffect(() => setFallback(props.src == null), [props.src])
