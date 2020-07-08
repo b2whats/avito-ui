@@ -53,6 +53,7 @@ const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
     ${shadow ? '& > * { filter: url(#shadow) }' : ''}
 
     ${textRules}
+    box-sizing: content-box;
   `
 )
 

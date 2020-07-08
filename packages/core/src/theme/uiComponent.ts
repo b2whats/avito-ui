@@ -18,12 +18,19 @@ type Options = {
   memo?: boolean
 }
 
+type InternalProps<ThemeType, Tokens> = {
+  theme: ThemeType,
+  tokens: Tokens,
+  testId: ReturnType<typeof withMarker>[0],
+  marker: ReturnType<typeof withMarker>[1],
+}
+
 export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType, options: Options = {}) {
   options = { memo: true, ...options }
   return <Props, RefType = HTMLElement>(
     render: (
       props: Props & { marker?: string },
-      internal: { theme: ThemeType, tokens: Tokens, testId: ReturnType<typeof withMarker> },
+      internal: InternalProps<ThemeType, Tokens>,
       ref: RefContainer<RefType>,
     ) => JSX.Element | null
   ) => {
@@ -41,10 +48,10 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
         ...props,
       }) as Props
       const refArg = useRefHook(ref)
-      const testId = withMarker(props.marker)
+      const [testId, marker] = withMarker(props.marker)
       profiler.end('uiComponent')
 
-      return render(mappedProps, { theme: componentTheme, tokens: globalTheme, testId }, refArg)
+      return render(mappedProps, { theme: componentTheme, tokens: globalTheme, testId, marker }, refArg)
     }))
     WrappedComponent.displayName = name
     type Component = <T extends object>(props: ExternalProps & (T extends unknown ? {} : T)) => JSX.Element

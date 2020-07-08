@@ -1,7 +1,7 @@
 import React from 'react'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { filterProps } from '../../utils/'
+import { filterProps, markerId } from '../../utils/'
 import { Positioner, PositionerProps } from '../Positioner/'
 import { TooltipProps } from './contract'
 import { tooltipTheme } from './theme'
@@ -56,7 +56,7 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme>(
   `
 )
 
-export const Tooltip = uiComponent('Tooltip', tooltipTheme)(({ content, ...props }: TooltipProps, { theme, tokens }) => {
+export const Tooltip = uiComponent('Tooltip', tooltipTheme)<TooltipProps>(({ content, ...props }, { theme, tokens, marker }) => {
   if (!content) return props.children
 
   const { Tooltip, Arrow, Close } = foldThemeParams(props, theme)
@@ -66,7 +66,7 @@ export const Tooltip = uiComponent('Tooltip', tooltipTheme)(({ content, ...props
   const target: PositionerProps['target'] = ({ close }) => (
     <div css={tooltipStyle} {...filterProps(props)}>
       {props.arrow && <div css={arrowStyle} data-popper-arrow />}
-      {props.closable && Close.component && <Close.component {...Close.props} onClick={close} />}
+      {props.closable && Close.component && <Close.component {...Close.props} onClick={close} marker={marker('close')} />}
       {content}
     </div>
   )

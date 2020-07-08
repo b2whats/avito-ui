@@ -15,7 +15,7 @@ const boxClassName = createClassName<BoxProps>(
 export const Box = ({ children, ...props }: BoxProps) => {
   const theme = useTheme()
   const boxStyle = boxClassName(props, theme)
-  const testId = withMarker(props.marker)
+  const [testId] = withMarker(props.marker)
 
   return (
     <div css={boxStyle} {...filterProps(props)} {...testId()}>
