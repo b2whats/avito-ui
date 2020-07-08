@@ -3,7 +3,7 @@ import { useRefHook, useMeasure, foldThemeParams, uiComponent, Stack, Box, Text,
 import { ListItemProps } from './contract'
 import { listItemTheme } from './theme'
 
-export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...props }: ListItemProps, { theme }) => {
+export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...props }: ListItemProps, { theme, testId }) => {
   // Необходимо прервать 3DTouch что бы он не прерывал событие клика
   // TODO: Протестировать на телефоне с HapticTouch
   //const setTouchRef = usePrevent3DTouch()
@@ -42,7 +42,7 @@ export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...p
   }
 
   return (
-    <Stack ref={setRef} {...ListItem.props} {...props} {...events}>
+    <Stack ref={setRef} {...ListItem.props} {...props} {...events} {...testId()}>
       {before}
       <Stack column grow {...StackText.props}>
         {renderSlot(Text, props.label, Label.props)}

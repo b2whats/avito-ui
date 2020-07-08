@@ -661,7 +661,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       }
       default:
         // Exhaustive switch guard
-        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate' | 'scroll'>(param)
+        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate' | 'scroll' | 'marker'>(param)
     }
   }
 

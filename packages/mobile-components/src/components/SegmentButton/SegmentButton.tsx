@@ -66,7 +66,7 @@ type Geometry = {
 
 export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
   { options, name, onChange, ...props }: SegmentButtonProps,
-  { theme, tokens }
+  { theme, tokens, testId }
 ) => {
   props.value = !props.value && options && options.length > 0 ? options[0].value : props.value
   const windowSize = useWindowSize()
@@ -129,7 +129,7 @@ export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
   }, [])
 
   return (
-    <div ref={setRef} css={groupStyle} role='radiogroup' {...filterProps(props)}>
+    <div ref={setRef} css={groupStyle} role='radiogroup' {...filterProps(props)} {...testId()}>
       {geometry[props.value!] && <div css={slideStyle} style={geometry[props.value!]} />}
       {options && options.map(item => {
         const checked = item.value === props.value
@@ -146,6 +146,7 @@ export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
             aria-checked={checked}
             disabled={props.disabled || item.disabled}
             tabIndex={checked ? 0 : -1}
+            {...testId('button', item.value)}
           >
             {item.text}
           </button>

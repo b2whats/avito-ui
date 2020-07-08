@@ -1,7 +1,7 @@
 import React, { isValidElement, ReactNode } from 'react'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { filterProps } from '../../utils/'
+import { filterProps, withMarker } from '../../utils/'
 import { IconProps } from '../Icon/'
 import { useGroupHook } from '../Layout/Group'
 import { Spinner as SpinnerComponent } from '../Spinner/'
@@ -100,6 +100,7 @@ export const Button = uiComponent('Button', buttonTheme)<
 >((props, { theme, tokens }, [ref, setRef]) => {
   props.type = props.href ? undefined : props.type
   const groupProps = useGroupHook(ref, props)
+  const testId = withMarker(groupProps.marker)
 
   const aria = {
     'aria-checked': groupProps.checked,
@@ -124,7 +125,7 @@ export const Button = uiComponent('Button', buttonTheme)<
   )
 
   return (
-    <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(groupProps)} >
+    <Tag css={buttonStyle} ref={setRef} {...aria} {...filterProps(groupProps)} {...testId(props.value)}>
       {props.loading &&
         <SpinnerComponent {...Spinner.props} />}
       {props.iconBefore &&

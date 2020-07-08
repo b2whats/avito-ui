@@ -27,7 +27,7 @@ export const Select = uiComponent('Select', selectTheme)(({
   placeholder,
   value,
   ...props
-}: SelectProps,{ theme }) => {
+}: SelectProps, { theme, testId }) => {
   const renderCore: InputProps['renderCore'] = props => {
     const selectedOption = options.find(option => getValue(option) == props.value)
     const textState = selectedOption ? {} : { 'data-placeholder': true }
@@ -43,7 +43,7 @@ export const Select = uiComponent('Select', selectTheme)(({
           {(!props.value || clearable) && <option value=''>{placeholderOption}</option>}
           {options.map(option => {
             const value = getValue(option)
-            return <option key={value} value={value}>{getText(option)}</option>
+            return <option key={value} value={value} {...testId('option', value)}>{getText(option)}</option>
           })}
         </select>
       )}
@@ -57,6 +57,7 @@ export const Select = uiComponent('Select', selectTheme)(({
       value={value}
       override={theme as InputTheme}
       renderCore={renderCore}
+      {...testId()}
     />
   )
 })

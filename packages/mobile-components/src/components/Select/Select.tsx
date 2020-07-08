@@ -45,7 +45,8 @@ export class Select extends PureComponent {
               displayProperty={displayProperty}
               selectedKey={selectedKey}
               onCancel={this.handlePopupCancel}
-              onConfirm={this.handlePopupConfirm} />
+              onConfirm={this.handlePopupConfirm}
+              marker={props.marker} />
         }
       </>
     )

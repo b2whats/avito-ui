@@ -2,10 +2,7 @@ import { ReactText } from 'react'
 import { StyleProperties, SpaceProperties, DimensionProperties, ColorProperties, BorderProperties, LayoutProperties, TextProperties } from '../../styled-system/'
 import { Theme } from '../../theme/'
 
-type LayoutProps = SpaceProperties & ColorProperties & DimensionProperties & BorderProperties
-  & LayoutProperties & TextProperties
-
-export interface GridProps extends LayoutProps {
+export interface GridProps extends StyleProperties {
   /** Горизонтальный отступ между дочерними блоками */
   spacing: keyof Theme['space'] | number
   /** Верикальный отступ между дочерними блоками */
@@ -16,7 +13,7 @@ export interface GridProps extends LayoutProps {
   debug?: boolean
 }
 
-export interface PageProps extends LayoutProps {
+export interface PageProps extends StyleProperties {
   /** Содержание */
   children?: React.ReactNode
 }
@@ -26,7 +23,7 @@ export interface BoxProps extends StyleProperties {
   children?: React.ReactNode
 }
 
-export interface StackProps extends LayoutProps {
+export interface StackProps extends StyleProperties {
   /** Содержание */
   children?: React.ReactNode
   /** Отступ между дочерними блоками по главной оси */
@@ -47,7 +44,7 @@ type onChangeProps = {
   value?: ReactText | ReactText[] | null
 }
 
-export interface GroupProps extends LayoutProps {
+export interface GroupProps extends StyleProperties {
   /** Содержание */
   children?: React.ReactNode
   /** Горизонтальный отступ между дочерними блоками */

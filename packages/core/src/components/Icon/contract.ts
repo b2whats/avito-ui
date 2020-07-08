@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react'
 import { SpaceProperties, ColorProperties, AlignProperties, DimensionProperties, BorderProperties, LayoutProperties, VisibilityProperties } from '../../styled-system/'
 
-type MouseHandler = (event: React.MouseEvent<SVGSVGElement | HTMLButtonElement>) => void
+type MouseHandler = (event: React.MouseEvent<SVGSVGElement>) => void
 type StyleProps = AlignProperties & SpaceProperties & ColorProperties & DimensionProperties
   & BorderProperties & LayoutProperties & VisibilityProperties
 

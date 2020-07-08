@@ -42,7 +42,7 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
 
 export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
   { mask, ...props },
-  { theme, tokens },
+  { theme, tokens, testId },
   [inputRef, setRef]
 ) => {
   const renderCore = props.renderCore || (p => <InputCore {...p} />)
@@ -91,15 +91,15 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
 
   const iconAfter = renderIconSlot(
     IconAfter.component ? <IconAfter.component /> : props.iconAfter,
-    clearable ? { ...IconAfter.props, onClick: handleClear } : IconAfter.props
+    clearable ? { ...IconAfter.props, onClick: handleClear, ...testId('clear') } : { ...IconAfter.props, ...testId('iconAfter') }
   )
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur}>
-      {props.iconBefore && renderIconSlot(props.iconBefore, IconBefore.props)}
+    <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur} {...testId()}>
+      {props.iconBefore && renderIconSlot(props.iconBefore, { ...IconBefore.props, ...testId('iconBefore')})}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
         {renderCore({
@@ -108,11 +108,11 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
           onChange,
           autoSize: Boolean(props.postfix),
           ref: setRef,
+          ...testId('input'),
         })}
         {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
       </div>
       {iconAfter}
-
     </label>
   )
 })
