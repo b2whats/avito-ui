@@ -6,7 +6,7 @@ import { ChangeHandler } from '../../utils'
 export enum InputPreset {}
 
 export interface InputCoreProps extends PaddingProperties, Pick<InputHTMLAttributes<HTMLInputElement>, 'inputMode'> {
-  ref: Ref<HTMLInputElement>
+  ref?: Ref<HTMLInputElement>
   /** Автоматическая ширина поля */
   autoSize?: boolean
   /** Id */
@@ -49,7 +49,7 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   /** Состояние загрузки */
   loading?: boolean
   /** Внешний вид компонента */
-  kind: 'fill' | 'outline'
+  kind?: 'fill' | 'outline'
   /** Цветовые варианты */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Тип текстового поля */

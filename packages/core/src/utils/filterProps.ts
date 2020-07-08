@@ -8,7 +8,10 @@ const isPropValid = (prop: any) => {
   && prop.charCodeAt(2) < 91
 }
 
-export const filterProps = (props: any) => {
+export const filterProps = (props: any, Tag?: any) => {
+  // Non-DOM tags get all props
+  if (Tag && typeof Tag !== 'string') return props
+
   let ret: any = {}
 
   for (let prop in props) {

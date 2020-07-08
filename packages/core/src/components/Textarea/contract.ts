@@ -39,11 +39,11 @@ export interface TextareaCoreProps {
 export interface TextareaProps extends Omit<TextareaCoreProps, 'className' | 'onChange'>, AlignProperties, MarginProperties {
   /** Размер */
   size?: 's' | 'm' | 'l'
-  onChange: ChangeHandler<string | null, HTMLTextAreaElement>
+  onChange?: ChangeHandler<string | null, HTMLTextAreaElement>
   /** Крестик очистки */
   clearable?: boolean | 'always'
   /** Цветовые варианты */
-  variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Инлайновое поведение */
   inline?: boolean
 }
