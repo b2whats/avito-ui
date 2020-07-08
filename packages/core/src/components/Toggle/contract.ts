@@ -32,7 +32,7 @@ export interface ToggleProps extends MarginProperties, DimensionProperties, Alig
   /** Неопределенное состояние елемента */
   indeterminate?: boolean,
   /** Квадратная, круглая и с закругленными углами */
-  shape: 'square' | 'circle' | 'pill',
+  shape?: 'square' | 'circle' | 'pill',
   /** Текст лейбла */
   label?: string,
   /** Текст подсказки */

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { filterProps, useRefHook, uiComponent, useWindowSize, foldThemeParams, createClassName } from '@avito/core'
+import { filterProps, useRefHook, uiComponent, useWindowSize, foldThemeParams, createClassName, useIsomorphicLayoutEffect } from '@avito/core'
 import { SegmentButtonProps } from './contract'
 import { segmentButtonTheme } from './theme'
 
@@ -130,7 +130,7 @@ export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
 
   return (
     <div ref={setRef} css={groupStyle} role='radiogroup' {...filterProps(props)}>
-      <div css={slideStyle} style={geometry[props.value!]} />
+      {geometry[props.value!] && <div css={slideStyle} style={geometry[props.value!]} />}
       {options && options.map(item => {
         const checked = item.value === props.value
 

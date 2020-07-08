@@ -60,8 +60,7 @@ module.exports = {
     'import/first': ['error'],
     'import/no-duplicates': ['error'],
     'no-restricted-imports': ['error', {
-      // TODO: restore once icon imports are fixed
-      // 'patterns': ['*/src'],
+      'patterns': ['*/src'],
     }],
     'import/order': ['error', {
       groups: ['external', 'internal', 'parent', 'index', 'sibling'],
@@ -71,7 +70,7 @@ module.exports = {
       },
     }],
     'import/no-default-export': ['error'],
-    'jsx-a11y/no-noninteractive-element-interactions': ['warn'],
+    'jsx-a11y/no-noninteractive-element-interactions': ['off'],
     'jsx-a11y/label-has-associated-control': ['error'],
     // it's deprecated
     'jsx-a11y/label-has-for': ['off'],

@@ -1,3 +1,4 @@
+export {}
 // static propTypes = {
 //   className: PropTypes.string,
 //   title: PropTypes.string,

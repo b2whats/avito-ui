@@ -5,7 +5,7 @@
 ```jsx
 import { Stack } from '../Layout/';
 import { Text } from '../Text/';
-const sureVisited = location.href;
+const sureVisited = 'https://example.com/';
 
 <Stack spacing={12} wrap>
   <Stack column spacing={10}>

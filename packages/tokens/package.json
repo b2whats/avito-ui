@@ -1,8 +1,14 @@
 {
   "name": "@avito/tokens",
-  "version": "0.0.17",
+  "version": "0.0.19",
+  "repository": {
+    "type": "git",
+    "url": "http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components",
+    "directory": "packages/tokens"
+  },
   "private": false,
   "description": "tokens",
+  "sideEffects": false,
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [

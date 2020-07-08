@@ -1,5 +1,5 @@
 ```jsx
-import { CopyIcon } from '@avito/icons'
+import { CopyIcon } from '../Icon'
 import { Stack, Text, Checkbox, Switcher } from '../../'
 const [state, setState] = useState({})
 

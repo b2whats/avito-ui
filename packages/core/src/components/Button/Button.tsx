@@ -65,11 +65,17 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
       align-items: center;
     }
 
+    a&:after { /* IE11 */
+      content: '';
+      min-height: inherit;
+      font-size: 0;
+    }
+
     & > [data-icon='spinner'] {
       position: absolute;
       margin: auto;
-      left: 0;
       right: 0;
+      left: 0;
       top: 0;
       bottom: 0;
     }

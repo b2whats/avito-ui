@@ -12,9 +12,9 @@ export const NodeResolver = forwardRef<Element, { children: React.ReactElement }
 
   const setRef = (node: HTMLElement | null) => {
     if (nodes.current) {
-      if (nodes.current.anchor.nextElementSibling === nodes.current.nextElement) return
+      if (nodes.current.anchor.nextSibling === nodes.current.nextElement) return
 
-      nodes.current.nextElement = nodes.current.anchor.nextElementSibling
+      nodes.current.nextElement = nodes.current.anchor.nextSibling as Element
     } else if (node) {
       const { tmp, parent, anchor } = nodes.current = {
         tmp: node,
@@ -26,7 +26,7 @@ export const NodeResolver = forwardRef<Element, { children: React.ReactElement }
       if (parent && parent.contains(tmp)) {
         parent.replaceChild(anchor, tmp)
 
-        nodes.current.nextElement = anchor.nextElementSibling
+        nodes.current.nextElement = anchor.nextSibling as Element
       }
     }
 

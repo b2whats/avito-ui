@@ -35,12 +35,14 @@ export interface PositionerProps {
   usePortal?: boolean
   /* Стратегия появления target элемента */
   trigger?: 'click' | 'hover'
-  /* Показать или спрятать target  */
+  /* Показать или спрятать target */
   open?: boolean
   /* Спрятать target при нажатии Escape */
   closeOnEsc?: boolean
   /* Спрятать target при клике вне target и reference */
   closeOnOutsideClick?: boolean
+  /* Спрятать target при клике в любом месте */
+  closeOnClick?: boolean
   /* Спрятать target при скроле */
   closeOnScroll?: boolean
   /* Задержка при открытии ms */
@@ -49,6 +51,8 @@ export interface PositionerProps {
   delayOut?: number
   /* Анимация */
   animation?: 'fade' | TransitionProps
+  /* Позиция в стеке */
+  zIndex?: number
 
   /* Событие появления target */
   onOpen?: () => void

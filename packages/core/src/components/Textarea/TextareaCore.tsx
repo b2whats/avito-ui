@@ -1,5 +1,5 @@
-import React, { useEffect, useLayoutEffect } from 'react'
-import { useRefHook } from '../../hooks/'
+import React from 'react'
+import { useRefHook, useIsomorphicLayoutEffect } from '../../hooks/'
 import { css } from '../../styled-system/'
 import { filterProps, invokeAll } from '../../utils/'
 import { TextareaCoreProps } from './contract'
@@ -7,7 +7,7 @@ import { TextareaCoreProps } from './contract'
 const textareaStyle = css`
   resize: none;
   box-sizing: border-box;
-  overflow: auto;
+  overflow-y: hidden;
   width: 100%;
   min-height: 1em;
   height: 100%;
@@ -30,7 +30,7 @@ const textareaStyle = css`
 `
 
 export const TextareaCore = React.memo(React.forwardRef((
-  { maxRows, autoSize, resizable, ...props }: TextareaCoreProps,
+  { rows = 2, maxRows, autoSize, resizable, ...props }: TextareaCoreProps,
   ref: React.Ref<HTMLTextAreaElement>
 ) => {
   const [textarea, setRef] = useRefHook(ref)
@@ -51,40 +51,37 @@ export const TextareaCore = React.memo(React.forwardRef((
     // То есть при первоначальном вводе текста текстовое поле сожмется до минимальной ширины
     const { placeholder, value } = node
 
-    if (value) {
-      node.style.height = 'auto'
-      node.style.height = `${node.scrollHeight}px`
-    } else {
-      node.placeholder = ''
-      node.style.height = 'auto'
-      node.style.height = `${node.scrollHeight}px`
-      node.placeholder = placeholder
-    }
+    node.placeholder = ''
+    node.style.height = 'auto'
+    node.style.height = node.scrollHeight + 'px'
+    node.placeholder = placeholder
+    node.style.overflowY = node.scrollHeight >= parseInt(node.style.maxHeight) ? 'auto' : 'hidden'
   }
 
   const preventClick = invokeAll((event) => {
     if (event.detail === 0) event.stopPropagation()
   }, props.onClick)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const node = textarea.current
     if (!node) return
 
     node.style.resize = resizable ? 'auto' : 'none'
+    const { lineHeight } = window.getComputedStyle(node)
+
+    node.style.minHeight = rows * parseInt(lineHeight) + 'px'
 
     if (maxRows) {
-      const { lineHeight, paddingTop, paddingBottom, borderTopWidth, borderBottomWidth } = window.getComputedStyle(node)
-
-      node.style.maxHeight = `calc(${maxRows} * ${lineHeight} + ${paddingTop} + ${paddingBottom} + ${borderTopWidth} + ${borderBottomWidth})`
+      node.style.maxHeight = maxRows * parseInt(lineHeight) + 'px'
     }
-  }, [maxRows, resizable])
+  }, [rows, maxRows, resizable])
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     autoSize && resize()
   }, [autoSize, props.value])
 
   return (
-    <textarea css={textareaStyle} {...filterProps(props)} onClick={preventClick} />
+    <textarea css={textareaStyle} {...filterProps(props)} rows={rows} onClick={preventClick} />
   )
 }))
 

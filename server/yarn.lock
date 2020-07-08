@@ -7,35 +7,52 @@
   resolved "http://npm.msk.avito.ru/@alloc%2ftypes/-/types-1.2.6.tgz#316665569ac0af7cab481f3916ac178f38dd1c66"
   integrity sha512-uCxcUiMUVjLmUa/SCbtY4ghiqHllYNSOEXJqVmIlJdWi0201VSzjnomYlVJ6VneO/C4h96DG7s0nibhVKtQB6w==
 
-"@avito/core@^0.0.12":
-  version "0.0.12"
-  resolved "http://npm.msk.avito.ru/@avito%2fcore/-/core-0.0.12.tgz#d48e980557205f0d3abb1b0fb06d9fe795171538"
-  integrity sha512-q5QY1lzp8ZBURUOcbl33gpAT7e4JipZrCpvOaI2Oo4wuR7xHOw4lSoBcy2i49Lgj+8bD3/GlpMmYl3iMPRBpsA==
+"@avito/core@^0.0.22":
+  version "0.0.22"
+  resolved "http://npm.msk.avito.ru/@avito%2fcore/-/core-0.0.22.tgz#f3e0c9eaeb0ab1307fd945211937ee674ca4d921"
+  integrity sha512-nahUW7zPoNTnegid2M/CGzAWV+OTGk/D0rl2ZW1O0eZ5KjuGf5UxPyGCDI4/9hJybjAMm+B3zvmOl8N2dibYQA==
   dependencies:
-    "@avito/tokens" "^0.0.12"
+    "@avito/tokens" "^0.0.19"
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
-    "@popperjs/core" "^2.4.0"
+    "@popperjs/core" "^2.4.2"
     deepmerge "^4.2.2"
     emotion "^10.0.27"
     emotion-theming "^10.0.27"
     react-spring "^9.0.0-rc.3"
+    rifm "^0.12.0"
     scroll-into-view-if-needed "^2.2.20"
 
-"@avito/mobile-components@^0.0.15":
-  version "0.0.15"
-  resolved "http://npm.msk.avito.ru/@avito%2fmobile-components/-/mobile-components-0.0.15.tgz#bc11bc1eb129c25499c320d4a9c06197772d0908"
-  integrity sha512-Ld+0vsIeLyouvszbeaA1qWKEw6hr0YkYA7S4m4UbTwQ5OihCyZOTEAD0IwZ5P4dlR8kTfQQgOLLgUsZ198Uc4Q==
+"@avito/mobile-components@^0.0.25":
+  version "0.0.25"
+  resolved "http://npm.msk.avito.ru/@avito%2fmobile-components/-/mobile-components-0.0.25.tgz#87aacb854bb1fe53d7de0076365c0c8da1439eb1"
+  integrity sha512-XEkpVKQjftL0oZWxE5CAXfdniMUc7oXHkWPJ6h9MRaD4PE+R/zpHdeSvXujpEQVGRMDHREiworsxzGOC9LzfHA==
   dependencies:
-    "@avito/core" "^0.0.12"
-    "@avito/tokens" "^0.0.12"
+    "@avito/core" "^0.0.22"
+    "@avito/tokens" "^0.0.19"
 
-"@avito/tokens@^0.0.12":
-  version "0.0.12"
-  resolved "http://npm.msk.avito.ru/@avito%2ftokens/-/tokens-0.0.12.tgz#18ee66d6ea2dc46dd5b7668e90a903ab59a718b1"
-  integrity sha512-f9hGvBNFnAQe5z7HdKL1r57cS9D0L+Zeck6zTBLi8+pgPGYcNR2RjkfDMkYgoE4j7ckFLUHnSvW4bSB47BgixA==
+"@avito/tokens@^0.0.19":
+  version "0.0.19"
+  resolved "http://npm.msk.avito.ru/@avito%2ftokens/-/tokens-0.0.19.tgz#0cc2549cee3c94af2ebc65f741474f97a80c3dc0"
+  integrity sha512-dLmmvjwZosRiEoKysfPU76R3FpRDRSRrBpErXNzric6tKehtKhwnFyAaUBRu2HkhzwIMCbYHhrjYLhfd8B7VtA==
   dependencies:
     deepmerge "^4.0.0"
+
+"@babel/cli@^7.10.3":
+  version "7.10.3"
+  resolved "http://npm.msk.avito.ru/@babel%2fcli/-/cli-7.10.3.tgz#4ea83bd997d2a41c78d07263ada3ec466fb3764b"
+  integrity sha512-lWB3yH5/fWY8pi2Kj5/fA+17guJ9feSBw5DNjTju3/nRi9sXnl1JPh7aKQOSvdNbiDbkzzoGYtsr46M8dGmXDQ==
+  dependencies:
+    commander "^4.0.1"
+    convert-source-map "^1.1.0"
+    fs-readdir-recursive "^1.1.0"
+    glob "^7.0.0"
+    lodash "^4.17.13"
+    make-dir "^2.1.0"
+    slash "^2.0.0"
+    source-map "^0.5.0"
+  optionalDependencies:
+    chokidar "^2.1.8"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.1":
   version "7.10.1"
@@ -346,7 +363,7 @@
   resolved "http://npm.msk.avito.ru/@emotion%2fweak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@popperjs/core@^2.4.0":
+"@popperjs/core@^2.4.2":
   version "2.4.2"
   resolved "http://npm.msk.avito.ru/@popperjs%2fcore/-/core-2.4.2.tgz#7c6dc4ecef16149fd7a736710baa1b811017fdca"
   integrity sha512-JlGTGRYHC2QK+DDbePyXdBdooxFq2+noLfWpRqJtkxcb/oYWzOF0kcbfvvbWrwevCC1l6hLUg1wHYT+ona5BWQ==
@@ -1091,7 +1108,7 @@ constants-browserify@^1.0.0:
   resolved "http://npm.msk.avito.ru/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
   integrity sha1-wguW2MYXdIqvHBYCF2DNJ/y4y3U=
 
-convert-source-map@^1.5.0, convert-source-map@^1.7.0:
+convert-source-map@^1.1.0, convert-source-map@^1.5.0, convert-source-map@^1.7.0:
   version "1.7.0"
   resolved "http://npm.msk.avito.ru/convert-source-map/-/convert-source-map-1.7.0.tgz#17a2cb882d7f77d3490585e2ce6c524424a3a442"
   integrity sha512-4FJkXzKXEDB1snCFZlLP4gpC3JILicCpGbzG9f9G7tGqGCzETQ2hWPrcinA9oU4wtf2biUaEH5065UnMeR33oA==
@@ -1567,6 +1584,11 @@ from2@^2.1.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
 
+fs-readdir-recursive@^1.1.0:
+  version "1.1.0"
+  resolved "http://npm.msk.avito.ru/fs-readdir-recursive/-/fs-readdir-recursive-1.1.0.tgz#e32fc030a2ccee44a6b5371308da54be0b397d27"
+  integrity sha512-GNanXlVr2pf02+sPN40XN8HG+ePaNcvM0q5mZBd668Obwb0yD5GiUbZOFgwn8kGMY6I3mdyDJzieUy3PTYyTRA==
+
 fs-write-stream-atomic@^1.0.8:
   version "1.0.10"
   resolved "http://npm.msk.avito.ru/fs-write-stream-atomic/-/fs-write-stream-atomic-1.0.10.tgz#b47df53493ef911df75731e70a9ded0189db40c9"
@@ -1625,7 +1647,7 @@ glob-parent@~5.1.0:
   dependencies:
     is-glob "^4.0.1"
 
-glob@^7.1.3, glob@^7.1.4:
+glob@^7.0.0, glob@^7.1.3, glob@^7.1.4:
   version "7.1.6"
   resolved "http://npm.msk.avito.ru/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
@@ -2750,6 +2772,11 @@ ret@~0.1.10:
   resolved "http://npm.msk.avito.ru/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
+rifm@^0.12.0:
+  version "0.12.0"
+  resolved "http://npm.msk.avito.ru/rifm/-/rifm-0.12.0.tgz#8d3a9dc0de9c190e0de9bdc8861a91a221dc1341"
+  integrity sha512-PqOl+Mo2lyqrKiD34FPlnQ+ksD3F+a62TQlphiZshgriyHdfjn6jGyqUZhd+s3nsMYXwXYDdjrrv8wX7QsOG3g==
+
 rimraf@^2.5.4, rimraf@^2.6.3:
   version "2.7.1"
   resolved "http://npm.msk.avito.ru/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
@@ -2859,6 +2886,11 @@ shebang-regex@^3.0.0:
   version "3.0.0"
   resolved "http://npm.msk.avito.ru/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
+
+slash@^2.0.0:
+  version "2.0.0"
+  resolved "http://npm.msk.avito.ru/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
+  integrity sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"

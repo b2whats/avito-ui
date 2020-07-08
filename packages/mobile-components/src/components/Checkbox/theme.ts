@@ -18,19 +18,6 @@ export const checkboxTheme: DeepPartial<CheckboxTheme> = {
         bg: 'gray8',
         bgActive: 'gray12',
       },
-      shape: {
-        circle: {
-          style: {
-            p: 1,
-            height: 20,
-          },
-        },
-        square: {
-          style: {
-            mx: 1,
-          },
-        },
-      },
       checked: {
         style: {
           bgDisabled: 'gray28',

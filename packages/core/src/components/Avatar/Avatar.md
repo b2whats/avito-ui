@@ -72,14 +72,13 @@ const sizes = [120, 80, 64, 52, 32, 28, 24, 20];
 
 ## Badge
 
-`badge` — небольшой элемент, прилепленный к краю аватара: онлайн-индикатор или дополнительное действие. По умолчанию в 4 раза меньше самого аватара. _Вырез_ на аватаре настраивается через `badgeGapSize`, а в `badgeGapColor` передают цвет фона. Остальные стили, (в том числе положение через `top` / `right` / `bottom` / `left`) настраивются на компоненте значка.
+`badge` — небольшой элемент, прилепленный к краю аватара: онлайн-индикатор или дополнительное действие. По умолчанию в 4 раза меньше самого аватара. _Вырез_ на аватаре настраивается через `badgeGapSize`, а в `badgeGapColor` передают цвет фона. Остальные стили, (в том числе положение через `top` / `right` / `bottom` / я на компоненте значка.
 
 ```jsx
 import { Badge } from '../Badge'
 import { Text } from '../Text'
-import { EditIcon } from '@avito/icons'
-const { src } = document.getElementById('sample-image');
-
+import { EditIcon } from '../Icon/icons'
+const { src } = document.getElementById;
 <Stack spacing='m' valign='middle'>
   <Avatar
     src={src}
@@ -115,7 +114,7 @@ const { src } = document.getElementById('sample-image');
         bgHover='gray28'
         onClick={() => alert('edit')}
         valignSelf='middle'
-      ><EditIcon size={25} p={5} color='white' /></Badge>}
+      ><CrossIcon size={25} p={5} color='white' /></Badge>}
   />
 </Stack>
 ```
@@ -143,7 +142,7 @@ const { src } = document.getElementById('sample-image');
 Вместо `src` можно передать элементы в `children` — например, сделать аватар с иконкой или текстом.
 
 ```jsx
-import { CourierIcon } from '@avito/icons';
+import { CourierIcon } from '../Icon/icons';
 
 <Stack spacing='s'>
   <Avatar size={60}>
@@ -164,7 +163,7 @@ import { CourierIcon } from '@avito/icons';
 - стандрартную иконку (своя у каждого `type`).
 
 ```jsx
-import { StatusErrorIcon } from '@avito/icons';
+import { StatusErrorIcon } from '../Icon/icons';
 
 <Stack spacing='m' column>
   <Stack spacing='s' valign='middle'>

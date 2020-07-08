@@ -78,7 +78,7 @@
 `iconBefore` и `iconAfter` — слоты для иконок. Крестик из `clearable` заменяет `iconAfter`, когда виден.
 
 ```jsx
-import { DeliveryIcon, HelpIcon, SportIcon } from '@avito/icons'
+import { DeliveryIcon, HelpIcon, SportIcon } from '../Icon/icons'
 import { Spinner } from '../Spinner/'
 const help = event => {
   event.stopPropagation()
@@ -99,7 +99,7 @@ const help = event => {
 Не забывайте у кликабельных иконок устанавливать область клика `area`: `number` для мобильных устройств
 
 ```jsx
-import { DeliveryIcon, HelpIcon, SportIcon } from '@avito/icons'
+import { DeliveryIcon, HelpIcon, SportIcon } from '../Icon/icons'
 import { Spinner } from '../Spinner'
 const [active, activeToggle] = useState(false)
 const onIconClick = prevent => event => {
@@ -125,7 +125,7 @@ const onIconClick = prevent => event => {
 `prefix` и `postfix` — слоты для постоянно видимого текста вокруг инпута. Сочетаются с иконками.
 
 ```jsx
-import { DeliveryIcon, HelpIcon } from '@avito/icons';
+import { DeliveryIcon, HelpIcon } from '../Icon/icons';
 
 <Stack column spacing='s' width={250}>
   <Input placeholder='Укажите цену,' postfix='₽' clearable />
@@ -244,7 +244,7 @@ const cardMask = useMemo(() => ({
 ```jsx
 import { Stack } from '../Layout/'
 import { Spinner } from '../Spinner/'
-import { SearchIcon, StarIcon } from '@avito/icons'
+import { SearchIcon, StarIcon } from '../Icon/icons'
 
 const [state, setState] = useState({ value: 'пивко', favorite: false })
 const onChange = ({ target }) => {

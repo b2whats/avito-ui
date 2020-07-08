@@ -71,11 +71,11 @@ import { Button } from '../Button/';
 import { Stack } from './'
 import { Checkbox } from '../Checkbox/'
 import { Radio } from '../Radio/';
-initialState = { radio: undefined, checkbox: undefined };
+const [state, setState] = useState({ radio: undefined, checkbox: undefined })
 const onChange = ({ name, value }) => {
   console.log(name, value)
-    setState({ [name]: value });
-}
+  setState({ [name]: value });
+};
 
 <Stack column spacing='m'>
   <Group name='radio' mode='radio' value={state.radio} spacing='l' onChange={onChange}>
@@ -94,11 +94,11 @@ const onChange = ({ name, value }) => {
 ```jsx
 import { Stack } from './'
 import { Button } from '../Button/';
-
-initialState = { radio: 6, checkbox: undefined };
+const [state, setState] = useState({ radio: 6, checkbox: undefined })
 const onChange = ({ name, value }) => {
     setState({ [name]: value });
-}
+};
+
 <Stack column spacing='m'>
   <Group name='checkbox' mode='checkbox' spacing={10} value={state.checkbox} onChange={onChange}>
     <Button preset='default' value={0}>One</Button>

@@ -1,4 +1,5 @@
 import deepmerge from 'deepmerge'
+import { isMergeableObject } from '../utils/'
 import { DeepPartial } from '../utils/types'
 
 const cache = new WeakMap()
@@ -29,7 +30,7 @@ export const mergeTheme = <T extends object>(
 }
 
 function mergeThemes(themes: any[]) {
-  const res = deepmerge.all(themes)
+  const res = deepmerge.all(themes, { isMergeableObject })
   res['mapProps'] = themes.map(t => t ? t.mapProps : null).reduce((composed, map) => {
     return map ? (props: any) => ({ ...props, ...map(composed(props)) }) : composed
   }, (props: any) => props)

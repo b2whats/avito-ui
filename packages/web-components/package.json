@@ -1,23 +1,40 @@
 {
   "name": "@avito/web-components",
-  "version": "0.0.17",
+  "version": "0.0.22",
+  "repository": {
+    "type": "git",
+    "url": "http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components",
+    "directory": "packages/web-components"
+  },
   "private": false,
   "description": "Components for desctop web",
   "author": "vyuklepov <vyuklepov@avito.ru>",
   "license": "MIT",
+  "sideEffects": false,
   "main": "cjs/index.js",
-  "module": "es/index.js",
+  "module": "esm/index.js",
   "types": "types/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "cjs/*": [
+        "types/*"
+      ],
+      "esm/*": [
+        "types/*"
+      ]
+    }
+  },
   "files": [
     "cjs",
-    "es",
-    "types"
+    "esm",
+    "types",
+    "icons"
   ],
   "scripts": {
-    "build": "yarn build:cjs & yarn build:es & yarn build:types",
+    "build": "yarn build:cjs & yarn build:esm & yarn build:types",
     "build:types": "rm -rf types && tsc -p tsconfig.json --emitDeclarationOnly",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src --out-dir cjs --extensions \".ts,.tsx\" --source-maps --root-mode=upward --delete-dir-on-start",
-    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel src --out-dir es --extensions \".ts,.tsx\" --source-maps --root-mode=upward --delete-dir-on-start",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src --out-dir esm --extensions \".ts,.tsx\" --source-maps --root-mode=upward --delete-dir-on-start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "yarn build",
     "typecheck": "tsc --noEmit"
@@ -27,8 +44,8 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/core": "^0.0.17",
-    "@avito/tokens": "^0.0.17"
+    "@avito/core": "^0.0.22",
+    "@avito/tokens": "^0.0.19"
   },
   "devDependencies": {
     "react": "^16.8.6",

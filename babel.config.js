@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const path = require('path')
 const { DEBUG, BABEL_ENV, NODE_ENV, TARGET } = process.env
 const isProduction = NODE_ENV === 'production'
@@ -9,16 +10,15 @@ const config = {
     [
       '@babel/preset-env',
       {
-        targets: {
-          browsers: ['last 1 version'],
-          ie: '11',
-        },
+        shippedProposals: true,
         loose: true,
         modules: BABEL_ENV === 'cjs' || isServer || isTest ? 'commonjs' : false,
         debug: Boolean(DEBUG),
         useBuiltIns: 'entry',
-        corejs: {
-          version: 2,
+        corejs: 3,
+        targets: {
+          safari: '9',
+          ie: '11',
         },
       },
     ],
@@ -32,28 +32,19 @@ const config = {
       },
     ],
   ],
-  plugins: (() => {
-    let plugins = [
-      '@babel/transform-runtime',
-      ['@babel/plugin-proposal-object-rest-spread', { 'loose': true, 'useBuiltIns': true }],
-      '@babel/plugin-proposal-class-properties',
-      '@babel/plugin-syntax-dynamic-import',
-    ]
-
-    plugins.push([
-      'module-resolver',
-      {
-        cwd: 'babelrc', // Установить корень проекта
-        alias: isServer || isTest ? {
-          '^@avito/([^/]+)$': './packages/\\1/src',
-        } : {
-          '^@avito/([^/]+)/src/(.+)': ([, name, path]) => `@avito/${name}/${BABEL_ENV}/${path}`,
-        },
+  plugins: [
+    '@babel/plugin-syntax-dynamic-import',
+    ['@babel/transform-runtime', { useESModules: BABEL_ENV === 'esm' }],
+    ['module-resolver', {
+      cwd: 'babelrc',
+      alias: (isServer || isTest) && {
+        '^@avito/core/icons$': './packages/core/src/components/Icon/icons',
+        '^@avito/mobile-components/icons$': './packages/mobile-components/src/components/Icon',
+        '^@avito/web-components/icons$': './packages/web-components/src/components/Icon',
+        '^@avito/([^/]+)$': './packages/\\1/src',
       },
-    ])
-
-    return plugins
-  })(),
+    }],
+  ],
 }
 
 if (DEBUG) {

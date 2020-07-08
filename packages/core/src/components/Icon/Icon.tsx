@@ -1,13 +1,14 @@
 import React from 'react'
 import { css, keyframes, foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { filterProps } from '../../utils/'
+import { filterProps, isIE } from '../../utils/'
 import { BaseIconProps } from './contract'
 import { iconTheme } from './theme'
 
+/* IE11 вращает не по центру, transform-origin должен быть тут */
 const spinAnimation = keyframes`
-  0% { transform: rotate(0deg) }
-  100% { transform: rotate(360deg) }
+  0% { transform: rotate(0deg); transform-origin: 50% 50%;  }
+  100% { transform: rotate(360deg); transform-origin: 50% 50%; }
 `
 
 const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
@@ -41,7 +42,7 @@ const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
 
     ${// Вложенная анимация это хак, из-за того что в safari вращение происходит не по центру при абсолютном позиционировании элемента
       spin ? css`
-      & > * {
+      ${isIE ? '&' : '& > *'} {
         animation: ${spinAnimation} ${typeof spin === 'boolean' ? 0.5 : spin}s linear infinite;
         transform-origin: center;
       }
@@ -64,16 +65,27 @@ const shadowMask = (
 export const Icon = uiComponent('Icon', iconTheme)((props: BaseIconProps, { theme, tokens }) => {
   const aria = {
     role: props.role || (props.onClick ? 'button' : 'img'),
-    tabIndex: props.onClick ? 0 : -1,
+    tabIndex: props.onClick ? 0 : undefined,
     'aria-hidden': true,
     'data-icon': props.name,
+  }
+
+  // IE11 не верно указывает ширину svg без переданного значения witdh
+  const setRef = (node: any) => {
+    if (!node || !isIE) return
+
+    const [,,w, h] = node.getAttribute('viewBox').split(' ')
+    const ratio = Number(w) / Number(h)
+    const height = node.clientHeight
+
+    node.style.width = height * ratio + 'px'
   }
 
   const { Icon } = foldThemeParams(props, theme)
   const iconStyle = iconClassName(props, tokens, Icon.style)
 
   return (
-    <svg {...filterProps(props)} css={iconStyle} {...aria}>
+    <svg {...filterProps(props)} ref={setRef} css={iconStyle} {...aria}>
       {props.shadow && shadowMask}
       {props.area && <rect x='0' y='0' width='100%' height='100%' />}
       { props.children }

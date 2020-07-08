@@ -1,9 +1,61 @@
+const docgen = require('react-docgen-typescript')
 const fs = require('fs')
 const path = require('path')
 
+const isIE = process.argv.includes('ie')
+
+const ieLoader = {
+  test: /\.js$/,
+  include: [
+    new RegExp(
+      `node_modules/(?=(${[
+        '@react-spring/animated',
+        '@react-spring/core',
+        '@react-spring/shared',
+        '@react-spring/web',
+        'rifm',
+        'fluids',
+        'acorn-jsx',
+        'estree-walker',
+        'regexpu-core',
+        'effector-react',
+        'effector',
+        'unicode-match-property-ecmascript',
+        'unicode-match-property-value-ecmascript',
+        'react-dev-utils',
+        'ansi-styles',
+        'ansi-regex',
+        'chalk',
+        'strip-ansi',
+        'react-styleguidist',
+      ].join('|')})/).*`
+    ),
+  ],
+  use: {
+    loader: 'babel-loader',
+    options: {
+      babelrc: false,
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            modules: 'commonjs',
+            useBuiltIns: 'usage',
+            corejs: 3,
+            targets: {
+              ie: '11',
+              safari: '9',
+            },
+          },
+        ],
+      ],
+    },
+  },
+}
+
 const isProfiling = process.env.PROFILING
 
-const { parse } = require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
+const { parse } = docgen.withCustomConfig('./tsconfig.json', {
   // Фильтр для параметров которые определяются в реакте, что бы не захламлять документацию
   propFilter: (prop, component) => {
     if (!prop.parent) {
@@ -15,36 +67,41 @@ const { parse } = require('react-docgen-typescript').withCustomConfig('./tsconfi
 })
 
 module.exports = {
-  styles: ({ mq }) => ({
-    Code: {
-      code: {
-        color: '#e83e8c',
-        background: 'rgba(232, 62, 140, 0.1)',
-        padding: '2px 4px',
-        borderRadius: '4px',
-      },
-    },
-    StyleGuide: {
-      // Move mobile menu to top
-      [mq.small]: {
-        root: {
-          display: 'flex',
-          flexDirection: 'column-reverse',
+  styles: function (props) {
+    var style = {
+      Table: {
+        cell: {
+          '&:last-child': {
+            width: 'auto',
+          },
         },
       },
-      // Prevent overflow
-      content: {
-        maxWidth: '100%',
-      },
-    },
-    Table: {
-      cell: {
-        '&:last-child': {
-          width: 'auto',
+      Code: {
+        code: {
+          color: '#e83e8c',
+          background: 'rgba(232, 62, 140, 0.1)',
+          padding: '2px 4px',
+          borderRadius: '4px',
         },
       },
-    },
-  }),
+      StyleGuide: {
+        // Prevent overflow
+        content: {
+          maxWidth: '100%',
+        },
+      },
+    }
+
+    // Move mobile menu to top
+    style.StyleGuide[props.mq.small] = {
+      root: {
+        display: 'flex',
+        flexDirection: 'column-reverse',
+      },
+    }
+
+    return style
+  },
   styleguideDir: 'public',
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'styleguidist/Wrapper'),
@@ -64,6 +121,11 @@ module.exports = {
           href: '/font.css',
         },
       ],
+      ...isIE && { scripts: [
+        {
+          src: 'https://polyfill.io/v3/polyfill.min.js?features=default%2Ces2015%2Ces2016',
+        },
+      ]},
     },
   },
   updateExample(props, exampleFilePath) {
@@ -101,13 +163,13 @@ module.exports = {
     sectionDepth: 1,
     sections: [{
       name: 'Начало работы',
-      content: './getting-started.md',
+      content: './docs/getting-started.md',
     }, {
       name: 'Палитра',
-      content: './palette.md',
+      content: './docs/palette.md',
     }, {
       name: 'Настройка темы',
-      content: './theme.md',
+      content: './docs/theme.md',
     }, {
       name: 'Производительность',
       content: './benchmark/Benchmark.md',
@@ -129,6 +191,7 @@ module.exports = {
     return parse(withContracts, ...rest)
   },
   webpackConfig: {
+    devtool: 'inline-source-map',
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.json'],
       mainFields: ['browser', 'module', 'main'],
@@ -136,7 +199,9 @@ module.exports = {
         // переопределил ReactComponent - стандартный Renderer отвалился
         'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponentRenderer'),
         'rsg-components/Examples/ExamplesRenderer': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components/Examples/ExamplesRenderer'),
-        '@avito/icons$': path.resolve(__dirname, 'packages/icons/src/'),
+        '@avito/web-components/icons$': path.resolve(__dirname, 'packages/web-components/src/components/Icon/'),
+        '@avito/mobile-components/icons$': path.resolve(__dirname, 'packages/mobile-components/src/components/Icon/'),
+        '@avito/core/icons$': path.resolve(__dirname, 'packages/core/src/components/Icon/'),
         '@avito/tokens$': path.resolve(__dirname, 'packages/tokens/src/'),
         '@avito/core$': path.resolve(__dirname, 'packages/core/src/'),
         '@avito/mobile-components$': path.resolve(__dirname, 'packages/mobile-components/src/'),
@@ -160,7 +225,7 @@ module.exports = {
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
-      ],
+      ].concat(isIE ? ieLoader : []),
     },
   },
 }

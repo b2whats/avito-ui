@@ -9,7 +9,6 @@ import { InputProps } from './contract'
 import { InputCore } from './InputCore'
 import { inputTheme } from './theme'
 
-
 const inputClassName = createClassName<InputProps, typeof inputTheme>(
   (themeStyle, props) => ({
     display: 'flex',
@@ -21,10 +20,6 @@ const inputClassName = createClassName<InputProps, typeof inputTheme>(
     position: relative;
     font-family: inherit;
     align-items: center;
-
-    ${props.deletePlaceholderOnFocus ? `& *:focus::placeholder {
-      color: transparent;
-    }` : ''}
 
     ${textRules}
   `)
@@ -65,6 +60,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
     clearable,
     // apply iconAfter theme if clearable
     iconAfter: clearable ? true : props.iconAfter,
+    placeholder: props.deletePlaceholderOnFocus && focus ? '' : props.placeholder,
   }
 
   // Отменяем моргание фокуса при повторных кликах внутри контейнера с инпутом
