@@ -160,43 +160,30 @@ import { Stack } from '../Layout/';
 ```jsx static
 import { EndCallIcon } from '@avito/web-components/icons'
 ```
-Для копирования названия иконки, просто кликните по ней
-
-```js
-import * as icons from '@avito/web-components/icons'
-import { Text } from '../Text/'
-import { Stack, Box } from '../Layout/';
-
-<Stack wrap>
-  {Object.keys(icons).map((name) => (
-    (typeof icon === 'function' || typeof icon.type === 'function') &&
-      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
-        {React.createElement(icons[name])}
-        <Text size='xs' mt={8} align='center'>{name}</Text>
-      </Box>
-  ))}
-</Stack>
-```
 :::
 ::: platform mobile
 ```jsx static
 import { EndCallIcon } from '@avito/mobile-components/icons'
 ```
-Для копирования названия иконки, просто кликните по ней
+:::
+
+Для копирования названия иконки просто кликните по ней
 
 ```js
-import * as icons from '@avito/mobile-components/icons'
-import { Text } from '../Text/'
-import { Stack, Box } from '../Layout/';
+import * as mobileIcons from '@avito/mobile-components/icons'
+import * as webIcons from '@avito/web-components/icons'
+
+const { platform } = useStore(StyleguideStore)
+const icons = Object.entries(platform === 'web' ? webIcons : mobileIcons)
+  .filter(([name, Icon]) => typeof Icon === 'function' || typeof Icon.type === 'function')
+  .sort(([name1], [name2]) => name1.localeCompare(name2));
 
 <Stack wrap>
-  {Object.entries(icons).map(([name, icon]) => (
-    (typeof icon === 'function' || typeof icon.type === 'function') &&
-      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
-        {React.createElement(icons[name])}
-        <Text size='xs' mt={8} align='center'>{name}</Text>
-      </Box>
+  {icons.map(([name, Icon]) => (
+    <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
+      <Icon />
+      <Text size='xs' mt={8} align='center'>{name}</Text>
+    </Box>
   ))}
 </Stack>
 ```
-:::
