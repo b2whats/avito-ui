@@ -8,7 +8,9 @@ import { SearchIcon } from '@avito/mobile-components/icons'
 <SearchIcon />
 ```
 
-Чтобы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в локальном репозитории так и в репозитории
+## Создание иконок
+
+Чтобы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в своем репозитории так и в репозитории
 `@avito/core` - общие иконки, будут доступны и в мобильном и в веб пакете с компонентами
 `@avito/(platform)-components` - будут доступны только в платформенном пакете с компонентами
 
@@ -16,18 +18,35 @@ import { SearchIcon } from '@avito/mobile-components/icons'
 import React from 'react'
 import { makeIcon } from '@avito/core'
 
-export const AddNoteIcon = makeIcon({ viewBox: '0 0 24 24', name: 'add-note' },
-  <path
-    fillRule='evenodd'
-    clipRule='evenodd'
-    d='M4 2a1 1 0 011-1h14a1 1 0 011 1v12.083A6.036 6.036 0 0019 14a5.973 5.973 0 00-3.318 1H7v2h6.803A5.972 5.972 0 0013 20c0 .34.028.675.083 1H5a1 1 0 01-1-1V2zm13 3H7v2h10V5zM7 10h10v2H7v-2zm11 9v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z'
-  />
+export const CircleIcon = makeIcon({ viewBox: '0 0 4 4', name: 'circle' },
+  <circle r={radius} cx='2' cy='2' />
 )
 
 AddNoteIcon.platform = 'mobile'
 ```
 
-Обязательные для заполнения являются только `name`, `wievBox`, `children`
+Динамические иконки создают через JSX-функцию:
+
+```js
+import { makeIcon } from '@avito/core'
+
+// Для TS используйте makeIcon<{ radius: number }>
+const BlinkIcon = makeIcon({
+  viewBox: '0 0 4 4',
+  name: 'blinker',
+}, ({ radius }) => (
+  <circle r={radius} cx='2' cy='2' />
+))
+
+const [time, setTime] = useState(1)
+const advance = () => setTime(time + .1);
+
+<Stack p={26} m={-26} cursor='default' spacing='s' onTouchMove={advance} onMouseMove={advance}>
+  <Text>Погладь меня</Text>
+  <BlinkIcon size='l' radius={1 + 0.5 * (1 + Math.sin(time))} />
+</Stack>
+```
+
 
 ## Размеры
 Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`.
