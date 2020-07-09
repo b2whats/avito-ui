@@ -8,28 +8,45 @@ import { SearchIcon } from '@avito/mobile-components/icons'
 <SearchIcon />
 ```
 
-Чтобы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в локальном репозитории так и в репозитории  
+## Создание иконок
+
+Чтобы добавить иконку в набор вам необходимо ее создать, вы можете это сделать как в своем репозитории так и в репозитории
 `@avito/core` - общие иконки, будут доступны и в мобильном и в веб пакете с компонентами
 `@avito/(platform)-components` - будут доступны только в платформенном пакете с компонентами
 
 ```js static
 import React from 'react'
-import { Icon } from '@avito/core'
+import { makeIcon } from '@avito/core'
 
-export const AddNoteIcon = (props) => (
-  <Icon {...props} viewBox='0 0 24 24' name='add-note'>
-      <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M4 2a1 1 0 011-1h14a1 1 0 011 1v12.083A6.036 6.036 0 0019 14a5.973 5.973 0 00-3.318 1H7v2h6.803A5.972 5.972 0 0013 20c0 .34.028.675.083 1H5a1 1 0 01-1-1V2zm13 3H7v2h10V5zM7 10h10v2H7v-2zm11 9v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z'
-    />
-  </Icon>
+export const CircleIcon = makeIcon({ viewBox: '0 0 4 4', name: 'circle' },
+  <circle r={radius} cx='2' cy='2' />
 )
 
 AddNoteIcon.platform = 'mobile'
 ```
 
-Обязательные для заполнения являются только `name`, `wievBox`, `children`
+Динамические иконки создают через JSX-функцию:
+
+```js
+import { makeIcon } from '@avito/core'
+
+// Для TS используйте makeIcon<{ radius: number }>
+const BlinkIcon = makeIcon({
+  viewBox: '0 0 4 4',
+  name: 'blinker',
+}, ({ radius }) => (
+  <circle r={radius} cx='2' cy='2' />
+))
+
+const [time, setTime] = useState(1)
+const advance = () => setTime(time + .1);
+
+<Stack p={26} m={-26} cursor='default' spacing='s' onTouchMove={advance} onMouseMove={advance}>
+  <Text>Погладь меня</Text>
+  <BlinkIcon size='l' radius={1 + 0.5 * (1 + Math.sin(time))} />
+</Stack>
+```
+
 
 ## Размеры
 Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`.
@@ -143,43 +160,30 @@ import { Stack } from '../Layout/';
 ```jsx static
 import { EndCallIcon } from '@avito/web-components/icons'
 ```
-Для копирования названия иконки, просто кликните по ней
-
-```js
-import * as icons from '@avito/web-components/icons'
-import { Text } from '../Text/'
-import { Stack, Box } from '../Layout/';
-
-<Stack wrap>
-  {Object.keys(icons).map((name) => (
-    typeof icons[name] === 'function' &&
-      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
-        {React.createElement(icons[name])}
-        <Text size='xs' mt={8} align='center'>{name}</Text>
-      </Box>
-  ))}
-</Stack>
-```
 :::
 ::: platform mobile
 ```jsx static
 import { EndCallIcon } from '@avito/mobile-components/icons'
 ```
-Для копирования названия иконки, просто кликните по ней
+:::
+
+Для копирования названия иконки просто кликните по ней
 
 ```js
-import * as icons from '@avito/mobile-components/icons'
-import { Text } from '../Text/'
-import { Stack, Box } from '../Layout/';
+import * as mobileIcons from '@avito/mobile-components/icons'
+import * as webIcons from '@avito/web-components/icons'
+
+const { platform } = useStore(StyleguideStore)
+const icons = Object.entries(platform === 'web' ? webIcons : mobileIcons)
+  .filter(([name, Icon]) => typeof Icon === 'function' || typeof Icon.type === 'function')
+  .sort(([name1], [name2]) => name1.localeCompare(name2));
 
 <Stack wrap>
-  {Object.keys(icons).map((name) => (
-    typeof icons[name] === 'function' &&
-      <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
-        {React.createElement(icons[name])}
-        <Text size='xs' mt={8} align='center'>{name}</Text>
-      </Box>
+  {icons.map(([name, Icon]) => (
+    <Box key={name} width={120} grow p={10} align='center' mb={16} bgHover='gray4' column onClick={() => copyText(name)}>
+      <Icon />
+      <Text size='xs' mt={8} align='center'>{name}</Text>
+    </Box>
   ))}
 </Stack>
 ```
-:::

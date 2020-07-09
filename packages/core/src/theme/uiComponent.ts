@@ -14,7 +14,12 @@ export interface UiComponentProps<ThemeType, RefType> {
   marker?: string
 }
 
-export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType) {
+type Options = {
+  memo?: boolean
+}
+
+export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType, options: Options = {}) {
+  options = { memo: true, ...options }
   return <Props, RefType = HTMLElement>(
     render: (
       props: Props & { marker?: string },
@@ -43,6 +48,6 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
     }))
     WrappedComponent.displayName = name
     type Component = <T extends object>(props: ExternalProps & (T extends unknown ? {} : T)) => JSX.Element
-    return memo(WrappedComponent) as unknown as Component
+    return (options.memo ? memo(WrappedComponent) : WrappedComponent) as unknown as Component
   }
 }
