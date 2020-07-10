@@ -9,7 +9,7 @@ export const Card = uiComponent('Card', cardTheme)<CardProps, HTMLDivElement>(({
   const { Card, Close } = foldThemeParams(props, theme)
 
   return (
-    <Box {...Card.props} {...props} {...testId()} position='relative'>
+    <Box position='relative' {...Card.props} {...props} {...testId()}>
       {props.onClose && Close.component && <Close.component {...Close.props} onClick={props.onClose} marker={marker('close')} />}
       {children}
     </Box>
