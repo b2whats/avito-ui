@@ -18,7 +18,7 @@ export interface ChangePayload<Element, Value> {
 
 export type ChangeEventHandler<Value, T = Element> = (payload: ChangePayload<T, Value>) => void
 
-export type DOMAttributes = {
+export interface DOMAttributes {
   children?: ReactNode
   hidden?: boolean
   id?: string
@@ -27,7 +27,7 @@ export type DOMAttributes = {
   marker?: string
 }
 
-export type EventAttributes<T, Value> = {
+export interface EventAttributes<T, Value> {
   onChange?: ChangeEventHandler<Value, T>
   onClick?: MouseEventHandler<T>
   onFocus?: FocusEventHandler<T>
@@ -50,4 +50,4 @@ export type EventAttributes<T, Value> = {
   onScroll?: UIEventHandler<T>
 }
 
-export type CommonAttributes<T = HTMLDivElement, Value = string> = DOMAttributes & EventAttributes<T, Value>
+export interface CommonAttributes<T = HTMLDivElement, Value = string> extends DOMAttributes, EventAttributes<T, Value>{}

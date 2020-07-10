@@ -25,7 +25,7 @@ type Internals<ThemeType, Tokens, Element> = {
 }
 
 type InternalProps<Props, RefType> = Props & { marker?: string, ref: MutableRefObject<RefType> }
-type HTMLElementType<Props> = Props extends CommonAttributes<infer T, any> ? T : never
+type HTMLElementType<Props> = Props extends CommonAttributes<infer T, any> ? T : HTMLElement
 
 export function uiComponent<ThemeType extends object = {}>(
   name: keyof Theme | (string & {}),
