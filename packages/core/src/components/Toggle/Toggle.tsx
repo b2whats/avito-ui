@@ -76,7 +76,7 @@ export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputE
   [ref, setRef]
 ) => {
   const groupProps = useGroupHook(ref, props)
-  const testId = withMarker(groupProps.marker)
+  const [testId] = withMarker(groupProps.marker)
 
   // Uncontrolled input for demos
   if (tokens._demo && !groupProps.onChange && groupProps.mode === 'checkbox') {

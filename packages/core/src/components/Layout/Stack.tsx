@@ -39,7 +39,7 @@ const stackClassName = createClassName<StackProps>(
 export const Stack = React.forwardRef(({ as, children, ...props }: StackProps, ref: React.Ref<HTMLElement>) => {
   const theme = useTheme()
   const stackStyle = stackClassName(props, theme)
-  const testId = withMarker(props.marker)
+  const [testId] = withMarker(props.marker)
   const Tag = as || 'div'
 
   return (

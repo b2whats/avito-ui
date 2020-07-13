@@ -29,6 +29,8 @@ export interface BaseIconProps extends StyleProps {
   role?: HTMLAttributes<any>['role']
 
   onClick?: MouseHandler
+
+  marker?: string
 }
 
 export interface IconProps extends Omit<BaseIconProps, 'children' | 'name' | 'viewBox'> {}
