@@ -13,6 +13,7 @@
     "test:unit": "jest '(?<!.snap).test.ts'",
     "test:browser": "NODE_ENV=test TARGET=server npx cypress run",
     "test:browser:open": "NODE_ENV=test TARGET=server npx cypress open",
+    "test:browser:updateSnapshots": "yarn test:browser --env updateSnapshots=true",
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
     "prerelease": "lerna version --no-push",
     "release": "lerna publish from-git --yes",

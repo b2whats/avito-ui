@@ -21,5 +21,6 @@ export const buttonMock = ({
     children: ['text'],
     preset: buttonPresets as any,
     checked: [true, false],
+    loading: [true, false],
   }]
 }
