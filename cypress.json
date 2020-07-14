@@ -1,0 +1,10 @@
+{
+  "experimentalComponentTesting": true,
+  "ignoreTestFiles": [
+    "**/__snapshots__/*",
+    "**/__image_snapshots__/*"
+  ],
+  "componentFolder": "packages",
+  "testFiles": "**/*.cy.test.ts?",
+  "video": false
+}
