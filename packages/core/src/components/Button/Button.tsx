@@ -125,7 +125,7 @@ export const Button = uiComponent('Button', buttonTheme)<
   )
 
   return (
-    <Tag css={buttonStyle} ref={ref} {...aria} {...filterProps(groupProps)} {...testId(props.value)}>
+    <Tag css={buttonStyle} {...aria} {...filterProps(groupProps)} {...testId(props.value)}>
       {props.loading &&
         <SpinnerComponent {...Spinner.props} />}
       {props.iconBefore &&

@@ -58,7 +58,7 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme>(
 
 export const Tooltip = uiComponent('Tooltip', tooltipTheme)<TooltipProps>((
   { content, ...props },
-  { theme, tokens, marker, ref }
+  { theme, tokens, marker }
 ) => {
   if (!content) return props.children
 
@@ -75,7 +75,7 @@ export const Tooltip = uiComponent('Tooltip', tooltipTheme)<TooltipProps>((
   )
 
   return (
-    <Positioner {...props} target={target} ref={ref}>
+    <Positioner {...props} target={target}>
       {props.children}
     </Positioner>
   )

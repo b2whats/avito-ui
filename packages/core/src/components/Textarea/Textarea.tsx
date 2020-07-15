@@ -55,8 +55,7 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
         {...props}
         {...focusProps}
         {...testId('textarea')}
-        onChange={onChange}
-        ref={ref} />
+        onChange={onChange} />
       { hasClear && <IconClear.component
         {...IconClear.props}
         {...testId('clear')}

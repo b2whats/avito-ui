@@ -127,7 +127,7 @@ export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
   }, [])
 
   return (
-    <div ref={ref} css={groupStyle} role='radiogroup' {...filterProps(props)} {...testId()}>
+    <div css={groupStyle} role='radiogroup' {...filterProps(props)} {...testId()}>
       {geometry[props.value!] && <div css={slideStyle} style={geometry[props.value!]} />}
       {options && options.map(item => {
         const checked = item.value === props.value

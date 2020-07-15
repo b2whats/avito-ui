@@ -127,7 +127,6 @@ export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputE
       {props.labelPosition === 'start' && label}
       <input
         {...filterProps(groupProps)}
-        ref={ref}
         type={props.mode}
         onChange={onChange}
         onClick={preventLabelClick}

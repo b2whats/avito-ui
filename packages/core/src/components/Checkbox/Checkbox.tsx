@@ -4,8 +4,8 @@ import { Toggle } from '../Toggle/'
 import { CheckboxProps } from './contract'
 import { checkboxTheme } from './theme'
 
-export const Checkbox = uiComponent('Checkbox', checkboxTheme)<CheckboxProps, HTMLInputElement>((props, { theme, ref }) => (
-  <Toggle {...props} mode='checkbox' override={theme} shape='square' ref={ref}>
+export const Checkbox = uiComponent('Checkbox', checkboxTheme)<CheckboxProps, HTMLInputElement>((props, { theme }) => (
+  <Toggle {...props} mode='checkbox' shape='square' override={theme}>
     {({ checked, Icon }) => checked && Icon && <Icon.component {...Icon.props} size='auto' />}
   </Toggle>
 ))

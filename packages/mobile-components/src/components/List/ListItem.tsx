@@ -41,7 +41,7 @@ export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...p
   }
 
   return (
-    <Stack ref={useRefObject(ref, setMeasureRef)} {...ListItem.props} {...props} {...events} {...testId()}>
+    <Stack {...ListItem.props} {...props} {...events} {...testId()} ref={useRefObject(ref, setMeasureRef)}>
       {before}
       <Stack column grow {...StackText.props}>
         {renderSlot(Text, props.label, Label.props)}

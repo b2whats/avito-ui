@@ -34,7 +34,7 @@ const imageClassName = css`
 export const Avatar = uiComponent('Avatar', avatarTheme)<
   AvatarProps,
   HTMLImageElement
->((props, { theme, tokens, testId, ref }) => {
+>((props, { theme, tokens, testId }) => {
   const [isFallback, setFallback] = useState(props.src == null)
   const onError = () => setFallback(true)
   useEffect(() => setFallback(props.src == null), [props.src])
@@ -58,7 +58,7 @@ export const Avatar = uiComponent('Avatar', avatarTheme)<
 
   // FIXME put onClick on img / fallback for easier badge clicks?
   return (
-    <Tag css={avatarStyle} {...aria} {...filterProps(omit(props, 'src'))} {...testId()} ref={ref}>
+    <Tag css={avatarStyle} {...aria} {...filterProps(omit(props, 'src'))} {...testId()}>
       { isFallback
         ? renderFallback(props.children, Fallback.props)
         : <img css={imageClassName} draggable='false' src={props.src} onError={onError} alt={alt} {...testId('image')} /> }
