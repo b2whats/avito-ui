@@ -1,5 +1,6 @@
 import React from 'react'
 import { css, keyframes } from '../../styled-system/'
+import { uiComponent } from '../../theme'
 import { filterProps, invokeAll, isIE } from '../../utils/'
 import { InputCoreProps } from './contract'
 
@@ -92,15 +93,14 @@ const inputField = css`
   }
 `
 
-export const InputCore = React.memo(React.forwardRef((props: InputCoreProps, ref: React.Ref<HTMLInputElement>) => {
+export const InputCore = uiComponent('InputCore', {})<InputCoreProps, HTMLInputElement>((props) => {
   props = {
     type: 'text',
     autoCorrect: 'off',
     spellCheck: false,
     ...props,
     unselectable: isIE && props.readOnly ? 'on' : undefined, // IE11 мигает курсор
-    ref,
-  } as InputCoreProps
+  } as typeof props
 
   // Прерываем всплытие события click вызванное триггером label, без отмены событие клика будет вызвано дважды
   // Когда мы триггерим клик по инпуту через лейбл в свойстве detail будет значение 0, так как клик был програмный
@@ -115,6 +115,4 @@ export const InputCore = React.memo(React.forwardRef((props: InputCoreProps, ref
       <input {...filterProps(props)} onClick={preventClick} />
     </div>
   )
-}))
-
-InputCore.displayName = 'InputCore'
+})

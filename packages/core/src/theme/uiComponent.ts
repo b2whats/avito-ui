@@ -26,7 +26,11 @@ type Internals<ThemeType, Tokens, Element> = {
 
 type InternalProps<Props, RefType> = Props & { marker?: string, ref: MutableRefObject<RefType> }
 
-export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType, options: Options = {}) {
+export function uiComponent<ThemeType extends object = {}>(
+  name: keyof Theme | (string & {}),
+  theme: ThemeType = {} as ThemeType,
+  options: Options = {}
+) {
   options = { memo: true, ...options }
   return <Props, RefType = HTMLElement>(
     render: (
@@ -42,8 +46,8 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
     ) => {
       profiler.start('uiComponent')
       const globalTheme = useTheme()
-      const componentTheme = mergeTheme(theme, globalTheme[name] as DeepPartial<ThemeType>, override)
       const ref = useRefObject(outerRef)
+      const componentTheme = mergeTheme(theme, globalTheme[name] as DeepPartial<ThemeType>, override)
       const mappedProps = componentTheme.mapProps({
         ...(componentTheme as any).defaultProps,
         ...props,

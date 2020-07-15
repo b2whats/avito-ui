@@ -1,6 +1,6 @@
 import React from 'react'
 import { createClassName } from '../../styled-system/'
-import { useTheme } from '../../theme/'
+import { uiComponent } from '../../theme/'
 import { PageProps } from './contract'
 
 const pageClassName = createClassName<PageProps>(
@@ -15,13 +15,12 @@ const pageClassName = createClassName<PageProps>(
   })
 )
 
-export const Page = ({ children, ...props }: PageProps) => {
-  const theme = useTheme()
-  const pageStyle = pageClassName(props, theme)
+export const Page = uiComponent('Page', {}, { memo: false })(({ children, ...props }: PageProps, { tokens }) => {
+  const pageStyle = pageClassName(props, tokens)
 
   return (
     <div css={pageStyle}>
       { children }
     </div>
   )
-}
+})

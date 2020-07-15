@@ -1,6 +1,7 @@
 import React from 'react'
-import { useIsomorphicLayoutEffect, useRefObject } from '../../hooks/'
+import { useIsomorphicLayoutEffect } from '../../hooks/'
 import { css } from '../../styled-system/'
+import { uiComponent } from '../../theme'
 import { filterProps, invokeAll } from '../../utils/'
 import { TextareaCoreProps } from './contract'
 
@@ -29,21 +30,18 @@ const textareaStyle = css`
   }
 `
 
-export const TextareaCore = React.memo(React.forwardRef((
-  { rows = 2, maxRows, autoSize, resizable, ...props }: TextareaCoreProps,
-  ref: React.Ref<HTMLTextAreaElement>
+export const TextareaCore = uiComponent('TextareaCore', {})<TextareaCoreProps, HTMLTextAreaElement>((
+  { rows = 2, maxRows, autoSize, resizable, ...props },
+  { ref }
 ) => {
-  const safeRef = useRefObject(ref)
-
   props = {
     ...props,
-    ref: safeRef,
     autoCorrect: 'off',
     spellCheck: false,
-  } as TextareaCoreProps
+  } as typeof props
 
   const resize = () => {
-    const node = safeRef.current
+    const node = ref.current
 
     if (!node) return
 
@@ -63,7 +61,7 @@ export const TextareaCore = React.memo(React.forwardRef((
   }, props.onClick)
 
   useIsomorphicLayoutEffect(() => {
-    const node = safeRef.current
+    const node = ref.current
     if (!node) return
 
     node.style.resize = resizable ? 'auto' : 'none'
@@ -83,6 +81,4 @@ export const TextareaCore = React.memo(React.forwardRef((
   return (
     <textarea css={textareaStyle} {...filterProps(props)} rows={rows} onClick={preventClick} />
   )
-}))
-
-TextareaCore.displayName = 'TextareaCore'
+})
