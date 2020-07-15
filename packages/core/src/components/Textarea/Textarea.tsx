@@ -26,8 +26,7 @@ const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
 
 export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HTMLTextAreaElement>((
   props,
-  { theme, tokens, testId },
-  [textareaRef, setTextareaRef]
+  { theme, tokens, testId, ref }
 ) => {
   const [focus, focusProps] = useFocus(props)
   const [value, onChange] = useSyntheticChange(...useUncontrolledInputHook(props))
@@ -43,7 +42,7 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
     if (event.target['tagName'] !== 'TEXTAREA') event.preventDefault()
   }
 
-  const handleClear = () => clearValue(textareaRef.current)
+  const handleClear = () => clearValue(ref.current)
 
   const { Textarea, IconClear } = foldThemeParams(props, theme)
   const wrapperStyle = wrapperClassName(props, tokens, Textarea.style)
@@ -57,7 +56,7 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
         {...focusProps}
         {...testId('textarea')}
         onChange={onChange}
-        ref={setTextareaRef} />
+        ref={ref} />
       { hasClear && <IconClear.component
         {...IconClear.props}
         {...testId('clear')}

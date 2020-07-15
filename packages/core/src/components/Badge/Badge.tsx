@@ -6,8 +6,8 @@ import { badgeTheme } from './theme'
 
 export const Badge = uiComponent('Badge', badgeTheme)<
   BadgeProps
->(({ gapSize, gapColor, ...props }, { tokens }) => {
+>(({ gapSize, gapColor, ...props }, { tokens, ref }) => {
   const shadow = gapSize && gapColor
     ? `0 0 0 ${gapSize}px ${tokens.palette[gapColor] || gapColor};` : false
-  return <Box {...props} shadow={shadow}>{props.children}</Box>
+  return <Box {...props} shadow={shadow} ref={ref}>{props.children}</Box>
 })
