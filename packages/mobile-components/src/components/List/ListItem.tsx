@@ -1,5 +1,5 @@
 import React, { isValidElement } from 'react'
-import { useRefHook, useMeasure, foldThemeParams, uiComponent, Stack, Box, Text, TextProps } from '@avito/core'
+import { useRefObject, useMeasure, foldThemeParams, uiComponent, Stack, Box, Text, TextProps } from '@avito/core'
 import { ListItemProps } from './contract'
 import { listItemTheme } from './theme'
 
@@ -8,7 +8,6 @@ export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...p
   // TODO: Протестировать на телефоне с HapticTouch
   //const setTouchRef = usePrevent3DTouch()
   const [bounds, setMeasureRef] = useMeasure()
-  const [_, setRef] = useRefHook(ref, setMeasureRef)
 
   const beforeValign = props.beforeValign === 'auto'
     ? bounds && props.beforeTreshold! < bounds.height ? 'top' : 'middle'
@@ -42,7 +41,7 @@ export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...p
   }
 
   return (
-    <Stack ref={setRef} {...ListItem.props} {...props} {...events} {...testId()}>
+    <Stack ref={useRefObject(ref, setMeasureRef)} {...ListItem.props} {...props} {...events} {...testId()}>
       {before}
       <Stack column grow {...StackText.props}>
         {renderSlot(Text, props.label, Label.props)}

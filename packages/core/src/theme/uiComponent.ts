@@ -1,6 +1,6 @@
 import { forwardRef, Ref, MutableRefObject, memo } from 'react'
 import { Tokens } from '@avito/tokens'
-import { useRefHook } from '../hooks'
+import { useRefObject } from '../hooks'
 import { DeepPartial, profiler, withMarker } from '../utils/'
 import { useTheme } from '.'
 import { Theme } from './contract'
@@ -22,7 +22,6 @@ type InternalProps<ThemeType, Tokens, Element> = {
   testId: ReturnType<typeof withMarker>[0]
   marker: ReturnType<typeof withMarker>[1]
   ref: MutableRefObject<Element | null>
-  setRef: (e: Element) => void
 }
 
 export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: ThemeType, options: Options = {}) {
@@ -46,7 +45,7 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
         ...(componentTheme as any).defaultProps,
         ...props,
       }) as Props
-      const [ref, setRef] = useRefHook(outerRef)
+      const ref = useRefObject(outerRef)
       const [testId, marker] = withMarker(props.marker)
       profiler.end('uiComponent')
 
@@ -56,7 +55,6 @@ export function uiComponent<ThemeType extends object>(name: keyof Theme, theme: 
         testId,
         marker,
         ref,
-        setRef,
       })
     }))
     WrappedComponent.displayName = name

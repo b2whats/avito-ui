@@ -1,7 +1,7 @@
 import React from 'react'
 import { css, keyframes, foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { filterProps, isIE, invokeAll } from '../../utils/'
+import { filterProps, isIE } from '../../utils/'
 import { BaseIconProps } from './contract'
 import { iconTheme } from './theme'
 
@@ -66,7 +66,7 @@ const shadowMask = (
 export const Icon = uiComponent('Icon', iconTheme, { memo: false })<
   BaseIconProps,
   SVGSVGElement
->((props, { theme, tokens, testId, setRef }) => {
+>((props, { theme, tokens, testId, ref }) => {
   const aria = {
     role: props.role || (props.onClick ? 'button' : 'img'),
     tabIndex: props.onClick ? 0 : undefined,
@@ -75,7 +75,8 @@ export const Icon = uiComponent('Icon', iconTheme, { memo: false })<
   }
 
   // IE11 не верно указывает ширину svg без переданного значения witdh
-  const safeSizeRef = invokeAll((node) => {
+  const safeSizeRef = (node: SVGSVGElement) => {
+    ref.current = node
     if (!node || !isIE) return
 
     const [,,width, height] = props.viewBox.split(' ')
@@ -83,7 +84,7 @@ export const Icon = uiComponent('Icon', iconTheme, { memo: false })<
     const { clientHeight } = node
 
     node.style.width = clientHeight * ratio + 'px'
-  }, setRef)
+  }
 
   const { Icon } = foldThemeParams(props, theme)
   const iconStyle = iconClassName(props, tokens, Icon.style)

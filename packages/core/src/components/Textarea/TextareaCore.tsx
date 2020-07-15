@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRefHook, useIsomorphicLayoutEffect } from '../../hooks/'
+import { useIsomorphicLayoutEffect, useRefObject } from '../../hooks/'
 import { css } from '../../styled-system/'
 import { filterProps, invokeAll } from '../../utils/'
 import { TextareaCoreProps } from './contract'
@@ -33,17 +33,17 @@ export const TextareaCore = React.memo(React.forwardRef((
   { rows = 2, maxRows, autoSize, resizable, ...props }: TextareaCoreProps,
   ref: React.Ref<HTMLTextAreaElement>
 ) => {
-  const [textarea, setRef] = useRefHook(ref)
+  const safeRef = useRefObject(ref)
 
   props = {
     ...props,
-    ref: setRef,
+    ref: safeRef,
     autoCorrect: 'off',
     spellCheck: false,
   } as TextareaCoreProps
 
   const resize = () => {
-    const node = textarea.current
+    const node = safeRef.current
 
     if (!node) return
 
@@ -63,7 +63,7 @@ export const TextareaCore = React.memo(React.forwardRef((
   }, props.onClick)
 
   useIsomorphicLayoutEffect(() => {
-    const node = textarea.current
+    const node = safeRef.current
     if (!node) return
 
     node.style.resize = resizable ? 'auto' : 'none'
