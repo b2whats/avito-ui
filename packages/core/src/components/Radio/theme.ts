@@ -12,9 +12,6 @@ export type RadioTheme = ComponentTheme<RadioProps, {
 }>
 
 export const radioTheme: RadioTheme = {
-  defaultProps: {
-    shape: 'circle',
-  },
   scheme: {
     Switch: {
       style: {
