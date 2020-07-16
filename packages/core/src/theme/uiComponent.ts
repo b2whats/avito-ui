@@ -40,7 +40,8 @@ export function uiComponent<ThemeType extends object = {}>(
   ) => {
     type ExternalProps = Props & UiComponentProps<ThemeType, RefType>
     render = profiler.withMeasure('render')(render)
-    const WrappedComponent = forwardRef(profiler.withMeasure(name)((
+    const maybeMemo = options.memo ? memo : (component: any) => component
+    const WrappedComponent = maybeMemo(forwardRef(profiler.withMeasure(name)((
       { override, ...props }: ExternalProps,
       outerRef: Ref<RefType>
     ) => {
@@ -63,9 +64,9 @@ export function uiComponent<ThemeType extends object = {}>(
         marker,
         ref,
       })
-    }))
+    })))
     WrappedComponent.displayName = name
     type Component = <T extends object>(props: ExternalProps & (T extends unknown ? {} : T)) => JSX.Element
-    return (options.memo ? memo(WrappedComponent) : WrappedComponent) as unknown as Component
+    return WrappedComponent as unknown as Component
   }
 }
