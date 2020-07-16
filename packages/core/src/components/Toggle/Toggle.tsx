@@ -72,8 +72,7 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
 
 export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputElement>((
   { className, children, ...props },
-  { theme, tokens },
-  [ref, setRef]
+  { theme, tokens, ref }
 ) => {
   const groupProps = useGroupHook(ref, props)
   const [testId] = withMarker(groupProps.marker)
@@ -128,7 +127,6 @@ export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputE
       {props.labelPosition === 'start' && label}
       <input
         {...filterProps(groupProps)}
-        ref={setRef}
         type={props.mode}
         onChange={onChange}
         onClick={preventLabelClick}

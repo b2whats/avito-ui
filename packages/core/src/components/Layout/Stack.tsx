@@ -1,7 +1,7 @@
 import React from 'react'
 import { createClassName } from '../../styled-system/'
-import { useTheme } from '../../theme/'
-import { filterProps, withMarker } from '../../utils/'
+import { uiComponent } from '../../theme/'
+import { filterProps } from '../../utils/'
 import { StackProps } from './contract'
 
 const stackClassName = createClassName<StackProps>(
@@ -36,17 +36,16 @@ const stackClassName = createClassName<StackProps>(
   `)
 )
 
-export const Stack = React.forwardRef(({ as, children, ...props }: StackProps, ref: React.Ref<HTMLElement>) => {
-  const theme = useTheme()
-  const stackStyle = stackClassName(props, theme)
-  const [testId] = withMarker(props.marker)
+export const Stack = uiComponent('Stack', {}, { memo: false })((
+  { as, children, ...props }: StackProps,
+  { testId, tokens }
+) => {
+  const stackStyle = stackClassName(props, tokens)
   const Tag = as || 'div'
 
   return (
-    <Tag ref={ref} css={stackStyle} {...filterProps(props)} {...testId()}>
+    <Tag css={stackStyle} {...filterProps(props)} {...testId()}>
       { children }
     </Tag>
   )
 })
-
-Stack.displayName = 'Stack'

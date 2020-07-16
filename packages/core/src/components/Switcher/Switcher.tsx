@@ -39,7 +39,7 @@ const circleStyle = (positionLoading?: boolean) => css`
   }
 `
 
-export const Switcher = uiComponent('Switcher', switcherTheme)((props: SwitcherProps, { theme }) => {
+export const Switcher = uiComponent('Switcher', switcherTheme)<SwitcherProps, HTMLInputElement>((props, { theme }) => {
   return (
     <Toggle css={circleStyle(props.positionLoading)} {...props} mode='checkbox' override={theme}>
       {({ Icon }) => Icon && <Icon.component {...Icon.props} size='auto' />}

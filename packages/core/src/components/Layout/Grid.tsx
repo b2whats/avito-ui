@@ -1,6 +1,7 @@
 import React from 'react'
 import { createClassName } from '../../styled-system/'
-import { useTheme } from '../../theme/'
+import { uiComponent } from '../../theme/'
+import { filterProps } from '../../utils'
 import { GridProps } from './contract'
 
 // &::before хак против выпадания отрицательных margins из родителя для правильного задания высоты
@@ -64,16 +65,15 @@ const gridClassName = createClassName<GridProps>(
   `)
 )
 
-export const Grid = ({ children, ...props }: GridProps) => {
-  const theme = useTheme()
-  const gridWrapperStyle = gridWrapperClassName(props, theme)
-  const gridStyle = gridClassName(props, theme)
+export const Grid = uiComponent('Grid', {}, { memo: false })(({ children, ...props }: GridProps, { tokens }) => {
+  const gridWrapperStyle = gridWrapperClassName(props, tokens)
+  const gridStyle = gridClassName(props, tokens)
 
   return (
-    <div css={gridWrapperStyle}>
+    <div css={gridWrapperStyle} {...filterProps(props)}>
       <div css={gridStyle}>
         { children }
       </div>
     </div>
   )
-}
+})

@@ -1,5 +1,5 @@
 export { useWindowSize } from './useWindowSize'
-export { useRefHook } from './useRefHook'
+export { useRefObject } from './useRefObject'
 export { usePrevent3DTouch } from './usePrevent3DTouch'
 export { useMeasure } from './useMeasure'
 export { useUncontrolledInputHook } from './useUncontrolledInputHook'

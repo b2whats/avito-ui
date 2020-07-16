@@ -42,8 +42,7 @@ const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
 
 export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
   { mask, ...props },
-  { theme, tokens, testId },
-  [inputRef, setRef]
+  { theme, tokens, testId, ref }
 ) => {
   const renderCore = props.renderCore || (props => <InputCore {...props} />)
   const [focus, focusProps] = useFocus(props)
@@ -66,10 +65,10 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   // Отменяем моргание фокуса при повторных кликах внутри контейнера с инпутом
   // Проверка нужна что бы не блокировать выделениие в самом инпуте
   const handlePreventBlur = (event: React.MouseEvent<HTMLElement>) => {
-    if (event.target !== inputRef.current) event.preventDefault()
+    if (event.target !== ref.current) event.preventDefault()
   }
 
-  const handleClear = () => clearValue(inputRef.current)
+  const handleClear = () => clearValue(ref.current)
 
   const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, theme)
   const inputStyle = inputClassName(props, tokens, Input.style)
@@ -107,7 +106,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
           ...focusProps,
           onChange,
           autoSize: Boolean(props.postfix),
-          ref: setRef,
+          ref,
           ...testId('input'),
         })}
         {props.postfix && renderTextSlot(props.postfix, Postfix.props)}

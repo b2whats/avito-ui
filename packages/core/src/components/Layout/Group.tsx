@@ -1,6 +1,6 @@
 import React, { useRef, useContext, useState, useEffect } from 'react'
 import scrollIntoView from 'scroll-into-view-if-needed'
-import { useTheme } from '../../theme'
+import { uiComponent } from '../../theme'
 import { GroupProps } from './contract'
 import { Stack } from './Stack'
 
@@ -100,10 +100,13 @@ export function useGroupHook<T extends GroupTargetHook>(
 }
 
 
-export const Group = ({ children, block, mode, value, name, disabled, marker, onChange, ...props }: GroupProps) => {
+export const Group = uiComponent('Group', {}, { memo: false })((
+  { children, block, mode, value, name, disabled, marker, onChange, ...props }: GroupProps,
+  { tokens }
+) => {
   const elements = useRef<(HTMLInputElement | HTMLButtonElement)[]>([])
 
-  if (!onChange && useTheme()._demo && mode === 'radio') {
+  if (!onChange && tokens._demo && mode === 'radio') {
     const [fallbackValue, fallbackChange] = useState(value)
     onChange = event => fallbackChange(event.value)
     value = fallbackValue
@@ -201,4 +204,4 @@ export const Group = ({ children, block, mode, value, name, disabled, marker, on
       <Stack inline={!block} {...props} {...aria}>{children}</Stack>
     </GroupContext.Provider>
   )
-}
+})

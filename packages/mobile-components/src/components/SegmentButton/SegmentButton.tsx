@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { filterProps, useRefHook, uiComponent, useWindowSize, foldThemeParams, createClassName } from '@avito/core'
+import { filterProps, uiComponent, useWindowSize, foldThemeParams, createClassName } from '@avito/core'
 import { SegmentButtonProps } from './contract'
 import { segmentButtonTheme } from './theme'
 
@@ -66,12 +66,10 @@ type Geometry = {
 
 export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
   { options, name, onChange, ...props }: SegmentButtonProps,
-  { theme, tokens, testId }
+  { theme, tokens, testId, ref }
 ) => {
   props.value = !props.value && options && options.length > 0 ? options[0].value : props.value
   const windowSize = useWindowSize()
-
-  const [ref, setRef] = useRefHook<HTMLElement>()
   const [geometry, setGeometry] = useState<Geometry>({})
 
   useEffect(() => {
@@ -129,7 +127,7 @@ export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
   }, [])
 
   return (
-    <div ref={setRef} css={groupStyle} role='radiogroup' {...filterProps(props)} {...testId()}>
+    <div css={groupStyle} role='radiogroup' {...filterProps(props)} {...testId()}>
       {geometry[props.value!] && <div css={slideStyle} style={geometry[props.value!]} />}
       {options && options.map(item => {
         const checked = item.value === props.value

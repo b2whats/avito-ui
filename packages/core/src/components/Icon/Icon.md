@@ -175,7 +175,7 @@ import * as webIcons from '@avito/web-components/icons'
 
 const { platform } = useStore(StyleguideStore)
 const icons = Object.entries(platform === 'web' ? webIcons : mobileIcons)
-  .filter(([name, Icon]) => typeof Icon === 'function' || typeof Icon.type === 'function')
+  .filter(([name]) => name !== '__esModule')
   .sort(([name1], [name2]) => name1.localeCompare(name2));
 
 <Stack wrap>
