@@ -1,5 +1,5 @@
 import { ReactEventHandler } from 'react'
-import { Options } from '../../hooks/useIntersection'
+import { Options } from '../../hooks/useVisibility'
 import { StyleProperties } from '../../styled-system/'
 
 

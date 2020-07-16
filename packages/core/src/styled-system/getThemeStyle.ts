@@ -645,14 +645,15 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         if (value === 'circle' || value === 'square') {
           const targetHeight = params.height || params.minHeight
 
-          if (typeof targetHeight === 'number') {
-            width = `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
+          if (targetHeight) {
+            width = targetHeight === 'auto' ? 'auto' : `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
           }
         }
 
         break
       }
       case 'shadow': {
+        // В иконке этот параметр булевого типа и нам не нужно применять это свойство
         if (typeof value !== 'string') break
 
         css += `box-shadow: ${value};`

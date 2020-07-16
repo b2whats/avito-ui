@@ -7,7 +7,7 @@ export type Options = {
   once?: boolean
 }
 
-export const useIntersection = <Ref extends React.MutableRefObject<any>>(
+export const useVisibility = <Ref extends React.MutableRefObject<any>>(
   ref: Ref,
   { once, ...options }: Options
 ) => {

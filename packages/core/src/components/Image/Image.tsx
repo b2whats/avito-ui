@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useIntersection } from '../../hooks/'
+import { useVisibility } from '../../hooks/'
 import { createClassName, foldThemeParams } from '../../styled-system/'
 import { uiComponent } from '../../theme'
 import { filterProps, invokeAll } from '../../utils/'
@@ -25,7 +25,7 @@ export const Image = uiComponent('Image', imageTheme)<ImageProps, HTMLImageEleme
   let visible = true
 
   if (props.lazy) {
-    visible = useIntersection(ref, { once: true, ...(typeof props.lazy === 'object') && props.lazy })
+    visible = useVisibility(ref, { once: true, ...(typeof props.lazy === 'object') && props.lazy })
   }
   useEffect(() => setFallback(false), [props.src])
 
