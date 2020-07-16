@@ -1,4 +1,5 @@
 export * from './mockProps'
 export * from './theme'
 export * from './helpers'
+export * from './reactJest'
 export { imageSnapshot, withPropLabels } from './imageSnapshot'

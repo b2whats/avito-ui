@@ -1,6 +1,10 @@
 import { Formatter } from './Formatter'
 
-export function makeFormatter<Settings>(factory: (settings: Partial<Settings>) => Formatter, defSettings: Settings) {
+interface FormatterFactory<Settings>{
+  (settings: Partial<Settings>): Omit<Formatter, 'parse'> & { parse?: Formatter['parse'] }
+}
+
+export function makeFormatter<Settings>(factory: FormatterFactory<Settings>, defSettings: Settings) {
   return {
     parse: (value: string) => value,
     ...factory(defSettings),

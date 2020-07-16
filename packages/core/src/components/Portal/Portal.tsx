@@ -13,4 +13,3 @@ export const Portal = ({ active = true, children }: PortalProps) => {
 
   return active ? createPortal(children, container) : children
 }
-

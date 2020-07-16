@@ -40,7 +40,7 @@ export interface ToggleProps extends MarginProperties, DimensionProperties, Alig
   /** Позиция лейбла */
   labelPosition?: 'start' | 'end'
   /** Цветовые варианты */
-  variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Неактивное состояние */
   disabled?: boolean
   /** Id елемента */
