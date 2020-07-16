@@ -1,7 +1,13 @@
+## Использование
 Базовый компонент для более сложных компонентов
 
 ```jsx
-<Card bg='blue50'>Text</Card>
+import { Text } from '../Text/'
+import { Image } from '../Image/';
+
+<Card bg='gray4' image={<Image width={240} src='/girl_geo_900x900.png'/>} onClose={() => {}}>
+  <Text>Объявления у вас в кармане</Text>
+</Card>
 ```
 
 ## Крестик закрытия
@@ -10,4 +16,30 @@
 
 ```jsx
 <Card bg='blue50' onClose={() => {}}>Text</Card>
+```
+
+## Направление
+По умолчанию компонент будет в горизонтальной раскладке
+
+```jsx
+<Card bg='blue50'>Text</Card>
+```
+
+Параметр `column` задает вертикальное направление
+```jsx
+<Card bg='blue50' width={200} column>Text</Card>
+```
+
+## Изображение
+
+```jsx
+import { Image } from '../Image/';
+
+<Card bg='blue50' image={<Image width={240} src='/girl_geo_900x900.png'/>} onClose={() => {}}>Text</Card>
+```
+
+```jsx
+import { Image } from '../Image/';
+
+<Card bg='blue50' width={200} column image={<Image width={240} src='/girl_geo_900x900.png'/>} onClose={() => {}}>Text</Card>
 ```

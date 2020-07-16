@@ -403,6 +403,10 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         css += `flex-shrink: ${value ? '1' : '0'};`
 
         break
+      case 'order':
+        css += `order: ${value};`
+
+        break
       case 'borderWidth':
         css += `border-width: ${value}px;`
 
@@ -641,7 +645,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         if (value === 'circle' || value === 'square') {
           const targetHeight = params.height || params.minHeight
 
-          if (targetHeight) {
+          if (typeof targetHeight === 'number') {
             width = `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
           }
         }

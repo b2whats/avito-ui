@@ -1,10 +1,11 @@
 import { Tokens } from '@avito/tokens'
-import { AvatarTheme } from '../components/Avatar'
-import { BadgeTheme } from '../components/Badge'
+import { AvatarTheme } from '../components/Avatar/theme'
+import { BadgeTheme } from '../components/Badge/theme'
 import { ButtonTheme } from '../components/Button/theme'
 import { CardTheme } from '../components/Card/theme'
 import { CheckboxTheme } from '../components/Checkbox/theme'
 import { IconTheme } from '../components/Icon/theme'
+import { ImageTheme } from '../components/Image/theme'
 import { InputTheme } from '../components/Input/theme'
 import { LinkTheme } from '../components/Link/theme'
 import { PositionerTheme } from '../components/Positioner/theme'
@@ -19,10 +20,12 @@ import { TooltipTheme } from '../components/Tooltip/theme'
 export interface Theme extends Tokens {
   Avatar: Partial<AvatarTheme>
   Badge: Partial<BadgeTheme>
+  Banner: Partial<CardTheme>
   Button: Partial<ButtonTheme>
   Card: Partial<CardTheme>
   Checkbox: Partial<CheckboxTheme>
   Icon: Partial<IconTheme>
+  Image: Partial<ImageTheme>
   Input: Partial<InputTheme>
   Radio: Partial<RadioTheme>
   Spinner: Partial<SpinnerTheme>

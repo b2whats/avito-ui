@@ -1,25 +1,40 @@
-import { CSSProperties } from 'react'
 import { Tokens } from '@avito/tokens'
 
 // Все типы здесь  должны быть интерфейсами для интроспекции в стайлгайдисте
 /* eslint "@typescript-eslint/consistent-type-definitions": ["error", "interface"] */
 
 export interface TextProperties {
+  /* Семейство шрифта */
   fontFamily?: string
+  /* Размер шрифта */
   fontSize?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'xxxxxl' | number | (string & {})
+  /* Высота текстовой строки */
   lineHeight?: 'inherit' | 'none' | 'normal' | 'dense' | number
+  /* Межбуквенный интервал */
   letterSpacing?: number
+  /* Начертание шрифта */
   fontWeight?: 'light' | 'normal' | 'bold'
+  /* Курсив */
   italic?: boolean
+  /* Текст в одну строку */
   noWrap?: boolean
+  /* Многострочный текст */
   wrap?: boolean
+  /* Сохранить форматирование текста */
   pre?: boolean
+  /* Жирное начертание шрифта */
   bold?: boolean
+  /* Тонкое начертание шрифта */
   light?: boolean
+  /* Текст заглавными буквами */
   uppercase?: boolean
+  /* Троеточие в конце текста */
   truncate?: boolean
+  /* Контейнер текста по высоте строчных букв */
   crop?: boolean
+  /* Подчеркивание текста */
   underline?: boolean | 'dotted' | 'dashed'
+  /* Сглаживание шрифта */
   smoothing?: 'auto' | 'antialiased' | 'subpixel'
 }
 
@@ -28,21 +43,21 @@ type Width = number
 type Height = 's' | 'm' | 'l' | 'auto' | number
 
 export interface DimensionProperties {
-  /** Ширина блока */
+  /* Ширина блока */
   width?: Width
-  /** Максимальная ширина блока */
+  /* Максимальная ширина блока */
   maxWidth?: Width
-  /** Минимальная ширина блока */
+  /* Минимальная ширина блока */
   minWidth?: Width
-  /** Высота блока */
+  /* Высота блока */
   height?: Height
-  /** Минимальная высота блока */
+  /* Минимальная высота блока */
   minHeight?: Height
-  /** Максимальная высота блока */
+  /* Максимальная высота блока */
   maxHeight?: Height
-  /** Уменьшать при нехватке пространства */
+  /* Уменьшать при нехватке пространства */
   shrink?: boolean
-  /** Занять все возможзное пространство */
+  /* Занять все возможзное пространство */
   grow?: boolean
 }
 
@@ -51,43 +66,45 @@ export interface Display {
 }
 
 export interface VisibilityProperties {
+  /* Видимость блока */
   visible?: boolean
+  /* Прозрачность блока */
   opacity?: number
 }
 
 type SpaceValues = keyof Tokens['space'] | 'none' | 'auto' | number
 
 export interface MarginProperties {
-  /** Внешний отступ со всех сторон */
+  /* Внешний отступ со всех сторон */
   m?: SpaceValues
-  /** Внешний отступ слува и справа */
+  /* Внешний отступ слува и справа */
   mx?: SpaceValues
-  /** Внешний отступ сверху и снизу */
+  /* Внешний отступ сверху и снизу */
   my?: SpaceValues
-  /** Внешний отступ сверху */
+  /* Внешний отступ сверху */
   mt?: SpaceValues
-  /** Внешний отступ справа */
+  /* Внешний отступ справа */
   mr?: SpaceValues
-  /** Внешний отступ снизу */
+  /* Внешний отступ снизу */
   mb?: SpaceValues
-  /** Внешний отступ слева */
+  /* Внешний отступ слева */
   ml?: SpaceValues
 }
 
 export interface PaddingProperties {
-  /** Внутренний отступ */
+  /* Внутренний отступ */
   p?: SpaceValues
-  /** Внутренний отступ слева и справа */
+  /* Внутренний отступ слева и справа */
   px?: SpaceValues
-  /** Внутренний отступ сверху и снизу */
+  /* Внутренний отступ сверху и снизу */
   py?: SpaceValues
-  /** Внутренний отступ сверху */
+  /* Внутренний отступ сверху */
   pt?: SpaceValues
-  /** Внутренний отступ справа */
+  /* Внутренний отступ справа */
   pr?: SpaceValues
-  /** Внутренний отступ снизу */
+  /* Внутренний отступ снизу */
   pb?: SpaceValues
-  /** Внутренний отступ слева */
+  /* Внутренний отступ слева */
   pl?: SpaceValues
 }
 
@@ -97,24 +114,24 @@ type Align = 'left' | 'center' | 'right' | 'justify'
 type Valign = 'top' | 'middle' | 'bottom' | 'baseline' | 'stretch'
 
 export interface AlignProperties {
-  /** Горизонтальное выравнивание дочерних блоков */
+  /* Горизонтальное выравнивание дочерних блоков */
   align?: Align
-  /** Вертикальное выравнивание */
+  /* Вертикальное выравнивание */
   valignSelf?: Valign
-  /** Вертикальное выравнивание дочерних блоков */
+  /* Вертикальное выравнивание дочерних блоков */
   valign?: Valign
 }
 
 export interface LayoutProperties extends AlignProperties {
-  /** Вертикальное направление дочерних элементов */
+  /* Вертикальное направление дочерних элементов */
   column?: boolean
-  /** Блочное поведение */
+  /* Блочное поведение */
   block?: boolean
-  /** Строчное поведение */
+  /* Строчное поведение */
   inline?: boolean
-  /** Переносить блоки на следующие строки если не хватило места */
+  /* Переносить блоки на следующие строки если не хватило места */
   wrap?: boolean
-  /** Положение элемента в потоке */
+  /* Положение элемента в потоке */
   position?: 'relative' | 'absolute' | 'static' | 'fixed'
   /* Расстояние от верхнего края */
   top?: number
@@ -124,97 +141,108 @@ export interface LayoutProperties extends AlignProperties {
   left?: number
   /* Расстояние от правого края */
   right?: number
-  /** Добавляет скролл */
+  /* Добавляет скролл */
   scroll?: boolean
+  /* Порядок элементов */
+  order?: number
 }
 
 export interface BorderProperties {
-  /** Стиль границ */
+  /* Стиль границ */
   borderStyle?: 'solid' | 'dotted' | 'dashed' | 'none'
-  /** Радиус границ */
+  /* Радиус границ */
   borderRadius?: number | 's' | 'm' | 'l' | 'circle'
-  /** Радиус границ */
+  /* Радиус границ */
   rounded?: number | 's' | 'm' | 'l' | 'circle'
-  /** Ширина границы */
+  /* Ширина границы */
   borderWidth?: number
 }
 
 interface OtherProperties extends BorderProperties {
+  /* Сделать элемент фокусируемым */
   focus?: boolean | string
+  /* Не активный элемент */
   disabled?: boolean
+  /* Цветовая схема элемента */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
+  /* Соседний селектор */
   adjacentSelector?: string
+  /* Форма фигуры */
   shape?: 'pill' | 'square' | 'circle'
+  /* Тень */
   shadow?: string | boolean
+  /* Реакция элемента на события мыши */
   pointerEvents?: boolean
-  cursor?: CSSProperties['cursor']
+  /* Внешний вид курсора над элементом */
+  cursor?: string
+  /* Тестовый идентификатор */
   marker?: string
 }
 
 export type Colors = keyof Tokens['palette'] | 'transparent' | 'inherit' | (string & {})
 
 export interface ColorProperties {
-  /** Цвет контента */
+  /* Цвет контента */
   color?: Colors
-  /** Цвет контента при наведении */
+  /* Цвет контента при наведении */
   colorHover?: Colors
-  /** Цвет контента при нажатии */
+  /* Цвет контента при нажатии */
   colorActive?: Colors
-  /** Цвет контента посещенной ссылки */
+  /* Цвет контента посещенной ссылки */
   colorVisited?: Colors
-  /** Цвет контента в выбранном состоянии */
+  /* Цвет контента в выбранном состоянии */
   colorChecked?: Colors
-  /** Цвет контента в состоянии фокуса */
+  /* Цвет контента в состоянии фокуса */
   colorFocus?: Colors
-  /** Цвет контента в неакттивном состоянии */
+  /* Цвет контента в неакттивном состоянии */
   colorDisabled?: Colors
 
-  /** Цвет фона */
+  /* Цвет фона */
   bg?: Colors
-  /** Цвет фона при наведении */
+  /* Цвет фона при наведении */
   bgHover?: Colors
-  /** Цвет фона при нажатии */
+  /* Цвет фона при нажатии */
   bgActive?: Colors
-  /** Цвет фона посещенной ссылки */
+  /* Цвет фона посещенной ссылки */
   bgVisited?: Colors
-  /** Цвет фона в выбранном состоянии */
+  /* Цвет фона в выбранном состоянии */
   bgChecked?: Colors
-  /** Цвет фона в состоянии фокуса */
+  /* Цвет фона в состоянии фокуса */
   bgFocus?: Colors
-  /** Цвет фона в неакттивном состоянии */
+  /* Цвет фона в неакттивном состоянии */
   bgDisabled?: Colors
 
-  /** Цвет ганиц */
+  /* Цвет ганиц */
   borderColor?: Colors
-  /** Цвет границ при наведении */
+  /* Цвет границ при наведении */
   borderColorHover?: Colors
-  /** Цвет границ при наведении */
+  /* Цвет границ при наведении */
   borderColorActive?: Colors
-  /** Цвет границ посещенной ссылки */
+  /* Цвет границ посещенной ссылки */
   borderColorVisited?: Colors
-  /** Цвет границ в выбранном состоянии */
+  /* Цвет границ в выбранном состоянии */
   borderColorChecked?: Colors
-  /** Цвет границ в состоянии фокуса */
+  /* Цвет границ в состоянии фокуса */
   borderColorFocus?: Colors
-  /** Цвет границ в неакттивном состоянии */
+  /* Цвет границ в неакттивном состоянии */
   borderColorDisabled?: Colors
 
-  /** Цвет текста у плейсхолдера */
+  /* Цвет текста у плейсхолдера */
   placeholderColor?: Colors
 
-  /** цвет оверлея */
+  /* цвет оверлея */
   overlay?: Colors
-  /** Цвет оверлея при наведении */
+  /* Цвет оверлея при наведении */
   overlayHover?: Colors
-  /** Цвет оверлея при наведении */
+  /* Цвет оверлея при наведении */
   overlayActive?: Colors
-  /** Цвет оверлея посещенной ссылки */
+  /* Цвет оверлея посещенной ссылки */
   overlayVisited?: Colors
-  /** Цвет оверлея в выбранном состоянии */
+  /* Цвет оверлея в выбранном состоянии */
   overlayChecked?: Colors
-  /** Цвет оверлея в состоянии фокуса */
+  /* Цвет оверлея в состоянии фокуса */
   overlayFocus?: Colors
-  /** Цвет оверлея в неакттивном состоянии */
+  /* Цвет оверлея в неакттивном состоянии */
   overlayDisabled?: Colors
 }
 

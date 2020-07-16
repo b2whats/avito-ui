@@ -14,7 +14,7 @@ export const mobile: Tokens = {
     },
   },
   font: {
-    fontFamily: 'Avito, Arial',
+    fontFamily: 'Arial',
     defaultColor: 'black',
     defaultFontSize: 'm',
     defaultLineHeight: 'normal',
