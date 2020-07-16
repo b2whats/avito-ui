@@ -1,8 +1,7 @@
 import { Placement, StrictModifiers } from '@popperjs/core'
 import { TransitionProps } from './theme'
 
-type Modifiers = StrictModifiers extends object ? Required<StrictModifiers> : never
-type FindByName<Union, Name> = Union extends { name: Name, options: any } ? Union['options'] | false : never
+type FindModifier<Name extends StrictModifiers['name']> = Extract<Required<StrictModifiers>, { name: Name }>['options']
 type TargetProps = {
   close: () => void
 }
@@ -14,11 +13,11 @@ export interface PositionerProps {
   /* Позиция target */
   placement?: Placement
   /* Смещение target относиельно reference */
-  offset?: FindByName<Modifiers, 'offset'>
+  offset?: FindModifier<'offset'>
   /* Перемещение при нехватке места */
-  flip?: FindByName<Modifiers, 'flip'>
+  flip?: FindModifier<'flip'>
   /* Параметры для срелки */
-  arrow?: FindByName<Modifiers, 'arrow'>
+  arrow?: FindModifier<'arrow'>
   /* Ширина target */
   width?: TargetWidth
   /* Минимальная ширина target */
@@ -26,9 +25,9 @@ export interface PositionerProps {
   /* Максимальная ширина target */
   maxWidth?: TargetWidth
   /* Параметры для переполнения */
-  preventOverflow?: FindByName<Modifiers, 'preventOverflow'>
+  preventOverflow?: FindModifier<'preventOverflow'>
   /* Параметры для скрытия target когда reference вышел за область видимости */
-  hide?: FindByName<Modifiers, 'hide'>
+  hide?: FindModifier<'hide'>
   /* Описывает стратегию позиционирования */
   strategy?: 'fixed' | 'absolute'
   /* Отрендерить в контексте портала */
