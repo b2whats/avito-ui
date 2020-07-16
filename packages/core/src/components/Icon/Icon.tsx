@@ -78,11 +78,11 @@ export const Icon = uiComponent('Icon', iconTheme, { memo: false })<
   const setRef = (node: any) => {
     if (!node || !isIE) return
 
-    const [,,w, h] = node.getAttribute('viewBox').split(' ')
-    const ratio = Number(w) / Number(h)
-    const height = node.clientHeight
+    const [,,width, height] = node.getAttribute('viewBox').split(' ')
+    const ratio = Number(width) / Number(height)
+    const { clientHeight } = node
 
-    node.style.width = height * ratio + 'px'
+    node.style.width = clientHeight * ratio + 'px'
   }
 
   const { Icon } = foldThemeParams(props, theme)

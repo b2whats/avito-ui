@@ -74,9 +74,9 @@ export class Select extends PureComponent {
     }
   }
 
-  setPopupVisible = (f) => {
+  setPopupVisible = (state) => {
     this.setState({
-      isPopupOpened: f,
+      isPopupOpened: state,
     })
   }
 

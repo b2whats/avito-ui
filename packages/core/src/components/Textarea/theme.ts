@@ -4,8 +4,8 @@ import { CrossIcon } from '../Icon/icons/'
 import { TextareaProps } from './contract'
 
 export type TextareaTheme = ComponentTheme<TextareaProps, {
-  Textarea: Slot,
-  IconClear: Slot<IconProps>,
+  Textarea: Slot
+  IconClear: Slot<IconProps>
 }>
 
 export const textareaTheme: TextareaTheme = {

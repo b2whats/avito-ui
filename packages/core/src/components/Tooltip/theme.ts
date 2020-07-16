@@ -3,9 +3,9 @@ import { IconProps } from '../Icon/contract'
 import { TooltipProps } from './contract'
 
 export type TooltipTheme = ComponentTheme<TooltipProps, {
-  Tooltip: Slot,
-  Close: Slot<IconProps>,
-  Arrow: Slot<never>,
+  Tooltip: Slot
+  Close: Slot<IconProps>
+  Arrow: Slot<never>
 }>
 
 export const tooltipTheme: TooltipTheme = {

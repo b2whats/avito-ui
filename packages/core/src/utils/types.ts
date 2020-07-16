@@ -6,9 +6,9 @@ export type DeepPartial<T> = {
 }
 
 export interface ChangePayload<Value, Element> {
-  name?: string;
-  value?: Value;
-  target: Element;
+  name?: string
+  value?: Value
+  target: Element
 }
 
 export type ChangeHandler<Data = string, Element = null> =

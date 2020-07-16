@@ -8,18 +8,18 @@ export const toggleTheme: DeepPartial<ToggleTheme> = {
   scheme: {
     Label: {
       props: {
-        size: p => p.size,
+        size: props => props.size,
         valignSelf: 'middle',
       },
       labelPosition: {
         start: {
           props: {
-            mr: p => p.size === 's' ? 6 : 8,
+            mr: props => props.size === 's' ? 6 : 8,
           },
         },
         end: {
           props: {
-            ml: p => p.size === 's' ? 6 : 8,
+            ml: props => props.size === 's' ? 6 : 8,
           },
         },
       },

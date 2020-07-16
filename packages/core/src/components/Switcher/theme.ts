@@ -4,10 +4,10 @@ import { TextProps } from '../Text/contract'
 import { SwitcherProps } from './contract'
 
 export type SwitcherTheme = ComponentTheme<SwitcherProps, {
-  Toggle?: Slot,
-  Switch?: Slot,
-  Icon?: Slot<IconProps>,
-  Label?: Slot<TextProps>,
+  Toggle?: Slot
+  Switch?: Slot
+  Icon?: Slot<IconProps>
+  Label?: Slot<TextProps>
 }>
 
 export const switcherTheme: SwitcherTheme = {

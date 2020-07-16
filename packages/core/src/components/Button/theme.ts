@@ -6,11 +6,11 @@ import { ButtonProps } from './contract'
 
 
 export type ButtonTheme = ComponentTheme<ButtonProps, {
-  Button: Slot<never>,
-  IconBefore: Slot<IconProps>,
-  Text: Slot<TextProps>,
-  IconAfter: Slot<IconProps>,
-  Spinner: Slot<SpinnerProps>,
+  Button: Slot<never>
+  IconBefore: Slot<IconProps>
+  Text: Slot<TextProps>
+  IconAfter: Slot<IconProps>
+  Spinner: Slot<SpinnerProps>
 }>
 
 export const buttonTheme: ButtonTheme = {

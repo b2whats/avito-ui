@@ -9,7 +9,7 @@ export const textTheme: TextTheme = {
     Text: {
       style: {
         lineHeight: 'normal',
-        fontSize: p => p.size,
+        fontSize: props => props.size,
       },
       dense: {
         style: {

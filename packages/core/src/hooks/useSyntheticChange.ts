@@ -16,7 +16,7 @@ export function useSyntheticChange<Value, Element extends (HTMLInputElement | HT
     ]
   }
 
-  const { parse = v => v } = options
+  const { parse = value => value } = options
   const target = useRef<Element | null>(null)
   const rifmProps = useRifm({
     value: stringValue,
@@ -25,9 +25,9 @@ export function useSyntheticChange<Value, Element extends (HTMLInputElement | HT
   })
   return [
     rifmProps.value,
-    e => {
-      target.current = e.target
-      rifmProps.onChange(e as ChangeEvent<any>)
+    event => {
+      target.current = event.target
+      rifmProps.onChange(event as ChangeEvent<any>)
     },
   ]
 }

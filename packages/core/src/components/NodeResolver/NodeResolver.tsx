@@ -1,10 +1,10 @@
 import React, { forwardRef, useRef, useEffect } from 'react'
 
 type Nodes = {
-  tmp: HTMLElement,
-  parent: HTMLElement,
-  anchor: Comment,
-  nextElement: Element | null,
+  tmp: HTMLElement
+  parent: HTMLElement
+  anchor: Comment
+  nextElement: Element | null
 } | null
 
 export const NodeResolver = forwardRef<Element, { children: React.ReactElement }>(({ children }, ref) => {

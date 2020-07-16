@@ -49,7 +49,7 @@ export const TextareaCore = React.memo(React.forwardRef((
 
     // Placeholder создает скрол когда не помещается, поэтому когда текста в нем очень много, высота высчиывается исходя из количества строк placeholder
     // То есть при первоначальном вводе текста текстовое поле сожмется до минимальной ширины
-    const { placeholder, value } = node
+    const { placeholder } = node
 
     node.placeholder = ''
     node.style.height = 'auto'

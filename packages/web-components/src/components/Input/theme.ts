@@ -1,4 +1,4 @@
-import { DeepPartial, InputTheme, dsl, Colors } from '@avito/core'
+import { DeepPartial, InputTheme, dsl } from '@avito/core'
 import { controlOutlineVariants } from '../../utils'
 import { CrossIcon } from '../Icon/'
 

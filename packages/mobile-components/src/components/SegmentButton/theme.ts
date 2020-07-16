@@ -2,9 +2,9 @@ import { ComponentTheme, Slot } from '@avito/core'
 import { SegmentButtonProps } from './contract'
 
 export type SegmentButtonTheme = ComponentTheme<SegmentButtonProps, {
-  Group: Slot,
-  Button: Slot,
-  Slide: Slot,
+  Group: Slot
+  Button: Slot
+  Slide: Slot
 }>
 
 export const segmentButtonTheme: SegmentButtonTheme = {

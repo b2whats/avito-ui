@@ -5,10 +5,10 @@ import { TextProps } from '../Text/contract'
 import { RadioProps } from './contract'
 
 export type RadioTheme = ComponentTheme<RadioProps, {
-  Toggle?: Slot,
-  Switch?: Slot,
-  Icon?: Slot<IconProps>,
-  Label?: Slot<TextProps>,
+  Toggle?: Slot
+  Switch?: Slot
+  Icon?: Slot<IconProps>
+  Label?: Slot<TextProps>
 }>
 
 export const radioTheme: RadioTheme = {

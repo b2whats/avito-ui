@@ -1,14 +1,14 @@
 import { MarginProperties } from '@avito/core'
 
 type onChangeProps = {
-  name?: string,
-  value?: number | string,
+  name?: string
+  value?: number | string
 }
 
 type Options = {
-  value: string | number,
-  text: string,
-  disabled: boolean,
+  value: string | number
+  text: string
+  disabled: boolean
 }
 
 export interface SegmentButtonProps extends MarginProperties {
