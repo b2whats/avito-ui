@@ -1,45 +1,9 @@
 import { css } from '@emotion/core'
 import { Tokens } from '@avito/tokens'
 import { profiler } from '../utils'
-import { StyleProperties, Display, Colors } from './types'
+import { StyleProperties, Display, Colors } from './StyleProperties'
 
 type Theme = Tokens
-
-type UnionToIntersection<U> =
-  (boolean extends U ? (k: U) => void : U extends any ? (k: U) => void : never) extends ((k: infer I) => void)
-  ? I : never
-type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
-type OnlyLiteralString<T> = T extends string ? T : never
-type Computable<T, Arg> = { [K in keyof T]: (T[K] | ((arg: Arg) => T[K])) }
-// String literals on unions, maybe optional
-// preset: 'force' | 'none', preset: 'force' and preset?: 'force' will all pass
-type IsSwitchable<T> = IsUnion<NonNullable<T>> extends true ? true : T extends string | undefined ? true : false
-
-export type SchemeType<
-  Props extends { [K in keyof Props]: Props[K] },
-  ComponentsProps = never
-> = {
-  style?: Partial<Computable<StyleProperties, Props>>
-  props?: Partial<Computable<ComponentsProps, Props>>
-  // Срабатывает ошибка рекурсии https://github.com/microsoft/TypeScript/issues/34933 в компоненте Icon
-  // Если написать так React.FunctionComponent<ComponentsProps>
-  component?: any
-} & {
-  [Key in keyof Props]?: IsSwitchable<Props[Key]> extends true
-    ? { [Key2 in OnlyLiteralString<Props[Key]>]?: SchemeType<Props, ComponentsProps> }
-    : SchemeType<Props, ComponentsProps>
-}
-
-export interface Slot<OutProps = never> {}
-export type ComponentTheme<Props, Scheme = {}> = {
-  defaultProps?: Partial<Props>
-  mapProps?: (props: Props) => Partial<Props>
-  scheme: {
-    [K in keyof Scheme]: Scheme[K] extends (Slot<infer OutProps> | undefined)
-      ? SchemeType<Props, OutProps>
-      : Scheme[K]
-  }
-}
 
 const computedCrop = (crop: number, targetHeight: number) => {
   const value = (crop + (targetHeight - 1) * 16) / 32
@@ -144,66 +108,6 @@ const maps = {
     antialiased: 'grayscale',
     subpixel: 'grayscale',
   },
-}
-
-const execComputables = (object: object, arg: any) => {
-  for (const key in object) {
-    if (typeof object[key] === 'function') {
-      object[key] = object[key](arg)
-    }
-  }
-  return object
-}
-
-export const foldScheme = (scheme: any, props: any, only?: 'props' | 'style' | 'component') => {
-  const result = {
-    style: {},
-    props: {},
-    component: null,
-  }
-
-  if (!scheme) return result
-
-  for (const prop in scheme) {
-    if (['style', 'props'].includes(prop) && (!only || only === prop)) {
-      Object.assign(result[prop], scheme[prop])
-
-      continue
-    }
-
-    if (prop === 'component' && (!only || only === prop)) {
-      result.component = scheme.component
-
-      continue
-    }
-
-    const value = props[prop]
-    const nestedConfig = scheme[prop]
-
-    const switchBranch = nestedConfig[value]
-    if (switchBranch) {
-      const data = foldScheme(switchBranch, props, only)
-
-      Object.assign(result.style, data.style)
-      Object.assign(result.props, data.props)
-      data.component && (result.component = data.component)
-
-      continue
-    }
-
-    if (value) {
-      const data = foldScheme(nestedConfig, props, only)
-
-      Object.assign(result.style, data.style)
-      Object.assign(result.props, data.props)
-      data.component && (result.component = data.component)
-    }
-  }
-
-  execComputables(result.props, props)
-  execComputables(result.style, props)
-
-  return result
 }
 
 export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
@@ -745,29 +649,6 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
   return css
 }
 
-type FoldedItemTheme<ItemTheme> = ItemTheme extends SchemeType<infer InProps, infer OutProps> ? {
-  style: StyleProperties
-  props: OutProps
-  component: React.FunctionComponent<OutProps> | React.ComponentClass<OutProps>
-} : never
-
-export type FoldThemeParamsReturn<ComponentTheme> = ComponentTheme extends { scheme: object } ? {
-  [K in keyof ComponentTheme['scheme']]: FoldedItemTheme<ComponentTheme['scheme'][K]>
-} : never
-
-export const foldThemeParams = profiler.withMeasure('fold')(function foldThemeParams<
-  T extends { scheme: { [key: string]: any } }
->(props: any, { scheme }: T): FoldThemeParamsReturn<T> {
-  const result: any = {}
-
-  let name: keyof typeof scheme
-  for (name in scheme) {
-    result[name] = foldScheme(scheme[name], props)
-  }
-
-  return result
-})
-
 export function createClassName<Props, ComponentTheme extends object | null = null>(
   createRule: (
     schemeStyle: StyleProperties,
@@ -795,4 +676,4 @@ export function createClassName<Props, ComponentTheme extends object | null = nu
   })
 }
 
-function assertExhaustive<K>(_value: K) {}
+function assertExhaustive<Exceptions>(_value: Exceptions) {}
