@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import { Tokens } from '@avito/tokens'
 import { profiler } from '../utils'
-import { StyleProperties, Display, Colors } from './StyleProperties'
+import { StyleProperties, Display, Colors, SpaceProperties } from './StyleProperties'
 
 type Theme = Tokens
 
@@ -11,12 +11,14 @@ const computedCrop = (crop: number, targetHeight: number) => {
   return Math.round(value * 100) / 100
 }
 
-const spaceValue = (value: string | number, spaces: {}): string => {
+const spaceValue = (value: string | number | undefined, spaces: {}): string | undefined => {
+  if (value == null) {
+    return value
+  }
   if (typeof value === 'number') {
     return `${value}px`
-  } else {
-    return spaces[value] ? `${spaces[value]}px` : value === 'auto' ? 'auto' : '0px'
   }
+  return spaces[value] ? `${spaces[value]}px` : value === 'auto' ? 'auto' : '0px'
 }
 
 const maps = {
@@ -110,14 +112,34 @@ const maps = {
   },
 }
 
+function isSpace(prop: any): prop is keyof SpaceProperties {
+  return /^[pm][xytrbl]?$/.test(prop)
+}
+// eslint-disable-next-line id-length
+function getPadding({ p, px = p, py = p, pt = py, pr = px, pb = py, pl = px }: StyleProperties, space: Tokens['space']) {
+  return [pt, pr, pb, pl].map(size => spaceValue(size, space))
+}
+// eslint-disable-next-line id-length
+function getMargin({ m, mx = m, my = m, mt = my, mr = mx, mb = my, ml = mx }: StyleProperties, space: Tokens['space']) {
+  return [mt, mr, mb, ml].map(size => spaceValue(size, space))
+}
+function spaceRules(prefix: string, [top, right, bottom, left]: (string | undefined)[]) {
+  let css = ''
+  if (top != null) css += `${prefix}-top: ${top};`
+  if (right != null) css += `${prefix}-right: ${right};`
+  if (bottom != null) css += `${prefix}-bottom: ${bottom};`
+  if (left != null) css += `${prefix}-left: ${left};`
+  return css
+}
+
 export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
   let css = 'box-sizing: border-box;'
   const { font, dimension, space, palette, focus, shape } = tokens
 
   if (!params) return css
 
-  let margin: string[] = []
-  let padding: string[] = []
+  let margin = getMargin(params, space)
+  let padding = getPadding(params, space)
   let hoverState = []
   let activeState = []
   let visitedState = []
@@ -152,6 +174,10 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
     let value = params[_param]
 
     if (value === null || value === undefined) continue
+
+    if (isSpace(param)) {
+      continue
+    }
 
     // Exhaustive switch
     switch (param) {
@@ -365,85 +391,6 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         css += 'flex-direction: column;'
 
         break
-      case 'm':
-        value = spaceValue(value, space)
-        margin = [value, value, value, value]
-
-        break
-      case 'mx':
-        value = spaceValue(value, space)
-        margin[1] = value
-        margin[3] = value
-
-        break
-      case 'my':
-        value = spaceValue(value, space)
-        margin[0] = value
-        margin[2] = value
-
-        break
-      case 'mt':
-        value = spaceValue(value, space)
-        margin[0] = value
-
-        break
-      case 'mr':
-        value = spaceValue(value, space)
-        margin[1] = value
-
-        break
-      case 'mb':
-        value = spaceValue(value, space)
-        margin[2] = value
-
-        break
-      case 'ml':
-        value = spaceValue(value, space)
-        margin[3] = value
-
-        break
-      case 'p':
-        value = spaceValue(value, space)
-        padding = [
-          `padding-top: ${value};`,
-          `padding-right: ${value};`,
-          `padding-bottom: ${value};`,
-          `padding-left: ${value};`,
-        ]
-
-        break
-      case 'px':
-        value = spaceValue(value, space)
-        padding[1] = `padding-right: ${value};`
-        padding[3] = `padding-left: ${value};`
-
-        break
-      case 'py':
-        value = spaceValue(value, space)
-        padding[0] = `padding-top: ${value};`
-        padding[2] = `padding-bottom: ${value};`
-
-        break
-      case 'pt':
-        value = spaceValue(value, space)
-        padding[0] = `padding-top: ${value};`
-
-        break
-      case 'pr':
-        value = spaceValue(value, space)
-        padding[1] = `padding-right: ${value};`
-
-        break
-      case 'pb':
-        value = spaceValue(value, space)
-        padding[2] = `padding-bottom: ${value};`
-
-        break
-      case 'pl':
-        value = spaceValue(value, space)
-        padding[3] = `padding-left: ${value};`
-
-        break
       case 'color':
       case 'bg':
       case 'borderColor':
@@ -579,19 +526,10 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
     }
   }
 
-  if (padding.length !== 0) {
-    css += `&&& {
-      ${padding.join('')}
-    }`
-  }
-  if (margin.length !== 0) {
-    css += `&&& {
-      ${margin[0] ? `margin-top: ${margin[0]};` : ''}
-      ${margin[1] ? `margin-right: ${margin[1]};` : ''}
-      ${margin[2] ? `margin-bottom: ${margin[2]};` : ''}
-      ${margin[3] ? `margin-left: ${margin[3]};` : ''}
-    }`
-  }
+  css += `&&& {
+    ${spaceRules('padding', padding)}
+    ${spaceRules('margin', margin)}
+  }`
 
   let selector = null
   if (params.adjacentSelector) {
