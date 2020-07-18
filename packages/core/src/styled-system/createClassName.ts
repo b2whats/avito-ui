@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import { Tokens } from '@avito/tokens'
 import { profiler } from '../utils'
-import { StyleProperties, Display, Colors, SpaceProperties } from './StyleProperties'
+import { StyleProperties, Display, Colors, ColorProperties, SpaceProperties } from './StyleProperties'
 
 type Theme = Tokens
 
@@ -79,26 +79,8 @@ const maps = {
   },
   color: {
     color: 'color',
-    colorHover: 'color',
-    colorActive: 'color',
-    colorVisited: 'color',
-    colorFocus: 'color',
-    colorChecked: 'color',
-    colorDisabled: 'color',
     bg: 'background-color',
-    bgHover: 'background-color',
-    bgActive: 'background-color',
-    bgVisited: 'background-color',
-    bgFocus: 'background-color',
-    bgChecked: 'background-color',
-    bgDisabled: 'background-color',
     borderColor: 'border-color',
-    borderColorHover: 'border-color',
-    borderColorActive: 'border-color',
-    borderColorVisited: 'border-color',
-    borderColorFocus: 'border-color',
-    borderColorChecked: 'border-color',
-    borderColorDisabled: 'border-color',
   },
   webkitSmoothing: {
     auto: 'auto',
@@ -132,6 +114,23 @@ function spaceRules(prefix: string, [top, right, bottom, left]: (string | undefi
   return css
 }
 
+type RegularColorProp = keyof Omit<ColorProperties, 'placeholderColor'>
+const colors = ['color', 'bg', 'borderColor', 'overlay'] as const
+const modifiers = ['hover', 'active', 'visited', 'focus', 'disabled', 'checked']
+const colorMap = {} as Required<{ [key in RegularColorProp]: { location?: string, color: typeof colors[any] } }>
+colors.forEach((color) => {
+  colorMap[color] = { color }
+  modifiers.forEach(modifier => {
+    colorMap[`${color}${modifier.replace(/^./, firstChar => firstChar.toUpperCase())}`] = {
+      location: modifier,
+      color,
+    }
+  })
+})
+function isColor(color: any): color is RegularColorProp {
+  return color in colorMap
+}
+
 export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
   let css = 'box-sizing: border-box;'
   const { font, dimension, space, palette, focus, shape } = tokens
@@ -140,12 +139,14 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
   let margin = getMargin(params, space)
   let padding = getPadding(params, space)
-  let hoverState = []
-  let activeState = []
-  let visitedState = []
-  let focusState = []
-  let disabledState = []
-  let checkedState = []
+  const states = {
+    hover: '',
+    active: '',
+    visited: '',
+    focus: '',
+    disabled: '',
+    checked: '',
+  }
   let display = ''
   let width = ''
 
@@ -176,6 +177,17 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
     if (value === null || value === undefined) continue
 
     if (isSpace(param)) {
+      continue
+    }
+
+    if (isColor(param)) {
+      const { location, color } = colorMap[param]
+      const rule = colorRule(color, value)
+      if (location) {
+        states[location] += rule
+      } else {
+        css += rule
+      }
       continue
     }
 
@@ -391,55 +403,6 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         css += 'flex-direction: column;'
 
         break
-      case 'color':
-      case 'bg':
-      case 'borderColor':
-      case 'overlay':
-        css += colorRule(param, value)
-
-        break
-      case 'colorHover':
-      case 'bgHover':
-      case 'borderColorHover':
-      case 'overlayHover':
-        hoverState.push(colorRule(param, value))
-
-        break
-      case 'colorActive':
-      case 'bgActive':
-      case 'borderColorActive':
-      case 'overlayActive':
-        activeState.push(colorRule(param, value))
-
-        break
-      case 'colorVisited':
-      case 'bgVisited':
-      case 'borderColorVisited':
-      case 'overlayVisited':
-        visitedState.push(colorRule(param, value))
-
-        break
-      case 'colorFocus':
-      case 'bgFocus':
-      case 'borderColorFocus':
-      case 'overlayFocus':
-        focusState.push(colorRule(param, value))
-
-        break
-      case 'colorChecked':
-      case 'bgChecked':
-      case 'borderColorChecked':
-      case 'overlayChecked':
-        checkedState.push(colorRule(param, value))
-
-        break
-      case 'colorDisabled':
-      case 'bgDisabled':
-      case 'borderColorDisabled':
-      case 'overlayDisabled':
-        disabledState.push(colorRule(param, value))
-
-        break
       case 'placeholderColor':
         css += `&::placeholder, & *::placeholder, & *[data-placeholder] {color: ${palette[value] || value};-webkit-text-fill-color: currentcolor;}`
 
@@ -466,11 +429,11 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         const color = typeof value === 'string' ? value : focus.color[params.variant || 'default']
 
-        focusState.push(`
+        states.focus += `
           box-shadow: ${focus.shape} ${palette[color] || color};
           position: relative;
           z-index: 2;
-        `)
+        `
 
         break
       }
@@ -554,23 +517,10 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
     }
   }
 
-  if (checkedState.length) {
-    css += `${selector.checked}{${checkedState.join('')}}`
-  }
-  if (visitedState.length) {
-    css += `${selector.visited}{${visitedState.join('')}}`
-  }
-  if (hoverState.length) {
-    css += `${selector.hover}{${hoverState.join('')}}`
-  }
-  if (activeState.length) {
-    css += `${selector.active}{${activeState.join('')}}`
-  }
-  if (focusState.length) {
-    css += `${selector.focus}{${focusState.join('')}}`
-  }
-  if (disabledState.length) {
-    css += `${selector.disabled}{${disabledState.join('')}}`
+  for (const state in states) {
+    if (states[state].length) {
+      css += `${selector[state]}{${states[state]}}`
+    }
   }
 
   if (width.endsWith('%') && (margin[1] || margin[3])) {
