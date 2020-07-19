@@ -10,4 +10,5 @@ yarn-error.log
 *.tsbuildinfo
 __diff_output__
 coverage
+.DS_Store
 

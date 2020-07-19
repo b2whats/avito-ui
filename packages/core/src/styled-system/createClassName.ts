@@ -1,7 +1,8 @@
 import { css } from '@emotion/core'
 import { Tokens } from '@avito/tokens'
 import { profiler } from '../utils'
-import { StyleProperties, Display, Colors, ColorProperties, SpaceProperties } from './StyleProperties'
+import { ExpandedStyleProperties, expandShorthands } from './expandShorthands'
+import { SpaceProperties, StyleProperties, Display, ColorProperties } from './StyleProperties'
 
 type Theme = Tokens
 
@@ -114,18 +115,7 @@ function stateSelectors(before?: string) {
   }
 }
 
-function isSpace(prop: any): prop is keyof SpaceProperties {
-  return /^[pm][xytrbl]?$/.test(prop)
-}
-// eslint-disable-next-line id-length
-function getPadding({ p, px = p, py = p, pt = py, pr = px, pb = py, pl = px }: StyleProperties, space: Tokens['space']) {
-  return [pt, pr, pb, pl].map(size => spaceValue(size, space))
-}
-// eslint-disable-next-line id-length
-function getMargin({ m, mx = m, my = m, mt = my, mr = mx, mb = my, ml = mx }: StyleProperties, space: Tokens['space']) {
-  return [mt, mr, mb, ml].map(size => spaceValue(size, space))
-}
-function spaceRules(prefix: string, [top, right, bottom, left]: (string | undefined)[]) {
+const spaceRules = (prefix: string) => ([top, right, bottom, left]: (string | undefined)[]) => {
   let css = ''
   if (top != null) css += `${prefix}-top: ${top};`
   if (right != null) css += `${prefix}-right: ${right};`
@@ -133,6 +123,8 @@ function spaceRules(prefix: string, [top, right, bottom, left]: (string | undefi
   if (left != null) css += `${prefix}-left: ${left};`
   return css
 }
+const formatPadding = spaceRules('padding')
+const formatMargin = spaceRules('margin')
 
 type Modifier = keyof typeof maps.selector
 type RegularColorProp = keyof Omit<ColorProperties, 'placeholderColor'>
@@ -151,20 +143,35 @@ colors.forEach((color) => {
 function isColor(color: any): color is RegularColorProp {
   return color in colorMap
 }
+const overlayStyle = (borderWidth = 0, color: string) => `
+  &::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    left: -${borderWidth}px;
+    right: -${borderWidth}px;
+    top: -${borderWidth}px;
+    bottom: -${borderWidth}px;
+    border-radius: inherit;
+    background: ${color};
+  }
+`
+
 
 function execDimension(size: number | 'auto') {
   if (size === 'auto') return 'auto'
   return Math.abs(size) > 1 ? `${size}px` : `${size * 100}%`
 }
 
-export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
+export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tokens) => {
   let css = 'box-sizing: border-box;'
   const { font, dimension, space, palette, focus, shape } = tokens
 
   if (!params) return css
 
-  const margin = getMargin(params, space)
-  const padding = getPadding(params, space)
+  const margin = [params.mt, params.mr, params.mb, params.ml].map(size => spaceValue(size, space))
+  const padding = [params.pt, params.pr, params.pb, params.pl].map(size => spaceValue(size, space))
+
   const states = {
     hover: '',
     active: '',
@@ -176,39 +183,17 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
   let display = ''
   let width = ''
 
-  const colorRule = (param: string, value: Colors) => {
-    if (!/^overlay/.test(param)) {
-      return `${maps.color[param]}: ${palette[value] || value};`
-    }
-    const { borderWidth = 0 } = params
-    return `
-      &::after {
-        content: "";
-        position: absolute;
-        pointer-events: none;
-        left: -${borderWidth}px;
-        right: -${borderWidth}px;
-        top: -${borderWidth}px;
-        bottom: -${borderWidth}px;
-        border-radius: inherit;
-        background: ${palette[value] || value};
-      }
-    `
-  }
-
   for (const _param in params) {
     const param = _param as keyof typeof params
     let value = params[_param]
 
     if (value === null || value === undefined) continue
 
-    if (isSpace(param)) {
-      continue
-    }
-
     if (isColor(param)) {
       const { location, color } = colorMap[param]
-      const rule = colorRule(color, value)
+      const rule = color === 'overlay'
+        ? overlayStyle(params.borderWidth, palette[value] || value)
+        : `${maps.color[color]}: ${palette[value] || value};`
       if (location) {
         states[location] += rule
       } else {
@@ -236,17 +221,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'fontWeight':
-        if (params.bold || params.light) break
-
         css += `font-weight: ${value};`
-
-        break
-      case 'bold':
-        css += `font-weight: ${value ? '600' : 'normal'};`
-
-        break
-      case 'light':
-        css += `font-weight: ${value ? '300' : 'normal'};`
 
         break
       case 'italic':
@@ -502,13 +477,13 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       }
       default:
         // Exhaustive switch guard
-        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate' | 'scroll' | 'marker'>(param)
+        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate' | 'scroll' | 'marker' | keyof SpaceProperties>(param)
     }
   }
 
   css += `&&& {
-    ${spaceRules('padding', padding)}
-    ${spaceRules('margin', margin)}
+    ${formatPadding(padding)}
+    ${formatMargin(margin)}
   }`
 
   const selector = stateSelectors(params.adjacentSelector)
@@ -543,12 +518,13 @@ export function createClassName<Props, ComponentTheme extends object | null = nu
     theme: Theme,
     schemeStyle: StyleProperties) => any
 ) {
-  return profiler.withMeasure('classname')((
+  return profiler.withMeasure('classname')(function classnameStyle(
     props: Props,
     theme: Theme,
     schemeStyle?: ComponentTheme extends object ? StyleProperties : never
-  ) => {
-    const styles = createRule(schemeStyle as any, props, theme)
+  ) {
+    // FIXME expanding shorthands with proper priorities over this merge is impossible
+    const styles = createRule(schemeStyle as any, expandShorthands(props as any, true), theme)
     const textRules = getStyles(styles, theme)
 
     const resultRules = createUserRule

@@ -18,6 +18,8 @@ export const buttonTheme: ButtonTheme = {
     size: 'm',
     type: 'button',
   },
+  // FIXME: can't expand shorthands of createClassName maps
+  mapProps: ({ shape }) => (shape === 'circle' || shape === 'square') ? { p: 'none' } : {},
   scheme: {
     Spinner: {
       size: {

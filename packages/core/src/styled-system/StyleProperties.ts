@@ -13,7 +13,7 @@ export interface TextProperties {
   /* Межбуквенный интервал */
   letterSpacing?: number
   /* Начертание шрифта */
-  fontWeight?: 'light' | 'normal' | 'bold'
+  fontWeight?: 'light' | 'normal' | 'bold' | number
   /* Курсив */
   italic?: boolean
   /* Текст в одну строку */

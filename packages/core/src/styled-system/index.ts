@@ -7,4 +7,5 @@ export const styled = anyStyled as CreateStyled<Tokens>
 export * from './createClassName'
 export * from './fold'
 export * from './StyleProperties'
+export * from './expandShorthands'
 export * from './types'

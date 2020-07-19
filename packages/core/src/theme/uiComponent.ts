@@ -1,6 +1,7 @@
 import { forwardRef, Ref, MutableRefObject, memo } from 'react'
 import { Tokens } from '@avito/tokens'
 import { useRefObject } from '../hooks'
+import { expandShorthandsDeep } from '../styled-system/'
 import { DeepPartial, profiler, withMarker, CommonAttributes } from '../utils/'
 import { useTheme } from '.'
 import { Theme } from './contract'
@@ -32,6 +33,7 @@ export function uiComponent<ThemeType extends object = {}>(
   theme: ThemeType = {} as ThemeType,
   options: Options = {}
 ) {
+  theme = expandShorthandsDeep(theme)
   options = { memo: true, ...options }
   return <Props extends { [key: string]: any }, RefType = HTMLElementType<Props>>(
     render: (
