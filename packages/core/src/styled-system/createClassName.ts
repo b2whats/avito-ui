@@ -152,6 +152,11 @@ function isColor(color: any): color is RegularColorProp {
   return color in colorMap
 }
 
+function execDimension(size: number | 'auto') {
+  if (size === 'auto') return 'auto'
+  return Math.abs(size) > 1 ? `${size}px` : `${size * 100}%`
+}
+
 export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => {
   let css = 'box-sizing: border-box;'
   const { font, dimension, space, palette, focus, shape } = tokens
@@ -323,24 +328,15 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'width':
-        width = value > 1 ? `${value}px` : `${value * 100}%`
+        width = execDimension(value)
 
         break
       case 'minWidth':
       case 'maxWidth':
-        css += `${maps.dimension[param]}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
-
-        break
       case 'height':
       case 'minHeight':
       case 'maxHeight':
-        value = dimension.rowHeight[value] || value
-
-        if (value === 'auto') {
-          css += `${maps.dimension[param]}: auto;`
-        } else {
-          css += `${maps.dimension[param]}: ${value > 1 ? `${value}px` : `${value * 100}%`};`
-        }
+        css += `${maps.dimension[param]}: ${execDimension(dimension.rowHeight[value] || value)};`
 
         break
       case 'display':
@@ -440,7 +436,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
       case 'bottom':
       case 'left':
       case 'right':
-        css += `${param}: ${Math.abs(value) > 1 ? `${value}px` : `${value * 100}%`};`
+        css += `${param}: ${execDimension(value)};`
 
         break
       case 'focus': {
