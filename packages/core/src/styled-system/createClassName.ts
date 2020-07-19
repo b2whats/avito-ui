@@ -92,6 +92,26 @@ const maps = {
     antialiased: 'grayscale',
     subpixel: 'grayscale',
   },
+  selector: {
+    checked: '&[aria-checked=true], &[data-state~=checked]',
+    visited: '&:visited',
+    hover: '&:hover',
+    active: '&:not(:disabled):active, &[data-state~=active]',
+    focus: '&&:focus, &&[data-state~=focus]',
+    disabled: '&:disabled, &[aria-disabled=true], &[data-state~=disabled]',
+  },
+}
+
+function stateSelectors(before?: string) {
+  if (!before) return maps.selector
+  return {
+    checked: `${before}:checked + &, ${before}[aria-checked=true] + &`,
+    visited: `${before}:visited + &`,
+    hover: `${before}:hover + &`,
+    active: `${before}:enabled:active + &, ${before}[data-state=active] + &`,
+    focus: `${before}:focus + &`,
+    disabled: `${before}:disabled + &, ${before}[aria-disabled=true] + &`,
+  }
 }
 
 function isSpace(prop: any): prop is keyof SpaceProperties {
@@ -114,10 +134,11 @@ function spaceRules(prefix: string, [top, right, bottom, left]: (string | undefi
   return css
 }
 
+type Modifier = keyof typeof maps.selector
 type RegularColorProp = keyof Omit<ColorProperties, 'placeholderColor'>
 const colors = ['color', 'bg', 'borderColor', 'overlay'] as const
-const modifiers = ['hover', 'active', 'visited', 'focus', 'disabled', 'checked']
-const colorMap = {} as Required<{ [key in RegularColorProp]: { location?: string, color: typeof colors[any] } }>
+const modifiers: Modifier[] = ['hover', 'active', 'visited', 'focus', 'disabled', 'checked']
+const colorMap = {} as Required<{ [key in RegularColorProp]: { location?: Modifier, color: typeof colors[any] } }>
 colors.forEach((color) => {
   colorMap[color] = { color }
   modifiers.forEach(modifier => {
@@ -137,8 +158,8 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
   if (!params) return css
 
-  let margin = getMargin(params, space)
-  let padding = getPadding(params, space)
+  const margin = getMargin(params, space)
+  const padding = getPadding(params, space)
   const states = {
     hover: '',
     active: '',
@@ -494,29 +515,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
     ${spaceRules('margin', margin)}
   }`
 
-  let selector = null
-  if (params.adjacentSelector) {
-    const before = params.adjacentSelector
-
-    selector = {
-      checked: `${before}:checked + &, ${before}[aria-checked=true] + &`,
-      visited: `${before}:visited + &`,
-      hover: `${before}:hover + &`,
-      active: `${before}:enabled:active + &, ${before}[data-state=active] + &`,
-      focus: `${before}:focus + &`,
-      disabled: `${before}:disabled + &, ${before}[aria-disabled=true] + &`,
-    }
-  } else {
-    selector = {
-      checked: '&[aria-checked=true], &[data-state~=checked]',
-      visited: '&:visited',
-      hover: '&:hover',
-      active: '&:not(:disabled):active, &[data-state~=active]',
-      focus: '&&:focus, &&[data-state~=focus]',
-      disabled: '&:disabled, &[aria-disabled=true], &[data-state~=disabled]',
-    }
-  }
-
+  const selector = stateSelectors(params.adjacentSelector)
   for (const state in states) {
     if (states[state].length) {
       css += `${selector[state]}{${states[state]}}`
