@@ -20,7 +20,7 @@ const imageClassName = createClassName<ImageProps, typeof imageTheme>(
   `
 )
 
-export const Image = uiComponent('Image', imageTheme)<ImageProps, HTMLImageElement>((props, { theme, tokens }, [ref, setRef]) => {
+export const Image = uiComponent('Image', imageTheme)<ImageProps, HTMLImageElement>((props, { theme, tokens, ref }) => {
   const [isFallback, setFallback] = useState(false)
   let visible = true
 
@@ -42,6 +42,6 @@ export const Image = uiComponent('Image', imageTheme)<ImageProps, HTMLImageEleme
     : undefined
 
   return (
-    <img ref={setRef} css={imageStyle} {...filterProps(props)} src={src} srcSet={srcset} onError={onError} />
+    <img css={imageStyle} {...filterProps(props)} src={src} srcSet={srcset} onError={onError} />
   )
 })

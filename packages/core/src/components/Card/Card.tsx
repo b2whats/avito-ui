@@ -6,7 +6,7 @@ import { Box } from '../Layout/'
 import { CardProps } from './contract'
 import { cardTheme } from './theme'
 
-export const Card = uiComponent('Card', cardTheme)<CardProps, HTMLDivElement>(({ children, ...props }, { theme, testId, marker }) => {
+export const Card = uiComponent('Card', cardTheme)<CardProps, HTMLDivElement>(({ children, ...props }, { theme, marker }) => {
   const { Card, Close, Content, Image } = foldThemeParams(props, theme)
 
   const renderImageSlot = (image: ReactNode, props: ImageProps) => image && (

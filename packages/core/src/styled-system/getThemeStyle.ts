@@ -274,15 +274,15 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'bold':
-        css += 'font-weight: 600;'
+        css += `font-weight: ${value ? '600' : 'normal'};`
 
         break
       case 'light':
-        css += 'font-weight: 300;'
+        css += `font-weight: ${value ? '300' : 'normal'};`
 
         break
       case 'italic':
-        css += 'font-style: italic;'
+        css += `font-style: ${value ? 'italic' : 'normal'};`
 
         break
       case 'noWrap':
@@ -298,7 +298,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'uppercase':
-        css += 'text-transform: uppercase;'
+        css += `text-transform: ${value ? 'uppercase' : 'none'};`
 
         break
       case 'cursor':
@@ -619,7 +619,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         break
       }
       case 'visible':
-        css += value === false ? 'visibility: hidden;' : ''
+        css += `visibility: ${value ? 'visible' : 'hidden'};`
         break
       case 'opacity':
         css += `opacity: ${value};`

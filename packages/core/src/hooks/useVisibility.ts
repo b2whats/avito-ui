@@ -7,13 +7,17 @@ export type Options = {
   once?: boolean
 }
 
+const isIntersectionObserver = typeof window !== 'undefined' && window.IntersectionObserver
+
 export const useVisibility = <Ref extends React.MutableRefObject<any>>(
   ref: Ref,
   { once, ...options }: Options
 ) => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(!isIntersectionObserver)
 
   useEffect(() => {
+    if (!isIntersectionObserver) return
+
     const observer = new IntersectionObserver(([entry], observerInstance) => {
       if (entry.intersectionRatio > 0) {
         setVisible(entry.isIntersecting)
