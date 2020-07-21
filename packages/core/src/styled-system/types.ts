@@ -118,6 +118,8 @@ export interface AlignProperties {
   align?: Align
   /* Вертикальное выравнивание */
   valignSelf?: Valign
+  /* Горизонтальное выравнивание */
+  alignSelf?: Align
   /* Вертикальное выравнивание дочерних блоков */
   valign?: Valign
 }

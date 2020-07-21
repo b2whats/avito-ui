@@ -15,19 +15,19 @@ import { Image } from '../Image/';
 Параметр `onClose` добавляет крестик закрытия, при нажатии будет вызвано связанное событие
 
 ```jsx
-<Card bg='blue50' onClose={() => {}}>Text</Card>
+<Card bg='blue50' height={200} onClose={() => {}}></Card>
 ```
 
 ## Направление
 По умолчанию компонент будет в горизонтальной раскладке
 
 ```jsx
-<Card bg='blue50'>Text</Card>
+<Card bg='blue50' height={200}></Card>
 ```
 
 Параметр `column` задает вертикальное направление
 ```jsx
-<Card bg='blue50' width={200} column>Text</Card>
+<Card bg='blue50' width={200} height={200} column></Card>
 ```
 
 ## Изображение

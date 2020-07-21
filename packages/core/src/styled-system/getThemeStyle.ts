@@ -452,6 +452,11 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       }
+      case 'alignSelf': {
+        css += `align-self: ${maps.alignColumn[value]};`
+
+        break
+      }
       case 'column':
         css += 'flex-direction: column;'
 
