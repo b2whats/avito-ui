@@ -10,5 +10,5 @@ export interface AvatarProps extends BoxProps {
   src?: string
   alt?: string
   isFallback?: boolean
-  as?: ComponentType<any> | string,
+  as?: ComponentType<any> | string
 }

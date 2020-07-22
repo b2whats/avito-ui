@@ -12,7 +12,7 @@ export interface ChangePayload<Element, Value> {
   type?: string
   value?: Value
   checked?: boolean
-  formattedValue?: string | number | null
+  typedValue?: string | number | null
   target?: Element
 }
 

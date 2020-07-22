@@ -29,7 +29,7 @@ export const InputNumber = ({ onChange = () => {}, ...props }: InputNumberProps)
         setStringValue(event.value || '')
         const numericValue = numberOrEmpty(event.value)
         if (!numericEquals(numericValue, outerValue)) {
-          onChange({ ...event, formattedValue: numericValue })
+          onChange({ ...event, typedValue: numericValue })
         }
       }}
       onKeyDown={invokeAll(props.onKeyDown, event => {
@@ -37,11 +37,11 @@ export const InputNumber = ({ onChange = () => {}, ...props }: InputNumberProps)
         let value = outerValue || 0
         if (event.key === 'ArrowUp') {
           value += 1
-          onChange({ formattedValue: value, target, value: String(value) })
+          onChange({ typedValue: value, target, value: String(value) })
           event.preventDefault()
         } else if (event.key === 'ArrowDown') {
           value -= 1
-          onChange({ formattedValue: value, target, value: String(value) })
+          onChange({ typedValue: value, target, value: String(value) })
           event.preventDefault()
         }
       })}

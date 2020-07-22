@@ -1,6 +1,5 @@
 import React, { Ref, ChangeEvent } from 'react'
 import type { Formatter, NumberFormatterSettings } from '../../formatters'
-import { StyleProperties } from '../../styled-system/'
 import { CommonAttributes } from '../../utils/'
 
 export enum InputPreset {}

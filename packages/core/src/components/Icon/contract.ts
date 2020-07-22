@@ -1,4 +1,3 @@
-import React from 'react'
 import { StyleProperties } from '../../styled-system/'
 import { CommonAttributes } from '../../utils/'
 
