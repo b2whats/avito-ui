@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { isServer } from '../utils/'
 
 export type Options = {
   threshold?: number | number[]
@@ -13,10 +14,11 @@ export const useVisibility = <Ref extends React.MutableRefObject<any>>(
   ref: Ref,
   { once, ...options }: Options
 ) => {
-  const [visible, setVisible] = useState(!isIntersectionObserver)
+  const disabled = !isIntersectionObserver || isServer
+  const [visible, setVisible] = useState(disabled)
 
   useEffect(() => {
-    if (!isIntersectionObserver) return
+    if (disabled) return
 
     const observer = new IntersectionObserver(([entry], observerInstance) => {
       if (entry.intersectionRatio > 0) {
