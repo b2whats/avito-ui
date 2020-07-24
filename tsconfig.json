@@ -22,5 +22,5 @@
       "@avito/*": ["../node_modules/@avito/*/src"],
     },
   },
-  "exclude": ["node_modules", "packages/**/build", "packages/**/cjs", "packages/**/es", "packages/**/types", "**/*.cy.test.tsx"]
+  "exclude": ["node_modules", "packages/**/build", "packages/**/cjs", "packages/**/es", "packages/**/types", "**/*.test.tsx"]
 }
