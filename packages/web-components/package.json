@@ -1,6 +1,6 @@
 {
   "name": "@avito/web-components",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "repository": {
     "type": "git",
     "url": "http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components",
@@ -44,7 +44,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@avito/core": "^0.0.23",
+    "@avito/core": "^0.0.24",
     "@avito/tokens": "^0.0.20"
   },
   "devDependencies": {
