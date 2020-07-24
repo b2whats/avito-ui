@@ -1,7 +1,7 @@
 import React, { isValidElement, ReactNode } from 'react'
 import { foldThemeParams, createClassName } from '../../styled-system/'
 import { uiComponent } from '../../theme/'
-import { filterProps, withMarker } from '../../utils/'
+import { filterProps, withMarker, isIE } from '../../utils/'
 import { IconProps } from '../Icon/'
 import { useGroupHook } from '../Layout/Group'
 import { Spinner as SpinnerComponent } from '../Spinner/'
@@ -17,7 +17,8 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
     ...props,
     ...(props.shape === 'circle' || props.shape === 'square') && { p: 'none' },
   }),
-  (textRules, { kind, pressedOffset }, _, themeStyle) => (`
+  // eslint-disable-next-line id-length
+  (textRules, { kind, pressedOffset }, { space }, { borderWidth = 0, p = 0, py = p, pt = py, pb = py }) => (`
     font-family: inherit;
     cursor: pointer;
     text-align: center;
@@ -38,7 +39,7 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
     }
 
     &[data-group~='horizontal']:not([data-group~='last']):not([data-group~='spacing']) {
-      margin-right: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth}px;
+      margin-right: ${kind === 'outline' ? '-' : ''}${borderWidth}px;
       border-bottom-right-radius: 0px;
       border-top-right-radius: 0px;
     }
@@ -49,7 +50,7 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
     }
 
     &[data-group~='vertical']:not([data-group~='last']):not([data-group~='spacing']) {
-      margin-bottom: ${kind === 'outline' ? '-' : ''}${themeStyle.borderWidth}px;
+      margin-bottom: ${kind === 'outline' ? '-' : ''}${borderWidth}px;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
@@ -65,11 +66,15 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
       align-items: center;
     }
 
-    a&:after { /* IE11 */
-      content: '';
-      min-height: inherit;
-      font-size: 0;
-    }
+    ${isIE ? `
+      a&:after { /* https://github.com/philipwalton/flexbugs#flexbug-3 */
+        content: '';
+        min-height: inherit;
+        margin-top: -${(space[pt] || pt) + borderWidth}px;
+        margin-bottom: -${(space[pb] || pb) + borderWidth}px;
+        font-size: 0;
+      }
+    ` : ''}
 
     & > [data-icon='spinner'] {
       position: absolute;
