@@ -1,3 +1,5 @@
+## 0.0.23
+- never use esm for babel runtime
 ## 0.0.22
 ## 0.0.17
 - New comnponents: Avatar, Badge, InputNumber

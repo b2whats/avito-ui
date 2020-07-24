@@ -34,7 +34,7 @@ const config = {
   ],
   plugins: [
     '@babel/plugin-syntax-dynamic-import',
-    ['@babel/transform-runtime', { useESModules: BABEL_ENV === 'esm' }],
+    '@babel/transform-runtime',
     ['module-resolver', {
       cwd: 'babelrc',
       alias: (isServer || isTest) && {
