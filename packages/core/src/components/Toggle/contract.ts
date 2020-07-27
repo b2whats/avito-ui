@@ -1,5 +1,6 @@
 import React from 'react'
-import { MarginProperties, DimensionProperties, AlignProperties, FoldThemeParamsReturn } from '../../styled-system/'
+import { StyleProperties, FoldThemeParamsReturn } from '../../styled-system/'
+import { CommonAttributes } from '../../utils/'
 import { ToggleTheme } from './theme'
 
 type ChildrenProps = {
@@ -8,14 +9,7 @@ type ChildrenProps = {
   Icon?: FoldThemeParamsReturn<ToggleTheme>['Icon']
 }
 
-type onChangeProps = {
-  name?: string
-  value?: string | number
-  checked: boolean
-  type: 'checkbox' | 'radio'
-}
-
-export interface ToggleProps extends MarginProperties, DimensionProperties, AlignProperties {
+export interface ToggleProps extends StyleProperties, CommonAttributes<HTMLInputElement, string | number> {
   children?(props: ChildrenProps): React.ReactNode
   /** Размер */
   size?: 's' | 'm' | 'l'
@@ -43,16 +37,6 @@ export interface ToggleProps extends MarginProperties, DimensionProperties, Alig
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Неактивное состояние */
   disabled?: boolean
-  /** Id елемента */
-  id?: string
   /** Класс елемента */
   className?: string
-  /** Позиция элемента при фокусе */
-  tabIndex?: number
-
-  onClick?(event: React.MouseEvent<HTMLInputElement>): void
-  onChange?(props: onChangeProps): void
-  onMouseEnter?(): void
-  onMouseLeave?(): void
-  onKeyDown?(event: React.KeyboardEvent<HTMLInputElement>): void
 }

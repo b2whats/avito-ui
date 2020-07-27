@@ -1,6 +1,5 @@
 import React from 'react'
-import { MarginProperties, AlignProperties } from '../../styled-system/'
-import { ChangeHandler } from '../../utils'
+import { CommonAttributes } from '../../utils/'
 
 export interface TextareaCoreProps {
   /** Автоматическая высота поля */
@@ -12,7 +11,7 @@ export interface TextareaCoreProps {
   /** Имя */
   name?: string
   /** Значение */
-  value?: string | null
+  value?: string
   /** Подсказка */
   placeholder?: string
   /** Неактивное состояние */
@@ -21,25 +20,18 @@ export interface TextareaCoreProps {
   resizable?: boolean
   /** Класс элемента */
   className?: string
-  /** Id */
-  id?: string
-  /** Позиция элемента при фокусе */
-  tabIndex?: number
+  /** Элемент в фокусе при первом рендеринге */
+  autoFocus?: boolean
 
   deletePlaceholderOnFocus?: boolean
 
-  onClick?(event: React.MouseEvent<HTMLTextAreaElement>): void
   onChange?(event: React.ChangeEvent<HTMLTextAreaElement>): void
-  onFocus?(event: React.FocusEvent<HTMLTextAreaElement>): void
-  onBlur?(event: React.FocusEvent<HTMLTextAreaElement>): void
-  onKeyDown?(event: React.KeyboardEvent<HTMLTextAreaElement>): void
-  onMouseDown?(event: React.MouseEvent<HTMLTextAreaElement>): void
+  onClick?(event: React.MouseEvent<HTMLTextAreaElement>): void
 }
 
-export interface TextareaProps extends Omit<TextareaCoreProps, 'className' | 'onChange'>, AlignProperties, MarginProperties {
+export interface TextareaProps extends Omit<TextareaCoreProps, 'className' | 'onChange' | 'onClick'>, CommonAttributes<HTMLTextAreaElement, string> {
   /** Размер */
   size?: 's' | 'm' | 'l'
-  onChange?: ChangeHandler<string | null, HTMLTextAreaElement>
   /** Крестик очистки */
   clearable?: boolean | 'always'
   /** Цветовые варианты */

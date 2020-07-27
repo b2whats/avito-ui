@@ -1,7 +1,7 @@
 import { forwardRef, Ref, MutableRefObject, memo } from 'react'
 import { Tokens } from '@avito/tokens'
 import { useRefObject } from '../hooks'
-import { DeepPartial, profiler, withMarker } from '../utils/'
+import { DeepPartial, profiler, withMarker, CommonAttributes } from '../utils/'
 import { useTheme } from '.'
 import { Theme } from './contract'
 import { mergeTheme } from './mergeTheme'
@@ -25,6 +25,7 @@ type Internals<ThemeType, Tokens, Element> = {
 }
 
 type InternalProps<Props, RefType> = Props & { marker?: string, ref: MutableRefObject<RefType> }
+type HTMLElementType<Props> = Props extends CommonAttributes<infer T, any> ? T : HTMLElement
 
 export function uiComponent<ThemeType extends object = {}>(
   name: keyof Theme | (string & {}),
@@ -32,7 +33,7 @@ export function uiComponent<ThemeType extends object = {}>(
   options: Options = {}
 ) {
   options = { memo: true, ...options }
-  return <Props, RefType = HTMLElement>(
+  return <Props extends { [key: string]: any }, RefType = HTMLElementType<Props>>(
     render: (
       props: InternalProps<Props, RefType>,
       internal: Internals<ThemeType, Tokens, RefType>,

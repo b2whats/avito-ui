@@ -1,12 +1,7 @@
-import React, { HTMLAttributes } from 'react'
-import { SpaceProperties, ColorProperties, AlignProperties, DimensionProperties, BorderProperties, LayoutProperties, VisibilityProperties } from '../../styled-system/'
+import { StyleProperties } from '../../styled-system/'
+import { CommonAttributes } from '../../utils/'
 
-type MouseHandler = (event: React.MouseEvent<SVGSVGElement>) => void
-type StyleProps = AlignProperties & SpaceProperties & ColorProperties & DimensionProperties
-  & BorderProperties & LayoutProperties & VisibilityProperties
-
-export interface BaseIconProps extends StyleProps {
-  children: React.ReactNode
+export interface BaseIconProps extends StyleProperties, CommonAttributes<SVGElement> {
   /** Имя */
   name: string
   /** Размеры конейнера с иконкой */
@@ -25,12 +20,6 @@ export interface BaseIconProps extends StyleProps {
   shadow?: boolean | string
   /** Состояние disabled */
   disabled?: boolean
-  /** ARIA-роль */
-  role?: HTMLAttributes<any>['role']
-
-  onClick?: MouseHandler
-
-  marker?: string
 }
 
 export interface IconProps extends Omit<BaseIconProps, 'children' | 'name' | 'viewBox'> {}

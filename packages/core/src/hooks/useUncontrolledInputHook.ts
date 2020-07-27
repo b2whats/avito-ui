@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
-import { ChangeHandler } from '../utils'
+import { ChangeEventHandler } from '../utils'
 
 type Props<Value, Element> = {
-  value?: Value | null
-  onChange?: ChangeHandler<Value | null, Element>
+  value?: Value
+  onChange?: ChangeEventHandler<Value, Element>
 }
 
 export const useUncontrolledInputHook = <Value, Element>(props: Props<Value, Element>) => {

@@ -1,9 +1,4 @@
-import { MarginProperties } from '@avito/core'
-
-type onChangeProps = {
-  name?: string
-  value?: number | string
-}
+import { MarginProperties, CommonAttributes } from '@avito/core'
 
 type Options = {
   value: string | number
@@ -11,7 +6,7 @@ type Options = {
   disabled: boolean
 }
 
-export interface SegmentButtonProps extends MarginProperties {
+export interface SegmentButtonProps extends MarginProperties, CommonAttributes<HTMLElement, number | string> {
   options?: Options[]
   /** Размер кнопки */
   size?: 's' | 'm' | 'l'
@@ -21,7 +16,5 @@ export interface SegmentButtonProps extends MarginProperties {
   disabled?: boolean
   /** Выбранные элементы */
   value?: number | string
-  /** Событие изменения значения */
-  onChange?: (props: onChangeProps) => void
 }
 

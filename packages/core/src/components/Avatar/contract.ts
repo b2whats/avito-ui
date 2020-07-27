@@ -1,14 +1,14 @@
-import { ComponentType, ImgHTMLAttributes } from 'react'
+import { ComponentType } from 'react'
 import { BoxProps } from '../Layout'
 
-export interface AvatarProps extends BoxProps, Pick<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'> {
+export interface AvatarProps extends BoxProps {
   size: number
   type?: 'person' | 'company' | 'shop'
   disabled?: boolean
   badge?: React.ReactElement
-  onClick?: any
-  href?: any
+  href?: string
+  src?: string
+  alt?: string
   isFallback?: boolean
   as?: ComponentType<any> | string
 }
-

@@ -79,7 +79,7 @@ export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputE
 
   // Uncontrolled input for demos
   if (tokens._demo && !groupProps.onChange && groupProps.mode === 'checkbox') {
-    const [checked, onChange] = useState(groupProps.checked || false)
+    const [checked, onChange] = useState<boolean | undefined>(groupProps.checked || false)
     groupProps.checked = checked
     groupProps.onChange = event => onChange(event.checked)
   }

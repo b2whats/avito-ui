@@ -1,7 +1,8 @@
-import { MarginProperties } from '../../styled-system/'
+import { StyleProperties } from '../../styled-system/'
 import { Theme } from '../../theme/'
+import { CommonAttributes } from '../../utils/'
 
-export interface SpinnerProps extends MarginProperties {
+export interface SpinnerProps extends StyleProperties, CommonAttributes<SVGElement> {
   /** Цвет */
   color?: keyof Theme['palette']
   /** Размер */
