@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { isServer } from '../utils/'
 
 export type Options = {
   threshold?: number | number[]
   root?: HTMLElement
+  disabled?: boolean
   rootMargin?: string
   once?: boolean
 }
@@ -12,13 +12,18 @@ const isIntersectionObserver = typeof window !== 'undefined' && window.Intersect
 
 export const useVisibility = <Ref extends React.MutableRefObject<any>>(
   ref: Ref,
-  { once, ...options }: Options
+  { once, disabled, ...options }: Options
 ) => {
-  const disabled = !isIntersectionObserver || isServer
-  const [visible, setVisible] = useState(disabled)
+  const [visible, setVisible] = useState(Boolean(disabled))
 
   useEffect(() => {
-    if (disabled) return
+    if (Boolean(disabled)) return
+
+    if (!isIntersectionObserver) {
+      setVisible(true)
+
+      return
+    }
 
     const observer = new IntersectionObserver(([entry], observerInstance) => {
       if (entry.intersectionRatio > 0) {
@@ -29,7 +34,7 @@ export const useVisibility = <Ref extends React.MutableRefObject<any>>(
     observer.observe(ref.current)
 
     return () => observer.disconnect()
-  }, [])
+  }, [disabled])
 
   return visible
 }

@@ -36,7 +36,7 @@ const config = {
     '@babel/plugin-syntax-dynamic-import',
     '@babel/transform-runtime',
     ['module-resolver', {
-      cwd: 'babelrc',
+      cwd: path.resolve(__dirname),
       alias: (isServer || isTest) && {
         '^@avito/core/icons$': './packages/core/src/components/Icon/icons',
         '^@avito/mobile-components/icons$': './packages/mobile-components/src/components/Icon',

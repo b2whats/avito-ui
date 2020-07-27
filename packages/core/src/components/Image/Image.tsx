@@ -22,11 +22,8 @@ const imageClassName = createClassName<ImageProps, typeof imageTheme>(
 
 export const Image = uiComponent('Image', imageTheme)<ImageProps, HTMLImageElement>((props, { theme, tokens, ref }) => {
   const [isFallback, setFallback] = useState(false)
-  let visible = true
+  let visible = useVisibility(ref, { once: true, ...(typeof props.lazy === 'object') && props.lazy, disabled: !props.lazy })
 
-  if (props.lazy) {
-    visible = useVisibility(ref, { once: true, ...(typeof props.lazy === 'object') && props.lazy })
-  }
   useEffect(() => setFallback(false), [props.src])
 
   const onError = invokeAll(() => setFallback(true), props.onError)
