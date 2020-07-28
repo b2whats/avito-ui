@@ -20,5 +20,5 @@ export const useMeasure = () => {
     }
   }, [])
 
-  return [bounds, setRef] as [typeof bounds, typeof setRef]
+  return [bounds, setRef] as const
 }

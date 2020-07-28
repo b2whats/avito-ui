@@ -274,15 +274,15 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'bold':
-        css += 'font-weight: 600;'
+        css += `font-weight: ${value ? '600' : 'normal'};`
 
         break
       case 'light':
-        css += 'font-weight: 300;'
+        css += `font-weight: ${value ? '300' : 'normal'};`
 
         break
       case 'italic':
-        css += 'font-style: italic;'
+        css += `font-style: ${value ? 'italic' : 'normal'};`
 
         break
       case 'noWrap':
@@ -298,7 +298,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
 
         break
       case 'uppercase':
-        css += 'text-transform: uppercase;'
+        css += `text-transform: ${value ? 'uppercase' : 'none'};`
 
         break
       case 'cursor':
@@ -403,6 +403,10 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         css += `flex-shrink: ${value ? '1' : '0'};`
 
         break
+      case 'order':
+        css += `order: ${value};`
+
+        break
       case 'borderWidth':
         css += `border-width: ${value}px;`
 
@@ -445,6 +449,11 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         break
       case 'valignSelf': {
         css += `align-self: ${maps.alignFlex[value]};vertical-align: ${maps.verticalAlign[value]};`
+
+        break
+      }
+      case 'alignSelf': {
+        css += `align-self: ${maps.alignColumn[value]};`
 
         break
       }
@@ -615,7 +624,7 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
         break
       }
       case 'visible':
-        css += value === false ? 'visibility: hidden;' : ''
+        css += `visibility: ${value ? 'visible' : 'hidden'};`
         break
       case 'opacity':
         css += `opacity: ${value};`
@@ -642,13 +651,14 @@ export const getStyles = (params: StyleProperties & Display, tokens: Tokens) => 
           const targetHeight = params.height || params.minHeight
 
           if (targetHeight) {
-            width = `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
+            width = targetHeight === 'auto' ? 'auto' : `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
           }
         }
 
         break
       }
       case 'shadow': {
+        // В иконке этот параметр булевого типа и нам не нужно применять это свойство
         if (typeof value !== 'string') break
 
         css += `box-shadow: ${value};`

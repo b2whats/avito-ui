@@ -77,7 +77,7 @@ const sizes = [120, 80, 64, 52, 32, 28, 24, 20];
 ```jsx
 import { Badge } from '../Badge'
 import { Text } from '../Text'
-import { EditIcon } from '../Icon/icons'
+import { CrossIcon } from '../Icon/icons'
 const { src } = document.getElementById;
 <Stack spacing='m' valign='middle'>
   <Avatar

@@ -83,6 +83,7 @@ module.exports = {
     'jsx-a11y/no-noninteractive-element-interactions': ['off'],
     'jsx-a11y/label-has-associated-control': ['error'],
     'jsx-a11y/label-has-for': ['off'], // it's deprecated
+    'jsx-a11y/alt-text': ['off'],
     // TS-specific
     '@typescript-eslint/type-annotation-spacing': ['error'],
     '@typescript-eslint/no-inferrable-types': ['error'],
