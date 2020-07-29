@@ -35,3 +35,7 @@ export type ComponentTheme<Props, Scheme = {}> = {
       : Scheme[K]
   }
 }
+
+export type CastThemeProps<Theme, Props> = Theme extends ComponentTheme<infer _, infer Slots>
+  ? ComponentTheme<Props, Slots>
+  : never

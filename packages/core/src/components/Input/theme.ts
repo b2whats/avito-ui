@@ -4,7 +4,7 @@ import { CrossIcon } from '../Icon/icons/'
 import { TextProps } from '../Text/contract'
 import { InputProps } from './contract'
 
-export type InputTheme<Props = InputProps> = ComponentTheme<Props, {
+export type InputTheme = ComponentTheme<InputProps, {
   IconBefore: Slot<IconProps>
   InputField: Slot
   Prefix: Slot<TextProps>

@@ -3,7 +3,7 @@ import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 import { ToggleProps } from './contract'
 
-export type ToggleTheme<Props = ToggleProps> = ComponentTheme<Props, {
+export type ToggleTheme = ComponentTheme<ToggleProps, {
   Toggle: Slot
   Switch: Slot
   Icon: Slot<IconProps>

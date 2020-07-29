@@ -1,7 +1,8 @@
+import { CastThemeProps } from '../../styled-system'
 import { ToggleTheme } from '../Toggle'
 import { CheckboxProps } from './contract'
 
-export type CheckboxTheme = ToggleTheme<CheckboxProps>
+export type CheckboxTheme = CastThemeProps<ToggleTheme, CheckboxProps>
 
 export const checkboxTheme: CheckboxTheme = {
   scheme: {
