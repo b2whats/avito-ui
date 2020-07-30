@@ -5,21 +5,27 @@ export const switcherTheme = dsl.theme<SwitcherTheme>()
     shape: 'square',
     positionLoading: true,
   })
-  .slot('Switch', {
-    style: {
-      bg: 'gray28',
-      bgDisabled: 'gray8',
-      bgHover: 'gray40',
-      borderWidth: 0,
-      p: 2,
-      borderRadius: 2,
+  .slot('Switch', slot => [
+    {
+      style: {
+        borderWidth: 0,
+        p: 2,
+        borderRadius: 2,
+      },
     },
-    checked: {
+    slot.if(props => !props.checked, {
+      style: {
+        bg: 'gray28',
+        bgDisabled: 'gray8',
+        bgHover: 'gray40',
+      },
+    }),
+    slot.if('checked', {
       style: {
         bgDisabled: 'gray20',
       },
-    },
-    size: dsl.styleMap({
+    }),
+    slot.switch('size', dsl.styleMap({
       s: {
         height: 20,
         width: 40,
@@ -32,34 +38,36 @@ export const switcherTheme = dsl.theme<SwitcherTheme>()
         height: 28,
         width: 56,
       },
-    }),
-  })
-  .slot('Icon', {
-    component: Box,
-    props: {
-      bg: 'white',
-      height: 1,
-      width: 0.39,
-      borderRadius: 2,
-      px: 2,
+    })),
+  ])
+  .slot('Icon', slot => [
+    {
+      component: Box,
+      props: {
+        bg: 'white',
+        height: 1,
+        width: 0.39,
+        borderRadius: 2,
+        px: 2,
+      },
     },
-    size: dsl.propMap('width', {
+    slot.switch('size', dsl.propMap('width', {
       s: 14,
       m: 18,
       l: 22,
-    }),
-    variant: dsl.propMap('color', {
+    })),
+    slot.switch('variant', dsl.propMap('color', {
       primary: 'blue500',
       secondary: 'blue500',
       success: 'green500',
       warning: 'orange500',
       error: 'red500',
-    }),
-    loading: {
+    })),
+    slot.if('loading', {
       component: Spinner,
       props: {
         size: 'auto',
       },
-    },
-  })
+    }),
+  ])
   .build()

@@ -2,22 +2,25 @@ import { CheckboxTheme, dsl } from '@avito/core'
 import { CheckboxCheckedIcon, CheckboxIndeterminateIcon } from '../Icon'
 
 export const checkboxTheme = dsl.theme<CheckboxTheme>()
-  .slot('Icon', {
-    checked: {
+  .slot('Icon', slot => [
+    slot.if('checked', {
       component: CheckboxCheckedIcon,
-    },
-    indeterminate: {
+    }),
+    slot.if('indeterminate', {
       component: CheckboxIndeterminateIcon,
+    }),
+  ])
+  .slot('Switch', slot => [
+    {
+      style: {
+        borderRadius: 3,
+        color: 'white',
+      },
     },
-  })
-  .slot('Switch', {
-    style: {
-      borderRadius: 3,
-    },
-    size: dsl.styleMap('height', {
+    slot.switch('size', dsl.styleMap('height', {
       s: 16,
       m: 18,
       l: 22,
-    }),
-  })
+    })),
+  ])
   .build()

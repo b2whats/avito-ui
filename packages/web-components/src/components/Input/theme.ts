@@ -13,11 +13,9 @@ export const inputTheme = dsl.theme<InputTheme>()
     size: 's',
     kind: 'outline',
   })
-  .slot('IconBefore', {
-    size: dsl.propMap('mr', gapSize),
-  })
-  .slot('IconAfter', {
-    size: dsl.propMap({
+  .slot('IconBefore', slot => slot.switch('size', dsl.propMap('mr', gapSize)))
+  .slot('IconAfter', slot => [
+    slot.switch('size', dsl.propMap({
       s: {
         ml: gapSize.s,
         size: 'm',
@@ -30,30 +28,30 @@ export const inputTheme = dsl.theme<InputTheme>()
         ml: gapSize.l,
         size: 'l',
       },
-    }),
-    clearable: {
+    } as const)),
+    slot.if('clearable', {
       component: CrossIcon,
-    },
-  })
-  .slot('Prefix', {
-    size: dsl.propMap('mr', {
-      s: 4,
-      m: 6,
-      l: 8,
     }),
-  })
-  .slot('Input', {
-    style: {
-      borderStyle: 'solid',
-      borderWidth: 1,
-      borderRadius: 3,
-      color: 'black',
-      placeholderColor: 'gray40',
-      colorDisabled: 'gray64',
-      bgDisabled: 'gray4',
-      cursor: 'text',
+  ])
+  .slot('Prefix', slot => slot.switch('size', dsl.propMap('mr', {
+    s: 4,
+    m: 6,
+    l: 8,
+  })))
+  .slot('Input', slot => [
+    {
+      style: {
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderRadius: 3,
+        color: 'black',
+        placeholderColor: 'gray40',
+        colorDisabled: 'gray64',
+        bgDisabled: 'gray4',
+        cursor: 'text',
+      },
     },
-    size: dsl.styleMap({
+    slot.switch('size', dsl.styleMap({
       s: {
         fontSize: 's',
         px: gapSize.s,
@@ -66,7 +64,7 @@ export const inputTheme = dsl.theme<InputTheme>()
         fontSize: 'l',
         px: gapSize.l,
       },
-    }),
-    variant: controlOutlineVariants,
-  })
+    })),
+    slot.switch('variant', controlOutlineVariants),
+  ])
   .build()

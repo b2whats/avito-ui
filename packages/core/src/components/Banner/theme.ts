@@ -9,16 +9,18 @@ export const bannerTheme = dsl.theme<CardTheme>()
       p: 4,
     },
   })
-  .slot('Content', {
-    props: {
-      p: 32,
-      pt: 28,
+  .slot('Content', slot => [
+    {
+      props: {
+        p: 32,
+        pt: 28,
+      },
     },
-    column: {
+    slot.if('column', {
       props: {
         p: 16,
         pt: 12,
       },
-    },
-  })
+    }),
+  ])
   .build()

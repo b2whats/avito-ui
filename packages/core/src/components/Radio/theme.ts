@@ -10,12 +10,9 @@ export const radioTheme = dsl.theme<RadioTheme>()
   .slot('Switch', {
     style: {
       color: 'white',
-      bgDisabled: 'gray4',
     },
   })
-  .slot('Icon', {
-    checked: {
-      component: RadioCheckedIcon,
-    },
-  })
+  .slot('Icon', slot => slot.if('checked', {
+    component: RadioCheckedIcon,
+  }))
   .build()

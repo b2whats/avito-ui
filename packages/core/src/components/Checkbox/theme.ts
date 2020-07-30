@@ -7,12 +7,7 @@ export type CheckboxTheme = CastThemeProps<ToggleTheme, CheckboxProps>
 
 export const checkboxTheme = dsl.theme<CheckboxTheme>()
   .slot('Icon')
-  .slot('Switch', {
-    style: {
-      color: 'white',
-      bgDisabled: 'gray4',
-    },
-  })
+  .slot('Switch')
   .slot('Label')
   .slot('Toggle')
   .build()

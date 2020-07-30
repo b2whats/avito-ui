@@ -58,6 +58,10 @@ export function expandShorthandsDeep<T>(theme: T): T {
     return theme
   }
 
+  if (Array.isArray(theme)) {
+    return theme.map(item => expandShorthandsDeep(item)) as any
+  }
+
   const res: any = {}
   for (const key in theme) {
     const field = theme[key]

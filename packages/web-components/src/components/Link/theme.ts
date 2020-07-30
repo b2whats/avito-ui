@@ -1,11 +1,13 @@
 import { dsl, LinkTheme } from '@avito/core'
 
 export const linkTheme = dsl.theme<LinkTheme>()
-  .slot('Link', {
-    props: {
-      colorVisited: 'purple600',
+  .slot('Link', slot => [
+    {
+      props: {
+        colorVisited: 'purple600',
+      },
     },
-    variant: {
+    slot.switch('variant', {
       primary: {
         props: {
           color: 'blue500',
@@ -18,6 +20,6 @@ export const linkTheme = dsl.theme<LinkTheme>()
           colorHover: 'gray32',
         },
       },
-    },
-  })
+    }),
+  ])
   .build()

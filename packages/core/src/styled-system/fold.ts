@@ -1,7 +1,7 @@
 import type { ElementType } from 'react'
 import { profiler } from '../utils'
 import { StyleProperties } from './StyleProperties'
-import { SchemeType, ComponentTheme } from './types'
+import { Slot, ComponentTheme } from './types'
 
 const execComputables = (object: object, arg: any) => {
   for (const key in object) {
@@ -12,58 +12,52 @@ const execComputables = (object: object, arg: any) => {
   return object
 }
 
-const foldScheme = (scheme: any, props: any) => {
+const foldScheme = (schemes: any, props: any) => {
   const result = {
     style: {},
     props: {},
     component: null,
   }
 
-  if (!scheme) return result
+  if (!schemes) return result
+  schemes = Array.isArray(schemes) ? schemes : [schemes]
 
-  for (const prop in scheme) {
-    if (['style', 'props'].includes(prop)) {
-      Object.assign(result[prop], scheme[prop])
-
-      continue
-    }
-
-    if (prop === 'component') {
-      result.component = scheme.component
-
-      continue
-    }
-
-    const value = props[prop]
-    const nestedConfig = scheme[prop]
-
-    const switchBranch = nestedConfig[value]
-    if (switchBranch || value) {
-      const data = foldScheme(switchBranch || nestedConfig, props)
+  for (let index = 0; index < schemes.length; index++) {
+    const scheme = schemes[index]
+    const { $if, $switch } = scheme
+    if ($if && $if(props)) {
+      const data = foldScheme(scheme.$then, props)
 
       Object.assign(result.style, data.style)
       Object.assign(result.props, data.props)
       data.component && (result.component = data.component)
+    } else if ($switch) {
+      const branch = scheme[props[$switch]]
+      const data = foldScheme(branch, props)
 
-      continue
+      Object.assign(result.style, data.style)
+      Object.assign(result.props, data.props)
+      data.component && (result.component = data.component)
+    } else {
+      Object.assign(result.style, scheme.style)
+      Object.assign(result.props, scheme.props)
+      scheme.component && (result.component = scheme.component)
     }
   }
-
-  execComputables(result.props, props)
-  execComputables(result.style, props)
 
   return result
 }
 
-type FoldedItemTheme<ItemTheme> = ItemTheme extends SchemeType<infer InProps, infer OutProps> ? {
+
+type FoldedItemTheme<ItemTheme> = ItemTheme extends Slot<infer OutProps> ? {
   style: StyleProperties
   props: OutProps
   component: ElementType<OutProps>
 } : never
 
-export type FoldThemeParamsReturn<ThemeType> = ThemeType extends ComponentTheme<any, any> ? {
-  [K in keyof ThemeType['scheme']]: FoldedItemTheme<ThemeType['scheme'][K]>
-} : never
+export type FoldThemeParamsReturn<ThemeType> = ThemeType extends ComponentTheme<any, infer Scheme>
+  ? { [K in keyof Scheme]: FoldedItemTheme<Scheme[K]> }
+  : never
 
 export const foldThemeParams = profiler.withMeasure('fold')(function foldThemeParams<
   T extends ComponentTheme<any, any>
@@ -73,6 +67,8 @@ export const foldThemeParams = profiler.withMeasure('fold')(function foldThemePa
   let name: keyof typeof scheme
   for (name in scheme) {
     result[name] = foldScheme(scheme[name], props)
+    execComputables(result[name].props, props)
+    execComputables(result[name].style, props)
   }
 
   return result

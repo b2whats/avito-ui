@@ -11,13 +11,15 @@ export const tooltipTheme = dsl.theme<TooltipTheme>()
     },
     arrowOffset: 4,
   })
-  .slot('Tooltip', {
-    style: {
-      bg: 'white',
-      p: 16,
-      shadow: '0 5px 17px 0 rgba(0,0,0,.15)',
+  .slot('Tooltip', slot => [
+    {
+      style: {
+        bg: 'white',
+        p: 16,
+        shadow: '0 5px 17px 0 rgba(0,0,0,.15)',
+      },
     },
-    preset: {
+    slot.switch('preset', {
       attention: {
         style: {
           bg: 'blue100',
@@ -30,8 +32,8 @@ export const tooltipTheme = dsl.theme<TooltipTheme>()
           rounded: 'm',
         },
       },
-    },
-  })
+    }),
+  ])
   .slot('Arrow', {
     style: {
       width: 10,

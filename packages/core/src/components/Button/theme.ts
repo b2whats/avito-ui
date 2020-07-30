@@ -21,91 +21,89 @@ export const buttonTheme: ButtonTheme = dsl.theme<ButtonTheme>()
   })
   // FIXME: can't expand shorthands of createClassName maps
   .mapProps(({ shape }) => (shape === 'circle' || shape === 'square') ? { p: 'none' } : {})
-  .slot('Spinner', {
-    size: {
-      s: {
-        props: {
-          size: 's',
-        },
-      },
-      m: {
-        props: {
-          size: 'm',
-        },
-      },
-      l: {
-        props: {
-          size: 'l',
-        },
+  .slot('Spinner', slot => slot.switch('size', {
+    s: {
+      props: {
+        size: 's',
       },
     },
-  })
-  .slot('IconBefore', {
-    size: {
-      s: {
-        props: {
-          size: 's',
-        },
-      },
-      m: {
-        props: {
-          size: 's',
-        },
-      },
-      l: {
-        props: {
-          size: 'm',
-        },
+    m: {
+      props: {
+        size: 'm',
       },
     },
-  })
-  .slot('IconAfter', {
-    size: {
-      s: {
-        props: {
-          size: 's',
-        },
-      },
-      m: {
-        props: {
-          size: 's',
-        },
-      },
-      l: {
-        props: {
-          size: 'm',
-        },
+    l: {
+      props: {
+        size: 'l',
       },
     },
-  })
-  .slot('Text', {
-    props: {
-      crop: true,
-      valignSelf: 'middle',
-      size: 'm',
-      ml: -1,
+  }))
+  .slot('IconBefore', slot => slot.switch('size', {
+    s: {
+      props: {
+        size: 's',
+      },
     },
-    iconBefore: {
+    m: {
+      props: {
+        size: 's',
+      },
+    },
+    l: {
+      props: {
+        size: 'm',
+      },
+    },
+  }))
+  .slot('IconAfter', slot => slot.switch('size', {
+    s: {
+      props: {
+        size: 's',
+      },
+    },
+    m: {
+      props: {
+        size: 's',
+      },
+    },
+    l: {
+      props: {
+        size: 'm',
+      },
+    },
+  }))
+  .slot('Text', slot => [
+    {
+      props: {
+        crop: true,
+        valignSelf: 'middle',
+        size: 'm',
+        ml: -1,
+      },
+    },
+    slot.if('iconBefore', {
       props: {
         ml: 6,
       },
-    },
-    iconAfter: {
+    }),
+    slot.if('iconAfter', {
       props: {
         mr: 6,
       },
+    }),
+  ])
+  .slot('Button', slot => [
+    {
+      style: {
+        borderRadius: 5,
+        px: 16,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: 'transparent',
+        focus: false,
+      },
     },
-  })
-  .slot('Button', {
-    style: {
-      borderRadius: 5,
-      px: 16,
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: 'transparent',
-      focus: false,
-    },
-    size: {
+    slot.switch('size', {
       s: {
         style: {
           py: 4,
@@ -124,20 +122,16 @@ export const buttonTheme: ButtonTheme = dsl.theme<ButtonTheme>()
           minHeight: 'l',
         },
       },
-    },
-    iconBefore: {
-      children: {
-        style: {
-          pl: 12,
-        },
+    }),
+    slot.if(props => props.iconBefore && props.children, {
+      style: {
+        pl: 12,
       },
-    },
-    iconAfter: {
-      children: {
-        style: {
-          pr: 12,
-        },
+    }),
+    slot.if(props => props.iconAfter && props.children, {
+      style: {
+        pr: 12,
       },
-    },
-  })
+    }),
+  ])
   .build()

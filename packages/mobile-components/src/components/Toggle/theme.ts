@@ -1,8 +1,8 @@
 import { ToggleTheme, dsl } from '@avito/core'
 
 export const toggleTheme = dsl.theme<ToggleTheme>()
-  .slot('Label', {
-    labelPosition: {
+  .slot('Label', slot => [
+    slot.switch('labelPosition', {
       start: {
         props: {
           mr: 16,
@@ -13,11 +13,11 @@ export const toggleTheme = dsl.theme<ToggleTheme>()
           ml: 16,
         },
       },
-    },
-    disabled: {
+    }),
+    slot.if('disabled', {
       props: {
         color: 'gray48',
       },
-    },
-  })
+    }),
+  ])
   .build()

@@ -1,14 +1,16 @@
 import { dsl, TextareaTheme } from '@avito/core'
 
 export const textareaTheme = dsl.theme<TextareaTheme>()
-  .slot('Textarea', {
-    style: {
-      borderRadius: 5,
-      placeholderColor: 'gray48',
-      color: 'black',
-      colorDisabled: 'gray40',
+  .slot('Textarea', slot => [
+    {
+      style: {
+        borderRadius: 5,
+        placeholderColor: 'gray48',
+        color: 'black',
+        colorDisabled: 'gray40',
+      },
     },
-    size: {
+    slot.switch('size', {
       s: {
         style: {
           fontSize: 12,
@@ -30,13 +32,13 @@ export const textareaTheme = dsl.theme<TextareaTheme>()
           fontSize: 16,
         },
       },
-    },
-    variant: dsl.styleMap('bg', {
+    }),
+    slot.switch('variant', dsl.styleMap('bg', {
       primary: 'gray4',
       secondary: 'gray8',
       success: 'green100',
       warning: 'orange100',
       error: 'red100',
-    }),
-  })
+    } as const)),
+  ])
   .build()

@@ -9,9 +9,7 @@ export const alertTheme = dsl.theme<CardTheme>()
     },
   })
   .slot('Close', {
-    props: {
-
-    },
+    props: {},
   })
   .slot('Image', {
     props: {

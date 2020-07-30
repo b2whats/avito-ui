@@ -5,30 +5,32 @@ export const switcherTheme = dsl.theme<SwitcherTheme>()
   .defaultProps({
     shape: 'pill',
   })
-  .slot('Switch', {
-    style: {
-      width: 48,
-      height: 25,
-      p: 3,
-      focus: true,
+  .slot('Switch', slot => [
+    {
+      style: {
+        width: 48,
+        height: 25,
+        p: 3,
+        focus: true,
 
-      color: 'white',
-      bg: 'gray12',
-      bgActive: 'gray28',
-      bgDisabled: 'gray4',
+        color: 'white',
+        bg: 'gray12',
+        bgActive: 'gray28',
+        bgDisabled: 'gray4',
+      },
     },
-    variant: {
-      primary: {
+    slot.if(props => props.variant === 'primary', {
+      style: {
+        bgDisabled: 'gray8',
+      },
+    }),
+    slot.if('checked', [
+      {
         style: {
-          bgDisabled: 'gray8',
+          bgDisabled: 'gray28',
         },
       },
-    },
-    checked: {
-      style: {
-        bgDisabled: 'gray28',
-      },
-      variant: dsl.styleMap({
+      slot.switch('variant', dsl.styleMap({
         primary: {
           ...fillStyle('blue500', 'blue700'),
           bgDisabled: 'blue300',
@@ -37,9 +39,9 @@ export const switcherTheme = dsl.theme<SwitcherTheme>()
         success: fillStyle('green500', 'green700'),
         warning: fillStyle('orange500', 'orange700'),
         error: fillStyle('red500', 'red700'),
-      }),
-    },
-    loading: {
+      })),
+    ]),
+    slot.if('loading', {
       style: {
         focus: false,
         align: 'center',
@@ -48,14 +50,16 @@ export const switcherTheme = dsl.theme<SwitcherTheme>()
         bgActive: 'transparent',
         bgDisabled: 'transparent',
       },
+    }),
+  ])
+  .slot('Icon', slot => [
+    {
+      component: SwitcherIcon,
     },
-  })
-  .slot('Icon', {
-    component: SwitcherIcon,
-    loading: {
+    slot.if('loading', {
       component: Spinner,
-    },
-  })
+    }),
+  ])
   .build()
 
 function fillStyle(bg: Colors, bgActive: Colors) {

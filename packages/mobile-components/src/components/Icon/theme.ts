@@ -7,8 +7,8 @@ export const iconTheme = dsl.theme<IconTheme>()
   .defaultProps({
     size: 'm',
   })
-  .slot('Icon', {
-    size: {
+  .slot('Icon', slot => [
+    slot.switch('size', {
       s: {
         style: {
           height: 16,
@@ -24,8 +24,8 @@ export const iconTheme = dsl.theme<IconTheme>()
           height: 24,
         },
       },
-    },
-    variant: {
+    }),
+    slot.switch('variant', {
       primary: {
         style: {
           color: 'blue500',
@@ -51,6 +51,6 @@ export const iconTheme = dsl.theme<IconTheme>()
           color: 'yellow500',
         },
       },
-    },
-  })
+    }),
+  ])
   .build()

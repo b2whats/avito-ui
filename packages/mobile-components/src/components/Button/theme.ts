@@ -4,20 +4,17 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
   .defaultProps({
     preset: 'primary',
   })
-  .slot('Text', {
+  .slot('Text', slot => [{
     props: {
       dense: true,
     },
-    kind: {
-      flat: {
-        props: {
-          uppercase: true,
-        },
-      },
+  }, slot.if(props => props.kind === 'fill', {
+    props: {
+      uppercase: true,
     },
-  })
-  .slot('Button', {
-    preset: {
+  })])
+  .slot('Button', slot => [
+    slot.switch('preset', {
       primary: {
         style: {
           color: 'white',
@@ -46,15 +43,17 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
           bgDisabled: 'gray4',
         },
       },
-      default: {
-        style: {
-          color: 'black',
-          colorDisabled: 'gray48',
-          bg: 'gray4',
-          bgActive: 'gray8',
-          bgDisabled: 'gray4',
+      default: [
+        {
+          style: {
+            color: 'black',
+            colorDisabled: 'gray48',
+            bg: 'gray4',
+            bgActive: 'gray8',
+            bgDisabled: 'gray4',
+          },
         },
-        checked: {
+        slot.if('checked', {
           style: {
             color: 'white',
             colorDisabled: 'blue50',
@@ -62,8 +61,8 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
             bgActive: 'blue800',
             bgDisabled: 'blue300',
           },
-        },
-      },
+        }),
+      ],
       defaultOnSurface: {
         style: {
           color: 'black',
@@ -118,19 +117,21 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
           bgDisabled: 'white',
         },
       },
-    },
-    kind: {
-      fill: {
-        style: {
-          bg: 'blue50',
-          bgHover: 'blue60',
-          bgActive: 'blue70',
-          bgChecked: 'blue70',
-          bgDisabled: 'blue30',
-          color: 'white',
-          colorDisabled: 'gray30',
+    }),
+    slot.switch('kind', {
+      fill: [
+        {
+          style: {
+            bg: 'blue50',
+            bgHover: 'blue60',
+            bgActive: 'blue70',
+            bgChecked: 'blue70',
+            bgDisabled: 'blue30',
+            color: 'white',
+            colorDisabled: 'gray30',
+          },
         },
-        variant: {
+        slot.switch('variant', {
           primary: {
             style: {
               bg: 'blue50',
@@ -180,28 +181,32 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
               bgDisabled: 'red30',
             },
           },
+        }),
+      ],
+      outline: [
+        {
+          style: {
+            borderColor: 'gray32',
+            borderColorHover: 'gray40',
+            borderColorActive: 'gra52',
+            borderColorDisabled: 'gray24',
+            bg: 'gray32',
+            bgHover: 'gray40',
+            bgActive: 'gray52',
+            bgChecked: 'gray32',
+          },
         },
-      },
-      outline: {
-        style: {
-          borderColor: 'gray32',
-          borderColorHover: 'gray40',
-          borderColorActive: 'gra52',
-          borderColorDisabled: 'gray24',
-          bg: 'gray32',
-          bgHover: 'gray40',
-          bgActive: 'gray52',
-          bgChecked: 'gray32',
-        },
-        variant: {
-          primary: {
-            style: {
-              color: 'blue500',
-              colorHover: 'blue600',
-              colorActive: 'blue700',
-              colorDisabled: 'blue300',
+        slot.switch('variant', {
+          primary: [
+            {
+              style: {
+                color: 'blue500',
+                colorHover: 'blue600',
+                colorActive: 'blue700',
+                colorDisabled: 'blue300',
+              },
             },
-            checked: {
+            slot.if('checked', {
               style: {
                 color: 'red500',
                 colorHover: 'red600',
@@ -209,8 +214,8 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
                 colorDisabled: 'red300',
                 bg: 'red300',
               },
-            },
-          },
+            }),
+          ],
           secondary: {
             style: {
               color: 'gray50',
@@ -243,20 +248,22 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
               colorDisabled: 'red30',
             },
           },
+        }),
+      ],
+      flat: [
+        {
+          style: {
+            borderColor: 'gray30',
+            borderColorHover: 'gray40',
+            borderColorActive: 'gra50',
+            borderColorDisabled: 'gray20',
+            bg: 'gray30',
+            bgHover: 'gray40',
+            bgActive: 'gray50',
+            bgChecked: 'gray30',
+          },
         },
-      },
-      flat: {
-        style: {
-          borderColor: 'gray30',
-          borderColorHover: 'gray40',
-          borderColorActive: 'gra50',
-          borderColorDisabled: 'gray20',
-          bg: 'gray30',
-          bgHover: 'gray40',
-          bgActive: 'gray50',
-          bgChecked: 'gray30',
-        },
-        variant: {
+        slot.switch('variant', {
           primary: {
             style: {
               color: 'blue50',
@@ -297,8 +304,8 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
               colorDisabled: 'red30',
             },
           },
-        },
-      },
-    },
-  })
+        }),
+      ],
+    }),
+  ])
   .build()

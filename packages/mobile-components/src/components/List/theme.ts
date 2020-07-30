@@ -16,21 +16,23 @@ export const listItemTheme = dsl.theme<ListItemTheme>()
     beforeTreshold: 82,
     afterTreshold: 82,
   })
-  .slot('ListItem', {
-    props: {
-      pt: 10,
-      pb: 12,
-      px: 16,
-      spacing: 16,
-      valign: 'middle',
-      minHeight: 52,
+  .slot('ListItem', slot => [
+    {
+      props: {
+        pt: 10,
+        pb: 12,
+        px: 16,
+        spacing: 16,
+        valign: 'middle',
+        minHeight: 52,
+      },
     },
-    onClick: {
+    slot.if('onClick', {
       props: {
         bgActive: 'gray4',
       },
-    },
-  })
+    }),
+  ])
   .slot('Before', {
     props: {
 
@@ -41,27 +43,31 @@ export const listItemTheme = dsl.theme<ListItemTheme>()
       spacing: 2,
     },
   })
-  .slot('Label', {
-    props: {
-      size: 'm',
+  .slot('Label', slot => [
+    {
+      props: {
+        size: 'm',
+      },
     },
-    disabled: {
+    slot.if('disabled', {
       props: {
         color: 'gray48',
       },
+    }),
+  ])
+  .slot('Caption', slot => [
+    {
+      props: {
+        size: 's',
+        color: 'gray40',
+      },
     },
-  })
-  .slot('Caption', {
-    props: {
-      size: 's',
-      color: 'gray40',
-    },
-    disabled: {
+    slot.if('disabled', {
       props: {
         color: 'gray32',
       },
-    },
-  })
+    }),
+  ])
   .slot('Link', {
     props: {
       size: 's',

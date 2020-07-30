@@ -17,18 +17,13 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
   .mapProps(({ kind, preset }) => ({
     kind: kind || (preset === 'default' ? 'outline' : 'fill'),
   }))
-  .slot('Button', {
-    multiline: {
-      style: {
-        py: 9,
-      },
-    },
-    disabled: {
+  .slot('Button', slot => [
+    slot.if('disabled', {
       style: {
         overlay: 'rgba(255,255,255,0.5)',
       },
-    },
-    size: {
+    }),
+    slot.switch('size', {
       s: {
         style: {
           px: 12,
@@ -47,8 +42,13 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
           py: 11,
         },
       },
-    },
-    preset: {
+    }),
+    slot.if('multiline', {
+      style: {
+        py: props => props.size === 'l' ? 12 : 9,
+      },
+    }),
+    slot.switch('preset', {
       default: {
         style: {
           bg: 'transparent',
@@ -94,14 +94,16 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
           color: 'white',
         },
       },
-    },
-  })
-  .slot('Text', {
-    props: {
+    }),
+  ])
+  .slot('Text', slot => [
+    {
+      props: {
       // Ужатые строки для двустрочной кнопки - на 1 строку не влияет
-      lineHeight: 1.1875,
+        lineHeight: 1.1875,
+      },
     },
-    size: {
+    slot.switch('size', {
       s: {
         props: {
           size: 's',
@@ -117,12 +119,14 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
           size: 'l',
         },
       },
-    },
-    iconBefore: {
-      props: {
-        align: 'left',
+    }),
+    slot.if('iconBefore', [
+      {
+        props: {
+          align: 'left',
+        },
       },
-      size: {
+      slot.switch('size', {
         s: {
           props: {
             ml: 4,
@@ -138,18 +142,20 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
             ml: 8,
           },
         },
-      },
-      multiline: {
+      }),
+      slot.if('multiline', {
         props: {
           ml: 10,
         },
+      }),
+    ]),
+    slot.if('iconAfter', [
+      {
+        props: {
+          align: 'left',
+        },
       },
-    },
-    iconAfter: {
-      props: {
-        align: 'left',
-      },
-      size: {
+      slot.switch('size', {
         s: {
           props: {
             mr: 4,
@@ -165,24 +171,34 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
             mr: 8,
           },
         },
-      },
-      multiline: {
+      }),
+      slot.if('multiline', {
         props: {
           mr: 10,
         },
-      },
-    },
-  })
-  .slot('Spinner', {
+      }),
+    ]),
+  ])
+  .slot('IconBefore', slot => slot.if('children', {
     props: {
-      variant: undefined,
+      ml: -4,
     },
-    preset: {
-      default: {
-        props: {
-          variant: 'primary',
-        },
+  }))
+  .slot('IconAfter', slot => slot.if('children', {
+    props: {
+      mr: -4,
+    },
+  }))
+  .slot('Spinner', slot => [
+    {
+      props: {
+        variant: undefined,
       },
     },
-  })
+    slot.if(props => props.preset === 'default', {
+      props: {
+        variant: 'primary',
+      },
+    }),
+  ])
   .build()

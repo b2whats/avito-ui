@@ -11,11 +11,13 @@ export const segmentButtonTheme = dsl.theme<SegmentButtonTheme>()
   .defaultProps({
     size: 'm',
   })
-  .slot('Group', {
-    style: {
-      bg: 'gray4',
+  .slot('Group', slot => [
+    {
+      style: {
+        bg: 'gray4',
+      },
     },
-    size: {
+    slot.switch('size', {
       s: {
         style: {
           borderRadius: 5,
@@ -37,8 +39,8 @@ export const segmentButtonTheme = dsl.theme<SegmentButtonTheme>()
           p: 4,
         },
       },
-    },
-  })
+    }),
+  ])
   .slot('Button', {
     style: {
       focus: true,

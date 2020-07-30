@@ -26,18 +26,20 @@ export const inputTheme = dsl.theme<InputTheme>()
       size: ({ size }) => size === 'l' ? 'm' : 's',
     },
   })
-  .slot('IconAfter', {
-    props: {
-      color: 'gray28',
+  .slot('IconAfter', slot => [
+    {
+      props: {
+        color: 'gray28',
+      },
     },
-    clearable: {
+    slot.if('clearable', {
       component: CrossIcon,
       props: {
         area: 10,
         size: ({ size }) => size === 'l' ? 'm' : 's',
       },
-    },
-  })
+    }),
+  ])
   .slot('Prefix')
   .slot('Postfix', {
     props: {
