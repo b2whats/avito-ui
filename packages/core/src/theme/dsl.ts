@@ -30,8 +30,8 @@ type SlotProps<Theme, Name> = SlotInternals<Theme, Name> extends SchemeType<infe
 type ThemeProps<Theme> = Theme extends ComponentTheme<infer Props, infer _> ? Props : never
 type MaybeArray<Item> = Item | Item[]
 
-type SwitchMap<Props, Prop extends keyof Props, OutProps> = {
-  [Value in Extract<Props[Prop], string>]?: MaybeArray<SchemeType<Props, OutProps>>
+type SwitchMap<Values, Result> = {
+  [Value in Extract<Values, string>]?: Result
 }
 interface SlotDSL<Props, OutProps> {
   if(
@@ -40,8 +40,12 @@ interface SlotDSL<Props, OutProps> {
   ): BoundSlot<Props, OutProps>
   switch<Prop extends keyof Props>(
     condition: Prop,
-    body: SwitchMap<Props, Prop, OutProps>
+    body: SwitchMap<Props[Prop], MaybeArray<SchemeType<Props, OutProps>>>
   ): BoundSlot<Props, OutProps>
+  mapped<Prop extends keyof Props, Values>(
+    prop: Prop,
+    body: SwitchMap<Props[Prop], Values>
+  ): (props: Props) => Values
 }
 interface SlotBuilder<Theme, Name> {
   (slot: SlotDSL<ThemeProps<Theme>, SlotProps<Theme, Name>>): MaybeArray<SlotInternals<Theme, Name>>
@@ -53,6 +57,7 @@ const slotDSL: SlotDSL<any, any> = {
     $if: typeof condition === 'function' ? condition : (props: any) => props[condition],
   }),
   switch: (condition, options) => ({ ...options, $switch: condition }),
+  mapped: (prop, options) => (props: any) => options[props[prop]] as any,
 }
 
 class ThemeBuilder<Theme extends ComponentTheme<any, any>> {

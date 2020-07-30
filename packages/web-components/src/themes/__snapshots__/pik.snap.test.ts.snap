@@ -1476,29 +1476,10 @@ Object {
           "borderWidth": 1,
           "focus": false,
           "minHeight": [Function],
+          "pb": [Function],
           "pl": 16,
           "pr": 16,
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "pb": 8,
-            "pt": 8,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "pb": 6,
-            "pt": 6,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pb": 4,
-            "pt": 4,
-          },
+          "pt": [Function],
         },
       },
       Object {
@@ -1753,24 +1734,7 @@ Object {
           Object {
             "props": Object {
               "align": "left",
-            },
-          },
-          Object {
-            "$switch": "size",
-            "l": Object {
-              "props": Object {
-                "ml": 8,
-              },
-            },
-            "m": Object {
-              "props": Object {
-                "ml": 6,
-              },
-            },
-            "s": Object {
-              "props": Object {
-                "ml": 4,
-              },
+              "ml": [Function],
             },
           },
           Object {
@@ -1789,24 +1753,7 @@ Object {
           Object {
             "props": Object {
               "align": "left",
-            },
-          },
-          Object {
-            "$switch": "size",
-            "l": Object {
-              "props": Object {
-                "mr": 8,
-              },
-            },
-            "m": Object {
-              "props": Object {
-                "mr": 6,
-              },
-            },
-            "s": Object {
-              "props": Object {
-                "mr": 4,
-              },
+              "mr": [Function],
             },
           },
           Object {
@@ -2297,28 +2244,9 @@ Object {
           "colorDisabled": "gray64",
           "cursor": "text",
           "fontSize": [Function],
+          "pl": [Function],
           "placeholderColor": "gray40",
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "pl": 12,
-            "pr": 12,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "pl": 10,
-            "pr": 10,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pl": 7,
-            "pr": 7,
-          },
+          "pr": [Function],
         },
       },
       Object {
@@ -2360,7 +2288,9 @@ Object {
           "borderRadius": 4,
           "borderWidth": 1,
           "focus": false,
+          "pl": 16,
           "placeholderColor": "gray44",
+          "pr": 16,
         },
       },
       Object {
@@ -2407,27 +2337,6 @@ Object {
         },
       },
       Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-      },
-      Object {
         "$if": [Function],
         "$then": Object {
           "style": Object {
@@ -2448,21 +2357,8 @@ Object {
     ],
     "Prefix": Array [
       Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "mr": 8,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "mr": 6,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "mr": 4,
-          },
+        "props": Object {
+          "mr": [Function],
         },
       },
     ],
@@ -2515,22 +2411,15 @@ Object {
     "component": null,
     "props": Object {},
     "style": Object {
+      "color": undefined,
       "fontSize": undefined,
-      "lineHeight": "normal",
+      "lineHeight": undefined,
     },
   },
 }
 `;
 
-exports[`pik theme Text fuzz: dense 1`] = `
-Object {
-  "Text": Object {
-    "style": Object {
-      "lineHeight": "dense",
-    },
-  },
-}
-`;
+exports[`pik theme Text fuzz: dense 1`] = `Object {}`;
 
 exports[`pik theme Text fuzz: preset="heading" 1`] = `
 Object {
@@ -2677,6 +2566,7 @@ Object {
     "Text": Array [
       Object {
         "style": Object {
+          "color": [Function],
           "fontSize": [Function],
           "lineHeight": "normal",
         },
@@ -2690,69 +2580,8 @@ Object {
         },
       },
       Object {
-        "$switch": "variant",
-        "error": Object {
-          "style": Object {
-            "color": "red500",
-          },
-        },
-        "primary": Object {
-          "style": Object {
-            "color": "blue500",
-          },
-        },
-        "secondary": Object {
-          "style": Object {
-            "color": "gray52",
-          },
-        },
-        "success": Object {
-          "style": Object {
-            "color": "green500",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "color": "yellow500",
-          },
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "lineHeight": 1.4,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "lineHeight": 1.5,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "lineHeight": 1.43,
-          },
-        },
-        "xl": Object {
-          "style": Object {
-            "lineHeight": 1.34,
-          },
-        },
-        "xs": Object {
-          "style": Object {
-            "lineHeight": 1.23,
-          },
-        },
-        "xxl": Object {
-          "style": Object {
-            "lineHeight": 1.25,
-          },
-        },
-        "xxxl": Object {
-          "style": Object {
-            "lineHeight": 1.2,
-          },
+        "style": Object {
+          "lineHeight": [Function],
         },
       },
     ],
@@ -3029,7 +2858,9 @@ Object {
           "borderRadius": 4,
           "borderWidth": 1,
           "focus": false,
+          "pl": 16,
           "placeholderColor": "gray44",
+          "pr": 16,
         },
       },
       Object {
@@ -3072,27 +2903,6 @@ Object {
             "borderColor": "orange50",
             "borderColorFocus": "orange300",
             "borderColorHover": "orange300",
-          },
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pl": 16,
-            "pr": 16,
           },
         },
       },

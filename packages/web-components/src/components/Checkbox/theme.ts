@@ -10,17 +10,11 @@ export const checkboxTheme = dsl.theme<CheckboxTheme>()
       component: CheckboxIndeterminateIcon,
     }),
   ])
-  .slot('Switch', slot => [
-    {
-      style: {
-        borderRadius: 3,
-        color: 'white',
-      },
+  .slot('Switch', slot => ({
+    style: {
+      borderRadius: 3,
+      color: 'white',
+      height: slot.mapped('size', { s: 16, m: 18, l: 22 }),
     },
-    slot.switch('size', dsl.styleMap('height', {
-      s: 16,
-      m: 18,
-      l: 22,
-    })),
-  ])
+  }))
   .build()

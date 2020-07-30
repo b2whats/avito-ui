@@ -16,6 +16,7 @@ const textControlTheme = dsl.fragment<
       borderRadius: 4,
       bgFocus: 'white',
       focus: false,
+      px: 16,
     },
   },
   slot.switch('variant', dsl.styleMap({
@@ -24,11 +25,6 @@ const textControlTheme = dsl.fragment<
     error: pikInput('red50', 'red300'),
     warning: pikInput('orange50', 'orange300'),
     success: pikInput('green50', 'green300'),
-  })),
-  slot.switch('size', dsl.styleMap('px', {
-    s: 16,
-    m: 16,
-    l: 16,
   })),
   slot.if(props => props.preset === 'inverse' && props.variant === 'primary', {
     style: {
@@ -54,17 +50,20 @@ export const pikTheme: DeepPartial<Theme> = {
     },
   },
   Text: dsl.theme<Theme['Text']>()
-    .slot('Text', slot => [
-      slot.switch('size', dsl.styleMap('lineHeight', {
-        xs: 1.23,
-        s: 1.43,
-        m: 1.5,
-        l: 1.4,
-        xl: 1.34,
-        xxl: 1.25,
-        xxxl: 1.2,
-      })),
-    ])
+    // yes it does not support dense
+    .slot('Text', slot => ({
+      style: {
+        lineHeight: slot.mapped('size', {
+          xs: 1.23,
+          s: 1.43,
+          m: 1.5,
+          l: 1.4,
+          xl: 1.34,
+          xxl: 1.25,
+          xxxl: 1.2,
+        }),
+      },
+    }))
     .build(),
   Button: dsl.theme<Theme['Button']>()
     .defaultProps({

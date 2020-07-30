@@ -5,6 +5,7 @@ Object {
   "Card": Object {
     "component": null,
     "props": Object {
+      "bg": undefined,
       "block": true,
       "borderColor": "gray12",
       "borderWidth": 1,
@@ -47,6 +48,7 @@ Object {
   "Image": Object {
     "component": null,
     "props": Object {
+      "color": undefined,
       "mr": 12,
       "order": 0,
       "size": 20,
@@ -159,40 +161,13 @@ Object {
       },
       Object {
         "props": Object {
+          "bg": [Function],
           "borderColor": [Function],
           "borderWidth": 1,
           "pb": 22,
           "pl": 24,
           "pr": 24,
           "pt": 20,
-        },
-      },
-      Object {
-        "$switch": "variant",
-        "error": Object {
-          "props": Object {
-            "bg": "red100",
-          },
-        },
-        "primary": Object {
-          "props": Object {
-            "bg": "blue50",
-          },
-        },
-        "secondary": Object {
-          "props": Object {
-            "bg": "gray4",
-          },
-        },
-        "success": Object {
-          "props": Object {
-            "bg": "green100",
-          },
-        },
-        "warning": Object {
-          "props": Object {
-            "bg": "orange50",
-          },
         },
       },
       Object {
@@ -272,38 +247,11 @@ Object {
       },
       Object {
         "props": Object {
+          "color": [Function],
           "mr": 18,
           "order": 0,
           "size": 28,
           "valignSelf": "top",
-        },
-      },
-      Object {
-        "$switch": "variant",
-        "error": Object {
-          "props": Object {
-            "color": "red500",
-          },
-        },
-        "primary": Object {
-          "props": Object {
-            "color": "blue600",
-          },
-        },
-        "secondary": Object {
-          "props": Object {
-            "color": "gray64",
-          },
-        },
-        "success": Object {
-          "props": Object {
-            "color": "green600",
-          },
-        },
-        "warning": Object {
-          "props": Object {
-            "color": "orange700",
-          },
         },
       },
       Object {
@@ -1909,29 +1857,10 @@ Object {
           "borderWidth": 1,
           "focus": false,
           "minHeight": [Function],
+          "pb": [Function],
           "pl": 16,
           "pr": 16,
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "pb": 8,
-            "pt": 8,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "pb": 6,
-            "pt": 6,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pb": 4,
-            "pt": 4,
-          },
+          "pt": [Function],
         },
       },
       Object {
@@ -2735,6 +2664,7 @@ Object {
     "component": null,
     "props": Object {},
     "style": Object {
+      "color": undefined,
       "height": 20,
     },
   },
@@ -2832,100 +2762,15 @@ Object {
   "scheme": Object {
     "Icon": Array [
       Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "height": 24,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "height": 20,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "height": 16,
-          },
-        },
-        "xl": Object {
-          "style": Object {
-            "height": 28,
-          },
+        "style": Object {
+          "color": [Function],
+          "height": [Function],
         },
       },
       Object {
-        "$switch": "variant",
-        "error": Object {
-          "style": Object {
-            "color": "red500",
-          },
-        },
-        "primary": Object {
-          "style": Object {
-            "color": "blue500",
-          },
-        },
-        "secondary": Object {
-          "style": Object {
-            "color": "gray52",
-          },
-        },
-        "success": Object {
-          "style": Object {
-            "color": "green500",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "color": "yellow500",
-          },
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "height": 24,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "height": 20,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "height": 16,
-          },
-        },
-      },
-      Object {
-        "$switch": "variant",
-        "error": Object {
-          "style": Object {
-            "color": "red500",
-          },
-        },
-        "primary": Object {
-          "style": Object {
-            "color": "blue500",
-          },
-        },
-        "secondary": Object {
-          "style": Object {
-            "color": "gray52",
-          },
-        },
-        "success": Object {
-          "style": Object {
-            "color": "green500",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "color": "yellow500",
-          },
+        "style": Object {
+          "color": [Function],
+          "height": [Function],
         },
       },
     ],
@@ -3310,24 +3155,9 @@ Object {
         },
       },
       Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "ml": 10,
-            "mr": 10,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "ml": 10,
-            "mr": 10,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "ml": 8,
-            "mr": 8,
-          },
+        "props": Object {
+          "ml": [Function],
+          "mr": [Function],
         },
       },
     ],
@@ -3354,79 +3184,20 @@ Object {
       },
       Object {
         "style": Object {
+          "bg": [Function],
           "borderRadius": 5,
           "color": "black",
           "colorDisabled": "gray40",
+          "fontSize": [Function],
           "placeholderColor": "gray48",
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "fontSize": 16,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "fontSize": 16,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "fontSize": 12,
-          },
-        },
-      },
-      Object {
-        "$switch": "variant",
-        "error": Object {
-          "style": Object {
-            "bg": "red50",
-          },
-        },
-        "primary": Object {
-          "style": Object {
-            "bg": "gray4",
-          },
-        },
-        "secondary": Object {
-          "style": Object {
-            "bg": "gray8",
-          },
-        },
-        "success": Object {
-          "style": Object {
-            "bg": "green50",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "bg": "orange50",
-          },
         },
       },
     ],
     "InputField": Array [
       Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pl": 12,
-            "pr": 12,
-          },
+        "style": Object {
+          "pl": [Function],
+          "pr": [Function],
         },
       },
       Object {
@@ -4006,28 +3777,11 @@ Object {
         "style": Object {
           "bg": "gray4",
           "borderRadius": 5,
+          "height": [Function],
           "pb": 4,
           "pl": 4,
           "pr": 4,
           "pt": 4,
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "style": Object {
-            "height": 50,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "height": 44,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "height": 32,
-          },
         },
       },
     ],
@@ -4047,7 +3801,9 @@ exports[`mobile theme Spinner base 1`] = `
 Object {
   "Spinner": Object {
     "component": #IconSpinner,
-    "props": Object {},
+    "props": Object {
+      "size": 24,
+    },
     "style": Object {},
   },
 }
@@ -4063,15 +3819,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Spinner fuzz: size="m" 1`] = `
-Object {
-  "Spinner": Object {
-    "props": Object {
-      "size": 24,
-    },
-  },
-}
-`;
+exports[`mobile theme Spinner fuzz: size="m" 1`] = `Object {}`;
 
 exports[`mobile theme Spinner fuzz: size="s" 1`] = `
 Object {
@@ -4095,28 +3843,16 @@ exports[`mobile theme Spinner fuzz: variant="warning" 1`] = `Object {}`;
 
 exports[`mobile theme Spinner snap 1`] = `
 Object {
+  "defaultProps": Object {
+    "size": "m",
+  },
   "mapProps": [Function],
   "scheme": Object {
     "Spinner": Array [
       Object {
         "component": #IconSpinner,
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "size": 32,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": 24,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": 16,
-          },
+        "props": Object {
+          "size": [Function],
         },
       },
     ],
@@ -4538,6 +4274,7 @@ Object {
     "component": null,
     "props": Object {},
     "style": Object {
+      "color": undefined,
       "fontSize": undefined,
       "lineHeight": "normal",
     },
@@ -4695,6 +4432,7 @@ Object {
     "Text": Array [
       Object {
         "style": Object {
+          "color": [Function],
           "fontSize": [Function],
           "lineHeight": "normal",
         },
@@ -4704,34 +4442,6 @@ Object {
         "$then": Object {
           "style": Object {
             "lineHeight": "dense",
-          },
-        },
-      },
-      Object {
-        "$switch": "variant",
-        "error": Object {
-          "style": Object {
-            "color": "red500",
-          },
-        },
-        "primary": Object {
-          "style": Object {
-            "color": "blue500",
-          },
-        },
-        "secondary": Object {
-          "style": Object {
-            "color": "gray52",
-          },
-        },
-        "success": Object {
-          "style": Object {
-            "color": "green500",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "color": "yellow500",
           },
         },
       },

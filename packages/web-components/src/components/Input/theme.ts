@@ -25,11 +25,11 @@ export const inputTheme = dsl.theme<InputTheme>()
       component: CrossIcon,
     }),
   ])
-  .slot('Prefix', slot => slot.switch('size', dsl.propMap('mr', {
-    s: 4,
-    m: 6,
-    l: 8,
-  })))
+  .slot('Prefix', slot => ({
+    props: {
+      mr: slot.mapped('size', { s: 4, m: 6, l: 8 }),
+    },
+  }))
   .slot('Input', slot => [
     {
       style: {
@@ -42,9 +42,9 @@ export const inputTheme = dsl.theme<InputTheme>()
         bgDisabled: 'gray4',
         cursor: 'text',
         fontSize: props => props.size,
+        px: slot.mapped('size', gapSize),
       },
     },
-    slot.switch('size', dsl.styleMap('px', gapSize)),
     slot.switch('variant', controlOutlineVariants),
   ])
   .build()

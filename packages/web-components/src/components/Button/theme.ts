@@ -108,25 +108,9 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
       {
         props: {
           align: 'left',
+          ml: slot.mapped('size', { s: 4, m: 6, l: 8 }),
         },
       },
-      slot.switch('size', {
-        s: {
-          props: {
-            ml: 4,
-          },
-        },
-        m: {
-          props: {
-            ml: 6,
-          },
-        },
-        l: {
-          props: {
-            ml: 8,
-          },
-        },
-      }),
       slot.if('multiline', {
         props: {
           ml: 10,
@@ -137,25 +121,9 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
       {
         props: {
           align: 'left',
+          mr: slot.mapped('size', { s: 4, m: 6, l: 8 }),
         },
       },
-      slot.switch('size', {
-        s: {
-          props: {
-            mr: 4,
-          },
-        },
-        m: {
-          props: {
-            mr: 6,
-          },
-        },
-        l: {
-          props: {
-            mr: 8,
-          },
-        },
-      }),
       slot.if('multiline', {
         props: {
           mr: 10,

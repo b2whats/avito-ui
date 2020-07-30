@@ -46,23 +46,18 @@ export const switcherTheme = dsl.theme<SwitcherTheme>()
       props: {
         bg: 'white',
         height: 1,
-        width: 0.39,
         borderRadius: 2,
         px: 2,
+        width: slot.mapped('size', { s: 14, m: 18, l: 22 }),
+        color: slot.mapped('variant', {
+          primary: 'blue500',
+          secondary: 'blue500',
+          success: 'green500',
+          warning: 'orange500',
+          error: 'red500',
+        }),
       },
     },
-    slot.switch('size', dsl.propMap('width', {
-      s: 14,
-      m: 18,
-      l: 22,
-    })),
-    slot.switch('variant', dsl.propMap('color', {
-      primary: 'blue500',
-      secondary: 'blue500',
-      success: 'green500',
-      warning: 'orange500',
-      error: 'red500',
-    })),
     slot.if('loading', {
       component: Spinner,
       props: {

@@ -7,23 +7,13 @@ import { SpinnerProps } from './contract'
 export type SpinnerTheme = ComponentTheme<SpinnerProps, { Spinner: Slot<IconProps> }>
 
 export const spinnerTheme = dsl.theme<SpinnerTheme>()
-  .slot('Spinner', slot => [{
+  .defaultProps({
+    size: 'm',
+  })
+  .slot('Spinner', slot => ({
     component: SpinnerIcon,
-  }, slot.switch('size', {
-    s: {
-      props: {
-        size: 16,
-      },
+    props: {
+      size: slot.mapped('size', { s: 16, m: 24, l: 32 }),
     },
-    m: {
-      props: {
-        size: 24,
-      },
-    },
-    l: {
-      props: {
-        size: 32,
-      },
-    },
-  })])
+  }))
   .build()
