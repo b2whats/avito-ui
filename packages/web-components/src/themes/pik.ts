@@ -54,115 +54,105 @@ export const pikTheme: DeepPartial<Theme> = {
       l: 56,
     },
   },
-  Text: {
-    scheme: {
-      Text: {
-        size: dsl.styleMap('lineHeight', {
-          xs: 1.23,
-          s: 1.43,
-          m: 1.5,
-          l: 1.4,
-          xl: 1.34,
-          xxl: 1.25,
-          xxxl: 1.2,
-        }),
-      },
-    },
-  },
-  Button: {
-    defaultProps: {
+  Text: dsl.theme<Theme['Text']>()
+    .slot('Text', {
+      size: dsl.styleMap('lineHeight', {
+        xs: 1.23,
+        s: 1.43,
+        m: 1.5,
+        l: 1.4,
+        xl: 1.34,
+        xxl: 1.25,
+        xxxl: 1.2,
+      }),
+    })
+    .build(),
+  Button: dsl.theme<Theme['Button']>()
+    .defaultProps({
       size: 'm',
       pressedOffset: 0,
-    },
-    scheme: {
-      Button: {
-        style: {
-          borderRadius: 4,
-        },
-        size: {
-          s: {
-            style: {
-              px: 24,
-            },
-          },
-          m: {
-            style: {
-              px: 24,
-            },
-          },
-          l: {
-            style: {
-              px: 36,
-            },
-            multiline: {
-              style: {
-                minWidth: 290,
-                px: 48,
-                height: 64,
-              },
-            },
+    })
+    .slot('Button', {
+      style: {
+        borderRadius: 4,
+      },
+      size: {
+        s: {
+          style: {
+            px: 24,
           },
         },
-        preset: {
-          default: {
-            style: {
-              borderColor: 'gray16',
-              bgHover: 'gray4',
-              bgActive: 'gray8',
-            },
+        m: {
+          style: {
+            px: 24,
           },
-          newDefault: {
-            style: {
-              bg: 'gray4',
-              bgHover: 'gray8',
-              bgActive: 'gray12',
-            },
+        },
+        l: {
+          style: {
+            px: 36,
           },
-          warning: {
+          multiline: {
             style: {
-              color: 'white',
+              minWidth: 290,
+              px: 48,
+              height: 64,
             },
           },
         },
       },
-    },
-  },
-  Input: {
-    defaultProps: {
+      preset: {
+        default: {
+          style: {
+            borderColor: 'gray16',
+            bgHover: 'gray4',
+            bgActive: 'gray8',
+          },
+        },
+        newDefault: {
+          style: {
+            bg: 'gray4',
+            bgHover: 'gray8',
+            bgActive: 'gray12',
+          },
+        },
+        warning: {
+          style: {
+            color: 'white',
+          },
+        },
+      },
+    })
+    .build(),
+  Input: dsl.theme<Theme['Input']>()
+    .defaultProps({
       size: 'm',
-    },
-    scheme: {
-      Input: textControlTheme,
-      IconAfter: {
-        clearable: {
-          component: CrossIcon,
-        },
-      },
-    },
-  },
-  Select: {
-    scheme: {
-      Input: {
-        size: dsl.styleMap('pr', { s: 11, m: 11, l: 11 }),
-      },
-    },
-  },
-  Textarea: {
-    defaultProps: {
-      size: 'm',
-    },
-    scheme: {
-      Textarea: textControlTheme,
-      IconClear: {
+    })
+    .slot('Input', textControlTheme)
+    .slot('IconAfter', {
+      clearable: {
         component: CrossIcon,
       },
-    },
-  },
-  Toggle: {
-    defaultProps: {
+    })
+    .build(),
+  Select: dsl.theme<Theme['Select']>()
+    .slot('Input', {
+      size: dsl.styleMap('pr', { s: 11, m: 11, l: 11 }),
+    })
+    .build(),
+  Textarea: dsl.theme<Theme['Textarea']>()
+    .defaultProps({
       size: 'm',
-    },
-  },
+    })
+    .slot('Textarea', textControlTheme)
+    .slot('IconClear', {
+      component: CrossIcon,
+    })
+    .build(),
+  Toggle: dsl.theme<Theme['Toggle']>()
+    .defaultProps({
+      size: 'm',
+    })
+    .build(),
 }
 
 function pikInput(bg: Colors, border: Colors): StyleProperties {

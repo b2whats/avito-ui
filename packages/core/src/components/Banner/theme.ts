@@ -1,29 +1,24 @@
+import { dsl } from '../../theme'
 import { CardTheme } from '../Card/theme'
 
-export const bannerTheme: CardTheme = {
-  scheme: {
-    Card: {},
-    Close: {},
-    Image: {
+export const bannerTheme = dsl.theme<CardTheme>()
+  .slot('Card', {})
+  .slot('Close', {})
+  .slot('Image', {
+    props: {
+      p: 4,
+    },
+  })
+  .slot('Content', {
+    props: {
+      p: 32,
+      pt: 28,
+    },
+    column: {
       props: {
-        p: 4,
+        p: 16,
+        pt: 12,
       },
     },
-    Content: {
-      props: {
-        pt: 28,
-        pr: 32,
-        pb: 32,
-        pl: 32,
-      },
-      column: {
-        props: {
-          pt: 12,
-          pr: 16,
-          pb: 16,
-          pl: 16,
-        },
-      },
-    },
-  },
-}
+  })
+  .build()

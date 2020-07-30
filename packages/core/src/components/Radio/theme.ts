@@ -1,28 +1,21 @@
-import { Slot, ComponentTheme } from '../../styled-system/'
-import { IconProps } from '../Icon/contract'
+import { CastThemeProps } from '../../styled-system/'
+import { dsl } from '../../theme'
 import { RadioCheckedIcon } from '../Icon/icons/'
-import { TextProps } from '../Text/contract'
+import { ToggleTheme } from '../Toggle'
 import { RadioProps } from './contract'
 
-export type RadioTheme = ComponentTheme<RadioProps, {
-  Toggle?: Slot
-  Switch?: Slot
-  Icon?: Slot<IconProps>
-  Label?: Slot<TextProps>
-}>
+export type RadioTheme = CastThemeProps<ToggleTheme, RadioProps>
 
-export const radioTheme: RadioTheme = {
-  scheme: {
-    Switch: {
-      style: {
-        color: 'white',
-        bgDisabled: 'gray4',
-      },
+export const radioTheme = dsl.theme<RadioTheme>()
+  .slot('Switch', {
+    style: {
+      color: 'white',
+      bgDisabled: 'gray4',
     },
-    Icon: {
-      checked: {
-        component: RadioCheckedIcon,
-      },
+  })
+  .slot('Icon', {
+    checked: {
+      component: RadioCheckedIcon,
     },
-  },
-}
+  })
+  .build()

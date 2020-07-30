@@ -1,4 +1,5 @@
 import { ComponentTheme, Slot } from '../../styled-system/'
+import { dsl } from '../../theme'
 import { IconProps } from '../Icon/contract'
 import { TooltipProps } from './contract'
 
@@ -8,26 +9,24 @@ export type TooltipTheme = ComponentTheme<TooltipProps, {
   Arrow: Slot<never>
 }>
 
-export const tooltipTheme: TooltipTheme = {
-  defaultProps: {
+export const tooltipTheme = dsl.theme<TooltipTheme>()
+  .defaultProps({
     animation: 'fade',
     arrow: {
       padding: 8,
     },
     arrowOffset: 5,
-  },
-  scheme: {
-    Tooltip: {
-      style: {
-        bg: 'white',
-      },
+  })
+  .slot('Tooltip', {
+    style: {
+      bg: 'white',
     },
-    Arrow: {
-      style: {
-        width: 10,
-        height: 10,
-      },
+  })
+  .slot('Arrow', {
+    style: {
+      width: 10,
+      height: 10,
     },
-    Close: {},
-  },
-}
+  })
+  .slot('Close')
+  .build()

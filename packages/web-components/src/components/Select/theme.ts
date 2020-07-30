@@ -1,14 +1,12 @@
-import { DeepPartial, InputTheme, CastThemeProps } from '@avito/core'
+import { InputTheme, CastThemeProps, dsl } from '@avito/core'
 import { SelectProps } from './contract'
 
-export type SelectTheme = DeepPartial<CastThemeProps<InputTheme, SelectProps>>
-export const selectTheme: SelectTheme = {
-  scheme: {
-    Input: {
-      style: {
-        // клик должен проваливаться на <select>
-        pointerEvents: false,
-      },
+export type SelectTheme = CastThemeProps<InputTheme, SelectProps>
+export const selectTheme = dsl.theme<SelectTheme>()
+  .slot('Input', {
+    style: {
+      // клик должен проваливаться на <select>
+      pointerEvents: false,
     },
-  },
-}
+  })
+  .build()

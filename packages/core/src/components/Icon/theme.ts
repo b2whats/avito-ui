@@ -1,62 +1,61 @@
 import { ComponentTheme, Slot } from '../../styled-system/'
+import { dsl } from '../../theme'
 import { BaseIconProps } from './contract'
 
 export type IconTheme = ComponentTheme<BaseIconProps, {
   Icon: Slot
 }>
 
-export const iconTheme: IconTheme = {
-  scheme: {
-    Icon: {
-      size: {
-        s: {
-          style: {
-            height: 16,
-          },
-        },
-        m: {
-          style: {
-            height: 20,
-          },
-        },
-        l: {
-          style: {
-            height: 24,
-          },
-        },
-        xl: {
-          style: {
-            height: 28,
-          },
+export const iconTheme = dsl.theme<IconTheme>()
+  .slot('Icon', {
+    size: {
+      s: {
+        style: {
+          height: 16,
         },
       },
-      variant: {
-        primary: {
-          style: {
-            color: 'blue500',
-          },
+      m: {
+        style: {
+          height: 20,
         },
-        secondary: {
-          style: {
-            color: 'gray52',
-          },
+      },
+      l: {
+        style: {
+          height: 24,
         },
-        error: {
-          style: {
-            color: 'red500',
-          },
-        },
-        success: {
-          style: {
-            color: 'green500',
-          },
-        },
-        warning: {
-          style: {
-            color: 'yellow500',
-          },
+      },
+      xl: {
+        style: {
+          height: 28,
         },
       },
     },
-  },
-}
+    variant: {
+      primary: {
+        style: {
+          color: 'blue500',
+        },
+      },
+      secondary: {
+        style: {
+          color: 'gray52',
+        },
+      },
+      error: {
+        style: {
+          color: 'red500',
+        },
+      },
+      success: {
+        style: {
+          color: 'green500',
+        },
+      },
+      warning: {
+        style: {
+          color: 'yellow500',
+        },
+      },
+    },
+  })
+  .build()

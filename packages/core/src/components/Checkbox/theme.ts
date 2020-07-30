@@ -1,19 +1,18 @@
 import { CastThemeProps } from '../../styled-system'
+import { dsl } from '../../theme'
 import { ToggleTheme } from '../Toggle'
 import { CheckboxProps } from './contract'
 
 export type CheckboxTheme = CastThemeProps<ToggleTheme, CheckboxProps>
 
-export const checkboxTheme: CheckboxTheme = {
-  scheme: {
-    Icon: {},
-    Switch: {
-      style: {
-        color: 'white',
-        bgDisabled: 'gray4',
-      },
+export const checkboxTheme = dsl.theme<CheckboxTheme>()
+  .slot('Icon')
+  .slot('Switch', {
+    style: {
+      color: 'white',
+      bgDisabled: 'gray4',
     },
-    Label: {},
-    Toggle: {},
-  },
-}
+  })
+  .slot('Label')
+  .slot('Toggle')
+  .build()

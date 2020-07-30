@@ -1,4 +1,5 @@
 import { Slot, ComponentTheme } from '../../styled-system/'
+import { dsl } from '../../theme'
 import { IconProps } from '../Icon/contract'
 import { CrossIcon } from '../Icon/icons/'
 import { TextProps } from '../Text/contract'
@@ -13,44 +14,41 @@ export type InputTheme = ComponentTheme<InputProps, {
   IconAfter: Slot<IconProps>
 }>
 
-export const inputTheme: InputTheme = {
-  defaultProps: {
+export const inputTheme = dsl.theme<InputTheme>()
+  .defaultProps({
     variant: 'primary',
     size: 'm',
     deletePlaceholderOnFocus: true,
-  },
-  scheme: {
-    IconBefore: {
+  })
+  .slot('IconBefore', {
+    props: {
+      color: 'gray28',
+      size: ({ size }) => size === 'l' ? 'm' : 's',
+    },
+  })
+  .slot('IconAfter', {
+    props: {
+      color: 'gray28',
+    },
+    clearable: {
+      component: CrossIcon,
       props: {
-        color: 'gray28',
+        area: 10,
         size: ({ size }) => size === 'l' ? 'm' : 's',
       },
     },
-    IconAfter: {
-      props: {
-        color: 'gray28',
-      },
-      clearable: {
-        component: CrossIcon,
-        props: {
-          area: 10,
-          size: ({ size }) => size === 'l' ? 'm' : 's',
-        },
-      },
+  })
+  .slot('Prefix')
+  .slot('Postfix', {
+    props: {
+      ml: 4,
     },
-    Prefix: {
+  })
+  .slot('InputField')
+  .slot('Input', {
+    style: {
+      focus: true,
+      height: ({ size }) => size,
     },
-    Postfix: {
-      props: {
-        ml: 4,
-      },
-    },
-    InputField: {},
-    Input: {
-      style: {
-        focus: true,
-        height: ({ size }) => size,
-      },
-    },
-  },
-}
+  })
+  .build()

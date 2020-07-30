@@ -1,4 +1,5 @@
 import { ComponentTheme, Slot } from '../../styled-system/'
+import { dsl } from '../../theme'
 import { IconProps } from '../Icon/contract'
 import { SpinnerProps } from '../Spinner/contract'
 import { TextProps } from '../Text/contract'
@@ -13,132 +14,130 @@ export type ButtonTheme = ComponentTheme<ButtonProps, {
   Spinner: Slot<SpinnerProps>
 }>
 
-export const buttonTheme: ButtonTheme = {
-  defaultProps: {
+export const buttonTheme: ButtonTheme = dsl.theme<ButtonTheme>()
+  .defaultProps({
     size: 'm',
     type: 'button',
-  },
+  })
   // FIXME: can't expand shorthands of createClassName maps
-  mapProps: ({ shape }) => (shape === 'circle' || shape === 'square') ? { p: 'none' } : {},
-  scheme: {
-    Spinner: {
-      size: {
-        s: {
-          props: {
-            size: 's',
-          },
+  .mapProps(({ shape }) => (shape === 'circle' || shape === 'square') ? { p: 'none' } : {})
+  .slot('Spinner', {
+    size: {
+      s: {
+        props: {
+          size: 's',
         },
-        m: {
-          props: {
-            size: 'm',
-          },
+      },
+      m: {
+        props: {
+          size: 'm',
         },
-        l: {
-          props: {
-            size: 'l',
-          },
+      },
+      l: {
+        props: {
+          size: 'l',
         },
       },
     },
-    IconBefore: {
-      size: {
-        s: {
-          props: {
-            size: 's',
-          },
+  })
+  .slot('IconBefore', {
+    size: {
+      s: {
+        props: {
+          size: 's',
         },
-        m: {
-          props: {
-            size: 's',
-          },
+      },
+      m: {
+        props: {
+          size: 's',
         },
-        l: {
-          props: {
-            size: 'm',
-          },
+      },
+      l: {
+        props: {
+          size: 'm',
         },
       },
     },
-    IconAfter: {
-      size: {
-        s: {
-          props: {
-            size: 's',
-          },
+  })
+  .slot('IconAfter', {
+    size: {
+      s: {
+        props: {
+          size: 's',
         },
-        m: {
-          props: {
-            size: 's',
-          },
+      },
+      m: {
+        props: {
+          size: 's',
         },
-        l: {
-          props: {
-            size: 'm',
-          },
+      },
+      l: {
+        props: {
+          size: 'm',
         },
       },
     },
-    Text: {
+  })
+  .slot('Text', {
+    props: {
+      crop: true,
+      valignSelf: 'middle',
+      size: 'm',
+      ml: -1,
+    },
+    iconBefore: {
       props: {
-        crop: true,
-        valignSelf: 'middle',
-        size: 'm',
-        ml: -1,
+        ml: 6,
       },
-      iconBefore: {
-        props: {
-          ml: 6,
+    },
+    iconAfter: {
+      props: {
+        mr: 6,
+      },
+    },
+  })
+  .slot('Button', {
+    style: {
+      borderRadius: 5,
+      px: 16,
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: 'transparent',
+      focus: false,
+    },
+    size: {
+      s: {
+        style: {
+          py: 4,
+          minHeight: 's',
         },
       },
-      iconAfter: {
-        props: {
-          mr: 6,
+      m: {
+        style: {
+          py: 6,
+          minHeight: 'm',
+        },
+      },
+      l: {
+        style: {
+          py: 8,
+          minHeight: 'l',
         },
       },
     },
-    Button: {
-      style: {
-        borderRadius: 5,
-        px: 16,
-        borderWidth: 1,
-        borderStyle: 'solid',
-        borderColor: 'transparent',
-        focus: false,
-      },
-      size: {
-        s: {
-          style: {
-            py: 4,
-            minHeight: 's',
-          },
-        },
-        m: {
-          style: {
-            py: 6,
-            minHeight: 'm',
-          },
-        },
-        l: {
-          style: {
-            py: 8,
-            minHeight: 'l',
-          },
-        },
-      },
-      iconBefore: {
-        children: {
-          style: {
-            pl: 12,
-          },
-        },
-      },
-      iconAfter: {
-        children: {
-          style: {
-            pr: 12,
-          },
+    iconBefore: {
+      children: {
+        style: {
+          pl: 12,
         },
       },
     },
-  },
-}
+    iconAfter: {
+      children: {
+        style: {
+          pr: 12,
+        },
+      },
+    },
+  })
+  .build()

@@ -1,4 +1,4 @@
-import { Slot, ComponentTheme, TextProps, StackProps, BoxProps } from '@avito/core'
+import { Slot, ComponentTheme, TextProps, StackProps, BoxProps, dsl } from '@avito/core'
 import { ListItemProps } from './contract'
 
 export type ListItemTheme = ComponentTheme<ListItemProps, {
@@ -11,67 +11,65 @@ export type ListItemTheme = ComponentTheme<ListItemProps, {
   After: Slot<BoxProps>
 }>
 
-export const listItemTheme: ListItemTheme = {
-  defaultProps: {
+export const listItemTheme = dsl.theme<ListItemTheme>()
+  .defaultProps({
     beforeTreshold: 82,
     afterTreshold: 82,
-  },
-  scheme: {
-    ListItem: {
+  })
+  .slot('ListItem', {
+    props: {
+      pt: 10,
+      pb: 12,
+      px: 16,
+      spacing: 16,
+      valign: 'middle',
+      minHeight: 52,
+    },
+    onClick: {
       props: {
-        pt: 10,
-        pb: 12,
-        px: 16,
-        spacing: 16,
-        valign: 'middle',
-        minHeight: 52,
-      },
-      onClick: {
-        props: {
-          bgActive: 'gray4',
-        },
+        bgActive: 'gray4',
       },
     },
-    Before: {
-      props: {
+  })
+  .slot('Before', {
+    props: {
 
+    },
+  })
+  .slot('StackText', {
+    props: {
+      spacing: 2,
+    },
+  })
+  .slot('Label', {
+    props: {
+      size: 'm',
+    },
+    disabled: {
+      props: {
+        color: 'gray48',
       },
     },
-    StackText: {
+  })
+  .slot('Caption', {
+    props: {
+      size: 's',
+      color: 'gray40',
+    },
+    disabled: {
       props: {
-        spacing: 2,
+        color: 'gray32',
       },
     },
-    Label: {
-      props: {
-        size: 'm',
-      },
-      disabled: {
-        props: {
-          color: 'gray48',
-        },
-      },
+  })
+  .slot('Link', {
+    props: {
+      size: 's',
     },
-    Caption: {
-      props: {
-        size: 's',
-        color: 'gray40',
-      },
-      disabled: {
-        props: {
-          color: 'gray32',
-        },
-      },
-    },
-    Link: {
-      props: {
-        size: 's',
-      },
-    },
-    After: {
-      props: {
+  })
+  .slot('After', {
+    props: {
 
-      },
     },
-  },
-}
+  })
+  .build()

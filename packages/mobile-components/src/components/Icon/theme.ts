@@ -1,58 +1,56 @@
-import { DeepPartial, IconTheme } from '@avito/core'
+import { IconTheme, dsl } from '@avito/core'
 
-export const iconTheme: DeepPartial<IconTheme> = {
-  mapProps: ({ onClick }) => ({
+export const iconTheme = dsl.theme<IconTheme>()
+  .mapProps(({ onClick }) => ({
     ...onClick && { area: 6 },
-  }),
-  defaultProps: {
+  }))
+  .defaultProps({
     size: 'm',
-  },
-  scheme: {
-    Icon: {
-      size: {
-        s: {
-          style: {
-            height: 16,
-          },
-        },
-        m: {
-          style: {
-            height: 20,
-          },
-        },
-        l: {
-          style: {
-            height: 24,
-          },
+  })
+  .slot('Icon', {
+    size: {
+      s: {
+        style: {
+          height: 16,
         },
       },
-      variant: {
-        primary: {
-          style: {
-            color: 'blue500',
-          },
+      m: {
+        style: {
+          height: 20,
         },
-        secondary: {
-          style: {
-            color: 'gray52',
-          },
-        },
-        error: {
-          style: {
-            color: 'red500',
-          },
-        },
-        success: {
-          style: {
-            color: 'green500',
-          },
-        },
-        warning: {
-          style: {
-            color: 'yellow500',
-          },
+      },
+      l: {
+        style: {
+          height: 24,
         },
       },
     },
-  },
-}
+    variant: {
+      primary: {
+        style: {
+          color: 'blue500',
+        },
+      },
+      secondary: {
+        style: {
+          color: 'gray52',
+        },
+      },
+      error: {
+        style: {
+          color: 'red500',
+        },
+      },
+      success: {
+        style: {
+          color: 'green500',
+        },
+      },
+      warning: {
+        style: {
+          color: 'yellow500',
+        },
+      },
+    },
+  })
+  .build()

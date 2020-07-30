@@ -1,18 +1,14 @@
 import { Slot, ComponentTheme } from '../../styled-system'
+import { dsl } from '../../theme'
 import { LinkProps } from './contract'
 
 export type LinkTheme = ComponentTheme<LinkProps, {
   Link: Slot<LinkProps>
 }>
 
-export const linkTheme: LinkTheme = {
-  defaultProps: {
+export const linkTheme = dsl.theme<LinkTheme>()
+  .defaultProps({
     variant: 'primary',
-  },
-  scheme: {
-    Link: {
-      props: {},
-      variant: {}, // Пустые объекты определяют порядок мержа
-    },
-  },
-}
+  })
+  .slot('Link')
+  .build()

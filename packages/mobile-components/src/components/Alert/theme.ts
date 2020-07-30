@@ -1,26 +1,23 @@
-import { CardTheme, DeepPartial } from '@avito/core'
+import { CardTheme, dsl } from '@avito/core'
 
-export const alertTheme: DeepPartial<CardTheme> = {
-  scheme: {
-    Card: {
-      props: {
-        pt: 10,
-        pb: 12,
-        pl: 16,
-        pr: 16,
-      },
+export const alertTheme = dsl.theme<CardTheme>()
+  .slot('Card', {
+    props: {
+      px: 16,
+      pt: 10,
+      pb: 12,
     },
-    Close: {
-      props: {
+  })
+  .slot('Close', {
+    props: {
 
-      },
     },
-    Image: {
-      props: {
-        size: 20,
-        mr: 12,
-      },
+  })
+  .slot('Image', {
+    props: {
+      size: 20,
+      mr: 12,
     },
-    Content: {},
-  },
-}
+  })
+  .slot('Content', {})
+  .build()

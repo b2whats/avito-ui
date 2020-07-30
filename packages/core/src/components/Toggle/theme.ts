@@ -1,4 +1,5 @@
 import { ComponentTheme, Slot } from '../../styled-system/'
+import { dsl } from '../../theme'
 import { IconProps } from '../Icon/contract'
 import { TextProps } from '../Text/contract'
 import { ToggleProps } from './contract'
@@ -10,20 +11,18 @@ export type ToggleTheme = ComponentTheme<ToggleProps, {
   Label: Slot<TextProps>
 }>
 
-export const toggleTheme: ToggleTheme = {
-  defaultProps: {
+export const toggleTheme = dsl.theme<ToggleTheme>()
+  .defaultProps({
     labelPosition: 'end',
     variant: 'primary',
     size: 'm',
-  },
-  scheme: {
-    Toggle: {},
-    Switch: {},
-    Icon: {},
-    Label: {
-      props: {
-        size: 'm',
-      },
+  })
+  .slot('Toggle')
+  .slot('Switch')
+  .slot('Icon')
+  .slot('Label', {
+    props: {
+      size: 'm',
     },
-  },
-}
+  })
+  .build()
