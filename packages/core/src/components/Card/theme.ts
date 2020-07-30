@@ -15,33 +15,25 @@ export type CardTheme = ComponentTheme<CardProps, {
 
 export const cardTheme = dsl.theme<CardTheme>()
   .slot('Card', {
-    props: {
-      block: true,
-      rounded: 12,
-    },
+    block: true,
+    rounded: 12,
   })
   .slot('Close', {
     component: CrossIcon,
-    props: {
-      color: 'gray28',
-      bgHover: 'black8',
-      bgActive: 'black16',
-      position: 'absolute',
-      size: 's',
-      p: 8,
-      rounded: 'circle',
-      top: 4,
-      right: 4,
-    },
+    color: 'gray28',
+    bgHover: 'black8',
+    bgActive: 'black16',
+    position: 'absolute',
+    size: 's',
+    p: 8,
+    rounded: 'circle',
+    top: 4,
+    right: 4,
   })
   .slot('Image', {
-    props: {
-      order: props => props.column ? 0 : 1,
-    },
+    order: props => props.column ? 0 : 1,
   })
   .slot('Content', {
-    props: {
-      p: 12,
-    },
+    p: 12,
   })
   .build()

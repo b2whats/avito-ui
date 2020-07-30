@@ -90,9 +90,9 @@ export const SegmentButton = uiComponent('SegmentButton', segmentButtonTheme)((
   }, [windowSize.innerWidth])
 
   const { Group, Button, Slide } = foldThemeParams(props, theme)
-  const groupStyle = groupClassName(props, tokens, Group.style)
-  const buttonStyle = buttonClassName(props, tokens, Button.style)
-  const slideStyle = slideClassName(props, tokens, Slide.style)
+  const groupStyle = groupClassName(props, tokens, Group)
+  const buttonStyle = buttonClassName(props, tokens, Button)
+  const slideStyle = slideClassName(props, tokens, Slide)
 
   const onClick = (value: SegmentButtonProps['value']) => {
     if (value === props.value) return

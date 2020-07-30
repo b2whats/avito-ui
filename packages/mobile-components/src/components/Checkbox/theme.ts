@@ -12,22 +12,18 @@ export const checkboxTheme = dsl.theme<CheckboxTheme>()
   ])
   .slot('Switch', slot => [
     {
-      style: {
-        borderRadius: 2,
-        height: 18,
-        bg: 'gray8',
-        bgActive: 'gray12',
-        color: 'white',
-        bgDisabled: 'gray4',
-      },
+      borderRadius: 2,
+      height: 18,
+      bg: 'gray8',
+      bgActive: 'gray12',
+      color: 'white',
+      bgDisabled: 'gray4',
     },
     slot.if('checked', [
       {
-        style: {
-          bgDisabled: 'gray28',
-        },
+        bgDisabled: 'gray28',
       },
-      slot.switch('variant', dsl.styleMap({
+      slot.switch('variant', {
         primary: {
           bg: 'blue500',
           bgActive: 'blue700',
@@ -48,7 +44,7 @@ export const checkboxTheme = dsl.theme<CheckboxTheme>()
           bg: 'red500',
           bgActive: 'red700',
         },
-      })),
+      }),
     ]),
   ])
   .build()

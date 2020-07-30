@@ -13,9 +13,7 @@ export const checkmarkTheme = dsl.theme<CheckmarkTheme>()
       component: CheckmarkIcon,
     },
     slot.if('disabled', {
-      props: {
-        color: 'gray28',
-      },
+      color: 'gray28',
     }),
   ])
   .build()

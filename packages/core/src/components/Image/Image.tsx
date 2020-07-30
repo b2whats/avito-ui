@@ -29,7 +29,7 @@ export const Image = uiComponent('Image', imageTheme)<ImageProps, HTMLImageEleme
   const onError = invokeAll(() => setFallback(true), props.onError)
 
   const { Image } = foldThemeParams(props, theme)
-  const imageStyle = imageClassName(props, tokens, Image.style)
+  const imageStyle = imageClassName(props, tokens, Image)
 
   const srcset = isFallback
     ? undefined

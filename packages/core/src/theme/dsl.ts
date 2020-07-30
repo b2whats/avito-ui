@@ -1,26 +1,5 @@
 import { SchemeType, Slot, ComponentTheme, BoundSlot } from '../styled-system'
 
-type WrappedMap<Key extends string, Map> = { [MapKey in keyof Map]: { [key in Key]: Map[MapKey] } }
-
-export const wrapValues = <Key extends string, Map>(wrapKey: Key, map: Map) => {
-  const res: any = {}
-  for (const key in map) {
-    res[key] = { [wrapKey]: map[key] } as any
-  }
-  return res as WrappedMap<Key, Map>
-}
-
-interface MaybeWrapMap<TopKey extends string> {
-  <Map>(map: Map): WrappedMap<TopKey, Map>
-  <ItemKey extends string, Map>(itemKey: ItemKey, map: Map): WrappedMap<TopKey, WrappedMap<ItemKey, Map>>
-}
-
-export const propMap: MaybeWrapMap<'props'> = (key: any, map?: any) =>
-  wrapValues('props', map ? wrapValues(key, map) : key)
-
-export const styleMap: MaybeWrapMap<'style'> = (key: any, map?: any) =>
-  wrapValues('style', map ? wrapValues(key, map) : key)
-
 type SlotInternals<Theme, Name> = Theme extends ComponentTheme<infer Props, infer Slots>
     ? Name extends keyof Slots
       ? Slots[Name] extends Slot<infer OutProps>
@@ -53,10 +32,16 @@ interface SlotBuilder<Theme, Name> {
 
 const slotDSL: SlotDSL<any, any> = {
   if: (condition, body) => ({
-    $then: body,
+    $then: Array.isArray(body) ? body : [body],
     $if: typeof condition === 'function' ? condition : (props: any) => props[condition],
   }),
-  switch: (condition, options) => ({ ...options, $switch: condition }),
+  switch: (condition, options) => {
+    const res = { $switch: condition }
+    Object.entries(options).forEach(([key, body]) => {
+      res[key] = Array.isArray(options[key]) ? body : [body]
+    })
+    return res
+  },
   mapped: (prop, options) => (props: any) => options[props[prop]] as any,
 }
 
@@ -100,9 +85,6 @@ export function fragment<Slots extends BoundSlot<any, any>>(
 }
 
 export const dsl = {
-  wrapValues,
-  styleMap,
-  propMap,
   theme,
   fragment,
 }

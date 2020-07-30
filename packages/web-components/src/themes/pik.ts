@@ -10,28 +10,24 @@ const textControlTheme = dsl.fragment<
   Theme['Textarea']['scheme']['Textarea']
 >(slot => [
   {
-    style: {
-      placeholderColor: 'gray44',
-      borderWidth: 1,
-      borderRadius: 4,
-      bgFocus: 'white',
-      focus: false,
-      px: 16,
-    },
+    placeholderColor: 'gray44',
+    borderWidth: 1,
+    borderRadius: 4,
+    bgFocus: 'white',
+    focus: false,
+    px: 16,
   },
-  slot.switch('variant', dsl.styleMap({
+  slot.switch('variant', {
     primary: pikInput('gray4', 'gray16'),
     secondary: pikInput('gray8', 'gray20'),
     error: pikInput('red50', 'red300'),
     warning: pikInput('orange50', 'orange300'),
     success: pikInput('green50', 'green300'),
-  })),
+  }),
   slot.if(props => props.preset === 'inverse' && props.variant === 'primary', {
-    style: {
-      bg: 'white',
-      bgDisabled: 'white',
-      borderColor: 'white',
-    },
+    bg: 'white',
+    bgDisabled: 'white',
+    borderColor: 'white',
   }),
 ])
 
@@ -52,17 +48,15 @@ export const pikTheme: DeepPartial<Theme> = {
   Text: dsl.theme<Theme['Text']>()
     // yes it does not support dense
     .slot('Text', slot => ({
-      style: {
-        lineHeight: slot.mapped('size', {
-          xs: 1.23,
-          s: 1.43,
-          m: 1.5,
-          l: 1.4,
-          xl: 1.34,
-          xxl: 1.25,
-          xxxl: 1.2,
-        }),
-      },
+      lineHeight: slot.mapped('size', {
+        xs: 1.23,
+        s: 1.43,
+        m: 1.5,
+        l: 1.4,
+        xl: 1.34,
+        xxl: 1.25,
+        xxxl: 1.2,
+      }),
     }))
     .build(),
   Button: dsl.theme<Theme['Button']>()
@@ -72,37 +66,27 @@ export const pikTheme: DeepPartial<Theme> = {
     })
     .slot('Button', slot => [
       {
-        style: {
-          borderRadius: 4,
-          px: props => props.size === 'l' ? 36 : 24,
-        },
+        borderRadius: 4,
+        px: props => props.size === 'l' ? 36 : 24,
       },
       slot.if(props => props.size === 'l' && props.multiline, {
-        style: {
-          minWidth: 290,
-          px: 48,
-          height: 64,
-        },
+        minWidth: 290,
+        px: 48,
+        height: 64,
       }),
       slot.switch('preset', {
         default: {
-          style: {
-            borderColor: 'gray16',
-            bgHover: 'gray4',
-            bgActive: 'gray8',
-          },
+          borderColor: 'gray16',
+          bgHover: 'gray4',
+          bgActive: 'gray8',
         },
         newDefault: {
-          style: {
-            bg: 'gray4',
-            bgHover: 'gray8',
-            bgActive: 'gray12',
-          },
+          bg: 'gray4',
+          bgHover: 'gray8',
+          bgActive: 'gray12',
         },
         warning: {
-          style: {
-            color: 'white',
-          },
+          color: 'white',
         },
       }),
     ])
@@ -120,9 +104,7 @@ export const pikTheme: DeepPartial<Theme> = {
     .build(),
   Select: dsl.theme<Theme['Select']>()
     .slot('Input', {
-      style: {
-        pr: 11,
-      },
+      pr: 11,
     })
     .build(),
   Textarea: dsl.theme<Theme['Textarea']>()

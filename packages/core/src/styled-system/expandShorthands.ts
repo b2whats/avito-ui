@@ -53,21 +53,26 @@ export function expandShorthands<T extends StyleProperties>(
   return style
 }
 
-export function expandShorthandsDeep<T>(theme: T): T {
+// isStyle prevents expanding tokens
+export function expandShorthandsDeep<
+  T extends object & { $if?: any, $switch?: any } & StyleProperties
+>(theme: T, isStyle = false): T {
   if (!theme || typeof theme !== 'object') {
     return theme
   }
 
   if (Array.isArray(theme)) {
-    return theme.map(item => expandShorthandsDeep(item)) as any
+    return theme.map(item => expandShorthandsDeep(item, !item.$if && !item.$switch)) as any
+  }
+
+  if (isStyle) {
+    return expandShorthands(theme, false, true) as T
   }
 
   const res: any = {}
   for (const key in theme) {
-    const field = theme[key]
-    res[key] = (key === 'style' || key === 'props')
-      ? expandShorthands(field, false, true)
-      : expandShorthandsDeep(field)
+    // start expanding when hitting "scheme"
+    res[key] = expandShorthandsDeep(theme[key])
   }
   return res
 }

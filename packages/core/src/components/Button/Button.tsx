@@ -110,7 +110,7 @@ export const Button = uiComponent('Button', buttonTheme)<ButtonProps>((props, { 
   }
 
   const { Button, Text, IconBefore, IconAfter, Spinner } = foldThemeParams(groupProps, theme)
-  const buttonStyle = buttonClassName(groupProps, tokens, Button.style)
+  const buttonStyle = buttonClassName(groupProps, tokens, Button)
 
   const Tag = props.href ? 'a' : 'button'
 
@@ -128,13 +128,13 @@ export const Button = uiComponent('Button', buttonTheme)<ButtonProps>((props, { 
   return (
     <Tag css={buttonStyle} {...aria} {...filterProps(groupProps)} {...testId(props.value)}>
       {props.loading &&
-        <SpinnerComponent {...Spinner.props} />}
+        <SpinnerComponent {...Spinner} />}
       {props.iconBefore &&
-        renderIconSlot(props.iconBefore, IconBefore.props)}
+        renderIconSlot(props.iconBefore, IconBefore)}
       {props.children &&
-        renderTextSlot(props.children, Text.props)}
+        renderTextSlot(props.children, Text)}
       {props.iconAfter &&
-        renderIconSlot(props.iconAfter, IconAfter.props)}
+        renderIconSlot(props.iconAfter, IconAfter)}
     </Tag>
   )
 })

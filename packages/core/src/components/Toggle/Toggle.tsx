@@ -118,9 +118,9 @@ export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputE
   }
 
   const { Toggle, Switch, Icon, Label } = foldThemeParams(groupProps, theme)
-  const toggleStyle = toggleClassName(groupProps, tokens, Toggle.style)
-  const switchStyle = switchClassName(groupProps, tokens, Switch.style)
-  const label = props.label && <Text {...Label.props} crop>{props.label}</Text>
+  const toggleStyle = toggleClassName(groupProps, tokens, Toggle)
+  const switchStyle = switchClassName(groupProps, tokens, Switch)
+  const label = props.label && <Text {...Label} crop>{props.label}</Text>
 
   return (
     <label ref={usePrevent3DTouch()} css={toggleStyle} {...aria} onMouseDown={preventFocus} {...testId(props.value)}>

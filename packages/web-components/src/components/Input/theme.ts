@@ -13,37 +13,33 @@ export const inputTheme = dsl.theme<InputTheme>()
     size: 's',
     kind: 'outline',
   })
-  .slot('IconBefore', slot => slot.switch('size', dsl.propMap('mr', gapSize)))
+  .slot('IconBefore', slot => ({
+    mr: slot.mapped('size', gapSize),
+  }))
   .slot('IconAfter', slot => [
     {
-      props: {
-        size: props => props.size === 'l' ? 'l' : 'm',
-      },
+      size: props => props.size === 'l' ? 'l' : 'm',
+      ml: slot.mapped('size', gapSize),
     },
-    slot.switch('size', dsl.propMap('ml', gapSize)),
     slot.if('clearable', {
       component: CrossIcon,
     }),
   ])
   .slot('Prefix', slot => ({
-    props: {
-      mr: slot.mapped('size', { s: 4, m: 6, l: 8 }),
-    },
+    mr: slot.mapped('size', { s: 4, m: 6, l: 8 }),
   }))
   .slot('Input', slot => [
     {
-      style: {
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderRadius: 3,
-        color: 'black',
-        placeholderColor: 'gray40',
-        colorDisabled: 'gray64',
-        bgDisabled: 'gray4',
-        cursor: 'text',
-        fontSize: props => props.size,
-        px: slot.mapped('size', gapSize),
-      },
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderRadius: 3,
+      color: 'black',
+      placeholderColor: 'gray40',
+      colorDisabled: 'gray64',
+      bgDisabled: 'gray4',
+      cursor: 'text',
+      fontSize: props => props.size,
+      px: slot.mapped('size', gapSize),
     },
     slot.switch('variant', controlOutlineVariants),
   ])

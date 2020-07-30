@@ -11,10 +11,8 @@ export const checkboxTheme = dsl.theme<CheckboxTheme>()
     }),
   ])
   .slot('Switch', slot => ({
-    style: {
-      borderRadius: 3,
-      color: 'white',
-      height: slot.mapped('size', { s: 16, m: 18, l: 22 }),
-    },
+    borderRadius: 3,
+    color: 'white',
+    height: slot.mapped('size', { s: 16, m: 18, l: 22 }),
   }))
   .build()

@@ -18,139 +18,102 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
     kind: kind || (preset === 'default' ? 'outline' : 'fill'),
   }))
   .slot('Button', slot => [
+    slot.if('multiline', {
+      py: 9,
+    }),
     slot.if('disabled', {
-      style: {
-        overlay: 'rgba(255,255,255,0.5)',
-      },
+      overlay: 'rgba(255,255,255,0.5)',
     }),
     slot.switch('size', {
       s: {
-        style: {
-          px: 12,
-          py: 5,
-        },
+        px: 12,
+        py: 5,
       },
       m: {
-        style: {
-          px: 16,
-          py: 8,
-        },
+        px: 16,
+        py: 8,
       },
       l: {
-        style: {
-          px: 18,
-          py: 11,
-        },
+        px: 18,
+        py: 11,
       },
     }),
     slot.if('multiline', {
-      style: {
-        py: props => props.size === 'l' ? 12 : 9,
-      },
+      py: props => props.size === 'l' ? 12 : 9,
     }),
     slot.switch('preset', {
       default: {
-        style: {
-          bg: 'transparent',
-          bgHover: 'gray4',
-          bgActive: 'gray12',
-          bgDisabled: 'transparent',
-          borderColor: 'gray20',
-          color: 'black',
-          focus: 'blue100',
-        },
+        bg: 'transparent',
+        bgHover: 'gray4',
+        bgActive: 'gray12',
+        bgDisabled: 'transparent',
+        borderColor: 'gray20',
+        color: 'black',
+        focus: 'blue100',
       },
       primary: {
-        style: {
-          ...fillTheme('blue'),
-          color: 'white',
-        },
+        ...fillTheme('blue'),
+        color: 'white',
       },
       newDefault: {
-        style: {
-          bg: 'gray8',
-          bgHover: 'gray12',
-          bgActive: 'gray20',
-          bgDisabled: 'gray8',
-          color: 'black',
-          focus: 'blue100',
-        },
+        bg: 'gray8',
+        bgHover: 'gray12',
+        bgActive: 'gray20',
+        bgDisabled: 'gray8',
+        color: 'black',
+        focus: 'blue100',
       },
       success: {
-        style: {
-          ...fillTheme('green'),
-          color: 'white',
-        },
+        ...fillTheme('green'),
+        color: 'white',
       },
       warning: {
-        style: {
-          ...fillTheme('orange'),
-          color: 'black',
-        },
+        ...fillTheme('orange'),
+        color: 'black',
       },
       error: {
-        style: {
-          ...fillTheme('red'),
-          color: 'white',
-        },
+        ...fillTheme('red'),
+        color: 'white',
       },
     }),
   ])
   .slot('Text', slot => [
     {
-      props: {
       // Ужатые строки для двустрочной кнопки - на 1 строку не влияет
-        lineHeight: 1.1875,
-        size: props => props.size,
-      },
+      lineHeight: 1.1875,
+      size: props => props.size,
     },
     slot.if('iconBefore', [
       {
-        props: {
-          align: 'left',
-          ml: slot.mapped('size', { s: 4, m: 6, l: 8 }),
-        },
+        align: 'left',
+        ml: slot.mapped('size', { s: 4, m: 6, l: 8 }),
       },
       slot.if('multiline', {
-        props: {
-          ml: 10,
-        },
+        ml: 10,
       }),
     ]),
     slot.if('iconAfter', [
       {
-        props: {
-          align: 'left',
-          mr: slot.mapped('size', { s: 4, m: 6, l: 8 }),
-        },
+        align: 'left',
+        mr: slot.mapped('size', { s: 4, m: 6, l: 8 }),
       },
       slot.if('multiline', {
-        props: {
-          mr: 10,
-        },
+        mr: 10,
       }),
     ]),
   ])
   .slot('IconBefore', slot => slot.if('children', {
-    props: {
-      ml: -4,
-    },
+    ml: -4,
   }))
   .slot('IconAfter', slot => slot.if('children', {
-    props: {
-      mr: -4,
-    },
+    mr: -4,
   }))
   .slot('Spinner', slot => [
     {
-      props: {
-        variant: undefined,
-      },
+      variant: undefined,
     },
     slot.if(props => props.preset === 'default', {
-      props: {
-        variant: 'primary',
-      },
+      variant: 'primary',
     }),
   ])
   .build()

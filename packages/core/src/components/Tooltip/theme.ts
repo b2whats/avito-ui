@@ -6,7 +6,7 @@ import { TooltipProps } from './contract'
 export type TooltipTheme = ComponentTheme<TooltipProps, {
   Tooltip: Slot
   Close: Slot<IconProps>
-  Arrow: Slot<never>
+  Arrow: Slot
 }>
 
 export const tooltipTheme = dsl.theme<TooltipTheme>()
@@ -18,15 +18,11 @@ export const tooltipTheme = dsl.theme<TooltipTheme>()
     arrowOffset: 5,
   })
   .slot('Tooltip', {
-    style: {
-      bg: 'white',
-    },
+    bg: 'white',
   })
   .slot('Arrow', {
-    style: {
-      width: 10,
-      height: 10,
-    },
+    width: 10,
+    height: 10,
   })
   .slot('Close')
   .build()

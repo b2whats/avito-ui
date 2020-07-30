@@ -8,9 +8,7 @@ export type RadioTheme = CastThemeProps<ToggleTheme, RadioProps>
 
 export const radioTheme = dsl.theme<RadioTheme>()
   .slot('Switch', {
-    style: {
-      color: 'white',
-    },
+    color: 'white',
   })
   .slot('Icon', slot => slot.if('checked', {
     component: RadioCheckedIcon,

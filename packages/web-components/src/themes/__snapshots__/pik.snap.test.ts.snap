@@ -1075,83 +1075,90 @@ Object {
   "scheme": Object {
     "Button": Array [
       Object {
-        "style": Object {
-          "borderColor": "transparent",
-          "borderRadius": 5,
-          "borderStyle": "solid",
-          "borderWidth": 1,
-          "focus": false,
-          "minHeight": [Function],
-          "pb": [Function],
-          "pl": 16,
-          "pr": 16,
-          "pt": [Function],
-        },
+        "borderColor": "transparent",
+        "borderRadius": 5,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "focus": false,
+        "minHeight": [Function],
+        "pb": [Function],
+        "pl": 16,
+        "pr": 16,
+        "pt": [Function],
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "style": Object {
+        "$then": Array [
+          Object {
             "pl": 12,
           },
-        },
+        ],
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "style": Object {
+        "$then": Array [
+          Object {
             "pr": 12,
           },
-        },
+        ],
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "style": Object {
+        "$then": Array [
+          Object {
+            "pb": 9,
+            "pt": 9,
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
             "overlay": "rgba(255,255,255,0.5)",
           },
-        },
+        ],
       },
       Object {
         "$switch": "size",
-        "l": Object {
-          "style": Object {
+        "l": Array [
+          Object {
             "pb": 11,
             "pl": 18,
             "pr": 18,
             "pt": 11,
           },
-        },
-        "m": Object {
-          "style": Object {
+        ],
+        "m": Array [
+          Object {
             "pb": 8,
             "pl": 16,
             "pr": 16,
             "pt": 8,
           },
-        },
-        "s": Object {
-          "style": Object {
+        ],
+        "s": Array [
+          Object {
             "pb": 5,
             "pl": 12,
             "pr": 12,
             "pt": 5,
           },
-        },
+        ],
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "style": Object {
+        "$then": Array [
+          Object {
             "pb": [Function],
             "pt": [Function],
           },
-        },
+        ],
       },
       Object {
         "$switch": "preset",
-        "default": Object {
-          "style": Object {
+        "default": Array [
+          Object {
             "bg": "transparent",
             "bgActive": "gray12",
             "bgDisabled": "transparent",
@@ -1160,9 +1167,9 @@ Object {
             "color": "black",
             "focus": "blue100",
           },
-        },
-        "error": Object {
-          "style": Object {
+        ],
+        "error": Array [
+          Object {
             "bg": "red500",
             "bgActive": "red700",
             "bgDisabled": "red500",
@@ -1170,9 +1177,9 @@ Object {
             "color": "white",
             "focus": "red100",
           },
-        },
-        "newDefault": Object {
-          "style": Object {
+        ],
+        "newDefault": Array [
+          Object {
             "bg": "gray8",
             "bgActive": "gray20",
             "bgDisabled": "gray8",
@@ -1180,9 +1187,9 @@ Object {
             "color": "black",
             "focus": "blue100",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "bg": "blue500",
             "bgActive": "blue700",
             "bgDisabled": "blue500",
@@ -1190,9 +1197,9 @@ Object {
             "color": "white",
             "focus": "blue100",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "bg": "green500",
             "bgActive": "green700",
             "bgDisabled": "green500",
@@ -1200,9 +1207,9 @@ Object {
             "color": "white",
             "focus": "green100",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "bg": "orange500",
             "bgActive": "orange700",
             "bgDisabled": "orange500",
@@ -1210,146 +1217,101 @@ Object {
             "color": "black",
             "focus": "orange100",
           },
-        },
+        ],
       },
       Object {
-        "style": Object {
-          "borderRadius": 4,
-          "pl": [Function],
-          "pr": [Function],
-        },
-      },
-      Object {
-        "$if": [Function],
-        "$then": Object {
-          "style": Object {
-            "height": 64,
-            "minWidth": 290,
-            "pl": 48,
-            "pr": 48,
-          },
-        },
-      },
-      Object {
-        "$switch": "preset",
-        "default": Object {
-          "style": Object {
-            "bgActive": "gray8",
-            "bgHover": "gray4",
-            "borderColor": "gray16",
-          },
-        },
-        "newDefault": Object {
-          "style": Object {
-            "bg": "gray4",
-            "bgActive": "gray12",
-            "bgHover": "gray8",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "color": "white",
-          },
-        },
-      },
-    ],
-    "IconAfter": Array [
-      Object {
-        "props": Object {
-          "size": [Function],
-        },
-      },
-      Object {
-        "$if": [Function],
-        "$then": Object {
-          "props": Object {
-            "mr": -4,
-          },
-        },
-      },
-    ],
-    "IconBefore": Array [
-      Object {
-        "props": Object {
-          "size": [Function],
-        },
-      },
-      Object {
-        "$if": [Function],
-        "$then": Object {
-          "props": Object {
-            "ml": -4,
-          },
-        },
-      },
-    ],
-    "Spinner": Array [
-      Object {
-        "props": Object {
-          "size": [Function],
-        },
-      },
-      Object {
-        "props": Object {
-          "variant": undefined,
-        },
-      },
-      Object {
-        "$if": [Function],
-        "$then": Object {
-          "props": Object {
-            "variant": "primary",
-          },
-        },
-      },
-    ],
-    "Text": Array [
-      Object {
-        "props": Object {
-          "crop": true,
-          "ml": -1,
-          "size": "m",
-          "valignSelf": "middle",
-        },
-      },
-      Object {
-        "$if": [Function],
-        "$then": Object {
-          "props": Object {
-            "ml": 6,
-          },
-        },
-      },
-      Object {
-        "$if": [Function],
-        "$then": Object {
-          "props": Object {
-            "mr": 6,
-          },
-        },
-      },
-      Object {
-        "props": Object {
-          "lineHeight": 1.1875,
-          "size": [Function],
-        },
+        "borderRadius": 4,
+        "pl": [Function],
+        "pr": [Function],
       },
       Object {
         "$if": [Function],
         "$then": Array [
           Object {
-            "props": Object {
-              "align": "left",
-              "ml": [Function],
-            },
+            "height": 64,
+            "minWidth": 290,
+            "pl": 48,
+            "pr": 48,
           },
+        ],
+      },
+      Object {
+        "$switch": "preset",
+        "default": Array [
           Object {
-            "$if": [Function],
-            "$then": Object {
-              "props": Object {
-                "ml": 10,
-              },
-            },
+            "bgActive": "gray8",
+            "bgHover": "gray4",
+            "borderColor": "gray16",
+          },
+        ],
+        "newDefault": Array [
+          Object {
+            "bg": "gray4",
+            "bgActive": "gray12",
+            "bgHover": "gray8",
+          },
+        ],
+        "warning": Array [
+          Object {
+            "color": "white",
+          },
+        ],
+      },
+    ],
+    "IconAfter": Array [
+      Object {
+        "size": [Function],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "mr": -4,
+          },
+        ],
+      },
+    ],
+    "IconBefore": Array [
+      Object {
+        "size": [Function],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "ml": -4,
+          },
+        ],
+      },
+    ],
+    "Spinner": Array [
+      Object {
+        "size": [Function],
+      },
+      Object {
+        "variant": undefined,
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "variant": "primary",
+          },
+        ],
+      },
+    ],
+    "Text": Array [
+      Object {
+        "crop": true,
+        "ml": -1,
+        "size": "m",
+        "valignSelf": "middle",
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "ml": 6,
           },
         ],
       },
@@ -1357,18 +1319,45 @@ Object {
         "$if": [Function],
         "$then": Array [
           Object {
-            "props": Object {
-              "align": "left",
-              "mr": [Function],
-            },
+            "mr": 6,
+          },
+        ],
+      },
+      Object {
+        "lineHeight": 1.1875,
+        "size": [Function],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "align": "left",
+            "ml": [Function],
           },
           Object {
             "$if": [Function],
-            "$then": Object {
-              "props": Object {
+            "$then": Array [
+              Object {
+                "ml": 10,
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "align": "left",
+            "mr": [Function],
+          },
+          Object {
+            "$if": [Function],
+            "$then": Array [
+              Object {
                 "mr": 10,
               },
-            },
+            ],
           },
         ],
       },
@@ -1657,215 +1646,171 @@ Object {
   "scheme": Object {
     "IconAfter": Array [
       Object {
-        "props": Object {
-          "color": "gray28",
-        },
+        "color": "gray28",
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "component": #IconCross,
-          "props": Object {
+        "$then": Array [
+          Object {
             "area": 10,
+            "component": #IconCross,
             "size": [Function],
           },
-        },
+        ],
       },
       Object {
-        "props": Object {
-          "size": [Function],
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "ml": 12,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "ml": 10,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "ml": 7,
-          },
-        },
+        "ml": [Function],
+        "size": [Function],
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "component": #IconCross,
-        },
+        "$then": Array [
+          Object {
+            "component": #IconCross,
+          },
+        ],
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "component": #IconCross,
-        },
+        "$then": Array [
+          Object {
+            "component": #IconCross,
+          },
+        ],
       },
     ],
     "IconBefore": Array [
       Object {
-        "props": Object {
-          "color": "gray28",
-          "size": [Function],
-        },
+        "color": "gray28",
+        "size": [Function],
       },
       Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "mr": 12,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "mr": 10,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "mr": 7,
-          },
-        },
+        "mr": [Function],
       },
     ],
     "Input": Array [
       Object {
-        "style": Object {
-          "focus": true,
-          "height": [Function],
-        },
+        "focus": true,
+        "height": [Function],
       },
       Object {
-        "style": Object {
-          "bgDisabled": "gray4",
-          "borderRadius": 3,
-          "borderStyle": "solid",
-          "borderWidth": 1,
-          "color": "black",
-          "colorDisabled": "gray64",
-          "cursor": "text",
-          "fontSize": [Function],
-          "pl": [Function],
-          "placeholderColor": "gray40",
-          "pr": [Function],
-        },
+        "bgDisabled": "gray4",
+        "borderRadius": 3,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "color": "black",
+        "colorDisabled": "gray64",
+        "cursor": "text",
+        "fontSize": [Function],
+        "pl": [Function],
+        "placeholderColor": "gray40",
+        "pr": [Function],
       },
       Object {
         "$switch": "variant",
-        "error": Object {
-          "style": Object {
+        "error": Array [
+          Object {
             "borderColor": "red500",
             "borderColorHover": "red600",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "borderColor": "gray20",
             "borderColorHover": "gray28",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "borderColor": "gray8",
             "borderColorHover": "gray16",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "borderColor": "green500",
             "borderColorHover": "green600",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "borderColor": "orange500",
             "borderColorHover": "orange600",
           },
-        },
+        ],
       },
       Object {
-        "style": Object {
-          "bgFocus": "white",
-          "borderRadius": 4,
-          "borderWidth": 1,
-          "focus": false,
-          "pl": 16,
-          "placeholderColor": "gray44",
-          "pr": 16,
-        },
+        "bgFocus": "white",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "focus": false,
+        "pl": 16,
+        "placeholderColor": "gray44",
+        "pr": 16,
       },
       Object {
         "$switch": "variant",
-        "error": Object {
-          "style": Object {
+        "error": Array [
+          Object {
             "bg": "red50",
             "borderColor": "red50",
             "borderColorFocus": "red300",
             "borderColorHover": "red300",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "bg": "gray4",
             "borderColor": "gray4",
             "borderColorFocus": "gray16",
             "borderColorHover": "gray16",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "bg": "gray8",
             "borderColor": "gray8",
             "borderColorFocus": "gray20",
             "borderColorHover": "gray20",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "bg": "green50",
             "borderColor": "green50",
             "borderColorFocus": "green300",
             "borderColorHover": "green300",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "bg": "orange50",
             "borderColor": "orange50",
             "borderColorFocus": "orange300",
             "borderColorHover": "orange300",
           },
-        },
+        ],
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "style": Object {
+        "$then": Array [
+          Object {
             "bg": "white",
             "bgDisabled": "white",
             "borderColor": "white",
           },
-        },
+        ],
       },
     ],
     "InputField": Array [],
     "Postfix": Array [
       Object {
-        "props": Object {
-          "ml": 4,
-        },
+        "ml": 4,
       },
     ],
     "Prefix": Array [
       Object {
-        "props": Object {
-          "mr": [Function],
-        },
+        "mr": [Function],
       },
     ],
   },
@@ -1893,14 +1838,10 @@ Object {
   "scheme": Object {
     "Input": Array [
       Object {
-        "style": Object {
-          "pointerEvents": false,
-        },
+        "pointerEvents": false,
       },
       Object {
-        "style": Object {
-          "pr": 11,
-        },
+        "pr": 11,
       },
     ],
   },
@@ -2037,24 +1978,20 @@ Object {
   "scheme": Object {
     "Text": Array [
       Object {
-        "style": Object {
-          "color": [Function],
-          "fontSize": [Function],
-          "lineHeight": "normal",
-        },
+        "color": [Function],
+        "fontSize": [Function],
+        "lineHeight": "normal",
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "style": Object {
+        "$then": Array [
+          Object {
             "lineHeight": "dense",
           },
-        },
+        ],
       },
       Object {
-        "style": Object {
-          "lineHeight": [Function],
-        },
+        "lineHeight": [Function],
       },
     ],
   },
@@ -2201,13 +2138,11 @@ Object {
   "scheme": Object {
     "IconClear": Array [
       Object {
+        "area": 10,
+        "color": "gray28",
         "component": #IconCross,
-        "props": Object {
-          "area": 10,
-          "color": "gray28",
-          "size": [Function],
-          "visible": [Function],
-        },
+        "size": [Function],
+        "visible": [Function],
       },
       Object {
         "component": #IconCross,
@@ -2218,148 +2153,142 @@ Object {
     ],
     "Textarea": Array [
       Object {
-        "style": Object {
-          "focus": true,
-          "lineHeight": "normal",
-          "minHeight": [Function],
-        },
+        "focus": true,
+        "lineHeight": "normal",
+        "minHeight": [Function],
       },
       Object {
-        "style": Object {
-          "bgDisabled": "gray4",
-          "borderRadius": 3,
-          "borderStyle": "solid",
-          "borderWidth": 1,
-          "color": "black",
-          "colorDisabled": "gray64",
-          "cursor": "text",
-          "fontSize": [Function],
-          "placeholderColor": "gray40",
-        },
+        "bgDisabled": "gray4",
+        "borderRadius": 3,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "color": "black",
+        "colorDisabled": "gray64",
+        "cursor": "text",
+        "fontSize": [Function],
+        "placeholderColor": "gray40",
       },
       Object {
         "$switch": "size",
-        "l": Object {
-          "style": Object {
+        "l": Array [
+          Object {
             "pb": 8,
             "pl": 12,
             "pr": 12,
             "pt": 8,
           },
-        },
-        "m": Object {
-          "style": Object {
+        ],
+        "m": Array [
+          Object {
             "pb": 6,
             "pl": 10,
             "pr": 10,
             "pt": 6,
           },
-        },
-        "s": Object {
-          "style": Object {
+        ],
+        "s": Array [
+          Object {
             "pb": 7,
             "pl": 4,
             "pr": 4,
             "pt": 7,
           },
-        },
+        ],
       },
       Object {
         "$switch": "variant",
-        "error": Object {
-          "style": Object {
+        "error": Array [
+          Object {
             "borderColor": "red500",
             "borderColorHover": "red600",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "borderColor": "gray20",
             "borderColorHover": "gray28",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "borderColor": "gray8",
             "borderColorHover": "gray16",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "borderColor": "green500",
             "borderColorHover": "green600",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "borderColor": "orange500",
             "borderColorHover": "orange600",
           },
-        },
+        ],
       },
       Object {
-        "style": Object {
-          "bgFocus": "white",
-          "borderRadius": 4,
-          "borderWidth": 1,
-          "focus": false,
-          "pl": 16,
-          "placeholderColor": "gray44",
-          "pr": 16,
-        },
+        "bgFocus": "white",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "focus": false,
+        "pl": 16,
+        "placeholderColor": "gray44",
+        "pr": 16,
       },
       Object {
         "$switch": "variant",
-        "error": Object {
-          "style": Object {
+        "error": Array [
+          Object {
             "bg": "red50",
             "borderColor": "red50",
             "borderColorFocus": "red300",
             "borderColorHover": "red300",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "bg": "gray4",
             "borderColor": "gray4",
             "borderColorFocus": "gray16",
             "borderColorHover": "gray16",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "bg": "gray8",
             "borderColor": "gray8",
             "borderColorFocus": "gray20",
             "borderColorHover": "gray20",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "bg": "green50",
             "borderColor": "green50",
             "borderColorFocus": "green300",
             "borderColorHover": "green300",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "bg": "orange50",
             "borderColor": "orange50",
             "borderColorFocus": "orange300",
             "borderColorHover": "orange300",
           },
-        },
+        ],
       },
       Object {
         "$if": [Function],
-        "$then": Object {
-          "style": Object {
+        "$then": Array [
+          Object {
             "bg": "white",
             "bgDisabled": "white",
             "borderColor": "white",
           },
-        },
+        ],
       },
     ],
   },

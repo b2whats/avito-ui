@@ -1,6 +1,5 @@
 import type { ElementType } from 'react'
 import { profiler } from '../utils'
-import { StyleProperties } from './StyleProperties'
 import { Slot, ComponentTheme } from './types'
 
 const execComputables = (object: object, arg: any) => {
@@ -12,48 +11,31 @@ const execComputables = (object: object, arg: any) => {
   return object
 }
 
-const foldScheme = (schemes: any, props: any) => {
-  const result = {
-    style: {},
-    props: {},
-    component: null,
-  }
-
+const foldScheme = (schemes: any, props: any, result = {}) => {
   if (!schemes) return result
   schemes = Array.isArray(schemes) ? schemes : [schemes]
 
   for (let index = 0; index < schemes.length; index++) {
     const scheme = schemes[index]
     const { $if, $switch } = scheme
-    if ($if && $if(props)) {
-      const data = foldScheme(scheme.$then, props)
-
-      Object.assign(result.style, data.style)
-      Object.assign(result.props, data.props)
-      data.component && (result.component = data.component)
+    if ($if) {
+      // FIXME move into explicit branching commit
+      if (!$if(props)) continue
+      foldScheme(scheme.$then, props, result)
     } else if ($switch) {
       const branch = scheme[props[$switch]]
-      const data = foldScheme(branch, props)
-
-      Object.assign(result.style, data.style)
-      Object.assign(result.props, data.props)
-      data.component && (result.component = data.component)
+      foldScheme(branch, props, result)
     } else {
-      Object.assign(result.style, scheme.style)
-      Object.assign(result.props, scheme.props)
-      scheme.component && (result.component = scheme.component)
+      Object.assign(result, scheme)
     }
   }
 
   return result
 }
 
-
-type FoldedItemTheme<ItemTheme> = ItemTheme extends Slot<infer OutProps> ? {
-  style: StyleProperties
-  props: OutProps
-  component: ElementType<OutProps>
-} : never
+type FoldedItemTheme<ItemTheme> = ItemTheme extends Slot<infer OutProps>
+  ? Partial<OutProps> & { component: ElementType<OutProps>}
+  : never
 
 export type FoldThemeParamsReturn<ThemeType> = ThemeType extends ComponentTheme<any, infer Scheme>
   ? { [K in keyof Scheme]: FoldedItemTheme<Scheme[K]> }
@@ -66,9 +48,7 @@ export const foldThemeParams = profiler.withMeasure('fold')(function foldThemePa
 
   let name: keyof typeof scheme
   for (name in scheme) {
-    result[name] = foldScheme(scheme[name], props)
-    execComputables(result[name].props, props)
-    execComputables(result[name].style, props)
+    result[name] = execComputables(foldScheme(scheme[name], props), props)
   }
 
   return result

@@ -71,8 +71,8 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   const handleClear = () => clearValue(ref.current)
 
   const { Input, IconBefore, IconAfter, InputField, Prefix, Postfix } = foldThemeParams(props, theme)
-  const inputStyle = inputClassName(props, tokens, Input.style)
-  const inputFieldStyle = inputFieldClassName(props, tokens, InputField.style)
+  const inputStyle = inputClassName(props, tokens, Input)
+  const inputFieldStyle = inputFieldClassName(props, tokens, InputField)
 
   const renderIconSlot = (icon: InputProps['iconBefore'] | InputProps['iconAfter'], iconProps: IconProps) => (
     typeof icon === 'function' ? icon({ ...props, iconProps, focus, handleClear }) :
@@ -80,7 +80,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
     undefined
   )
 
-  const textColor = (activeColor?: any) => focus || props.value ? activeColor : Input.style.placeholderColor
+  const textColor = (activeColor?: any) => focus || props.value ? activeColor : Input.placeholderColor
   const renderTextSlot = (text: InputProps['prefix'] | InputProps['postfix'], textProps: TextProps) => (
     typeof text === 'string' ? <Text {...textProps} color={textColor()} pre>{text}</Text> :
     typeof text === 'function' ? text({ ...props, focus }) :
@@ -90,7 +90,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
 
   const iconAfter = renderIconSlot(
     IconAfter.component ? <IconAfter.component /> : props.iconAfter,
-    clearable ? { ...IconAfter.props, onClick: handleClear, ...testId('clear') } : { ...IconAfter.props, ...testId('iconAfter') }
+    clearable ? { ...IconAfter, onClick: handleClear, ...testId('clear') } : { ...IconAfter, ...testId('iconAfter') }
   )
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
@@ -98,9 +98,9 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur} {...testId()}>
-      {props.iconBefore && renderIconSlot(props.iconBefore, { ...IconBefore.props, ...testId('iconBefore')})}
+      {props.iconBefore && renderIconSlot(props.iconBefore, { ...IconBefore, ...testId('iconBefore')})}
       <div css={inputFieldStyle}>
-        {props.prefix && renderTextSlot(props.prefix, Prefix.props)}
+        {props.prefix && renderTextSlot(props.prefix, Prefix)}
         {renderCore({
           ...props,
           ...focusProps,
@@ -109,7 +109,7 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
           ref,
           ...testId('input'),
         })}
-        {props.postfix && renderTextSlot(props.postfix, Postfix.props)}
+        {props.postfix && renderTextSlot(props.postfix, Postfix)}
       </div>
       {iconAfter}
     </label>

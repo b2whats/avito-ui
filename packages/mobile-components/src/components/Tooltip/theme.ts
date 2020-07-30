@@ -11,20 +11,16 @@ export const tooltipTheme = dsl.theme<TooltipTheme>()
     arrowOffset: 4,
   })
   .slot('Tooltip', {
-    style: {
-      bg: 'gray84',
-      color: 'white',
-      px: 16,
-      py: 10,
-      rounded: 10,
-    },
+    bg: 'gray84',
+    color: 'white',
+    px: 16,
+    py: 10,
+    rounded: 10,
   })
   .slot('Arrow', {
-    style: {
-      width: 10,
-      height: 10,
-      rounded: 2,
-    },
+    width: 10,
+    height: 10,
+    rounded: 2,
   })
   .slot('Close', {})
   .build()

@@ -21,8 +21,6 @@ export const toggleTheme = dsl.theme<ToggleTheme>()
   .slot('Switch')
   .slot('Icon')
   .slot('Label', {
-    props: {
-      size: 'm',
-    },
+    size: 'm',
   })
   .build()

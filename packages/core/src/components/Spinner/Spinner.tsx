@@ -10,7 +10,7 @@ export const Spinner = uiComponent('Spinner', spinnerTheme)(({ speed, ...props }
     <Spinner.component
       role='progressbar'
       aria-hidden={false}
-      {...Spinner.props}
+      {...Spinner}
       {...props}
       spin={speed || true}
       {...testId()} />

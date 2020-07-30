@@ -12,26 +12,20 @@ export const segmentButtonTheme = dsl.theme<SegmentButtonTheme>()
     size: 'm',
   })
   .slot('Group', slot => ({
-    style: {
-      borderRadius: 5,
-      bg: 'gray4',
-      p: 4,
-      height: slot.mapped('size', { s: 32, m: 44, l: 50 }),
-    },
+    borderRadius: 5,
+    bg: 'gray4',
+    p: 4,
+    height: slot.mapped('size', { s: 32, m: 44, l: 50 }),
   }))
   .slot('Button', {
-    style: {
-      focus: true,
-      borderRadius: 5,
-      color: 'gray48',
-      colorChecked: 'black',
-      colorDisabled: 'gray24',
-    },
+    focus: true,
+    borderRadius: 5,
+    color: 'gray48',
+    colorChecked: 'black',
+    colorDisabled: 'gray24',
   })
   .slot('Slide', {
-    style: {
-      borderRadius: 5,
-      bg: 'white',
-    },
+    borderRadius: 5,
+    bg: 'white',
   })
   .build()

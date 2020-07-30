@@ -7,7 +7,7 @@ import { ButtonProps } from './contract'
 
 
 export type ButtonTheme = ComponentTheme<ButtonProps, {
-  Button: Slot<never>
+  Button: Slot
   IconBefore: Slot<IconProps>
   Text: Slot<TextProps>
   IconAfter: Slot<IconProps>
@@ -22,62 +22,44 @@ export const buttonTheme: ButtonTheme = dsl.theme<ButtonTheme>()
   // FIXME: can't expand shorthands of createClassName maps
   .mapProps(({ shape }) => (shape === 'circle' || shape === 'square') ? { p: 'none' } : {})
   .slot('Spinner', {
-    props: {
-      size: props => props.size,
-    },
+    size: props => props.size,
   })
   .slot('IconBefore', {
-    props: {
-      size: props => props.size === 'l' ? 'm' : 's',
-    },
+    size: props => props.size === 'l' ? 'm' : 's',
   })
   .slot('IconAfter', {
-    props: {
-      size: props => props.size === 'l' ? 'm' : 's',
-    },
+    size: props => props.size === 'l' ? 'm' : 's',
   })
   .slot('Text', slot => [
     {
-      props: {
-        crop: true,
-        valignSelf: 'middle',
-        size: 'm',
-        ml: -1,
-      },
+      crop: true,
+      valignSelf: 'middle',
+      size: 'm',
+      ml: -1,
     },
     slot.if('iconBefore', {
-      props: {
-        ml: 6,
-      },
+      ml: 6,
     }),
     slot.if('iconAfter', {
-      props: {
-        mr: 6,
-      },
+      mr: 6,
     }),
   ])
   .slot('Button', slot => [
     {
-      style: {
-        borderRadius: 5,
-        px: 16,
-        borderWidth: 1,
-        borderStyle: 'solid',
-        borderColor: 'transparent',
-        focus: false,
-        minHeight: props => props.size,
-        py: slot.mapped('size', { s: 4, m: 6, l: 8 }),
-      },
+      borderRadius: 5,
+      px: 16,
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: 'transparent',
+      focus: false,
+      minHeight: props => props.size,
+      py: slot.mapped('size', { s: 4, m: 6, l: 8 }),
     },
     slot.if(props => props.iconBefore && props.children, {
-      style: {
-        pl: 12,
-      },
+      pl: 12,
     }),
     slot.if(props => props.iconAfter && props.children, {
-      style: {
-        pr: 12,
-      },
+      pr: 12,
     }),
   ])
   .build()

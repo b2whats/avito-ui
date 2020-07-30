@@ -18,41 +18,33 @@ export const avatarTheme = dsl.theme<AvatarTheme>()
   })
   .slot('Wrapper', slot => [
     {
-      style: {
-        color: 'white',
-        align: 'center',
-        valignSelf: 'middle',
-        width: props => props.size,
-        height: props => props.size,
-        shape: 'circle',
-        overlayDisabled: 'rgba(255, 255, 255, 0.5)',
-        fontSize: props => 0.6 * props.size,
-      },
+      color: 'white',
+      align: 'center',
+      valignSelf: 'middle',
+      width: props => props.size,
+      height: props => props.size,
+      shape: 'circle',
+      overlayDisabled: 'rgba(255, 255, 255, 0.5)',
+      fontSize: props => 0.6 * props.size,
     },
     slot.if('isFallback', {
-      style: {
-        bg: 'gray4',
-        color: 'gray28',
-        valign: 'middle',
-        align: 'center',
-      },
+      bg: 'gray4',
+      color: 'gray28',
+      valign: 'middle',
+      align: 'center',
     }),
   ])
   .slot('Badge', {
-    props: {
-      position: 'absolute',
-      right: 0,
-      bottom: 0,
-      width: props => props.size / 4,
-      height: props => props.size / 4,
-    },
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    width: props => props.size / 4,
+    height: props => props.size / 4,
   })
   .slot('Fallback', slot => [
     {
       component: UserIcon,
-      props: {
-        size: props => 0.48 * props.size,
-      },
+      size: props => 0.48 * props.size,
     },
     slot.switch('type', {
       company: {

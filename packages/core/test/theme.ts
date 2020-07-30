@@ -19,15 +19,7 @@ export function describeTheme(name: string, theme: any, propValues: any = {}) {
 }
 
 function applyTheme(theme: any, props: any) {
-  return migrateFold(foldThemeParams(theme.mapProps({ ...theme.defaultProps, ...props }), theme))
-}
-
-function migrateFold(fold: any) {
-  for (const slot in fold) {
-    const { style, props, component } = fold[slot]
-    fold[slot] = { ...style, ...props, ...(component && { component }) }
-  }
-  return fold
+  return foldThemeParams(theme.mapProps({ ...theme.defaultProps, ...props }), theme)
 }
 
 const isObject = (obj: any) => typeof obj === 'object' && obj != null

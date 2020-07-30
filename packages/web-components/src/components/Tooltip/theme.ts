@@ -13,40 +13,30 @@ export const tooltipTheme = dsl.theme<TooltipTheme>()
   })
   .slot('Tooltip', slot => [
     {
-      style: {
-        bg: 'white',
-        p: 16,
-        shadow: '0 5px 17px 0 rgba(0,0,0,.15)',
-      },
+      bg: 'white',
+      p: 16,
+      shadow: '0 5px 17px 0 rgba(0,0,0,.15)',
     },
     slot.switch('preset', {
       attention: {
-        style: {
-          bg: 'blue100',
-        },
+        bg: 'blue100',
       },
       dark: {
-        style: {
-          bg: 'gray84',
-          color: 'white',
-          rounded: 'm',
-        },
+        bg: 'gray84',
+        color: 'white',
+        rounded: 'm',
       },
     }),
   ])
   .slot('Arrow', {
-    style: {
-      width: 10,
-      height: 10,
-    },
+    width: 10,
+    height: 10,
   })
   .slot('Close', {
     component: CrossIcon,
-    props: {
-      position: 'absolute',
-      right: 0,
-      top: 0,
-      size: 's',
-    },
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    size: 's',
   })
   .build()

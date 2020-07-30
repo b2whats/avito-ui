@@ -18,64 +18,40 @@ export const listItemTheme = dsl.theme<ListItemTheme>()
   })
   .slot('ListItem', slot => [
     {
-      props: {
-        pt: 10,
-        pb: 12,
-        px: 16,
-        spacing: 16,
-        valign: 'middle',
-        minHeight: 52,
-      },
+      pt: 10,
+      pb: 12,
+      px: 16,
+      spacing: 16,
+      valign: 'middle',
+      minHeight: 52,
     },
     slot.if('onClick', {
-      props: {
-        bgActive: 'gray4',
-      },
+      bgActive: 'gray4',
     }),
   ])
-  .slot('Before', {
-    props: {
-
-    },
-  })
+  .slot('Before')
   .slot('StackText', {
-    props: {
-      spacing: 2,
-    },
+    spacing: 2,
   })
   .slot('Label', slot => [
     {
-      props: {
-        size: 'm',
-      },
+      size: 'm',
     },
     slot.if('disabled', {
-      props: {
-        color: 'gray48',
-      },
+      color: 'gray48',
     }),
   ])
   .slot('Caption', slot => [
     {
-      props: {
-        size: 's',
-        color: 'gray40',
-      },
+      size: 's',
+      color: 'gray40',
     },
     slot.if('disabled', {
-      props: {
-        color: 'gray32',
-      },
+      color: 'gray32',
     }),
   ])
   .slot('Link', {
-    props: {
-      size: 's',
-    },
+    size: 's',
   })
-  .slot('After', {
-    props: {
-
-    },
-  })
+  .slot('After')
   .build()

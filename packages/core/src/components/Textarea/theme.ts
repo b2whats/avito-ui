@@ -17,18 +17,14 @@ export const textareaTheme = dsl.theme<TextareaTheme>()
   })
   .slot('IconClear', {
     component: CrossIcon,
-    props: {
-      color: 'gray28',
-      area: 10,
-      visible: props => Boolean(props.clearable),
-      size: props => props.size,
-    },
+    color: 'gray28',
+    area: 10,
+    visible: props => Boolean(props.clearable),
+    size: props => props.size,
   })
   .slot('Textarea', {
-    style: {
-      focus: true,
-      lineHeight: 'normal',
-      minHeight: props => props.size,
-    },
+    focus: true,
+    lineHeight: 'normal',
+    minHeight: props => props.size,
   })
   .build()

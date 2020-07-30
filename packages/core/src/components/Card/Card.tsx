@@ -17,12 +17,12 @@ export const Card = uiComponent('Card', cardTheme)<CardProps, HTMLDivElement>(({
   )
 
   return (
-    <Box position='relative' {...Card.props} {...props} marker={marker()}>
-      { renderImageSlot(props.image, Image.props) }
-      <Stack grow shrink column align='left' {...Content.props}>
+    <Box position='relative' {...Card} {...props} marker={marker()}>
+      { renderImageSlot(props.image, Image) }
+      <Stack grow shrink column align='left' {...Content}>
         { children }
       </Stack>
-      { props.onClose && <Close.component {...Close.props} onClick={props.onClose} marker={marker('close')} /> }
+      { props.onClose && <Close.component {...Close} onClick={props.onClose} marker={marker('close')} /> }
     </Box>
   )
 })

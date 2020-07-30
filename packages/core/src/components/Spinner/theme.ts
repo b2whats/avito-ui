@@ -12,8 +12,6 @@ export const spinnerTheme = dsl.theme<SpinnerTheme>()
   })
   .slot('Spinner', slot => ({
     component: SpinnerIcon,
-    props: {
-      size: slot.mapped('size', { s: 16, m: 24, l: 32 }),
-    },
+    size: slot.mapped('size', { s: 16, m: 24, l: 32 }),
   }))
   .build()

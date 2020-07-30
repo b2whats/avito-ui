@@ -7,30 +7,24 @@ export const switcherTheme = dsl.theme<SwitcherTheme>()
   })
   .slot('Switch', slot => [
     {
-      style: {
-        width: 48,
-        height: 25,
-        p: 3,
-        focus: true,
+      width: 48,
+      height: 25,
+      p: 3,
+      focus: true,
 
-        color: 'white',
-        bg: 'gray12',
-        bgActive: 'gray28',
-        bgDisabled: 'gray4',
-      },
+      color: 'white',
+      bg: 'gray12',
+      bgActive: 'gray28',
+      bgDisabled: 'gray4',
     },
     slot.if(props => props.variant === 'primary', {
-      style: {
-        bgDisabled: 'gray8',
-      },
+      bgDisabled: 'gray8',
     }),
     slot.if('checked', [
       {
-        style: {
-          bgDisabled: 'gray28',
-        },
+        bgDisabled: 'gray28',
       },
-      slot.switch('variant', dsl.styleMap({
+      slot.switch('variant', {
         primary: {
           ...fillStyle('blue500', 'blue700'),
           bgDisabled: 'blue300',
@@ -39,17 +33,15 @@ export const switcherTheme = dsl.theme<SwitcherTheme>()
         success: fillStyle('green500', 'green700'),
         warning: fillStyle('orange500', 'orange700'),
         error: fillStyle('red500', 'red700'),
-      })),
+      }),
     ]),
     slot.if('loading', {
-      style: {
-        focus: false,
-        align: 'center',
-        color: 'gray28',
-        bg: 'transparent',
-        bgActive: 'transparent',
-        bgDisabled: 'transparent',
-      },
+      focus: false,
+      align: 'center',
+      color: 'gray28',
+      bg: 'transparent',
+      bgActive: 'transparent',
+      bgDisabled: 'transparent',
     }),
   ])
   .slot('Icon', slot => [

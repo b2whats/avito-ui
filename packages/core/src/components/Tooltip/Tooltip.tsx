@@ -63,13 +63,13 @@ export const Tooltip = uiComponent('Tooltip', tooltipTheme)<TooltipProps>((
   if (!content) return props.children
 
   const { Tooltip, Arrow, Close } = foldThemeParams(props, theme)
-  const tooltipStyle = tooltipClassName(props, tokens, Tooltip.style)
-  const arrowStyle = arrowClassName(props, tokens, Arrow.style)
+  const tooltipStyle = tooltipClassName(props, tokens, Tooltip)
+  const arrowStyle = arrowClassName(props, tokens, Arrow)
 
   const target: PositionerProps['target'] = ({ close }) => (
     <div css={tooltipStyle} {...filterProps(props)}>
       {props.arrow && <div css={arrowStyle} data-popper-arrow />}
-      {props.closable && Close.component && <Close.component {...Close.props} onClick={close} marker={marker('close')} />}
+      {props.closable && Close.component && <Close.component {...Close} onClick={close} marker={marker('close')} />}
       {content}
     </div>
   )

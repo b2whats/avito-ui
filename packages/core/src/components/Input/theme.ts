@@ -21,36 +21,26 @@ export const inputTheme = dsl.theme<InputTheme>()
     deletePlaceholderOnFocus: true,
   })
   .slot('IconBefore', {
-    props: {
-      color: 'gray28',
-      size: ({ size }) => size === 'l' ? 'm' : 's',
-    },
+    color: 'gray28',
+    size: ({ size }) => size === 'l' ? 'm' : 's',
   })
   .slot('IconAfter', slot => [
     {
-      props: {
-        color: 'gray28',
-      },
+      color: 'gray28',
     },
     slot.if('clearable', {
       component: CrossIcon,
-      props: {
-        area: 10,
-        size: ({ size }) => size === 'l' ? 'm' : 's',
-      },
+      area: 10,
+      size: ({ size }) => size === 'l' ? 'm' : 's',
     }),
   ])
   .slot('Prefix')
   .slot('Postfix', {
-    props: {
-      ml: 4,
-    },
+    ml: 4,
   })
   .slot('InputField')
   .slot('Input', {
-    style: {
-      focus: true,
-      height: ({ size }) => size,
-    },
+    focus: true,
+    height: ({ size }) => size,
   })
   .build()
