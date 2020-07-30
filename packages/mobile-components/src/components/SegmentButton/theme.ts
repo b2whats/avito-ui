@@ -14,29 +14,25 @@ export const segmentButtonTheme = dsl.theme<SegmentButtonTheme>()
   .slot('Group', slot => [
     {
       style: {
+        borderRadius: 5,
         bg: 'gray4',
+        p: 4,
       },
     },
     slot.switch('size', {
       s: {
         style: {
-          borderRadius: 5,
           height: 32,
-          p: 4,
         },
       },
       m: {
         style: {
-          borderRadius: 5,
           height: 44,
-          p: 4,
         },
       },
       l: {
         style: {
-          borderRadius: 5,
           height: 50,
-          p: 4,
         },
       },
     }),

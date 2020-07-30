@@ -1475,6 +1475,7 @@ Object {
           "borderStyle": "solid",
           "borderWidth": 1,
           "focus": false,
+          "minHeight": [Function],
           "pl": 16,
           "pr": 16,
         },
@@ -1483,21 +1484,18 @@ Object {
         "$switch": "size",
         "l": Object {
           "style": Object {
-            "minHeight": "l",
             "pb": 8,
             "pt": 8,
           },
         },
         "m": Object {
           "style": Object {
-            "minHeight": "m",
             "pb": 6,
             "pt": 6,
           },
         },
         "s": Object {
           "style": Object {
-            "minHeight": "s",
             "pb": 4,
             "pt": 4,
           },
@@ -1630,39 +1628,18 @@ Object {
       Object {
         "style": Object {
           "borderRadius": 4,
+          "pl": [Function],
+          "pr": [Function],
         },
       },
       Object {
-        "$switch": "size",
-        "l": Array [
-          Object {
-            "style": Object {
-              "pl": 36,
-              "pr": 36,
-            },
-          },
-          Object {
-            "$if": [Function],
-            "$then": Object {
-              "style": Object {
-                "height": 64,
-                "minWidth": 290,
-                "pl": 48,
-                "pr": 48,
-              },
-            },
-          },
-        ],
-        "m": Object {
+        "$if": [Function],
+        "$then": Object {
           "style": Object {
-            "pl": 24,
-            "pr": 24,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pl": 24,
-            "pr": 24,
+            "height": 64,
+            "minWidth": 290,
+            "pl": 48,
+            "pr": 48,
           },
         },
       },
@@ -1691,21 +1668,8 @@ Object {
     ],
     "IconAfter": Array [
       Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
+        "props": Object {
+          "size": [Function],
         },
       },
       Object {
@@ -1719,21 +1683,8 @@ Object {
     ],
     "IconBefore": Array [
       Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
+        "props": Object {
+          "size": [Function],
         },
       },
       Object {
@@ -1747,21 +1698,8 @@ Object {
     ],
     "Spinner": Array [
       Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "size": "l",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
+        "props": Object {
+          "size": [Function],
         },
       },
       Object {
@@ -1806,24 +1744,7 @@ Object {
       Object {
         "props": Object {
           "lineHeight": 1.1875,
-        },
-      },
-      Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "size": "l",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
+          "size": [Function],
         },
       },
       Object {
@@ -2298,23 +2219,25 @@ Object {
         },
       },
       Object {
+        "props": Object {
+          "size": [Function],
+        },
+      },
+      Object {
         "$switch": "size",
         "l": Object {
           "props": Object {
             "ml": 12,
-            "size": "l",
           },
         },
         "m": Object {
           "props": Object {
             "ml": 10,
-            "size": "m",
           },
         },
         "s": Object {
           "props": Object {
             "ml": 7,
-            "size": "m",
           },
         },
       },
@@ -2373,6 +2296,7 @@ Object {
           "color": "black",
           "colorDisabled": "gray64",
           "cursor": "text",
+          "fontSize": [Function],
           "placeholderColor": "gray40",
         },
       },
@@ -2380,21 +2304,18 @@ Object {
         "$switch": "size",
         "l": Object {
           "style": Object {
-            "fontSize": "l",
             "pl": 12,
             "pr": 12,
           },
         },
         "m": Object {
           "style": Object {
-            "fontSize": "m",
             "pl": 10,
             "pr": 10,
           },
         },
         "s": Object {
           "style": Object {
-            "fontSize": "s",
             "pl": 7,
             "pr": 7,
           },

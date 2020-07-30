@@ -75,33 +75,15 @@ export const pikTheme: DeepPartial<Theme> = {
       {
         style: {
           borderRadius: 4,
+          px: props => props.size === 'l' ? 36 : 24,
         },
       },
-      slot.switch('size', {
-        s: {
-          style: {
-            px: 24,
-          },
+      slot.if(props => props.size === 'l' && props.multiline, {
+        style: {
+          minWidth: 290,
+          px: 48,
+          height: 64,
         },
-        m: {
-          style: {
-            px: 24,
-          },
-        },
-        l: [
-          {
-            style: {
-              px: 36,
-            },
-          },
-          slot.if('multiline', {
-            style: {
-              minWidth: 290,
-              px: 48,
-              height: 64,
-            },
-          }),
-        ],
       }),
       slot.switch('preset', {
         default: {

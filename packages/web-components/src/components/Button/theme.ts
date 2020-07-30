@@ -101,25 +101,9 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
       props: {
       // Ужатые строки для двустрочной кнопки - на 1 строку не влияет
         lineHeight: 1.1875,
+        size: props => props.size,
       },
     },
-    slot.switch('size', {
-      s: {
-        props: {
-          size: 's',
-        },
-      },
-      m: {
-        props: {
-          size: 'm',
-        },
-      },
-      l: {
-        props: {
-          size: 'l',
-        },
-      },
-    }),
     slot.if('iconBefore', [
       {
         props: {

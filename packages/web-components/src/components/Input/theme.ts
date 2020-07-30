@@ -15,20 +15,12 @@ export const inputTheme = dsl.theme<InputTheme>()
   })
   .slot('IconBefore', slot => slot.switch('size', dsl.propMap('mr', gapSize)))
   .slot('IconAfter', slot => [
-    slot.switch('size', dsl.propMap({
-      s: {
-        ml: gapSize.s,
-        size: 'm',
+    {
+      props: {
+        size: props => props.size === 'l' ? 'l' : 'm',
       },
-      m: {
-        ml: gapSize.m,
-        size: 'm',
-      },
-      l: {
-        ml: gapSize.l,
-        size: 'l',
-      },
-    } as const)),
+    },
+    slot.switch('size', dsl.propMap('ml', gapSize)),
     slot.if('clearable', {
       component: CrossIcon,
     }),
@@ -49,22 +41,10 @@ export const inputTheme = dsl.theme<InputTheme>()
         colorDisabled: 'gray64',
         bgDisabled: 'gray4',
         cursor: 'text',
+        fontSize: props => props.size,
       },
     },
-    slot.switch('size', dsl.styleMap({
-      s: {
-        fontSize: 's',
-        px: gapSize.s,
-      },
-      m: {
-        fontSize: 'm',
-        px: gapSize.m,
-      },
-      l: {
-        fontSize: 'l',
-        px: gapSize.l,
-      },
-    })),
+    slot.switch('size', dsl.styleMap('px', gapSize)),
     slot.switch('variant', controlOutlineVariants),
   ])
   .build()

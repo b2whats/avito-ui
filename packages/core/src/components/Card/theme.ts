@@ -34,18 +34,11 @@ export const cardTheme = dsl.theme<CardTheme>()
       right: 4,
     },
   })
-  .slot('Image', slot => [
-    {
-      props: {
-        order: 1,
-      },
+  .slot('Image', {
+    props: {
+      order: props => props.column ? 0 : 1,
     },
-    slot.if('column', {
-      props: {
-        order: 0,
-      },
-    }),
-  ])
+  })
   .slot('Content', {
     props: {
       p: 12,

@@ -21,57 +21,21 @@ export const buttonTheme: ButtonTheme = dsl.theme<ButtonTheme>()
   })
   // FIXME: can't expand shorthands of createClassName maps
   .mapProps(({ shape }) => (shape === 'circle' || shape === 'square') ? { p: 'none' } : {})
-  .slot('Spinner', slot => slot.switch('size', {
-    s: {
-      props: {
-        size: 's',
-      },
+  .slot('Spinner', {
+    props: {
+      size: props => props.size,
     },
-    m: {
-      props: {
-        size: 'm',
-      },
+  })
+  .slot('IconBefore', {
+    props: {
+      size: props => props.size === 'l' ? 'm' : 's',
     },
-    l: {
-      props: {
-        size: 'l',
-      },
+  })
+  .slot('IconAfter', {
+    props: {
+      size: props => props.size === 'l' ? 'm' : 's',
     },
-  }))
-  .slot('IconBefore', slot => slot.switch('size', {
-    s: {
-      props: {
-        size: 's',
-      },
-    },
-    m: {
-      props: {
-        size: 's',
-      },
-    },
-    l: {
-      props: {
-        size: 'm',
-      },
-    },
-  }))
-  .slot('IconAfter', slot => slot.switch('size', {
-    s: {
-      props: {
-        size: 's',
-      },
-    },
-    m: {
-      props: {
-        size: 's',
-      },
-    },
-    l: {
-      props: {
-        size: 'm',
-      },
-    },
-  }))
+  })
   .slot('Text', slot => [
     {
       props: {
@@ -101,25 +65,23 @@ export const buttonTheme: ButtonTheme = dsl.theme<ButtonTheme>()
         borderStyle: 'solid',
         borderColor: 'transparent',
         focus: false,
+        minHeight: props => props.size,
       },
     },
     slot.switch('size', {
       s: {
         style: {
           py: 4,
-          minHeight: 's',
         },
       },
       m: {
         style: {
           py: 6,
-          minHeight: 'm',
         },
       },
       l: {
         style: {
           py: 8,
-          minHeight: 'l',
         },
       },
     }),

@@ -267,15 +267,7 @@ Object {
     "Image": Array [
       Object {
         "props": Object {
-          "order": 1,
-        },
-      },
-      Object {
-        "$if": [Function],
-        "$then": Object {
-          "props": Object {
-            "order": 0,
-          },
+          "order": [Function],
         },
       },
       Object {
@@ -732,15 +724,7 @@ Object {
     "Image": Array [
       Object {
         "props": Object {
-          "order": 1,
-        },
-      },
-      Object {
-        "$if": [Function],
-        "$then": Object {
-          "props": Object {
-            "order": 0,
-          },
+          "order": [Function],
         },
       },
       Object {
@@ -1924,6 +1908,7 @@ Object {
           "borderStyle": "solid",
           "borderWidth": 1,
           "focus": false,
+          "minHeight": [Function],
           "pl": 16,
           "pr": 16,
         },
@@ -1932,21 +1917,18 @@ Object {
         "$switch": "size",
         "l": Object {
           "style": Object {
-            "minHeight": "l",
             "pb": 8,
             "pt": 8,
           },
         },
         "m": Object {
           "style": Object {
-            "minHeight": "m",
             "pb": 6,
             "pt": 6,
           },
         },
         "s": Object {
           "style": Object {
-            "minHeight": "s",
             "pb": 4,
             "pt": 4,
           },
@@ -2275,61 +2257,22 @@ Object {
     ],
     "IconAfter": Array [
       Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
+        "props": Object {
+          "size": [Function],
         },
       },
     ],
     "IconBefore": Array [
       Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
+        "props": Object {
+          "size": [Function],
         },
       },
     ],
     "Spinner": Array [
       Object {
-        "$switch": "size",
-        "l": Object {
-          "props": Object {
-            "size": "l",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
+        "props": Object {
+          "size": [Function],
         },
       },
     ],
@@ -2501,15 +2444,7 @@ Object {
     "Image": Array [
       Object {
         "props": Object {
-          "order": 1,
-        },
-      },
-      Object {
-        "$if": [Function],
-        "$then": Object {
-          "props": Object {
-            "order": 0,
-          },
+          "order": [Function],
         },
       },
     ],
@@ -4070,38 +4005,28 @@ Object {
       Object {
         "style": Object {
           "bg": "gray4",
+          "borderRadius": 5,
+          "pb": 4,
+          "pl": 4,
+          "pr": 4,
+          "pt": 4,
         },
       },
       Object {
         "$switch": "size",
         "l": Object {
           "style": Object {
-            "borderRadius": 5,
             "height": 50,
-            "pb": 4,
-            "pl": 4,
-            "pr": 4,
-            "pt": 4,
           },
         },
         "m": Object {
           "style": Object {
-            "borderRadius": 5,
             "height": 44,
-            "pb": 4,
-            "pl": 4,
-            "pr": 4,
-            "pt": 4,
           },
         },
         "s": Object {
           "style": Object {
-            "borderRadius": 5,
             "height": 32,
-            "pb": 4,
-            "pl": 4,
-            "pr": 4,
-            "pt": 4,
           },
         },
       },
