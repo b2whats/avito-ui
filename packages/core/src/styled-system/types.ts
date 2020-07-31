@@ -10,6 +10,9 @@ type Computable<T, Arg> = { [K in keyof T]: (T[K] | ((arg: Arg) => T[K])) }
 // preset: 'force' | 'none', preset: 'force' and preset?: 'force' will all pass
 type IsSwitchable<T> = IsUnion<NonNullable<T>> extends true ? true : T extends string | undefined ? true : false
 
+export interface Slot<OutProps = never> {}
+export interface BoundSlot<InProps, OutProps = never> extends Slot<OutProps> {}
+
 export type SchemeType<
   Props extends { [K in keyof Props]: Props[K] },
   ComponentsProps = never
@@ -25,13 +28,12 @@ export type SchemeType<
     : SchemeType<Props, ComponentsProps>
 }
 
-export interface Slot<OutProps = never> {}
 export type ComponentTheme<Props, Scheme = {}> = {
   defaultProps?: Partial<Props>
   mapProps?: (props: Props) => Partial<Props>
   scheme: {
     [K in keyof Scheme]: Scheme[K] extends (Slot<infer OutProps> | undefined)
-      ? SchemeType<Props, OutProps>
+      ? BoundSlot<Props, OutProps>
       : Scheme[K]
   }
 }
