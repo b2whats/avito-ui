@@ -20,9 +20,9 @@ import { tooltipTheme } from './components/Tooltip/theme'
 
 declare module '@avito/core' {
   interface Theme {
-    ListItem: Partial<ListItemTheme>
-    SegmentButton: Partial<SegmentButtonTheme>
-    Checkmark: Partial<CheckmarkTheme>
+    ListItem: ListItemTheme
+    SegmentButton: SegmentButtonTheme
+    Checkmark: CheckmarkTheme
   }
 }
 
