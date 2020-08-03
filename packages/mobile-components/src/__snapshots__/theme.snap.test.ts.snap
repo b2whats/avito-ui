@@ -446,8 +446,7 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 20,
-      "p": 1,
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -482,7 +481,6 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -496,42 +494,7 @@ Object {
 exports[`mobile theme checkbox fuzz: {"variant":"error","checked":true,"shape":"circle"} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 20,
-      "p": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme checkbox fuzz: {"variant":"error","checked":true,"shape":"square"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": [Function],
+    "component": #IconCheckboxChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -552,7 +515,40 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme checkbox fuzz: {"variant":"error","checked":true,"shape":"square"} 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "red500",
+      "bgActive": "red700",
+      "bgDisabled": "gray28",
+      "borderRadius": 2,
+      "color": "white",
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -586,8 +582,7 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 20,
-      "p": 1,
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -622,7 +617,6 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -636,42 +630,7 @@ Object {
 exports[`mobile theme checkbox fuzz: {"variant":"primary","checked":true,"shape":"circle"} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 20,
-      "p": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme checkbox fuzz: {"variant":"primary","checked":true,"shape":"square"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": [Function],
+    "component": #IconCheckboxChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -692,7 +651,40 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme checkbox fuzz: {"variant":"primary","checked":true,"shape":"square"} 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "blue500",
+      "bgActive": "blue700",
+      "bgDisabled": "gray28",
+      "borderRadius": 2,
+      "color": "white",
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -726,8 +718,7 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 20,
-      "p": 1,
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -762,7 +753,6 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -776,42 +766,7 @@ Object {
 exports[`mobile theme checkbox fuzz: {"variant":"secondary","checked":true,"shape":"circle"} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray48",
-      "bgActive": "gray56",
-      "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 20,
-      "p": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme checkbox fuzz: {"variant":"secondary","checked":true,"shape":"square"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": [Function],
+    "component": #IconCheckboxChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -832,7 +787,40 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme checkbox fuzz: {"variant":"secondary","checked":true,"shape":"square"} 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray48",
+      "bgActive": "gray56",
+      "bgDisabled": "gray28",
+      "borderRadius": 2,
+      "color": "white",
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -866,8 +854,7 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 20,
-      "p": 1,
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -902,7 +889,6 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -916,42 +902,7 @@ Object {
 exports[`mobile theme checkbox fuzz: {"variant":"success","checked":true,"shape":"circle"} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 20,
-      "p": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme checkbox fuzz: {"variant":"success","checked":true,"shape":"square"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": [Function],
+    "component": #IconCheckboxChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -972,7 +923,40 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme checkbox fuzz: {"variant":"success","checked":true,"shape":"square"} 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green700",
+      "bgDisabled": "gray28",
+      "borderRadius": 2,
+      "color": "white",
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -1006,8 +990,7 @@ Object {
       "bgDisabled": "gray4",
       "borderRadius": 2,
       "color": "white",
-      "height": 20,
-      "p": 1,
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -1042,7 +1025,6 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
     },
   },
   "Toggle": Object {
@@ -1056,42 +1038,7 @@ Object {
 exports[`mobile theme checkbox fuzz: {"variant":"warning","checked":true,"shape":"circle"} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 20,
-      "p": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme checkbox fuzz: {"variant":"warning","checked":true,"shape":"square"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": [Function],
+    "component": #IconCheckboxChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -1112,7 +1059,40 @@ Object {
       "borderRadius": 2,
       "color": "white",
       "height": 18,
-      "mx": 1,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme checkbox fuzz: {"variant":"warning","checked":true,"shape":"square"} 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "orange500",
+      "bgActive": "orange700",
+      "bgDisabled": "gray28",
+      "borderRadius": 2,
+      "color": "white",
+      "height": 18,
     },
   },
   "Toggle": Object {
@@ -1127,7 +1107,6 @@ exports[`mobile theme checkbox snap 1`] = `
 Object {
   "defaultProps": Object {
     "labelPosition": "end",
-    "shape": "square",
     "size": "m",
     "variant": "primary",
   },
@@ -1135,10 +1114,10 @@ Object {
   "scheme": Object {
     "Icon": Object {
       "checked": Object {
-        "component": [Function],
+        "component": #IconCheckboxChecked,
       },
       "indeterminate": Object {
-        "component": [Function],
+        "component": #IconCheckboxIndeterminate,
       },
     },
     "Label": Object {
@@ -1201,19 +1180,6 @@ Object {
           },
         },
       },
-      "shape": Object {
-        "circle": Object {
-          "style": Object {
-            "height": 20,
-            "p": 1,
-          },
-        },
-        "square": Object {
-          "style": Object {
-            "mx": 1,
-          },
-        },
-      },
       "style": Object {
         "bg": "gray8",
         "bgActive": "gray12",
@@ -1240,7 +1206,7 @@ Object {
   "scheme": Object {
     "IconAfter": Object {
       "clearable": Object {
-        "component": [Function],
+        "component": #IconCross,
         "props": Object {
           "area": 10,
           "size": [Function],
@@ -1410,7 +1376,7 @@ Object {
 exports[`mobile theme radio fuzz: {"variant":"error","checked":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconRadioChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -1480,7 +1446,7 @@ Object {
 exports[`mobile theme radio fuzz: {"variant":"primary","checked":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconRadioChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -1550,7 +1516,7 @@ Object {
 exports[`mobile theme radio fuzz: {"variant":"secondary","checked":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconRadioChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -1620,7 +1586,7 @@ Object {
 exports[`mobile theme radio fuzz: {"variant":"success","checked":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconRadioChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -1690,7 +1656,7 @@ Object {
 exports[`mobile theme radio fuzz: {"variant":"warning","checked":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconRadioChecked,
     "props": Object {},
     "style": Object {},
   },
@@ -1726,7 +1692,6 @@ exports[`mobile theme radio snap 1`] = `
 Object {
   "defaultProps": Object {
     "labelPosition": "end",
-    "shape": "circle",
     "size": "m",
     "variant": "primary",
   },
@@ -1734,7 +1699,7 @@ Object {
   "scheme": Object {
     "Icon": Object {
       "checked": Object {
-        "component": [Function],
+        "component": #IconRadioChecked,
       },
     },
     "Label": Object {
@@ -1815,7 +1780,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"error","checked":false,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -1851,15 +1816,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"error","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -1896,7 +1853,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"error","checked":true,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -1932,15 +1889,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"error","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -1977,7 +1926,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"primary","checked":false,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -2013,15 +1962,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"primary","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -2058,7 +1999,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"primary","checked":true,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -2094,15 +2035,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"primary","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -2139,7 +2072,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":false,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -2175,15 +2108,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -2220,7 +2145,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":true,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -2256,15 +2181,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"secondary","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -2301,7 +2218,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"success","checked":false,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -2337,15 +2254,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"success","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -2382,7 +2291,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"success","checked":true,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -2418,15 +2327,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"success","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -2463,7 +2364,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"warning","checked":false,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -2499,15 +2400,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"warning","checked":false,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -2544,7 +2437,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"warning","checked":true,"loading":false} 1`] = `
 Object {
   "Icon": Object {
-    "component": [Function],
+    "component": #IconSwitcher,
     "props": Object {},
     "style": Object {},
   },
@@ -2580,15 +2473,7 @@ Object {
 exports[`mobile theme switcher fuzz: {"variant":"warning","checked":true,"loading":true} 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "$$typeof": Symbol(react.memo),
-      "compare": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "displayName": "Spinner",
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
     "props": Object {},
     "style": Object {},
   },
@@ -2634,17 +2519,9 @@ Object {
   "mapProps": [Function],
   "scheme": Object {
     "Icon": Object {
-      "component": [Function],
+      "component": #IconSwitcher,
       "loading": Object {
-        "component": Object {
-          "$$typeof": Symbol(react.memo),
-          "compare": null,
-          "type": Object {
-            "$$typeof": Symbol(react.forward_ref),
-            "displayName": "Spinner",
-            "render": [Function],
-          },
-        },
+        "component": #Spinner,
       },
     },
     "Label": Object {
@@ -2790,7 +2667,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"error","clearable":false,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -2822,7 +2699,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"error","clearable":false,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -2854,7 +2731,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"error","clearable":false,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -2886,7 +2763,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"error","clearable":true,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -2918,7 +2795,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"error","clearable":true,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -2950,7 +2827,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"error","clearable":true,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -2982,7 +2859,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":false,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3014,7 +2891,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":false,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3046,7 +2923,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":false,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3078,7 +2955,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":true,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3110,7 +2987,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":true,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3142,7 +3019,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"primary","clearable":true,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3174,7 +3051,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":false,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3206,7 +3083,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":false,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3238,7 +3115,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":false,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3270,7 +3147,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":true,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3302,7 +3179,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":true,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3334,7 +3211,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"secondary","clearable":true,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3366,7 +3243,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"success","clearable":false,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3398,7 +3275,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"success","clearable":false,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3430,7 +3307,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"success","clearable":false,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3462,7 +3339,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"success","clearable":true,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3494,7 +3371,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"success","clearable":true,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3526,7 +3403,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"success","clearable":true,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3558,7 +3435,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":false,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3590,7 +3467,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":false,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3622,7 +3499,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":false,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3654,7 +3531,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":true,"size":"l"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3686,7 +3563,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":true,"size":"m"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3718,7 +3595,7 @@ Object {
 exports[`mobile theme textarea fuzz: {"variant":"warning","clearable":true,"size":"s"} 1`] = `
 Object {
   "IconClear": Object {
-    "component": [Function],
+    "component": #IconCross,
     "props": Object {
       "area": 10,
       "color": "gray28",
@@ -3757,7 +3634,7 @@ Object {
   "mapProps": [Function],
   "scheme": Object {
     "IconClear": Object {
-      "component": [Function],
+      "component": #IconCross,
       "props": Object {
         "area": 10,
         "color": "gray28",
