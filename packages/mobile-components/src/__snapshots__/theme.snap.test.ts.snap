@@ -3,58 +3,43 @@
 exports[`mobile theme Alert base 1`] = `
 Object {
   "Card": Object {
-    "component": null,
-    "props": Object {
-      "bg": undefined,
-      "block": true,
-      "borderColor": "gray12",
-      "borderWidth": 1,
-      "pb": 12,
-      "pl": 16,
-      "pr": 16,
-      "pt": 10,
-      "rounded": 5,
-    },
-    "style": Object {},
+    "bg": undefined,
+    "block": true,
+    "borderColor": "gray12",
+    "borderWidth": 1,
+    "pb": 12,
+    "pl": 16,
+    "pr": 16,
+    "pt": 10,
+    "rounded": 5,
   },
   "Close": Object {
+    "bgActive": "black16",
+    "bgHover": "black8",
+    "color": "gray28",
     "component": #IconCross,
-    "props": Object {
-      "bgActive": "black16",
-      "bgHover": "black8",
-      "color": "gray28",
-      "pb": 4,
-      "pl": 4,
-      "position": "absolute",
-      "pr": 4,
-      "pt": 4,
-      "right": 4,
-      "rounded": "circle",
-      "size": "s",
-      "top": 4,
-    },
-    "style": Object {},
+    "pb": 4,
+    "pl": 4,
+    "position": "absolute",
+    "pr": 4,
+    "pt": 4,
+    "right": 4,
+    "rounded": "circle",
+    "size": "s",
+    "top": 4,
   },
   "Content": Object {
-    "component": null,
-    "props": Object {
-      "pb": 0,
-      "pl": 0,
-      "pr": 0,
-      "pt": 0,
-    },
-    "style": Object {},
+    "pb": 0,
+    "pl": 0,
+    "pr": 0,
+    "pt": 0,
   },
   "Image": Object {
-    "component": null,
-    "props": Object {
-      "color": undefined,
-      "mr": 12,
-      "order": 0,
-      "size": 20,
-      "valignSelf": "top",
-    },
-    "style": Object {},
+    "color": undefined,
+    "mr": 12,
+    "order": 0,
+    "size": 20,
+    "valignSelf": "top",
   },
 }
 `;
@@ -66,15 +51,11 @@ exports[`mobile theme Alert fuzz: column=false 1`] = `Object {}`;
 exports[`mobile theme Alert fuzz: variant="error" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "red100",
-      "borderColor": "transparent",
-    },
+    "bg": "red100",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "red500",
-    },
+    "color": "red500",
   },
 }
 `;
@@ -82,15 +63,11 @@ Object {
 exports[`mobile theme Alert fuzz: variant="primary" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "blue50",
-      "borderColor": "transparent",
-    },
+    "bg": "blue50",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "blue600",
-    },
+    "color": "blue600",
   },
 }
 `;
@@ -98,15 +75,11 @@ Object {
 exports[`mobile theme Alert fuzz: variant="secondary" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "gray4",
-      "borderColor": "transparent",
-    },
+    "bg": "gray4",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "gray64",
-    },
+    "color": "gray64",
   },
 }
 `;
@@ -114,15 +87,11 @@ Object {
 exports[`mobile theme Alert fuzz: variant="success" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "green100",
-      "borderColor": "transparent",
-    },
+    "bg": "green100",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "green600",
-    },
+    "color": "green600",
   },
 }
 `;
@@ -130,15 +99,11 @@ Object {
 exports[`mobile theme Alert fuzz: variant="warning" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "orange50",
-      "borderColor": "transparent",
-    },
+    "bg": "orange50",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "orange700",
-    },
+    "color": "orange700",
   },
 }
 `;
@@ -268,38 +233,27 @@ Object {
 exports[`mobile theme Avatar base 1`] = `
 Object {
   "Badge": Object {
-    "component": null,
-    "props": Object {
-      "bottom": 0,
-      "height": 5,
-      "position": "absolute",
-      "right": 0,
-      "width": 5,
-    },
-    "style": Object {},
+    "bottom": 0,
+    "height": 5,
+    "position": "absolute",
+    "right": 0,
+    "width": 5,
   },
   "Fallback": Object {
     "component": #IconUser,
-    "props": Object {
-      "size": 9.6,
-    },
-    "style": Object {},
+    "size": 9.6,
   },
   "Wrapper": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "align": "center",
-      "bg": "gray4",
-      "color": "white",
-      "fontSize": 12,
-      "height": 20,
-      "overlayActive": "black24",
-      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
-      "shape": "circle",
-      "valignSelf": "middle",
-      "width": 20,
-    },
+    "align": "center",
+    "bg": "gray4",
+    "color": "white",
+    "fontSize": 12,
+    "height": 20,
+    "overlayActive": "black24",
+    "overlayDisabled": "rgba(255, 255, 255, 0.5)",
+    "shape": "circle",
+    "valignSelf": "middle",
+    "width": 20,
   },
 }
 `;
@@ -307,10 +261,8 @@ Object {
 exports[`mobile theme Avatar fuzz: isFallback 1`] = `
 Object {
   "Wrapper": Object {
-    "style": Object {
-      "color": "gray28",
-      "valign": "middle",
-    },
+    "color": "gray28",
+    "valign": "middle",
   },
 }
 `;
@@ -322,22 +274,16 @@ exports[`mobile theme Avatar fuzz: size=20 1`] = `Object {}`;
 exports[`mobile theme Avatar fuzz: size=45 1`] = `
 Object {
   "Badge": Object {
-    "props": Object {
-      "height": 11.25,
-      "width": 11.25,
-    },
+    "height": 11.25,
+    "width": 11.25,
   },
   "Fallback": Object {
-    "props": Object {
-      "size": 21.599999999999998,
-    },
+    "size": 21.599999999999998,
   },
   "Wrapper": Object {
-    "style": Object {
-      "fontSize": 27,
-      "height": 45,
-      "width": 45,
-    },
+    "fontSize": 27,
+    "height": 45,
+    "width": 45,
   },
 }
 `;
@@ -345,22 +291,16 @@ Object {
 exports[`mobile theme Avatar fuzz: size=60 1`] = `
 Object {
   "Badge": Object {
-    "props": Object {
-      "height": 15,
-      "width": 15,
-    },
+    "height": 15,
+    "width": 15,
   },
   "Fallback": Object {
-    "props": Object {
-      "size": 28.799999999999997,
-    },
+    "size": 28.799999999999997,
   },
   "Wrapper": Object {
-    "style": Object {
-      "fontSize": 36,
-      "height": 60,
-      "width": 60,
-    },
+    "fontSize": 36,
+    "height": 60,
+    "width": 60,
   },
 }
 `;
@@ -381,10 +321,8 @@ Object {
     "component": #IconShopUser,
   },
   "Wrapper": Object {
-    "style": Object {
-      "borderRadius": 5,
-      "shape": undefined,
-    },
+    "borderRadius": 5,
+    "shape": undefined,
   },
 }
 `;
@@ -491,51 +429,36 @@ Object {
 exports[`mobile theme Banner base 1`] = `
 Object {
   "Card": Object {
-    "component": null,
-    "props": Object {
-      "block": true,
-      "rounded": 5,
-    },
-    "style": Object {},
+    "block": true,
+    "rounded": 5,
   },
   "Close": Object {
+    "bgActive": "black16",
+    "bgHover": "black8",
+    "color": "gray28",
     "component": #IconCross,
-    "props": Object {
-      "bgActive": "black16",
-      "bgHover": "black8",
-      "color": "gray28",
-      "pb": 4,
-      "pl": 4,
-      "position": "absolute",
-      "pr": 4,
-      "pt": 4,
-      "right": 4,
-      "rounded": "circle",
-      "size": "s",
-      "top": 4,
-    },
-    "style": Object {},
+    "pb": 4,
+    "pl": 4,
+    "position": "absolute",
+    "pr": 4,
+    "pt": 4,
+    "right": 4,
+    "rounded": "circle",
+    "size": "s",
+    "top": 4,
   },
   "Content": Object {
-    "component": null,
-    "props": Object {
-      "pb": 16,
-      "pl": 16,
-      "pr": 16,
-      "pt": 10,
-    },
-    "style": Object {},
+    "pb": 16,
+    "pl": 16,
+    "pr": 16,
+    "pt": 10,
   },
   "Image": Object {
-    "component": null,
-    "props": Object {
-      "order": 1,
-      "pb": 0,
-      "pl": 0,
-      "pr": 0,
-      "pt": 0,
-    },
-    "style": Object {},
+    "order": 1,
+    "pb": 0,
+    "pl": 0,
+    "pr": 0,
+    "pt": 0,
   },
 }
 `;
@@ -543,16 +466,12 @@ Object {
 exports[`mobile theme Banner fuzz: column 1`] = `
 Object {
   "Content": Object {
-    "props": Object {
-      "pb": 10,
-      "pl": 10,
-      "pr": 10,
-    },
+    "pb": 10,
+    "pl": 10,
+    "pr": 10,
   },
   "Image": Object {
-    "props": Object {
-      "order": 0,
-    },
+    "order": 0,
   },
 }
 `;
@@ -699,58 +618,38 @@ Object {
 exports[`mobile theme Button base 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "pb": 6,
-      "pl": 16,
-      "pr": 16,
-      "pt": 6,
-    },
+    "bg": "blue500",
+    "bgActive": "blue600",
+    "bgChecked": "blue600",
+    "bgDisabled": "blue300",
+    "borderColor": "transparent",
+    "borderRadius": 5,
+    "borderStyle": "solid",
+    "borderWidth": 1,
+    "color": "white",
+    "colorDisabled": "blue50",
+    "focus": false,
+    "minHeight": "m",
+    "pb": 6,
+    "pl": 16,
+    "pr": 16,
+    "pt": 6,
   },
   "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
+    "size": "s",
   },
   "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
+    "size": "s",
   },
   "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
+    "size": "m",
   },
   "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
+    "crop": true,
+    "dense": true,
+    "ml": -1,
+    "size": "m",
+    "valignSelf": "middle",
   },
 }
 `;
@@ -758,13 +657,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="accent" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green800",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "colorDisabled": "gray48",
-    },
+    "bg": "green500",
+    "bgActive": "green800",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -772,13 +669,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="accent" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green800",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "colorDisabled": "gray48",
-    },
+    "bg": "green500",
+    "bgActive": "green800",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -786,13 +681,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="accent" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green800",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "colorDisabled": "gray48",
-    },
+    "bg": "green500",
+    "bgActive": "green800",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -800,13 +693,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="accent" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green800",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "colorDisabled": "gray48",
-    },
+    "bg": "green500",
+    "bgActive": "green800",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -814,14 +705,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="appInstall" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "blue500",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray4",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "blue500",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -829,14 +718,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="appInstall" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "blue500",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray4",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "blue500",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -844,14 +731,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="appInstall" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "blue500",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray4",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "blue500",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -859,14 +744,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="appInstall" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "blue500",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray4",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "blue500",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -874,10 +757,8 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="default" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bgActive": "blue800",
-      "bgChecked": undefined,
-    },
+    "bgActive": "blue800",
+    "bgChecked": undefined,
   },
 }
 `;
@@ -885,10 +766,8 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="default" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bgActive": "blue800",
-      "bgChecked": undefined,
-    },
+    "bgActive": "blue800",
+    "bgChecked": undefined,
   },
 }
 `;
@@ -896,14 +775,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="default" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray4",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -911,14 +788,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="default" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray4",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -926,13 +801,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="defaultDark" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray68",
-      "bgActive": "gray76",
-      "bgChecked": undefined,
-      "bgDisabled": "gray76",
-      "colorDisabled": "gray40",
-    },
+    "bg": "gray68",
+    "bgActive": "gray76",
+    "bgChecked": undefined,
+    "bgDisabled": "gray76",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -940,13 +813,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="defaultDark" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray68",
-      "bgActive": "gray76",
-      "bgChecked": undefined,
-      "bgDisabled": "gray76",
-      "colorDisabled": "gray40",
-    },
+    "bg": "gray68",
+    "bgActive": "gray76",
+    "bgChecked": undefined,
+    "bgDisabled": "gray76",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -954,13 +825,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="defaultDark" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray68",
-      "bgActive": "gray76",
-      "bgChecked": undefined,
-      "bgDisabled": "gray76",
-      "colorDisabled": "gray40",
-    },
+    "bg": "gray68",
+    "bgActive": "gray76",
+    "bgChecked": undefined,
+    "bgDisabled": "gray76",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -968,13 +837,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="defaultDark" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray68",
-      "bgActive": "gray76",
-      "bgChecked": undefined,
-      "bgDisabled": "gray76",
-      "colorDisabled": "gray40",
-    },
+    "bg": "gray68",
+    "bgActive": "gray76",
+    "bgChecked": undefined,
+    "bgDisabled": "gray76",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -982,14 +849,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="defaultOnSurface" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgChecked": undefined,
-      "bgDisabled": "gray8",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray8",
+    "bgActive": "gray12",
+    "bgChecked": undefined,
+    "bgDisabled": "gray8",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -997,14 +862,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="defaultOnSurface" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgChecked": undefined,
-      "bgDisabled": "gray8",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray8",
+    "bgActive": "gray12",
+    "bgChecked": undefined,
+    "bgDisabled": "gray8",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1012,14 +875,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="defaultOnSurface" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgChecked": undefined,
-      "bgDisabled": "gray8",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray8",
+    "bgActive": "gray12",
+    "bgChecked": undefined,
+    "bgDisabled": "gray8",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1027,14 +888,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="defaultOnSurface" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgChecked": undefined,
-      "bgDisabled": "gray8",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "gray8",
+    "bgActive": "gray12",
+    "bgChecked": undefined,
+    "bgDisabled": "gray8",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1042,14 +901,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "white",
-      "bgActive": "gray4",
-      "bgChecked": undefined,
-      "bgDisabled": "white",
-      "color": "blue500",
-      "colorDisabled": "gray40",
-    },
+    "bg": "white",
+    "bgActive": "gray4",
+    "bgChecked": undefined,
+    "bgDisabled": "white",
+    "color": "blue500",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -1057,14 +914,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "white",
-      "bgActive": "gray4",
-      "bgChecked": undefined,
-      "bgDisabled": "white",
-      "color": "blue500",
-      "colorDisabled": "gray40",
-    },
+    "bg": "white",
+    "bgActive": "gray4",
+    "bgChecked": undefined,
+    "bgDisabled": "white",
+    "color": "blue500",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -1072,14 +927,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "white",
-      "bgActive": "gray4",
-      "bgChecked": undefined,
-      "bgDisabled": "white",
-      "color": "blue500",
-      "colorDisabled": "gray40",
-    },
+    "bg": "white",
+    "bgActive": "gray4",
+    "bgChecked": undefined,
+    "bgDisabled": "white",
+    "color": "blue500",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -1087,14 +940,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "white",
-      "bgActive": "gray4",
-      "bgChecked": undefined,
-      "bgDisabled": "white",
-      "color": "blue500",
-      "colorDisabled": "gray40",
-    },
+    "bg": "white",
+    "bgActive": "gray4",
+    "bgChecked": undefined,
+    "bgDisabled": "white",
+    "color": "blue500",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -1102,15 +953,13 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="outline" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "white",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": undefined,
-      "borderColor": "gray8",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "white",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": undefined,
+    "borderColor": "gray8",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1118,15 +967,13 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="outline" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "white",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": undefined,
-      "borderColor": "gray8",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "white",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": undefined,
+    "borderColor": "gray8",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1134,15 +981,13 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="outline" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "white",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": undefined,
-      "borderColor": "gray8",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "white",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": undefined,
+    "borderColor": "gray8",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1150,15 +995,13 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="outline" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "white",
-      "bgActive": "gray8",
-      "bgChecked": undefined,
-      "bgDisabled": undefined,
-      "borderColor": "gray8",
-      "color": "black",
-      "colorDisabled": "gray48",
-    },
+    "bg": "white",
+    "bgActive": "gray8",
+    "bgChecked": undefined,
+    "bgDisabled": undefined,
+    "borderColor": "gray8",
+    "color": "black",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1166,13 +1009,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="pay" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "black",
-      "bgActive": "gray76",
-      "bgChecked": undefined,
-      "bgDisabled": "gray68",
-      "colorDisabled": "gray40",
-    },
+    "bg": "black",
+    "bgActive": "gray76",
+    "bgChecked": undefined,
+    "bgDisabled": "gray68",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -1180,13 +1021,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="pay" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "black",
-      "bgActive": "gray76",
-      "bgChecked": undefined,
-      "bgDisabled": "gray68",
-      "colorDisabled": "gray40",
-    },
+    "bg": "black",
+    "bgActive": "gray76",
+    "bgChecked": undefined,
+    "bgDisabled": "gray68",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -1194,13 +1033,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="pay" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "black",
-      "bgActive": "gray76",
-      "bgChecked": undefined,
-      "bgDisabled": "gray68",
-      "colorDisabled": "gray40",
-    },
+    "bg": "black",
+    "bgActive": "gray76",
+    "bgChecked": undefined,
+    "bgDisabled": "gray68",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -1208,13 +1045,11 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="pay" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "black",
-      "bgActive": "gray76",
-      "bgChecked": undefined,
-      "bgDisabled": "gray68",
-      "colorDisabled": "gray40",
-    },
+    "bg": "black",
+    "bgActive": "gray76",
+    "bgChecked": undefined,
+    "bgDisabled": "gray68",
+    "colorDisabled": "gray40",
   },
 }
 `;
@@ -1230,14 +1065,12 @@ exports[`mobile theme Button fuzz: children="text" preset="primary" checked=fals
 exports[`mobile theme Button fuzz: children="text" preset="secondary" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue50",
-      "bgActive": "blue100",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "blue500",
-      "colorDisabled": "gray48",
-    },
+    "bg": "blue50",
+    "bgActive": "blue100",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "blue500",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1245,14 +1078,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="secondary" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue50",
-      "bgActive": "blue100",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "blue500",
-      "colorDisabled": "gray48",
-    },
+    "bg": "blue50",
+    "bgActive": "blue100",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "blue500",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1260,14 +1091,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="secondary" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue50",
-      "bgActive": "blue100",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "blue500",
-      "colorDisabled": "gray48",
-    },
+    "bg": "blue50",
+    "bgActive": "blue100",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "blue500",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1275,14 +1104,12 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="secondary" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue50",
-      "bgActive": "blue100",
-      "bgChecked": undefined,
-      "bgDisabled": "gray4",
-      "color": "blue500",
-      "colorDisabled": "gray48",
-    },
+    "bg": "blue50",
+    "bgActive": "blue100",
+    "bgChecked": undefined,
+    "bgDisabled": "gray4",
+    "color": "blue500",
+    "colorDisabled": "gray48",
   },
 }
 `;
@@ -1290,26 +1117,18 @@ Object {
 exports[`mobile theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="l" multiline 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 8,
-      "pt": 8,
-    },
+    "minHeight": "l",
+    "pb": 8,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
 }
 `;
@@ -1319,16 +1138,12 @@ exports[`mobile theme Button fuzz: children=["line 1",{"type":"br","key":"","ref
 exports[`mobile theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="s" multiline 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 4,
-      "pt": 4,
-    },
+    "minHeight": "s",
+    "pb": 4,
+    "pt": 4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
 }
 `;
@@ -1336,26 +1151,18 @@ Object {
 exports[`mobile theme Button fuzz: size="l" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 8,
-      "pt": 8,
-    },
+    "minHeight": "l",
+    "pb": 8,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
 }
 `;
@@ -1363,26 +1170,18 @@ Object {
 exports[`mobile theme Button fuzz: size="l" children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 8,
-      "pt": 8,
-    },
+    "minHeight": "l",
+    "pb": 8,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
 }
 `;
@@ -1390,31 +1189,21 @@ Object {
 exports[`mobile theme Button fuzz: size="l" iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 8,
-      "pt": 8,
-    },
+    "minHeight": "l",
+    "pb": 8,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -1422,32 +1211,22 @@ Object {
 exports[`mobile theme Button fuzz: size="l" iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 8,
-      "pr": 12,
-      "pt": 8,
-    },
+    "minHeight": "l",
+    "pb": 8,
+    "pr": 12,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -1455,31 +1234,21 @@ Object {
 exports[`mobile theme Button fuzz: size="l" iconBefore={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 8,
-      "pt": 8,
-    },
+    "minHeight": "l",
+    "pb": 8,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-    },
+    "ml": 6,
   },
 }
 `;
@@ -1487,32 +1256,22 @@ Object {
 exports[`mobile theme Button fuzz: size="l" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 8,
-      "pl": 12,
-      "pt": 8,
-    },
+    "minHeight": "l",
+    "pb": 8,
+    "pl": 12,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-    },
+    "ml": 6,
   },
 }
 `;
@@ -1520,32 +1279,22 @@ Object {
 exports[`mobile theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 8,
-      "pt": 8,
-    },
+    "minHeight": "l",
+    "pb": 8,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-      "mr": 6,
-    },
+    "ml": 6,
+    "mr": 6,
   },
 }
 `;
@@ -1553,34 +1302,24 @@ Object {
 exports[`mobile theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 8,
-      "pl": 12,
-      "pr": 12,
-      "pt": 8,
-    },
+    "minHeight": "l",
+    "pb": 8,
+    "pl": 12,
+    "pr": 12,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-      "mr": 6,
-    },
+    "ml": 6,
+    "mr": 6,
   },
 }
 `;
@@ -1592,9 +1331,7 @@ exports[`mobile theme Button fuzz: size="m" children="text" 1`] = `Object {}`;
 exports[`mobile theme Button fuzz: size="m" iconAfter={jsx} 1`] = `
 Object {
   "Text": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -1602,14 +1339,10 @@ Object {
 exports[`mobile theme Button fuzz: size="m" iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "pr": 12,
-    },
+    "pr": 12,
   },
   "Text": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -1617,9 +1350,7 @@ Object {
 exports[`mobile theme Button fuzz: size="m" iconBefore={jsx} 1`] = `
 Object {
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-    },
+    "ml": 6,
   },
 }
 `;
@@ -1627,14 +1358,10 @@ Object {
 exports[`mobile theme Button fuzz: size="m" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "pl": 12,
-    },
+    "pl": 12,
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-    },
+    "ml": 6,
   },
 }
 `;
@@ -1642,10 +1369,8 @@ Object {
 exports[`mobile theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-      "mr": 6,
-    },
+    "ml": 6,
+    "mr": 6,
   },
 }
 `;
@@ -1653,16 +1378,12 @@ Object {
 exports[`mobile theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "pl": 12,
-      "pr": 12,
-    },
+    "pl": 12,
+    "pr": 12,
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-      "mr": 6,
-    },
+    "ml": 6,
+    "mr": 6,
   },
 }
 `;
@@ -1670,16 +1391,12 @@ Object {
 exports[`mobile theme Button fuzz: size="s" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 4,
-      "pt": 4,
-    },
+    "minHeight": "s",
+    "pb": 4,
+    "pt": 4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
 }
 `;
@@ -1687,16 +1404,12 @@ Object {
 exports[`mobile theme Button fuzz: size="s" children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 4,
-      "pt": 4,
-    },
+    "minHeight": "s",
+    "pb": 4,
+    "pt": 4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
 }
 `;
@@ -1704,21 +1417,15 @@ Object {
 exports[`mobile theme Button fuzz: size="s" iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 4,
-      "pt": 4,
-    },
+    "minHeight": "s",
+    "pb": 4,
+    "pt": 4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -1726,22 +1433,16 @@ Object {
 exports[`mobile theme Button fuzz: size="s" iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 4,
-      "pr": 12,
-      "pt": 4,
-    },
+    "minHeight": "s",
+    "pb": 4,
+    "pr": 12,
+    "pt": 4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -1749,21 +1450,15 @@ Object {
 exports[`mobile theme Button fuzz: size="s" iconBefore={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 4,
-      "pt": 4,
-    },
+    "minHeight": "s",
+    "pb": 4,
+    "pt": 4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-    },
+    "ml": 6,
   },
 }
 `;
@@ -1771,22 +1466,16 @@ Object {
 exports[`mobile theme Button fuzz: size="s" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 4,
-      "pl": 12,
-      "pt": 4,
-    },
+    "minHeight": "s",
+    "pb": 4,
+    "pl": 12,
+    "pt": 4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-    },
+    "ml": 6,
   },
 }
 `;
@@ -1794,22 +1483,16 @@ Object {
 exports[`mobile theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 4,
-      "pt": 4,
-    },
+    "minHeight": "s",
+    "pb": 4,
+    "pt": 4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-      "mr": 6,
-    },
+    "ml": 6,
+    "mr": 6,
   },
 }
 `;
@@ -1817,24 +1500,18 @@ Object {
 exports[`mobile theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 4,
-      "pl": 12,
-      "pr": 12,
-      "pt": 4,
-    },
+    "minHeight": "s",
+    "pb": 4,
+    "pl": 12,
+    "pr": 12,
+    "pt": 4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "ml": 6,
-      "mr": 6,
-    },
+    "ml": 6,
+    "mr": 6,
   },
 }
 `;
@@ -2251,47 +1928,32 @@ Object {
 exports[`mobile theme Card base 1`] = `
 Object {
   "Card": Object {
-    "component": null,
-    "props": Object {
-      "block": true,
-      "rounded": 5,
-    },
-    "style": Object {},
+    "block": true,
+    "rounded": 5,
   },
   "Close": Object {
+    "bgActive": "black16",
+    "bgHover": "black8",
+    "color": "gray28",
     "component": #IconCross,
-    "props": Object {
-      "bgActive": "black16",
-      "bgHover": "black8",
-      "color": "gray28",
-      "pb": 4,
-      "pl": 4,
-      "position": "absolute",
-      "pr": 4,
-      "pt": 4,
-      "right": 4,
-      "rounded": "circle",
-      "size": "s",
-      "top": 4,
-    },
-    "style": Object {},
+    "pb": 4,
+    "pl": 4,
+    "position": "absolute",
+    "pr": 4,
+    "pt": 4,
+    "right": 4,
+    "rounded": "circle",
+    "size": "s",
+    "top": 4,
   },
   "Content": Object {
-    "component": null,
-    "props": Object {
-      "pb": 10,
-      "pl": 10,
-      "pr": 10,
-      "pt": 10,
-    },
-    "style": Object {},
+    "pb": 10,
+    "pl": 10,
+    "pr": 10,
+    "pt": 10,
   },
   "Image": Object {
-    "component": null,
-    "props": Object {
-      "order": 1,
-    },
-    "style": Object {},
+    "order": 1,
   },
 }
 `;
@@ -2299,9 +1961,7 @@ Object {
 exports[`mobile theme Card fuzz: column 1`] = `
 Object {
   "Image": Object {
-    "props": Object {
-      "order": 0,
-    },
+    "order": 0,
   },
 }
 `;
@@ -2383,36 +2043,20 @@ Object {
 
 exports[`mobile theme Checkbox base 1`] = `
 Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
+  "Icon": Object {},
   "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
+    "ml": 16,
+    "size": "m",
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
+    "bg": "gray8",
+    "bgActive": "gray12",
+    "bgDisabled": "gray4",
+    "borderRadius": 2,
+    "color": "white",
+    "height": 18,
   },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
+  "Toggle": Object {},
 }
 `;
 
@@ -2422,11 +2066,9 @@ Object {
     "component": #IconCheckboxIndeterminate,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -2437,11 +2079,9 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -2452,11 +2092,9 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -2467,11 +2105,9 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -2482,11 +2118,9 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "gray48",
-      "bgActive": "gray56",
-      "bgDisabled": "gray28",
-    },
+    "bg": "gray48",
+    "bgActive": "gray56",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -2497,11 +2131,9 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -2512,11 +2144,9 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -2661,12 +2291,8 @@ Object {
 exports[`mobile theme Icon base 1`] = `
 Object {
   "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "color": undefined,
-      "height": 20,
-    },
+    "color": undefined,
+    "height": 20,
   },
 }
 `;
@@ -2674,9 +2300,7 @@ Object {
 exports[`mobile theme Icon fuzz: size="l" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "height": 24,
-    },
+    "height": 24,
   },
 }
 `;
@@ -2686,9 +2310,7 @@ exports[`mobile theme Icon fuzz: size="m" 1`] = `Object {}`;
 exports[`mobile theme Icon fuzz: size="s" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "height": 16,
-    },
+    "height": 16,
   },
 }
 `;
@@ -2696,9 +2318,7 @@ Object {
 exports[`mobile theme Icon fuzz: size="xl" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "height": 28,
-    },
+    "height": 28,
   },
 }
 `;
@@ -2706,9 +2326,7 @@ Object {
 exports[`mobile theme Icon fuzz: variant="error" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "red500",
-    },
+    "color": "red500",
   },
 }
 `;
@@ -2716,9 +2334,7 @@ Object {
 exports[`mobile theme Icon fuzz: variant="primary" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "blue500",
-    },
+    "color": "blue500",
   },
 }
 `;
@@ -2726,9 +2342,7 @@ Object {
 exports[`mobile theme Icon fuzz: variant="secondary" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "gray52",
-    },
+    "color": "gray52",
   },
 }
 `;
@@ -2736,9 +2350,7 @@ Object {
 exports[`mobile theme Icon fuzz: variant="success" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "green500",
-    },
+    "color": "green500",
   },
 }
 `;
@@ -2746,9 +2358,7 @@ Object {
 exports[`mobile theme Icon fuzz: variant="warning" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "yellow500",
-    },
+    "color": "yellow500",
   },
 }
 `;
@@ -2780,11 +2390,7 @@ Object {
 
 exports[`mobile theme Image base 1`] = `
 Object {
-  "Image": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
+  "Image": Object {},
 }
 `;
 
@@ -2802,59 +2408,35 @@ Object {
 exports[`mobile theme Input base 1`] = `
 Object {
   "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 10,
-    },
-    "style": Object {},
+    "color": "gray28",
+    "ml": 10,
+    "mr": 10,
   },
   "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
+    "color": "gray28",
+    "ml": 10,
+    "mr": 8,
+    "size": "s",
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
-    },
+    "bg": "gray4",
+    "borderRadius": 5,
+    "color": "black",
+    "colorDisabled": "gray40",
+    "focus": true,
+    "fontSize": 16,
+    "height": "m",
+    "placeholderColor": "gray48",
   },
   "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "pl": 16,
-      "pr": 16,
-    },
+    "pl": 16,
+    "pr": 16,
   },
   "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
+    "ml": 4,
   },
   "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
+    "mr": 4,
   },
 }
 `;
@@ -2862,11 +2444,9 @@ Object {
 exports[`mobile theme Input fuzz: clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
+    "area": 10,
     "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "size": "s",
-    },
+    "size": "s",
   },
 }
 `;
@@ -2874,14 +2454,10 @@ Object {
 exports[`mobile theme Input fuzz: size="l" 1`] = `
 Object {
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "height": "l",
-    },
+    "height": "l",
   },
 }
 `;
@@ -2889,19 +2465,13 @@ Object {
 exports[`mobile theme Input fuzz: size="l" iconAfter={jsx} 1`] = `
 Object {
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "height": "l",
-    },
+    "height": "l",
   },
   "InputField": Object {
-    "style": Object {
-      "pr": "none",
-    },
+    "pr": "none",
   },
 }
 `;
@@ -2909,19 +2479,13 @@ Object {
 exports[`mobile theme Input fuzz: size="l" iconBefore={jsx} 1`] = `
 Object {
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "height": "l",
-    },
+    "height": "l",
   },
   "InputField": Object {
-    "style": Object {
-      "pl": "none",
-    },
+    "pl": "none",
   },
 }
 `;
@@ -2929,20 +2493,14 @@ Object {
 exports[`mobile theme Input fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "height": "l",
-    },
+    "height": "l",
   },
   "InputField": Object {
-    "style": Object {
-      "pl": "none",
-      "pr": "none",
-    },
+    "pl": "none",
+    "pr": "none",
   },
 }
 `;
@@ -2952,9 +2510,7 @@ exports[`mobile theme Input fuzz: size="m" 1`] = `Object {}`;
 exports[`mobile theme Input fuzz: size="m" iconAfter={jsx} 1`] = `
 Object {
   "InputField": Object {
-    "style": Object {
-      "pr": "none",
-    },
+    "pr": "none",
   },
 }
 `;
@@ -2962,9 +2518,7 @@ Object {
 exports[`mobile theme Input fuzz: size="m" iconBefore={jsx} 1`] = `
 Object {
   "InputField": Object {
-    "style": Object {
-      "pl": "none",
-    },
+    "pl": "none",
   },
 }
 `;
@@ -2972,10 +2526,8 @@ Object {
 exports[`mobile theme Input fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "InputField": Object {
-    "style": Object {
-      "pl": "none",
-      "pr": "none",
-    },
+    "pl": "none",
+    "pr": "none",
   },
 }
 `;
@@ -2983,22 +2535,16 @@ Object {
 exports[`mobile theme Input fuzz: size="s" 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 8,
-      "mr": 8,
-    },
+    "ml": 8,
+    "mr": 8,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": 12,
-      "height": "s",
-    },
+    "fontSize": 12,
+    "height": "s",
   },
   "InputField": Object {
-    "style": Object {
-      "pl": 12,
-      "pr": 12,
-    },
+    "pl": 12,
+    "pr": 12,
   },
 }
 `;
@@ -3006,22 +2552,16 @@ Object {
 exports[`mobile theme Input fuzz: size="s" iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 8,
-      "mr": 8,
-    },
+    "ml": 8,
+    "mr": 8,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": 12,
-      "height": "s",
-    },
+    "fontSize": 12,
+    "height": "s",
   },
   "InputField": Object {
-    "style": Object {
-      "pl": 12,
-      "pr": "none",
-    },
+    "pl": 12,
+    "pr": "none",
   },
 }
 `;
@@ -3029,22 +2569,16 @@ Object {
 exports[`mobile theme Input fuzz: size="s" iconBefore={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 8,
-      "mr": 8,
-    },
+    "ml": 8,
+    "mr": 8,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": 12,
-      "height": "s",
-    },
+    "fontSize": 12,
+    "height": "s",
   },
   "InputField": Object {
-    "style": Object {
-      "pl": "none",
-      "pr": 12,
-    },
+    "pl": "none",
+    "pr": 12,
   },
 }
 `;
@@ -3052,22 +2586,16 @@ Object {
 exports[`mobile theme Input fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 8,
-      "mr": 8,
-    },
+    "ml": 8,
+    "mr": 8,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": 12,
-      "height": "s",
-    },
+    "fontSize": 12,
+    "height": "s",
   },
   "InputField": Object {
-    "style": Object {
-      "pl": "none",
-      "pr": "none",
-    },
+    "pl": "none",
+    "pr": "none",
   },
 }
 `;
@@ -3077,11 +2605,9 @@ exports[`mobile theme Input fuzz: value="value" 1`] = `Object {}`;
 exports[`mobile theme Input fuzz: value="value" clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
+    "area": 10,
     "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "size": "s",
-    },
+    "size": "s",
   },
 }
 `;
@@ -3089,9 +2615,7 @@ Object {
 exports[`mobile theme Input fuzz: variant="error" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "bg": "red50",
-    },
+    "bg": "red50",
   },
 }
 `;
@@ -3101,9 +2625,7 @@ exports[`mobile theme Input fuzz: variant="primary" 1`] = `Object {}`;
 exports[`mobile theme Input fuzz: variant="secondary" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "bg": "gray8",
-    },
+    "bg": "gray8",
   },
 }
 `;
@@ -3111,9 +2633,7 @@ Object {
 exports[`mobile theme Input fuzz: variant="success" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "bg": "green50",
-    },
+    "bg": "green50",
   },
 }
 `;
@@ -3121,9 +2641,7 @@ Object {
 exports[`mobile theme Input fuzz: variant="warning" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "bg": "orange50",
-    },
+    "bg": "orange50",
   },
 }
 `;
@@ -3238,12 +2756,8 @@ Object {
 exports[`mobile theme Link base 1`] = `
 Object {
   "Link": Object {
-    "component": null,
-    "props": Object {
-      "color": "blue500",
-      "colorVisited": "purple600",
-    },
-    "style": Object {},
+    "color": "blue500",
+    "colorVisited": "purple600",
   },
 }
 `;
@@ -3253,9 +2767,7 @@ exports[`mobile theme Link fuzz: variant="primary" 1`] = `Object {}`;
 exports[`mobile theme Link fuzz: variant="secondary" 1`] = `
 Object {
   "Link": Object {
-    "props": Object {
-      "color": "gray52",
-    },
+    "color": "gray52",
   },
 }
 `;
@@ -3293,57 +2805,29 @@ Object {
 
 exports[`mobile theme ListItem base 1`] = `
 Object {
-  "After": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Before": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
+  "After": Object {},
+  "Before": Object {},
   "Caption": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray40",
-      "size": "s",
-    },
-    "style": Object {},
+    "color": "gray40",
+    "size": "s",
   },
   "Label": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
+    "size": "m",
   },
   "Link": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
+    "size": "s",
   },
   "ListItem": Object {
-    "component": null,
-    "props": Object {
-      "minHeight": 52,
-      "pb": 12,
-      "pl": 16,
-      "pr": 16,
-      "pt": 10,
-      "spacing": 16,
-      "valign": "middle",
-    },
-    "style": Object {},
+    "minHeight": 52,
+    "pb": 12,
+    "pl": 16,
+    "pr": 16,
+    "pt": 10,
+    "spacing": 16,
+    "valign": "middle",
   },
   "StackText": Object {
-    "component": null,
-    "props": Object {
-      "spacing": 2,
-    },
-    "style": Object {},
+    "spacing": 2,
   },
 }
 `;
@@ -3351,14 +2835,10 @@ Object {
 exports[`mobile theme ListItem fuzz: disabled 1`] = `
 Object {
   "Caption": Object {
-    "props": Object {
-      "color": "gray32",
-    },
+    "color": "gray32",
   },
   "Label": Object {
-    "props": Object {
-      "color": "gray48",
-    },
+    "color": "gray48",
   },
 }
 `;
@@ -3366,9 +2846,7 @@ Object {
 exports[`mobile theme ListItem fuzz: onClick=undefined 1`] = `
 Object {
   "ListItem": Object {
-    "props": Object {
-      "bgActive": "gray4",
-    },
+    "bgActive": "gray4",
   },
 }
 `;
@@ -3463,38 +2941,22 @@ Object {
 
 exports[`mobile theme Radio base 1`] = `
 Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
+  "Icon": Object {},
   "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
+    "ml": 16,
+    "size": "m",
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "ml": 1,
-      "mr": 1,
-    },
+    "bg": "gray8",
+    "bgActive": "gray12",
+    "bgDisabled": "gray4",
+    "color": "white",
+    "focus": false,
+    "height": 18,
+    "ml": 1,
+    "mr": 1,
   },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
+  "Toggle": Object {},
 }
 `;
 
@@ -3510,11 +2972,9 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -3527,11 +2987,9 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -3544,11 +3002,9 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "gray48",
-      "bgActive": "gray56",
-      "bgDisabled": "gray28",
-    },
+    "bg": "gray48",
+    "bgActive": "gray56",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -3561,11 +3017,9 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -3578,11 +3032,9 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -3698,36 +3150,24 @@ Object {
 exports[`mobile theme SegmentButton base 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "borderRadius": 5,
-      "color": "gray48",
-      "colorChecked": "black",
-      "colorDisabled": "gray24",
-      "focus": true,
-    },
+    "borderRadius": 5,
+    "color": "gray48",
+    "colorChecked": "black",
+    "colorDisabled": "gray24",
+    "focus": true,
   },
   "Group": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "height": 44,
-      "pb": 4,
-      "pl": 4,
-      "pr": 4,
-      "pt": 4,
-    },
+    "bg": "gray4",
+    "borderRadius": 5,
+    "height": 44,
+    "pb": 4,
+    "pl": 4,
+    "pr": 4,
+    "pt": 4,
   },
   "Slide": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "white",
-      "borderRadius": 5,
-    },
+    "bg": "white",
+    "borderRadius": 5,
   },
 }
 `;
@@ -3735,9 +3175,7 @@ Object {
 exports[`mobile theme SegmentButton fuzz: size="l" 1`] = `
 Object {
   "Group": Object {
-    "style": Object {
-      "height": 50,
-    },
+    "height": 50,
   },
 }
 `;
@@ -3747,9 +3185,7 @@ exports[`mobile theme SegmentButton fuzz: size="m" 1`] = `Object {}`;
 exports[`mobile theme SegmentButton fuzz: size="s" 1`] = `
 Object {
   "Group": Object {
-    "style": Object {
-      "height": 32,
-    },
+    "height": 32,
   },
 }
 `;
@@ -3801,10 +3237,7 @@ exports[`mobile theme Spinner base 1`] = `
 Object {
   "Spinner": Object {
     "component": #IconSpinner,
-    "props": Object {
-      "size": 24,
-    },
-    "style": Object {},
+    "size": 24,
   },
 }
 `;
@@ -3812,9 +3245,7 @@ Object {
 exports[`mobile theme Spinner fuzz: size="l" 1`] = `
 Object {
   "Spinner": Object {
-    "props": Object {
-      "size": 32,
-    },
+    "size": 32,
   },
 }
 `;
@@ -3824,9 +3255,7 @@ exports[`mobile theme Spinner fuzz: size="m" 1`] = `Object {}`;
 exports[`mobile theme Spinner fuzz: size="s" 1`] = `
 Object {
   "Spinner": Object {
-    "props": Object {
-      "size": 16,
-    },
+    "size": 16,
   },
 }
 `;
@@ -3864,39 +3293,25 @@ exports[`mobile theme Switcher base 1`] = `
 Object {
   "Icon": Object {
     "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
   },
   "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
+    "ml": 16,
+    "size": "m",
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray12",
-      "bgActive": "gray28",
-      "bgDisabled": "gray8",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "pb": 3,
-      "pl": 3,
-      "pr": 3,
-      "pt": 3,
-      "width": 48,
-    },
+    "bg": "gray12",
+    "bgActive": "gray28",
+    "bgDisabled": "gray8",
+    "color": "white",
+    "focus": true,
+    "height": 25,
+    "pb": 3,
+    "pl": 3,
+    "pr": 3,
+    "pt": 3,
+    "width": 48,
   },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
+  "Toggle": Object {},
 }
 `;
 
@@ -3906,19 +3321,15 @@ Object {
     "component": #Spinner,
   },
   "Label": Object {
-    "props": Object {
-      "color": "gray48",
-    },
+    "color": "gray48",
   },
   "Switch": Object {
-    "style": Object {
-      "align": "center",
-      "bg": "transparent",
-      "bgActive": "transparent",
-      "bgDisabled": "transparent",
-      "color": "gray28",
-      "focus": false,
-    },
+    "align": "center",
+    "bg": "transparent",
+    "bgActive": "transparent",
+    "bgDisabled": "transparent",
+    "color": "gray28",
+    "focus": false,
   },
 }
 `;
@@ -3929,14 +3340,12 @@ Object {
     "component": #Spinner,
   },
   "Switch": Object {
-    "style": Object {
-      "align": "center",
-      "bg": "transparent",
-      "bgActive": "transparent",
-      "bgDisabled": "transparent",
-      "color": "gray28",
-      "focus": false,
-    },
+    "align": "center",
+    "bg": "transparent",
+    "bgActive": "transparent",
+    "bgDisabled": "transparent",
+    "color": "gray28",
+    "focus": false,
   },
 }
 `;
@@ -3944,16 +3353,12 @@ Object {
 exports[`mobile theme Switcher fuzz: checked loading=false disabled 1`] = `
 Object {
   "Label": Object {
-    "props": Object {
-      "color": "gray48",
-    },
+    "color": "gray48",
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue300",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue300",
   },
 }
 `;
@@ -3961,11 +3366,9 @@ Object {
 exports[`mobile theme Switcher fuzz: checked loading=false disabled=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue300",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue300",
   },
 }
 `;
@@ -3976,19 +3379,15 @@ Object {
     "component": #Spinner,
   },
   "Label": Object {
-    "props": Object {
-      "color": "gray48",
-    },
+    "color": "gray48",
   },
   "Switch": Object {
-    "style": Object {
-      "align": "center",
-      "bg": "transparent",
-      "bgActive": "transparent",
-      "bgDisabled": "transparent",
-      "color": "gray28",
-      "focus": false,
-    },
+    "align": "center",
+    "bg": "transparent",
+    "bgActive": "transparent",
+    "bgDisabled": "transparent",
+    "color": "gray28",
+    "focus": false,
   },
 }
 `;
@@ -3999,14 +3398,12 @@ Object {
     "component": #Spinner,
   },
   "Switch": Object {
-    "style": Object {
-      "align": "center",
-      "bg": "transparent",
-      "bgActive": "transparent",
-      "bgDisabled": "transparent",
-      "color": "gray28",
-      "focus": false,
-    },
+    "align": "center",
+    "bg": "transparent",
+    "bgActive": "transparent",
+    "bgDisabled": "transparent",
+    "color": "gray28",
+    "focus": false,
   },
 }
 `;
@@ -4014,9 +3411,7 @@ Object {
 exports[`mobile theme Switcher fuzz: checked=false loading=false disabled 1`] = `
 Object {
   "Label": Object {
-    "props": Object {
-      "color": "gray48",
-    },
+    "color": "gray48",
   },
 }
 `;
@@ -4032,11 +3427,9 @@ exports[`mobile theme Switcher fuzz: size="s" 1`] = `Object {}`;
 exports[`mobile theme Switcher fuzz: variant="error" checked 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -4044,9 +3437,7 @@ Object {
 exports[`mobile theme Switcher fuzz: variant="error" checked=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bgDisabled": "gray4",
-    },
+    "bgDisabled": "gray4",
   },
 }
 `;
@@ -4054,11 +3445,9 @@ Object {
 exports[`mobile theme Switcher fuzz: variant="primary" checked 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue300",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue300",
   },
 }
 `;
@@ -4068,11 +3457,9 @@ exports[`mobile theme Switcher fuzz: variant="primary" checked=false 1`] = `Obje
 exports[`mobile theme Switcher fuzz: variant="secondary" checked 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bg": "gray48",
-      "bgActive": "gray56",
-      "bgDisabled": "gray28",
-    },
+    "bg": "gray48",
+    "bgActive": "gray56",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -4080,9 +3467,7 @@ Object {
 exports[`mobile theme Switcher fuzz: variant="secondary" checked=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bgDisabled": "gray4",
-    },
+    "bgDisabled": "gray4",
   },
 }
 `;
@@ -4090,11 +3475,9 @@ Object {
 exports[`mobile theme Switcher fuzz: variant="success" checked 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -4102,9 +3485,7 @@ Object {
 exports[`mobile theme Switcher fuzz: variant="success" checked=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bgDisabled": "gray4",
-    },
+    "bgDisabled": "gray4",
   },
 }
 `;
@@ -4112,11 +3493,9 @@ Object {
 exports[`mobile theme Switcher fuzz: variant="warning" checked 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "gray28",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "gray28",
   },
 }
 `;
@@ -4124,9 +3503,7 @@ Object {
 exports[`mobile theme Switcher fuzz: variant="warning" checked=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bgDisabled": "gray4",
-    },
+    "bgDisabled": "gray4",
   },
 }
 `;
@@ -4271,13 +3648,9 @@ Object {
 exports[`mobile theme Text base 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "color": undefined,
-      "fontSize": undefined,
-      "lineHeight": "normal",
-    },
+    "color": undefined,
+    "fontSize": undefined,
+    "lineHeight": "normal",
   },
 }
 `;
@@ -4285,9 +3658,7 @@ Object {
 exports[`mobile theme Text fuzz: dense 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "lineHeight": "dense",
-    },
+    "lineHeight": "dense",
   },
 }
 `;
@@ -4295,10 +3666,8 @@ Object {
 exports[`mobile theme Text fuzz: preset="heading" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "l",
-      "lineHeight": "dense",
-    },
+    "fontSize": "l",
+    "lineHeight": "dense",
   },
 }
 `;
@@ -4306,10 +3675,8 @@ Object {
 exports[`mobile theme Text fuzz: preset="heading-large" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "l",
-      "lineHeight": "dense",
-    },
+    "fontSize": "l",
+    "lineHeight": "dense",
   },
 }
 `;
@@ -4317,9 +3684,7 @@ Object {
 exports[`mobile theme Text fuzz: preset="heading-small" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "m",
-    },
+    "fontSize": "m",
   },
 }
 `;
@@ -4327,9 +3692,7 @@ Object {
 exports[`mobile theme Text fuzz: preset="title" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "xxl",
-    },
+    "fontSize": "xxl",
   },
 }
 `;
@@ -4337,10 +3700,8 @@ Object {
 exports[`mobile theme Text fuzz: preset="title-small" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "xl",
-      "lineHeight": "dense",
-    },
+    "fontSize": "xl",
+    "lineHeight": "dense",
   },
 }
 `;
@@ -4348,9 +3709,7 @@ Object {
 exports[`mobile theme Text fuzz: size="l" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "l",
-    },
+    "fontSize": "l",
   },
 }
 `;
@@ -4358,9 +3717,7 @@ Object {
 exports[`mobile theme Text fuzz: size="m" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "m",
-    },
+    "fontSize": "m",
   },
 }
 `;
@@ -4368,9 +3725,7 @@ Object {
 exports[`mobile theme Text fuzz: size="s" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "s",
-    },
+    "fontSize": "s",
   },
 }
 `;
@@ -4378,9 +3733,7 @@ Object {
 exports[`mobile theme Text fuzz: variant="error" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "red500",
-    },
+    "color": "red500",
   },
 }
 `;
@@ -4388,9 +3741,7 @@ Object {
 exports[`mobile theme Text fuzz: variant="primary" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "blue500",
-    },
+    "color": "blue500",
   },
 }
 `;
@@ -4398,9 +3749,7 @@ Object {
 exports[`mobile theme Text fuzz: variant="secondary" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "gray52",
-    },
+    "color": "gray52",
   },
 }
 `;
@@ -4408,9 +3757,7 @@ Object {
 exports[`mobile theme Text fuzz: variant="success" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "green500",
-    },
+    "color": "green500",
   },
 }
 `;
@@ -4418,9 +3765,7 @@ Object {
 exports[`mobile theme Text fuzz: variant="warning" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "yellow500",
-    },
+    "color": "yellow500",
   },
 }
 `;
@@ -4453,33 +3798,26 @@ Object {
 exports[`mobile theme Textarea base 1`] = `
 Object {
   "IconClear": Object {
+    "area": 10,
+    "color": "gray28",
     "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "m",
-      "visible": false,
-    },
-    "style": Object {},
+    "size": "m",
+    "visible": false,
   },
   "Textarea": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "lineHeight": "normal",
-      "minHeight": "m",
-      "pb": 12,
-      "pl": 16,
-      "placeholderColor": "gray48",
-      "pr": 16,
-      "pt": 12,
-    },
+    "bg": "gray4",
+    "borderRadius": 5,
+    "color": "black",
+    "colorDisabled": "gray40",
+    "focus": true,
+    "fontSize": 16,
+    "lineHeight": "normal",
+    "minHeight": "m",
+    "pb": 12,
+    "pl": 16,
+    "placeholderColor": "gray48",
+    "pr": 16,
+    "pt": 12,
   },
 }
 `;
@@ -4487,9 +3825,7 @@ Object {
 exports[`mobile theme Textarea fuzz: clearable="always" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "visible": true,
-    },
+    "visible": true,
   },
 }
 `;
@@ -4497,16 +3833,12 @@ Object {
 exports[`mobile theme Textarea fuzz: size="l" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Textarea": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 16,
-      "pt": 16,
-    },
+    "minHeight": "l",
+    "pb": 16,
+    "pt": 16,
   },
 }
 `;
@@ -4516,19 +3848,15 @@ exports[`mobile theme Textarea fuzz: size="m" 1`] = `Object {}`;
 exports[`mobile theme Textarea fuzz: size="s" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Textarea": Object {
-    "style": Object {
-      "fontSize": 12,
-      "minHeight": "s",
-      "pb": 10,
-      "pl": 12,
-      "pr": 12,
-      "pt": 10,
-    },
+    "fontSize": 12,
+    "minHeight": "s",
+    "pb": 10,
+    "pl": 12,
+    "pr": 12,
+    "pt": 10,
   },
 }
 `;
@@ -4538,9 +3866,7 @@ exports[`mobile theme Textarea fuzz: value="value" 1`] = `Object {}`;
 exports[`mobile theme Textarea fuzz: value="value" clearable="always" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "visible": true,
-    },
+    "visible": true,
   },
 }
 `;
@@ -4548,9 +3874,7 @@ Object {
 exports[`mobile theme Textarea fuzz: variant="error" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "bg": "red100",
-    },
+    "bg": "red100",
   },
 }
 `;
@@ -4560,9 +3884,7 @@ exports[`mobile theme Textarea fuzz: variant="primary" 1`] = `Object {}`;
 exports[`mobile theme Textarea fuzz: variant="secondary" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "bg": "gray8",
-    },
+    "bg": "gray8",
   },
 }
 `;
@@ -4570,9 +3892,7 @@ Object {
 exports[`mobile theme Textarea fuzz: variant="success" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "bg": "green100",
-    },
+    "bg": "green100",
   },
 }
 `;
@@ -4580,9 +3900,7 @@ Object {
 exports[`mobile theme Textarea fuzz: variant="warning" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "bg": "orange100",
-    },
+    "bg": "orange100",
   },
 }
 `;
