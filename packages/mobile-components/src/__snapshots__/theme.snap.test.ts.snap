@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mobile theme Avatar fuzz: {"isFallback":false} 1`] = `
+exports[`mobile theme Avatar base 1`] = `
 Object {
   "Badge": Object {
     "component": null,
@@ -39,276 +39,100 @@ Object {
 }
 `;
 
-exports[`mobile theme Avatar fuzz: {"isFallback":true} 1`] = `
+exports[`mobile theme Avatar fuzz: isFallback 1`] = `
 Object {
-  "Badge": Object {
-    "component": null,
-    "props": Object {
-      "bottom": 0,
-      "height": 5,
-      "position": "absolute",
-      "right": 0,
-      "width": 5,
-    },
-    "style": Object {},
-  },
-  "Fallback": Object {
-    "component": #IconUser,
-    "props": Object {
-      "size": 9.6,
-    },
-    "style": Object {},
-  },
   "Wrapper": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "align": "center",
-      "bg": "gray4",
       "color": "gray28",
-      "fontSize": 12,
-      "height": 20,
-      "overlayActive": "black24",
-      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
-      "shape": "circle",
       "valign": "middle",
-      "valignSelf": "middle",
-      "width": 20,
     },
   },
 }
 `;
 
-exports[`mobile theme Avatar fuzz: {"size":20} 1`] = `
-Object {
-  "Badge": Object {
-    "component": null,
-    "props": Object {
-      "bottom": 0,
-      "height": 5,
-      "position": "absolute",
-      "right": 0,
-      "width": 5,
-    },
-    "style": Object {},
-  },
-  "Fallback": Object {
-    "component": #IconUser,
-    "props": Object {
-      "size": 9.6,
-    },
-    "style": Object {},
-  },
-  "Wrapper": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "align": "center",
-      "bg": "gray4",
-      "color": "white",
-      "fontSize": 12,
-      "height": 20,
-      "overlayActive": "black24",
-      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
-      "shape": "circle",
-      "valignSelf": "middle",
-      "width": 20,
-    },
-  },
-}
-`;
+exports[`mobile theme Avatar fuzz: isFallback=false 1`] = `Object {}`;
 
-exports[`mobile theme Avatar fuzz: {"size":45} 1`] = `
+exports[`mobile theme Avatar fuzz: size=20 1`] = `Object {}`;
+
+exports[`mobile theme Avatar fuzz: size=45 1`] = `
 Object {
   "Badge": Object {
-    "component": null,
     "props": Object {
-      "bottom": 0,
       "height": 11.25,
-      "position": "absolute",
-      "right": 0,
       "width": 11.25,
     },
-    "style": Object {},
   },
   "Fallback": Object {
-    "component": #IconUser,
     "props": Object {
       "size": 21.599999999999998,
     },
-    "style": Object {},
   },
   "Wrapper": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "align": "center",
-      "bg": "gray4",
-      "color": "white",
       "fontSize": 27,
       "height": 45,
-      "overlayActive": "black24",
-      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
-      "shape": "circle",
-      "valignSelf": "middle",
       "width": 45,
     },
   },
 }
 `;
 
-exports[`mobile theme Avatar fuzz: {"size":60} 1`] = `
+exports[`mobile theme Avatar fuzz: size=60 1`] = `
 Object {
   "Badge": Object {
-    "component": null,
     "props": Object {
-      "bottom": 0,
       "height": 15,
-      "position": "absolute",
-      "right": 0,
       "width": 15,
     },
-    "style": Object {},
   },
   "Fallback": Object {
-    "component": #IconUser,
     "props": Object {
       "size": 28.799999999999997,
     },
-    "style": Object {},
   },
   "Wrapper": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "align": "center",
-      "bg": "gray4",
-      "color": "white",
       "fontSize": 36,
       "height": 60,
-      "overlayActive": "black24",
-      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
-      "shape": "circle",
-      "valignSelf": "middle",
       "width": 60,
     },
   },
 }
 `;
 
-exports[`mobile theme Avatar fuzz: {"type":"company"} 1`] = `
+exports[`mobile theme Avatar fuzz: type="company" 1`] = `
 Object {
-  "Badge": Object {
-    "component": null,
-    "props": Object {
-      "bottom": 0,
-      "height": 5,
-      "position": "absolute",
-      "right": 0,
-      "width": 5,
-    },
-    "style": Object {},
-  },
   "Fallback": Object {
-    "component": #IconCompanyUser,
-    "props": Object {
-      "size": 9.6,
-    },
-    "style": Object {},
-  },
-  "Wrapper": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "align": "center",
-      "bg": "gray4",
-      "color": "white",
-      "fontSize": 12,
-      "height": 20,
-      "overlayActive": "black24",
-      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
-      "shape": "circle",
-      "valignSelf": "middle",
-      "width": 20,
+    "component": Object {
+      "category": "component",
+      "displayName": "IconCompanyUser",
+      "platform": undefined,
+      "type": Object {
+        "render": [Function],
+      },
     },
   },
 }
 `;
 
-exports[`mobile theme Avatar fuzz: {"type":"person"} 1`] = `
-Object {
-  "Badge": Object {
-    "component": null,
-    "props": Object {
-      "bottom": 0,
-      "height": 5,
-      "position": "absolute",
-      "right": 0,
-      "width": 5,
-    },
-    "style": Object {},
-  },
-  "Fallback": Object {
-    "component": #IconUser,
-    "props": Object {
-      "size": 9.6,
-    },
-    "style": Object {},
-  },
-  "Wrapper": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "align": "center",
-      "bg": "gray4",
-      "color": "white",
-      "fontSize": 12,
-      "height": 20,
-      "overlayActive": "black24",
-      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
-      "shape": "circle",
-      "valignSelf": "middle",
-      "width": 20,
-    },
-  },
-}
-`;
+exports[`mobile theme Avatar fuzz: type="person" 1`] = `Object {}`;
 
-exports[`mobile theme Avatar fuzz: {"type":"shop"} 1`] = `
+exports[`mobile theme Avatar fuzz: type="shop" 1`] = `
 Object {
-  "Badge": Object {
-    "component": null,
-    "props": Object {
-      "bottom": 0,
-      "height": 5,
-      "position": "absolute",
-      "right": 0,
-      "width": 5,
-    },
-    "style": Object {},
-  },
   "Fallback": Object {
-    "component": #IconShopUser,
-    "props": Object {
-      "size": 9.6,
+    "component": Object {
+      "category": "component",
+      "displayName": "IconShopUser",
+      "platform": undefined,
+      "type": Object {
+        "render": [Function],
+      },
     },
-    "style": Object {},
   },
   "Wrapper": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "align": "center",
-      "bg": "gray4",
       "borderRadius": 5,
-      "color": "white",
-      "fontSize": 12,
-      "height": 20,
-      "overlayActive": "black24",
-      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
       "shape": undefined,
-      "valignSelf": "middle",
-      "width": 20,
     },
   },
 }
@@ -379,7 +203,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Badge fuzz: {} 1`] = `Object {}`;
+exports[`mobile theme Badge base 1`] = `Object {}`;
 
 exports[`mobile theme Badge snap 1`] = `
 Object {
@@ -392,3691 +216,1081 @@ Object {
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"accent","checked":false,"loading":false} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green800",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"accent","checked":false,"loading":true} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green800",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"accent","checked":true,"loading":false} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green800",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"accent","checked":true,"loading":true} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green800",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"appInstall","checked":false,"loading":false} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "blue500",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"appInstall","checked":false,"loading":true} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "blue500",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"appInstall","checked":true,"loading":false} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "blue500",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"appInstall","checked":true,"loading":true} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "blue500",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"default","checked":false,"loading":false} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "black",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"default","checked":false,"loading":true} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray8",
-      "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "black",
-      "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"children":"text","preset":"default","checked":true,"loading":false} 1`] = `
+exports[`mobile theme Button base 1`] = `
 Object {
   "Button": Object {
     "component": null,
     "props": Object {},
     "style": Object {
       "bg": "blue500",
+      "bgActive": "blue600",
+      "bgChecked": "blue600",
+      "bgDisabled": "blue300",
+      "borderColor": "transparent",
+      "borderRadius": 5,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "color": "white",
+      "colorDisabled": "blue50",
+      "focus": false,
+      "minHeight": "m",
+      "px": 16,
+      "py": 6,
+    },
+  },
+  "IconAfter": Object {
+    "component": null,
+    "props": Object {
+      "size": "s",
+    },
+    "style": Object {},
+  },
+  "IconBefore": Object {
+    "component": null,
+    "props": Object {
+      "size": "s",
+    },
+    "style": Object {},
+  },
+  "Spinner": Object {
+    "component": null,
+    "props": Object {
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "Text": Object {
+    "component": null,
+    "props": Object {
+      "crop": true,
+      "dense": true,
+      "ml": -1,
+      "size": "m",
+      "valignSelf": "middle",
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="accent" checked loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green800",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="accent" checked loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green800",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="accent" checked=false loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green800",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="accent" checked=false loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green800",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="appInstall" checked loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "gray4",
+      "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "color": "blue500",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="appInstall" checked loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "gray4",
+      "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "color": "blue500",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="appInstall" checked=false loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "gray4",
+      "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "color": "blue500",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="appInstall" checked=false loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "gray4",
+      "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "color": "blue500",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="default" checked loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
       "bgActive": "blue800",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
+      "bgChecked": undefined,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"default","checked":true,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="default" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
       "bgActive": "blue800",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
+      "bgChecked": undefined,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"defaultDark","checked":false,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="default" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
+    "style": Object {
+      "bg": "gray4",
+      "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "color": "black",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="default" checked=false loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "gray4",
+      "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": "gray4",
+      "color": "black",
+      "colorDisabled": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children="text" preset="defaultDark" checked loading 1`] = `
+Object {
+  "Button": Object {
     "style": Object {
       "bg": "gray68",
       "bgActive": "gray76",
+      "bgChecked": undefined,
       "bgDisabled": "gray76",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"defaultDark","checked":false,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="defaultDark" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray68",
       "bgActive": "gray76",
+      "bgChecked": undefined,
       "bgDisabled": "gray76",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"defaultDark","checked":true,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="defaultDark" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray68",
       "bgActive": "gray76",
+      "bgChecked": undefined,
       "bgDisabled": "gray76",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"defaultDark","checked":true,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="defaultDark" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray68",
       "bgActive": "gray76",
+      "bgChecked": undefined,
       "bgDisabled": "gray76",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"defaultOnSurface","checked":false,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="defaultOnSurface" checked loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray8",
       "bgActive": "gray12",
+      "bgChecked": undefined,
       "bgDisabled": "gray8",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "black",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"defaultOnSurface","checked":false,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="defaultOnSurface" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray8",
       "bgActive": "gray12",
+      "bgChecked": undefined,
       "bgDisabled": "gray8",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "black",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"defaultOnSurface","checked":true,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="defaultOnSurface" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray8",
       "bgActive": "gray12",
+      "bgChecked": undefined,
       "bgDisabled": "gray8",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "black",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"defaultOnSurface","checked":true,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="defaultOnSurface" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray8",
       "bgActive": "gray12",
+      "bgChecked": undefined,
       "bgDisabled": "gray8",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "black",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"linkIncreased","checked":false,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "white",
       "bgActive": "gray4",
+      "bgChecked": undefined,
       "bgDisabled": "white",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "blue500",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"linkIncreased","checked":false,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "white",
       "bgActive": "gray4",
+      "bgChecked": undefined,
       "bgDisabled": "white",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "blue500",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"linkIncreased","checked":true,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "white",
       "bgActive": "gray4",
+      "bgChecked": undefined,
       "bgDisabled": "white",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "blue500",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"linkIncreased","checked":true,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "white",
       "bgActive": "gray4",
+      "bgChecked": undefined,
       "bgDisabled": "white",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "blue500",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"outline","checked":false,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="outline" checked loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "white",
       "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": undefined,
       "borderColor": "gray8",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "black",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"outline","checked":false,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="outline" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "white",
       "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": undefined,
       "borderColor": "gray8",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "black",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"outline","checked":true,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="outline" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "white",
       "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": undefined,
       "borderColor": "gray8",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "black",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"outline","checked":true,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="outline" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "white",
       "bgActive": "gray8",
+      "bgChecked": undefined,
+      "bgDisabled": undefined,
       "borderColor": "gray8",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "black",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"pay","checked":false,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="pay" checked loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "black",
       "bgActive": "gray76",
+      "bgChecked": undefined,
       "bgDisabled": "gray68",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"pay","checked":false,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="pay" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "black",
       "bgActive": "gray76",
+      "bgChecked": undefined,
       "bgDisabled": "gray68",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"pay","checked":true,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="pay" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "black",
       "bgActive": "gray76",
+      "bgChecked": undefined,
       "bgDisabled": "gray68",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"pay","checked":true,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="pay" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "black",
       "bgActive": "gray76",
+      "bgChecked": undefined,
       "bgDisabled": "gray68",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
       "colorDisabled": "gray40",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"primary","checked":false,"loading":false} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Button fuzz: children="text" preset="primary" checked loading 1`] = `Object {}`;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"primary","checked":false,"loading":true} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Button fuzz: children="text" preset="primary" checked loading=false 1`] = `Object {}`;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"primary","checked":true,"loading":false} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Button fuzz: children="text" preset="primary" checked=false loading 1`] = `Object {}`;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"primary","checked":true,"loading":true} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Button fuzz: children="text" preset="primary" checked=false loading=false 1`] = `Object {}`;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"secondary","checked":false,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="secondary" checked loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue50",
       "bgActive": "blue100",
+      "bgChecked": undefined,
       "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "blue500",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"secondary","checked":false,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="secondary" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue50",
       "bgActive": "blue100",
+      "bgChecked": undefined,
       "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "blue500",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"secondary","checked":true,"loading":false} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="secondary" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue50",
       "bgActive": "blue100",
+      "bgChecked": undefined,
       "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "blue500",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"children":"text","preset":"secondary","checked":true,"loading":true} 1`] = `
+exports[`mobile theme Button fuzz: children="text" preset="secondary" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue50",
       "bgActive": "blue100",
+      "bgChecked": undefined,
       "bgDisabled": "gray4",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
       "color": "blue500",
       "colorDisabled": "gray48",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"l","children":"text"} 1`] = `
+exports[`mobile theme Button fuzz: size="l" 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
       "minHeight": "l",
-      "px": 16,
       "py": 8,
     },
   },
   "IconAfter": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "IconBefore": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "l",
     },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"l","iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"children":"text"} 1`] = `
+exports[`mobile theme Button fuzz: size="l" children="text" 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
+      "minHeight": "l",
+      "py": 8,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: size="l" iconAfter={jsx} 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "py": 8,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "mr": 6,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: size="l" iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
       "minHeight": "l",
       "pr": 12,
-      "px": 16,
       "py": 8,
     },
   },
   "IconAfter": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "IconBefore": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "l",
     },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
       "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"l","iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Button fuzz: size="l" iconBefore={jsx} 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
       "minHeight": "l",
-      "px": 16,
       "py": 8,
     },
   },
   "IconAfter": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "IconBefore": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "l",
     },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
+      "ml": 6,
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"l","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"children":"text"} 1`] = `
+exports[`mobile theme Button fuzz: size="l" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
       "minHeight": "l",
       "pl": 12,
-      "px": 16,
       "py": 8,
     },
   },
   "IconAfter": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "IconBefore": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "l",
     },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
       "ml": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"l","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"children":"text"} 1`] = `
+exports[`mobile theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
+      "minHeight": "l",
+      "py": 8,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "ml": 6,
+      "mr": 6,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
       "minHeight": "l",
       "pl": 12,
       "pr": 12,
-      "px": 16,
       "py": 8,
     },
   },
   "IconAfter": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "IconBefore": Object {
-    "component": null,
     "props": Object {
       "size": "m",
     },
-    "style": Object {},
   },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "l",
     },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
       "ml": 6,
       "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"l","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Button fuzz: size="m" 1`] = `Object {}`;
+
+exports[`mobile theme Button fuzz: size="m" children="text" 1`] = `Object {}`;
+
+exports[`mobile theme Button fuzz: size="m" iconAfter={jsx} 1`] = `
 Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "l",
-      "px": 16,
-      "py": 8,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "l",
-    },
-    "style": Object {},
-  },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": 6,
       "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"l","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Button fuzz: size="m" iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "l",
-      "px": 16,
-      "py": 8,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "l",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": 6,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"l"} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "l",
-      "px": 16,
-      "py": 8,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "l",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"m","children":"text"} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"m","iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"children":"text"} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
       "pr": 12,
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
       "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"m","iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Button fuzz: size="m" iconBefore={jsx} 1`] = `
 Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"m","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"children":"text"} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "pl": 12,
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
       "ml": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"m","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"children":"text"} 1`] = `
+exports[`mobile theme Button fuzz: size="m" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
+      "pl": 12,
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "ml": 6,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
+Object {
+  "Text": Object {
+    "props": Object {
+      "ml": 6,
+      "mr": 6,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
       "pl": 12,
       "pr": 12,
-      "px": 16,
-      "py": 6,
     },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
       "ml": 6,
       "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"m","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Button fuzz: size="s" 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": 6,
-      "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"m","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": 6,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"m"} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"s","children":"text"} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
       "minHeight": "s",
-      "px": 16,
       "py": 4,
     },
   },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "s",
     },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"s","iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"children":"text"} 1`] = `
+exports[`mobile theme Button fuzz: size="s" children="text" 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
+      "minHeight": "s",
+      "py": 4,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "s",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: size="s" iconAfter={jsx} 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "s",
+      "py": 4,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "s",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "mr": 6,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: size="s" iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
       "minHeight": "s",
       "pr": 12,
-      "px": 16,
       "py": 4,
     },
   },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "s",
     },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
       "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"s","iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Button fuzz: size="s" iconBefore={jsx} 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
       "minHeight": "s",
-      "px": 16,
       "py": 4,
     },
   },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "s",
     },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
+      "ml": 6,
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"s","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"children":"text"} 1`] = `
+exports[`mobile theme Button fuzz: size="s" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
       "minHeight": "s",
       "pl": 12,
-      "px": 16,
       "py": 4,
     },
   },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "s",
     },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
       "ml": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Button fuzz: {"size":"s","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"children":"text"} 1`] = `
+exports[`mobile theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
+      "minHeight": "s",
+      "py": 4,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "s",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "ml": 6,
+      "mr": 6,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
       "minHeight": "s",
       "pl": 12,
       "pr": 12,
-      "px": 16,
       "py": 4,
     },
   },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "Spinner": Object {
-    "component": null,
     "props": Object {
       "size": "s",
     },
-    "style": Object {},
   },
   "Text": Object {
-    "component": null,
     "props": Object {
-      "crop": true,
-      "dense": true,
       "ml": 6,
       "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
     },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"s","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "s",
-      "px": 16,
-      "py": 4,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": 6,
-      "mr": 6,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"s","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "s",
-      "px": 16,
-      "py": 4,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": 6,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {"size":"s"} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "s",
-      "px": 16,
-      "py": 4,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: {} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue600",
-      "bgChecked": "blue600",
-      "bgDisabled": "blue300",
-      "borderColor": "transparent",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "blue50",
-      "focus": false,
-      "minHeight": "m",
-      "px": 16,
-      "py": 6,
-    },
-  },
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "dense": true,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
   },
 }
 `;
@@ -4504,7 +1718,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Card fuzz: {"column":false} 1`] = `
+exports[`mobile theme Card base 1`] = `
 Object {
   "Card": Object {
     "component": null,
@@ -4546,47 +1760,17 @@ Object {
 }
 `;
 
-exports[`mobile theme Card fuzz: {"column":true} 1`] = `
+exports[`mobile theme Card fuzz: column 1`] = `
 Object {
-  "Card": Object {
-    "component": null,
-    "props": Object {
-      "block": true,
-      "rounded": 12,
-    },
-    "style": Object {},
-  },
-  "Close": Object {
-    "component": #IconCross,
-    "props": Object {
-      "bgActive": "black16",
-      "bgHover": "black8",
-      "color": "gray28",
-      "p": 8,
-      "position": "absolute",
-      "right": 4,
-      "rounded": "circle",
-      "size": "s",
-      "top": 4,
-    },
-    "style": Object {},
-  },
-  "Content": Object {
-    "component": null,
-    "props": Object {
-      "p": 12,
-    },
-    "style": Object {},
-  },
   "Image": Object {
-    "component": null,
     "props": Object {
       "order": 0,
     },
-    "style": Object {},
   },
 }
 `;
+
+exports[`mobile theme Card fuzz: column=false 1`] = `Object {}`;
 
 exports[`mobile theme Card snap 1`] = `
 Object {
@@ -4631,7 +1815,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"checked":false,"indeterminate":false} 1`] = `
+exports[`mobile theme Checkbox base 1`] = `
 Object {
   "Icon": Object {
     "component": null,
@@ -4666,565 +1850,136 @@ Object {
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"checked":false,"indeterminate":true} 1`] = `
+exports[`mobile theme Checkbox fuzz: checked indeterminate 1`] = `
 Object {
   "Icon": Object {
     "component": #IconCheckboxIndeterminate,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Checkbox fuzz: {"checked":false,"variant":"error"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Checkbox fuzz: {"checked":false,"variant":"primary"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Checkbox fuzz: {"checked":false,"variant":"secondary"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Checkbox fuzz: {"checked":false,"variant":"success"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Checkbox fuzz: {"checked":false,"variant":"warning"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Checkbox fuzz: {"checked":true,"indeterminate":false} 1`] = `
-Object {
-  "Icon": Object {
-    "component": #IconCheckboxChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue500",
       "bgActive": "blue700",
       "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"checked":true,"indeterminate":true} 1`] = `
+exports[`mobile theme Checkbox fuzz: checked indeterminate=false 1`] = `
 Object {
   "Icon": Object {
-    "component": #IconCheckboxIndeterminate,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
+    "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue500",
       "bgActive": "blue700",
       "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"checked":true,"variant":"error"} 1`] = `
+exports[`mobile theme Checkbox fuzz: checked variant="error" 1`] = `
 Object {
   "Icon": Object {
     "component": #IconCheckboxChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "red500",
       "bgActive": "red700",
       "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"checked":true,"variant":"primary"} 1`] = `
+exports[`mobile theme Checkbox fuzz: checked variant="primary" 1`] = `
 Object {
   "Icon": Object {
     "component": #IconCheckboxChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue500",
       "bgActive": "blue700",
       "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"checked":true,"variant":"secondary"} 1`] = `
+exports[`mobile theme Checkbox fuzz: checked variant="secondary" 1`] = `
 Object {
   "Icon": Object {
     "component": #IconCheckboxChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray48",
       "bgActive": "gray56",
       "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"checked":true,"variant":"success"} 1`] = `
+exports[`mobile theme Checkbox fuzz: checked variant="success" 1`] = `
 Object {
   "Icon": Object {
     "component": #IconCheckboxChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "green500",
       "bgActive": "green700",
       "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"checked":true,"variant":"warning"} 1`] = `
+exports[`mobile theme Checkbox fuzz: checked variant="warning" 1`] = `
 Object {
   "Icon": Object {
     "component": #IconCheckboxChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "orange500",
       "bgActive": "orange700",
       "bgDisabled": "gray28",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"size":"l"} 1`] = `
+exports[`mobile theme Checkbox fuzz: checked=false indeterminate 1`] = `
 Object {
   "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
+    "component": #IconCheckboxIndeterminate,
   },
 }
 `;
 
-exports[`mobile theme Checkbox fuzz: {"size":"m"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Checkbox fuzz: checked=false indeterminate=false 1`] = `Object {}`;
 
-exports[`mobile theme Checkbox fuzz: {"size":"s"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "borderRadius": 2,
-      "color": "white",
-      "height": 18,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Checkbox fuzz: checked=false variant="error" 1`] = `Object {}`;
+
+exports[`mobile theme Checkbox fuzz: checked=false variant="primary" 1`] = `Object {}`;
+
+exports[`mobile theme Checkbox fuzz: checked=false variant="secondary" 1`] = `Object {}`;
+
+exports[`mobile theme Checkbox fuzz: checked=false variant="success" 1`] = `Object {}`;
+
+exports[`mobile theme Checkbox fuzz: checked=false variant="warning" 1`] = `Object {}`;
+
+exports[`mobile theme Checkbox fuzz: size="l" 1`] = `Object {}`;
+
+exports[`mobile theme Checkbox fuzz: size="m" 1`] = `Object {}`;
+
+exports[`mobile theme Checkbox fuzz: size="s" 1`] = `Object {}`;
 
 exports[`mobile theme Checkbox snap 1`] = `
 Object {
@@ -5317,11 +2072,21 @@ Object {
 }
 `;
 
-exports[`mobile theme Icon fuzz: {"size":"l"} 1`] = `
+exports[`mobile theme Icon base 1`] = `
 Object {
   "Icon": Object {
     "component": null,
     "props": Object {},
+    "style": Object {
+      "height": 20,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Icon fuzz: size="l" 1`] = `
+Object {
+  "Icon": Object {
     "style": Object {
       "height": 24,
     },
@@ -5329,23 +2094,11 @@ Object {
 }
 `;
 
-exports[`mobile theme Icon fuzz: {"size":"m"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "height": 20,
-    },
-  },
-}
-`;
+exports[`mobile theme Icon fuzz: size="m" 1`] = `Object {}`;
 
-exports[`mobile theme Icon fuzz: {"size":"s"} 1`] = `
+exports[`mobile theme Icon fuzz: size="s" 1`] = `
 Object {
   "Icon": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "height": 16,
     },
@@ -5353,66 +2106,51 @@ Object {
 }
 `;
 
-exports[`mobile theme Icon fuzz: {"variant":"error"} 1`] = `
+exports[`mobile theme Icon fuzz: variant="error" 1`] = `
 Object {
   "Icon": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "red500",
-      "height": 20,
     },
   },
 }
 `;
 
-exports[`mobile theme Icon fuzz: {"variant":"primary"} 1`] = `
+exports[`mobile theme Icon fuzz: variant="primary" 1`] = `
 Object {
   "Icon": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "blue500",
-      "height": 20,
     },
   },
 }
 `;
 
-exports[`mobile theme Icon fuzz: {"variant":"secondary"} 1`] = `
+exports[`mobile theme Icon fuzz: variant="secondary" 1`] = `
 Object {
   "Icon": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "gray52",
-      "height": 20,
     },
   },
 }
 `;
 
-exports[`mobile theme Icon fuzz: {"variant":"success"} 1`] = `
+exports[`mobile theme Icon fuzz: variant="success" 1`] = `
 Object {
   "Icon": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "green500",
-      "height": 20,
     },
   },
 }
 `;
 
-exports[`mobile theme Icon fuzz: {"variant":"warning"} 1`] = `
+exports[`mobile theme Icon fuzz: variant="warning" 1`] = `
 Object {
   "Icon": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "yellow500",
-      "height": 20,
     },
   },
 }
@@ -5475,7 +2213,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Image fuzz: {} 1`] = `
+exports[`mobile theme Image base 1`] = `
 Object {
   "Image": Object {
     "component": null,
@@ -5494,1180 +2232,357 @@ Object {
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"l","clearable":true} 1`] = `
+exports[`mobile theme Input base 1`] = `
+Object {
+  "IconAfter": Object {
+    "component": null,
+    "props": Object {
+      "color": "gray28",
+      "mx": 10,
+    },
+    "style": Object {},
+  },
+  "IconBefore": Object {
+    "component": null,
+    "props": Object {
+      "color": "gray28",
+      "ml": 10,
+      "mr": 8,
+      "size": "s",
+    },
+    "style": Object {},
+  },
+  "Input": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray4",
+      "borderRadius": 5,
+      "color": "black",
+      "colorDisabled": "gray40",
+      "focus": true,
+      "fontSize": 16,
+      "height": "m",
+      "placeholderColor": "gray48",
+    },
+  },
+  "InputField": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "px": 16,
+    },
+  },
+  "Postfix": Object {
+    "component": null,
+    "props": Object {
+      "ml": 4,
+    },
+    "style": Object {},
+  },
+  "Prefix": Object {
+    "component": null,
+    "props": Object {
+      "mr": 4,
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme Input fuzz: size="l" 1`] = `
+Object {
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "height": "l",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Input fuzz: size="l" clearable 1`] = `
 Object {
   "IconAfter": Object {
     "component": #IconCross,
     "props": Object {
       "area": 10,
-      "color": "gray28",
-      "mx": 10,
       "size": "m",
     },
-    "style": Object {},
   },
   "IconBefore": Object {
-    "component": null,
     "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
       "size": "m",
     },
-    "style": Object {},
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
       "height": "l",
-      "placeholderColor": "gray48",
     },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"l","iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Input fuzz: size="l" iconAfter={jsx} 1`] = `
 Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
   "IconBefore": Object {
-    "component": null,
     "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
       "size": "m",
     },
-    "style": Object {},
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
       "height": "l",
-      "placeholderColor": "gray48",
     },
   },
   "InputField": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "pr": "none",
-      "px": 16,
     },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"l","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Input fuzz: size="l" iconBefore={jsx} 1`] = `
 Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
   "IconBefore": Object {
-    "component": null,
     "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
       "size": "m",
     },
-    "style": Object {},
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
       "height": "l",
-      "placeholderColor": "gray48",
     },
   },
   "InputField": Object {
-    "component": null,
-    "props": Object {},
+    "style": Object {
+      "pl": "none",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Input fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
+Object {
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "height": "l",
+    },
+  },
+  "InputField": Object {
     "style": Object {
       "pl": "none",
       "pr": "none",
-      "px": 16,
     },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"l","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "l",
-      "placeholderColor": "gray48",
-    },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "pl": "none",
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Input fuzz: size="m" 1`] = `Object {}`;
 
-exports[`mobile theme Input fuzz: {"size":"l"} 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "l",
-      "placeholderColor": "gray48",
-    },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Input fuzz: {"size":"m","clearable":true} 1`] = `
+exports[`mobile theme Input fuzz: size="m" clearable 1`] = `
 Object {
   "IconAfter": Object {
     "component": #IconCross,
     "props": Object {
       "area": 10,
-      "color": "gray28",
-      "mx": 10,
       "size": "s",
     },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
-    },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"m","iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Input fuzz: size="m" iconAfter={jsx} 1`] = `
 Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
-    },
-  },
   "InputField": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "pr": "none",
-      "px": 16,
     },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"m","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Input fuzz: size="m" iconBefore={jsx} 1`] = `
 Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
-    },
-  },
   "InputField": Object {
-    "component": null,
-    "props": Object {},
+    "style": Object {
+      "pl": "none",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Input fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
+Object {
+  "InputField": Object {
     "style": Object {
       "pl": "none",
       "pr": "none",
-      "px": 16,
     },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"m","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Input fuzz: size="s" 1`] = `
 Object {
   "IconAfter": Object {
-    "component": null,
     "props": Object {
-      "color": "gray28",
-      "mx": 10,
+      "mx": 8,
     },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
+      "fontSize": 12,
+      "height": "s",
     },
   },
   "InputField": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "pl": "none",
-      "px": 16,
+      "px": 12,
     },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"m"} 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
-    },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Input fuzz: {"size":"s","clearable":true} 1`] = `
+exports[`mobile theme Input fuzz: size="s" clearable 1`] = `
 Object {
   "IconAfter": Object {
     "component": #IconCross,
     "props": Object {
       "area": 10,
-      "color": "gray28",
       "mx": 8,
       "size": "s",
     },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
       "fontSize": 12,
       "height": "s",
-      "placeholderColor": "gray48",
     },
   },
   "InputField": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "px": 12,
     },
   },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
-  },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"s","iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Input fuzz: size="s" iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "component": null,
     "props": Object {
-      "color": "gray28",
       "mx": 8,
     },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
       "fontSize": 12,
       "height": "s",
-      "placeholderColor": "gray48",
     },
   },
   "InputField": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "pr": "none",
       "px": 12,
     },
   },
-  "Postfix": Object {
-    "component": null,
+}
+`;
+
+exports[`mobile theme Input fuzz: size="s" iconBefore={jsx} 1`] = `
+Object {
+  "IconAfter": Object {
     "props": Object {
-      "ml": 4,
+      "mx": 8,
     },
-    "style": Object {},
   },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
+  "Input": Object {
+    "style": Object {
+      "fontSize": 12,
+      "height": "s",
     },
-    "style": Object {},
+  },
+  "InputField": Object {
+    "style": Object {
+      "pl": "none",
+      "px": 12,
+    },
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"s","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}},"iconAfter":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Input fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "component": null,
     "props": Object {
-      "color": "gray28",
       "mx": 8,
     },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
       "fontSize": 12,
       "height": "s",
-      "placeholderColor": "gray48",
     },
   },
   "InputField": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "pl": "none",
       "pr": "none",
       "px": 12,
     },
   },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
-  },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"size":"s","iconBefore":{"type":{"type":{},"compare":null,"displayName":"IconUser","baseTheme":{},"platform":"mobile"},"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}} 1`] = `
+exports[`mobile theme Input fuzz: variant="error" 1`] = `
 Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 8,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 12,
-      "height": "s",
-      "placeholderColor": "gray48",
-    },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "pl": "none",
-      "px": 12,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Input fuzz: {"size":"s"} 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 8,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 12,
-      "height": "s",
-      "placeholderColor": "gray48",
-    },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 12,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Input fuzz: {"variant":"error"} 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "red50",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
     },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"variant":"primary"} 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
-    },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Input fuzz: variant="primary" 1`] = `Object {}`;
 
-exports[`mobile theme Input fuzz: {"variant":"secondary"} 1`] = `
+exports[`mobile theme Input fuzz: variant="secondary" 1`] = `
 Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray8",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
     },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"variant":"success"} 1`] = `
+exports[`mobile theme Input fuzz: variant="success" 1`] = `
 Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "green50",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
     },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Input fuzz: {"variant":"warning"} 1`] = `
+exports[`mobile theme Input fuzz: variant="warning" 1`] = `
 Object {
-  "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mx": 10,
-    },
-    "style": Object {},
-  },
-  "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "mr": 8,
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "Input": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "orange50",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "height": "m",
-      "placeholderColor": "gray48",
     },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "px": 16,
-    },
-  },
-  "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
-  },
-  "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
   },
 }
 `;
@@ -6816,7 +2731,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Link fuzz: {"variant":"primary"} 1`] = `
+exports[`mobile theme Link base 1`] = `
 Object {
   "Link": Object {
     "component": null,
@@ -6829,27 +2744,14 @@ Object {
 }
 `;
 
-exports[`mobile theme Link fuzz: {"variant":"secondary"} 1`] = `
+exports[`mobile theme Link fuzz: variant="primary" 1`] = `Object {}`;
+
+exports[`mobile theme Link fuzz: variant="secondary" 1`] = `
 Object {
   "Link": Object {
-    "component": null,
     "props": Object {
       "color": "gray52",
-      "colorVisited": "purple600",
     },
-    "style": Object {},
-  },
-}
-`;
-
-exports[`mobile theme Link fuzz: {} 1`] = `
-Object {
-  "Link": Object {
-    "component": null,
-    "props": Object {
-      "colorVisited": "purple600",
-    },
-    "style": Object {},
   },
 }
 `;
@@ -6882,7 +2784,7 @@ Object {
 }
 `;
 
-exports[`mobile theme ListItem fuzz: {"disabled":false} 1`] = `
+exports[`mobile theme ListItem base 1`] = `
 Object {
   "After": Object {
     "component": null,
@@ -6938,172 +2840,29 @@ Object {
 }
 `;
 
-exports[`mobile theme ListItem fuzz: {"disabled":true} 1`] = `
+exports[`mobile theme ListItem fuzz: disabled 1`] = `
 Object {
-  "After": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Before": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
   "Caption": Object {
-    "component": null,
     "props": Object {
       "color": "gray32",
-      "size": "s",
     },
-    "style": Object {},
   },
   "Label": Object {
-    "component": null,
     "props": Object {
       "color": "gray48",
-      "size": "m",
     },
-    "style": Object {},
-  },
-  "Link": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "ListItem": Object {
-    "component": null,
-    "props": Object {
-      "minHeight": 52,
-      "pb": 12,
-      "pt": 10,
-      "px": 16,
-      "spacing": 16,
-      "valign": "middle",
-    },
-    "style": Object {},
-  },
-  "StackText": Object {
-    "component": null,
-    "props": Object {
-      "spacing": 2,
-    },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme ListItem fuzz: {} 1`] = `
-Object {
-  "After": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Before": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Caption": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray40",
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Link": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "ListItem": Object {
-    "component": null,
-    "props": Object {
-      "minHeight": 52,
-      "pb": 12,
-      "pt": 10,
-      "px": 16,
-      "spacing": 16,
-      "valign": "middle",
-    },
-    "style": Object {},
-  },
-  "StackText": Object {
-    "component": null,
-    "props": Object {
-      "spacing": 2,
-    },
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme ListItem fuzz: disabled=false 1`] = `Object {}`;
 
-exports[`mobile theme ListItem fuzz: {} 2`] = `
+exports[`mobile theme ListItem fuzz: onClick=undefined 1`] = `
 Object {
-  "After": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Before": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Caption": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray40",
-      "size": "s",
-    },
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Link": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
-  },
   "ListItem": Object {
-    "component": null,
     "props": Object {
       "bgActive": "gray4",
-      "minHeight": 52,
-      "pb": 12,
-      "pt": 10,
-      "px": 16,
-      "spacing": 16,
-      "valign": "middle",
     },
-    "style": Object {},
-  },
-  "StackText": Object {
-    "component": null,
-    "props": Object {
-      "spacing": 2,
-    },
-    "style": Object {},
   },
 }
 `;
@@ -7172,7 +2931,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Radio fuzz: {"size":"l"} 1`] = `
+exports[`mobile theme Radio base 1`] = `
 Object {
   "Icon": Object {
     "component": null,
@@ -7208,437 +2967,96 @@ Object {
 }
 `;
 
-exports[`mobile theme Radio fuzz: {"size":"m"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Radio fuzz: size="l" 1`] = `Object {}`;
 
-exports[`mobile theme Radio fuzz: {"size":"s"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Radio fuzz: size="m" 1`] = `Object {}`;
 
-exports[`mobile theme Radio fuzz: {"variant":"error","checked":false} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Radio fuzz: size="s" 1`] = `Object {}`;
 
-exports[`mobile theme Radio fuzz: {"variant":"error","checked":true} 1`] = `
+exports[`mobile theme Radio fuzz: variant="error" checked 1`] = `
 Object {
   "Icon": Object {
     "component": #IconRadioChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "red500",
       "bgActive": "red700",
       "bgDisabled": "gray28",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Radio fuzz: {"variant":"primary","checked":false} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Radio fuzz: variant="error" checked=false 1`] = `Object {}`;
 
-exports[`mobile theme Radio fuzz: {"variant":"primary","checked":true} 1`] = `
+exports[`mobile theme Radio fuzz: variant="primary" checked 1`] = `
 Object {
   "Icon": Object {
     "component": #IconRadioChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue500",
       "bgActive": "blue700",
       "bgDisabled": "gray28",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Radio fuzz: {"variant":"secondary","checked":false} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Radio fuzz: variant="primary" checked=false 1`] = `Object {}`;
 
-exports[`mobile theme Radio fuzz: {"variant":"secondary","checked":true} 1`] = `
+exports[`mobile theme Radio fuzz: variant="secondary" checked 1`] = `
 Object {
   "Icon": Object {
     "component": #IconRadioChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray48",
       "bgActive": "gray56",
       "bgDisabled": "gray28",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Radio fuzz: {"variant":"success","checked":false} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Radio fuzz: variant="secondary" checked=false 1`] = `Object {}`;
 
-exports[`mobile theme Radio fuzz: {"variant":"success","checked":true} 1`] = `
+exports[`mobile theme Radio fuzz: variant="success" checked 1`] = `
 Object {
   "Icon": Object {
     "component": #IconRadioChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "green500",
       "bgActive": "green700",
       "bgDisabled": "gray28",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Radio fuzz: {"variant":"warning","checked":false} 1`] = `
-Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray12",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Radio fuzz: variant="success" checked=false 1`] = `Object {}`;
 
-exports[`mobile theme Radio fuzz: {"variant":"warning","checked":true} 1`] = `
+exports[`mobile theme Radio fuzz: variant="warning" checked 1`] = `
 Object {
   "Icon": Object {
     "component": #IconRadioChecked,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "orange500",
       "bgActive": "orange700",
       "bgDisabled": "gray28",
-      "color": "white",
-      "focus": false,
-      "height": 18,
-      "mx": 1,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
+
+exports[`mobile theme Radio fuzz: variant="warning" checked=false 1`] = `Object {}`;
 
 exports[`mobile theme Radio snap 1`] = `
 Object {
@@ -7729,41 +3147,7 @@ Object {
 }
 `;
 
-exports[`mobile theme SegmentButton fuzz: {"size":"l"} 1`] = `
-Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "borderRadius": 5,
-      "color": "gray48",
-      "colorChecked": "black",
-      "colorDisabled": "gray24",
-      "focus": true,
-    },
-  },
-  "Group": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "height": 50,
-      "p": 4,
-    },
-  },
-  "Slide": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "white",
-      "borderRadius": 5,
-    },
-  },
-}
-`;
-
-exports[`mobile theme SegmentButton fuzz: {"size":"m"} 1`] = `
+exports[`mobile theme SegmentButton base 1`] = `
 Object {
   "Button": Object {
     "component": null,
@@ -7797,35 +3181,23 @@ Object {
 }
 `;
 
-exports[`mobile theme SegmentButton fuzz: {"size":"s"} 1`] = `
+exports[`mobile theme SegmentButton fuzz: size="l" 1`] = `
 Object {
-  "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "borderRadius": 5,
-      "color": "gray48",
-      "colorChecked": "black",
-      "colorDisabled": "gray24",
-      "focus": true,
-    },
-  },
   "Group": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "height": 32,
-      "p": 4,
+      "height": 50,
     },
   },
-  "Slide": Object {
-    "component": null,
-    "props": Object {},
+}
+`;
+
+exports[`mobile theme SegmentButton fuzz: size="m" 1`] = `Object {}`;
+
+exports[`mobile theme SegmentButton fuzz: size="s" 1`] = `
+Object {
+  "Group": Object {
     "style": Object {
-      "bg": "white",
-      "borderRadius": 5,
+      "height": 32,
     },
   },
 }
@@ -7885,91 +3257,55 @@ Object {
 }
 `;
 
-exports[`mobile theme Spinner fuzz: {"size":"l"} 1`] = `
+exports[`mobile theme Spinner base 1`] = `
 Object {
   "Spinner": Object {
     "component": #IconSpinner,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`mobile theme Spinner fuzz: size="l" 1`] = `
+Object {
+  "Spinner": Object {
     "props": Object {
       "size": 32,
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Spinner fuzz: {"size":"m"} 1`] = `
+exports[`mobile theme Spinner fuzz: size="m" 1`] = `
 Object {
   "Spinner": Object {
-    "component": #IconSpinner,
     "props": Object {
       "size": 24,
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Spinner fuzz: {"size":"s"} 1`] = `
+exports[`mobile theme Spinner fuzz: size="s" 1`] = `
 Object {
   "Spinner": Object {
-    "component": #IconSpinner,
     "props": Object {
       "size": 16,
     },
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Spinner fuzz: {"variant":"error"} 1`] = `
-Object {
-  "Spinner": Object {
-    "component": #IconSpinner,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Spinner fuzz: variant="error" 1`] = `Object {}`;
 
-exports[`mobile theme Spinner fuzz: {"variant":"primary"} 1`] = `
-Object {
-  "Spinner": Object {
-    "component": #IconSpinner,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Spinner fuzz: variant="primary" 1`] = `Object {}`;
 
-exports[`mobile theme Spinner fuzz: {"variant":"secondary"} 1`] = `
-Object {
-  "Spinner": Object {
-    "component": #IconSpinner,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Spinner fuzz: variant="secondary" 1`] = `Object {}`;
 
-exports[`mobile theme Spinner fuzz: {"variant":"success"} 1`] = `
-Object {
-  "Spinner": Object {
-    "component": #IconSpinner,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Spinner fuzz: variant="success" 1`] = `Object {}`;
 
-exports[`mobile theme Spinner fuzz: {"variant":"warning"} 1`] = `
-Object {
-  "Spinner": Object {
-    "component": #IconSpinner,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Spinner fuzz: variant="warning" 1`] = `Object {}`;
 
 exports[`mobile theme Spinner snap 1`] = `
 Object {
@@ -7999,7 +3335,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"checked":false,"loading":false} 1`] = `
+exports[`mobile theme Switcher base 1`] = `
 Object {
   "Icon": Object {
     "component": #IconSwitcher,
@@ -8036,24 +3372,42 @@ Object {
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"checked":false,"loading":true} 1`] = `
+exports[`mobile theme Switcher fuzz: checked loading 1`] = `
 Object {
   "Icon": Object {
-    "component": #Spinner,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
+    "component": Object {
+      "baseTheme": Object {
+        "scheme": Object {
+          "Spinner": Object {
+            "component": #IconSpinner,
+            "size": Object {
+              "l": Object {
+                "props": Object {
+                  "size": 32,
+                },
+              },
+              "m": Object {
+                "props": Object {
+                  "size": 24,
+                },
+              },
+              "s": Object {
+                "props": Object {
+                  "size": 16,
+                },
+              },
+            },
+          },
+        },
+      },
+      "category": undefined,
+      "displayName": "Spinner",
+      "type": Object {
+        "render": [Function],
+      },
     },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "align": "center",
       "bg": "transparent",
@@ -8061,74 +3415,59 @@ Object {
       "bgDisabled": "transparent",
       "color": "gray28",
       "focus": false,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"checked":true,"loading":false} 1`] = `
+exports[`mobile theme Switcher fuzz: checked loading=false 1`] = `
 Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue500",
       "bgActive": "blue700",
       "bgDisabled": "blue300",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"checked":true,"loading":true} 1`] = `
+exports[`mobile theme Switcher fuzz: checked=false loading 1`] = `
 Object {
   "Icon": Object {
-    "component": #Spinner,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
+    "component": Object {
+      "baseTheme": Object {
+        "scheme": Object {
+          "Spinner": Object {
+            "component": #IconSpinner,
+            "size": Object {
+              "l": Object {
+                "props": Object {
+                  "size": 32,
+                },
+              },
+              "m": Object {
+                "props": Object {
+                  "size": 24,
+                },
+              },
+              "s": Object {
+                "props": Object {
+                  "size": 16,
+                },
+              },
+            },
+          },
+        },
+      },
+      "category": undefined,
+      "displayName": "Spinner",
+      "type": Object {
+        "render": [Function],
+      },
     },
-    "style": Object {},
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "align": "center",
       "bg": "transparent",
@@ -8136,496 +3475,117 @@ Object {
       "bgDisabled": "transparent",
       "color": "gray28",
       "focus": false,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"size":"l"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray12",
-      "bgActive": "gray28",
-      "bgDisabled": "gray8",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Switcher fuzz: checked=false loading=false 1`] = `Object {}`;
 
-exports[`mobile theme Switcher fuzz: {"size":"m"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray12",
-      "bgActive": "gray28",
-      "bgDisabled": "gray8",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Switcher fuzz: size="l" 1`] = `Object {}`;
 
-exports[`mobile theme Switcher fuzz: {"size":"s"} 1`] = `
-Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray12",
-      "bgActive": "gray28",
-      "bgDisabled": "gray8",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Switcher fuzz: size="m" 1`] = `Object {}`;
 
-exports[`mobile theme Switcher fuzz: {"variant":"error","checked":false} 1`] = `
-Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray12",
-      "bgActive": "gray28",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Switcher fuzz: size="s" 1`] = `Object {}`;
 
-exports[`mobile theme Switcher fuzz: {"variant":"error","checked":true} 1`] = `
+exports[`mobile theme Switcher fuzz: variant="error" checked 1`] = `
 Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "red500",
       "bgActive": "red700",
       "bgDisabled": "gray28",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"variant":"primary","checked":false} 1`] = `
+exports[`mobile theme Switcher fuzz: variant="error" checked=false 1`] = `
 Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray12",
-      "bgActive": "gray28",
-      "bgDisabled": "gray8",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
+      "bgDisabled": "gray4",
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"variant":"primary","checked":true} 1`] = `
+exports[`mobile theme Switcher fuzz: variant="primary" checked 1`] = `
 Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "blue500",
       "bgActive": "blue700",
       "bgDisabled": "blue300",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"variant":"secondary","checked":false} 1`] = `
-Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
-  "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray12",
-      "bgActive": "gray28",
-      "bgDisabled": "gray4",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
-    },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`mobile theme Switcher fuzz: variant="primary" checked=false 1`] = `Object {}`;
 
-exports[`mobile theme Switcher fuzz: {"variant":"secondary","checked":true} 1`] = `
+exports[`mobile theme Switcher fuzz: variant="secondary" checked 1`] = `
 Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray48",
       "bgActive": "gray56",
       "bgDisabled": "gray28",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"variant":"success","checked":false} 1`] = `
+exports[`mobile theme Switcher fuzz: variant="secondary" checked=false 1`] = `
 Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray12",
-      "bgActive": "gray28",
       "bgDisabled": "gray4",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"variant":"success","checked":true} 1`] = `
+exports[`mobile theme Switcher fuzz: variant="success" checked 1`] = `
 Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "green500",
       "bgActive": "green700",
       "bgDisabled": "gray28",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"variant":"warning","checked":false} 1`] = `
+exports[`mobile theme Switcher fuzz: variant="success" checked=false 1`] = `
 Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray12",
-      "bgActive": "gray28",
       "bgDisabled": "gray4",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
-  },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
   },
 }
 `;
 
-exports[`mobile theme Switcher fuzz: {"variant":"warning","checked":true} 1`] = `
+exports[`mobile theme Switcher fuzz: variant="warning" checked 1`] = `
 Object {
-  "Icon": Object {
-    "component": #IconSwitcher,
-    "props": Object {},
-    "style": Object {},
-  },
-  "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 16,
-      "size": "m",
-    },
-    "style": Object {},
-  },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "orange500",
       "bgActive": "orange700",
       "bgDisabled": "gray28",
-      "color": "white",
-      "focus": true,
-      "height": 25,
-      "p": 3,
-      "width": 48,
     },
   },
-  "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
+}
+`;
+
+exports[`mobile theme Switcher fuzz: variant="warning" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "bgDisabled": "gray4",
+    },
   },
 }
 `;
@@ -8741,7 +3701,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Text fuzz: {"dense":false} 1`] = `
+exports[`mobile theme Text base 1`] = `
 Object {
   "Text": Object {
     "component": null,
@@ -8754,123 +3714,93 @@ Object {
 }
 `;
 
-exports[`mobile theme Text fuzz: {"dense":true} 1`] = `
+exports[`mobile theme Text fuzz: dense 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "fontSize": undefined,
       "lineHeight": "dense",
     },
   },
 }
 `;
 
-exports[`mobile theme Text fuzz: {"size":"l"} 1`] = `
+exports[`mobile theme Text fuzz: dense=false 1`] = `Object {}`;
+
+exports[`mobile theme Text fuzz: size="l" 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "fontSize": "l",
-      "lineHeight": "normal",
     },
   },
 }
 `;
 
-exports[`mobile theme Text fuzz: {"size":"m"} 1`] = `
+exports[`mobile theme Text fuzz: size="m" 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "fontSize": "m",
-      "lineHeight": "normal",
     },
   },
 }
 `;
 
-exports[`mobile theme Text fuzz: {"size":"s"} 1`] = `
+exports[`mobile theme Text fuzz: size="s" 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "fontSize": "s",
-      "lineHeight": "normal",
     },
   },
 }
 `;
 
-exports[`mobile theme Text fuzz: {"variant":"error"} 1`] = `
+exports[`mobile theme Text fuzz: variant="error" 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "red500",
-      "fontSize": undefined,
-      "lineHeight": "normal",
     },
   },
 }
 `;
 
-exports[`mobile theme Text fuzz: {"variant":"primary"} 1`] = `
+exports[`mobile theme Text fuzz: variant="primary" 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "blue500",
-      "fontSize": undefined,
-      "lineHeight": "normal",
     },
   },
 }
 `;
 
-exports[`mobile theme Text fuzz: {"variant":"secondary"} 1`] = `
+exports[`mobile theme Text fuzz: variant="secondary" 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "gray52",
-      "fontSize": undefined,
-      "lineHeight": "normal",
     },
   },
 }
 `;
 
-exports[`mobile theme Text fuzz: {"variant":"success"} 1`] = `
+exports[`mobile theme Text fuzz: variant="success" 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "green500",
-      "fontSize": undefined,
-      "lineHeight": "normal",
     },
   },
 }
 `;
 
-exports[`mobile theme Text fuzz: {"variant":"warning"} 1`] = `
+exports[`mobile theme Text fuzz: variant="warning" 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "color": "yellow500",
-      "fontSize": undefined,
-      "lineHeight": "normal",
     },
   },
 }
@@ -8922,7 +3852,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Textarea fuzz: {"clearable":false} 1`] = `
+exports[`mobile theme Textarea base 1`] = `
 Object {
   "IconClear": Object {
     "component": #IconCross,
@@ -8954,127 +3884,47 @@ Object {
 }
 `;
 
-exports[`mobile theme Textarea fuzz: {"clearable":true} 1`] = `
+exports[`mobile theme Textarea fuzz: clearable 1`] = `
 Object {
   "IconClear": Object {
-    "component": #IconCross,
     "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "m",
       "visible": true,
     },
-    "style": Object {},
-  },
-  "Textarea": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "lineHeight": "normal",
-      "minHeight": "m",
-      "placeholderColor": "gray48",
-      "px": 16,
-      "py": 12,
-    },
   },
 }
 `;
 
-exports[`mobile theme Textarea fuzz: {"size":"l"} 1`] = `
+exports[`mobile theme Textarea fuzz: clearable=false 1`] = `Object {}`;
+
+exports[`mobile theme Textarea fuzz: size="l" 1`] = `
 Object {
   "IconClear": Object {
-    "component": #IconCross,
     "props": Object {
-      "area": 10,
-      "color": "gray28",
       "size": "l",
-      "visible": false,
     },
-    "style": Object {},
   },
   "Textarea": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "lineHeight": "normal",
       "minHeight": "l",
-      "placeholderColor": "gray48",
-      "px": 16,
       "py": 16,
     },
   },
 }
 `;
 
-exports[`mobile theme Textarea fuzz: {"size":"m"} 1`] = `
-Object {
-  "IconClear": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "m",
-      "visible": false,
-    },
-    "style": Object {},
-  },
-  "Textarea": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "lineHeight": "normal",
-      "minHeight": "m",
-      "placeholderColor": "gray48",
-      "px": 16,
-      "py": 12,
-    },
-  },
-}
-`;
+exports[`mobile theme Textarea fuzz: size="m" 1`] = `Object {}`;
 
-exports[`mobile theme Textarea fuzz: {"size":"s"} 1`] = `
+exports[`mobile theme Textarea fuzz: size="s" 1`] = `
 Object {
   "IconClear": Object {
-    "component": #IconCross,
     "props": Object {
-      "area": 10,
-      "color": "gray28",
       "size": "s",
-      "visible": false,
     },
-    "style": Object {},
   },
   "Textarea": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
       "fontSize": 12,
-      "lineHeight": "normal",
       "minHeight": "s",
-      "placeholderColor": "gray48",
       "px": 12,
       "py": 10,
     },
@@ -9082,161 +3932,43 @@ Object {
 }
 `;
 
-exports[`mobile theme Textarea fuzz: {"variant":"error"} 1`] = `
+exports[`mobile theme Textarea fuzz: variant="error" 1`] = `
 Object {
-  "IconClear": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "m",
-      "visible": false,
-    },
-    "style": Object {},
-  },
   "Textarea": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "red100",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "lineHeight": "normal",
-      "minHeight": "m",
-      "placeholderColor": "gray48",
-      "px": 16,
-      "py": 12,
     },
   },
 }
 `;
 
-exports[`mobile theme Textarea fuzz: {"variant":"primary"} 1`] = `
-Object {
-  "IconClear": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "m",
-      "visible": false,
-    },
-    "style": Object {},
-  },
-  "Textarea": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "lineHeight": "normal",
-      "minHeight": "m",
-      "placeholderColor": "gray48",
-      "px": 16,
-      "py": 12,
-    },
-  },
-}
-`;
+exports[`mobile theme Textarea fuzz: variant="primary" 1`] = `Object {}`;
 
-exports[`mobile theme Textarea fuzz: {"variant":"secondary"} 1`] = `
+exports[`mobile theme Textarea fuzz: variant="secondary" 1`] = `
 Object {
-  "IconClear": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "m",
-      "visible": false,
-    },
-    "style": Object {},
-  },
   "Textarea": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "gray8",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "lineHeight": "normal",
-      "minHeight": "m",
-      "placeholderColor": "gray48",
-      "px": 16,
-      "py": 12,
     },
   },
 }
 `;
 
-exports[`mobile theme Textarea fuzz: {"variant":"success"} 1`] = `
+exports[`mobile theme Textarea fuzz: variant="success" 1`] = `
 Object {
-  "IconClear": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "m",
-      "visible": false,
-    },
-    "style": Object {},
-  },
   "Textarea": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "green100",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "lineHeight": "normal",
-      "minHeight": "m",
-      "placeholderColor": "gray48",
-      "px": 16,
-      "py": 12,
     },
   },
 }
 `;
 
-exports[`mobile theme Textarea fuzz: {"variant":"warning"} 1`] = `
+exports[`mobile theme Textarea fuzz: variant="warning" 1`] = `
 Object {
-  "IconClear": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "m",
-      "visible": false,
-    },
-    "style": Object {},
-  },
   "Textarea": Object {
-    "component": null,
-    "props": Object {},
     "style": Object {
       "bg": "orange100",
-      "borderRadius": 5,
-      "color": "black",
-      "colorDisabled": "gray40",
-      "focus": true,
-      "fontSize": 16,
-      "lineHeight": "normal",
-      "minHeight": "m",
-      "placeholderColor": "gray48",
-      "px": 16,
-      "py": 12,
     },
   },
 }

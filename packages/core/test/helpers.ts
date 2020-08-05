@@ -2,7 +2,7 @@ export function cartesian<T extends { [K: string]: any[] }>(valuesByKey: T): { [
   let res: any[] = [{}]
   Object.entries(valuesByKey).forEach(([key, values]) => {
     res = res.reduce(
-      (acc, partial) => [...acc, ...values.map(value => ({ ...partial, [key]: value }))],
+      (acc, partial) => acc.concat(values.map(value => value === undefined ? partial : ({ ...partial, [key]: value }))),
       [])
   })
   return res
