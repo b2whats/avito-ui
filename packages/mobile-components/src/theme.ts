@@ -1,6 +1,9 @@
 import { mobile } from '@avito/tokens'
+import { alertTheme } from './components/Alert/theme'
 import { avatarTheme } from './components/Avatar/theme'
+import { bannerTheme } from './components/Banner/theme'
 import { buttonTheme } from './components/Button/theme'
+import { cardTheme } from './components/Card/theme'
 import { checkboxTheme } from './components/Checkbox/theme'
 import { CheckmarkTheme } from './components/Checkmark'
 import { iconTheme } from './components/Icon/theme'
@@ -25,8 +28,11 @@ declare module '@avito/core' {
 
 export const theme = {
   ...mobile,
+  Alert: alertTheme,
   Avatar: avatarTheme,
+  Banner: bannerTheme,
   Button: buttonTheme,
+  Card: cardTheme,
   Checkbox: checkboxTheme,
   Icon: iconTheme,
   Input: inputTheme,

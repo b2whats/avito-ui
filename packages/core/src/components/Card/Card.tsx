@@ -2,7 +2,7 @@ import React, { isValidElement, ReactNode } from 'react'
 import { foldThemeParams } from '../../styled-system/'
 import { uiComponent } from '../../theme'
 import { Image as ImageComponent, ImageProps } from '../Image/'
-import { Box } from '../Layout/'
+import { Box, Stack } from '../Layout/'
 import { CardProps } from './contract'
 import { cardTheme } from './theme'
 
@@ -19,9 +19,9 @@ export const Card = uiComponent('Card', cardTheme)<CardProps, HTMLDivElement>(({
   return (
     <Box position='relative' {...Card.props} {...props} marker={marker()}>
       { renderImageSlot(props.image, Image.props) }
-      <Box grow shrink column {...Content.props}>
+      <Stack grow shrink column align='left' {...Content.props}>
         { children }
-      </Box>
+      </Stack>
       { props.onClose && <Close.component {...Close.props} onClick={props.onClose} marker={marker('close')} /> }
     </Box>
   )

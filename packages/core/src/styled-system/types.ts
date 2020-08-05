@@ -40,7 +40,7 @@ export interface TextProperties {
 
 type Width = number
 
-type Height = 's' | 'm' | 'l' | 'auto' | number
+type Height = 's' | 'm' | 'l' | 'auto' | number | (string & {})
 
 export interface DimensionProperties {
   /* Ширина блока */

@@ -19,6 +19,7 @@ import { TooltipTheme } from '../components/Tooltip/theme'
 
 export interface Theme extends Tokens {
   Avatar: Partial<AvatarTheme>
+  Alert: Partial<CardTheme>
   Badge: Partial<BadgeTheme>
   Banner: Partial<CardTheme>
   Button: Partial<ButtonTheme>
