@@ -7,6 +7,11 @@ export const switcherMock = mockProps<SwitcherProps>(() => [{
 }, {
   checked: bool,
   loading: bool,
+  disabled: bool,
 }, {
   size: sml,
-}])
+}], {
+  browserBase: {
+    label: 'label',
+  },
+})

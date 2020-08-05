@@ -6,12 +6,21 @@ export const inputMock = mockProps<InputProps>(() => [{
   iconBefore: maybe(icon),
   iconAfter: maybe(icon),
 }, {
-  size: sml,
-  clearable: [true],
+  value: maybe('value'),
+  clearable: maybe('always'),
 }, {
   variant,
 }], {
   browserBase: {
     width: 200,
+    placeholder: 'input',
   } as any,
+  browserSets: [{
+    size: sml,
+    iconBefore: [icon],
+    iconAfter: [icon],
+    prefix: ['от'],
+    postfix: ['руб'],
+    value: maybe(999),
+  }],
 })

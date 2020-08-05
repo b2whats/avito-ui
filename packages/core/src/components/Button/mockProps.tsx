@@ -1,3 +1,4 @@
+import React from 'react'
 import { mockProps, sml, maybe, bool, icon } from '../../../test'
 import { ButtonProps } from './contract'
 
@@ -13,4 +14,16 @@ export const buttonMock = mockProps<ButtonProps, { buttonPresets: string[] }>(({
   preset: buttonPresets as any,
   checked: bool,
   loading: bool,
-}])
+}, {
+  children: [<>line 1<br />line 2</>],
+  size: sml,
+  multiline: bool,
+}], {
+  browserSets: [{
+    disabled: [true],
+    children: ['text'],
+  }, {
+    children: ['text'],
+    shape: ['square', 'pill', 'circle'],
+  }],
+})

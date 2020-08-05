@@ -30,11 +30,13 @@ export const withPropLabels = (propCombos, render) => (
   </Stack>
 )
 
-export const describePropFuzz = (name, Component, theme, propMocks) => {
+export const describePropFuzz = (name, Component, theme, { sets, browserBase, browserSets }) => {
   describe(name, () => {
     it('default states', imageSnapshot(
       theme,
-      withPropLabels(flattenSets(propMocks.sets), props => <Component {...propMocks.browserBase} {...props} />)
+      withPropLabels(
+        flattenSets(sets.concat(browserSets)),
+        props => <Component {...browserBase} {...props} />)
     ))
   })
 }

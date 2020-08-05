@@ -674,6 +674,126 @@ Object {
 }
 `;
 
+exports[`web theme Button fuzz: children={jsx} size="l" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "px": 18,
+      "py": 9,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children={jsx} size="l" multiline=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "px": 18,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children={jsx} size="m" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "px": 16,
+      "py": 9,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children={jsx} size="m" multiline=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "px": 16,
+      "py": 8,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children={jsx} size="s" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "py": 9,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children={jsx} size="s" multiline=false 1`] = `Object {}`;
+
 exports[`web theme Button fuzz: size="l" 1`] = `
 Object {
   "Button": Object {
@@ -2246,41 +2366,21 @@ Object {
 }
 `;
 
-exports[`web theme Input fuzz: size="l" 1`] = `
-Object {
-  "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
-  },
-  "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
-  },
-  "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-      "px": 12,
-    },
-  },
-  "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
-  },
-}
-`;
-
-exports[`web theme Input fuzz: size="l" clearable 1`] = `
+exports[`web theme Input fuzz: clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
     "component": #IconCross,
     "props": Object {
       "area": 10,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="l" 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
       "ml": 12,
       "size": "l",
     },
@@ -2420,35 +2520,6 @@ Object {
 }
 `;
 
-exports[`web theme Input fuzz: size="m" clearable 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "ml": 10,
-    },
-  },
-  "IconBefore": Object {
-    "props": Object {
-      "mr": 10,
-    },
-  },
-  "Input": Object {
-    "style": Object {
-      "fontSize": "m",
-      "height": "m",
-      "px": 10,
-    },
-  },
-  "Prefix": Object {
-    "props": Object {
-      "mr": 6,
-    },
-  },
-}
-`;
-
 exports[`web theme Input fuzz: size="m" iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
@@ -2532,7 +2603,15 @@ Object {
 
 exports[`web theme Input fuzz: size="s" 1`] = `Object {}`;
 
-exports[`web theme Input fuzz: size="s" clearable 1`] = `
+exports[`web theme Input fuzz: size="s" iconAfter={jsx} 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: size="s" iconBefore={jsx} 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: value="value" 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: value="value" clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
     "component": #IconCross,
@@ -2542,12 +2621,6 @@ Object {
   },
 }
 `;
-
-exports[`web theme Input fuzz: size="s" iconAfter={jsx} 1`] = `Object {}`;
-
-exports[`web theme Input fuzz: size="s" iconBefore={jsx} 1`] = `Object {}`;
-
-exports[`web theme Input fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `Object {}`;
 
 exports[`web theme Input fuzz: variant="error" 1`] = `
 Object {
@@ -3309,7 +3382,32 @@ Object {
 }
 `;
 
-exports[`web theme Switcher fuzz: checked loading 1`] = `
+exports[`web theme Switcher fuzz: checked loading disabled 1`] = `
+Object {
+  "Icon": Object {
+    "component": #Spinner,
+    "props": Object {
+      "size": "auto",
+    },
+  },
+  "Label": Object {
+    "props": Object {
+      "color": "gray40",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked loading disabled=false 1`] = `
 Object {
   "Icon": Object {
     "component": #Spinner,
@@ -3329,7 +3427,26 @@ Object {
 }
 `;
 
-exports[`web theme Switcher fuzz: checked loading=false 1`] = `
+exports[`web theme Switcher fuzz: checked loading=false disabled 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "color": "gray40",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked loading=false disabled=false 1`] = `
 Object {
   "Switch": Object {
     "style": Object {
@@ -3343,7 +3460,23 @@ Object {
 }
 `;
 
-exports[`web theme Switcher fuzz: checked=false loading 1`] = `
+exports[`web theme Switcher fuzz: checked=false loading disabled 1`] = `
+Object {
+  "Icon": Object {
+    "component": #Spinner,
+    "props": Object {
+      "size": "auto",
+    },
+  },
+  "Label": Object {
+    "props": Object {
+      "color": "gray40",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked=false loading disabled=false 1`] = `
 Object {
   "Icon": Object {
     "component": #Spinner,
@@ -3354,7 +3487,17 @@ Object {
 }
 `;
 
-exports[`web theme Switcher fuzz: checked=false loading=false 1`] = `Object {}`;
+exports[`web theme Switcher fuzz: checked=false loading=false disabled 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "color": "gray40",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked=false loading=false disabled=false 1`] = `Object {}`;
 
 exports[`web theme Switcher fuzz: size="l" 1`] = `
 Object {
@@ -3787,7 +3930,55 @@ Object {
 }
 `;
 
-exports[`web theme Text fuzz: dense=false 1`] = `Object {}`;
+exports[`web theme Text fuzz: preset="heading" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: preset="heading-large" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xl",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: preset="heading-small" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: preset="title" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xxxl",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: preset="title-small" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xxl",
+    },
+  },
+}
+`;
 
 exports[`web theme Text fuzz: size="l" 1`] = `
 Object {
@@ -3952,7 +4143,7 @@ Object {
 }
 `;
 
-exports[`web theme Textarea fuzz: clearable 1`] = `
+exports[`web theme Textarea fuzz: clearable="always" 1`] = `
 Object {
   "IconClear": Object {
     "props": Object {
@@ -3961,8 +4152,6 @@ Object {
   },
 }
 `;
-
-exports[`web theme Textarea fuzz: clearable=false 1`] = `Object {}`;
 
 exports[`web theme Textarea fuzz: size="l" 1`] = `
 Object {
@@ -4001,6 +4190,18 @@ Object {
 `;
 
 exports[`web theme Textarea fuzz: size="s" 1`] = `Object {}`;
+
+exports[`web theme Textarea fuzz: value="value" 1`] = `Object {}`;
+
+exports[`web theme Textarea fuzz: value="value" clearable="always" 1`] = `
+Object {
+  "IconClear": Object {
+    "props": Object {
+      "visible": true,
+    },
+  },
+}
+`;
 
 exports[`web theme Textarea fuzz: variant="error" 1`] = `
 Object {

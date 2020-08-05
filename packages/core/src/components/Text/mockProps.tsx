@@ -1,5 +1,5 @@
 import React from 'react'
-import { variant, sml, bool, mockProps } from '../../../test'
+import { variant, sml, mockProps } from '../../../test'
 import { TextProps } from './contract'
 
 export const textMock = mockProps<TextProps>(() => [{
@@ -7,7 +7,9 @@ export const textMock = mockProps<TextProps>(() => [{
 }, {
   variant,
 }, {
-  dense: bool,
+  dense: [true],
+}, {
+  preset: ['heading', 'heading-large', 'heading-small', 'title', 'title-small'],
 }], {
   browserBase: {
     children: <>hello<br />i am text</>,

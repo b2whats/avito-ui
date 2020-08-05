@@ -473,6 +473,126 @@ Object {
 }
 `;
 
+exports[`pik theme Button fuzz: children={jsx} size="l" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "height": 64,
+      "minHeight": "l",
+      "minWidth": 290,
+      "px": 48,
+      "py": 9,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`pik theme Button fuzz: children={jsx} size="l" multiline=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "px": 36,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`pik theme Button fuzz: children={jsx} size="m" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "py": 9,
+    },
+  },
+}
+`;
+
+exports[`pik theme Button fuzz: children={jsx} size="m" multiline=false 1`] = `Object {}`;
+
+exports[`pik theme Button fuzz: children={jsx} size="s" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "s",
+      "py": 9,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "s",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "s",
+    },
+  },
+}
+`;
+
+exports[`pik theme Button fuzz: children={jsx} size="s" multiline=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "s",
+      "py": 5,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "s",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "s",
+    },
+  },
+}
+`;
+
 exports[`pik theme Button fuzz: size="l" 1`] = `
 Object {
   "Button": Object {
@@ -1376,40 +1496,21 @@ Object {
 }
 `;
 
-exports[`pik theme Input fuzz: size="l" 1`] = `
-Object {
-  "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
-  },
-  "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
-  },
-  "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-    },
-  },
-  "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
-  },
-}
-`;
-
-exports[`pik theme Input fuzz: size="l" clearable 1`] = `
+exports[`pik theme Input fuzz: clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
     "component": #IconCross,
     "props": Object {
       "area": 10,
+    },
+  },
+}
+`;
+
+exports[`pik theme Input fuzz: size="l" 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
       "ml": 12,
       "size": "l",
     },
@@ -1520,17 +1621,6 @@ Object {
 
 exports[`pik theme Input fuzz: size="m" 1`] = `Object {}`;
 
-exports[`pik theme Input fuzz: size="m" clearable 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-    },
-  },
-}
-`;
-
 exports[`pik theme Input fuzz: size="m" iconAfter={jsx} 1`] = `Object {}`;
 
 exports[`pik theme Input fuzz: size="m" iconBefore={jsx} 1`] = `Object {}`;
@@ -1541,34 +1631,6 @@ exports[`pik theme Input fuzz: size="s" 1`] = `
 Object {
   "IconAfter": Object {
     "props": Object {
-      "ml": 7,
-    },
-  },
-  "IconBefore": Object {
-    "props": Object {
-      "mr": 7,
-    },
-  },
-  "Input": Object {
-    "style": Object {
-      "fontSize": "s",
-      "height": "s",
-    },
-  },
-  "Prefix": Object {
-    "props": Object {
-      "mr": 4,
-    },
-  },
-}
-`;
-
-exports[`pik theme Input fuzz: size="s" clearable 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
       "ml": 7,
     },
   },
@@ -1664,6 +1726,19 @@ Object {
   "Prefix": Object {
     "props": Object {
       "mr": 4,
+    },
+  },
+}
+`;
+
+exports[`pik theme Input fuzz: value="value" 1`] = `Object {}`;
+
+exports[`pik theme Input fuzz: value="value" clearable="always" 1`] = `
+Object {
+  "IconAfter": Object {
+    "component": #IconCross,
+    "props": Object {
+      "area": 10,
     },
   },
 }
@@ -2002,7 +2077,60 @@ Object {
 }
 `;
 
-exports[`pik theme Text fuzz: dense=false 1`] = `Object {}`;
+exports[`pik theme Text fuzz: preset="heading" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "l",
+      "lineHeight": 1.4,
+    },
+  },
+}
+`;
+
+exports[`pik theme Text fuzz: preset="heading-large" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xl",
+      "lineHeight": 1.34,
+    },
+  },
+}
+`;
+
+exports[`pik theme Text fuzz: preset="heading-small" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "m",
+      "lineHeight": 1.5,
+    },
+  },
+}
+`;
+
+exports[`pik theme Text fuzz: preset="title" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xxxl",
+      "lineHeight": 1.2,
+    },
+  },
+}
+`;
+
+exports[`pik theme Text fuzz: preset="title-small" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xxl",
+      "lineHeight": 1.25,
+    },
+  },
+}
+`;
 
 exports[`pik theme Text fuzz: size="l" 1`] = `
 Object {
@@ -2210,7 +2338,7 @@ Object {
 }
 `;
 
-exports[`pik theme Textarea fuzz: clearable 1`] = `
+exports[`pik theme Textarea fuzz: clearable="always" 1`] = `
 Object {
   "IconClear": Object {
     "props": Object {
@@ -2219,8 +2347,6 @@ Object {
   },
 }
 `;
-
-exports[`pik theme Textarea fuzz: clearable=false 1`] = `Object {}`;
 
 exports[`pik theme Textarea fuzz: size="l" 1`] = `
 Object {
@@ -2253,6 +2379,18 @@ Object {
       "fontSize": "s",
       "minHeight": "s",
       "py": 7,
+    },
+  },
+}
+`;
+
+exports[`pik theme Textarea fuzz: value="value" 1`] = `Object {}`;
+
+exports[`pik theme Textarea fuzz: value="value" clearable="always" 1`] = `
+Object {
+  "IconClear": Object {
+    "props": Object {
+      "visible": true,
     },
   },
 }

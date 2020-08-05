@@ -6,4 +6,11 @@ export const radioMock = mockProps<RadioProps>(() => [{
   checked: bool,
 }, {
   size: sml,
-}])
+}], {
+  browserBase: {
+    label: 'label',
+  },
+  browserSets: [{
+    labelPosition: ['start', 'end'],
+  }],
+})

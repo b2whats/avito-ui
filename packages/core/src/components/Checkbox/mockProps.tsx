@@ -9,4 +9,8 @@ export const checkboxMock = mockProps<CheckboxProps>(() => [{
   variant,
 }, {
   size: sml,
-}])
+}], {
+  browserBase: {
+    label: 'label',
+  },
+})

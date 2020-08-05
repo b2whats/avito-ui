@@ -1,8 +1,9 @@
-import { variant, bool, sml, mockProps } from '../../../test'
+import { variant, maybe, sml, mockProps } from '../../../test'
 import { TextareaProps } from './contract'
 
 export const textareaMock = mockProps<TextareaProps>(() => [{
-  clearable: bool,
+  value: maybe('value'),
+  clearable: maybe('always'),
 }, {
   size: sml,
 }, {
@@ -10,5 +11,19 @@ export const textareaMock = mockProps<TextareaProps>(() => [{
 }], {
   browserBase: {
     width: 200,
+    placeholder: 'placeholder',
   } as any,
+  browserSets: [{
+    rows: [1],
+  }, {
+    resizable: [true],
+  }, {
+    autoSize: [true],
+    rows: [1],
+    value: ['1\n2\n3\n4'],
+  }, {
+    value: ['value'],
+    variant,
+    disabled: [true],
+  }],
 })

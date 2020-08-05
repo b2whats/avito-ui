@@ -7,4 +7,7 @@ export const linkMock = mockProps<LinkProps>(() => [{
   browserBase: {
     children: 'hello',
   },
+  browserSets: [{
+    noVisited: [true],
+  }],
 })

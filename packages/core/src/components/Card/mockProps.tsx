@@ -1,4 +1,6 @@
+import React from 'react'
 import { bool, mockProps } from '../../../test'
+import { Text } from '../Text'
 import { CardProps } from './contract'
 
 export const cardMock = mockProps<CardProps>(() => [{
@@ -7,9 +9,9 @@ export const cardMock = mockProps<CardProps>(() => [{
   browserBase: {
     bg: 'yellow100',
     width: 200,
-    children: [
-      'hello',
-      'i am a card',
-    ],
+    children: [<Text key='0'>hello</Text>, <Text key='1'>i am a card</Text>],
   },
+  browserSets: [{
+    onClose: [() => {}],
+  }],
 })

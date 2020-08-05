@@ -4,7 +4,7 @@ import { BadgeProps } from './contract'
 export const badgeMock = mockProps<BadgeProps>(() => [{
   gapSize: maybe([0, 4]),
 }, {
-  gapColor: maybe('red500'),
+  gapColor: ['red500'],
 }], {
   browserBase: {
     width: 10,
@@ -12,5 +12,6 @@ export const badgeMock = mockProps<BadgeProps>(() => [{
     bg: 'green500',
     gapColor: 'yellow100',
     shape: 'circle',
+    valignSelf: 'middle',
   } as any,
 })

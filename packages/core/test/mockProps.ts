@@ -10,11 +10,12 @@ export const maybe = <T>(el: T) => ([undefined] as any[]).concat(el)
 interface MockOptions<Props> {
   /* These props are used for all screenshots by default */
   browserBase?: Partial<Props>
+  browserSets?: PropSets<Props>
 }
 type PropSets<Props> = { [K in keyof Props]?: Props[K][] }[]
 export function mockProps<Props, Options = {}>(
   sets: ((options: Options) => PropSets<Props>) | null = null,
-  { browserBase = {} }: MockOptions<Props> = {}
+  { browserBase = {}, browserSets = [] }: MockOptions<Props> = {}
 ) {
-  return (options: Options) => ({ sets: sets ? sets(options) : [{}], browserBase })
+  return (options: Options) => ({ sets: sets ? sets(options) : [{}], browserBase, browserSets })
 }

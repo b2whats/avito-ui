@@ -811,6 +811,94 @@ Object {
 }
 `;
 
+exports[`mobile theme Button fuzz: children={jsx} size="l" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "py": 8,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children={jsx} size="l" multiline=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "py": 8,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children={jsx} size="m" multiline 1`] = `Object {}`;
+
+exports[`mobile theme Button fuzz: children={jsx} size="m" multiline=false 1`] = `Object {}`;
+
+exports[`mobile theme Button fuzz: children={jsx} size="s" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "s",
+      "py": 4,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "s",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: children={jsx} size="s" multiline=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "s",
+      "py": 4,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "s",
+    },
+  },
+}
+`;
+
 exports[`mobile theme Button fuzz: size="l" 1`] = `
 Object {
   "Button": Object {
@@ -2296,30 +2384,20 @@ Object {
 }
 `;
 
-exports[`mobile theme Input fuzz: size="l" 1`] = `
-Object {
-  "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
-  },
-  "Input": Object {
-    "style": Object {
-      "height": "l",
-    },
-  },
-}
-`;
-
-exports[`mobile theme Input fuzz: size="l" clearable 1`] = `
+exports[`mobile theme Input fuzz: clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
     "component": #IconCross,
     "props": Object {
       "area": 10,
-      "size": "m",
+      "size": "s",
     },
   },
+}
+`;
+
+exports[`mobile theme Input fuzz: size="l" 1`] = `
+Object {
   "IconBefore": Object {
     "props": Object {
       "size": "m",
@@ -2396,18 +2474,6 @@ Object {
 
 exports[`mobile theme Input fuzz: size="m" 1`] = `Object {}`;
 
-exports[`mobile theme Input fuzz: size="m" clearable 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "size": "s",
-    },
-  },
-}
-`;
-
 exports[`mobile theme Input fuzz: size="m" iconAfter={jsx} 1`] = `
 Object {
   "InputField": Object {
@@ -2444,30 +2510,6 @@ Object {
   "IconAfter": Object {
     "props": Object {
       "mx": 8,
-    },
-  },
-  "Input": Object {
-    "style": Object {
-      "fontSize": 12,
-      "height": "s",
-    },
-  },
-  "InputField": Object {
-    "style": Object {
-      "px": 12,
-    },
-  },
-}
-`;
-
-exports[`mobile theme Input fuzz: size="s" clearable 1`] = `
-Object {
-  "IconAfter": Object {
-    "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "mx": 8,
-      "size": "s",
     },
   },
   "Input": Object {
@@ -2546,6 +2588,20 @@ Object {
       "pl": "none",
       "pr": "none",
       "px": 12,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Input fuzz: value="value" 1`] = `Object {}`;
+
+exports[`mobile theme Input fuzz: value="value" clearable="always" 1`] = `
+Object {
+  "IconAfter": Object {
+    "component": #IconCross,
+    "props": Object {
+      "area": 10,
+      "size": "s",
     },
   },
 }
@@ -2860,8 +2916,6 @@ Object {
   },
 }
 `;
-
-exports[`mobile theme ListItem fuzz: disabled=false 1`] = `Object {}`;
 
 exports[`mobile theme ListItem fuzz: onClick=undefined 1`] = `
 Object {
@@ -3378,7 +3432,60 @@ Object {
 }
 `;
 
-exports[`mobile theme Switcher fuzz: checked loading 1`] = `
+exports[`mobile theme Switcher fuzz: checked loading disabled 1`] = `
+Object {
+  "Icon": Object {
+    "component": Object {
+      "baseTheme": Object {
+        "scheme": Object {
+          "Spinner": Object {
+            "component": #IconSpinner,
+            "size": Object {
+              "l": Object {
+                "props": Object {
+                  "size": 32,
+                },
+              },
+              "m": Object {
+                "props": Object {
+                  "size": 24,
+                },
+              },
+              "s": Object {
+                "props": Object {
+                  "size": 16,
+                },
+              },
+            },
+          },
+        },
+      },
+      "category": undefined,
+      "displayName": "Spinner",
+      "type": Object {
+        "render": [Function],
+      },
+    },
+  },
+  "Label": Object {
+    "props": Object {
+      "color": "gray48",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Switcher fuzz: checked loading disabled=false 1`] = `
 Object {
   "Icon": Object {
     "component": Object {
@@ -3426,7 +3533,24 @@ Object {
 }
 `;
 
-exports[`mobile theme Switcher fuzz: checked loading=false 1`] = `
+exports[`mobile theme Switcher fuzz: checked loading=false disabled 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "color": "gray48",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgActive": "blue700",
+      "bgDisabled": "blue300",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Switcher fuzz: checked loading=false disabled=false 1`] = `
 Object {
   "Switch": Object {
     "style": Object {
@@ -3438,7 +3562,60 @@ Object {
 }
 `;
 
-exports[`mobile theme Switcher fuzz: checked=false loading 1`] = `
+exports[`mobile theme Switcher fuzz: checked=false loading disabled 1`] = `
+Object {
+  "Icon": Object {
+    "component": Object {
+      "baseTheme": Object {
+        "scheme": Object {
+          "Spinner": Object {
+            "component": #IconSpinner,
+            "size": Object {
+              "l": Object {
+                "props": Object {
+                  "size": 32,
+                },
+              },
+              "m": Object {
+                "props": Object {
+                  "size": 24,
+                },
+              },
+              "s": Object {
+                "props": Object {
+                  "size": 16,
+                },
+              },
+            },
+          },
+        },
+      },
+      "category": undefined,
+      "displayName": "Spinner",
+      "type": Object {
+        "render": [Function],
+      },
+    },
+  },
+  "Label": Object {
+    "props": Object {
+      "color": "gray48",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "align": "center",
+      "bg": "transparent",
+      "bgActive": "transparent",
+      "bgDisabled": "transparent",
+      "color": "gray28",
+      "focus": false,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Switcher fuzz: checked=false loading disabled=false 1`] = `
 Object {
   "Icon": Object {
     "component": Object {
@@ -3486,7 +3663,17 @@ Object {
 }
 `;
 
-exports[`mobile theme Switcher fuzz: checked=false loading=false 1`] = `Object {}`;
+exports[`mobile theme Switcher fuzz: checked=false loading=false disabled 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "color": "gray48",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Switcher fuzz: checked=false loading=false disabled=false 1`] = `Object {}`;
 
 exports[`mobile theme Switcher fuzz: size="l" 1`] = `Object {}`;
 
@@ -3730,7 +3917,58 @@ Object {
 }
 `;
 
-exports[`mobile theme Text fuzz: dense=false 1`] = `Object {}`;
+exports[`mobile theme Text fuzz: preset="heading" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "l",
+      "lineHeight": "dense",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Text fuzz: preset="heading-large" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "l",
+      "lineHeight": "dense",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Text fuzz: preset="heading-small" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "m",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Text fuzz: preset="title" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xxl",
+    },
+  },
+}
+`;
+
+exports[`mobile theme Text fuzz: preset="title-small" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xl",
+      "lineHeight": "dense",
+    },
+  },
+}
+`;
 
 exports[`mobile theme Text fuzz: size="l" 1`] = `
 Object {
@@ -3890,7 +4128,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Textarea fuzz: clearable 1`] = `
+exports[`mobile theme Textarea fuzz: clearable="always" 1`] = `
 Object {
   "IconClear": Object {
     "props": Object {
@@ -3899,8 +4137,6 @@ Object {
   },
 }
 `;
-
-exports[`mobile theme Textarea fuzz: clearable=false 1`] = `Object {}`;
 
 exports[`mobile theme Textarea fuzz: size="l" 1`] = `
 Object {
@@ -3933,6 +4169,18 @@ Object {
       "minHeight": "s",
       "px": 12,
       "py": 10,
+    },
+  },
+}
+`;
+
+exports[`mobile theme Textarea fuzz: value="value" 1`] = `Object {}`;
+
+exports[`mobile theme Textarea fuzz: value="value" clearable="always" 1`] = `
+Object {
+  "IconClear": Object {
+    "props": Object {
+      "visible": true,
     },
   },
 }
