@@ -5,6 +5,6 @@
     "**/__image_snapshots__/*"
   ],
   "componentFolder": "packages",
-  "testFiles": "**/*.cy.test.ts?",
+  "testFiles": "**/*.cy.test.{ts,tsx}",
   "video": false
 }

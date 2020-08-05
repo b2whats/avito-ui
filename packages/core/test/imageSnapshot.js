@@ -1,9 +1,9 @@
 // Если написать это на тс, жест-тесты взорвутся
 // https://github.com/cypress-io/cypress/issues/1087
 import { mount, unmount } from 'cypress-react-unit-test'
-import React, { ReactChild, ReactChildren, ReactElement } from 'react'
+import React from 'react'
 import { Stack, ThemeProvider, Box } from '@avito/core'
-import { prettyProps } from './helpers'
+import { prettyProps, flattenSets } from './helpers'
 
 export const imageSnapshot = (theme, children) => () => {
   mount(
@@ -29,3 +29,12 @@ export const withPropLabels = (propCombos, render) => (
     )) }
   </Stack>
 )
+
+export const describePropFuzz = (name, Component, theme, propMocks) => {
+  describe(name, () => {
+    it('default states', imageSnapshot(
+      theme,
+      withPropLabels(flattenSets(propMocks), props => <Component {...props} />)
+    ))
+  })
+}
