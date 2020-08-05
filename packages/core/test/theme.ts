@@ -10,6 +10,7 @@ export function describeTheme(name: string, theme: any, propValues: any[] = [{}]
 
 function fuzz(propValues: { [K: string]: any[] }, theme: any) {
   cartesian(propValues).forEach(props => {
-    expect(foldThemeParams(props, theme)).toMatchSnapshot(JSON.stringify(props))
+    expect(foldThemeParams(theme.mapProps({ ...theme.defaultProps, ...props }), theme))
+      .toMatchSnapshot(JSON.stringify(props))
   })
 }

@@ -10,7 +10,7 @@ const describeNamedTheme = (name: keyof Theme, baseTheme?: any, mockOptions?: an
   describeTheme(name, mergeTheme(baseTheme, theme[name]), mocks[name](mockOptions))
 }
 
-describe('mobile theme', () => {
+describe('web theme', () => {
   describeNamedTheme('Avatar')
   describeNamedTheme('Badge')
   describeNamedTheme('Button')
@@ -29,7 +29,4 @@ describe('mobile theme', () => {
 
   describeNamedTheme('Text')
   describeNamedTheme('Link')
-
-  describeNamedTheme('ListItem')
-  describeNamedTheme('SegmentButton')
 })
