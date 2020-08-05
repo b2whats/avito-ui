@@ -205,6 +205,12 @@ Object {
 
 exports[`mobile theme Badge base 1`] = `Object {}`;
 
+exports[`mobile theme Badge fuzz: gapColor="red500" 1`] = `Object {}`;
+
+exports[`mobile theme Badge fuzz: gapSize=0 1`] = `Object {}`;
+
+exports[`mobile theme Badge fuzz: gapSize=4 1`] = `Object {}`;
+
 exports[`mobile theme Badge snap 1`] = `
 Object {
   "defaultProps": Object {

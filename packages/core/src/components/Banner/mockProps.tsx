@@ -1,5 +1,6 @@
-import { bool } from '../../../test'
+import { bool, mockProps } from '../../../test'
+import { BannerProps } from './contract'
 
-export const bannerMock = () => [{
+export const bannerMock = mockProps<BannerProps>(() => [{
   column: bool,
-}]
+}])

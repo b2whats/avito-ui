@@ -1,6 +1,7 @@
-import { variant, bool, sml } from '../../../test'
+import { variant, bool, sml, mockProps } from '../../../test'
+import { SwitcherProps } from './contract'
 
-export const switcherMock = () => [{
+export const switcherMock = mockProps<SwitcherProps>(() => [{
   variant,
   checked: bool,
 }, {
@@ -8,4 +9,4 @@ export const switcherMock = () => [{
   loading: bool,
 }, {
   size: sml,
-}]
+}])

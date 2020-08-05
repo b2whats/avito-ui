@@ -1,6 +1,7 @@
-import { variant, sml, icon, maybe } from '../../../test'
+import { variant, sml, icon, maybe, mockProps } from '../../../test'
+import { InputProps } from './contract'
 
-export const inputMock = () => [{
+export const inputMock = mockProps<InputProps>(() => [{
   size: sml,
   iconBefore: maybe(icon),
   iconAfter: maybe(icon),
@@ -9,4 +10,8 @@ export const inputMock = () => [{
   clearable: [true],
 }, {
   variant,
-}]
+}], {
+  browserBase: {
+    width: 200,
+  } as any,
+})

@@ -34,7 +34,7 @@ export const describePropFuzz = (name, Component, theme, propMocks) => {
   describe(name, () => {
     it('default states', imageSnapshot(
       theme,
-      withPropLabels(flattenSets(propMocks), props => <Component {...props} />)
+      withPropLabels(flattenSets(propMocks.sets), props => <Component {...propMocks.browserBase} {...props} />)
     ))
   })
 }

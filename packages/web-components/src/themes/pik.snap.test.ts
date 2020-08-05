@@ -1,6 +1,6 @@
 import { mergeTheme, Theme } from '@avito/core'
 import * as components from '..'
-import { describeTheme, sml } from '../../../core/test'
+import { describeTheme, sml, mockProps } from '../../../core/test'
 import { mocks } from '../mockProps'
 import { theme as webTheme } from '../theme'
 import { pikTheme } from './pik'
@@ -14,6 +14,8 @@ describe('pik theme', () => {
   describeNamedTheme('Button')
   describeNamedTheme('Input')
   describeNamedTheme('Textarea')
-  describeTheme('Select', mergeTheme((components.Select as any).baseTheme, pikTheme.Select), [{ size: sml }])
+  describeTheme('Select',
+    mergeTheme((components.Select as any).baseTheme, pikTheme.Select),
+    mockProps(() => [{ size: sml }])({}))
   describeNamedTheme('Text')
 })

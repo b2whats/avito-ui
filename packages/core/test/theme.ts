@@ -1,8 +1,8 @@
 import { diff } from 'deep-object-diff'
 import { foldThemeParams } from '../src'
-import { cartesian, prettyProps } from './helpers'
+import { flattenSets, prettyProps } from './helpers'
 
-export function describeTheme(name: string, theme: any, propValues: any[] = [{}]) {
+export function describeTheme(name: string, theme: any, propValues: any = {}) {
   describe(name, () => {
     // snapshot actual theme
     it('snap', () => expect(theme).toMatchSnapshot())
@@ -11,15 +11,10 @@ export function describeTheme(name: string, theme: any, propValues: any[] = [{}]
     it('base', () => expect(base).toMatchSnapshot())
     // effects of prop combos on theme
     it('fuzz', () => {
-      propValues.forEach(orthoProps => {
-        cartesian(orthoProps).forEach(props => {
-          if (Object.keys(props).length === 0) {
-            // we already have base snapshot
-            return
-          }
-          expect(diff(base, applyTheme(theme, props))).toMatchSnapshot(prettyProps(props))
-        })
-      })
+      flattenSets(propValues.sets || [])
+        // we already havea base snapshot
+        .filter(props => Object.keys(props).length)
+        .forEach(props => expect(diff(base, applyTheme(theme, props))).toMatchSnapshot(prettyProps(props)))
     })
   })
 }

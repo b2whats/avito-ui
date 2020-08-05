@@ -1,6 +1,7 @@
-import { bool, variant, sml } from '../../../test'
+import { bool, variant, sml, mockProps } from '../../../test'
+import { CheckboxProps } from './contract'
 
-export const checkboxMock = () => [{
+export const checkboxMock = mockProps<CheckboxProps>(() => [{
   checked: bool,
   indeterminate: bool,
 }, {
@@ -8,4 +9,4 @@ export const checkboxMock = () => [{
   variant,
 }, {
   size: sml,
-}]
+}])
