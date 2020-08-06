@@ -35,7 +35,10 @@ module.exports = (on, config) => {
               use: [
                 {
                   loader: 'babel-loader',
-                  options: babelConfig,
+                  options: {
+                    ...babelConfig,
+                    cacheDirectory: true,
+                  },
                 },
               ],
             },

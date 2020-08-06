@@ -17,7 +17,7 @@ export const buttonMock = mockProps<ButtonProps, { buttonPresets: string[] }>(({
 }, {
   children: [['line 1', <br key='' />, 'line 2']],
   size: sml,
-  multiline: bool,
+  multiline: [true],
 }], {
   browserSets: [{
     disabled: [true],

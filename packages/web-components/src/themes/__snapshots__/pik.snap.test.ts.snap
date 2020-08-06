@@ -473,7 +473,7 @@ Object {
 }
 `;
 
-exports[`pik theme Button fuzz: children={jsx} size="l" multiline 1`] = `
+exports[`pik theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="l" multiline 1`] = `
 Object {
   "Button": Object {
     "style": Object {
@@ -507,39 +507,7 @@ Object {
 }
 `;
 
-exports[`pik theme Button fuzz: children={jsx} size="l" multiline=false 1`] = `
-Object {
-  "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "px": 36,
-      "py": 11,
-    },
-  },
-  "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
-  },
-  "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
-  },
-  "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
-  },
-  "Text": Object {
-    "props": Object {
-      "size": "l",
-    },
-  },
-}
-`;
-
-exports[`pik theme Button fuzz: children={jsx} size="m" multiline 1`] = `
+exports[`pik theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="m" multiline 1`] = `
 Object {
   "Button": Object {
     "style": Object {
@@ -549,35 +517,12 @@ Object {
 }
 `;
 
-exports[`pik theme Button fuzz: children={jsx} size="m" multiline=false 1`] = `Object {}`;
-
-exports[`pik theme Button fuzz: children={jsx} size="s" multiline 1`] = `
+exports[`pik theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="s" multiline 1`] = `
 Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
       "py": 9,
-    },
-  },
-  "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
-  },
-  "Text": Object {
-    "props": Object {
-      "size": "s",
-    },
-  },
-}
-`;
-
-exports[`pik theme Button fuzz: children={jsx} size="s" multiline=false 1`] = `
-Object {
-  "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "py": 5,
     },
   },
   "Spinner": Object {

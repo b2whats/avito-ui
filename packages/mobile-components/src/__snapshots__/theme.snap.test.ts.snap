@@ -797,7 +797,7 @@ Object {
 }
 `;
 
-exports[`mobile theme Button fuzz: children={jsx} size="l" multiline 1`] = `
+exports[`mobile theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="l" multiline 1`] = `
 Object {
   "Button": Object {
     "style": Object {
@@ -823,53 +823,9 @@ Object {
 }
 `;
 
-exports[`mobile theme Button fuzz: children={jsx} size="l" multiline=false 1`] = `
-Object {
-  "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "py": 8,
-    },
-  },
-  "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
-  },
-  "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
-  },
-  "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
-  },
-}
-`;
+exports[`mobile theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="m" multiline 1`] = `Object {}`;
 
-exports[`mobile theme Button fuzz: children={jsx} size="m" multiline 1`] = `Object {}`;
-
-exports[`mobile theme Button fuzz: children={jsx} size="m" multiline=false 1`] = `Object {}`;
-
-exports[`mobile theme Button fuzz: children={jsx} size="s" multiline 1`] = `
-Object {
-  "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "py": 4,
-    },
-  },
-  "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
-  },
-}
-`;
-
-exports[`mobile theme Button fuzz: children={jsx} size="s" multiline=false 1`] = `
+exports[`mobile theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="s" multiline 1`] = `
 Object {
   "Button": Object {
     "style": Object {
