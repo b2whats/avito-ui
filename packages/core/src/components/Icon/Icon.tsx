@@ -18,7 +18,9 @@ const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
     shrink: false,
     ...themeStyle,
     ...props,
-    height: props.size === 'auto' ? 1 : themeStyle.height || props.size,
+    height: props.size === 'auto' ? 1 :
+            typeof props.size === 'string' ? themeStyle.height :
+            props.size,
   }),
   (textRules, { spin, rotate, area, shadow }) => css`
     fill: currentColor;
