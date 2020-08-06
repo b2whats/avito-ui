@@ -1,4 +1,6 @@
+import React from 'react'
 import { variant, sml, icon, maybe, mockProps } from '../../../test'
+import { Text } from '../Text'
 import { InputProps } from './contract'
 
 export const inputMock = mockProps<InputProps>(() => [{
@@ -21,6 +23,9 @@ export const inputMock = mockProps<InputProps>(() => [{
     iconAfter: [icon],
     prefix: ['от'],
     postfix: ['руб'],
+    value: maybe(999),
+  }, {
+    prefix: [<Text color='red' key=''>red</Text>],
     value: maybe(999),
   }],
 })
