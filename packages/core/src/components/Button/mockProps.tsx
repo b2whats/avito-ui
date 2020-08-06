@@ -15,7 +15,7 @@ export const buttonMock = mockProps<ButtonProps, { buttonPresets: string[] }>(({
   checked: bool,
   loading: bool,
 }, {
-  children: [<>line 1<br />line 2</>],
+  children: [['line 1', <br key='' />, 'line 2']],
   size: sml,
   multiline: bool,
 }], {

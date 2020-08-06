@@ -2,16 +2,21 @@
 // https://github.com/cypress-io/cypress/issues/1087
 import { mount, unmount } from 'cypress-react-unit-test'
 import React from 'react'
-import { Stack, ThemeProvider, Box } from '@avito/core'
+import { Stack, ThemeProvider, Box, Page } from '@avito/core'
 import { prettyProps, flattenSets } from './helpers'
 
 export const imageSnapshot = (theme, children) => () => {
   mount(
     <div id='screen'>
       <ThemeProvider defaultTheme={theme}>
-        { children }
+        <Page>
+          { children }
+        </Page>
       </ThemeProvider>
-    </div>
+    </div>,
+    {
+      cssFile: 'styleguidist/assets/font.css',
+    }
   )
   cy.get('#screen').matchImageSnapshot({
     padding: 5,
