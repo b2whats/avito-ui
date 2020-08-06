@@ -102,14 +102,7 @@ Object {
 exports[`web theme Avatar fuzz: type="company" 1`] = `
 Object {
   "Fallback": Object {
-    "component": Object {
-      "category": "component",
-      "displayName": "IconCompanyUser",
-      "platform": undefined,
-      "type": Object {
-        "render": [Function],
-      },
-    },
+    "component": #IconCompanyUser,
   },
 }
 `;
@@ -119,14 +112,7 @@ exports[`web theme Avatar fuzz: type="person" 1`] = `Object {}`;
 exports[`web theme Avatar fuzz: type="shop" 1`] = `
 Object {
   "Fallback": Object {
-    "component": Object {
-      "category": "component",
-      "displayName": "IconShopUser",
-      "platform": undefined,
-      "type": Object {
-        "render": [Function],
-      },
-    },
+    "component": #IconShopUser,
   },
 }
 `;

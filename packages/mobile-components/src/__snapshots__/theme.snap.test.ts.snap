@@ -103,14 +103,7 @@ Object {
 exports[`mobile theme Avatar fuzz: type="company" 1`] = `
 Object {
   "Fallback": Object {
-    "component": Object {
-      "category": "component",
-      "displayName": "IconCompanyUser",
-      "platform": undefined,
-      "type": Object {
-        "render": [Function],
-      },
-    },
+    "component": #IconCompanyUser,
   },
 }
 `;
@@ -120,14 +113,7 @@ exports[`mobile theme Avatar fuzz: type="person" 1`] = `Object {}`;
 exports[`mobile theme Avatar fuzz: type="shop" 1`] = `
 Object {
   "Fallback": Object {
-    "component": Object {
-      "category": "component",
-      "displayName": "IconShopUser",
-      "platform": undefined,
-      "type": Object {
-        "render": [Function],
-      },
-    },
+    "component": #IconShopUser,
   },
   "Wrapper": Object {
     "style": Object {
@@ -3435,37 +3421,7 @@ Object {
 exports[`mobile theme Switcher fuzz: checked loading disabled 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "baseTheme": Object {
-        "scheme": Object {
-          "Spinner": Object {
-            "component": #IconSpinner,
-            "size": Object {
-              "l": Object {
-                "props": Object {
-                  "size": 32,
-                },
-              },
-              "m": Object {
-                "props": Object {
-                  "size": 24,
-                },
-              },
-              "s": Object {
-                "props": Object {
-                  "size": 16,
-                },
-              },
-            },
-          },
-        },
-      },
-      "category": undefined,
-      "displayName": "Spinner",
-      "type": Object {
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
   },
   "Label": Object {
     "props": Object {
@@ -3488,37 +3444,7 @@ Object {
 exports[`mobile theme Switcher fuzz: checked loading disabled=false 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "baseTheme": Object {
-        "scheme": Object {
-          "Spinner": Object {
-            "component": #IconSpinner,
-            "size": Object {
-              "l": Object {
-                "props": Object {
-                  "size": 32,
-                },
-              },
-              "m": Object {
-                "props": Object {
-                  "size": 24,
-                },
-              },
-              "s": Object {
-                "props": Object {
-                  "size": 16,
-                },
-              },
-            },
-          },
-        },
-      },
-      "category": undefined,
-      "displayName": "Spinner",
-      "type": Object {
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
   },
   "Switch": Object {
     "style": Object {
@@ -3565,37 +3491,7 @@ Object {
 exports[`mobile theme Switcher fuzz: checked=false loading disabled 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "baseTheme": Object {
-        "scheme": Object {
-          "Spinner": Object {
-            "component": #IconSpinner,
-            "size": Object {
-              "l": Object {
-                "props": Object {
-                  "size": 32,
-                },
-              },
-              "m": Object {
-                "props": Object {
-                  "size": 24,
-                },
-              },
-              "s": Object {
-                "props": Object {
-                  "size": 16,
-                },
-              },
-            },
-          },
-        },
-      },
-      "category": undefined,
-      "displayName": "Spinner",
-      "type": Object {
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
   },
   "Label": Object {
     "props": Object {
@@ -3618,37 +3514,7 @@ Object {
 exports[`mobile theme Switcher fuzz: checked=false loading disabled=false 1`] = `
 Object {
   "Icon": Object {
-    "component": Object {
-      "baseTheme": Object {
-        "scheme": Object {
-          "Spinner": Object {
-            "component": #IconSpinner,
-            "size": Object {
-              "l": Object {
-                "props": Object {
-                  "size": 32,
-                },
-              },
-              "m": Object {
-                "props": Object {
-                  "size": 24,
-                },
-              },
-              "s": Object {
-                "props": Object {
-                  "size": 16,
-                },
-              },
-            },
-          },
-        },
-      },
-      "category": undefined,
-      "displayName": "Spinner",
-      "type": Object {
-        "render": [Function],
-      },
-    },
+    "component": #Spinner,
   },
   "Switch": Object {
     "style": Object {
