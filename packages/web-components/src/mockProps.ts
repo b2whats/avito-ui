@@ -1,4 +1,4 @@
-import { mocks as baseMocks } from '../../core/test'
+import { mocks as baseMocks } from '../../core/test/components'
 
 export const mocks = {
   ...baseMocks,
