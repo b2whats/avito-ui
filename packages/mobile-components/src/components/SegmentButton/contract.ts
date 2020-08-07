@@ -3,7 +3,7 @@ import { MarginProperties, CommonAttributes } from '@avito/core'
 type Options = {
   value: string | number
   text: string
-  disabled: boolean
+  disabled?: boolean
 }
 
 export interface SegmentButtonProps extends MarginProperties, CommonAttributes<HTMLElement, number | string> {

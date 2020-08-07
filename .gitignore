@@ -8,3 +8,6 @@ lerna-debug.log
 npm-debug.log
 yarn-error.log
 *.tsbuildinfo
+__diff_output__
+coverage
+

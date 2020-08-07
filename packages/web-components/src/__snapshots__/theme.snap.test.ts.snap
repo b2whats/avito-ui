@@ -1,0 +1,4654 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`web theme Alert base 1`] = `
+Object {
+  "Card": Object {
+    "component": null,
+    "props": Object {
+      "block": true,
+      "borderColor": "gray12",
+      "borderWidth": 1,
+      "pb": 22,
+      "pl": 24,
+      "pr": 24,
+      "pt": 20,
+      "rounded": 12,
+    },
+    "style": Object {},
+  },
+  "Close": Object {
+    "component": #IconCross,
+    "props": Object {
+      "bgActive": "black16",
+      "bgHover": "black8",
+      "color": "gray28",
+      "p": 8,
+      "position": "absolute",
+      "right": 4,
+      "rounded": "circle",
+      "size": "s",
+      "top": 4,
+    },
+    "style": Object {},
+  },
+  "Content": Object {
+    "component": null,
+    "props": Object {
+      "p": 0,
+    },
+    "style": Object {},
+  },
+  "Image": Object {
+    "component": null,
+    "props": Object {
+      "mr": 18,
+      "order": 0,
+      "size": 28,
+      "valignSelf": "top",
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: column 1`] = `Object {}`;
+
+exports[`web theme Alert fuzz: column=false 1`] = `Object {}`;
+
+exports[`web theme Alert fuzz: variant="error" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "red100",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "red500",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: variant="primary" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "blue50",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: variant="secondary" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "gray4",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "gray64",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: variant="success" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "green100",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: variant="warning" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "orange50",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "orange700",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert snap 1`] = `
+Object {
+  "mapProps": [Function],
+  "scheme": Object {
+    "Card": Object {
+      "props": Object {
+        "block": true,
+        "borderColor": "gray12",
+        "borderWidth": 1,
+        "pb": 22,
+        "pl": 24,
+        "pr": 24,
+        "pt": 20,
+        "rounded": 12,
+      },
+      "variant": Object {
+        "error": Object {
+          "props": Object {
+            "bg": "red100",
+            "borderColor": "transparent",
+          },
+        },
+        "primary": Object {
+          "props": Object {
+            "bg": "blue50",
+            "borderColor": "transparent",
+          },
+        },
+        "secondary": Object {
+          "props": Object {
+            "bg": "gray4",
+            "borderColor": "transparent",
+          },
+        },
+        "success": Object {
+          "props": Object {
+            "bg": "green100",
+            "borderColor": "transparent",
+          },
+        },
+        "warning": Object {
+          "props": Object {
+            "bg": "orange50",
+            "borderColor": "transparent",
+          },
+        },
+      },
+    },
+    "Close": Object {
+      "component": #IconCross,
+      "props": Object {
+        "bgActive": "black16",
+        "bgHover": "black8",
+        "color": "gray28",
+        "p": 8,
+        "position": "absolute",
+        "right": 4,
+        "rounded": "circle",
+        "size": "s",
+        "top": 4,
+      },
+    },
+    "Content": Object {
+      "props": Object {
+        "p": 0,
+      },
+    },
+    "Image": Object {
+      "column": Object {
+        "props": Object {
+          "order": 0,
+        },
+      },
+      "props": Object {
+        "mr": 18,
+        "order": 0,
+        "size": 28,
+        "valignSelf": "top",
+      },
+      "variant": Object {
+        "error": Object {
+          "props": Object {
+            "color": "red500",
+          },
+        },
+        "primary": Object {
+          "props": Object {
+            "color": "blue600",
+          },
+        },
+        "secondary": Object {
+          "props": Object {
+            "color": "gray64",
+          },
+        },
+        "success": Object {
+          "props": Object {
+            "color": "green600",
+          },
+        },
+        "warning": Object {
+          "props": Object {
+            "color": "orange700",
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Avatar base 1`] = `
+Object {
+  "Badge": Object {
+    "component": null,
+    "props": Object {
+      "bottom": 0,
+      "height": 5,
+      "position": "absolute",
+      "right": 0,
+      "width": 5,
+    },
+    "style": Object {},
+  },
+  "Fallback": Object {
+    "component": #IconUser,
+    "props": Object {
+      "size": 9.6,
+    },
+    "style": Object {},
+  },
+  "Wrapper": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "align": "center",
+      "color": "white",
+      "fontSize": 12,
+      "height": 20,
+      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
+      "shape": "circle",
+      "valignSelf": "middle",
+      "width": 20,
+    },
+  },
+}
+`;
+
+exports[`web theme Avatar fuzz: isFallback 1`] = `
+Object {
+  "Wrapper": Object {
+    "style": Object {
+      "bg": "gray4",
+      "color": "gray28",
+      "valign": "middle",
+    },
+  },
+}
+`;
+
+exports[`web theme Avatar fuzz: isFallback=false 1`] = `Object {}`;
+
+exports[`web theme Avatar fuzz: size=20 1`] = `Object {}`;
+
+exports[`web theme Avatar fuzz: size=45 1`] = `
+Object {
+  "Badge": Object {
+    "props": Object {
+      "height": 11.25,
+      "width": 11.25,
+    },
+  },
+  "Fallback": Object {
+    "props": Object {
+      "size": 21.599999999999998,
+    },
+  },
+  "Wrapper": Object {
+    "style": Object {
+      "fontSize": 27,
+      "height": 45,
+      "width": 45,
+    },
+  },
+}
+`;
+
+exports[`web theme Avatar fuzz: size=60 1`] = `
+Object {
+  "Badge": Object {
+    "props": Object {
+      "height": 15,
+      "width": 15,
+    },
+  },
+  "Fallback": Object {
+    "props": Object {
+      "size": 28.799999999999997,
+    },
+  },
+  "Wrapper": Object {
+    "style": Object {
+      "fontSize": 36,
+      "height": 60,
+      "width": 60,
+    },
+  },
+}
+`;
+
+exports[`web theme Avatar fuzz: type="company" 1`] = `
+Object {
+  "Fallback": Object {
+    "component": #IconCompanyUser,
+  },
+}
+`;
+
+exports[`web theme Avatar fuzz: type="person" 1`] = `Object {}`;
+
+exports[`web theme Avatar fuzz: type="shop" 1`] = `
+Object {
+  "Fallback": Object {
+    "component": #IconShopUser,
+  },
+}
+`;
+
+exports[`web theme Avatar snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "size": 20,
+    "type": "person",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "Badge": Object {
+      "props": Object {
+        "bottom": 0,
+        "height": [Function],
+        "position": "absolute",
+        "right": 0,
+        "width": [Function],
+      },
+    },
+    "Fallback": Object {
+      "component": #IconUser,
+      "props": Object {
+        "size": [Function],
+      },
+      "type": Object {
+        "company": Object {
+          "component": #IconCompanyUser,
+        },
+        "shop": Object {
+          "component": #IconShopUser,
+        },
+      },
+    },
+    "Wrapper": Object {
+      "isFallback": Object {
+        "style": Object {
+          "align": "center",
+          "bg": "gray4",
+          "color": "gray28",
+          "valign": "middle",
+        },
+      },
+      "style": Object {
+        "align": "center",
+        "color": "white",
+        "fontSize": [Function],
+        "height": [Function],
+        "overlayDisabled": "rgba(255, 255, 255, 0.5)",
+        "shape": "circle",
+        "valignSelf": "middle",
+        "width": [Function],
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Badge base 1`] = `Object {}`;
+
+exports[`web theme Badge fuzz: gapColor="red500" 1`] = `Object {}`;
+
+exports[`web theme Badge fuzz: gapSize=0 1`] = `Object {}`;
+
+exports[`web theme Badge fuzz: gapSize=4 1`] = `Object {}`;
+
+exports[`web theme Badge snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "gapColor": "white",
+    "gapSize": 2,
+  },
+  "mapProps": [Function],
+  "scheme": Object {},
+}
+`;
+
+exports[`web theme Banner base 1`] = `
+Object {
+  "Card": Object {
+    "component": null,
+    "props": Object {
+      "block": true,
+      "rounded": 12,
+    },
+    "style": Object {},
+  },
+  "Close": Object {
+    "component": #IconCross,
+    "props": Object {
+      "bgActive": "black16",
+      "bgHover": "black8",
+      "color": "gray28",
+      "p": 8,
+      "position": "absolute",
+      "right": 4,
+      "rounded": "circle",
+      "size": "s",
+      "top": 4,
+    },
+    "style": Object {},
+  },
+  "Content": Object {
+    "component": null,
+    "props": Object {
+      "p": 12,
+      "pb": 32,
+      "pl": 32,
+      "pr": 32,
+      "pt": 28,
+    },
+    "style": Object {},
+  },
+  "Image": Object {
+    "component": null,
+    "props": Object {
+      "order": 1,
+      "p": 4,
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Banner fuzz: column 1`] = `
+Object {
+  "Content": Object {
+    "props": Object {
+      "pb": 16,
+      "pl": 16,
+      "pr": 16,
+      "pt": 12,
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "order": 0,
+    },
+  },
+}
+`;
+
+exports[`web theme Banner fuzz: column=false 1`] = `Object {}`;
+
+exports[`web theme Banner snap 1`] = `
+Object {
+  "mapProps": [Function],
+  "scheme": Object {
+    "Card": Object {
+      "props": Object {
+        "block": true,
+        "rounded": 12,
+      },
+    },
+    "Close": Object {
+      "component": #IconCross,
+      "props": Object {
+        "bgActive": "black16",
+        "bgHover": "black8",
+        "color": "gray28",
+        "p": 8,
+        "position": "absolute",
+        "right": 4,
+        "rounded": "circle",
+        "size": "s",
+        "top": 4,
+      },
+    },
+    "Content": Object {
+      "column": Object {
+        "props": Object {
+          "pb": 16,
+          "pl": 16,
+          "pr": 16,
+          "pt": 12,
+        },
+      },
+      "props": Object {
+        "p": 12,
+        "pb": 32,
+        "pl": 32,
+        "pr": 32,
+        "pt": 28,
+      },
+    },
+    "Image": Object {
+      "column": Object {
+        "props": Object {
+          "order": 0,
+        },
+      },
+      "props": Object {
+        "order": 1,
+        "p": 4,
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Button base 1`] = `
+Object {
+  "Button": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "transparent",
+      "bgActive": "gray12",
+      "bgDisabled": "transparent",
+      "bgHover": "gray4",
+      "borderColor": "gray20",
+      "borderRadius": 5,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "color": "black",
+      "focus": "blue100",
+      "minHeight": "s",
+      "px": 12,
+      "py": 5,
+    },
+  },
+  "IconAfter": Object {
+    "component": null,
+    "props": Object {
+      "size": "s",
+    },
+    "style": Object {},
+  },
+  "IconBefore": Object {
+    "component": null,
+    "props": Object {
+      "size": "s",
+    },
+    "style": Object {},
+  },
+  "Spinner": Object {
+    "component": null,
+    "props": Object {
+      "size": "s",
+      "variant": "primary",
+    },
+    "style": Object {},
+  },
+  "Text": Object {
+    "component": null,
+    "props": Object {
+      "crop": true,
+      "lineHeight": 1.1875,
+      "ml": -1,
+      "size": "s",
+      "valignSelf": "middle",
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="default" checked loading 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: children="text" preset="default" checked loading=false 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: children="text" preset="default" checked=false loading 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: children="text" preset="default" checked=false loading=false 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: children="text" preset="error" checked loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "red500",
+      "bgActive": "red700",
+      "bgDisabled": "red500",
+      "bgHover": "red600",
+      "borderColor": "transparent",
+      "color": "white",
+      "focus": "red100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="error" checked loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "red500",
+      "bgActive": "red700",
+      "bgDisabled": "red500",
+      "bgHover": "red600",
+      "borderColor": "transparent",
+      "color": "white",
+      "focus": "red100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="error" checked=false loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "red500",
+      "bgActive": "red700",
+      "bgDisabled": "red500",
+      "bgHover": "red600",
+      "borderColor": "transparent",
+      "color": "white",
+      "focus": "red100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="error" checked=false loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "red500",
+      "bgActive": "red700",
+      "bgDisabled": "red500",
+      "bgHover": "red600",
+      "borderColor": "transparent",
+      "color": "white",
+      "focus": "red100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="newDefault" checked loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "gray8",
+      "bgActive": "gray20",
+      "bgDisabled": "gray8",
+      "bgHover": "gray12",
+      "borderColor": "transparent",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="newDefault" checked loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "gray8",
+      "bgActive": "gray20",
+      "bgDisabled": "gray8",
+      "bgHover": "gray12",
+      "borderColor": "transparent",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="newDefault" checked=false loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "gray8",
+      "bgActive": "gray20",
+      "bgDisabled": "gray8",
+      "bgHover": "gray12",
+      "borderColor": "transparent",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="newDefault" checked=false loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "gray8",
+      "bgActive": "gray20",
+      "bgDisabled": "gray8",
+      "bgHover": "gray12",
+      "borderColor": "transparent",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="primary" checked loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgActive": "blue700",
+      "bgDisabled": "blue500",
+      "bgHover": "blue600",
+      "borderColor": "transparent",
+      "color": "white",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="primary" checked loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgActive": "blue700",
+      "bgDisabled": "blue500",
+      "bgHover": "blue600",
+      "borderColor": "transparent",
+      "color": "white",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="primary" checked=false loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgActive": "blue700",
+      "bgDisabled": "blue500",
+      "bgHover": "blue600",
+      "borderColor": "transparent",
+      "color": "white",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="primary" checked=false loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgActive": "blue700",
+      "bgDisabled": "blue500",
+      "bgHover": "blue600",
+      "borderColor": "transparent",
+      "color": "white",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="success" checked loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green700",
+      "bgDisabled": "green500",
+      "bgHover": "green600",
+      "borderColor": "transparent",
+      "color": "white",
+      "focus": "green100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="success" checked loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green700",
+      "bgDisabled": "green500",
+      "bgHover": "green600",
+      "borderColor": "transparent",
+      "color": "white",
+      "focus": "green100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="success" checked=false loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green700",
+      "bgDisabled": "green500",
+      "bgHover": "green600",
+      "borderColor": "transparent",
+      "color": "white",
+      "focus": "green100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="success" checked=false loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgActive": "green700",
+      "bgDisabled": "green500",
+      "bgHover": "green600",
+      "borderColor": "transparent",
+      "color": "white",
+      "focus": "green100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="warning" checked loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "orange500",
+      "bgActive": "orange700",
+      "bgDisabled": "orange500",
+      "bgHover": "orange600",
+      "borderColor": "transparent",
+      "focus": "orange100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="warning" checked loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "orange500",
+      "bgActive": "orange700",
+      "bgDisabled": "orange500",
+      "bgHover": "orange600",
+      "borderColor": "transparent",
+      "focus": "orange100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="warning" checked=false loading 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "orange500",
+      "bgActive": "orange700",
+      "bgDisabled": "orange500",
+      "bgHover": "orange600",
+      "borderColor": "transparent",
+      "focus": "orange100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children="text" preset="warning" checked=false loading=false 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "bg": "orange500",
+      "bgActive": "orange700",
+      "bgDisabled": "orange500",
+      "bgHover": "orange600",
+      "borderColor": "transparent",
+      "focus": "orange100",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "variant": undefined,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="l" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "px": 18,
+      "py": 9,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="m" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "px": 16,
+      "py": 9,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="s" multiline 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "py": 9,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="l" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "px": 18,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="l" children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "px": 18,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="l" iconAfter={jsx} 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "px": 18,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "mr": 8,
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="l" iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "pr": 12,
+      "px": 18,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "mr": 8,
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="l" iconBefore={jsx} 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "px": 18,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 8,
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="l" iconBefore={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "pl": 12,
+      "px": 18,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 8,
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "px": 18,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 8,
+      "mr": 8,
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "l",
+      "pl": 12,
+      "pr": 12,
+      "px": 18,
+      "py": 11,
+    },
+  },
+  "IconAfter": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 8,
+      "mr": 8,
+      "size": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="m" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "px": 16,
+      "py": 8,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="m" children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "px": 16,
+      "py": 8,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="m" iconAfter={jsx} 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "px": 16,
+      "py": 8,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "mr": 6,
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="m" iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "pr": 12,
+      "px": 16,
+      "py": 8,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "mr": 6,
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="m" iconBefore={jsx} 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "px": 16,
+      "py": 8,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 6,
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="m" iconBefore={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "pl": 12,
+      "px": 16,
+      "py": 8,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 6,
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "px": 16,
+      "py": 8,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 6,
+      "mr": 6,
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "minHeight": "m",
+      "pl": 12,
+      "pr": 12,
+      "px": 16,
+      "py": 8,
+    },
+  },
+  "Spinner": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 6,
+      "mr": 6,
+      "size": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="s" 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: size="s" children="text" 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: size="s" iconAfter={jsx} 1`] = `
+Object {
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "mr": 4,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="s" iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "pr": 12,
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "mr": 4,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="s" iconBefore={jsx} 1`] = `
+Object {
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 4,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="s" iconBefore={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "pl": 12,
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 4,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `
+Object {
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 4,
+      "mr": 4,
+    },
+  },
+}
+`;
+
+exports[`web theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
+Object {
+  "Button": Object {
+    "style": Object {
+      "pl": 12,
+      "pr": 12,
+    },
+  },
+  "Text": Object {
+    "props": Object {
+      "align": "left",
+      "ml": 4,
+      "mr": 4,
+    },
+  },
+}
+`;
+
+exports[`web theme Button snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "preset": "default",
+    "pressedOffset": 1,
+    "size": "s",
+    "type": "button",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "Button": Object {
+      "disabled": Object {
+        "style": Object {
+          "overlay": "rgba(255,255,255,0.5)",
+        },
+      },
+      "iconAfter": Object {
+        "children": Object {
+          "style": Object {
+            "pr": 12,
+          },
+        },
+      },
+      "iconBefore": Object {
+        "children": Object {
+          "style": Object {
+            "pl": 12,
+          },
+        },
+      },
+      "multiline": Object {
+        "style": Object {
+          "py": 9,
+        },
+      },
+      "preset": Object {
+        "default": Object {
+          "style": Object {
+            "bg": "transparent",
+            "bgActive": "gray12",
+            "bgDisabled": "transparent",
+            "bgHover": "gray4",
+            "borderColor": "gray20",
+            "color": "black",
+            "focus": "blue100",
+          },
+        },
+        "error": Object {
+          "style": Object {
+            "bg": "red500",
+            "bgActive": "red700",
+            "bgDisabled": "red500",
+            "bgHover": "red600",
+            "color": "white",
+            "focus": "red100",
+          },
+        },
+        "newDefault": Object {
+          "style": Object {
+            "bg": "gray8",
+            "bgActive": "gray20",
+            "bgDisabled": "gray8",
+            "bgHover": "gray12",
+            "color": "black",
+            "focus": "blue100",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "bg": "blue500",
+            "bgActive": "blue700",
+            "bgDisabled": "blue500",
+            "bgHover": "blue600",
+            "color": "white",
+            "focus": "blue100",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "bg": "green500",
+            "bgActive": "green700",
+            "bgDisabled": "green500",
+            "bgHover": "green600",
+            "color": "white",
+            "focus": "green100",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "bg": "orange500",
+            "bgActive": "orange700",
+            "bgDisabled": "orange500",
+            "bgHover": "orange600",
+            "color": "black",
+            "focus": "orange100",
+          },
+        },
+      },
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "minHeight": "l",
+            "px": 18,
+            "py": 11,
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "minHeight": "m",
+            "px": 16,
+            "py": 8,
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "minHeight": "s",
+            "px": 12,
+            "py": 5,
+          },
+        },
+      },
+      "style": Object {
+        "borderColor": "transparent",
+        "borderRadius": 5,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "focus": false,
+        "px": 16,
+      },
+    },
+    "IconAfter": Object {
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "size": "m",
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "size": "s",
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "size": "s",
+          },
+        },
+      },
+    },
+    "IconBefore": Object {
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "size": "m",
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "size": "s",
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "size": "s",
+          },
+        },
+      },
+    },
+    "Spinner": Object {
+      "preset": Object {
+        "default": Object {
+          "props": Object {
+            "variant": "primary",
+          },
+        },
+      },
+      "props": Object {
+        "variant": undefined,
+      },
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "size": "l",
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "size": "m",
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "size": "s",
+          },
+        },
+      },
+    },
+    "Text": Object {
+      "iconAfter": Object {
+        "multiline": Object {
+          "props": Object {
+            "mr": 10,
+          },
+        },
+        "props": Object {
+          "align": "left",
+          "mr": 6,
+        },
+        "size": Object {
+          "l": Object {
+            "props": Object {
+              "mr": 8,
+            },
+          },
+          "m": Object {
+            "props": Object {
+              "mr": 6,
+            },
+          },
+          "s": Object {
+            "props": Object {
+              "mr": 4,
+            },
+          },
+        },
+      },
+      "iconBefore": Object {
+        "multiline": Object {
+          "props": Object {
+            "ml": 10,
+          },
+        },
+        "props": Object {
+          "align": "left",
+          "ml": 6,
+        },
+        "size": Object {
+          "l": Object {
+            "props": Object {
+              "ml": 8,
+            },
+          },
+          "m": Object {
+            "props": Object {
+              "ml": 6,
+            },
+          },
+          "s": Object {
+            "props": Object {
+              "ml": 4,
+            },
+          },
+        },
+      },
+      "props": Object {
+        "crop": true,
+        "lineHeight": 1.1875,
+        "ml": -1,
+        "size": "m",
+        "valignSelf": "middle",
+      },
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "size": "l",
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "size": "m",
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "size": "s",
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Card base 1`] = `
+Object {
+  "Card": Object {
+    "component": null,
+    "props": Object {
+      "block": true,
+      "rounded": 12,
+    },
+    "style": Object {},
+  },
+  "Close": Object {
+    "component": #IconCross,
+    "props": Object {
+      "bgActive": "black16",
+      "bgHover": "black8",
+      "color": "gray28",
+      "p": 8,
+      "position": "absolute",
+      "right": 4,
+      "rounded": "circle",
+      "size": "s",
+      "top": 4,
+    },
+    "style": Object {},
+  },
+  "Content": Object {
+    "component": null,
+    "props": Object {
+      "p": 12,
+    },
+    "style": Object {},
+  },
+  "Image": Object {
+    "component": null,
+    "props": Object {
+      "order": 1,
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Card fuzz: column 1`] = `
+Object {
+  "Image": Object {
+    "props": Object {
+      "order": 0,
+    },
+  },
+}
+`;
+
+exports[`web theme Card fuzz: column=false 1`] = `Object {}`;
+
+exports[`web theme Card snap 1`] = `
+Object {
+  "mapProps": [Function],
+  "scheme": Object {
+    "Card": Object {
+      "props": Object {
+        "block": true,
+        "rounded": 12,
+      },
+    },
+    "Close": Object {
+      "component": #IconCross,
+      "props": Object {
+        "bgActive": "black16",
+        "bgHover": "black8",
+        "color": "gray28",
+        "p": 8,
+        "position": "absolute",
+        "right": 4,
+        "rounded": "circle",
+        "size": "s",
+        "top": 4,
+      },
+    },
+    "Content": Object {
+      "props": Object {
+        "p": 12,
+      },
+    },
+    "Image": Object {
+      "column": Object {
+        "props": Object {
+          "order": 0,
+        },
+      },
+      "props": Object {
+        "order": 1,
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox base 1`] = `
+Object {
+  "Icon": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "ml": 6,
+      "size": "s",
+      "valignSelf": "middle",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "white",
+      "bgDisabled": "gray4",
+      "borderColor": "gray20",
+      "borderColorDisabled": "gray20",
+      "borderColorHover": "gray28",
+      "borderRadius": 3,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "color": "white",
+      "colorDisabled": "gray4",
+      "focus": true,
+      "height": 16,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "cursor": "pointer",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked indeterminate 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxIndeterminate,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked indeterminate=false 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked variant="error" 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "red500",
+      "bgDisabled": "gray20",
+      "bgHover": "red600",
+      "borderColor": "red500",
+      "borderColorHover": "red600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked variant="primary" 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked variant="secondary" 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked variant="success" 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgDisabled": "gray20",
+      "bgHover": "green600",
+      "borderColor": "green500",
+      "borderColorHover": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked variant="warning" 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "orange500",
+      "bgDisabled": "gray20",
+      "bgHover": "orange600",
+      "borderColor": "orange500",
+      "borderColorHover": "orange600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked=false indeterminate 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconCheckboxIndeterminate,
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked=false indeterminate=false 1`] = `Object {}`;
+
+exports[`web theme Checkbox fuzz: checked=false variant="error" 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "red500",
+      "borderColorHover": "red600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked=false variant="primary" 1`] = `Object {}`;
+
+exports[`web theme Checkbox fuzz: checked=false variant="secondary" 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "gray8",
+      "borderColorHover": "gray16",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked=false variant="success" 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "green500",
+      "borderColorHover": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: checked=false variant="warning" 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "orange500",
+      "borderColorHover": "orange600",
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: size="l" 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "ml": 8,
+      "size": "l",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "height": 22,
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: size="m" 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "ml": 8,
+      "size": "m",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "height": 18,
+    },
+  },
+}
+`;
+
+exports[`web theme Checkbox fuzz: size="s" 1`] = `Object {}`;
+
+exports[`web theme Checkbox snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "labelPosition": "end",
+    "size": "s",
+    "variant": "primary",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "Icon": Object {
+      "checked": Object {
+        "component": #IconCheckboxChecked,
+      },
+      "indeterminate": Object {
+        "component": #IconCheckboxIndeterminate,
+      },
+    },
+    "Label": Object {
+      "disabled": Object {
+        "props": Object {
+          "color": "gray40",
+        },
+      },
+      "labelPosition": Object {
+        "end": Object {
+          "props": Object {
+            "ml": [Function],
+          },
+        },
+        "start": Object {
+          "props": Object {
+            "mr": [Function],
+          },
+        },
+      },
+      "props": Object {
+        "size": [Function],
+        "valignSelf": "middle",
+      },
+    },
+    "Switch": Object {
+      "checked": Object {
+        "style": Object {
+          "bgDisabled": "gray20",
+        },
+        "variant": Object {
+          "error": Object {
+            "style": Object {
+              "bg": "red500",
+              "bgHover": "red600",
+              "borderColor": "red500",
+              "borderColorHover": "red600",
+            },
+          },
+          "primary": Object {
+            "style": Object {
+              "bg": "blue500",
+              "bgHover": "blue600",
+              "borderColor": "blue500",
+              "borderColorHover": "blue600",
+            },
+          },
+          "secondary": Object {
+            "style": Object {
+              "bg": "blue500",
+              "bgHover": "blue600",
+              "borderColor": "blue500",
+              "borderColorHover": "blue600",
+            },
+          },
+          "success": Object {
+            "style": Object {
+              "bg": "green500",
+              "bgHover": "green600",
+              "borderColor": "green500",
+              "borderColorHover": "green600",
+            },
+          },
+          "warning": Object {
+            "style": Object {
+              "bg": "orange500",
+              "bgHover": "orange600",
+              "borderColor": "orange500",
+              "borderColorHover": "orange600",
+            },
+          },
+        },
+      },
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "height": 22,
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "height": 18,
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "height": 16,
+          },
+        },
+      },
+      "style": Object {
+        "bg": "white",
+        "bgDisabled": "gray4",
+        "borderColorDisabled": "gray20",
+        "borderRadius": 3,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "color": "white",
+        "colorDisabled": "gray4",
+        "focus": true,
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "borderColor": "red500",
+            "borderColorHover": "red600",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "borderColor": "gray20",
+            "borderColorHover": "gray28",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "borderColor": "gray8",
+            "borderColorHover": "gray16",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "borderColor": "green500",
+            "borderColorHover": "green600",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "borderColor": "orange500",
+            "borderColorHover": "orange600",
+          },
+        },
+      },
+    },
+    "Toggle": Object {
+      "style": Object {
+        "cursor": "pointer",
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Icon base 1`] = `
+Object {
+  "Icon": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Icon fuzz: size="l" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "height": 28,
+    },
+  },
+}
+`;
+
+exports[`web theme Icon fuzz: size="m" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "height": 20,
+    },
+  },
+}
+`;
+
+exports[`web theme Icon fuzz: size="s" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "height": 16,
+    },
+  },
+}
+`;
+
+exports[`web theme Icon fuzz: size="xl" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "height": 28,
+    },
+  },
+}
+`;
+
+exports[`web theme Icon fuzz: variant="error" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "color": "red500",
+    },
+  },
+}
+`;
+
+exports[`web theme Icon fuzz: variant="primary" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "color": "blue500",
+    },
+  },
+}
+`;
+
+exports[`web theme Icon fuzz: variant="secondary" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "color": "gray52",
+    },
+  },
+}
+`;
+
+exports[`web theme Icon fuzz: variant="success" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "color": "green500",
+    },
+  },
+}
+`;
+
+exports[`web theme Icon fuzz: variant="warning" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "color": "yellow500",
+    },
+  },
+}
+`;
+
+exports[`web theme Icon snap 1`] = `
+Object {
+  "mapProps": [Function],
+  "scheme": Object {
+    "Icon": Object {
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "height": 28,
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "height": 20,
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "height": 16,
+          },
+        },
+        "xl": Object {
+          "style": Object {
+            "height": 28,
+          },
+        },
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "color": "red500",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "color": "blue500",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "color": "gray52",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "color": "green500",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "color": "yellow500",
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Image base 1`] = `
+Object {
+  "Image": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Image snap 1`] = `
+Object {
+  "mapProps": [Function],
+  "scheme": Object {
+    "Image": Object {},
+  },
+}
+`;
+
+exports[`web theme Input base 1`] = `
+Object {
+  "IconAfter": Object {
+    "component": null,
+    "props": Object {
+      "color": "gray28",
+      "ml": 7,
+      "size": "m",
+    },
+    "style": Object {},
+  },
+  "IconBefore": Object {
+    "component": null,
+    "props": Object {
+      "color": "gray28",
+      "mr": 7,
+      "size": "s",
+    },
+    "style": Object {},
+  },
+  "Input": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bgDisabled": "gray4",
+      "borderColor": "gray20",
+      "borderColorHover": "gray28",
+      "borderRadius": 3,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "color": "black",
+      "colorDisabled": "gray64",
+      "cursor": "text",
+      "focus": true,
+      "fontSize": "s",
+      "height": "s",
+      "placeholderColor": "gray40",
+      "px": 7,
+    },
+  },
+  "InputField": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+  "Postfix": Object {
+    "component": null,
+    "props": Object {
+      "ml": 4,
+    },
+    "style": Object {},
+  },
+  "Prefix": Object {
+    "component": null,
+    "props": Object {
+      "mr": 4,
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Input fuzz: clearable="always" 1`] = `
+Object {
+  "IconAfter": Object {
+    "component": #IconCross,
+    "props": Object {
+      "area": 10,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="l" 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
+      "ml": 12,
+      "size": "l",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "mr": 12,
+      "size": "m",
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "fontSize": "l",
+      "height": "l",
+      "px": 12,
+    },
+  },
+  "Prefix": Object {
+    "props": Object {
+      "mr": 8,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="l" iconAfter={jsx} 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
+      "ml": 12,
+      "size": "l",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "mr": 12,
+      "size": "m",
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "fontSize": "l",
+      "height": "l",
+      "px": 12,
+    },
+  },
+  "Prefix": Object {
+    "props": Object {
+      "mr": 8,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="l" iconBefore={jsx} 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
+      "ml": 12,
+      "size": "l",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "mr": 12,
+      "size": "m",
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "fontSize": "l",
+      "height": "l",
+      "px": 12,
+    },
+  },
+  "Prefix": Object {
+    "props": Object {
+      "mr": 8,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
+      "ml": 12,
+      "size": "l",
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "mr": 12,
+      "size": "m",
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "fontSize": "l",
+      "height": "l",
+      "px": 12,
+    },
+  },
+  "Prefix": Object {
+    "props": Object {
+      "mr": 8,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="m" 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
+      "ml": 10,
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "mr": 10,
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "fontSize": "m",
+      "height": "m",
+      "px": 10,
+    },
+  },
+  "Prefix": Object {
+    "props": Object {
+      "mr": 6,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="m" iconAfter={jsx} 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
+      "ml": 10,
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "mr": 10,
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "fontSize": "m",
+      "height": "m",
+      "px": 10,
+    },
+  },
+  "Prefix": Object {
+    "props": Object {
+      "mr": 6,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="m" iconBefore={jsx} 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
+      "ml": 10,
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "mr": 10,
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "fontSize": "m",
+      "height": "m",
+      "px": 10,
+    },
+  },
+  "Prefix": Object {
+    "props": Object {
+      "mr": 6,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
+Object {
+  "IconAfter": Object {
+    "props": Object {
+      "ml": 10,
+    },
+  },
+  "IconBefore": Object {
+    "props": Object {
+      "mr": 10,
+    },
+  },
+  "Input": Object {
+    "style": Object {
+      "fontSize": "m",
+      "height": "m",
+      "px": 10,
+    },
+  },
+  "Prefix": Object {
+    "props": Object {
+      "mr": 6,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: size="s" 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: size="s" iconAfter={jsx} 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: size="s" iconBefore={jsx} 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: value="value" 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: value="value" clearable="always" 1`] = `
+Object {
+  "IconAfter": Object {
+    "component": #IconCross,
+    "props": Object {
+      "area": 10,
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: variant="error" 1`] = `
+Object {
+  "Input": Object {
+    "style": Object {
+      "borderColor": "red500",
+      "borderColorHover": "red600",
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: variant="primary" 1`] = `Object {}`;
+
+exports[`web theme Input fuzz: variant="secondary" 1`] = `
+Object {
+  "Input": Object {
+    "style": Object {
+      "borderColor": "gray8",
+      "borderColorHover": "gray16",
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: variant="success" 1`] = `
+Object {
+  "Input": Object {
+    "style": Object {
+      "borderColor": "green500",
+      "borderColorHover": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Input fuzz: variant="warning" 1`] = `
+Object {
+  "Input": Object {
+    "style": Object {
+      "borderColor": "orange500",
+      "borderColorHover": "orange600",
+    },
+  },
+}
+`;
+
+exports[`web theme Input snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "deletePlaceholderOnFocus": true,
+    "kind": "outline",
+    "size": "s",
+    "variant": "primary",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "IconAfter": Object {
+      "clearable": Object {
+        "component": #IconCross,
+        "props": Object {
+          "area": 10,
+          "size": [Function],
+        },
+      },
+      "props": Object {
+        "color": "gray28",
+      },
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "ml": 12,
+            "size": "l",
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "ml": 10,
+            "size": "m",
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "ml": 7,
+            "size": "m",
+          },
+        },
+      },
+    },
+    "IconBefore": Object {
+      "props": Object {
+        "color": "gray28",
+        "size": [Function],
+      },
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "mr": 12,
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "mr": 10,
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "mr": 7,
+          },
+        },
+      },
+    },
+    "Input": Object {
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "fontSize": "l",
+            "px": 12,
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "fontSize": "m",
+            "px": 10,
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "fontSize": "s",
+            "px": 7,
+          },
+        },
+      },
+      "style": Object {
+        "bgDisabled": "gray4",
+        "borderRadius": 3,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "color": "black",
+        "colorDisabled": "gray64",
+        "cursor": "text",
+        "focus": true,
+        "height": [Function],
+        "placeholderColor": "gray40",
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "borderColor": "red500",
+            "borderColorHover": "red600",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "borderColor": "gray20",
+            "borderColorHover": "gray28",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "borderColor": "gray8",
+            "borderColorHover": "gray16",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "borderColor": "green500",
+            "borderColorHover": "green600",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "borderColor": "orange500",
+            "borderColorHover": "orange600",
+          },
+        },
+      },
+    },
+    "InputField": Object {},
+    "Postfix": Object {
+      "props": Object {
+        "ml": 4,
+      },
+    },
+    "Prefix": Object {
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "mr": 8,
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "mr": 6,
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "mr": 4,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Link base 1`] = `
+Object {
+  "Link": Object {
+    "component": null,
+    "props": Object {
+      "color": "blue500",
+      "colorHover": "red500",
+      "colorVisited": "purple600",
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Link fuzz: variant="primary" 1`] = `Object {}`;
+
+exports[`web theme Link fuzz: variant="secondary" 1`] = `
+Object {
+  "Link": Object {
+    "props": Object {
+      "color": "gray52",
+      "colorHover": "gray32",
+    },
+  },
+}
+`;
+
+exports[`web theme Link snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "variant": "primary",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "Link": Object {
+      "props": Object {
+        "colorVisited": "purple600",
+      },
+      "variant": Object {
+        "primary": Object {
+          "props": Object {
+            "color": "blue500",
+            "colorHover": "red500",
+          },
+        },
+        "secondary": Object {
+          "props": Object {
+            "color": "gray52",
+            "colorHover": "gray32",
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Radio base 1`] = `
+Object {
+  "Icon": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "ml": 6,
+      "size": "s",
+      "valignSelf": "middle",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "white",
+      "bgDisabled": "gray4",
+      "borderColor": "gray20",
+      "borderColorDisabled": "gray20",
+      "borderColorHover": "gray28",
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "color": "white",
+      "colorDisabled": "gray4",
+      "focus": true,
+      "height": 18,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "cursor": "pointer",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: size="l" 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "ml": 8,
+      "size": "l",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "height": 24,
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: size="m" 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "ml": 8,
+      "size": "m",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "height": 22,
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: size="s" 1`] = `Object {}`;
+
+exports[`web theme Radio fuzz: variant="error" checked 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconRadioChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "red500",
+      "bgDisabled": "gray20",
+      "bgHover": "red600",
+      "borderColor": "red500",
+      "borderColorHover": "red600",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: variant="error" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "red500",
+      "borderColorHover": "red600",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: variant="primary" checked 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconRadioChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: variant="primary" checked=false 1`] = `Object {}`;
+
+exports[`web theme Radio fuzz: variant="secondary" checked 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconRadioChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: variant="secondary" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "gray8",
+      "borderColorHover": "gray16",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: variant="success" checked 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconRadioChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgDisabled": "gray20",
+      "bgHover": "green600",
+      "borderColor": "green500",
+      "borderColorHover": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: variant="success" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "green500",
+      "borderColorHover": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: variant="warning" checked 1`] = `
+Object {
+  "Icon": Object {
+    "component": #IconRadioChecked,
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "orange500",
+      "bgDisabled": "gray20",
+      "bgHover": "orange600",
+      "borderColor": "orange500",
+      "borderColorHover": "orange600",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio fuzz: variant="warning" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "orange500",
+      "borderColorHover": "orange600",
+    },
+  },
+}
+`;
+
+exports[`web theme Radio snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "labelPosition": "end",
+    "size": "s",
+    "variant": "primary",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "Icon": Object {
+      "checked": Object {
+        "component": #IconRadioChecked,
+      },
+    },
+    "Label": Object {
+      "disabled": Object {
+        "props": Object {
+          "color": "gray40",
+        },
+      },
+      "labelPosition": Object {
+        "end": Object {
+          "props": Object {
+            "ml": [Function],
+          },
+        },
+        "start": Object {
+          "props": Object {
+            "mr": [Function],
+          },
+        },
+      },
+      "props": Object {
+        "size": [Function],
+        "valignSelf": "middle",
+      },
+    },
+    "Switch": Object {
+      "checked": Object {
+        "style": Object {
+          "bgDisabled": "gray20",
+        },
+        "variant": Object {
+          "error": Object {
+            "style": Object {
+              "bg": "red500",
+              "bgHover": "red600",
+              "borderColor": "red500",
+              "borderColorHover": "red600",
+            },
+          },
+          "primary": Object {
+            "style": Object {
+              "bg": "blue500",
+              "bgHover": "blue600",
+              "borderColor": "blue500",
+              "borderColorHover": "blue600",
+            },
+          },
+          "secondary": Object {
+            "style": Object {
+              "bg": "blue500",
+              "bgHover": "blue600",
+              "borderColor": "blue500",
+              "borderColorHover": "blue600",
+            },
+          },
+          "success": Object {
+            "style": Object {
+              "bg": "green500",
+              "bgHover": "green600",
+              "borderColor": "green500",
+              "borderColorHover": "green600",
+            },
+          },
+          "warning": Object {
+            "style": Object {
+              "bg": "orange500",
+              "bgHover": "orange600",
+              "borderColor": "orange500",
+              "borderColorHover": "orange600",
+            },
+          },
+        },
+      },
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "height": 24,
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "height": 22,
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "height": 18,
+          },
+        },
+      },
+      "style": Object {
+        "bg": "white",
+        "bgDisabled": "gray4",
+        "borderColorDisabled": "gray20",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "color": "white",
+        "colorDisabled": "gray4",
+        "focus": true,
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "borderColor": "red500",
+            "borderColorHover": "red600",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "borderColor": "gray20",
+            "borderColorHover": "gray28",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "borderColor": "gray8",
+            "borderColorHover": "gray16",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "borderColor": "green500",
+            "borderColorHover": "green600",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "borderColor": "orange500",
+            "borderColorHover": "orange600",
+          },
+        },
+      },
+    },
+    "Toggle": Object {
+      "style": Object {
+        "cursor": "pointer",
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Spinner base 1`] = `
+Object {
+  "Spinner": Object {
+    "component": #IconSpinner,
+    "props": Object {},
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Spinner fuzz: size="l" 1`] = `
+Object {
+  "Spinner": Object {
+    "props": Object {
+      "size": 32,
+    },
+  },
+}
+`;
+
+exports[`web theme Spinner fuzz: size="m" 1`] = `
+Object {
+  "Spinner": Object {
+    "props": Object {
+      "size": 24,
+    },
+  },
+}
+`;
+
+exports[`web theme Spinner fuzz: size="s" 1`] = `
+Object {
+  "Spinner": Object {
+    "props": Object {
+      "size": 16,
+    },
+  },
+}
+`;
+
+exports[`web theme Spinner fuzz: variant="error" 1`] = `Object {}`;
+
+exports[`web theme Spinner fuzz: variant="primary" 1`] = `Object {}`;
+
+exports[`web theme Spinner fuzz: variant="secondary" 1`] = `Object {}`;
+
+exports[`web theme Spinner fuzz: variant="success" 1`] = `Object {}`;
+
+exports[`web theme Spinner fuzz: variant="warning" 1`] = `Object {}`;
+
+exports[`web theme Spinner snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "speed": 1,
+    "variant": "primary",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "Spinner": Object {
+      "component": #IconSpinner,
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "size": 32,
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "size": 24,
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "size": 16,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher base 1`] = `
+Object {
+  "Icon": Object {
+    "component": #Box,
+    "props": Object {
+      "bg": "white",
+      "borderRadius": 2,
+      "color": "blue500",
+      "height": 1,
+      "px": 2,
+      "width": 14,
+    },
+    "style": Object {},
+  },
+  "Label": Object {
+    "component": null,
+    "props": Object {
+      "ml": 6,
+      "size": "s",
+      "valignSelf": "middle",
+    },
+    "style": Object {},
+  },
+  "Switch": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bg": "gray28",
+      "bgDisabled": "gray8",
+      "bgHover": "gray40",
+      "borderColor": "gray20",
+      "borderColorDisabled": "gray20",
+      "borderColorHover": "gray28",
+      "borderRadius": 2,
+      "borderStyle": "solid",
+      "borderWidth": 0,
+      "colorDisabled": "gray4",
+      "focus": true,
+      "height": 20,
+      "p": 2,
+      "width": 40,
+    },
+  },
+  "Toggle": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "cursor": "pointer",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked loading disabled 1`] = `
+Object {
+  "Icon": Object {
+    "component": #Spinner,
+    "props": Object {
+      "size": "auto",
+    },
+  },
+  "Label": Object {
+    "props": Object {
+      "color": "gray40",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked loading disabled=false 1`] = `
+Object {
+  "Icon": Object {
+    "component": #Spinner,
+    "props": Object {
+      "size": "auto",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked loading=false disabled 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "color": "gray40",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked loading=false disabled=false 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked=false loading disabled 1`] = `
+Object {
+  "Icon": Object {
+    "component": #Spinner,
+    "props": Object {
+      "size": "auto",
+    },
+  },
+  "Label": Object {
+    "props": Object {
+      "color": "gray40",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked=false loading disabled=false 1`] = `
+Object {
+  "Icon": Object {
+    "component": #Spinner,
+    "props": Object {
+      "size": "auto",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked=false loading=false disabled 1`] = `
+Object {
+  "Label": Object {
+    "props": Object {
+      "color": "gray40",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: checked=false loading=false disabled=false 1`] = `Object {}`;
+
+exports[`web theme Switcher fuzz: size="l" 1`] = `
+Object {
+  "Icon": Object {
+    "props": Object {
+      "width": 22,
+    },
+  },
+  "Label": Object {
+    "props": Object {
+      "ml": 8,
+      "size": "l",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "height": 28,
+      "width": 56,
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: size="m" 1`] = `
+Object {
+  "Icon": Object {
+    "props": Object {
+      "width": 18,
+    },
+  },
+  "Label": Object {
+    "props": Object {
+      "ml": 8,
+      "size": "m",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "height": 24,
+      "width": 48,
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: size="s" 1`] = `Object {}`;
+
+exports[`web theme Switcher fuzz: variant="error" checked 1`] = `
+Object {
+  "Icon": Object {
+    "props": Object {
+      "color": "red500",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "red500",
+      "bgDisabled": "gray20",
+      "bgHover": "red600",
+      "borderColor": "red500",
+      "borderColorHover": "red600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: variant="error" checked=false 1`] = `
+Object {
+  "Icon": Object {
+    "props": Object {
+      "color": "red500",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "red500",
+      "borderColorHover": "red600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: variant="primary" checked 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: variant="primary" checked=false 1`] = `Object {}`;
+
+exports[`web theme Switcher fuzz: variant="secondary" checked 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "bg": "blue500",
+      "bgDisabled": "gray20",
+      "bgHover": "blue600",
+      "borderColor": "blue500",
+      "borderColorHover": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: variant="secondary" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "gray8",
+      "borderColorHover": "gray16",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: variant="success" checked 1`] = `
+Object {
+  "Icon": Object {
+    "props": Object {
+      "color": "green500",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "green500",
+      "bgDisabled": "gray20",
+      "bgHover": "green600",
+      "borderColor": "green500",
+      "borderColorHover": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: variant="success" checked=false 1`] = `
+Object {
+  "Icon": Object {
+    "props": Object {
+      "color": "green500",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "green500",
+      "borderColorHover": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: variant="warning" checked 1`] = `
+Object {
+  "Icon": Object {
+    "props": Object {
+      "color": "orange500",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "bg": "orange500",
+      "bgDisabled": "gray20",
+      "bgHover": "orange600",
+      "borderColor": "orange500",
+      "borderColorHover": "orange600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher fuzz: variant="warning" checked=false 1`] = `
+Object {
+  "Icon": Object {
+    "props": Object {
+      "color": "orange500",
+    },
+  },
+  "Switch": Object {
+    "style": Object {
+      "borderColor": "orange500",
+      "borderColorHover": "orange600",
+    },
+  },
+}
+`;
+
+exports[`web theme Switcher snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "labelPosition": "end",
+    "positionLoading": true,
+    "shape": "square",
+    "size": "s",
+    "variant": "primary",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "Icon": Object {
+      "component": #Box,
+      "loading": Object {
+        "component": #Spinner,
+        "props": Object {
+          "size": "auto",
+        },
+      },
+      "props": Object {
+        "bg": "white",
+        "borderRadius": 2,
+        "height": 1,
+        "px": 2,
+        "width": 0.39,
+      },
+      "size": Object {
+        "l": Object {
+          "props": Object {
+            "width": 22,
+          },
+        },
+        "m": Object {
+          "props": Object {
+            "width": 18,
+          },
+        },
+        "s": Object {
+          "props": Object {
+            "width": 14,
+          },
+        },
+      },
+      "variant": Object {
+        "error": Object {
+          "props": Object {
+            "color": "red500",
+          },
+        },
+        "primary": Object {
+          "props": Object {
+            "color": "blue500",
+          },
+        },
+        "secondary": Object {
+          "props": Object {
+            "color": "blue500",
+          },
+        },
+        "success": Object {
+          "props": Object {
+            "color": "green500",
+          },
+        },
+        "warning": Object {
+          "props": Object {
+            "color": "orange500",
+          },
+        },
+      },
+    },
+    "Label": Object {
+      "disabled": Object {
+        "props": Object {
+          "color": "gray40",
+        },
+      },
+      "labelPosition": Object {
+        "end": Object {
+          "props": Object {
+            "ml": [Function],
+          },
+        },
+        "start": Object {
+          "props": Object {
+            "mr": [Function],
+          },
+        },
+      },
+      "props": Object {
+        "size": [Function],
+        "valignSelf": "middle",
+      },
+    },
+    "Switch": Object {
+      "checked": Object {
+        "style": Object {
+          "bgDisabled": "gray20",
+        },
+        "variant": Object {
+          "error": Object {
+            "style": Object {
+              "bg": "red500",
+              "bgHover": "red600",
+              "borderColor": "red500",
+              "borderColorHover": "red600",
+            },
+          },
+          "primary": Object {
+            "style": Object {
+              "bg": "blue500",
+              "bgHover": "blue600",
+              "borderColor": "blue500",
+              "borderColorHover": "blue600",
+            },
+          },
+          "secondary": Object {
+            "style": Object {
+              "bg": "blue500",
+              "bgHover": "blue600",
+              "borderColor": "blue500",
+              "borderColorHover": "blue600",
+            },
+          },
+          "success": Object {
+            "style": Object {
+              "bg": "green500",
+              "bgHover": "green600",
+              "borderColor": "green500",
+              "borderColorHover": "green600",
+            },
+          },
+          "warning": Object {
+            "style": Object {
+              "bg": "orange500",
+              "bgHover": "orange600",
+              "borderColor": "orange500",
+              "borderColorHover": "orange600",
+            },
+          },
+        },
+      },
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "height": 28,
+            "width": 56,
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "height": 24,
+            "width": 48,
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "height": 20,
+            "width": 40,
+          },
+        },
+      },
+      "style": Object {
+        "bg": "gray28",
+        "bgDisabled": "gray8",
+        "bgHover": "gray40",
+        "borderColorDisabled": "gray20",
+        "borderRadius": 2,
+        "borderStyle": "solid",
+        "borderWidth": 0,
+        "colorDisabled": "gray4",
+        "focus": true,
+        "p": 2,
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "borderColor": "red500",
+            "borderColorHover": "red600",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "borderColor": "gray20",
+            "borderColorHover": "gray28",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "borderColor": "gray8",
+            "borderColorHover": "gray16",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "borderColor": "green500",
+            "borderColorHover": "green600",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "borderColor": "orange500",
+            "borderColorHover": "orange600",
+          },
+        },
+      },
+    },
+    "Toggle": Object {
+      "style": Object {
+        "cursor": "pointer",
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Text base 1`] = `
+Object {
+  "Text": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "fontSize": undefined,
+      "lineHeight": "normal",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: dense 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "lineHeight": "dense",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: preset="heading" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: preset="heading-large" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xl",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: preset="heading-small" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: preset="title" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xxxl",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: preset="title-small" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "xxl",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: size="l" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "l",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: size="m" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "m",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: size="s" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "fontSize": "s",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: variant="error" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "color": "red500",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: variant="primary" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "color": "blue500",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: variant="secondary" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "color": "gray52",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: variant="success" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "color": "green500",
+    },
+  },
+}
+`;
+
+exports[`web theme Text fuzz: variant="warning" 1`] = `
+Object {
+  "Text": Object {
+    "style": Object {
+      "color": "yellow500",
+    },
+  },
+}
+`;
+
+exports[`web theme Text snap 1`] = `
+Object {
+  "mapProps": [Function],
+  "scheme": Object {
+    "Text": Object {
+      "dense": Object {
+        "style": Object {
+          "lineHeight": "dense",
+        },
+      },
+      "style": Object {
+        "fontSize": [Function],
+        "lineHeight": "normal",
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "color": "red500",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "color": "blue500",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "color": "gray52",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "color": "green500",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "color": "yellow500",
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea base 1`] = `
+Object {
+  "IconClear": Object {
+    "component": #IconCross,
+    "props": Object {
+      "area": 10,
+      "color": "gray28",
+      "size": "s",
+      "visible": false,
+    },
+    "style": Object {},
+  },
+  "Textarea": Object {
+    "component": null,
+    "props": Object {},
+    "style": Object {
+      "bgDisabled": "gray4",
+      "borderColor": "gray20",
+      "borderColorHover": "gray28",
+      "borderRadius": 3,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "color": "black",
+      "colorDisabled": "gray64",
+      "cursor": "text",
+      "focus": true,
+      "fontSize": "s",
+      "lineHeight": "normal",
+      "minHeight": "s",
+      "placeholderColor": "gray40",
+      "px": 4,
+      "py": 7,
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea fuzz: clearable="always" 1`] = `
+Object {
+  "IconClear": Object {
+    "props": Object {
+      "visible": true,
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea fuzz: size="l" 1`] = `
+Object {
+  "IconClear": Object {
+    "props": Object {
+      "size": "l",
+    },
+  },
+  "Textarea": Object {
+    "style": Object {
+      "fontSize": "l",
+      "minHeight": "l",
+      "px": 12,
+      "py": 8,
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea fuzz: size="m" 1`] = `
+Object {
+  "IconClear": Object {
+    "props": Object {
+      "size": "m",
+    },
+  },
+  "Textarea": Object {
+    "style": Object {
+      "fontSize": "m",
+      "minHeight": "m",
+      "px": 10,
+      "py": 6,
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea fuzz: size="s" 1`] = `Object {}`;
+
+exports[`web theme Textarea fuzz: value="value" 1`] = `Object {}`;
+
+exports[`web theme Textarea fuzz: value="value" clearable="always" 1`] = `
+Object {
+  "IconClear": Object {
+    "props": Object {
+      "visible": true,
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea fuzz: variant="error" 1`] = `
+Object {
+  "Textarea": Object {
+    "style": Object {
+      "borderColor": "red500",
+      "borderColorHover": "red600",
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea fuzz: variant="primary" 1`] = `Object {}`;
+
+exports[`web theme Textarea fuzz: variant="secondary" 1`] = `
+Object {
+  "Textarea": Object {
+    "style": Object {
+      "borderColor": "gray8",
+      "borderColorHover": "gray16",
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea fuzz: variant="success" 1`] = `
+Object {
+  "Textarea": Object {
+    "style": Object {
+      "borderColor": "green500",
+      "borderColorHover": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea fuzz: variant="warning" 1`] = `
+Object {
+  "Textarea": Object {
+    "style": Object {
+      "borderColor": "orange500",
+      "borderColorHover": "orange600",
+    },
+  },
+}
+`;
+
+exports[`web theme Textarea snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "deletePlaceholderOnFocus": true,
+    "size": "s",
+    "variant": "primary",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "IconClear": Object {
+      "component": #IconCross,
+      "props": Object {
+        "area": 10,
+        "color": "gray28",
+        "size": [Function],
+        "visible": [Function],
+      },
+    },
+    "Textarea": Object {
+      "size": Object {
+        "l": Object {
+          "style": Object {
+            "px": 12,
+            "py": 8,
+          },
+        },
+        "m": Object {
+          "style": Object {
+            "px": 10,
+            "py": 6,
+          },
+        },
+        "s": Object {
+          "style": Object {
+            "px": 4,
+            "py": 7,
+          },
+        },
+      },
+      "style": Object {
+        "bgDisabled": "gray4",
+        "borderRadius": 3,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "color": "black",
+        "colorDisabled": "gray64",
+        "cursor": "text",
+        "focus": true,
+        "fontSize": [Function],
+        "lineHeight": "normal",
+        "minHeight": [Function],
+        "placeholderColor": "gray40",
+      },
+      "variant": Object {
+        "error": Object {
+          "style": Object {
+            "borderColor": "red500",
+            "borderColorHover": "red600",
+          },
+        },
+        "primary": Object {
+          "style": Object {
+            "borderColor": "gray20",
+            "borderColorHover": "gray28",
+          },
+        },
+        "secondary": Object {
+          "style": Object {
+            "borderColor": "gray8",
+            "borderColorHover": "gray16",
+          },
+        },
+        "success": Object {
+          "style": Object {
+            "borderColor": "green500",
+            "borderColorHover": "green600",
+          },
+        },
+        "warning": Object {
+          "style": Object {
+            "borderColor": "orange500",
+            "borderColorHover": "orange600",
+          },
+        },
+      },
+    },
+  },
+}
+`;

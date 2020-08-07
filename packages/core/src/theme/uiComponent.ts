@@ -67,6 +67,7 @@ export function uiComponent<ThemeType extends object = {}>(
       })
     })))
     WrappedComponent.displayName = name
+    WrappedComponent.baseTheme = theme
     type Component = <T extends object>(props: ExternalProps & (T extends unknown ? {} : T)) => JSX.Element
     return WrappedComponent as unknown as Component
   }

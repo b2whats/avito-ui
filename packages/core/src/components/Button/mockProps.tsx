@@ -1,26 +1,29 @@
 import React from 'react'
-// import { variant } from '../../../test'
-import { UserIcon } from '../Icon/icons'
+import { mockProps, sml, maybe, bool, icon } from '../../../test'
+import { ButtonProps } from './contract'
 
-export const buttonMock = ({
+export const buttonMock = mockProps<ButtonProps, { buttonPresets: string[] }>(({
   buttonPresets,
-  boolIcons = false,
-}: { buttonPresets: string[], boolIcons?: boolean }) => {
-  const icon = boolIcons ? true : <UserIcon />
-  return [{
-    size: ['s', 'm', 'l'],
-    iconBefore: [undefined, icon],
-    iconAfter: [undefined, icon],
-    children: [undefined, 'text'],
-  }, {
-    // children: ['text'],
-    // kind: ['fill', 'outline', 'flat'],
-    // variant,
-    // checked: [true, false],
+}) => [{
+  size: sml,
+  iconBefore: maybe(icon),
+  iconAfter: maybe(icon),
+  children: maybe('text'),
+}, {
+  children: ['text'],
+  preset: buttonPresets as any,
+  checked: bool,
+  loading: bool,
+}, {
+  children: [['line 1', <br key='' />, 'line 2']],
+  size: sml,
+  multiline: [true],
+}], {
+  browserSets: [{
+    disabled: [true],
+    children: ['text'],
   }, {
     children: ['text'],
-    preset: buttonPresets as any,
-    checked: [true, false],
-    loading: [true, false],
-  }]
-}
+    shape: ['square', 'pill', 'circle'],
+  }],
+})

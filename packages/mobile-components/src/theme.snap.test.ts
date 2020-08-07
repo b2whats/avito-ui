@@ -1,74 +1,43 @@
 import {
-  mergeTheme,
-  foldThemeParams,
-  buttonTheme,
-  inputTheme,
-  textTheme,
-  checkboxTheme,
-  toggleTheme,
-  textareaTheme,
-  radioTheme,
-  switcherTheme
+  mergeTheme, Theme,
+  toggleTheme, checkboxTheme, radioTheme, switcherTheme,
+  cardTheme, alertTheme, bannerTheme
 } from '@avito/core'
+import { describeTheme } from '../../core/test'
+import * as components from '.'
+import { mocks } from './mockProps'
 import { theme } from './theme'
 
-const variant = ['primary', 'secondary', 'success', 'error', 'warning']
 const withToggle = (override: any) => mergeTheme(toggleTheme, theme.Toggle, override)
+const withCard = (override: any) => mergeTheme(cardTheme, (theme as any).Card, override)
+const describeNamedTheme = (name: keyof Theme, baseTheme?: any, mockOptions?: any) => {
+  baseTheme = baseTheme || components[name].baseTheme
+  describeTheme(name, mergeTheme(baseTheme, theme[name]), mocks[name](mockOptions))
+}
 
 describe('mobile theme', () => {
-  it('button theme snap', () => {
-    expect(mergeTheme(buttonTheme, theme.Button)).toMatchSnapshot()
-  })
-  it('input theme snap', () => {
-    expect(mergeTheme(inputTheme, theme.Input)).toMatchSnapshot()
-  })
-  it('text theme snap', () => {
-    expect(mergeTheme(textTheme, theme.Text)).toMatchSnapshot()
-  })
+  describeNamedTheme('Avatar')
+  describeNamedTheme('Badge')
+  describeNamedTheme('Button')
+  describeNamedTheme('Image')
 
-  describeTheme('checkbox', withToggle(mergeTheme(checkboxTheme, theme.Checkbox)), {
-    variant,
-    checked: [true, false],
-    shape: ['circle', 'square'],
-  })
+  describeNamedTheme('Card')
+  describeNamedTheme('Alert', withCard(alertTheme))
+  describeNamedTheme('Banner', withCard(bannerTheme))
 
-  describeTheme('radio', withToggle(mergeTheme(radioTheme, theme.Radio)), {
-    variant,
-    checked: [true, false],
-  })
+  describeNamedTheme('Icon')
+  describeNamedTheme('Spinner')
 
-  describeTheme('switcher', withToggle(mergeTheme(switcherTheme, theme.Switcher)), {
-    variant,
-    checked: [true, false],
-    loading: [true, false],
-  })
+  describeNamedTheme('Input')
+  describeNamedTheme('Textarea')
 
-  describeTheme('textarea', mergeTheme(textareaTheme, theme.Textarea), {
-    variant,
-    clearable: [true, false],
-    size: ['s', 'm', 'l'],
-  })
+  describeNamedTheme('Checkbox', withToggle(checkboxTheme))
+  describeNamedTheme('Radio', withToggle(radioTheme))
+  describeNamedTheme('Switcher', withToggle(switcherTheme))
+
+  describeNamedTheme('Text')
+  describeNamedTheme('Link')
+
+  describeNamedTheme('ListItem')
+  describeNamedTheme('SegmentButton')
 })
-
-function describeTheme(name: string, theme: any, propValues: { [K: string]: any[] }) {
-  describe(name, () => {
-    it('snap', () => expect(theme).toMatchSnapshot())
-    it('fuzz', () => fuzz(propValues, theme))
-  })
-}
-
-function cartesian<T extends { [K: string]: any[] }>(valuesByKey: T): { [K in keyof T]: any }[] {
-  let res: any[] = [{}]
-  Object.entries(valuesByKey).forEach(([key, values]) => {
-    res = values.reduce(
-      (acc, value) => [...acc, ...res.map(item => ({ ...item, [key]: value }))],
-      [])
-  })
-  return res
-}
-
-function fuzz(propValues: { [K: string]: any[] }, theme: any) {
-  cartesian(propValues).forEach(props => {
-    expect(foldThemeParams(props, theme)).toMatchSnapshot(JSON.stringify(props))
-  })
-}
