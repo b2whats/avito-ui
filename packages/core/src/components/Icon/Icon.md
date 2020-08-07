@@ -49,7 +49,7 @@ const advance = () => setTime(time + .1);
 
 
 ## Размеры
-Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`.
+Параметр `size` позволяет изменить размер. Доступные размеры `s`, `m`, `l`, `xl`.
 Так же выможете передать число и оно будет преобразовано в пиксели `size`=`{35}`
 Размер `auto` позволяет занять всю доступную высоту контейнера иконки.
 
@@ -59,19 +59,23 @@ import { Box } from '../Layout/';
 
 <Stack spacing='m'>
   <Stack column align='center' spacing='s'>
-    <Text >S</Text>
+    <Text>S</Text>
     <SearchIcon size='s' />
   </Stack>
   <Stack column align='center' spacing='s'>
-    <Text >M</Text>
+    <Text>M</Text>
     <SearchIcon size='m' />
   </Stack>
   <Stack column align='center' spacing='s'>
-    <Text >L</Text>
+    <Text>L</Text>
     <SearchIcon size='l' />
   </Stack>
   <Stack column align='center' spacing='s'>
-    <Text >35px</Text>
+    <Text>XL</Text>
+    <SearchIcon size='xl' />
+  </Stack>
+  <Stack column align='center' spacing='s'>
+    <Text>35px</Text>
     <SearchIcon size={35} />
   </Stack>
   <Stack column align='center' spacing='s'>

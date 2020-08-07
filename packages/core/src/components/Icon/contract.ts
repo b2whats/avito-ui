@@ -7,7 +7,7 @@ export interface BaseIconProps extends StyleProperties, CommonAttributes<SVGElem
   /** Размеры конейнера с иконкой */
   viewBox: string
   /** Размер иконки */
-  size?: number | 's' | 'm' | 'l' | 'auto'
+  size?: number | 's' | 'm' | 'l' | 'xl' | 'auto'
   /** Поворот иконки */
   rotate?: number
   /** Вращение иконки */

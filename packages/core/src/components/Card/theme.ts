@@ -2,14 +2,14 @@ import { ComponentTheme, Slot } from '../../styled-system/'
 import { IconProps } from '../Icon/'
 import { CrossIcon } from '../Icon/icons/'
 import { ImageProps } from '../Image/'
-import { BoxProps } from '../Layout/'
+import { BoxProps, StackProps } from '../Layout/'
 import { CardProps } from './contract'
 
 export type CardTheme = ComponentTheme<CardProps, {
   Card: Slot<BoxProps>
   Close: Slot<IconProps>
-  Image: Slot<ImageProps>
-  Content: Slot<BoxProps>
+  Image: Slot<ImageProps | IconProps>
+  Content: Slot<StackProps>
 }>
 
 export const cardTheme: CardTheme = {

@@ -24,6 +24,11 @@ export const iconTheme: IconTheme = {
             height: 24,
           },
         },
+        xl: {
+          style: {
+            height: 28,
+          },
+        },
       },
       variant: {
         primary: {
