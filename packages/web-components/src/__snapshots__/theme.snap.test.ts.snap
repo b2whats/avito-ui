@@ -143,7 +143,6 @@ Object {
         "size": "s",
         "top": 4,
       },
-      Object {},
     ],
     "Content": Array [
       Object {
@@ -411,7 +410,6 @@ Object {
         "block": true,
         "rounded": 12,
       },
-      Object {},
     ],
     "Close": Array [
       Object {
@@ -429,7 +427,6 @@ Object {
         "size": "s",
         "top": 4,
       },
-      Object {},
     ],
     "Content": Array [
       Object {
@@ -2381,20 +2378,12 @@ Object {
 }
 `;
 
-exports[`web theme Image base 1`] = `
-Object {
-  "Image": Object {},
-}
-`;
+exports[`web theme Image base 1`] = `Object {}`;
 
 exports[`web theme Image snap 1`] = `
 Object {
   "mapProps": [Function],
-  "scheme": Object {
-    "Image": Array [
-      Object {},
-    ],
-  },
+  "scheme": Object {},
 }
 `;
 
@@ -2427,7 +2416,6 @@ Object {
     "placeholderColor": "gray40",
     "pr": 7,
   },
-  "InputField": Object {},
   "Postfix": Object {
     "ml": 4,
   },
@@ -2769,7 +2757,6 @@ Object {
         ],
       },
     ],
-    "InputField": Array [],
     "Postfix": Array [
       Object {
         "ml": 4,

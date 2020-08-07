@@ -29,7 +29,6 @@ export const listItemTheme = dsl.theme<ListItemTheme>()
       bgActive: 'gray4',
     }),
   ])
-  .slot('Before')
   .slot('StackText', {
     spacing: 2,
   })
@@ -53,5 +52,4 @@ export const listItemTheme = dsl.theme<ListItemTheme>()
   .slot('Link', {
     size: 's',
   })
-  .slot('After')
   .build()

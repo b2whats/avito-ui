@@ -17,9 +17,6 @@ export const toggleTheme = dsl.theme<ToggleTheme>()
     variant: 'primary',
     size: 'm',
   })
-  .slot('Toggle')
-  .slot('Switch')
-  .slot('Icon')
   .slot('Label', {
     size: 'm',
   })

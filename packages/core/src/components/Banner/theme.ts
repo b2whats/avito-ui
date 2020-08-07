@@ -2,8 +2,6 @@ import { dsl } from '../../theme'
 import { CardTheme } from '../Card/theme'
 
 export const bannerTheme = dsl.theme<CardTheme>()
-  .slot('Card', {})
-  .slot('Close', {})
   .slot('Image', {
     p: 4,
   })

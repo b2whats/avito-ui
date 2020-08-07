@@ -10,5 +10,4 @@ export const linkTheme = dsl.theme<LinkTheme>()
   .defaultProps({
     variant: 'primary',
   })
-  .slot('Link')
   .build()

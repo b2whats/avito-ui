@@ -2,8 +2,6 @@ import { CardTheme, dsl } from '@avito/core'
 
 
 export const bannerTheme = dsl.theme<CardTheme>()
-  .slot('Card')
-  .slot('Close')
   .slot('Image', {
     p: 0,
   })

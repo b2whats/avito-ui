@@ -7,7 +7,6 @@ export const cardTheme = dsl.theme<CardTheme>()
   .slot('Close', {
     p: 4,
   })
-  .slot('Image')
   .slot('Content', {
     p: 10,
   })

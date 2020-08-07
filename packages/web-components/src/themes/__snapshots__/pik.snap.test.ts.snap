@@ -1398,7 +1398,6 @@ Object {
     "placeholderColor": "gray44",
     "pr": 16,
   },
-  "InputField": Object {},
   "Postfix": Object {
     "ml": 4,
   },
@@ -1802,7 +1801,6 @@ Object {
         ],
       },
     ],
-    "InputField": Array [],
     "Postfix": Array [
       Object {
         "ml": 4,

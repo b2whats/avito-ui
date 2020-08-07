@@ -22,5 +22,4 @@ export const tooltipTheme = dsl.theme<TooltipTheme>()
     height: 10,
     rounded: 2,
   })
-  .slot('Close', {})
   .build()

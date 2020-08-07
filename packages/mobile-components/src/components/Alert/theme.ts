@@ -6,10 +6,8 @@ export const alertTheme = dsl.theme<CardTheme>()
     pt: 10,
     pb: 12,
   })
-  .slot('Close', {})
   .slot('Image', {
     size: 20,
     mr: 12,
   })
-  .slot('Content', {})
   .build()

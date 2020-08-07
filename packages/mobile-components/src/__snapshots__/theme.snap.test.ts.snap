@@ -158,8 +158,6 @@ Object {
         "pr": 4,
         "pt": 4,
       },
-      Object {},
-      Object {},
     ],
     "Content": Array [
       Object {
@@ -180,7 +178,6 @@ Object {
         "pr": 0,
         "pt": 0,
       },
-      Object {},
     ],
     "Image": Array [
       Object {
@@ -458,7 +455,6 @@ Object {
       Object {
         "rounded": 5,
       },
-      Object {},
     ],
     "Close": Array [
       Object {
@@ -482,7 +478,6 @@ Object {
         "pr": 4,
         "pt": 4,
       },
-      Object {},
     ],
     "Content": Array [
       Object {
@@ -1966,7 +1961,6 @@ Object {
     "color": "white",
     "height": 18,
   },
-  "Toggle": Object {},
 }
 `;
 
@@ -2191,7 +2185,6 @@ Object {
         ],
       },
     ],
-    "Toggle": Array [],
   },
 }
 `;
@@ -2292,20 +2285,12 @@ Object {
 }
 `;
 
-exports[`mobile theme Image base 1`] = `
-Object {
-  "Image": Object {},
-}
-`;
+exports[`mobile theme Image base 1`] = `Object {}`;
 
 exports[`mobile theme Image snap 1`] = `
 Object {
   "mapProps": [Function],
-  "scheme": Object {
-    "Image": Array [
-      Object {},
-    ],
-  },
+  "scheme": Object {},
 }
 `;
 
@@ -2689,8 +2674,6 @@ Object {
 
 exports[`mobile theme ListItem base 1`] = `
 Object {
-  "After": Object {},
-  "Before": Object {},
   "Caption": Object {
     "color": "gray40",
     "size": "s",
@@ -2743,8 +2726,6 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "After": Array [],
-    "Before": Array [],
     "Caption": Array [
       Object {
         "color": "gray40",
@@ -2822,7 +2803,6 @@ Object {
     "ml": 1,
     "mr": 1,
   },
-  "Toggle": Object {},
 }
 `;
 
@@ -3004,7 +2984,6 @@ Object {
         ],
       },
     ],
-    "Toggle": Array [],
   },
 }
 `;
@@ -3165,7 +3144,6 @@ Object {
     "pt": 3,
     "width": 48,
   },
-  "Toggle": Object {},
 }
 `;
 
@@ -3490,7 +3468,6 @@ Object {
         ],
       },
     ],
-    "Toggle": Array [],
   },
 }
 `;

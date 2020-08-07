@@ -34,11 +34,9 @@ export const inputTheme = dsl.theme<InputTheme>()
       size: ({ size }) => size === 'l' ? 'm' : 's',
     }),
   ])
-  .slot('Prefix')
   .slot('Postfix', {
     ml: 4,
   })
-  .slot('InputField')
   .slot('Input', {
     focus: true,
     height: ({ size }) => size,

@@ -16,7 +16,6 @@ export const alertTheme = dsl.theme<CardTheme>()
       error: 'red100',
     }),
   }))
-  .slot('Close', {})
   .slot('Image', slot => ({
     order: 0,
     size: 28,
