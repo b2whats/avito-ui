@@ -3,30 +3,18 @@ import { filterProps, uiComponent, useWindowSize, foldThemeParams, createClassNa
 import { SegmentButtonProps } from './contract'
 import { segmentButtonTheme } from './theme'
 
-const groupClassName = createClassName<SegmentButtonProps, typeof segmentButtonTheme>(
-  (themeStyle, props) => ({
-    display: 'flex',
-    width: 1,
-    shrink: false,
-    ...themeStyle,
-    ...props,
-  }),
-  (textRules) => (`
+const groupClassName = createClassName<SegmentButtonProps, typeof segmentButtonTheme>({
+  display: 'flex',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules) => (`
     position: relative;
-
     ${textRules}
-  `)
-)
+  `),
+})
 
-const buttonClassName = createClassName<SegmentButtonProps, typeof segmentButtonTheme>(
-  (themeStyle) => ({
-    display: 'inline-block',
-    position: 'relative',
-    grow: true,
-    height: 1,
-    ...themeStyle,
-  }),
-  (textRules) => (`
+const buttonClassName = createClassName<SegmentButtonProps, typeof segmentButtonTheme>({
+  display: 'inline-block',
+  cssRewrite: (textRules) => (`
     padding: 0px;
     margin: 0px;
     border: 0px;
@@ -43,22 +31,18 @@ const buttonClassName = createClassName<SegmentButtonProps, typeof segmentButton
     }
 
     ${textRules}
-  `)
-)
+  `),
+})
 
-const slideClassName = createClassName<SegmentButtonProps, typeof segmentButtonTheme>(
-  (themeStyle) => ({
-    display: 'inline-block',
-    height: 1,
-    ...themeStyle,
-  }),
-  (textRules) => `
+const slideClassName = createClassName<SegmentButtonProps, typeof segmentButtonTheme>({
+  display: 'inline-block',
+  cssRewrite: (textRules) => `
     position: absolute;
     left: 0;
     transition: transform .2s ease-in;
     ${textRules}
-  `
-)
+  `,
+})
 
 type Geometry = {
   [key in string]: { transform: string, width: number, height: number }

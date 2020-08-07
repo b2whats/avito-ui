@@ -7,24 +7,19 @@ import { Text } from '../Text'
 import { AvatarProps } from './contract'
 import { avatarTheme } from './theme'
 
-const avatarClassName = createClassName<AvatarProps, typeof avatarTheme>(
-  (themeStyle, props) => ({
-    display: 'inline-flex',
-    position: 'relative',
-    shrink: false,
-    grow: false,
-    ...themeStyle,
-    ...props,
-  }),
-  (textRules) => (`
+const avatarClassName = createClassName<AvatarProps, typeof avatarTheme>({
+  display: 'inline-flex',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules) => (`
     user-select: none;
     & *:nth-child(2) {
       /* position badge above overlay */
       z-index: 1;
     }
     ${textRules}
-  `)
-)
+  `),
+})
+
 const imageClassName = css`
   border-radius: inherit;
   max-width: 100%;

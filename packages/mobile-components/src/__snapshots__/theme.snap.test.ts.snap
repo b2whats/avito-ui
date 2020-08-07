@@ -217,10 +217,13 @@ Object {
     "bg": "gray4",
     "color": "white",
     "fontSize": 12,
+    "grow": false,
     "height": 20,
     "overlayActive": "black24",
     "overlayDisabled": "rgba(255, 255, 255, 0.5)",
+    "position": "relative",
     "shape": "circle",
+    "shrink": false,
     "valignSelf": "middle",
     "width": 20,
   },
@@ -337,9 +340,12 @@ Object {
         "align": "center",
         "color": "white",
         "fontSize": [Function],
+        "grow": false,
         "height": [Function],
         "overlayDisabled": "rgba(255, 255, 255, 0.5)",
+        "position": "relative",
         "shape": "circle",
+        "shrink": false,
         "valignSelf": "middle",
         "width": [Function],
       },
@@ -575,6 +581,7 @@ Object {
     "pl": 16,
     "pr": 16,
     "pt": 6,
+    "shrink": false,
   },
   "IconAfter": Object {
     "size": "s",
@@ -1478,6 +1485,7 @@ Object {
         "pl": 16,
         "pr": 16,
         "pt": [Function],
+        "shrink": false,
       },
       Object {
         "$if": [Function],
@@ -1954,12 +1962,19 @@ Object {
     "size": "m",
   },
   "Switch": Object {
+    "adjacentSelector": "input",
     "bg": "gray8",
     "bgActive": "gray12",
     "bgDisabled": "gray4",
     "borderRadius": 2,
     "color": "white",
     "height": 18,
+    "shape": undefined,
+    "shrink": false,
+    "variant": "primary",
+  },
+  "Toggle": Object {
+    "valign": "baseline",
   },
 }
 `;
@@ -1999,6 +2014,7 @@ Object {
     "bg": "red500",
     "bgActive": "red700",
     "bgDisabled": "gray28",
+    "variant": "error",
   },
 }
 `;
@@ -2025,6 +2041,7 @@ Object {
     "bg": "gray48",
     "bgActive": "gray56",
     "bgDisabled": "gray28",
+    "variant": "secondary",
   },
 }
 `;
@@ -2038,6 +2055,7 @@ Object {
     "bg": "green500",
     "bgActive": "green700",
     "bgDisabled": "gray28",
+    "variant": "success",
   },
 }
 `;
@@ -2051,6 +2069,7 @@ Object {
     "bg": "orange500",
     "bgActive": "orange700",
     "bgDisabled": "gray28",
+    "variant": "warning",
   },
 }
 `;
@@ -2065,15 +2084,39 @@ Object {
 
 exports[`mobile theme Checkbox fuzz: checked=false indeterminate=false 1`] = `Object {}`;
 
-exports[`mobile theme Checkbox fuzz: checked=false variant="error" 1`] = `Object {}`;
+exports[`mobile theme Checkbox fuzz: checked=false variant="error" 1`] = `
+Object {
+  "Switch": Object {
+    "variant": "error",
+  },
+}
+`;
 
 exports[`mobile theme Checkbox fuzz: checked=false variant="primary" 1`] = `Object {}`;
 
-exports[`mobile theme Checkbox fuzz: checked=false variant="secondary" 1`] = `Object {}`;
+exports[`mobile theme Checkbox fuzz: checked=false variant="secondary" 1`] = `
+Object {
+  "Switch": Object {
+    "variant": "secondary",
+  },
+}
+`;
 
-exports[`mobile theme Checkbox fuzz: checked=false variant="success" 1`] = `Object {}`;
+exports[`mobile theme Checkbox fuzz: checked=false variant="success" 1`] = `
+Object {
+  "Switch": Object {
+    "variant": "success",
+  },
+}
+`;
 
-exports[`mobile theme Checkbox fuzz: checked=false variant="warning" 1`] = `Object {}`;
+exports[`mobile theme Checkbox fuzz: checked=false variant="warning" 1`] = `
+Object {
+  "Switch": Object {
+    "variant": "warning",
+  },
+}
+`;
 
 exports[`mobile theme Checkbox fuzz: size="l" 1`] = `Object {}`;
 
@@ -2136,6 +2179,12 @@ Object {
     ],
     "Switch": Array [
       Object {
+        "adjacentSelector": "input",
+        "shape": [Function],
+        "shrink": false,
+        "variant": [Function],
+      },
+      Object {
         "bg": "gray8",
         "bgActive": "gray12",
         "bgDisabled": "gray4",
@@ -2185,6 +2234,11 @@ Object {
         ],
       },
     ],
+    "Toggle": Array [
+      Object {
+        "valign": "baseline",
+      },
+    ],
   },
 }
 `;
@@ -2194,6 +2248,8 @@ Object {
   "Icon": Object {
     "color": undefined,
     "height": 20,
+    "shrink": false,
+    "valignSelf": "middle",
   },
 }
 `;
@@ -2275,22 +2331,45 @@ Object {
       Object {
         "color": [Function],
         "height": [Function],
+        "shrink": false,
+        "valignSelf": "middle",
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "height": [Function],
+          },
+        ],
       },
       Object {
         "color": [Function],
-        "height": [Function],
       },
     ],
   },
 }
 `;
 
-exports[`mobile theme Image base 1`] = `Object {}`;
+exports[`mobile theme Image base 1`] = `
+Object {
+  "Image": Object {
+    "height": "auto",
+    "maxWidth": 1,
+  },
+}
+`;
 
 exports[`mobile theme Image snap 1`] = `
 Object {
   "mapProps": [Function],
-  "scheme": Object {},
+  "scheme": Object {
+    "Image": Array [
+      Object {
+        "height": "auto",
+        "maxWidth": 1,
+      },
+    ],
+  },
 }
 `;
 
@@ -2316,10 +2395,13 @@ Object {
     "fontSize": 16,
     "height": "m",
     "placeholderColor": "gray48",
+    "width": 1,
   },
   "InputField": Object {
+    "grow": true,
     "pl": 16,
     "pr": 16,
+    "valign": "middle",
   },
   "Postfix": Object {
     "ml": 4,
@@ -2578,6 +2660,7 @@ Object {
       Object {
         "focus": true,
         "height": [Function],
+        "width": 1,
       },
       Object {
         "bg": [Function],
@@ -2589,6 +2672,10 @@ Object {
       },
     ],
     "InputField": Array [
+      Object {
+        "grow": true,
+        "valign": "middle",
+      },
       Object {
         "pl": [Function],
         "pr": [Function],
@@ -2794,6 +2881,7 @@ Object {
     "size": "m",
   },
   "Switch": Object {
+    "adjacentSelector": "input",
     "bg": "gray8",
     "bgActive": "gray12",
     "bgDisabled": "gray4",
@@ -2802,6 +2890,12 @@ Object {
     "height": 18,
     "ml": 1,
     "mr": 1,
+    "shape": undefined,
+    "shrink": false,
+    "variant": "primary",
+  },
+  "Toggle": Object {
+    "valign": "baseline",
   },
 }
 `;
@@ -2821,11 +2915,18 @@ Object {
     "bg": "red500",
     "bgActive": "red700",
     "bgDisabled": "gray28",
+    "variant": "error",
   },
 }
 `;
 
-exports[`mobile theme Radio fuzz: variant="error" checked=false 1`] = `Object {}`;
+exports[`mobile theme Radio fuzz: variant="error" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "variant": "error",
+  },
+}
+`;
 
 exports[`mobile theme Radio fuzz: variant="primary" checked 1`] = `
 Object {
@@ -2851,11 +2952,18 @@ Object {
     "bg": "gray48",
     "bgActive": "gray56",
     "bgDisabled": "gray28",
+    "variant": "secondary",
   },
 }
 `;
 
-exports[`mobile theme Radio fuzz: variant="secondary" checked=false 1`] = `Object {}`;
+exports[`mobile theme Radio fuzz: variant="secondary" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "variant": "secondary",
+  },
+}
+`;
 
 exports[`mobile theme Radio fuzz: variant="success" checked 1`] = `
 Object {
@@ -2866,11 +2974,18 @@ Object {
     "bg": "green500",
     "bgActive": "green700",
     "bgDisabled": "gray28",
+    "variant": "success",
   },
 }
 `;
 
-exports[`mobile theme Radio fuzz: variant="success" checked=false 1`] = `Object {}`;
+exports[`mobile theme Radio fuzz: variant="success" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "variant": "success",
+  },
+}
+`;
 
 exports[`mobile theme Radio fuzz: variant="warning" checked 1`] = `
 Object {
@@ -2881,11 +2996,18 @@ Object {
     "bg": "orange500",
     "bgActive": "orange700",
     "bgDisabled": "gray28",
+    "variant": "warning",
   },
 }
 `;
 
-exports[`mobile theme Radio fuzz: variant="warning" checked=false 1`] = `Object {}`;
+exports[`mobile theme Radio fuzz: variant="warning" checked=false 1`] = `
+Object {
+  "Switch": Object {
+    "variant": "warning",
+  },
+}
+`;
 
 exports[`mobile theme Radio snap 1`] = `
 Object {
@@ -2933,6 +3055,12 @@ Object {
       },
     ],
     "Switch": Array [
+      Object {
+        "adjacentSelector": "input",
+        "shape": [Function],
+        "shrink": false,
+        "variant": [Function],
+      },
       Object {
         "color": "white",
       },
@@ -2984,6 +3112,11 @@ Object {
         ],
       },
     ],
+    "Toggle": Array [
+      Object {
+        "valign": "baseline",
+      },
+    ],
   },
 }
 `;
@@ -2996,6 +3129,9 @@ Object {
     "colorChecked": "black",
     "colorDisabled": "gray24",
     "focus": true,
+    "grow": true,
+    "height": 1,
+    "position": "relative",
   },
   "Group": Object {
     "bg": "gray4",
@@ -3005,10 +3141,13 @@ Object {
     "pl": 4,
     "pr": 4,
     "pt": 4,
+    "shrink": false,
+    "width": 1,
   },
   "Slide": Object {
     "bg": "white",
     "borderRadius": 5,
+    "height": 1,
   },
 }
 `;
@@ -3045,6 +3184,9 @@ Object {
         "colorChecked": "black",
         "colorDisabled": "gray24",
         "focus": true,
+        "grow": true,
+        "height": 1,
+        "position": "relative",
       },
     ],
     "Group": Array [
@@ -3056,12 +3198,15 @@ Object {
         "pl": 4,
         "pr": 4,
         "pt": 4,
+        "shrink": false,
+        "width": 1,
       },
     ],
     "Slide": Array [
       Object {
         "bg": "white",
         "borderRadius": 5,
+        "height": 1,
       },
     ],
   },
@@ -3132,6 +3277,7 @@ Object {
     "size": "m",
   },
   "Switch": Object {
+    "adjacentSelector": "input",
     "bg": "gray12",
     "bgActive": "gray28",
     "bgDisabled": "gray8",
@@ -3142,7 +3288,13 @@ Object {
     "pl": 3,
     "pr": 3,
     "pt": 3,
+    "shape": "pill",
+    "shrink": false,
+    "variant": "primary",
     "width": 48,
+  },
+  "Toggle": Object {
+    "valign": "baseline",
   },
 }
 `;
@@ -3262,6 +3414,7 @@ Object {
     "bg": "red500",
     "bgActive": "red700",
     "bgDisabled": "gray28",
+    "variant": "error",
   },
 }
 `;
@@ -3270,6 +3423,7 @@ exports[`mobile theme Switcher fuzz: variant="error" checked=false 1`] = `
 Object {
   "Switch": Object {
     "bgDisabled": "gray4",
+    "variant": "error",
   },
 }
 `;
@@ -3292,6 +3446,7 @@ Object {
     "bg": "gray48",
     "bgActive": "gray56",
     "bgDisabled": "gray28",
+    "variant": "secondary",
   },
 }
 `;
@@ -3300,6 +3455,7 @@ exports[`mobile theme Switcher fuzz: variant="secondary" checked=false 1`] = `
 Object {
   "Switch": Object {
     "bgDisabled": "gray4",
+    "variant": "secondary",
   },
 }
 `;
@@ -3310,6 +3466,7 @@ Object {
     "bg": "green500",
     "bgActive": "green700",
     "bgDisabled": "gray28",
+    "variant": "success",
   },
 }
 `;
@@ -3318,6 +3475,7 @@ exports[`mobile theme Switcher fuzz: variant="success" checked=false 1`] = `
 Object {
   "Switch": Object {
     "bgDisabled": "gray4",
+    "variant": "success",
   },
 }
 `;
@@ -3328,6 +3486,7 @@ Object {
     "bg": "orange500",
     "bgActive": "orange700",
     "bgDisabled": "gray28",
+    "variant": "warning",
   },
 }
 `;
@@ -3336,6 +3495,7 @@ exports[`mobile theme Switcher fuzz: variant="warning" checked=false 1`] = `
 Object {
   "Switch": Object {
     "bgDisabled": "gray4",
+    "variant": "warning",
   },
 }
 `;
@@ -3391,6 +3551,12 @@ Object {
       },
     ],
     "Switch": Array [
+      Object {
+        "adjacentSelector": "input",
+        "shape": [Function],
+        "shrink": false,
+        "variant": [Function],
+      },
       Object {
         "bg": "gray12",
         "bgActive": "gray28",
@@ -3466,6 +3632,11 @@ Object {
             "focus": false,
           },
         ],
+      },
+    ],
+    "Toggle": Array [
+      Object {
+        "valign": "baseline",
       },
     ],
   },
@@ -3643,6 +3814,7 @@ Object {
     "placeholderColor": "gray48",
     "pr": 16,
     "pt": 12,
+    "valign": "top",
   },
 }
 `;
@@ -3753,6 +3925,7 @@ Object {
         "focus": true,
         "lineHeight": "normal",
         "minHeight": [Function],
+        "valign": "top",
       },
       Object {
         "bg": [Function],

@@ -4,13 +4,13 @@ import { uiComponent } from '../../theme/'
 import { filterProps } from '../../utils/'
 import { StackProps } from './contract'
 
-const stackClassName = createClassName<StackProps>(
-  (_, props) => ({
-    display: 'flex',
+const stackClassName = createClassName<StackProps>({
+  display: 'flex',
+  mapPropsToStyle: props => ({
     valign: !props.column ? 'top' : undefined,
     ...props,
   }),
-  (textRules, { column, scroll, spacing, spacingCross, debug }, { space }) => (`
+  cssRewrite: (textRules, { column, scroll, spacing, spacingCross, debug }, { space }) => (`
     ${scroll ? `overflow-${column ? 'y' : 'x'}: auto;` : ''};
 
     ${spacing ? `
@@ -33,8 +33,8 @@ const stackClassName = createClassName<StackProps>(
     ` : ''}
 
     ${textRules}
-  `)
-)
+  `),
+})
 
 export const Stack = uiComponent('Stack', {}, { memo: false })((
   { as, children, ...props }: StackProps,

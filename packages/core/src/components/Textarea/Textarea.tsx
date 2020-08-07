@@ -7,21 +7,17 @@ import { TextareaProps } from './contract'
 import { TextareaCore } from './TextareaCore'
 import { textareaTheme } from './theme'
 
-const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>(
-  (themeStyle, props) => ({
-    display: 'flex',
-    valign: 'top',
-    ...themeStyle,
-    ...props,
-  }),
-  (textRules, props) => (`
+const wrapperClassName = createClassName<TextareaProps, typeof textareaTheme>({
+  display: 'flex',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules, props) => (`
     ${props.deletePlaceholderOnFocus ? `& *:focus::placeholder {
       color: transparent;
     }` : ''}
 
     ${textRules}
-  `)
-)
+  `),
+})
 
 
 export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HTMLTextAreaElement>((

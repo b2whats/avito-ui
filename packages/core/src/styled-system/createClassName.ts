@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css, SerializedStyles } from '@emotion/core'
 import { Tokens } from '@avito/tokens'
 import { profiler } from '../utils'
 import { ExpandedStyleProperties, expandShorthands } from './expandShorthands'
@@ -507,29 +507,33 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
   return css
 }
 
-export function createClassName<Props, ComponentTheme extends object | null = null>(
-  createRule: (
-    schemeStyle: StyleProperties,
-    props: Props,
-    theme: Theme) => StyleProperties & Display,
-  createUserRule?: (
+type ClassNameOptions<Props> = {
+  display: Display['display'] | ((props: Props) => Display['display'])
+  mapPropsToStyle?: boolean | ((props: Props) => StyleProperties)
+  cssRewrite?: (
     textRules: string,
     props: Props,
     theme: Theme,
-    schemeStyle: StyleProperties) => any
-) {
+    schemeStyle: StyleProperties) => string | SerializedStyles
+}
+export function createClassName<Props, ComponentTheme extends object | null = null>({
+  cssRewrite = text => text,
+  display,
+  mapPropsToStyle = false,
+}: ClassNameOptions<Props>) {
+  const mapPropsToStyleFn = mapPropsToStyle === true ? (props: any) => props : mapPropsToStyle
   return profiler.withMeasure('classname')(function classnameStyle(
     props: Props,
     theme: Theme,
     schemeStyle?: ComponentTheme extends object ? StyleProperties : never
   ) {
-    // FIXME expanding shorthands with proper priorities over this merge is impossible
-    const styles = createRule(schemeStyle as any, expandShorthands(props as any, true), theme)
-    const textRules = getStyles(styles, theme)
+    const textRules = getStyles({
+      display: typeof display === 'function' ? display(props) : display,
+      ...schemeStyle as any,
+      ...mapPropsToStyleFn && expandShorthands(mapPropsToStyleFn(props), true),
+    }, theme)
 
-    const resultRules = createUserRule
-      ? createUserRule(textRules, props, theme, schemeStyle as any)
-      : textRules
+    const resultRules = cssRewrite(textRules, props, theme, schemeStyle as any)
 
     return typeof resultRules === 'string' ? css`${resultRules}` : resultRules
   })

@@ -38,7 +38,12 @@ export const inputTheme = dsl.theme<InputTheme>()
     ml: 4,
   })
   .slot('Input', {
+    width: 1,
     focus: true,
     height: ({ size }) => size,
+  })
+  .slot('InputField', {
+    valign: 'middle',
+    grow: true,
   })
   .build()

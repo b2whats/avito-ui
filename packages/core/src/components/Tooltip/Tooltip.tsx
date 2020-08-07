@@ -6,23 +6,14 @@ import { Positioner, PositionerProps } from '../Positioner/'
 import { TooltipProps } from './contract'
 import { tooltipTheme } from './theme'
 
-const tooltipClassName = createClassName<Omit<TooltipProps, 'minWidth' | 'width' | 'maxWidth'>, typeof tooltipTheme>(
-  (themeStyle, props) => ({
-    display: 'block',
-    ...themeStyle,
-    ...props,
-    minWidth: undefined,
-    width: undefined,
-    maxWidth: undefined,
-  })
-)
+const tooltipClassName = createClassName<TooltipProps, typeof tooltipTheme>({
+  mapPropsToStyle: ({ minWidth, width, maxWidth, ...props }) => props,
+  display: 'block',
+})
 
-const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme>(
-  (themeStyle) => ({
-    display: 'inline-block',
-    ...themeStyle,
-  }),
-  (textRules, { arrowOffset }) => `
+const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme>({
+  display: 'inline-block',
+  cssRewrite: (textRules, { arrowOffset }) => `
     visibility: hidden;
     background-color: inherit;
 
@@ -53,8 +44,8 @@ const arrowClassName = createClassName<TooltipProps, typeof tooltipTheme>(
     }
 
     ${textRules}
-  `
-)
+  `,
+})
 
 export const Tooltip = uiComponent('Tooltip', tooltipTheme)<TooltipProps>((
   { content, ...props },

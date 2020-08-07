@@ -5,13 +5,10 @@ import { filterProps } from '../../utils/'
 import { TextProps } from './contract'
 import { textTheme } from './theme'
 
-const textClassName = createClassName<TextProps, typeof textTheme>(
-  (themeStyle, props) => ({
-    display: props.width || props.height ? 'inline-block' : 'inline',
-    ...themeStyle,
-    ...props,
-  }),
-  (textRules, { strike }, { palette }) => (`
+const textClassName = createClassName<TextProps, typeof textTheme>({
+  display: props => props.width || props.height ? 'inline-block' : 'inline',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules, { strike }, { palette }) => (`
     li& {
       list-style: none;
     }
@@ -37,8 +34,8 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
     ` : ''}
 
     ${textRules}
-  `)
-)
+  `),
+})
 
 export const Text = uiComponent('Text', textTheme)(({ children, ...props }: TextProps, { theme, tokens, testId }) => {
   const { Text } = foldThemeParams(props, theme)

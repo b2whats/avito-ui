@@ -9,15 +9,10 @@ import { Text as TextComponent, TextProps } from '../Text/'
 import { ButtonProps } from './contract'
 import { buttonTheme } from './theme'
 
-const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
-  (themeStyle, props) => ({
-    display: 'inline-block',
-    shrink: false,
-    ...themeStyle,
-    ...props,
-  }),
-  // eslint-disable-next-line id-length
-  (textRules, { kind, pressedOffset }, { space }, { borderWidth = 0, p = 0, py = p, pt = py, pb = py }) => (`
+const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>({
+  display: 'inline-block',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules, { kind, pressedOffset }, { space }, { borderWidth = 0, pt = 0, pb = 0 }) => (`
     font-family: inherit;
     cursor: pointer;
     text-align: center;
@@ -95,8 +90,8 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
     }
 
     ${textRules}
-  `)
-)
+  `),
+})
 
 export const Button = uiComponent('Button', buttonTheme)<ButtonProps>((props, { theme, tokens, ref }) => {
   props.type = props.href ? undefined : props.type

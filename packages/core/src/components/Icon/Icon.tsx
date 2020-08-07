@@ -11,18 +11,10 @@ const spinAnimation = keyframes`
   100% { transform: rotate(360deg); transform-origin: 50% 50%; }
 `
 
-const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
-  (themeStyle, props) => ({
-    display: 'inline-block',
-    valignSelf: 'middle',
-    shrink: false,
-    ...themeStyle,
-    ...props,
-    height: props.size === 'auto' ? 1 :
-            typeof props.size === 'string' ? themeStyle.height :
-            props.size,
-  }),
-  (textRules, { spin, rotate, area, shadow }) => css`
+const iconClassName = createClassName<BaseIconProps, typeof iconTheme>({
+  display: 'inline-block',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules, { spin, rotate, area, shadow }) => css`
     fill: currentColor;
     height: 1em;
 
@@ -56,8 +48,8 @@ const iconClassName = createClassName<BaseIconProps, typeof iconTheme>(
 
     ${textRules}
     box-sizing: content-box;
-  `
-)
+  `,
+})
 
 const shadowMask = (
   <filter id='shadow' x='-50%' y='-50%' width='200%' height='200%' filterUnits='objectBoundingBox'>

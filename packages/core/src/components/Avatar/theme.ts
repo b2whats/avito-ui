@@ -18,6 +18,9 @@ export const avatarTheme = dsl.theme<AvatarTheme>()
   })
   .slot('Wrapper', slot => [
     {
+      position: 'relative',
+      shrink: false,
+      grow: false,
       color: 'white',
       align: 'center',
       valignSelf: 'middle',

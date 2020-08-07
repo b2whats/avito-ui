@@ -9,36 +9,27 @@ import { InputProps } from './contract'
 import { InputCore } from './InputCore'
 import { inputTheme } from './theme'
 
-const inputClassName = createClassName<InputProps, typeof inputTheme>(
-  (themeStyle, props) => ({
-    display: 'flex',
-    width: 1,
-    ...themeStyle,
-    ...props,
-  }),
-  (textRules) => (`
+const inputClassName = createClassName<InputProps, typeof inputTheme>({
+  display: 'flex',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules) => `
     position: relative;
     font-family: inherit;
     align-items: center;
 
     ${textRules}
-  `)
-)
+  `,
+})
 
-const inputFieldClassName = createClassName<InputProps, typeof inputTheme>(
-  (themeStyle) => ({
-    display: 'flex',
-    valign: 'middle',
-    grow: true,
-    ...themeStyle,
-  }),
-  (textRules) => (`
+const inputFieldClassName = createClassName<InputProps, typeof inputTheme>({
+  display: 'flex',
+  cssRewrite: (textRules) => `
     height: 100%;
     overflow: hidden;
 
     ${textRules}
-  `)
-)
+  `,
+})
 
 export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputElement>((
   { mask, ...props },

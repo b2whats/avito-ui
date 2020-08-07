@@ -20,4 +20,13 @@ export const toggleTheme = dsl.theme<ToggleTheme>()
   .slot('Label', {
     size: 'm',
   })
+  .slot('Toggle', {
+    valign: 'baseline',
+  })
+  .slot('Switch', {
+    shrink: false,
+    adjacentSelector: 'input',
+    shape: props => props.shape,
+    variant: props => props.variant,
+  })
   .build()
