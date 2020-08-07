@@ -51,16 +51,16 @@ export const Avatar = uiComponent('Avatar', avatarTheme)<AvatarProps>((props, { 
     typeof props.alt === 'string' ? <Text crop>{props.alt[0].toUpperCase()}</Text> :
     <Fallback.component {...fallbackProps} />)
 
-  const avatarStyle = avatarClassName(props, tokens, Wrapper.style)
+  const avatarStyle = avatarClassName(props, tokens, Wrapper)
 
   // FIXME put onClick on img / fallback for easier badge clicks?
   return (
     <Tag css={avatarStyle} {...aria} {...filterProps(omit(props, 'src'), Tag)} {...testId()}>
       { isFallback
-        ? renderFallback(props.children, Fallback.props)
+        ? renderFallback(props.children, Fallback)
         : <img css={imageClassName} draggable='false' src={props.src} onError={onError} alt={alt} {...testId('image')} /> }
       { props.badge &&
-        <props.badge.type {...Badge.props} {...props.badge.props} {...testId('badge')} />}
+        <props.badge.type {...Badge} {...props.badge.props} {...testId('badge')} />}
     </Tag>
   )
 })

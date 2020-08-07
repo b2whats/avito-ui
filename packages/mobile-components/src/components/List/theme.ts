@@ -1,4 +1,4 @@
-import { Slot, ComponentTheme, TextProps, StackProps, BoxProps } from '@avito/core'
+import { Slot, ComponentTheme, TextProps, StackProps, BoxProps, dsl } from '@avito/core'
 import { ListItemProps } from './contract'
 
 export type ListItemTheme = ComponentTheme<ListItemProps, {
@@ -11,67 +11,45 @@ export type ListItemTheme = ComponentTheme<ListItemProps, {
   After: Slot<BoxProps>
 }>
 
-export const listItemTheme: ListItemTheme = {
-  defaultProps: {
+export const listItemTheme = dsl.theme<ListItemTheme>()
+  .defaultProps({
     beforeTreshold: 82,
     afterTreshold: 82,
-  },
-  scheme: {
-    ListItem: {
-      props: {
-        pt: 10,
-        pb: 12,
-        px: 16,
-        spacing: 16,
-        valign: 'middle',
-        minHeight: 52,
-      },
-      onClick: {
-        props: {
-          bgActive: 'gray4',
-        },
-      },
+  })
+  .slot('ListItem', slot => [
+    {
+      pt: 10,
+      pb: 12,
+      px: 16,
+      spacing: 16,
+      valign: 'middle',
+      minHeight: 52,
     },
-    Before: {
-      props: {
-
-      },
+    slot.if('onClick', {
+      bgActive: 'gray4',
+    }),
+  ])
+  .slot('StackText', {
+    spacing: 2,
+  })
+  .slot('Label', slot => [
+    {
+      size: 'm',
     },
-    StackText: {
-      props: {
-        spacing: 2,
-      },
+    slot.if('disabled', {
+      color: 'gray48',
+    }),
+  ])
+  .slot('Caption', slot => [
+    {
+      size: 's',
+      color: 'gray40',
     },
-    Label: {
-      props: {
-        size: 'm',
-      },
-      disabled: {
-        props: {
-          color: 'gray48',
-        },
-      },
-    },
-    Caption: {
-      props: {
-        size: 's',
-        color: 'gray40',
-      },
-      disabled: {
-        props: {
-          color: 'gray32',
-        },
-      },
-    },
-    Link: {
-      props: {
-        size: 's',
-      },
-    },
-    After: {
-      props: {
-
-      },
-    },
-  },
-}
+    slot.if('disabled', {
+      color: 'gray32',
+    }),
+  ])
+  .slot('Link', {
+    size: 's',
+  })
+  .build()

@@ -1,15 +1,7 @@
-import { DeepPartial, IconTheme } from '@avito/core'
+import { dsl, IconTheme } from '@avito/core'
 
-export const iconTheme: DeepPartial<IconTheme> = {
-  scheme: {
-    Icon: {
-      size: {
-        l: {
-          style: {
-            height: 28,
-          },
-        },
-      },
-    },
-  },
-}
+export const iconTheme = dsl.theme<IconTheme>()
+  .slot('Icon', slot => slot.if(props => props.size === 'l', {
+    height: 28,
+  }))
+  .build()

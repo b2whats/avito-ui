@@ -3,87 +3,105 @@
 exports[`pik theme Button base 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "transparent",
-      "bgActive": "gray8",
-      "bgDisabled": "transparent",
-      "bgHover": "gray4",
-      "borderColor": "gray16",
-      "borderRadius": 4,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "black",
-      "focus": "blue100",
-      "minHeight": "m",
-      "pb": 8,
-      "pl": 24,
-      "pr": 24,
-      "pt": 8,
-    },
+    "bg": "transparent",
+    "bgActive": "gray8",
+    "bgDisabled": "transparent",
+    "bgHover": "gray4",
+    "borderColor": "gray16",
+    "borderRadius": 4,
+    "borderStyle": "solid",
+    "borderWidth": 1,
+    "color": "black",
+    "focus": "blue100",
+    "minHeight": "m",
+    "pb": 8,
+    "pl": 24,
+    "pr": 24,
+    "pt": 8,
   },
   "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
+    "size": "s",
   },
   "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
+    "size": "s",
   },
   "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "m",
-      "variant": "primary",
-    },
-    "style": Object {},
+    "size": "m",
+    "variant": "primary",
   },
   "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "lineHeight": 1.1875,
-      "ml": -1,
-      "size": "m",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
+    "crop": true,
+    "lineHeight": 1.1875,
+    "ml": -1,
+    "size": "m",
+    "valignSelf": "middle",
   },
 }
 `;
 
-exports[`pik theme Button fuzz: children="text" preset="default" checked loading 1`] = `Object {}`;
+exports[`pik theme Button fuzz: children="text" preset="default" checked loading 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
-exports[`pik theme Button fuzz: children="text" preset="default" checked loading=false 1`] = `Object {}`;
+exports[`pik theme Button fuzz: children="text" preset="default" checked loading=false 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
-exports[`pik theme Button fuzz: children="text" preset="default" checked=false loading 1`] = `Object {}`;
+exports[`pik theme Button fuzz: children="text" preset="default" checked=false loading 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
-exports[`pik theme Button fuzz: children="text" preset="default" checked=false loading=false 1`] = `Object {}`;
+exports[`pik theme Button fuzz: children="text" preset="default" checked=false loading=false 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
 exports[`pik theme Button fuzz: children="text" preset="error" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "red500",
-      "bgHover": "red600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "red100",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "red500",
+    "bgHover": "red600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "red100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -91,20 +109,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="error" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "red500",
-      "bgHover": "red600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "red100",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "red500",
+    "bgHover": "red600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "red100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -112,20 +132,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="error" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "red500",
-      "bgHover": "red600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "red100",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "red500",
+    "bgHover": "red600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "red100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -133,20 +155,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="error" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "red500",
-      "bgHover": "red600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "red100",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "red500",
+    "bgHover": "red600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "red100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -154,18 +178,20 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="newDefault" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray12",
-      "bgDisabled": "gray8",
-      "bgHover": "gray8",
-      "borderColor": "transparent",
-    },
+    "bg": "gray4",
+    "bgActive": "gray12",
+    "bgDisabled": "gray8",
+    "bgHover": "gray8",
+    "borderColor": "transparent",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -173,18 +199,20 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="newDefault" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray12",
-      "bgDisabled": "gray8",
-      "bgHover": "gray8",
-      "borderColor": "transparent",
-    },
+    "bg": "gray4",
+    "bgActive": "gray12",
+    "bgDisabled": "gray8",
+    "bgHover": "gray8",
+    "borderColor": "transparent",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -192,18 +220,20 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="newDefault" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray12",
-      "bgDisabled": "gray8",
-      "bgHover": "gray8",
-      "borderColor": "transparent",
-    },
+    "bg": "gray4",
+    "bgActive": "gray12",
+    "bgDisabled": "gray8",
+    "bgHover": "gray8",
+    "borderColor": "transparent",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -211,18 +241,20 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="newDefault" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray4",
-      "bgActive": "gray12",
-      "bgDisabled": "gray8",
-      "bgHover": "gray8",
-      "borderColor": "transparent",
-    },
+    "bg": "gray4",
+    "bgActive": "gray12",
+    "bgDisabled": "gray8",
+    "bgHover": "gray8",
+    "borderColor": "transparent",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -230,19 +262,21 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="primary" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue500",
-      "bgHover": "blue600",
-      "borderColor": "transparent",
-      "color": "white",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue500",
+    "bgHover": "blue600",
+    "borderColor": "transparent",
+    "color": "white",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -250,19 +284,21 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="primary" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue500",
-      "bgHover": "blue600",
-      "borderColor": "transparent",
-      "color": "white",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue500",
+    "bgHover": "blue600",
+    "borderColor": "transparent",
+    "color": "white",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -270,19 +306,21 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="primary" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue500",
-      "bgHover": "blue600",
-      "borderColor": "transparent",
-      "color": "white",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue500",
+    "bgHover": "blue600",
+    "borderColor": "transparent",
+    "color": "white",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -290,19 +328,21 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="primary" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue500",
-      "bgHover": "blue600",
-      "borderColor": "transparent",
-      "color": "white",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue500",
+    "bgHover": "blue600",
+    "borderColor": "transparent",
+    "color": "white",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -310,20 +350,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="success" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "green500",
-      "bgHover": "green600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "green100",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "green500",
+    "bgHover": "green600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "green100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -331,20 +373,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="success" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "green500",
-      "bgHover": "green600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "green100",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "green500",
+    "bgHover": "green600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "green100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -352,20 +396,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="success" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "green500",
-      "bgHover": "green600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "green100",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "green500",
+    "bgHover": "green600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "green100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -373,20 +419,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="success" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "green500",
-      "bgHover": "green600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "green100",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "green500",
+    "bgHover": "green600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "green100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -394,20 +442,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="warning" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "orange500",
-      "bgHover": "orange600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "orange100",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "orange500",
+    "bgHover": "orange600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "orange100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -415,20 +465,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="warning" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "orange500",
-      "bgHover": "orange600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "orange100",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "orange500",
+    "bgHover": "orange600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "orange100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -436,20 +488,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="warning" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "orange500",
-      "bgHover": "orange600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "orange100",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "orange500",
+    "bgHover": "orange600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "orange100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -457,20 +511,22 @@ Object {
 exports[`pik theme Button fuzz: children="text" preset="warning" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "orange500",
-      "bgHover": "orange600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "orange100",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "orange500",
+    "bgHover": "orange600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "orange100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -478,35 +534,27 @@ Object {
 exports[`pik theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="l" multiline 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "height": 64,
-      "minHeight": "l",
-      "minWidth": 290,
-      "pb": 9,
-      "pl": 48,
-      "pr": 48,
-      "pt": 9,
-    },
+    "height": 64,
+    "minHeight": "l",
+    "minWidth": 290,
+    "pb": 12,
+    "pl": 48,
+    "pr": 48,
+    "pt": 12,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
 }
 `;
@@ -514,10 +562,14 @@ Object {
 exports[`pik theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="m" multiline 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "pb": 9,
-      "pt": 9,
-    },
+    "pb": 9,
+    "pt": 9,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
 }
 `;
@@ -525,21 +577,21 @@ Object {
 exports[`pik theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="s" multiline 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 9,
-      "pt": 9,
-    },
+    "minHeight": "s",
+    "pb": 9,
+    "pt": 9,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
 }
 `;
@@ -547,33 +599,23 @@ Object {
 exports[`pik theme Button fuzz: size="l" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 36,
-      "pr": 36,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 36,
+    "pr": 36,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
 }
 `;
@@ -581,33 +623,25 @@ Object {
 exports[`pik theme Button fuzz: size="l" children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 36,
-      "pr": 36,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 36,
+    "pr": 36,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
 }
 `;
@@ -615,35 +649,25 @@ Object {
 exports[`pik theme Button fuzz: size="l" iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 36,
-      "pr": 36,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 36,
+    "pr": 36,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "mr": 8,
+    "size": "l",
   },
 }
 `;
@@ -651,35 +675,27 @@ Object {
 exports[`pik theme Button fuzz: size="l" iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 36,
-      "pr": 12,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 36,
+    "pr": 36,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "mr": 8,
+    "size": "l",
   },
 }
 `;
@@ -687,35 +703,25 @@ Object {
 exports[`pik theme Button fuzz: size="l" iconBefore={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 36,
-      "pr": 36,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 36,
+    "pr": 36,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "ml": 8,
+    "size": "l",
   },
 }
 `;
@@ -723,35 +729,27 @@ Object {
 exports[`pik theme Button fuzz: size="l" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 12,
-      "pr": 36,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 36,
+    "pr": 36,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "ml": 8,
+    "size": "l",
   },
 }
 `;
@@ -759,36 +757,26 @@ Object {
 exports[`pik theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 36,
-      "pr": 36,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 36,
+    "pr": 36,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 8,
-      "mr": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "ml": 8,
+    "mr": 8,
+    "size": "l",
   },
 }
 `;
@@ -796,67 +784,65 @@ Object {
 exports[`pik theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 12,
-      "pr": 12,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 36,
+    "pr": 36,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 8,
-      "mr": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "ml": 8,
+    "mr": 8,
+    "size": "l",
   },
 }
 `;
 
 exports[`pik theme Button fuzz: size="m" 1`] = `Object {}`;
 
-exports[`pik theme Button fuzz: size="m" children="text" 1`] = `Object {}`;
+exports[`pik theme Button fuzz: size="m" children="text" 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
 exports[`pik theme Button fuzz: size="m" iconAfter={jsx} 1`] = `
 Object {
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 6,
-    },
+    "align": "left",
+    "mr": 6,
   },
 }
 `;
 
 exports[`pik theme Button fuzz: size="m" iconAfter={jsx} children="text" 1`] = `
 Object {
-  "Button": Object {
-    "style": Object {
-      "pr": 12,
-    },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 6,
-    },
+    "align": "left",
+    "mr": 6,
   },
 }
 `;
@@ -864,26 +850,23 @@ Object {
 exports[`pik theme Button fuzz: size="m" iconBefore={jsx} 1`] = `
 Object {
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 6,
-    },
+    "align": "left",
+    "ml": 6,
   },
 }
 `;
 
 exports[`pik theme Button fuzz: size="m" iconBefore={jsx} children="text" 1`] = `
 Object {
-  "Button": Object {
-    "style": Object {
-      "pl": 12,
-    },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 6,
-    },
+    "align": "left",
+    "ml": 6,
   },
 }
 `;
@@ -891,29 +874,25 @@ Object {
 exports[`pik theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 6,
-      "mr": 6,
-    },
+    "align": "left",
+    "ml": 6,
+    "mr": 6,
   },
 }
 `;
 
 exports[`pik theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
-  "Button": Object {
-    "style": Object {
-      "pl": 12,
-      "pr": 12,
-    },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 6,
-      "mr": 6,
-    },
+    "align": "left",
+    "ml": 6,
+    "mr": 6,
   },
 }
 `;
@@ -921,21 +900,15 @@ Object {
 exports[`pik theme Button fuzz: size="s" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 5,
-      "pt": 5,
-    },
+    "minHeight": "s",
+    "pb": 5,
+    "pt": 5,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
 }
 `;
@@ -943,21 +916,21 @@ Object {
 exports[`pik theme Button fuzz: size="s" children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 5,
-      "pt": 5,
-    },
+    "minHeight": "s",
+    "pb": 5,
+    "pt": 5,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
 }
 `;
@@ -965,23 +938,17 @@ Object {
 exports[`pik theme Button fuzz: size="s" iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 5,
-      "pt": 5,
-    },
+    "minHeight": "s",
+    "pb": 5,
+    "pt": 5,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 4,
-      "size": "s",
-    },
+    "align": "left",
+    "mr": 4,
+    "size": "s",
   },
 }
 `;
@@ -989,24 +956,23 @@ Object {
 exports[`pik theme Button fuzz: size="s" iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 5,
-      "pr": 12,
-      "pt": 5,
-    },
+    "minHeight": "s",
+    "pb": 5,
+    "pt": 5,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 4,
-      "size": "s",
-    },
+    "align": "left",
+    "mr": 4,
+    "size": "s",
   },
 }
 `;
@@ -1014,23 +980,17 @@ Object {
 exports[`pik theme Button fuzz: size="s" iconBefore={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 5,
-      "pt": 5,
-    },
+    "minHeight": "s",
+    "pb": 5,
+    "pt": 5,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 4,
-      "size": "s",
-    },
+    "align": "left",
+    "ml": 4,
+    "size": "s",
   },
 }
 `;
@@ -1038,24 +998,23 @@ Object {
 exports[`pik theme Button fuzz: size="s" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 5,
-      "pl": 12,
-      "pt": 5,
-    },
+    "minHeight": "s",
+    "pb": 5,
+    "pt": 5,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 4,
-      "size": "s",
-    },
+    "align": "left",
+    "ml": 4,
+    "size": "s",
   },
 }
 `;
@@ -1063,24 +1022,18 @@ Object {
 exports[`pik theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 5,
-      "pt": 5,
-    },
+    "minHeight": "s",
+    "pb": 5,
+    "pt": 5,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 4,
-      "mr": 4,
-      "size": "s",
-    },
+    "align": "left",
+    "ml": 4,
+    "mr": 4,
+    "size": "s",
   },
 }
 `;
@@ -1088,26 +1041,24 @@ Object {
 exports[`pik theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "s",
-      "pb": 5,
-      "pl": 12,
-      "pr": 12,
-      "pt": 5,
-    },
+    "minHeight": "s",
+    "pb": 5,
+    "pt": 5,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 4,
-      "mr": 4,
-      "size": "s",
-    },
+    "align": "left",
+    "ml": 4,
+    "mr": 4,
+    "size": "s",
   },
 }
 `;
@@ -1122,46 +1073,103 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "Button": Object {
-      "disabled": Object {
-        "style": Object {
-          "overlay": "rgba(255,255,255,0.5)",
-        },
+    "Button": Array [
+      Object {
+        "borderColor": "transparent",
+        "borderRadius": 5,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "focus": false,
+        "minHeight": [Function],
+        "pb": [Function],
+        "pl": 16,
+        "pr": 16,
+        "pt": [Function],
       },
-      "iconAfter": Object {
-        "children": Object {
-          "style": Object {
-            "pr": 12,
-          },
-        },
-      },
-      "iconBefore": Object {
-        "children": Object {
-          "style": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
             "pl": 12,
           },
-        },
+        ],
       },
-      "multiline": Object {
-        "style": Object {
-          "pb": 9,
-          "pt": 9,
-        },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "pr": 12,
+          },
+        ],
       },
-      "preset": Object {
-        "default": Object {
-          "style": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "pb": 9,
+            "pt": 9,
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "overlay": "rgba(255,255,255,0.5)",
+          },
+        ],
+      },
+      Object {
+        "$switch": "size",
+        "l": Array [
+          Object {
+            "pb": 11,
+            "pl": 18,
+            "pr": 18,
+            "pt": 11,
+          },
+        ],
+        "m": Array [
+          Object {
+            "pb": 8,
+            "pl": 16,
+            "pr": 16,
+            "pt": 8,
+          },
+        ],
+        "s": Array [
+          Object {
+            "pb": 5,
+            "pl": 12,
+            "pr": 12,
+            "pt": 5,
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "pb": [Function],
+            "pt": [Function],
+          },
+        ],
+      },
+      Object {
+        "$switch": "preset",
+        "default": Array [
+          Object {
             "bg": "transparent",
-            "bgActive": "gray8",
+            "bgActive": "gray12",
             "bgDisabled": "transparent",
             "bgHover": "gray4",
-            "borderColor": "gray16",
+            "borderColor": "gray20",
             "color": "black",
             "focus": "blue100",
           },
-        },
-        "error": Object {
-          "style": Object {
+        ],
+        "error": Array [
+          Object {
             "bg": "red500",
             "bgActive": "red700",
             "bgDisabled": "red500",
@@ -1169,19 +1177,19 @@ Object {
             "color": "white",
             "focus": "red100",
           },
-        },
-        "newDefault": Object {
-          "style": Object {
-            "bg": "gray4",
-            "bgActive": "gray12",
+        ],
+        "newDefault": Array [
+          Object {
+            "bg": "gray8",
+            "bgActive": "gray20",
             "bgDisabled": "gray8",
-            "bgHover": "gray8",
+            "bgHover": "gray12",
             "color": "black",
             "focus": "blue100",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "bg": "blue500",
             "bgActive": "blue700",
             "bgDisabled": "blue500",
@@ -1189,9 +1197,9 @@ Object {
             "color": "white",
             "focus": "blue100",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "bg": "green500",
             "bgActive": "green700",
             "bgDisabled": "green500",
@@ -1199,214 +1207,161 @@ Object {
             "color": "white",
             "focus": "green100",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "bg": "orange500",
             "bgActive": "orange700",
             "bgDisabled": "orange500",
             "bgHover": "orange600",
-            "color": "white",
+            "color": "black",
             "focus": "orange100",
           },
-        },
+        ],
       },
-      "size": Object {
-        "l": Object {
-          "multiline": Object {
-            "style": Object {
-              "height": 64,
-              "minWidth": 290,
-              "pl": 48,
-              "pr": 48,
-            },
-          },
-          "style": Object {
-            "minHeight": "l",
-            "pb": 11,
-            "pl": 36,
-            "pr": 36,
-            "pt": 11,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "minHeight": "m",
-            "pb": 8,
-            "pl": 24,
-            "pr": 24,
-            "pt": 8,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "minHeight": "s",
-            "pb": 5,
-            "pl": 24,
-            "pr": 24,
-            "pt": 5,
-          },
-        },
-      },
-      "style": Object {
-        "borderColor": "transparent",
+      Object {
         "borderRadius": 4,
-        "borderStyle": "solid",
-        "borderWidth": 1,
-        "focus": false,
-        "pl": 16,
-        "pr": 16,
+        "pl": [Function],
+        "pr": [Function],
       },
-    },
-    "IconAfter": Object {
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": "m",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "height": 64,
+            "minWidth": 290,
+            "pl": 48,
+            "pr": 48,
           },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
+        ],
       },
-    },
-    "IconBefore": Object {
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": "m",
+      Object {
+        "$switch": "preset",
+        "default": Array [
+          Object {
+            "bgActive": "gray8",
+            "bgHover": "gray4",
+            "borderColor": "gray16",
           },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "s",
+        ],
+        "newDefault": Array [
+          Object {
+            "bg": "gray4",
+            "bgActive": "gray12",
+            "bgHover": "gray8",
           },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
+        ],
+        "warning": Array [
+          Object {
+            "color": "white",
           },
-        },
+        ],
       },
-    },
-    "Spinner": Object {
-      "preset": Object {
-        "default": Object {
-          "props": Object {
-            "variant": "primary",
-          },
-        },
+    ],
+    "IconAfter": Array [
+      Object {
+        "size": [Function],
       },
-      "props": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "mr": -4,
+          },
+        ],
+      },
+    ],
+    "IconBefore": Array [
+      Object {
+        "size": [Function],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "ml": -4,
+          },
+        ],
+      },
+    ],
+    "Spinner": Array [
+      Object {
+        "size": [Function],
+      },
+      Object {
         "variant": undefined,
       },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": "l",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "variant": "primary",
           },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
+        ],
       },
-    },
-    "Text": Object {
-      "iconAfter": Object {
-        "multiline": Object {
-          "props": Object {
-            "mr": 10,
-          },
-        },
-        "props": Object {
-          "align": "left",
-          "mr": 6,
-        },
-        "size": Object {
-          "l": Object {
-            "props": Object {
-              "mr": 8,
-            },
-          },
-          "m": Object {
-            "props": Object {
-              "mr": 6,
-            },
-          },
-          "s": Object {
-            "props": Object {
-              "mr": 4,
-            },
-          },
-        },
-      },
-      "iconBefore": Object {
-        "multiline": Object {
-          "props": Object {
-            "ml": 10,
-          },
-        },
-        "props": Object {
-          "align": "left",
-          "ml": 6,
-        },
-        "size": Object {
-          "l": Object {
-            "props": Object {
-              "ml": 8,
-            },
-          },
-          "m": Object {
-            "props": Object {
-              "ml": 6,
-            },
-          },
-          "s": Object {
-            "props": Object {
-              "ml": 4,
-            },
-          },
-        },
-      },
-      "props": Object {
+    ],
+    "Text": Array [
+      Object {
         "crop": true,
-        "lineHeight": 1.1875,
         "ml": -1,
         "size": "m",
         "valignSelf": "middle",
       },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": "l",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "ml": 6,
           },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
+        ],
       },
-    },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "mr": 6,
+          },
+        ],
+      },
+      Object {
+        "lineHeight": 1.1875,
+        "size": [Function],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "align": "left",
+            "ml": [Function],
+          },
+          Object {
+            "$if": [Function],
+            "$then": Array [
+              Object {
+                "ml": 10,
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "align": "left",
+            "mr": [Function],
+          },
+          Object {
+            "$if": [Function],
+            "$then": Array [
+              Object {
+                "mr": 10,
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
 }
 `;
@@ -1414,65 +1369,40 @@ Object {
 exports[`pik theme Input base 1`] = `
 Object {
   "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 10,
-      "size": "m",
-    },
-    "style": Object {},
+    "color": "gray28",
+    "ml": 10,
+    "size": "m",
   },
   "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mr": 10,
-      "size": "s",
-    },
-    "style": Object {},
+    "color": "gray28",
+    "mr": 10,
+    "size": "s",
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "bgDisabled": "gray4",
-      "bgFocus": "white",
-      "borderColor": "gray4",
-      "borderColorFocus": "gray16",
-      "borderColorHover": "gray16",
-      "borderRadius": 4,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "black",
-      "colorDisabled": "gray64",
-      "cursor": "text",
-      "focus": false,
-      "fontSize": "m",
-      "height": "m",
-      "pl": 16,
-      "placeholderColor": "gray44",
-      "pr": 16,
-    },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
+    "bg": "gray4",
+    "bgDisabled": "gray4",
+    "bgFocus": "white",
+    "borderColor": "gray4",
+    "borderColorFocus": "gray16",
+    "borderColorHover": "gray16",
+    "borderRadius": 4,
+    "borderStyle": "solid",
+    "borderWidth": 1,
+    "color": "black",
+    "colorDisabled": "gray64",
+    "cursor": "text",
+    "focus": false,
+    "fontSize": "m",
+    "height": "m",
+    "pl": 16,
+    "placeholderColor": "gray44",
+    "pr": 16,
   },
   "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
+    "ml": 4,
   },
   "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 6,
-    },
-    "style": Object {},
+    "mr": 6,
   },
 }
 `;
@@ -1480,10 +1410,8 @@ Object {
 exports[`pik theme Input fuzz: clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
+    "area": 10,
     "component": #IconCross,
-    "props": Object {
-      "area": 10,
-    },
   },
 }
 `;
@@ -1491,27 +1419,19 @@ Object {
 exports[`pik theme Input fuzz: size="l" 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
+    "ml": 12,
+    "size": "l",
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
+    "mr": 12,
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-    },
+    "fontSize": "l",
+    "height": "l",
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
+    "mr": 8,
   },
 }
 `;
@@ -1519,27 +1439,19 @@ Object {
 exports[`pik theme Input fuzz: size="l" iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
+    "ml": 12,
+    "size": "l",
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
+    "mr": 12,
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-    },
+    "fontSize": "l",
+    "height": "l",
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
+    "mr": 8,
   },
 }
 `;
@@ -1547,27 +1459,19 @@ Object {
 exports[`pik theme Input fuzz: size="l" iconBefore={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
+    "ml": 12,
+    "size": "l",
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
+    "mr": 12,
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-    },
+    "fontSize": "l",
+    "height": "l",
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
+    "mr": 8,
   },
 }
 `;
@@ -1575,27 +1479,19 @@ Object {
 exports[`pik theme Input fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
+    "ml": 12,
+    "size": "l",
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
+    "mr": 12,
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-    },
+    "fontSize": "l",
+    "height": "l",
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
+    "mr": 8,
   },
 }
 `;
@@ -1611,25 +1507,17 @@ exports[`pik theme Input fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
 exports[`pik theme Input fuzz: size="s" 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 7,
-    },
+    "ml": 7,
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 7,
-    },
+    "mr": 7,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "s",
-      "height": "s",
-    },
+    "fontSize": "s",
+    "height": "s",
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 4,
-    },
+    "mr": 4,
   },
 }
 `;
@@ -1637,25 +1525,17 @@ Object {
 exports[`pik theme Input fuzz: size="s" iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 7,
-    },
+    "ml": 7,
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 7,
-    },
+    "mr": 7,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "s",
-      "height": "s",
-    },
+    "fontSize": "s",
+    "height": "s",
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 4,
-    },
+    "mr": 4,
   },
 }
 `;
@@ -1663,25 +1543,17 @@ Object {
 exports[`pik theme Input fuzz: size="s" iconBefore={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 7,
-    },
+    "ml": 7,
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 7,
-    },
+    "mr": 7,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "s",
-      "height": "s",
-    },
+    "fontSize": "s",
+    "height": "s",
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 4,
-    },
+    "mr": 4,
   },
 }
 `;
@@ -1689,25 +1561,17 @@ Object {
 exports[`pik theme Input fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 7,
-    },
+    "ml": 7,
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 7,
-    },
+    "mr": 7,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "s",
-      "height": "s",
-    },
+    "fontSize": "s",
+    "height": "s",
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 4,
-    },
+    "mr": 4,
   },
 }
 `;
@@ -1717,10 +1581,8 @@ exports[`pik theme Input fuzz: value="value" 1`] = `Object {}`;
 exports[`pik theme Input fuzz: value="value" clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
+    "area": 10,
     "component": #IconCross,
-    "props": Object {
-      "area": 10,
-    },
   },
 }
 `;
@@ -1728,12 +1590,10 @@ Object {
 exports[`pik theme Input fuzz: variant="error" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "bg": "red50",
-      "borderColor": "red50",
-      "borderColorFocus": "red300",
-      "borderColorHover": "red300",
-    },
+    "bg": "red50",
+    "borderColor": "red50",
+    "borderColorFocus": "red300",
+    "borderColorHover": "red300",
   },
 }
 `;
@@ -1743,12 +1603,10 @@ exports[`pik theme Input fuzz: variant="primary" 1`] = `Object {}`;
 exports[`pik theme Input fuzz: variant="secondary" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "bg": "gray8",
-      "borderColor": "gray8",
-      "borderColorFocus": "gray20",
-      "borderColorHover": "gray20",
-    },
+    "bg": "gray8",
+    "borderColor": "gray8",
+    "borderColorFocus": "gray20",
+    "borderColorHover": "gray20",
   },
 }
 `;
@@ -1756,12 +1614,10 @@ Object {
 exports[`pik theme Input fuzz: variant="success" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "bg": "green50",
-      "borderColor": "green50",
-      "borderColorFocus": "green300",
-      "borderColorHover": "green300",
-    },
+    "bg": "green50",
+    "borderColor": "green50",
+    "borderColorFocus": "green300",
+    "borderColorHover": "green300",
   },
 }
 `;
@@ -1769,12 +1625,10 @@ Object {
 exports[`pik theme Input fuzz: variant="warning" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "bg": "orange50",
-      "borderColor": "orange50",
-      "borderColorFocus": "orange300",
-      "borderColorHover": "orange300",
-    },
+    "bg": "orange50",
+    "borderColor": "orange50",
+    "borderColorFocus": "orange300",
+    "borderColorHover": "orange300",
   },
 }
 `;
@@ -1789,179 +1643,174 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "IconAfter": Object {
-      "clearable": Object {
-        "component": #IconCross,
-        "props": Object {
-          "area": 10,
-          "size": [Function],
-        },
-      },
-      "props": Object {
+    "IconAfter": Array [
+      Object {
         "color": "gray28",
       },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "ml": 12,
-            "size": "l",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "area": 10,
+            "component": #IconCross,
+            "size": [Function],
           },
-        },
-        "m": Object {
-          "props": Object {
-            "ml": 10,
-            "size": "m",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "ml": 7,
-            "size": "m",
-          },
-        },
+        ],
       },
-    },
-    "IconBefore": Object {
-      "props": Object {
+      Object {
+        "ml": [Function],
+        "size": [Function],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "component": #IconCross,
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "component": #IconCross,
+          },
+        ],
+      },
+    ],
+    "IconBefore": Array [
+      Object {
         "color": "gray28",
         "size": [Function],
       },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "mr": 12,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "mr": 10,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "mr": 7,
-          },
-        },
+      Object {
+        "mr": [Function],
       },
-    },
-    "Input": Object {
-      "preset": Object {
-        "inverse": Object {
-          "variant": Object {
-            "primary": Object {
-              "style": Object {
-                "bg": "white",
-                "bgDisabled": "white",
-                "borderColor": "white",
-              },
-            },
-          },
-        },
+    ],
+    "Input": Array [
+      Object {
+        "focus": true,
+        "height": [Function],
       },
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "fontSize": "l",
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "fontSize": "m",
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "fontSize": "s",
-            "pl": 16,
-            "pr": 16,
-          },
-        },
-      },
-      "style": Object {
+      Object {
         "bgDisabled": "gray4",
-        "bgFocus": "white",
-        "borderRadius": 4,
+        "borderRadius": 3,
         "borderStyle": "solid",
         "borderWidth": 1,
         "color": "black",
         "colorDisabled": "gray64",
         "cursor": "text",
-        "focus": false,
-        "height": [Function],
-        "placeholderColor": "gray44",
+        "fontSize": [Function],
+        "pl": [Function],
+        "placeholderColor": "gray40",
+        "pr": [Function],
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
+      Object {
+        "$switch": "variant",
+        "error": Array [
+          Object {
+            "borderColor": "red500",
+            "borderColorHover": "red600",
+          },
+        ],
+        "primary": Array [
+          Object {
+            "borderColor": "gray20",
+            "borderColorHover": "gray28",
+          },
+        ],
+        "secondary": Array [
+          Object {
+            "borderColor": "gray8",
+            "borderColorHover": "gray16",
+          },
+        ],
+        "success": Array [
+          Object {
+            "borderColor": "green500",
+            "borderColorHover": "green600",
+          },
+        ],
+        "warning": Array [
+          Object {
+            "borderColor": "orange500",
+            "borderColorHover": "orange600",
+          },
+        ],
+      },
+      Object {
+        "bgFocus": "white",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "focus": false,
+        "pl": 16,
+        "placeholderColor": "gray44",
+        "pr": 16,
+      },
+      Object {
+        "$switch": "variant",
+        "error": Array [
+          Object {
             "bg": "red50",
             "borderColor": "red50",
             "borderColorFocus": "red300",
             "borderColorHover": "red300",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "bg": "gray4",
             "borderColor": "gray4",
             "borderColorFocus": "gray16",
             "borderColorHover": "gray16",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "bg": "gray8",
             "borderColor": "gray8",
             "borderColorFocus": "gray20",
             "borderColorHover": "gray20",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "bg": "green50",
             "borderColor": "green50",
             "borderColorFocus": "green300",
             "borderColorHover": "green300",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "bg": "orange50",
             "borderColor": "orange50",
             "borderColorFocus": "orange300",
             "borderColorHover": "orange300",
           },
-        },
+        ],
       },
-    },
-    "InputField": Object {},
-    "Postfix": Object {
-      "props": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bg": "white",
+            "bgDisabled": "white",
+            "borderColor": "white",
+          },
+        ],
+      },
+    ],
+    "Postfix": Array [
+      Object {
         "ml": 4,
       },
-    },
-    "Prefix": Object {
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "mr": 8,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "mr": 6,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "mr": 4,
-          },
-        },
+    ],
+    "Prefix": Array [
+      Object {
+        "mr": [Function],
       },
-    },
+    ],
   },
 }
 `;
@@ -1969,71 +1818,30 @@ Object {
 exports[`pik theme Select base 1`] = `
 Object {
   "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "pointerEvents": false,
-    },
+    "pointerEvents": false,
+    "pr": 11,
   },
 }
 `;
 
-exports[`pik theme Select fuzz: size="l" 1`] = `
-Object {
-  "Input": Object {
-    "style": Object {
-      "pr": 11,
-    },
-  },
-}
-`;
+exports[`pik theme Select fuzz: size="l" 1`] = `Object {}`;
 
-exports[`pik theme Select fuzz: size="m" 1`] = `
-Object {
-  "Input": Object {
-    "style": Object {
-      "pr": 11,
-    },
-  },
-}
-`;
+exports[`pik theme Select fuzz: size="m" 1`] = `Object {}`;
 
-exports[`pik theme Select fuzz: size="s" 1`] = `
-Object {
-  "Input": Object {
-    "style": Object {
-      "pr": 11,
-    },
-  },
-}
-`;
+exports[`pik theme Select fuzz: size="s" 1`] = `Object {}`;
 
 exports[`pik theme Select snap 1`] = `
 Object {
   "mapProps": [Function],
   "scheme": Object {
-    "Input": Object {
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "pr": 11,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "pr": 11,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pr": 11,
-          },
-        },
-      },
-      "style": Object {
+    "Input": Array [
+      Object {
         "pointerEvents": false,
       },
-    },
+      Object {
+        "pr": 11,
+      },
+    ],
   },
 }
 `;
@@ -2041,33 +1849,20 @@ Object {
 exports[`pik theme Text base 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "fontSize": undefined,
-      "lineHeight": "normal",
-    },
+    "color": undefined,
+    "fontSize": undefined,
+    "lineHeight": undefined,
   },
 }
 `;
 
-exports[`pik theme Text fuzz: dense 1`] = `
-Object {
-  "Text": Object {
-    "style": Object {
-      "lineHeight": "dense",
-    },
-  },
-}
-`;
+exports[`pik theme Text fuzz: dense 1`] = `Object {}`;
 
 exports[`pik theme Text fuzz: preset="heading" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "l",
-      "lineHeight": 1.4,
-    },
+    "fontSize": "l",
+    "lineHeight": 1.4,
   },
 }
 `;
@@ -2075,10 +1870,8 @@ Object {
 exports[`pik theme Text fuzz: preset="heading-large" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "xl",
-      "lineHeight": 1.34,
-    },
+    "fontSize": "xl",
+    "lineHeight": 1.34,
   },
 }
 `;
@@ -2086,10 +1879,8 @@ Object {
 exports[`pik theme Text fuzz: preset="heading-small" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "m",
-      "lineHeight": 1.5,
-    },
+    "fontSize": "m",
+    "lineHeight": 1.5,
   },
 }
 `;
@@ -2097,10 +1888,8 @@ Object {
 exports[`pik theme Text fuzz: preset="title" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "xxxl",
-      "lineHeight": 1.2,
-    },
+    "fontSize": "xxxl",
+    "lineHeight": 1.2,
   },
 }
 `;
@@ -2108,10 +1897,8 @@ Object {
 exports[`pik theme Text fuzz: preset="title-small" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "xxl",
-      "lineHeight": 1.25,
-    },
+    "fontSize": "xxl",
+    "lineHeight": 1.25,
   },
 }
 `;
@@ -2119,10 +1906,8 @@ Object {
 exports[`pik theme Text fuzz: size="l" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "l",
-      "lineHeight": 1.4,
-    },
+    "fontSize": "l",
+    "lineHeight": 1.4,
   },
 }
 `;
@@ -2130,10 +1915,8 @@ Object {
 exports[`pik theme Text fuzz: size="m" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "m",
-      "lineHeight": 1.5,
-    },
+    "fontSize": "m",
+    "lineHeight": 1.5,
   },
 }
 `;
@@ -2141,10 +1924,8 @@ Object {
 exports[`pik theme Text fuzz: size="s" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "s",
-      "lineHeight": 1.43,
-    },
+    "fontSize": "s",
+    "lineHeight": 1.43,
   },
 }
 `;
@@ -2152,9 +1933,7 @@ Object {
 exports[`pik theme Text fuzz: variant="error" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "red500",
-    },
+    "color": "red500",
   },
 }
 `;
@@ -2162,9 +1941,7 @@ Object {
 exports[`pik theme Text fuzz: variant="primary" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "blue500",
-    },
+    "color": "blue500",
   },
 }
 `;
@@ -2172,9 +1949,7 @@ Object {
 exports[`pik theme Text fuzz: variant="secondary" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "gray52",
-    },
+    "color": "gray52",
   },
 }
 `;
@@ -2182,9 +1957,7 @@ Object {
 exports[`pik theme Text fuzz: variant="success" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "green500",
-    },
+    "color": "green500",
   },
 }
 `;
@@ -2192,9 +1965,7 @@ Object {
 exports[`pik theme Text fuzz: variant="warning" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "yellow500",
-    },
+    "color": "yellow500",
   },
 }
 `;
@@ -2203,81 +1974,24 @@ exports[`pik theme Text snap 1`] = `
 Object {
   "mapProps": [Function],
   "scheme": Object {
-    "Text": Object {
-      "dense": Object {
-        "style": Object {
-          "lineHeight": "dense",
-        },
-      },
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "lineHeight": 1.4,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "lineHeight": 1.5,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "lineHeight": 1.43,
-          },
-        },
-        "xl": Object {
-          "style": Object {
-            "lineHeight": 1.34,
-          },
-        },
-        "xs": Object {
-          "style": Object {
-            "lineHeight": 1.23,
-          },
-        },
-        "xxl": Object {
-          "style": Object {
-            "lineHeight": 1.25,
-          },
-        },
-        "xxxl": Object {
-          "style": Object {
-            "lineHeight": 1.2,
-          },
-        },
-      },
-      "style": Object {
+    "Text": Array [
+      Object {
+        "color": [Function],
         "fontSize": [Function],
         "lineHeight": "normal",
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
-            "color": "red500",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "lineHeight": "dense",
           },
-        },
-        "primary": Object {
-          "style": Object {
-            "color": "blue500",
-          },
-        },
-        "secondary": Object {
-          "style": Object {
-            "color": "gray52",
-          },
-        },
-        "success": Object {
-          "style": Object {
-            "color": "green500",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "color": "yellow500",
-          },
-        },
+        ],
       },
-    },
+      Object {
+        "lineHeight": [Function],
+      },
+    ],
   },
 }
 `;
@@ -2285,41 +1999,34 @@ Object {
 exports[`pik theme Textarea base 1`] = `
 Object {
   "IconClear": Object {
+    "area": 10,
+    "color": "gray28",
     "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "m",
-      "visible": false,
-    },
-    "style": Object {},
+    "size": "m",
+    "visible": false,
   },
   "Textarea": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray4",
-      "bgDisabled": "gray4",
-      "bgFocus": "white",
-      "borderColor": "gray4",
-      "borderColorFocus": "gray16",
-      "borderColorHover": "gray16",
-      "borderRadius": 4,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "black",
-      "colorDisabled": "gray64",
-      "cursor": "text",
-      "focus": false,
-      "fontSize": "m",
-      "lineHeight": "normal",
-      "minHeight": "m",
-      "pb": 6,
-      "pl": 16,
-      "placeholderColor": "gray44",
-      "pr": 16,
-      "pt": 6,
-    },
+    "bg": "gray4",
+    "bgDisabled": "gray4",
+    "bgFocus": "white",
+    "borderColor": "gray4",
+    "borderColorFocus": "gray16",
+    "borderColorHover": "gray16",
+    "borderRadius": 4,
+    "borderStyle": "solid",
+    "borderWidth": 1,
+    "color": "black",
+    "colorDisabled": "gray64",
+    "cursor": "text",
+    "focus": false,
+    "fontSize": "m",
+    "lineHeight": "normal",
+    "minHeight": "m",
+    "pb": 6,
+    "pl": 16,
+    "placeholderColor": "gray44",
+    "pr": 16,
+    "pt": 6,
   },
 }
 `;
@@ -2327,9 +2034,7 @@ Object {
 exports[`pik theme Textarea fuzz: clearable="always" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "visible": true,
-    },
+    "visible": true,
   },
 }
 `;
@@ -2337,17 +2042,13 @@ Object {
 exports[`pik theme Textarea fuzz: size="l" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Textarea": Object {
-    "style": Object {
-      "fontSize": "l",
-      "minHeight": "l",
-      "pb": 8,
-      "pt": 8,
-    },
+    "fontSize": "l",
+    "minHeight": "l",
+    "pb": 8,
+    "pt": 8,
   },
 }
 `;
@@ -2357,17 +2058,13 @@ exports[`pik theme Textarea fuzz: size="m" 1`] = `Object {}`;
 exports[`pik theme Textarea fuzz: size="s" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "size": "s",
-    },
+    "size": "s",
   },
   "Textarea": Object {
-    "style": Object {
-      "fontSize": "s",
-      "minHeight": "s",
-      "pb": 7,
-      "pt": 7,
-    },
+    "fontSize": "s",
+    "minHeight": "s",
+    "pb": 7,
+    "pt": 7,
   },
 }
 `;
@@ -2377,9 +2074,7 @@ exports[`pik theme Textarea fuzz: value="value" 1`] = `Object {}`;
 exports[`pik theme Textarea fuzz: value="value" clearable="always" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "visible": true,
-    },
+    "visible": true,
   },
 }
 `;
@@ -2387,12 +2082,10 @@ Object {
 exports[`pik theme Textarea fuzz: variant="error" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "bg": "red50",
-      "borderColor": "red50",
-      "borderColorFocus": "red300",
-      "borderColorHover": "red300",
-    },
+    "bg": "red50",
+    "borderColor": "red50",
+    "borderColorFocus": "red300",
+    "borderColorHover": "red300",
   },
 }
 `;
@@ -2402,12 +2095,10 @@ exports[`pik theme Textarea fuzz: variant="primary" 1`] = `Object {}`;
 exports[`pik theme Textarea fuzz: variant="secondary" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "bg": "gray8",
-      "borderColor": "gray8",
-      "borderColorFocus": "gray20",
-      "borderColorHover": "gray20",
-    },
+    "bg": "gray8",
+    "borderColor": "gray8",
+    "borderColorFocus": "gray20",
+    "borderColorHover": "gray20",
   },
 }
 `;
@@ -2415,12 +2106,10 @@ Object {
 exports[`pik theme Textarea fuzz: variant="success" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "bg": "green50",
-      "borderColor": "green50",
-      "borderColorFocus": "green300",
-      "borderColorHover": "green300",
-    },
+    "bg": "green50",
+    "borderColor": "green50",
+    "borderColorFocus": "green300",
+    "borderColorHover": "green300",
   },
 }
 `;
@@ -2428,12 +2117,10 @@ Object {
 exports[`pik theme Textarea fuzz: variant="warning" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "bg": "orange50",
-      "borderColor": "orange50",
-      "borderColorFocus": "orange300",
-      "borderColorHover": "orange300",
-    },
+    "bg": "orange50",
+    "borderColor": "orange50",
+    "borderColorFocus": "orange300",
+    "borderColorHover": "orange300",
   },
 }
 `;
@@ -2447,113 +2134,161 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "IconClear": Object {
-      "component": #IconCross,
-      "props": Object {
+    "IconClear": Array [
+      Object {
         "area": 10,
         "color": "gray28",
+        "component": #IconCross,
         "size": [Function],
         "visible": [Function],
       },
-    },
-    "Textarea": Object {
-      "preset": Object {
-        "inverse": Object {
-          "variant": Object {
-            "primary": Object {
-              "style": Object {
-                "bg": "white",
-                "bgDisabled": "white",
-                "borderColor": "white",
-              },
-            },
-          },
-        },
+      Object {
+        "component": #IconCross,
       },
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "pb": 8,
-            "pl": 16,
-            "pr": 16,
-            "pt": 8,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "pb": 6,
-            "pl": 16,
-            "pr": 16,
-            "pt": 6,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pb": 7,
-            "pl": 16,
-            "pr": 16,
-            "pt": 7,
-          },
-        },
+      Object {
+        "component": #IconCross,
       },
-      "style": Object {
+    ],
+    "Textarea": Array [
+      Object {
+        "focus": true,
+        "lineHeight": "normal",
+        "minHeight": [Function],
+      },
+      Object {
         "bgDisabled": "gray4",
-        "bgFocus": "white",
-        "borderRadius": 4,
+        "borderRadius": 3,
         "borderStyle": "solid",
         "borderWidth": 1,
         "color": "black",
         "colorDisabled": "gray64",
         "cursor": "text",
-        "focus": false,
         "fontSize": [Function],
-        "lineHeight": "normal",
-        "minHeight": [Function],
-        "placeholderColor": "gray44",
+        "placeholderColor": "gray40",
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
+      Object {
+        "$switch": "size",
+        "l": Array [
+          Object {
+            "pb": 8,
+            "pl": 12,
+            "pr": 12,
+            "pt": 8,
+          },
+        ],
+        "m": Array [
+          Object {
+            "pb": 6,
+            "pl": 10,
+            "pr": 10,
+            "pt": 6,
+          },
+        ],
+        "s": Array [
+          Object {
+            "pb": 7,
+            "pl": 4,
+            "pr": 4,
+            "pt": 7,
+          },
+        ],
+      },
+      Object {
+        "$switch": "variant",
+        "error": Array [
+          Object {
+            "borderColor": "red500",
+            "borderColorHover": "red600",
+          },
+        ],
+        "primary": Array [
+          Object {
+            "borderColor": "gray20",
+            "borderColorHover": "gray28",
+          },
+        ],
+        "secondary": Array [
+          Object {
+            "borderColor": "gray8",
+            "borderColorHover": "gray16",
+          },
+        ],
+        "success": Array [
+          Object {
+            "borderColor": "green500",
+            "borderColorHover": "green600",
+          },
+        ],
+        "warning": Array [
+          Object {
+            "borderColor": "orange500",
+            "borderColorHover": "orange600",
+          },
+        ],
+      },
+      Object {
+        "bgFocus": "white",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "focus": false,
+        "pl": 16,
+        "placeholderColor": "gray44",
+        "pr": 16,
+      },
+      Object {
+        "$switch": "variant",
+        "error": Array [
+          Object {
             "bg": "red50",
             "borderColor": "red50",
             "borderColorFocus": "red300",
             "borderColorHover": "red300",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "bg": "gray4",
             "borderColor": "gray4",
             "borderColorFocus": "gray16",
             "borderColorHover": "gray16",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "bg": "gray8",
             "borderColor": "gray8",
             "borderColorFocus": "gray20",
             "borderColorHover": "gray20",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "bg": "green50",
             "borderColor": "green50",
             "borderColorFocus": "green300",
             "borderColorHover": "green300",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "bg": "orange50",
             "borderColor": "orange50",
             "borderColorFocus": "orange300",
             "borderColorHover": "orange300",
           },
-        },
+        ],
       },
-    },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bg": "white",
+            "bgDisabled": "white",
+            "borderColor": "white",
+          },
+        ],
+      },
+    ],
   },
 }
 `;

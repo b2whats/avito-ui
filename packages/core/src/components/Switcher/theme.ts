@@ -1,18 +1,12 @@
-import { Slot, ComponentTheme } from '../../styled-system/'
-import { IconProps } from '../Icon/contract'
-import { TextProps } from '../Text/contract'
+import { CastThemeProps } from '../../styled-system/'
+import { dsl } from '../../theme'
+import { ToggleTheme } from '../Toggle'
 import { SwitcherProps } from './contract'
 
-export type SwitcherTheme = ComponentTheme<SwitcherProps, {
-  Toggle?: Slot
-  Switch?: Slot
-  Icon?: Slot<IconProps>
-  Label?: Slot<TextProps>
-}>
+export type SwitcherTheme = CastThemeProps<ToggleTheme, SwitcherProps>
 
-export const switcherTheme: SwitcherTheme = {
-  defaultProps: {
+export const switcherTheme = dsl.theme<SwitcherTheme>()
+  .defaultProps({
     positionLoading: false,
-  },
-  scheme: {},
-}
+  })
+  .build()

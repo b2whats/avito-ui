@@ -1,14 +1,13 @@
-import { SpinnerTheme, DeepPartial } from '@avito/core'
+import { SpinnerTheme, dsl } from '@avito/core'
 import { SpinnerIcon } from '../Icon'
 
-export const spinnerTheme: DeepPartial<SpinnerTheme> = {
-  defaultProps: {
+export const spinnerTheme = dsl.theme<SpinnerTheme>()
+  .defaultProps({
     speed: 1,
+    size: 's',
     variant: 'primary',
-  },
-  scheme: {
-    Spinner: {
-      component: SpinnerIcon,
-    },
-  },
-}
+  })
+  .slot('Spinner', {
+    component: SpinnerIcon,
+  })
+  .build()

@@ -1,21 +1,19 @@
-import { ComponentTheme, Slot, IconProps } from '@avito/core'
+import { ComponentTheme, Slot, IconProps, dsl } from '@avito/core'
 import { CheckmarkIcon } from '../Icon'
 import { CheckmarkProps } from './contract'
 
 export type CheckmarkTheme = ComponentTheme<CheckmarkProps, { Icon: Slot<IconProps> }>
 
-export const checkmarkTheme: CheckmarkTheme = {
-  defaultProps: {
+export const checkmarkTheme = dsl.theme<CheckmarkTheme>()
+  .defaultProps({
     variant: 'primary',
-  },
-  scheme: {
-    Icon: {
+  })
+  .slot('Icon', slot => [
+    {
       component: CheckmarkIcon,
-      disabled: {
-        props: {
-          color: 'gray28',
-        },
-      },
     },
-  },
-}
+    slot.if('disabled', {
+      color: 'gray28',
+    }),
+  ])
+  .build()

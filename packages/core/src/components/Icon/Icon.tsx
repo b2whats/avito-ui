@@ -89,7 +89,7 @@ export const Icon = uiComponent('Icon', iconTheme, { memo: false })<
   }
 
   const { Icon } = foldThemeParams(props, theme)
-  const iconStyle = iconClassName(props, tokens, Icon.style)
+  const iconStyle = iconClassName(props, tokens, Icon)
 
   return (
     <svg {...aria} {...filterProps(props)} css={iconStyle} ref={safeSizeRef} {...testId()}>

@@ -16,7 +16,7 @@ import { tooltipTheme } from './components/Tooltip/theme'
 
 declare module '@avito/core' {
   interface Theme {
-    Select: Partial<SelectTheme>
+    Select: SelectTheme
   }
 }
 

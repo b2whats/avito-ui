@@ -42,7 +42,7 @@ const textClassName = createClassName<TextProps, typeof textTheme>(
 
 export const Text = uiComponent('Text', textTheme)(({ children, ...props }: TextProps, { theme, tokens, testId }) => {
   const { Text } = foldThemeParams(props, theme)
-  const textStyle = textClassName(props, tokens, Text.style)
+  const textStyle = textClassName(props, tokens, Text)
   const Tag = props.as || 'span'
 
   return (

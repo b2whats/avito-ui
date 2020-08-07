@@ -3,56 +3,43 @@
 exports[`web theme Alert base 1`] = `
 Object {
   "Card": Object {
-    "component": null,
-    "props": Object {
-      "block": true,
-      "borderColor": "gray12",
-      "borderWidth": 1,
-      "pb": 22,
-      "pl": 24,
-      "pr": 24,
-      "pt": 20,
-      "rounded": 12,
-    },
-    "style": Object {},
+    "bg": undefined,
+    "block": true,
+    "borderColor": "gray12",
+    "borderWidth": 1,
+    "pb": 22,
+    "pl": 24,
+    "pr": 24,
+    "pt": 20,
+    "rounded": 12,
   },
   "Close": Object {
+    "bgActive": "black16",
+    "bgHover": "black8",
+    "color": "gray28",
     "component": #IconCross,
-    "props": Object {
-      "bgActive": "black16",
-      "bgHover": "black8",
-      "color": "gray28",
-      "pb": 8,
-      "pl": 8,
-      "position": "absolute",
-      "pr": 8,
-      "pt": 8,
-      "right": 4,
-      "rounded": "circle",
-      "size": "s",
-      "top": 4,
-    },
-    "style": Object {},
+    "pb": 8,
+    "pl": 8,
+    "position": "absolute",
+    "pr": 8,
+    "pt": 8,
+    "right": 4,
+    "rounded": "circle",
+    "size": "s",
+    "top": 4,
   },
   "Content": Object {
-    "component": null,
-    "props": Object {
-      "pb": 0,
-      "pl": 0,
-      "pr": 0,
-      "pt": 0,
-    },
-    "style": Object {},
+    "pb": 0,
+    "pl": 0,
+    "pr": 0,
+    "pt": 0,
   },
   "Image": Object {
-    "component": null,
-    "props": Object {
-      "mr": 18,
-      "order": 0,
-      "size": 28,
-      "valignSelf": "top",
-    },
-    "style": Object {},
+    "color": undefined,
+    "mr": 18,
+    "order": 0,
+    "size": 28,
+    "valignSelf": "top",
   },
 }
 `;
@@ -64,15 +51,11 @@ exports[`web theme Alert fuzz: column=false 1`] = `Object {}`;
 exports[`web theme Alert fuzz: variant="error" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "red100",
-      "borderColor": "transparent",
-    },
+    "bg": "red100",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "red500",
-    },
+    "color": "red500",
   },
 }
 `;
@@ -80,15 +63,11 @@ Object {
 exports[`web theme Alert fuzz: variant="primary" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "blue50",
-      "borderColor": "transparent",
-    },
+    "bg": "blue50",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "blue600",
-    },
+    "color": "blue600",
   },
 }
 `;
@@ -96,15 +75,11 @@ Object {
 exports[`web theme Alert fuzz: variant="secondary" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "gray4",
-      "borderColor": "transparent",
-    },
+    "bg": "gray4",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "gray64",
-    },
+    "color": "gray64",
   },
 }
 `;
@@ -112,15 +87,11 @@ Object {
 exports[`web theme Alert fuzz: variant="success" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "green100",
-      "borderColor": "transparent",
-    },
+    "bg": "green100",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "green600",
-    },
+    "color": "green600",
   },
 }
 `;
@@ -128,15 +99,11 @@ Object {
 exports[`web theme Alert fuzz: variant="warning" 1`] = `
 Object {
   "Card": Object {
-    "props": Object {
-      "bg": "orange50",
-      "borderColor": "transparent",
-    },
+    "bg": "orange50",
+    "borderColor": "transparent",
   },
   "Image": Object {
-    "props": Object {
-      "color": "orange700",
-    },
+    "color": "orange700",
   },
 }
 `;
@@ -145,56 +112,27 @@ exports[`web theme Alert snap 1`] = `
 Object {
   "mapProps": [Function],
   "scheme": Object {
-    "Card": Object {
-      "props": Object {
+    "Card": Array [
+      Object {
         "block": true,
-        "borderColor": "gray12",
+        "rounded": 12,
+      },
+      Object {
+        "bg": [Function],
+        "borderColor": [Function],
         "borderWidth": 1,
         "pb": 22,
         "pl": 24,
         "pr": 24,
         "pt": 20,
-        "rounded": 12,
       },
-      "variant": Object {
-        "error": Object {
-          "props": Object {
-            "bg": "red100",
-            "borderColor": "transparent",
-          },
-        },
-        "primary": Object {
-          "props": Object {
-            "bg": "blue50",
-            "borderColor": "transparent",
-          },
-        },
-        "secondary": Object {
-          "props": Object {
-            "bg": "gray4",
-            "borderColor": "transparent",
-          },
-        },
-        "success": Object {
-          "props": Object {
-            "bg": "green100",
-            "borderColor": "transparent",
-          },
-        },
-        "warning": Object {
-          "props": Object {
-            "bg": "orange50",
-            "borderColor": "transparent",
-          },
-        },
-      },
-    },
-    "Close": Object {
-      "component": #IconCross,
-      "props": Object {
+    ],
+    "Close": Array [
+      Object {
         "bgActive": "black16",
         "bgHover": "black8",
         "color": "gray28",
+        "component": #IconCross,
         "pb": 8,
         "pl": 8,
         "position": "absolute",
@@ -205,55 +143,33 @@ Object {
         "size": "s",
         "top": 4,
       },
-    },
-    "Content": Object {
-      "props": Object {
+    ],
+    "Content": Array [
+      Object {
+        "pb": 12,
+        "pl": 12,
+        "pr": 12,
+        "pt": 12,
+      },
+      Object {
         "pb": 0,
         "pl": 0,
         "pr": 0,
         "pt": 0,
       },
-    },
-    "Image": Object {
-      "column": Object {
-        "props": Object {
-          "order": 0,
-        },
+    ],
+    "Image": Array [
+      Object {
+        "order": [Function],
       },
-      "props": Object {
+      Object {
+        "color": [Function],
         "mr": 18,
         "order": 0,
         "size": 28,
         "valignSelf": "top",
       },
-      "variant": Object {
-        "error": Object {
-          "props": Object {
-            "color": "red500",
-          },
-        },
-        "primary": Object {
-          "props": Object {
-            "color": "blue600",
-          },
-        },
-        "secondary": Object {
-          "props": Object {
-            "color": "gray64",
-          },
-        },
-        "success": Object {
-          "props": Object {
-            "color": "green600",
-          },
-        },
-        "warning": Object {
-          "props": Object {
-            "color": "orange700",
-          },
-        },
-      },
-    },
+    ],
   },
 }
 `;
@@ -261,36 +177,25 @@ Object {
 exports[`web theme Avatar base 1`] = `
 Object {
   "Badge": Object {
-    "component": null,
-    "props": Object {
-      "bottom": 0,
-      "height": 5,
-      "position": "absolute",
-      "right": 0,
-      "width": 5,
-    },
-    "style": Object {},
+    "bottom": 0,
+    "height": 5,
+    "position": "absolute",
+    "right": 0,
+    "width": 5,
   },
   "Fallback": Object {
     "component": #IconUser,
-    "props": Object {
-      "size": 9.6,
-    },
-    "style": Object {},
+    "size": 9.6,
   },
   "Wrapper": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "align": "center",
-      "color": "white",
-      "fontSize": 12,
-      "height": 20,
-      "overlayDisabled": "rgba(255, 255, 255, 0.5)",
-      "shape": "circle",
-      "valignSelf": "middle",
-      "width": 20,
-    },
+    "align": "center",
+    "color": "white",
+    "fontSize": 12,
+    "height": 20,
+    "overlayDisabled": "rgba(255, 255, 255, 0.5)",
+    "shape": "circle",
+    "valignSelf": "middle",
+    "width": 20,
   },
 }
 `;
@@ -298,11 +203,9 @@ Object {
 exports[`web theme Avatar fuzz: isFallback 1`] = `
 Object {
   "Wrapper": Object {
-    "style": Object {
-      "bg": "gray4",
-      "color": "gray28",
-      "valign": "middle",
-    },
+    "bg": "gray4",
+    "color": "gray28",
+    "valign": "middle",
   },
 }
 `;
@@ -314,22 +217,16 @@ exports[`web theme Avatar fuzz: size=20 1`] = `Object {}`;
 exports[`web theme Avatar fuzz: size=45 1`] = `
 Object {
   "Badge": Object {
-    "props": Object {
-      "height": 11.25,
-      "width": 11.25,
-    },
+    "height": 11.25,
+    "width": 11.25,
   },
   "Fallback": Object {
-    "props": Object {
-      "size": 21.599999999999998,
-    },
+    "size": 21.599999999999998,
   },
   "Wrapper": Object {
-    "style": Object {
-      "fontSize": 27,
-      "height": 45,
-      "width": 45,
-    },
+    "fontSize": 27,
+    "height": 45,
+    "width": 45,
   },
 }
 `;
@@ -337,22 +234,16 @@ Object {
 exports[`web theme Avatar fuzz: size=60 1`] = `
 Object {
   "Badge": Object {
-    "props": Object {
-      "height": 15,
-      "width": 15,
-    },
+    "height": 15,
+    "width": 15,
   },
   "Fallback": Object {
-    "props": Object {
-      "size": 28.799999999999997,
-    },
+    "size": 28.799999999999997,
   },
   "Wrapper": Object {
-    "style": Object {
-      "fontSize": 36,
-      "height": 60,
-      "width": 60,
-    },
+    "fontSize": 36,
+    "height": 60,
+    "width": 60,
   },
 }
 `;
@@ -383,39 +274,36 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "Badge": Object {
-      "props": Object {
+    "Badge": Array [
+      Object {
         "bottom": 0,
         "height": [Function],
         "position": "absolute",
         "right": 0,
         "width": [Function],
       },
-    },
-    "Fallback": Object {
-      "component": #IconUser,
-      "props": Object {
+    ],
+    "Fallback": Array [
+      Object {
+        "component": #IconUser,
         "size": [Function],
       },
-      "type": Object {
-        "company": Object {
-          "component": #IconCompanyUser,
-        },
-        "shop": Object {
-          "component": #IconShopUser,
-        },
+      Object {
+        "$switch": "type",
+        "company": Array [
+          Object {
+            "component": #IconCompanyUser,
+          },
+        ],
+        "shop": Array [
+          Object {
+            "component": #IconShopUser,
+          },
+        ],
       },
-    },
-    "Wrapper": Object {
-      "isFallback": Object {
-        "style": Object {
-          "align": "center",
-          "bg": "gray4",
-          "color": "gray28",
-          "valign": "middle",
-        },
-      },
-      "style": Object {
+    ],
+    "Wrapper": Array [
+      Object {
         "align": "center",
         "color": "white",
         "fontSize": [Function],
@@ -425,7 +313,18 @@ Object {
         "valignSelf": "middle",
         "width": [Function],
       },
-    },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "align": "center",
+            "bg": "gray4",
+            "color": "gray28",
+            "valign": "middle",
+          },
+        ],
+      },
+    ],
   },
 }
 `;
@@ -452,51 +351,36 @@ Object {
 exports[`web theme Banner base 1`] = `
 Object {
   "Card": Object {
-    "component": null,
-    "props": Object {
-      "block": true,
-      "rounded": 12,
-    },
-    "style": Object {},
+    "block": true,
+    "rounded": 12,
   },
   "Close": Object {
+    "bgActive": "black16",
+    "bgHover": "black8",
+    "color": "gray28",
     "component": #IconCross,
-    "props": Object {
-      "bgActive": "black16",
-      "bgHover": "black8",
-      "color": "gray28",
-      "pb": 8,
-      "pl": 8,
-      "position": "absolute",
-      "pr": 8,
-      "pt": 8,
-      "right": 4,
-      "rounded": "circle",
-      "size": "s",
-      "top": 4,
-    },
-    "style": Object {},
+    "pb": 8,
+    "pl": 8,
+    "position": "absolute",
+    "pr": 8,
+    "pt": 8,
+    "right": 4,
+    "rounded": "circle",
+    "size": "s",
+    "top": 4,
   },
   "Content": Object {
-    "component": null,
-    "props": Object {
-      "pb": 32,
-      "pl": 32,
-      "pr": 32,
-      "pt": 28,
-    },
-    "style": Object {},
+    "pb": 32,
+    "pl": 32,
+    "pr": 32,
+    "pt": 28,
   },
   "Image": Object {
-    "component": null,
-    "props": Object {
-      "order": 1,
-      "pb": 4,
-      "pl": 4,
-      "pr": 4,
-      "pt": 4,
-    },
-    "style": Object {},
+    "order": 1,
+    "pb": 4,
+    "pl": 4,
+    "pr": 4,
+    "pt": 4,
   },
 }
 `;
@@ -504,17 +388,13 @@ Object {
 exports[`web theme Banner fuzz: column 1`] = `
 Object {
   "Content": Object {
-    "props": Object {
-      "pb": 16,
-      "pl": 16,
-      "pr": 16,
-      "pt": 12,
-    },
+    "pb": 16,
+    "pl": 16,
+    "pr": 16,
+    "pt": 12,
   },
   "Image": Object {
-    "props": Object {
-      "order": 0,
-    },
+    "order": 0,
   },
 }
 `;
@@ -525,18 +405,18 @@ exports[`web theme Banner snap 1`] = `
 Object {
   "mapProps": [Function],
   "scheme": Object {
-    "Card": Object {
-      "props": Object {
+    "Card": Array [
+      Object {
         "block": true,
         "rounded": 12,
       },
-    },
-    "Close": Object {
-      "component": #IconCross,
-      "props": Object {
+    ],
+    "Close": Array [
+      Object {
         "bgActive": "black16",
         "bgHover": "black8",
         "color": "gray28",
+        "component": #IconCross,
         "pb": 8,
         "pl": 8,
         "position": "absolute",
@@ -547,37 +427,43 @@ Object {
         "size": "s",
         "top": 4,
       },
-    },
-    "Content": Object {
-      "column": Object {
-        "props": Object {
-          "pb": 16,
-          "pl": 16,
-          "pr": 16,
-          "pt": 12,
-        },
+    ],
+    "Content": Array [
+      Object {
+        "pb": 12,
+        "pl": 12,
+        "pr": 12,
+        "pt": 12,
       },
-      "props": Object {
+      Object {
         "pb": 32,
         "pl": 32,
         "pr": 32,
         "pt": 28,
       },
-    },
-    "Image": Object {
-      "column": Object {
-        "props": Object {
-          "order": 0,
-        },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "pb": 16,
+            "pl": 16,
+            "pr": 16,
+            "pt": 12,
+          },
+        ],
       },
-      "props": Object {
-        "order": 1,
+    ],
+    "Image": Array [
+      Object {
+        "order": [Function],
+      },
+      Object {
         "pb": 4,
         "pl": 4,
         "pr": 4,
         "pt": 4,
       },
-    },
+    ],
   },
 }
 `;
@@ -585,87 +471,105 @@ Object {
 exports[`web theme Button base 1`] = `
 Object {
   "Button": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "transparent",
-      "bgActive": "gray12",
-      "bgDisabled": "transparent",
-      "bgHover": "gray4",
-      "borderColor": "gray20",
-      "borderRadius": 5,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "black",
-      "focus": "blue100",
-      "minHeight": "s",
-      "pb": 5,
-      "pl": 12,
-      "pr": 12,
-      "pt": 5,
-    },
+    "bg": "transparent",
+    "bgActive": "gray12",
+    "bgDisabled": "transparent",
+    "bgHover": "gray4",
+    "borderColor": "gray20",
+    "borderRadius": 5,
+    "borderStyle": "solid",
+    "borderWidth": 1,
+    "color": "black",
+    "focus": "blue100",
+    "minHeight": "s",
+    "pb": 5,
+    "pl": 12,
+    "pr": 12,
+    "pt": 5,
   },
   "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
+    "size": "s",
   },
   "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-    },
-    "style": Object {},
+    "size": "s",
   },
   "Spinner": Object {
-    "component": null,
-    "props": Object {
-      "size": "s",
-      "variant": "primary",
-    },
-    "style": Object {},
+    "size": "s",
+    "variant": "primary",
   },
   "Text": Object {
-    "component": null,
-    "props": Object {
-      "crop": true,
-      "lineHeight": 1.1875,
-      "ml": -1,
-      "size": "s",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
+    "crop": true,
+    "lineHeight": 1.1875,
+    "ml": -1,
+    "size": "s",
+    "valignSelf": "middle",
   },
 }
 `;
 
-exports[`web theme Button fuzz: children="text" preset="default" checked loading 1`] = `Object {}`;
+exports[`web theme Button fuzz: children="text" preset="default" checked loading 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
-exports[`web theme Button fuzz: children="text" preset="default" checked loading=false 1`] = `Object {}`;
+exports[`web theme Button fuzz: children="text" preset="default" checked loading=false 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
-exports[`web theme Button fuzz: children="text" preset="default" checked=false loading 1`] = `Object {}`;
+exports[`web theme Button fuzz: children="text" preset="default" checked=false loading 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
-exports[`web theme Button fuzz: children="text" preset="default" checked=false loading=false 1`] = `Object {}`;
+exports[`web theme Button fuzz: children="text" preset="default" checked=false loading=false 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
 exports[`web theme Button fuzz: children="text" preset="error" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "red500",
-      "bgHover": "red600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "red100",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "red500",
+    "bgHover": "red600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "red100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -673,20 +577,22 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="error" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "red500",
-      "bgHover": "red600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "red100",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "red500",
+    "bgHover": "red600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "red100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -694,20 +600,22 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="error" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "red500",
-      "bgHover": "red600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "red100",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "red500",
+    "bgHover": "red600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "red100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -715,20 +623,22 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="error" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgActive": "red700",
-      "bgDisabled": "red500",
-      "bgHover": "red600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "red100",
-    },
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "red500",
+    "bgHover": "red600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "red100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -736,18 +646,20 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="newDefault" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray20",
-      "bgDisabled": "gray8",
-      "bgHover": "gray12",
-      "borderColor": "transparent",
-    },
+    "bg": "gray8",
+    "bgActive": "gray20",
+    "bgDisabled": "gray8",
+    "bgHover": "gray12",
+    "borderColor": "transparent",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -755,18 +667,20 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="newDefault" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray20",
-      "bgDisabled": "gray8",
-      "bgHover": "gray12",
-      "borderColor": "transparent",
-    },
+    "bg": "gray8",
+    "bgActive": "gray20",
+    "bgDisabled": "gray8",
+    "bgHover": "gray12",
+    "borderColor": "transparent",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -774,18 +688,20 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="newDefault" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray20",
-      "bgDisabled": "gray8",
-      "bgHover": "gray12",
-      "borderColor": "transparent",
-    },
+    "bg": "gray8",
+    "bgActive": "gray20",
+    "bgDisabled": "gray8",
+    "bgHover": "gray12",
+    "borderColor": "transparent",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -793,18 +709,20 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="newDefault" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "gray8",
-      "bgActive": "gray20",
-      "bgDisabled": "gray8",
-      "bgHover": "gray12",
-      "borderColor": "transparent",
-    },
+    "bg": "gray8",
+    "bgActive": "gray20",
+    "bgDisabled": "gray8",
+    "bgHover": "gray12",
+    "borderColor": "transparent",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -812,19 +730,21 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="primary" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue500",
-      "bgHover": "blue600",
-      "borderColor": "transparent",
-      "color": "white",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue500",
+    "bgHover": "blue600",
+    "borderColor": "transparent",
+    "color": "white",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -832,19 +752,21 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="primary" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue500",
-      "bgHover": "blue600",
-      "borderColor": "transparent",
-      "color": "white",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue500",
+    "bgHover": "blue600",
+    "borderColor": "transparent",
+    "color": "white",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -852,19 +774,21 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="primary" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue500",
-      "bgHover": "blue600",
-      "borderColor": "transparent",
-      "color": "white",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue500",
+    "bgHover": "blue600",
+    "borderColor": "transparent",
+    "color": "white",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -872,19 +796,21 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="primary" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgActive": "blue700",
-      "bgDisabled": "blue500",
-      "bgHover": "blue600",
-      "borderColor": "transparent",
-      "color": "white",
-    },
+    "bg": "blue500",
+    "bgActive": "blue700",
+    "bgDisabled": "blue500",
+    "bgHover": "blue600",
+    "borderColor": "transparent",
+    "color": "white",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -892,20 +818,22 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="success" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "green500",
-      "bgHover": "green600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "green100",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "green500",
+    "bgHover": "green600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "green100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -913,20 +841,22 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="success" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "green500",
-      "bgHover": "green600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "green100",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "green500",
+    "bgHover": "green600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "green100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -934,20 +864,22 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="success" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "green500",
-      "bgHover": "green600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "green100",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "green500",
+    "bgHover": "green600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "green100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -955,20 +887,22 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="success" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgActive": "green700",
-      "bgDisabled": "green500",
-      "bgHover": "green600",
-      "borderColor": "transparent",
-      "color": "white",
-      "focus": "green100",
-    },
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "green500",
+    "bgHover": "green600",
+    "borderColor": "transparent",
+    "color": "white",
+    "focus": "green100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -976,19 +910,21 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="warning" checked loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "orange500",
-      "bgHover": "orange600",
-      "borderColor": "transparent",
-      "focus": "orange100",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "orange500",
+    "bgHover": "orange600",
+    "borderColor": "transparent",
+    "focus": "orange100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -996,19 +932,21 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="warning" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "orange500",
-      "bgHover": "orange600",
-      "borderColor": "transparent",
-      "focus": "orange100",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "orange500",
+    "bgHover": "orange600",
+    "borderColor": "transparent",
+    "focus": "orange100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -1016,19 +954,21 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="warning" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "orange500",
-      "bgHover": "orange600",
-      "borderColor": "transparent",
-      "focus": "orange100",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "orange500",
+    "bgHover": "orange600",
+    "borderColor": "transparent",
+    "focus": "orange100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -1036,19 +976,21 @@ Object {
 exports[`web theme Button fuzz: children="text" preset="warning" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgActive": "orange700",
-      "bgDisabled": "orange500",
-      "bgHover": "orange600",
-      "borderColor": "transparent",
-      "focus": "orange100",
-    },
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "orange500",
+    "bgHover": "orange600",
+    "borderColor": "transparent",
+    "focus": "orange100",
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "variant": undefined,
-    },
+    "variant": undefined,
   },
 }
 `;
@@ -1056,33 +998,25 @@ Object {
 exports[`web theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="l" multiline 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 9,
-      "pl": 18,
-      "pr": 18,
-      "pt": 9,
-    },
+    "minHeight": "l",
+    "pb": 12,
+    "pl": 18,
+    "pr": 18,
+    "pt": 12,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
 }
 `;
@@ -1090,23 +1024,23 @@ Object {
 exports[`web theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="m" multiline 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "m",
-      "pb": 9,
-      "pl": 16,
-      "pr": 16,
-      "pt": 9,
-    },
+    "minHeight": "m",
+    "pb": 9,
+    "pl": 16,
+    "pr": 16,
+    "pt": 9,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Text": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
 }
 `;
@@ -1114,10 +1048,14 @@ Object {
 exports[`web theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":null,"props":{},"_owner":null,"_store":{}},"line 2"] size="s" multiline 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "pb": 9,
-      "pt": 9,
-    },
+    "pb": 9,
+    "pt": 9,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
 }
 `;
@@ -1125,33 +1063,23 @@ Object {
 exports[`web theme Button fuzz: size="l" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 18,
-      "pr": 18,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 18,
+    "pr": 18,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
 }
 `;
@@ -1159,33 +1087,25 @@ Object {
 exports[`web theme Button fuzz: size="l" children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 18,
-      "pr": 18,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 18,
+    "pr": 18,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
 }
 `;
@@ -1193,35 +1113,25 @@ Object {
 exports[`web theme Button fuzz: size="l" iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 18,
-      "pr": 18,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 18,
+    "pr": 18,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "mr": 8,
+    "size": "l",
   },
 }
 `;
@@ -1229,34 +1139,27 @@ Object {
 exports[`web theme Button fuzz: size="l" iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 18,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 18,
+    "pr": 18,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "mr": 8,
+    "size": "l",
   },
 }
 `;
@@ -1264,35 +1167,25 @@ Object {
 exports[`web theme Button fuzz: size="l" iconBefore={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 18,
-      "pr": 18,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 18,
+    "pr": 18,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "ml": 8,
+    "size": "l",
   },
 }
 `;
@@ -1300,34 +1193,27 @@ Object {
 exports[`web theme Button fuzz: size="l" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pr": 18,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 18,
+    "pr": 18,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "ml": 8,
+    "size": "l",
   },
 }
 `;
@@ -1335,36 +1221,26 @@ Object {
 exports[`web theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pl": 18,
-      "pr": 18,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 18,
+    "pr": 18,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 8,
-      "mr": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "ml": 8,
+    "mr": 8,
+    "size": "l",
   },
 }
 `;
@@ -1372,34 +1248,28 @@ Object {
 exports[`web theme Button fuzz: size="l" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "l",
-      "pb": 11,
-      "pt": 11,
-    },
+    "minHeight": "l",
+    "pb": 11,
+    "pl": 18,
+    "pr": 18,
+    "pt": 11,
   },
   "IconAfter": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "mr": -4,
+    "size": "m",
   },
   "IconBefore": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "ml": -4,
+    "size": "m",
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 8,
-      "mr": 8,
-      "size": "l",
-    },
+    "align": "left",
+    "ml": 8,
+    "mr": 8,
+    "size": "l",
   },
 }
 `;
@@ -1407,23 +1277,17 @@ Object {
 exports[`web theme Button fuzz: size="m" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "m",
-      "pb": 8,
-      "pl": 16,
-      "pr": 16,
-      "pt": 8,
-    },
+    "minHeight": "m",
+    "pb": 8,
+    "pl": 16,
+    "pr": 16,
+    "pt": 8,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Text": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
 }
 `;
@@ -1431,23 +1295,23 @@ Object {
 exports[`web theme Button fuzz: size="m" children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "m",
-      "pb": 8,
-      "pl": 16,
-      "pr": 16,
-      "pt": 8,
-    },
+    "minHeight": "m",
+    "pb": 8,
+    "pl": 16,
+    "pr": 16,
+    "pt": 8,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Text": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
 }
 `;
@@ -1455,25 +1319,19 @@ Object {
 exports[`web theme Button fuzz: size="m" iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "m",
-      "pb": 8,
-      "pl": 16,
-      "pr": 16,
-      "pt": 8,
-    },
+    "minHeight": "m",
+    "pb": 8,
+    "pl": 16,
+    "pr": 16,
+    "pt": 8,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 6,
-      "size": "m",
-    },
+    "align": "left",
+    "mr": 6,
+    "size": "m",
   },
 }
 `;
@@ -1481,24 +1339,25 @@ Object {
 exports[`web theme Button fuzz: size="m" iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "m",
-      "pb": 8,
-      "pl": 16,
-      "pt": 8,
-    },
+    "minHeight": "m",
+    "pb": 8,
+    "pl": 16,
+    "pr": 16,
+    "pt": 8,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 6,
-      "size": "m",
-    },
+    "align": "left",
+    "mr": 6,
+    "size": "m",
   },
 }
 `;
@@ -1506,25 +1365,19 @@ Object {
 exports[`web theme Button fuzz: size="m" iconBefore={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "m",
-      "pb": 8,
-      "pl": 16,
-      "pr": 16,
-      "pt": 8,
-    },
+    "minHeight": "m",
+    "pb": 8,
+    "pl": 16,
+    "pr": 16,
+    "pt": 8,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 6,
-      "size": "m",
-    },
+    "align": "left",
+    "ml": 6,
+    "size": "m",
   },
 }
 `;
@@ -1532,24 +1385,25 @@ Object {
 exports[`web theme Button fuzz: size="m" iconBefore={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "m",
-      "pb": 8,
-      "pr": 16,
-      "pt": 8,
-    },
+    "minHeight": "m",
+    "pb": 8,
+    "pl": 16,
+    "pr": 16,
+    "pt": 8,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 6,
-      "size": "m",
-    },
+    "align": "left",
+    "ml": 6,
+    "size": "m",
   },
 }
 `;
@@ -1557,26 +1411,20 @@ Object {
 exports[`web theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "m",
-      "pb": 8,
-      "pl": 16,
-      "pr": 16,
-      "pt": 8,
-    },
+    "minHeight": "m",
+    "pb": 8,
+    "pl": 16,
+    "pr": 16,
+    "pt": 8,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 6,
-      "mr": 6,
-      "size": "m",
-    },
+    "align": "left",
+    "ml": 6,
+    "mr": 6,
+    "size": "m",
   },
 }
 `;
@@ -1584,50 +1432,63 @@ Object {
 exports[`web theme Button fuzz: size="m" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
   "Button": Object {
-    "style": Object {
-      "minHeight": "m",
-      "pb": 8,
-      "pt": 8,
-    },
+    "minHeight": "m",
+    "pb": 8,
+    "pl": 16,
+    "pr": 16,
+    "pt": 8,
+  },
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
   },
   "Spinner": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 6,
-      "mr": 6,
-      "size": "m",
-    },
+    "align": "left",
+    "ml": 6,
+    "mr": 6,
+    "size": "m",
   },
 }
 `;
 
 exports[`web theme Button fuzz: size="s" 1`] = `Object {}`;
 
-exports[`web theme Button fuzz: size="s" children="text" 1`] = `Object {}`;
+exports[`web theme Button fuzz: size="s" children="text" 1`] = `
+Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
+}
+`;
 
 exports[`web theme Button fuzz: size="s" iconAfter={jsx} 1`] = `
 Object {
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 4,
-    },
+    "align": "left",
+    "mr": 4,
   },
 }
 `;
 
 exports[`web theme Button fuzz: size="s" iconAfter={jsx} children="text" 1`] = `
 Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "mr": 4,
-    },
+    "align": "left",
+    "mr": 4,
   },
 }
 `;
@@ -1635,21 +1496,23 @@ Object {
 exports[`web theme Button fuzz: size="s" iconBefore={jsx} 1`] = `
 Object {
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 4,
-    },
+    "align": "left",
+    "ml": 4,
   },
 }
 `;
 
 exports[`web theme Button fuzz: size="s" iconBefore={jsx} children="text" 1`] = `
 Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 4,
-    },
+    "align": "left",
+    "ml": 4,
   },
 }
 `;
@@ -1657,23 +1520,25 @@ Object {
 exports[`web theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 4,
-      "mr": 4,
-    },
+    "align": "left",
+    "ml": 4,
+    "mr": 4,
   },
 }
 `;
 
 exports[`web theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
+  "IconAfter": Object {
+    "mr": -4,
+  },
+  "IconBefore": Object {
+    "ml": -4,
+  },
   "Text": Object {
-    "props": Object {
-      "align": "left",
-      "ml": 4,
-      "mr": 4,
-    },
+    "align": "left",
+    "ml": 4,
+    "mr": 4,
   },
 }
 `;
@@ -1688,35 +1553,92 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "Button": Object {
-      "disabled": Object {
-        "style": Object {
-          "overlay": "rgba(255,255,255,0.5)",
-        },
+    "Button": Array [
+      Object {
+        "borderColor": "transparent",
+        "borderRadius": 5,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "focus": false,
+        "minHeight": [Function],
+        "pb": [Function],
+        "pl": 16,
+        "pr": 16,
+        "pt": [Function],
       },
-      "iconAfter": Object {
-        "children": Object {
-          "style": Object {
-            "pr": 12,
-          },
-        },
-      },
-      "iconBefore": Object {
-        "children": Object {
-          "style": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
             "pl": 12,
           },
-        },
+        ],
       },
-      "multiline": Object {
-        "style": Object {
-          "pb": 9,
-          "pt": 9,
-        },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "pr": 12,
+          },
+        ],
       },
-      "preset": Object {
-        "default": Object {
-          "style": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "pb": 9,
+            "pt": 9,
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "overlay": "rgba(255,255,255,0.5)",
+          },
+        ],
+      },
+      Object {
+        "$switch": "size",
+        "l": Array [
+          Object {
+            "pb": 11,
+            "pl": 18,
+            "pr": 18,
+            "pt": 11,
+          },
+        ],
+        "m": Array [
+          Object {
+            "pb": 8,
+            "pl": 16,
+            "pr": 16,
+            "pt": 8,
+          },
+        ],
+        "s": Array [
+          Object {
+            "pb": 5,
+            "pl": 12,
+            "pr": 12,
+            "pt": 5,
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "pb": [Function],
+            "pt": [Function],
+          },
+        ],
+      },
+      Object {
+        "$switch": "preset",
+        "default": Array [
+          Object {
             "bg": "transparent",
             "bgActive": "gray12",
             "bgDisabled": "transparent",
@@ -1725,9 +1647,9 @@ Object {
             "color": "black",
             "focus": "blue100",
           },
-        },
-        "error": Object {
-          "style": Object {
+        ],
+        "error": Array [
+          Object {
             "bg": "red500",
             "bgActive": "red700",
             "bgDisabled": "red500",
@@ -1735,9 +1657,9 @@ Object {
             "color": "white",
             "focus": "red100",
           },
-        },
-        "newDefault": Object {
-          "style": Object {
+        ],
+        "newDefault": Array [
+          Object {
             "bg": "gray8",
             "bgActive": "gray20",
             "bgDisabled": "gray8",
@@ -1745,9 +1667,9 @@ Object {
             "color": "black",
             "focus": "blue100",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "bg": "blue500",
             "bgActive": "blue700",
             "bgDisabled": "blue500",
@@ -1755,9 +1677,9 @@ Object {
             "color": "white",
             "focus": "blue100",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "bg": "green500",
             "bgActive": "green700",
             "bgDisabled": "green500",
@@ -1765,9 +1687,9 @@ Object {
             "color": "white",
             "focus": "green100",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "bg": "orange500",
             "bgActive": "orange700",
             "bgDisabled": "orange500",
@@ -1775,196 +1697,113 @@ Object {
             "color": "black",
             "focus": "orange100",
           },
-        },
+        ],
       },
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "minHeight": "l",
-            "pb": 11,
-            "pl": 18,
-            "pr": 18,
-            "pt": 11,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "minHeight": "m",
-            "pb": 8,
-            "pl": 16,
-            "pr": 16,
-            "pt": 8,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "minHeight": "s",
-            "pb": 5,
-            "pl": 12,
-            "pr": 12,
-            "pt": 5,
-          },
-        },
+    ],
+    "IconAfter": Array [
+      Object {
+        "size": [Function],
       },
-      "style": Object {
-        "borderColor": "transparent",
-        "borderRadius": 5,
-        "borderStyle": "solid",
-        "borderWidth": 1,
-        "focus": false,
-        "pl": 16,
-        "pr": 16,
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "mr": -4,
+          },
+        ],
       },
-    },
-    "IconAfter": Object {
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
+    ],
+    "IconBefore": Array [
+      Object {
+        "size": [Function],
       },
-    },
-    "IconBefore": Object {
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": "m",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "ml": -4,
           },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
+        ],
       },
-    },
-    "Spinner": Object {
-      "preset": Object {
-        "default": Object {
-          "props": Object {
-            "variant": "primary",
-          },
-        },
+    ],
+    "Spinner": Array [
+      Object {
+        "size": [Function],
       },
-      "props": Object {
+      Object {
         "variant": undefined,
       },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": "l",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "variant": "primary",
           },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
+        ],
       },
-    },
-    "Text": Object {
-      "iconAfter": Object {
-        "multiline": Object {
-          "props": Object {
-            "mr": 10,
-          },
-        },
-        "props": Object {
-          "align": "left",
-          "mr": 6,
-        },
-        "size": Object {
-          "l": Object {
-            "props": Object {
-              "mr": 8,
-            },
-          },
-          "m": Object {
-            "props": Object {
-              "mr": 6,
-            },
-          },
-          "s": Object {
-            "props": Object {
-              "mr": 4,
-            },
-          },
-        },
-      },
-      "iconBefore": Object {
-        "multiline": Object {
-          "props": Object {
-            "ml": 10,
-          },
-        },
-        "props": Object {
-          "align": "left",
-          "ml": 6,
-        },
-        "size": Object {
-          "l": Object {
-            "props": Object {
-              "ml": 8,
-            },
-          },
-          "m": Object {
-            "props": Object {
-              "ml": 6,
-            },
-          },
-          "s": Object {
-            "props": Object {
-              "ml": 4,
-            },
-          },
-        },
-      },
-      "props": Object {
+    ],
+    "Text": Array [
+      Object {
         "crop": true,
-        "lineHeight": 1.1875,
         "ml": -1,
         "size": "m",
         "valignSelf": "middle",
       },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": "l",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "ml": 6,
           },
-        },
-        "m": Object {
-          "props": Object {
-            "size": "m",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": "s",
-          },
-        },
+        ],
       },
-    },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "mr": 6,
+          },
+        ],
+      },
+      Object {
+        "lineHeight": 1.1875,
+        "size": [Function],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "align": "left",
+            "ml": [Function],
+          },
+          Object {
+            "$if": [Function],
+            "$then": Array [
+              Object {
+                "ml": 10,
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "align": "left",
+            "mr": [Function],
+          },
+          Object {
+            "$if": [Function],
+            "$then": Array [
+              Object {
+                "mr": 10,
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
 }
 `;
@@ -1972,47 +1811,32 @@ Object {
 exports[`web theme Card base 1`] = `
 Object {
   "Card": Object {
-    "component": null,
-    "props": Object {
-      "block": true,
-      "rounded": 12,
-    },
-    "style": Object {},
+    "block": true,
+    "rounded": 12,
   },
   "Close": Object {
+    "bgActive": "black16",
+    "bgHover": "black8",
+    "color": "gray28",
     "component": #IconCross,
-    "props": Object {
-      "bgActive": "black16",
-      "bgHover": "black8",
-      "color": "gray28",
-      "pb": 8,
-      "pl": 8,
-      "position": "absolute",
-      "pr": 8,
-      "pt": 8,
-      "right": 4,
-      "rounded": "circle",
-      "size": "s",
-      "top": 4,
-    },
-    "style": Object {},
+    "pb": 8,
+    "pl": 8,
+    "position": "absolute",
+    "pr": 8,
+    "pt": 8,
+    "right": 4,
+    "rounded": "circle",
+    "size": "s",
+    "top": 4,
   },
   "Content": Object {
-    "component": null,
-    "props": Object {
-      "pb": 12,
-      "pl": 12,
-      "pr": 12,
-      "pt": 12,
-    },
-    "style": Object {},
+    "pb": 12,
+    "pl": 12,
+    "pr": 12,
+    "pt": 12,
   },
   "Image": Object {
-    "component": null,
-    "props": Object {
-      "order": 1,
-    },
-    "style": Object {},
+    "order": 1,
   },
 }
 `;
@@ -2020,9 +1844,7 @@ Object {
 exports[`web theme Card fuzz: column 1`] = `
 Object {
   "Image": Object {
-    "props": Object {
-      "order": 0,
-    },
+    "order": 0,
   },
 }
 `;
@@ -2033,18 +1855,18 @@ exports[`web theme Card snap 1`] = `
 Object {
   "mapProps": [Function],
   "scheme": Object {
-    "Card": Object {
-      "props": Object {
+    "Card": Array [
+      Object {
         "block": true,
         "rounded": 12,
       },
-    },
-    "Close": Object {
-      "component": #IconCross,
-      "props": Object {
+    ],
+    "Close": Array [
+      Object {
         "bgActive": "black16",
         "bgHover": "black8",
         "color": "gray28",
+        "component": #IconCross,
         "pb": 8,
         "pl": 8,
         "position": "absolute",
@@ -2055,69 +1877,48 @@ Object {
         "size": "s",
         "top": 4,
       },
-    },
-    "Content": Object {
-      "props": Object {
+    ],
+    "Content": Array [
+      Object {
         "pb": 12,
         "pl": 12,
         "pr": 12,
         "pt": 12,
       },
-    },
-    "Image": Object {
-      "column": Object {
-        "props": Object {
-          "order": 0,
-        },
+    ],
+    "Image": Array [
+      Object {
+        "order": [Function],
       },
-      "props": Object {
-        "order": 1,
-      },
-    },
+    ],
   },
 }
 `;
 
 exports[`web theme Checkbox base 1`] = `
 Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
+  "Icon": Object {},
   "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 6,
-      "size": "s",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
+    "ml": 6,
+    "size": "s",
+    "valignSelf": "middle",
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "white",
-      "bgDisabled": "gray4",
-      "borderColor": "gray20",
-      "borderColorDisabled": "gray20",
-      "borderColorHover": "gray28",
-      "borderRadius": 3,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "gray4",
-      "focus": true,
-      "height": 16,
-    },
+    "bg": "white",
+    "bgDisabled": "gray4",
+    "borderColor": "gray20",
+    "borderColorDisabled": "gray20",
+    "borderColorHover": "gray28",
+    "borderRadius": 3,
+    "borderStyle": "solid",
+    "borderWidth": 1,
+    "color": "white",
+    "colorDisabled": "gray4",
+    "focus": true,
+    "height": 16,
   },
   "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "cursor": "pointer",
-    },
+    "cursor": "pointer",
   },
 }
 `;
@@ -2128,13 +1929,11 @@ Object {
     "component": #IconCheckboxIndeterminate,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -2145,13 +1944,11 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -2162,13 +1959,11 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgDisabled": "gray20",
-      "bgHover": "red600",
-      "borderColor": "red500",
-      "borderColorHover": "red600",
-    },
+    "bg": "red500",
+    "bgDisabled": "gray20",
+    "bgHover": "red600",
+    "borderColor": "red500",
+    "borderColorHover": "red600",
   },
 }
 `;
@@ -2179,13 +1974,11 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -2196,13 +1989,11 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -2213,13 +2004,11 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgDisabled": "gray20",
-      "bgHover": "green600",
-      "borderColor": "green500",
-      "borderColorHover": "green600",
-    },
+    "bg": "green500",
+    "bgDisabled": "gray20",
+    "bgHover": "green600",
+    "borderColor": "green500",
+    "borderColorHover": "green600",
   },
 }
 `;
@@ -2230,13 +2019,11 @@ Object {
     "component": #IconCheckboxChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgDisabled": "gray20",
-      "bgHover": "orange600",
-      "borderColor": "orange500",
-      "borderColorHover": "orange600",
-    },
+    "bg": "orange500",
+    "bgDisabled": "gray20",
+    "bgHover": "orange600",
+    "borderColor": "orange500",
+    "borderColorHover": "orange600",
   },
 }
 `;
@@ -2254,10 +2041,8 @@ exports[`web theme Checkbox fuzz: checked=false indeterminate=false 1`] = `Objec
 exports[`web theme Checkbox fuzz: checked=false variant="error" 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "borderColor": "red500",
-      "borderColorHover": "red600",
-    },
+    "borderColor": "red500",
+    "borderColorHover": "red600",
   },
 }
 `;
@@ -2267,10 +2052,8 @@ exports[`web theme Checkbox fuzz: checked=false variant="primary" 1`] = `Object 
 exports[`web theme Checkbox fuzz: checked=false variant="secondary" 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "borderColor": "gray8",
-      "borderColorHover": "gray16",
-    },
+    "borderColor": "gray8",
+    "borderColorHover": "gray16",
   },
 }
 `;
@@ -2278,10 +2061,8 @@ Object {
 exports[`web theme Checkbox fuzz: checked=false variant="success" 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "borderColor": "green500",
-      "borderColorHover": "green600",
-    },
+    "borderColor": "green500",
+    "borderColorHover": "green600",
   },
 }
 `;
@@ -2289,10 +2070,8 @@ Object {
 exports[`web theme Checkbox fuzz: checked=false variant="warning" 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "borderColor": "orange500",
-      "borderColorHover": "orange600",
-    },
+    "borderColor": "orange500",
+    "borderColorHover": "orange600",
   },
 }
 `;
@@ -2300,15 +2079,11 @@ Object {
 exports[`web theme Checkbox fuzz: size="l" 1`] = `
 Object {
   "Label": Object {
-    "props": Object {
-      "ml": 8,
-      "size": "l",
-    },
+    "ml": 8,
+    "size": "l",
   },
   "Switch": Object {
-    "style": Object {
-      "height": 22,
-    },
+    "height": 22,
   },
 }
 `;
@@ -2316,15 +2091,11 @@ Object {
 exports[`web theme Checkbox fuzz: size="m" 1`] = `
 Object {
   "Label": Object {
-    "props": Object {
-      "ml": 8,
-      "size": "m",
-    },
+    "ml": 8,
+    "size": "m",
   },
   "Switch": Object {
-    "style": Object {
-      "height": 18,
-    },
+    "height": 18,
   },
 }
 `;
@@ -2340,151 +2111,166 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "Icon": Object {
-      "checked": Object {
-        "component": #IconCheckboxChecked,
-      },
-      "indeterminate": Object {
-        "component": #IconCheckboxIndeterminate,
-      },
-    },
-    "Label": Object {
-      "disabled": Object {
-        "props": Object {
-          "color": "gray40",
-        },
-      },
-      "labelPosition": Object {
-        "end": Object {
-          "props": Object {
-            "ml": [Function],
+    "Icon": Array [
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "component": #IconCheckboxChecked,
           },
-        },
-        "start": Object {
-          "props": Object {
-            "mr": [Function],
-          },
-        },
+        ],
       },
-      "props": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "component": #IconCheckboxIndeterminate,
+          },
+        ],
+      },
+    ],
+    "Label": Array [
+      Object {
+        "size": "m",
+      },
+      Object {
         "size": [Function],
         "valignSelf": "middle",
       },
-    },
-    "Switch": Object {
-      "checked": Object {
-        "style": Object {
-          "bgDisabled": "gray20",
-        },
-        "variant": Object {
-          "error": Object {
-            "style": Object {
-              "bg": "red500",
-              "bgHover": "red600",
-              "borderColor": "red500",
-              "borderColorHover": "red600",
-            },
+      Object {
+        "$switch": "labelPosition",
+        "end": Array [
+          Object {
+            "ml": [Function],
           },
-          "primary": Object {
-            "style": Object {
-              "bg": "blue500",
-              "bgHover": "blue600",
-              "borderColor": "blue500",
-              "borderColorHover": "blue600",
-            },
+        ],
+        "start": Array [
+          Object {
+            "mr": [Function],
           },
-          "secondary": Object {
-            "style": Object {
-              "bg": "blue500",
-              "bgHover": "blue600",
-              "borderColor": "blue500",
-              "borderColorHover": "blue600",
-            },
-          },
-          "success": Object {
-            "style": Object {
-              "bg": "green500",
-              "bgHover": "green600",
-              "borderColor": "green500",
-              "borderColorHover": "green600",
-            },
-          },
-          "warning": Object {
-            "style": Object {
-              "bg": "orange500",
-              "bgHover": "orange600",
-              "borderColor": "orange500",
-              "borderColorHover": "orange600",
-            },
-          },
-        },
+        ],
       },
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "height": 22,
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "color": "gray40",
           },
-        },
-        "m": Object {
-          "style": Object {
-            "height": 18,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "height": 16,
-          },
-        },
+        ],
       },
-      "style": Object {
+    ],
+    "Switch": Array [
+      Object {
         "bg": "white",
-        "bgDisabled": "gray4",
         "borderColorDisabled": "gray20",
-        "borderRadius": 3,
         "borderStyle": "solid",
         "borderWidth": 1,
-        "color": "white",
         "colorDisabled": "gray4",
         "focus": true,
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
+      Object {
+        "$switch": "variant",
+        "error": Array [
+          Object {
             "borderColor": "red500",
             "borderColorHover": "red600",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "borderColor": "gray20",
             "borderColorHover": "gray28",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "borderColor": "gray8",
             "borderColorHover": "gray16",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "borderColor": "green500",
             "borderColorHover": "green600",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "borderColor": "orange500",
             "borderColorHover": "orange600",
           },
-        },
+        ],
       },
-    },
-    "Toggle": Object {
-      "style": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bgDisabled": "gray20",
+          },
+          Object {
+            "$switch": "variant",
+            "error": Array [
+              Object {
+                "bg": "red500",
+                "bgHover": "red600",
+                "borderColor": "red500",
+                "borderColorHover": "red600",
+              },
+            ],
+            "primary": Array [
+              Object {
+                "bg": "blue500",
+                "bgHover": "blue600",
+                "borderColor": "blue500",
+                "borderColorHover": "blue600",
+              },
+            ],
+            "secondary": Array [
+              Object {
+                "bg": "blue500",
+                "bgHover": "blue600",
+                "borderColor": "blue500",
+                "borderColorHover": "blue600",
+              },
+            ],
+            "success": Array [
+              Object {
+                "bg": "green500",
+                "bgHover": "green600",
+                "borderColor": "green500",
+                "borderColorHover": "green600",
+              },
+            ],
+            "warning": Array [
+              Object {
+                "bg": "orange500",
+                "bgHover": "orange600",
+                "borderColor": "orange500",
+                "borderColorHover": "orange600",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bgDisabled": "gray4",
+          },
+        ],
+      },
+      Object {
+        "borderRadius": 3,
+        "color": "white",
+        "height": [Function],
+      },
+    ],
+    "Toggle": Array [
+      Object {
         "cursor": "pointer",
       },
-    },
+    ],
   },
 }
 `;
@@ -2492,9 +2278,8 @@ Object {
 exports[`web theme Icon base 1`] = `
 Object {
   "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
+    "color": undefined,
+    "height": undefined,
   },
 }
 `;
@@ -2502,9 +2287,7 @@ Object {
 exports[`web theme Icon fuzz: size="l" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "height": 28,
-    },
+    "height": 28,
   },
 }
 `;
@@ -2512,9 +2295,7 @@ Object {
 exports[`web theme Icon fuzz: size="m" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "height": 20,
-    },
+    "height": 20,
   },
 }
 `;
@@ -2522,9 +2303,7 @@ Object {
 exports[`web theme Icon fuzz: size="s" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "height": 16,
-    },
+    "height": 16,
   },
 }
 `;
@@ -2532,9 +2311,7 @@ Object {
 exports[`web theme Icon fuzz: size="xl" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "height": 28,
-    },
+    "height": 28,
   },
 }
 `;
@@ -2542,9 +2319,7 @@ Object {
 exports[`web theme Icon fuzz: variant="error" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "red500",
-    },
+    "color": "red500",
   },
 }
 `;
@@ -2552,9 +2327,7 @@ Object {
 exports[`web theme Icon fuzz: variant="primary" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "blue500",
-    },
+    "color": "blue500",
   },
 }
 `;
@@ -2562,9 +2335,7 @@ Object {
 exports[`web theme Icon fuzz: variant="secondary" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "gray52",
-    },
+    "color": "gray52",
   },
 }
 `;
@@ -2572,9 +2343,7 @@ Object {
 exports[`web theme Icon fuzz: variant="success" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "green500",
-    },
+    "color": "green500",
   },
 }
 `;
@@ -2582,9 +2351,7 @@ Object {
 exports[`web theme Icon fuzz: variant="warning" 1`] = `
 Object {
   "Icon": Object {
-    "style": Object {
-      "color": "yellow500",
-    },
+    "color": "yellow500",
   },
 }
 `;
@@ -2593,139 +2360,67 @@ exports[`web theme Icon snap 1`] = `
 Object {
   "mapProps": [Function],
   "scheme": Object {
-    "Icon": Object {
-      "size": Object {
-        "l": Object {
-          "style": Object {
+    "Icon": Array [
+      Object {
+        "color": [Function],
+        "height": [Function],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
             "height": 28,
           },
-        },
-        "m": Object {
-          "style": Object {
-            "height": 20,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "height": 16,
-          },
-        },
-        "xl": Object {
-          "style": Object {
-            "height": 28,
-          },
-        },
+        ],
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
-            "color": "red500",
-          },
-        },
-        "primary": Object {
-          "style": Object {
-            "color": "blue500",
-          },
-        },
-        "secondary": Object {
-          "style": Object {
-            "color": "gray52",
-          },
-        },
-        "success": Object {
-          "style": Object {
-            "color": "green500",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "color": "yellow500",
-          },
-        },
-      },
-    },
+    ],
   },
 }
 `;
 
-exports[`web theme Image base 1`] = `
-Object {
-  "Image": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
-}
-`;
+exports[`web theme Image base 1`] = `Object {}`;
 
 exports[`web theme Image snap 1`] = `
 Object {
   "mapProps": [Function],
-  "scheme": Object {
-    "Image": Object {},
-  },
+  "scheme": Object {},
 }
 `;
 
 exports[`web theme Input base 1`] = `
 Object {
   "IconAfter": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "ml": 7,
-      "size": "m",
-    },
-    "style": Object {},
+    "color": "gray28",
+    "ml": 7,
+    "size": "m",
   },
   "IconBefore": Object {
-    "component": null,
-    "props": Object {
-      "color": "gray28",
-      "mr": 7,
-      "size": "s",
-    },
-    "style": Object {},
+    "color": "gray28",
+    "mr": 7,
+    "size": "s",
   },
   "Input": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bgDisabled": "gray4",
-      "borderColor": "gray20",
-      "borderColorHover": "gray28",
-      "borderRadius": 3,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "black",
-      "colorDisabled": "gray64",
-      "cursor": "text",
-      "focus": true,
-      "fontSize": "s",
-      "height": "s",
-      "pl": 7,
-      "placeholderColor": "gray40",
-      "pr": 7,
-    },
-  },
-  "InputField": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
+    "bgDisabled": "gray4",
+    "borderColor": "gray20",
+    "borderColorHover": "gray28",
+    "borderRadius": 3,
+    "borderStyle": "solid",
+    "borderWidth": 1,
+    "color": "black",
+    "colorDisabled": "gray64",
+    "cursor": "text",
+    "focus": true,
+    "fontSize": "s",
+    "height": "s",
+    "pl": 7,
+    "placeholderColor": "gray40",
+    "pr": 7,
   },
   "Postfix": Object {
-    "component": null,
-    "props": Object {
-      "ml": 4,
-    },
-    "style": Object {},
+    "ml": 4,
   },
   "Prefix": Object {
-    "component": null,
-    "props": Object {
-      "mr": 4,
-    },
-    "style": Object {},
+    "mr": 4,
   },
 }
 `;
@@ -2733,10 +2428,8 @@ Object {
 exports[`web theme Input fuzz: clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
+    "area": 10,
     "component": #IconCross,
-    "props": Object {
-      "area": 10,
-    },
   },
 }
 `;
@@ -2744,29 +2437,21 @@ Object {
 exports[`web theme Input fuzz: size="l" 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
+    "ml": 12,
+    "size": "l",
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
+    "mr": 12,
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-      "pl": 12,
-      "pr": 12,
-    },
+    "fontSize": "l",
+    "height": "l",
+    "pl": 12,
+    "pr": 12,
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
+    "mr": 8,
   },
 }
 `;
@@ -2774,29 +2459,21 @@ Object {
 exports[`web theme Input fuzz: size="l" iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
+    "ml": 12,
+    "size": "l",
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
+    "mr": 12,
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-      "pl": 12,
-      "pr": 12,
-    },
+    "fontSize": "l",
+    "height": "l",
+    "pl": 12,
+    "pr": 12,
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
+    "mr": 8,
   },
 }
 `;
@@ -2804,29 +2481,21 @@ Object {
 exports[`web theme Input fuzz: size="l" iconBefore={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
+    "ml": 12,
+    "size": "l",
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
+    "mr": 12,
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-      "pl": 12,
-      "pr": 12,
-    },
+    "fontSize": "l",
+    "height": "l",
+    "pl": 12,
+    "pr": 12,
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
+    "mr": 8,
   },
 }
 `;
@@ -2834,29 +2503,21 @@ Object {
 exports[`web theme Input fuzz: size="l" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 12,
-      "size": "l",
-    },
+    "ml": 12,
+    "size": "l",
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 12,
-      "size": "m",
-    },
+    "mr": 12,
+    "size": "m",
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "l",
-      "height": "l",
-      "pl": 12,
-      "pr": 12,
-    },
+    "fontSize": "l",
+    "height": "l",
+    "pl": 12,
+    "pr": 12,
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 8,
-    },
+    "mr": 8,
   },
 }
 `;
@@ -2864,27 +2525,19 @@ Object {
 exports[`web theme Input fuzz: size="m" 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 10,
-    },
+    "ml": 10,
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 10,
-    },
+    "mr": 10,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "m",
-      "height": "m",
-      "pl": 10,
-      "pr": 10,
-    },
+    "fontSize": "m",
+    "height": "m",
+    "pl": 10,
+    "pr": 10,
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -2892,27 +2545,19 @@ Object {
 exports[`web theme Input fuzz: size="m" iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 10,
-    },
+    "ml": 10,
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 10,
-    },
+    "mr": 10,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "m",
-      "height": "m",
-      "pl": 10,
-      "pr": 10,
-    },
+    "fontSize": "m",
+    "height": "m",
+    "pl": 10,
+    "pr": 10,
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -2920,27 +2565,19 @@ Object {
 exports[`web theme Input fuzz: size="m" iconBefore={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 10,
-    },
+    "ml": 10,
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 10,
-    },
+    "mr": 10,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "m",
-      "height": "m",
-      "pl": 10,
-      "pr": 10,
-    },
+    "fontSize": "m",
+    "height": "m",
+    "pl": 10,
+    "pr": 10,
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -2948,27 +2585,19 @@ Object {
 exports[`web theme Input fuzz: size="m" iconBefore={jsx} iconAfter={jsx} 1`] = `
 Object {
   "IconAfter": Object {
-    "props": Object {
-      "ml": 10,
-    },
+    "ml": 10,
   },
   "IconBefore": Object {
-    "props": Object {
-      "mr": 10,
-    },
+    "mr": 10,
   },
   "Input": Object {
-    "style": Object {
-      "fontSize": "m",
-      "height": "m",
-      "pl": 10,
-      "pr": 10,
-    },
+    "fontSize": "m",
+    "height": "m",
+    "pl": 10,
+    "pr": 10,
   },
   "Prefix": Object {
-    "props": Object {
-      "mr": 6,
-    },
+    "mr": 6,
   },
 }
 `;
@@ -2986,10 +2615,8 @@ exports[`web theme Input fuzz: value="value" 1`] = `Object {}`;
 exports[`web theme Input fuzz: value="value" clearable="always" 1`] = `
 Object {
   "IconAfter": Object {
+    "area": 10,
     "component": #IconCross,
-    "props": Object {
-      "area": 10,
-    },
   },
 }
 `;
@@ -2997,10 +2624,8 @@ Object {
 exports[`web theme Input fuzz: variant="error" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "borderColor": "red500",
-      "borderColorHover": "red600",
-    },
+    "borderColor": "red500",
+    "borderColorHover": "red600",
   },
 }
 `;
@@ -3010,10 +2635,8 @@ exports[`web theme Input fuzz: variant="primary" 1`] = `Object {}`;
 exports[`web theme Input fuzz: variant="secondary" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "borderColor": "gray8",
-      "borderColorHover": "gray16",
-    },
+    "borderColor": "gray8",
+    "borderColorHover": "gray16",
   },
 }
 `;
@@ -3021,10 +2644,8 @@ Object {
 exports[`web theme Input fuzz: variant="success" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "borderColor": "green500",
-      "borderColorHover": "green600",
-    },
+    "borderColor": "green500",
+    "borderColorHover": "green600",
   },
 }
 `;
@@ -3032,10 +2653,8 @@ Object {
 exports[`web theme Input fuzz: variant="warning" 1`] = `
 Object {
   "Input": Object {
-    "style": Object {
-      "borderColor": "orange500",
-      "borderColorHover": "orange600",
-    },
+    "borderColor": "orange500",
+    "borderColorHover": "orange600",
   },
 }
 `;
@@ -3050,86 +2669,48 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "IconAfter": Object {
-      "clearable": Object {
-        "component": #IconCross,
-        "props": Object {
-          "area": 10,
-          "size": [Function],
-        },
-      },
-      "props": Object {
+    "IconAfter": Array [
+      Object {
         "color": "gray28",
       },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "ml": 12,
-            "size": "l",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "area": 10,
+            "component": #IconCross,
+            "size": [Function],
           },
-        },
-        "m": Object {
-          "props": Object {
-            "ml": 10,
-            "size": "m",
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "ml": 7,
-            "size": "m",
-          },
-        },
+        ],
       },
-    },
-    "IconBefore": Object {
-      "props": Object {
+      Object {
+        "ml": [Function],
+        "size": [Function],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "component": #IconCross,
+          },
+        ],
+      },
+    ],
+    "IconBefore": Array [
+      Object {
         "color": "gray28",
         "size": [Function],
       },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "mr": 12,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "mr": 10,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "mr": 7,
-          },
-        },
+      Object {
+        "mr": [Function],
       },
-    },
-    "Input": Object {
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "fontSize": "l",
-            "pl": 12,
-            "pr": 12,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "fontSize": "m",
-            "pl": 10,
-            "pr": 10,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "fontSize": "s",
-            "pl": 7,
-            "pr": 7,
-          },
-        },
+    ],
+    "Input": Array [
+      Object {
+        "focus": true,
+        "height": [Function],
       },
-      "style": Object {
+      Object {
         "bgDisabled": "gray4",
         "borderRadius": 3,
         "borderStyle": "solid",
@@ -3137,68 +2718,55 @@ Object {
         "color": "black",
         "colorDisabled": "gray64",
         "cursor": "text",
-        "focus": true,
-        "height": [Function],
+        "fontSize": [Function],
+        "pl": [Function],
         "placeholderColor": "gray40",
+        "pr": [Function],
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
+      Object {
+        "$switch": "variant",
+        "error": Array [
+          Object {
             "borderColor": "red500",
             "borderColorHover": "red600",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "borderColor": "gray20",
             "borderColorHover": "gray28",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "borderColor": "gray8",
             "borderColorHover": "gray16",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "borderColor": "green500",
             "borderColorHover": "green600",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "borderColor": "orange500",
             "borderColorHover": "orange600",
           },
-        },
+        ],
       },
-    },
-    "InputField": Object {},
-    "Postfix": Object {
-      "props": Object {
+    ],
+    "Postfix": Array [
+      Object {
         "ml": 4,
       },
-    },
-    "Prefix": Object {
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "mr": 8,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "mr": 6,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "mr": 4,
-          },
-        },
+    ],
+    "Prefix": Array [
+      Object {
+        "mr": [Function],
       },
-    },
+    ],
   },
 }
 `;
@@ -3206,13 +2774,9 @@ Object {
 exports[`web theme Link base 1`] = `
 Object {
   "Link": Object {
-    "component": null,
-    "props": Object {
-      "color": "blue500",
-      "colorHover": "red500",
-      "colorVisited": "purple600",
-    },
-    "style": Object {},
+    "color": "blue500",
+    "colorHover": "red500",
+    "colorVisited": "purple600",
   },
 }
 `;
@@ -3222,10 +2786,8 @@ exports[`web theme Link fuzz: variant="primary" 1`] = `Object {}`;
 exports[`web theme Link fuzz: variant="secondary" 1`] = `
 Object {
   "Link": Object {
-    "props": Object {
-      "color": "gray52",
-      "colorHover": "gray32",
-    },
+    "color": "gray52",
+    "colorHover": "gray32",
   },
 }
 `;
@@ -3237,68 +2799,53 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "Link": Object {
-      "props": Object {
+    "Link": Array [
+      Object {
         "colorVisited": "purple600",
       },
-      "variant": Object {
-        "primary": Object {
-          "props": Object {
+      Object {
+        "$switch": "variant",
+        "primary": Array [
+          Object {
             "color": "blue500",
             "colorHover": "red500",
           },
-        },
-        "secondary": Object {
-          "props": Object {
+        ],
+        "secondary": Array [
+          Object {
             "color": "gray52",
             "colorHover": "gray32",
           },
-        },
+        ],
       },
-    },
+    ],
   },
 }
 `;
 
 exports[`web theme Radio base 1`] = `
 Object {
-  "Icon": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {},
-  },
+  "Icon": Object {},
   "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 6,
-      "size": "s",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
+    "ml": 6,
+    "size": "s",
+    "valignSelf": "middle",
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "white",
-      "bgDisabled": "gray4",
-      "borderColor": "gray20",
-      "borderColorDisabled": "gray20",
-      "borderColorHover": "gray28",
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "white",
-      "colorDisabled": "gray4",
-      "focus": true,
-      "height": 18,
-    },
+    "bg": "white",
+    "bgDisabled": "gray4",
+    "borderColor": "gray20",
+    "borderColorDisabled": "gray20",
+    "borderColorHover": "gray28",
+    "borderStyle": "solid",
+    "borderWidth": 1,
+    "color": "white",
+    "colorDisabled": "gray4",
+    "focus": true,
+    "height": 18,
   },
   "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "cursor": "pointer",
-    },
+    "cursor": "pointer",
   },
 }
 `;
@@ -3306,15 +2853,11 @@ Object {
 exports[`web theme Radio fuzz: size="l" 1`] = `
 Object {
   "Label": Object {
-    "props": Object {
-      "ml": 8,
-      "size": "l",
-    },
+    "ml": 8,
+    "size": "l",
   },
   "Switch": Object {
-    "style": Object {
-      "height": 24,
-    },
+    "height": 24,
   },
 }
 `;
@@ -3322,15 +2865,11 @@ Object {
 exports[`web theme Radio fuzz: size="m" 1`] = `
 Object {
   "Label": Object {
-    "props": Object {
-      "ml": 8,
-      "size": "m",
-    },
+    "ml": 8,
+    "size": "m",
   },
   "Switch": Object {
-    "style": Object {
-      "height": 22,
-    },
+    "height": 22,
   },
 }
 `;
@@ -3343,13 +2882,11 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgDisabled": "gray20",
-      "bgHover": "red600",
-      "borderColor": "red500",
-      "borderColorHover": "red600",
-    },
+    "bg": "red500",
+    "bgDisabled": "gray20",
+    "bgHover": "red600",
+    "borderColor": "red500",
+    "borderColorHover": "red600",
   },
 }
 `;
@@ -3357,10 +2894,8 @@ Object {
 exports[`web theme Radio fuzz: variant="error" checked=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "borderColor": "red500",
-      "borderColorHover": "red600",
-    },
+    "borderColor": "red500",
+    "borderColorHover": "red600",
   },
 }
 `;
@@ -3371,13 +2906,11 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -3390,13 +2923,11 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -3404,10 +2935,8 @@ Object {
 exports[`web theme Radio fuzz: variant="secondary" checked=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "borderColor": "gray8",
-      "borderColorHover": "gray16",
-    },
+    "borderColor": "gray8",
+    "borderColorHover": "gray16",
   },
 }
 `;
@@ -3418,13 +2947,11 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgDisabled": "gray20",
-      "bgHover": "green600",
-      "borderColor": "green500",
-      "borderColorHover": "green600",
-    },
+    "bg": "green500",
+    "bgDisabled": "gray20",
+    "bgHover": "green600",
+    "borderColor": "green500",
+    "borderColorHover": "green600",
   },
 }
 `;
@@ -3432,10 +2959,8 @@ Object {
 exports[`web theme Radio fuzz: variant="success" checked=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "borderColor": "green500",
-      "borderColorHover": "green600",
-    },
+    "borderColor": "green500",
+    "borderColorHover": "green600",
   },
 }
 `;
@@ -3446,13 +2971,11 @@ Object {
     "component": #IconRadioChecked,
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgDisabled": "gray20",
-      "bgHover": "orange600",
-      "borderColor": "orange500",
-      "borderColorHover": "orange600",
-    },
+    "bg": "orange500",
+    "bgDisabled": "gray20",
+    "bgHover": "orange600",
+    "borderColor": "orange500",
+    "borderColorHover": "orange600",
   },
 }
 `;
@@ -3460,10 +2983,8 @@ Object {
 exports[`web theme Radio fuzz: variant="warning" checked=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "borderColor": "orange500",
-      "borderColorHover": "orange600",
-    },
+    "borderColor": "orange500",
+    "borderColorHover": "orange600",
   },
 }
 `;
@@ -3477,147 +2998,159 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "Icon": Object {
-      "checked": Object {
-        "component": #IconRadioChecked,
-      },
-    },
-    "Label": Object {
-      "disabled": Object {
-        "props": Object {
-          "color": "gray40",
-        },
-      },
-      "labelPosition": Object {
-        "end": Object {
-          "props": Object {
-            "ml": [Function],
+    "Icon": Array [
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "component": #IconRadioChecked,
           },
-        },
-        "start": Object {
-          "props": Object {
-            "mr": [Function],
-          },
-        },
+        ],
       },
-      "props": Object {
+    ],
+    "Label": Array [
+      Object {
+        "size": "m",
+      },
+      Object {
         "size": [Function],
         "valignSelf": "middle",
       },
-    },
-    "Switch": Object {
-      "checked": Object {
-        "style": Object {
-          "bgDisabled": "gray20",
-        },
-        "variant": Object {
-          "error": Object {
-            "style": Object {
-              "bg": "red500",
-              "bgHover": "red600",
-              "borderColor": "red500",
-              "borderColorHover": "red600",
-            },
+      Object {
+        "$switch": "labelPosition",
+        "end": Array [
+          Object {
+            "ml": [Function],
           },
-          "primary": Object {
-            "style": Object {
-              "bg": "blue500",
-              "bgHover": "blue600",
-              "borderColor": "blue500",
-              "borderColorHover": "blue600",
-            },
+        ],
+        "start": Array [
+          Object {
+            "mr": [Function],
           },
-          "secondary": Object {
-            "style": Object {
-              "bg": "blue500",
-              "bgHover": "blue600",
-              "borderColor": "blue500",
-              "borderColorHover": "blue600",
-            },
-          },
-          "success": Object {
-            "style": Object {
-              "bg": "green500",
-              "bgHover": "green600",
-              "borderColor": "green500",
-              "borderColorHover": "green600",
-            },
-          },
-          "warning": Object {
-            "style": Object {
-              "bg": "orange500",
-              "bgHover": "orange600",
-              "borderColor": "orange500",
-              "borderColorHover": "orange600",
-            },
-          },
-        },
+        ],
       },
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "height": 24,
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "color": "gray40",
           },
-        },
-        "m": Object {
-          "style": Object {
-            "height": 22,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "height": 18,
-          },
-        },
+        ],
       },
-      "style": Object {
+    ],
+    "Switch": Array [
+      Object {
         "bg": "white",
-        "bgDisabled": "gray4",
         "borderColorDisabled": "gray20",
         "borderStyle": "solid",
         "borderWidth": 1,
-        "color": "white",
         "colorDisabled": "gray4",
         "focus": true,
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
+      Object {
+        "$switch": "variant",
+        "error": Array [
+          Object {
             "borderColor": "red500",
             "borderColorHover": "red600",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "borderColor": "gray20",
             "borderColorHover": "gray28",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "borderColor": "gray8",
             "borderColorHover": "gray16",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "borderColor": "green500",
             "borderColorHover": "green600",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "borderColor": "orange500",
             "borderColorHover": "orange600",
           },
-        },
+        ],
       },
-    },
-    "Toggle": Object {
-      "style": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bgDisabled": "gray20",
+          },
+          Object {
+            "$switch": "variant",
+            "error": Array [
+              Object {
+                "bg": "red500",
+                "bgHover": "red600",
+                "borderColor": "red500",
+                "borderColorHover": "red600",
+              },
+            ],
+            "primary": Array [
+              Object {
+                "bg": "blue500",
+                "bgHover": "blue600",
+                "borderColor": "blue500",
+                "borderColorHover": "blue600",
+              },
+            ],
+            "secondary": Array [
+              Object {
+                "bg": "blue500",
+                "bgHover": "blue600",
+                "borderColor": "blue500",
+                "borderColorHover": "blue600",
+              },
+            ],
+            "success": Array [
+              Object {
+                "bg": "green500",
+                "bgHover": "green600",
+                "borderColor": "green500",
+                "borderColorHover": "green600",
+              },
+            ],
+            "warning": Array [
+              Object {
+                "bg": "orange500",
+                "bgHover": "orange600",
+                "borderColor": "orange500",
+                "borderColorHover": "orange600",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bgDisabled": "gray4",
+          },
+        ],
+      },
+      Object {
+        "color": "white",
+      },
+      Object {
+        "height": [Function],
+      },
+    ],
+    "Toggle": Array [
+      Object {
         "cursor": "pointer",
       },
-    },
+    ],
   },
 }
 `;
@@ -3626,8 +3159,7 @@ exports[`web theme Spinner base 1`] = `
 Object {
   "Spinner": Object {
     "component": #IconSpinner,
-    "props": Object {},
-    "style": Object {},
+    "size": 16,
   },
 }
 `;
@@ -3635,9 +3167,7 @@ Object {
 exports[`web theme Spinner fuzz: size="l" 1`] = `
 Object {
   "Spinner": Object {
-    "props": Object {
-      "size": 32,
-    },
+    "size": 32,
   },
 }
 `;
@@ -3645,22 +3175,12 @@ Object {
 exports[`web theme Spinner fuzz: size="m" 1`] = `
 Object {
   "Spinner": Object {
-    "props": Object {
-      "size": 24,
-    },
+    "size": 24,
   },
 }
 `;
 
-exports[`web theme Spinner fuzz: size="s" 1`] = `
-Object {
-  "Spinner": Object {
-    "props": Object {
-      "size": 16,
-    },
-  },
-}
-`;
+exports[`web theme Spinner fuzz: size="s" 1`] = `Object {}`;
 
 exports[`web theme Spinner fuzz: variant="error" 1`] = `Object {}`;
 
@@ -3675,31 +3195,21 @@ exports[`web theme Spinner fuzz: variant="warning" 1`] = `Object {}`;
 exports[`web theme Spinner snap 1`] = `
 Object {
   "defaultProps": Object {
+    "size": "s",
     "speed": 1,
     "variant": "primary",
   },
   "mapProps": [Function],
   "scheme": Object {
-    "Spinner": Object {
-      "component": #IconSpinner,
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "size": 32,
-          },
-        },
-        "m": Object {
-          "props": Object {
-            "size": 24,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "size": 16,
-          },
-        },
+    "Spinner": Array [
+      Object {
+        "component": #IconSpinner,
+        "size": [Function],
       },
-    },
+      Object {
+        "component": #IconSpinner,
+      },
+    ],
   },
 }
 `;
@@ -3707,56 +3217,41 @@ Object {
 exports[`web theme Switcher base 1`] = `
 Object {
   "Icon": Object {
+    "bg": "white",
+    "borderRadius": 2,
+    "color": "blue500",
     "component": #Box,
-    "props": Object {
-      "bg": "white",
-      "borderRadius": 2,
-      "color": "blue500",
-      "height": 1,
-      "pl": 2,
-      "pr": 2,
-      "width": 14,
-    },
-    "style": Object {},
+    "height": 1,
+    "pl": 2,
+    "pr": 2,
+    "width": 14,
   },
   "Label": Object {
-    "component": null,
-    "props": Object {
-      "ml": 6,
-      "size": "s",
-      "valignSelf": "middle",
-    },
-    "style": Object {},
+    "ml": 6,
+    "size": "s",
+    "valignSelf": "middle",
   },
   "Switch": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bg": "gray28",
-      "bgDisabled": "gray8",
-      "bgHover": "gray40",
-      "borderColor": "gray20",
-      "borderColorDisabled": "gray20",
-      "borderColorHover": "gray28",
-      "borderRadius": 2,
-      "borderStyle": "solid",
-      "borderWidth": 0,
-      "colorDisabled": "gray4",
-      "focus": true,
-      "height": 20,
-      "pb": 2,
-      "pl": 2,
-      "pr": 2,
-      "pt": 2,
-      "width": 40,
-    },
+    "bg": "gray28",
+    "bgDisabled": "gray8",
+    "bgHover": "gray40",
+    "borderColor": "gray20",
+    "borderColorDisabled": "gray20",
+    "borderColorHover": "gray28",
+    "borderRadius": 2,
+    "borderStyle": "solid",
+    "borderWidth": 0,
+    "colorDisabled": "gray4",
+    "focus": true,
+    "height": 20,
+    "pb": 2,
+    "pl": 2,
+    "pr": 2,
+    "pt": 2,
+    "width": 40,
   },
   "Toggle": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "cursor": "pointer",
-    },
+    "cursor": "pointer",
   },
 }
 `;
@@ -3765,23 +3260,17 @@ exports[`web theme Switcher fuzz: checked loading disabled 1`] = `
 Object {
   "Icon": Object {
     "component": #Spinner,
-    "props": Object {
-      "size": "auto",
-    },
+    "size": "auto",
   },
   "Label": Object {
-    "props": Object {
-      "color": "gray40",
-    },
+    "color": "gray40",
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -3790,18 +3279,14 @@ exports[`web theme Switcher fuzz: checked loading disabled=false 1`] = `
 Object {
   "Icon": Object {
     "component": #Spinner,
-    "props": Object {
-      "size": "auto",
-    },
+    "size": "auto",
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -3809,18 +3294,14 @@ Object {
 exports[`web theme Switcher fuzz: checked loading=false disabled 1`] = `
 Object {
   "Label": Object {
-    "props": Object {
-      "color": "gray40",
-    },
+    "color": "gray40",
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -3828,13 +3309,11 @@ Object {
 exports[`web theme Switcher fuzz: checked loading=false disabled=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -3843,14 +3322,10 @@ exports[`web theme Switcher fuzz: checked=false loading disabled 1`] = `
 Object {
   "Icon": Object {
     "component": #Spinner,
-    "props": Object {
-      "size": "auto",
-    },
+    "size": "auto",
   },
   "Label": Object {
-    "props": Object {
-      "color": "gray40",
-    },
+    "color": "gray40",
   },
 }
 `;
@@ -3859,9 +3334,7 @@ exports[`web theme Switcher fuzz: checked=false loading disabled=false 1`] = `
 Object {
   "Icon": Object {
     "component": #Spinner,
-    "props": Object {
-      "size": "auto",
-    },
+    "size": "auto",
   },
 }
 `;
@@ -3869,9 +3342,7 @@ Object {
 exports[`web theme Switcher fuzz: checked=false loading=false disabled 1`] = `
 Object {
   "Label": Object {
-    "props": Object {
-      "color": "gray40",
-    },
+    "color": "gray40",
   },
 }
 `;
@@ -3881,21 +3352,15 @@ exports[`web theme Switcher fuzz: checked=false loading=false disabled=false 1`]
 exports[`web theme Switcher fuzz: size="l" 1`] = `
 Object {
   "Icon": Object {
-    "props": Object {
-      "width": 22,
-    },
+    "width": 22,
   },
   "Label": Object {
-    "props": Object {
-      "ml": 8,
-      "size": "l",
-    },
+    "ml": 8,
+    "size": "l",
   },
   "Switch": Object {
-    "style": Object {
-      "height": 28,
-      "width": 56,
-    },
+    "height": 28,
+    "width": 56,
   },
 }
 `;
@@ -3903,21 +3368,15 @@ Object {
 exports[`web theme Switcher fuzz: size="m" 1`] = `
 Object {
   "Icon": Object {
-    "props": Object {
-      "width": 18,
-    },
+    "width": 18,
   },
   "Label": Object {
-    "props": Object {
-      "ml": 8,
-      "size": "m",
-    },
+    "ml": 8,
+    "size": "m",
   },
   "Switch": Object {
-    "style": Object {
-      "height": 24,
-      "width": 48,
-    },
+    "height": 24,
+    "width": 48,
   },
 }
 `;
@@ -3927,18 +3386,14 @@ exports[`web theme Switcher fuzz: size="s" 1`] = `Object {}`;
 exports[`web theme Switcher fuzz: variant="error" checked 1`] = `
 Object {
   "Icon": Object {
-    "props": Object {
-      "color": "red500",
-    },
+    "color": "red500",
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "red500",
-      "bgDisabled": "gray20",
-      "bgHover": "red600",
-      "borderColor": "red500",
-      "borderColorHover": "red600",
-    },
+    "bg": "red500",
+    "bgDisabled": "gray20",
+    "bgHover": "red600",
+    "borderColor": "red500",
+    "borderColorHover": "red600",
   },
 }
 `;
@@ -3946,15 +3401,11 @@ Object {
 exports[`web theme Switcher fuzz: variant="error" checked=false 1`] = `
 Object {
   "Icon": Object {
-    "props": Object {
-      "color": "red500",
-    },
+    "color": "red500",
   },
   "Switch": Object {
-    "style": Object {
-      "borderColor": "red500",
-      "borderColorHover": "red600",
-    },
+    "borderColor": "red500",
+    "borderColorHover": "red600",
   },
 }
 `;
@@ -3962,13 +3413,11 @@ Object {
 exports[`web theme Switcher fuzz: variant="primary" checked 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -3978,13 +3427,11 @@ exports[`web theme Switcher fuzz: variant="primary" checked=false 1`] = `Object 
 exports[`web theme Switcher fuzz: variant="secondary" checked 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "bg": "blue500",
-      "bgDisabled": "gray20",
-      "bgHover": "blue600",
-      "borderColor": "blue500",
-      "borderColorHover": "blue600",
-    },
+    "bg": "blue500",
+    "bgDisabled": "gray20",
+    "bgHover": "blue600",
+    "borderColor": "blue500",
+    "borderColorHover": "blue600",
   },
 }
 `;
@@ -3992,10 +3439,8 @@ Object {
 exports[`web theme Switcher fuzz: variant="secondary" checked=false 1`] = `
 Object {
   "Switch": Object {
-    "style": Object {
-      "borderColor": "gray8",
-      "borderColorHover": "gray16",
-    },
+    "borderColor": "gray8",
+    "borderColorHover": "gray16",
   },
 }
 `;
@@ -4003,18 +3448,14 @@ Object {
 exports[`web theme Switcher fuzz: variant="success" checked 1`] = `
 Object {
   "Icon": Object {
-    "props": Object {
-      "color": "green500",
-    },
+    "color": "green500",
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "green500",
-      "bgDisabled": "gray20",
-      "bgHover": "green600",
-      "borderColor": "green500",
-      "borderColorHover": "green600",
-    },
+    "bg": "green500",
+    "bgDisabled": "gray20",
+    "bgHover": "green600",
+    "borderColor": "green500",
+    "borderColorHover": "green600",
   },
 }
 `;
@@ -4022,15 +3463,11 @@ Object {
 exports[`web theme Switcher fuzz: variant="success" checked=false 1`] = `
 Object {
   "Icon": Object {
-    "props": Object {
-      "color": "green500",
-    },
+    "color": "green500",
   },
   "Switch": Object {
-    "style": Object {
-      "borderColor": "green500",
-      "borderColorHover": "green600",
-    },
+    "borderColor": "green500",
+    "borderColorHover": "green600",
   },
 }
 `;
@@ -4038,18 +3475,14 @@ Object {
 exports[`web theme Switcher fuzz: variant="warning" checked 1`] = `
 Object {
   "Icon": Object {
-    "props": Object {
-      "color": "orange500",
-    },
+    "color": "orange500",
   },
   "Switch": Object {
-    "style": Object {
-      "bg": "orange500",
-      "bgDisabled": "gray20",
-      "bgHover": "orange600",
-      "borderColor": "orange500",
-      "borderColorHover": "orange600",
-    },
+    "bg": "orange500",
+    "bgDisabled": "gray20",
+    "bgHover": "orange600",
+    "borderColor": "orange500",
+    "borderColorHover": "orange600",
   },
 }
 `;
@@ -4057,15 +3490,11 @@ Object {
 exports[`web theme Switcher fuzz: variant="warning" checked=false 1`] = `
 Object {
   "Icon": Object {
-    "props": Object {
-      "color": "orange500",
-    },
+    "color": "orange500",
   },
   "Switch": Object {
-    "style": Object {
-      "borderColor": "orange500",
-      "borderColorHover": "orange600",
-    },
+    "borderColor": "orange500",
+    "borderColorHover": "orange600",
   },
 }
 `;
@@ -4081,211 +3510,211 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "Icon": Object {
-      "component": #Box,
-      "loading": Object {
-        "component": #Spinner,
-        "props": Object {
-          "size": "auto",
-        },
-      },
-      "props": Object {
+    "Icon": Array [
+      Object {
         "bg": "white",
         "borderRadius": 2,
+        "color": [Function],
+        "component": #Box,
         "height": 1,
         "pl": 2,
         "pr": 2,
-        "width": 0.39,
+        "width": [Function],
       },
-      "size": Object {
-        "l": Object {
-          "props": Object {
-            "width": 22,
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "component": #Spinner,
+            "size": "auto",
           },
-        },
-        "m": Object {
-          "props": Object {
-            "width": 18,
-          },
-        },
-        "s": Object {
-          "props": Object {
-            "width": 14,
-          },
-        },
+        ],
       },
-      "variant": Object {
-        "error": Object {
-          "props": Object {
-            "color": "red500",
-          },
-        },
-        "primary": Object {
-          "props": Object {
-            "color": "blue500",
-          },
-        },
-        "secondary": Object {
-          "props": Object {
-            "color": "blue500",
-          },
-        },
-        "success": Object {
-          "props": Object {
-            "color": "green500",
-          },
-        },
-        "warning": Object {
-          "props": Object {
-            "color": "orange500",
-          },
-        },
+    ],
+    "Label": Array [
+      Object {
+        "size": "m",
       },
-    },
-    "Label": Object {
-      "disabled": Object {
-        "props": Object {
-          "color": "gray40",
-        },
-      },
-      "labelPosition": Object {
-        "end": Object {
-          "props": Object {
-            "ml": [Function],
-          },
-        },
-        "start": Object {
-          "props": Object {
-            "mr": [Function],
-          },
-        },
-      },
-      "props": Object {
+      Object {
         "size": [Function],
         "valignSelf": "middle",
       },
-    },
-    "Switch": Object {
-      "checked": Object {
-        "style": Object {
-          "bgDisabled": "gray20",
-        },
-        "variant": Object {
-          "error": Object {
-            "style": Object {
-              "bg": "red500",
-              "bgHover": "red600",
-              "borderColor": "red500",
-              "borderColorHover": "red600",
-            },
+      Object {
+        "$switch": "labelPosition",
+        "end": Array [
+          Object {
+            "ml": [Function],
           },
-          "primary": Object {
-            "style": Object {
-              "bg": "blue500",
-              "bgHover": "blue600",
-              "borderColor": "blue500",
-              "borderColorHover": "blue600",
-            },
+        ],
+        "start": Array [
+          Object {
+            "mr": [Function],
           },
-          "secondary": Object {
-            "style": Object {
-              "bg": "blue500",
-              "bgHover": "blue600",
-              "borderColor": "blue500",
-              "borderColorHover": "blue600",
-            },
-          },
-          "success": Object {
-            "style": Object {
-              "bg": "green500",
-              "bgHover": "green600",
-              "borderColor": "green500",
-              "borderColorHover": "green600",
-            },
-          },
-          "warning": Object {
-            "style": Object {
-              "bg": "orange500",
-              "bgHover": "orange600",
-              "borderColor": "orange500",
-              "borderColorHover": "orange600",
-            },
-          },
-        },
+        ],
       },
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "height": 28,
-            "width": 56,
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "color": "gray40",
           },
-        },
-        "m": Object {
-          "style": Object {
-            "height": 24,
-            "width": 48,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "height": 20,
-            "width": 40,
-          },
-        },
+        ],
       },
-      "style": Object {
-        "bg": "gray28",
-        "bgDisabled": "gray8",
-        "bgHover": "gray40",
+    ],
+    "Switch": Array [
+      Object {
+        "bg": "white",
         "borderColorDisabled": "gray20",
-        "borderRadius": 2,
         "borderStyle": "solid",
-        "borderWidth": 0,
+        "borderWidth": 1,
         "colorDisabled": "gray4",
         "focus": true,
+      },
+      Object {
+        "$switch": "variant",
+        "error": Array [
+          Object {
+            "borderColor": "red500",
+            "borderColorHover": "red600",
+          },
+        ],
+        "primary": Array [
+          Object {
+            "borderColor": "gray20",
+            "borderColorHover": "gray28",
+          },
+        ],
+        "secondary": Array [
+          Object {
+            "borderColor": "gray8",
+            "borderColorHover": "gray16",
+          },
+        ],
+        "success": Array [
+          Object {
+            "borderColor": "green500",
+            "borderColorHover": "green600",
+          },
+        ],
+        "warning": Array [
+          Object {
+            "borderColor": "orange500",
+            "borderColorHover": "orange600",
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bgDisabled": "gray20",
+          },
+          Object {
+            "$switch": "variant",
+            "error": Array [
+              Object {
+                "bg": "red500",
+                "bgHover": "red600",
+                "borderColor": "red500",
+                "borderColorHover": "red600",
+              },
+            ],
+            "primary": Array [
+              Object {
+                "bg": "blue500",
+                "bgHover": "blue600",
+                "borderColor": "blue500",
+                "borderColorHover": "blue600",
+              },
+            ],
+            "secondary": Array [
+              Object {
+                "bg": "blue500",
+                "bgHover": "blue600",
+                "borderColor": "blue500",
+                "borderColorHover": "blue600",
+              },
+            ],
+            "success": Array [
+              Object {
+                "bg": "green500",
+                "bgHover": "green600",
+                "borderColor": "green500",
+                "borderColorHover": "green600",
+              },
+            ],
+            "warning": Array [
+              Object {
+                "bg": "orange500",
+                "bgHover": "orange600",
+                "borderColor": "orange500",
+                "borderColorHover": "orange600",
+              },
+            ],
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bgDisabled": "gray4",
+          },
+        ],
+      },
+      Object {
+        "borderRadius": 2,
+        "borderWidth": 0,
         "pb": 2,
         "pl": 2,
         "pr": 2,
         "pt": 2,
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
-            "borderColor": "red500",
-            "borderColorHover": "red600",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bg": "gray28",
+            "bgDisabled": "gray8",
+            "bgHover": "gray40",
           },
-        },
-        "primary": Object {
-          "style": Object {
-            "borderColor": "gray20",
-            "borderColorHover": "gray28",
-          },
-        },
-        "secondary": Object {
-          "style": Object {
-            "borderColor": "gray8",
-            "borderColorHover": "gray16",
-          },
-        },
-        "success": Object {
-          "style": Object {
-            "borderColor": "green500",
-            "borderColorHover": "green600",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "borderColor": "orange500",
-            "borderColorHover": "orange600",
-          },
-        },
+        ],
       },
-    },
-    "Toggle": Object {
-      "style": Object {
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "bgDisabled": "gray20",
+          },
+        ],
+      },
+      Object {
+        "$switch": "size",
+        "l": Array [
+          Object {
+            "height": 28,
+            "width": 56,
+          },
+        ],
+        "m": Array [
+          Object {
+            "height": 24,
+            "width": 48,
+          },
+        ],
+        "s": Array [
+          Object {
+            "height": 20,
+            "width": 40,
+          },
+        ],
+      },
+    ],
+    "Toggle": Array [
+      Object {
         "cursor": "pointer",
       },
-    },
+    ],
   },
 }
 `;
@@ -4293,12 +3722,9 @@ Object {
 exports[`web theme Text base 1`] = `
 Object {
   "Text": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "fontSize": undefined,
-      "lineHeight": "normal",
-    },
+    "color": undefined,
+    "fontSize": undefined,
+    "lineHeight": "normal",
   },
 }
 `;
@@ -4306,9 +3732,7 @@ Object {
 exports[`web theme Text fuzz: dense 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "lineHeight": "dense",
-    },
+    "lineHeight": "dense",
   },
 }
 `;
@@ -4316,9 +3740,7 @@ Object {
 exports[`web theme Text fuzz: preset="heading" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "l",
-    },
+    "fontSize": "l",
   },
 }
 `;
@@ -4326,9 +3748,7 @@ Object {
 exports[`web theme Text fuzz: preset="heading-large" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "xl",
-    },
+    "fontSize": "xl",
   },
 }
 `;
@@ -4336,9 +3756,7 @@ Object {
 exports[`web theme Text fuzz: preset="heading-small" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "m",
-    },
+    "fontSize": "m",
   },
 }
 `;
@@ -4346,9 +3764,7 @@ Object {
 exports[`web theme Text fuzz: preset="title" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "xxxl",
-    },
+    "fontSize": "xxxl",
   },
 }
 `;
@@ -4356,9 +3772,7 @@ Object {
 exports[`web theme Text fuzz: preset="title-small" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "xxl",
-    },
+    "fontSize": "xxl",
   },
 }
 `;
@@ -4366,9 +3780,7 @@ Object {
 exports[`web theme Text fuzz: size="l" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "l",
-    },
+    "fontSize": "l",
   },
 }
 `;
@@ -4376,9 +3788,7 @@ Object {
 exports[`web theme Text fuzz: size="m" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "m",
-    },
+    "fontSize": "m",
   },
 }
 `;
@@ -4386,9 +3796,7 @@ Object {
 exports[`web theme Text fuzz: size="s" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "fontSize": "s",
-    },
+    "fontSize": "s",
   },
 }
 `;
@@ -4396,9 +3804,7 @@ Object {
 exports[`web theme Text fuzz: variant="error" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "red500",
-    },
+    "color": "red500",
   },
 }
 `;
@@ -4406,9 +3812,7 @@ Object {
 exports[`web theme Text fuzz: variant="primary" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "blue500",
-    },
+    "color": "blue500",
   },
 }
 `;
@@ -4416,9 +3820,7 @@ Object {
 exports[`web theme Text fuzz: variant="secondary" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "gray52",
-    },
+    "color": "gray52",
   },
 }
 `;
@@ -4426,9 +3828,7 @@ Object {
 exports[`web theme Text fuzz: variant="success" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "green500",
-    },
+    "color": "green500",
   },
 }
 `;
@@ -4436,9 +3836,7 @@ Object {
 exports[`web theme Text fuzz: variant="warning" 1`] = `
 Object {
   "Text": Object {
-    "style": Object {
-      "color": "yellow500",
-    },
+    "color": "yellow500",
   },
 }
 `;
@@ -4447,44 +3845,21 @@ exports[`web theme Text snap 1`] = `
 Object {
   "mapProps": [Function],
   "scheme": Object {
-    "Text": Object {
-      "dense": Object {
-        "style": Object {
-          "lineHeight": "dense",
-        },
-      },
-      "style": Object {
+    "Text": Array [
+      Object {
+        "color": [Function],
         "fontSize": [Function],
         "lineHeight": "normal",
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
-            "color": "red500",
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "lineHeight": "dense",
           },
-        },
-        "primary": Object {
-          "style": Object {
-            "color": "blue500",
-          },
-        },
-        "secondary": Object {
-          "style": Object {
-            "color": "gray52",
-          },
-        },
-        "success": Object {
-          "style": Object {
-            "color": "green500",
-          },
-        },
-        "warning": Object {
-          "style": Object {
-            "color": "yellow500",
-          },
-        },
+        ],
       },
-    },
+    ],
   },
 }
 `;
@@ -4492,38 +3867,31 @@ Object {
 exports[`web theme Textarea base 1`] = `
 Object {
   "IconClear": Object {
+    "area": 10,
+    "color": "gray28",
     "component": #IconCross,
-    "props": Object {
-      "area": 10,
-      "color": "gray28",
-      "size": "s",
-      "visible": false,
-    },
-    "style": Object {},
+    "size": "s",
+    "visible": false,
   },
   "Textarea": Object {
-    "component": null,
-    "props": Object {},
-    "style": Object {
-      "bgDisabled": "gray4",
-      "borderColor": "gray20",
-      "borderColorHover": "gray28",
-      "borderRadius": 3,
-      "borderStyle": "solid",
-      "borderWidth": 1,
-      "color": "black",
-      "colorDisabled": "gray64",
-      "cursor": "text",
-      "focus": true,
-      "fontSize": "s",
-      "lineHeight": "normal",
-      "minHeight": "s",
-      "pb": 7,
-      "pl": 4,
-      "placeholderColor": "gray40",
-      "pr": 4,
-      "pt": 7,
-    },
+    "bgDisabled": "gray4",
+    "borderColor": "gray20",
+    "borderColorHover": "gray28",
+    "borderRadius": 3,
+    "borderStyle": "solid",
+    "borderWidth": 1,
+    "color": "black",
+    "colorDisabled": "gray64",
+    "cursor": "text",
+    "focus": true,
+    "fontSize": "s",
+    "lineHeight": "normal",
+    "minHeight": "s",
+    "pb": 7,
+    "pl": 4,
+    "placeholderColor": "gray40",
+    "pr": 4,
+    "pt": 7,
   },
 }
 `;
@@ -4531,9 +3899,7 @@ Object {
 exports[`web theme Textarea fuzz: clearable="always" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "visible": true,
-    },
+    "visible": true,
   },
 }
 `;
@@ -4541,19 +3907,15 @@ Object {
 exports[`web theme Textarea fuzz: size="l" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "size": "l",
-    },
+    "size": "l",
   },
   "Textarea": Object {
-    "style": Object {
-      "fontSize": "l",
-      "minHeight": "l",
-      "pb": 8,
-      "pl": 12,
-      "pr": 12,
-      "pt": 8,
-    },
+    "fontSize": "l",
+    "minHeight": "l",
+    "pb": 8,
+    "pl": 12,
+    "pr": 12,
+    "pt": 8,
   },
 }
 `;
@@ -4561,19 +3923,15 @@ Object {
 exports[`web theme Textarea fuzz: size="m" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "size": "m",
-    },
+    "size": "m",
   },
   "Textarea": Object {
-    "style": Object {
-      "fontSize": "m",
-      "minHeight": "m",
-      "pb": 6,
-      "pl": 10,
-      "pr": 10,
-      "pt": 6,
-    },
+    "fontSize": "m",
+    "minHeight": "m",
+    "pb": 6,
+    "pl": 10,
+    "pr": 10,
+    "pt": 6,
   },
 }
 `;
@@ -4585,9 +3943,7 @@ exports[`web theme Textarea fuzz: value="value" 1`] = `Object {}`;
 exports[`web theme Textarea fuzz: value="value" clearable="always" 1`] = `
 Object {
   "IconClear": Object {
-    "props": Object {
-      "visible": true,
-    },
+    "visible": true,
   },
 }
 `;
@@ -4595,10 +3951,8 @@ Object {
 exports[`web theme Textarea fuzz: variant="error" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "borderColor": "red500",
-      "borderColorHover": "red600",
-    },
+    "borderColor": "red500",
+    "borderColorHover": "red600",
   },
 }
 `;
@@ -4608,10 +3962,8 @@ exports[`web theme Textarea fuzz: variant="primary" 1`] = `Object {}`;
 exports[`web theme Textarea fuzz: variant="secondary" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "borderColor": "gray8",
-      "borderColorHover": "gray16",
-    },
+    "borderColor": "gray8",
+    "borderColorHover": "gray16",
   },
 }
 `;
@@ -4619,10 +3971,8 @@ Object {
 exports[`web theme Textarea fuzz: variant="success" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "borderColor": "green500",
-      "borderColorHover": "green600",
-    },
+    "borderColor": "green500",
+    "borderColorHover": "green600",
   },
 }
 `;
@@ -4630,10 +3980,8 @@ Object {
 exports[`web theme Textarea fuzz: variant="warning" 1`] = `
 Object {
   "Textarea": Object {
-    "style": Object {
-      "borderColor": "orange500",
-      "borderColorHover": "orange600",
-    },
+    "borderColor": "orange500",
+    "borderColorHover": "orange600",
   },
 }
 `;
@@ -4647,43 +3995,25 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "IconClear": Object {
-      "component": #IconCross,
-      "props": Object {
+    "IconClear": Array [
+      Object {
         "area": 10,
         "color": "gray28",
+        "component": #IconCross,
         "size": [Function],
         "visible": [Function],
       },
-    },
-    "Textarea": Object {
-      "size": Object {
-        "l": Object {
-          "style": Object {
-            "pb": 8,
-            "pl": 12,
-            "pr": 12,
-            "pt": 8,
-          },
-        },
-        "m": Object {
-          "style": Object {
-            "pb": 6,
-            "pl": 10,
-            "pr": 10,
-            "pt": 6,
-          },
-        },
-        "s": Object {
-          "style": Object {
-            "pb": 7,
-            "pl": 4,
-            "pr": 4,
-            "pt": 7,
-          },
-        },
+      Object {
+        "component": #IconCross,
       },
-      "style": Object {
+    ],
+    "Textarea": Array [
+      Object {
+        "focus": true,
+        "lineHeight": "normal",
+        "minHeight": [Function],
+      },
+      Object {
         "bgDisabled": "gray4",
         "borderRadius": 3,
         "borderStyle": "solid",
@@ -4691,45 +4021,70 @@ Object {
         "color": "black",
         "colorDisabled": "gray64",
         "cursor": "text",
-        "focus": true,
         "fontSize": [Function],
-        "lineHeight": "normal",
-        "minHeight": [Function],
         "placeholderColor": "gray40",
       },
-      "variant": Object {
-        "error": Object {
-          "style": Object {
+      Object {
+        "$switch": "size",
+        "l": Array [
+          Object {
+            "pb": 8,
+            "pl": 12,
+            "pr": 12,
+            "pt": 8,
+          },
+        ],
+        "m": Array [
+          Object {
+            "pb": 6,
+            "pl": 10,
+            "pr": 10,
+            "pt": 6,
+          },
+        ],
+        "s": Array [
+          Object {
+            "pb": 7,
+            "pl": 4,
+            "pr": 4,
+            "pt": 7,
+          },
+        ],
+      },
+      Object {
+        "$switch": "variant",
+        "error": Array [
+          Object {
             "borderColor": "red500",
             "borderColorHover": "red600",
           },
-        },
-        "primary": Object {
-          "style": Object {
+        ],
+        "primary": Array [
+          Object {
             "borderColor": "gray20",
             "borderColorHover": "gray28",
           },
-        },
-        "secondary": Object {
-          "style": Object {
+        ],
+        "secondary": Array [
+          Object {
             "borderColor": "gray8",
             "borderColorHover": "gray16",
           },
-        },
-        "success": Object {
-          "style": Object {
+        ],
+        "success": Array [
+          Object {
             "borderColor": "green500",
             "borderColorHover": "green600",
           },
-        },
-        "warning": Object {
-          "style": Object {
+        ],
+        "warning": Array [
+          Object {
             "borderColor": "orange500",
             "borderColorHover": "orange600",
           },
-        },
+        ],
       },
-    },
+    ],
   },
 }
 `;

@@ -18,23 +18,23 @@ import { ToggleTheme } from '../components/Toggle/theme'
 import { TooltipTheme } from '../components/Tooltip/theme'
 
 export interface Theme extends Tokens {
-  Avatar: Partial<AvatarTheme>
-  Alert: Partial<CardTheme>
-  Badge: Partial<BadgeTheme>
-  Banner: Partial<CardTheme>
-  Button: Partial<ButtonTheme>
-  Card: Partial<CardTheme>
-  Checkbox: Partial<CheckboxTheme>
-  Icon: Partial<IconTheme>
-  Image: Partial<ImageTheme>
-  Input: Partial<InputTheme>
-  Radio: Partial<RadioTheme>
-  Spinner: Partial<SpinnerTheme>
-  Switcher: Partial<SwitcherTheme>
-  Text: Partial<TextTheme>
-  Textarea: Partial<TextareaTheme>
-  Toggle: Partial<ToggleTheme>
-  Positioner: Partial<PositionerTheme>
-  Tooltip: Partial<TooltipTheme>
-  Link: Partial<LinkTheme>
+  Avatar: AvatarTheme
+  Alert: CardTheme
+  Badge: BadgeTheme
+  Banner: CardTheme
+  Button: ButtonTheme
+  Card: CardTheme
+  Checkbox: CheckboxTheme
+  Icon: IconTheme
+  Image: ImageTheme
+  Input: InputTheme
+  Radio: RadioTheme
+  Spinner: SpinnerTheme
+  Switcher: SwitcherTheme
+  Text: TextTheme
+  Textarea: TextareaTheme
+  Toggle: ToggleTheme
+  Positioner: PositionerTheme
+  Tooltip: TooltipTheme
+  Link: LinkTheme
 }

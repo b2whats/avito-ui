@@ -45,7 +45,7 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
   const handleClear = () => clearValue(ref.current)
 
   const { Textarea, IconClear } = foldThemeParams(props, theme)
-  const wrapperStyle = wrapperClassName(props, tokens, Textarea.style)
+  const wrapperStyle = wrapperClassName(props, tokens, Textarea)
 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
 
@@ -57,7 +57,7 @@ export const Textarea = uiComponent('Textarea', textareaTheme)<TextareaProps, HT
         {...testId('textarea')}
         onChange={onChange} />
       { hasClear && <IconClear.component
-        {...IconClear.props}
+        {...IconClear}
         {...testId('clear')}
         valignSelf={undefined}
         onClick={handleClear} /> }

@@ -1,4 +1,4 @@
-import { ComponentTheme, Slot } from '@avito/core'
+import { dsl, ComponentTheme, Slot } from '@avito/core'
 import { SegmentButtonProps } from './contract'
 
 export type SegmentButtonTheme = ComponentTheme<SegmentButtonProps, {
@@ -7,53 +7,25 @@ export type SegmentButtonTheme = ComponentTheme<SegmentButtonProps, {
   Slide: Slot
 }>
 
-export const segmentButtonTheme: SegmentButtonTheme = {
-  defaultProps: {
+export const segmentButtonTheme = dsl.theme<SegmentButtonTheme>()
+  .defaultProps({
     size: 'm',
-  },
-  scheme: {
-    Group: {
-      style: {
-        bg: 'gray4',
-      },
-      size: {
-        s: {
-          style: {
-            borderRadius: 5,
-            height: 32,
-            p: 4,
-          },
-        },
-        m: {
-          style: {
-            borderRadius: 5,
-            height: 44,
-            p: 4,
-          },
-        },
-        l: {
-          style: {
-            borderRadius: 5,
-            height: 50,
-            p: 4,
-          },
-        },
-      },
-    },
-    Button: {
-      style: {
-        focus: true,
-        borderRadius: 5,
-        color: 'gray48',
-        colorChecked: 'black',
-        colorDisabled: 'gray24',
-      },
-    },
-    Slide: {
-      style: {
-        borderRadius: 5,
-        bg: 'white',
-      },
-    },
-  },
-}
+  })
+  .slot('Group', slot => ({
+    borderRadius: 5,
+    bg: 'gray4',
+    p: 4,
+    height: slot.mapped('size', { s: 32, m: 44, l: 50 }),
+  }))
+  .slot('Button', {
+    focus: true,
+    borderRadius: 5,
+    color: 'gray48',
+    colorChecked: 'black',
+    colorDisabled: 'gray24',
+  })
+  .slot('Slide', {
+    borderRadius: 5,
+    bg: 'white',
+  })
+  .build()

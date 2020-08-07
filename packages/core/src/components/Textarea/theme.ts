@@ -1,4 +1,5 @@
 import { Slot, ComponentTheme } from '../../styled-system/'
+import { dsl } from '../../theme'
 import { IconProps } from '../Icon/contract'
 import { CrossIcon } from '../Icon/icons/'
 import { TextareaProps } from './contract'
@@ -8,28 +9,22 @@ export type TextareaTheme = ComponentTheme<TextareaProps, {
   IconClear: Slot<IconProps>
 }>
 
-export const textareaTheme: TextareaTheme = {
-  defaultProps: {
+export const textareaTheme = dsl.theme<TextareaTheme>()
+  .defaultProps({
     variant: 'primary',
     size: 'm',
     deletePlaceholderOnFocus: true,
-  },
-  scheme: {
-    IconClear: {
-      component: CrossIcon,
-      props: {
-        color: 'gray28',
-        area: 10,
-        visible: props => Boolean(props.clearable),
-        size: props => props.size,
-      },
-    },
-    Textarea: {
-      style: {
-        focus: true,
-        lineHeight: 'normal',
-        minHeight: props => props.size,
-      },
-    },
-  },
-}
+  })
+  .slot('IconClear', {
+    component: CrossIcon,
+    color: 'gray28',
+    area: 10,
+    visible: props => Boolean(props.clearable),
+    size: props => props.size,
+  })
+  .slot('Textarea', {
+    focus: true,
+    lineHeight: 'normal',
+    minHeight: props => props.size,
+  })
+  .build()

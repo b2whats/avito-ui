@@ -1,20 +1,14 @@
-import { AvatarTheme, DeepPartial } from '@avito/core'
+import { AvatarTheme, dsl } from '@avito/core'
 
-export const avatarTheme: DeepPartial<AvatarTheme> = {
-  scheme: {
-    Wrapper: {
-      style: {
-        bg: 'gray4',
-        overlayActive: 'black24',
-      },
-      type: {
-        shop: {
-          style: {
-            shape: undefined,
-            borderRadius: 5,
-          },
-        },
-      },
+export const avatarTheme = dsl.theme<AvatarTheme>()
+  .slot('Wrapper', slot => [
+    {
+      bg: 'gray4',
+      overlayActive: 'black24',
     },
-  },
-}
+    slot.if(props => props.type === 'shop', {
+      shape: undefined,
+      borderRadius: 5,
+    }),
+  ])
+  .build()

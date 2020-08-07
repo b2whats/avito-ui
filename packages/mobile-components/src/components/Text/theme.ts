@@ -1,7 +1,7 @@
-import { TextTheme } from '@avito/core'
+import { TextTheme, dsl } from '@avito/core'
 
-export const textTheme: Partial<TextTheme> = {
-  mapProps: ({ preset }) => {
+export const textTheme = dsl.theme<TextTheme>()
+  .mapProps(({ preset }) => {
     switch (preset) {
       case 'title':
         return {
@@ -35,5 +35,5 @@ export const textTheme: Partial<TextTheme> = {
         }
     }
     return {}
-  },
-}
+  })
+  .build()

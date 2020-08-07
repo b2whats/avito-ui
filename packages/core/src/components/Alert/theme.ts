@@ -1,93 +1,35 @@
+import { dsl } from '../../theme'
 import { CardTheme } from '../Card/theme'
 
-export const alertTheme: CardTheme = {
-  scheme: {
-    Card: {
-      props: {
-        pt: 20,
-        pb: 22,
-        pl: 24,
-        pr: 24,
-        borderColor: 'gray12',
-        borderWidth: 1,
-      },
-      variant: {
-        primary: {
-          props: {
-            borderColor: 'transparent',
-            bg: 'blue50',
-          },
-        },
-        secondary: {
-          props: {
-            borderColor: 'transparent',
-            bg: 'gray4',
-          },
-        },
-        success: {
-          props: {
-            borderColor: 'transparent',
-            bg: 'green100',
-          },
-        },
-        warning: {
-          props: {
-            borderColor: 'transparent',
-            bg: 'orange50',
-          },
-        },
-        error: {
-          props: {
-            borderColor: 'transparent',
-            bg: 'red100',
-          },
-        },
-      },
-    },
-    Close: {
-      props: {
-
-      },
-    },
-    Image: {
-      props: {
-        order: 0,
-        size: 28,
-        mr: 18,
-        valignSelf: 'top',
-      },
-      variant: {
-        primary: {
-          props: {
-            color: 'blue600',
-          },
-        },
-        secondary: {
-          props: {
-            color: 'gray64',
-          },
-        },
-        success: {
-          props: {
-            color: 'green600',
-          },
-        },
-        warning: {
-          props: {
-            color: 'orange700',
-          },
-        },
-        error: {
-          props: {
-            color: 'red500',
-          },
-        },
-      },
-    },
-    Content: {
-      props: {
-        p: 0,
-      },
-    },
-  },
-}
+export const alertTheme = dsl.theme<CardTheme>()
+  .slot('Card', slot => ({
+    pt: 20,
+    pb: 22,
+    px: 24,
+    borderColor: props => props.variant ? 'transparent' : 'gray12',
+    borderWidth: 1,
+    bg: slot.mapped('variant', {
+      primary: 'blue50',
+      secondary: 'gray4',
+      success: 'green100',
+      warning: 'orange50',
+      error: 'red100',
+    }),
+  }))
+  .slot('Image', slot => ({
+    order: 0,
+    size: 28,
+    mr: 18,
+    valignSelf: 'top',
+    color: slot.mapped('variant', {
+      primary: 'blue600',
+      secondary: 'gray64',
+      success: 'green600',
+      warning: 'orange700',
+      error: 'red500',
+    }),
+  }))
+  .slot('Content', {
+    p: 0,
+  })
+  .build()

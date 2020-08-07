@@ -5,5 +5,5 @@ import { checkmarkTheme } from './theme'
 
 export const Checkmark = uiComponent('Checkmark', checkmarkTheme)((props: CheckmarkProps, { theme }) => {
   const { Icon } = foldThemeParams(props, theme)
-  return <Icon.component visible={Boolean(props.checked)} {...Icon.props} {...props} />
+  return <Icon.component visible={Boolean(props.checked)} {...Icon} {...props} />
 })

@@ -1,25 +1,17 @@
-import { DeepPartial, ToggleTheme } from '@avito/core'
+import { ToggleTheme, dsl } from '@avito/core'
 
-export const toggleTheme: DeepPartial<ToggleTheme> = {
-  scheme: {
-    Label: {
-      labelPosition: {
-        start: {
-          props: {
-            mr: 16,
-          },
-        },
-        end: {
-          props: {
-            ml: 16,
-          },
-        },
+export const toggleTheme = dsl.theme<ToggleTheme>()
+  .slot('Label', slot => [
+    slot.switch('labelPosition', {
+      start: {
+        mr: 16,
       },
-      disabled: {
-        props: {
-          color: 'gray48',
-        },
+      end: {
+        ml: 16,
       },
-    },
-  },
-}
+    }),
+    slot.if('disabled', {
+      color: 'gray48',
+    }),
+  ])
+  .build()

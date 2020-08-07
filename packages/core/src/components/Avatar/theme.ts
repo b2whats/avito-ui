@@ -1,4 +1,5 @@
 import { ComponentTheme, Slot } from '../../styled-system'
+import { dsl } from '../../theme'
 import { IconProps } from '../Icon/'
 import { UserIcon, CompanyUserIcon, ShopUserIcon } from '../Icon/icons/'
 import { BoxProps } from '../Layout'
@@ -10,54 +11,48 @@ export type AvatarTheme = ComponentTheme<AvatarProps, {
   Fallback: Slot<IconProps>
 }>
 
-export const avatarTheme: AvatarTheme = {
-  defaultProps: {
+export const avatarTheme = dsl.theme<AvatarTheme>()
+  .defaultProps({
     size: 20,
     type: 'person',
-  },
-  scheme: {
-    Wrapper: {
-      style: {
-        color: 'white',
-        align: 'center',
-        valignSelf: 'middle',
-        width: props => props.size,
-        height: props => props.size,
-        shape: 'circle',
-        overlayDisabled: 'rgba(255, 255, 255, 0.5)',
-        fontSize: props => 0.6 * props.size,
-      },
-      isFallback: {
-        style: {
-          bg: 'gray4',
-          color: 'gray28',
-          valign: 'middle',
-          align: 'center',
-        },
-      },
+  })
+  .slot('Wrapper', slot => [
+    {
+      color: 'white',
+      align: 'center',
+      valignSelf: 'middle',
+      width: props => props.size,
+      height: props => props.size,
+      shape: 'circle',
+      overlayDisabled: 'rgba(255, 255, 255, 0.5)',
+      fontSize: props => 0.6 * props.size,
     },
-    Badge: {
-      props: {
-        position: 'absolute',
-        right: 0,
-        bottom: 0,
-        width: props => props.size / 4,
-        height: props => props.size / 4,
-      },
-    },
-    Fallback: {
+    slot.if('isFallback', {
+      bg: 'gray4',
+      color: 'gray28',
+      valign: 'middle',
+      align: 'center',
+    }),
+  ])
+  .slot('Badge', {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    width: props => props.size / 4,
+    height: props => props.size / 4,
+  })
+  .slot('Fallback', slot => [
+    {
       component: UserIcon,
-      props: {
-        size: props => 0.48 * props.size,
-      },
-      type: {
-        company: {
-          component: CompanyUserIcon,
-        },
-        shop: {
-          component: ShopUserIcon,
-        },
-      },
+      size: props => 0.48 * props.size,
     },
-  },
-}
+    slot.switch('type', {
+      company: {
+        component: CompanyUserIcon,
+      },
+      shop: {
+        component: ShopUserIcon,
+      },
+    }),
+  ])
+  .build()

@@ -1,4 +1,4 @@
-import { DeepPartial, ButtonTheme, StyleProperties } from '@avito/core'
+import { ButtonTheme, StyleProperties, dsl } from '@avito/core'
 
 const fillTheme = (hue: string): StyleProperties => ({
   bg: `${hue}500`,
@@ -8,183 +8,112 @@ const fillTheme = (hue: string): StyleProperties => ({
   focus: `${hue}100`,
 })
 
-export const buttonTheme: DeepPartial<ButtonTheme> = {
-  defaultProps: {
+export const buttonTheme = dsl.theme<ButtonTheme>()
+  .defaultProps({
     size: 's',
     preset: 'default',
     pressedOffset: 1,
-  },
-  mapProps: ({ kind, preset }) => ({
+  })
+  .mapProps(({ kind, preset }) => ({
     kind: kind || (preset === 'default' ? 'outline' : 'fill'),
-  }),
-  scheme: {
-    Button: {
-      multiline: {
-        style: {
-          py: 9,
-        },
+  }))
+  .slot('Button', slot => [
+    slot.if('multiline', {
+      py: 9,
+    }),
+    slot.if('disabled', {
+      overlay: 'rgba(255,255,255,0.5)',
+    }),
+    slot.switch('size', {
+      s: {
+        px: 12,
+        py: 5,
       },
-      disabled: {
-        style: {
-          overlay: 'rgba(255,255,255,0.5)',
-        },
+      m: {
+        px: 16,
+        py: 8,
       },
-      size: {
-        s: {
-          style: {
-            px: 12,
-            py: 5,
-          },
-        },
-        m: {
-          style: {
-            px: 16,
-            py: 8,
-          },
-        },
-        l: {
-          style: {
-            px: 18,
-            py: 11,
-          },
-        },
+      l: {
+        px: 18,
+        py: 11,
       },
-      preset: {
-        default: {
-          style: {
-            bg: 'transparent',
-            bgHover: 'gray4',
-            bgActive: 'gray12',
-            bgDisabled: 'transparent',
-            borderColor: 'gray20',
-            color: 'black',
-            focus: 'blue100',
-          },
-        },
-        primary: {
-          style: {
-            ...fillTheme('blue'),
-            color: 'white',
-          },
-        },
-        newDefault: {
-          style: {
-            bg: 'gray8',
-            bgHover: 'gray12',
-            bgActive: 'gray20',
-            bgDisabled: 'gray8',
-            color: 'black',
-            focus: 'blue100',
-          },
-        },
-        success: {
-          style: {
-            ...fillTheme('green'),
-            color: 'white',
-          },
-        },
-        warning: {
-          style: {
-            ...fillTheme('orange'),
-            color: 'black',
-          },
-        },
-        error: {
-          style: {
-            ...fillTheme('red'),
-            color: 'white',
-          },
-        },
+    }),
+    slot.if('multiline', {
+      py: props => props.size === 'l' ? 12 : 9,
+    }),
+    slot.switch('preset', {
+      default: {
+        bg: 'transparent',
+        bgHover: 'gray4',
+        bgActive: 'gray12',
+        bgDisabled: 'transparent',
+        borderColor: 'gray20',
+        color: 'black',
+        focus: 'blue100',
       },
+      primary: {
+        ...fillTheme('blue'),
+        color: 'white',
+      },
+      newDefault: {
+        bg: 'gray8',
+        bgHover: 'gray12',
+        bgActive: 'gray20',
+        bgDisabled: 'gray8',
+        color: 'black',
+        focus: 'blue100',
+      },
+      success: {
+        ...fillTheme('green'),
+        color: 'white',
+      },
+      warning: {
+        ...fillTheme('orange'),
+        color: 'black',
+      },
+      error: {
+        ...fillTheme('red'),
+        color: 'white',
+      },
+    }),
+  ])
+  .slot('Text', slot => [
+    {
+      // Ужатые строки для двустрочной кнопки - на 1 строку не влияет
+      lineHeight: 1.1875,
+      size: props => props.size,
     },
-    Text: {
-      props: {
-        // Ужатые строки для двустрочной кнопки - на 1 строку не влияет
-        lineHeight: 1.1875,
+    slot.if('iconBefore', [
+      {
+        align: 'left',
+        ml: slot.mapped('size', { s: 4, m: 6, l: 8 }),
       },
-      size: {
-        s: {
-          props: {
-            size: 's',
-          },
-        },
-        m: {
-          props: {
-            size: 'm',
-          },
-        },
-        l: {
-          props: {
-            size: 'l',
-          },
-        },
+      slot.if('multiline', {
+        ml: 10,
+      }),
+    ]),
+    slot.if('iconAfter', [
+      {
+        align: 'left',
+        mr: slot.mapped('size', { s: 4, m: 6, l: 8 }),
       },
-      iconBefore: {
-        props: {
-          align: 'left',
-        },
-        size: {
-          s: {
-            props: {
-              ml: 4,
-            },
-          },
-          m: {
-            props: {
-              ml: 6,
-            },
-          },
-          l: {
-            props: {
-              ml: 8,
-            },
-          },
-        },
-        multiline: {
-          props: {
-            ml: 10,
-          },
-        },
-      },
-      iconAfter: {
-        props: {
-          align: 'left',
-        },
-        size: {
-          s: {
-            props: {
-              mr: 4,
-            },
-          },
-          m: {
-            props: {
-              mr: 6,
-            },
-          },
-          l: {
-            props: {
-              mr: 8,
-            },
-          },
-        },
-        multiline: {
-          props: {
-            mr: 10,
-          },
-        },
-      },
+      slot.if('multiline', {
+        mr: 10,
+      }),
+    ]),
+  ])
+  .slot('IconBefore', slot => slot.if('children', {
+    ml: -4,
+  }))
+  .slot('IconAfter', slot => slot.if('children', {
+    mr: -4,
+  }))
+  .slot('Spinner', slot => [
+    {
+      variant: undefined,
     },
-    Spinner: {
-      props: {
-        variant: undefined,
-      },
-      preset: {
-        default: {
-          props: {
-            variant: 'primary',
-          },
-        },
-      },
-    },
-  },
-}
+    slot.if(props => props.preset === 'default', {
+      variant: 'primary',
+    }),
+  ])
+  .build()

@@ -1,4 +1,4 @@
-import { DeepPartial, InputTheme, dsl } from '@avito/core'
+import { InputTheme, dsl } from '@avito/core'
 import { controlOutlineVariants } from '../../utils'
 import { CrossIcon } from '../Icon/'
 
@@ -8,67 +8,39 @@ const gapSize = {
   l: 12,
 }
 
-export const inputTheme: DeepPartial<InputTheme> = {
-  defaultProps: {
+export const inputTheme = dsl.theme<InputTheme>()
+  .defaultProps({
     size: 's',
     kind: 'outline',
-  },
-  scheme: {
-    IconBefore: {
-      size: dsl.propMap('mr', gapSize),
+  })
+  .slot('IconBefore', slot => ({
+    mr: slot.mapped('size', gapSize),
+  }))
+  .slot('IconAfter', slot => [
+    {
+      size: props => props.size === 'l' ? 'l' : 'm',
+      ml: slot.mapped('size', gapSize),
     },
-    IconAfter: {
-      size: dsl.propMap({
-        s: {
-          ml: gapSize.s,
-          size: 'm',
-        },
-        m: {
-          ml: gapSize.m,
-          size: 'm',
-        },
-        l: {
-          ml: gapSize.l,
-          size: 'l',
-        },
-      }),
-      clearable: {
-        component: CrossIcon,
-      },
+    slot.if('clearable', {
+      component: CrossIcon,
+    }),
+  ])
+  .slot('Prefix', slot => ({
+    mr: slot.mapped('size', { s: 4, m: 6, l: 8 }),
+  }))
+  .slot('Input', slot => [
+    {
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderRadius: 3,
+      color: 'black',
+      placeholderColor: 'gray40',
+      colorDisabled: 'gray64',
+      bgDisabled: 'gray4',
+      cursor: 'text',
+      fontSize: props => props.size,
+      px: slot.mapped('size', gapSize),
     },
-    Prefix: {
-      size: dsl.propMap('mr', {
-        s: 4,
-        m: 6,
-        l: 8,
-      }),
-    },
-    Input: {
-      style: {
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderRadius: 3,
-        color: 'black',
-        placeholderColor: 'gray40',
-        colorDisabled: 'gray64',
-        bgDisabled: 'gray4',
-        cursor: 'text',
-      },
-      size: dsl.styleMap({
-        s: {
-          fontSize: 's',
-          px: gapSize.s,
-        },
-        m: {
-          fontSize: 'm',
-          px: gapSize.m,
-        },
-        l: {
-          fontSize: 'l',
-          px: gapSize.l,
-        },
-      }),
-      variant: controlOutlineVariants,
-    },
-  },
-}
+    slot.switch('variant', controlOutlineVariants),
+  ])
+  .build()

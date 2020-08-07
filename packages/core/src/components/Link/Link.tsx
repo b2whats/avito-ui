@@ -15,7 +15,7 @@ export const Link = uiComponent('Link', linkTheme)(({ children, ...props }: Link
   const { Link } = foldThemeParams(props, theme)
 
   return (
-    <Text<LinkProps> as='a' {...Link.props} {...props}>
+    <Text<LinkProps> as='a' {...Link} {...props}>
       { children }
     </Text>
   )

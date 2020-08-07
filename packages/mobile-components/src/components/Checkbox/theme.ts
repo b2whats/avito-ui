@@ -1,50 +1,50 @@
-import { DeepPartial, CheckboxTheme, dsl } from '@avito/core'
+import { CheckboxTheme, dsl } from '@avito/core'
 import { CheckboxCheckedIcon, CheckboxIndeterminateIcon } from '../Icon'
 
-export const checkboxTheme: DeepPartial<CheckboxTheme> = {
-  scheme: {
-    Icon: {
-      checked: {
-        component: CheckboxCheckedIcon,
-      },
-      indeterminate: {
-        component: CheckboxIndeterminateIcon,
-      },
+export const checkboxTheme = dsl.theme<CheckboxTheme>()
+  .slot('Icon', slot => [
+    slot.if('checked', {
+      component: CheckboxCheckedIcon,
+    }),
+    slot.if('indeterminate', {
+      component: CheckboxIndeterminateIcon,
+    }),
+  ])
+  .slot('Switch', slot => [
+    {
+      borderRadius: 2,
+      height: 18,
+      bg: 'gray8',
+      bgActive: 'gray12',
+      color: 'white',
+      bgDisabled: 'gray4',
     },
-    Switch: {
-      style: {
-        borderRadius: 2,
-        height: 18,
-        bg: 'gray8',
-        bgActive: 'gray12',
+    slot.if('checked', [
+      {
+        bgDisabled: 'gray28',
       },
-      checked: {
-        style: {
-          bgDisabled: 'gray28',
+      slot.switch('variant', {
+        primary: {
+          bg: 'blue500',
+          bgActive: 'blue700',
         },
-        variant: dsl.styleMap({
-          primary: {
-            bg: 'blue500',
-            bgActive: 'blue700',
-          },
-          secondary: {
-            bg: 'gray48',
-            bgActive: 'gray56',
-          },
-          success: {
-            bg: 'green500',
-            bgActive: 'green700',
-          },
-          warning: {
-            bg: 'orange500',
-            bgActive: 'orange700',
-          },
-          error: {
-            bg: 'red500',
-            bgActive: 'red700',
-          },
-        }),
-      },
-    },
-  },
-}
+        secondary: {
+          bg: 'gray48',
+          bgActive: 'gray56',
+        },
+        success: {
+          bg: 'green500',
+          bgActive: 'green700',
+        },
+        warning: {
+          bg: 'orange500',
+          bgActive: 'orange700',
+        },
+        error: {
+          bg: 'red500',
+          bgActive: 'red700',
+        },
+      }),
+    ]),
+  ])
+  .build()

@@ -20,8 +20,8 @@ export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...p
 
   const { ListItem, Before, StackText, Label, Caption, Link, After } = foldThemeParams(props, theme)
 
-  const before = props.before && <Box {...Before.props} valignSelf={beforeValign}>{props.before}</Box>
-  const after = props.after && <Box {...After.props} valignSelf={afterValign}>{props.after}</Box>
+  const before = props.before && <Box {...Before} valignSelf={beforeValign}>{props.before}</Box>
+  const after = props.after && <Box {...After} valignSelf={afterValign}>{props.after}</Box>
 
   const renderSlot = (Component: any, element: React.ReactNode, props?: TextProps) => (
     typeof element === 'string' && element ? <Component {...props}>{element}</Component> :
@@ -41,12 +41,12 @@ export const ListItem = uiComponent('ListItem', listItemTheme)(({ children, ...p
   }
 
   return (
-    <Stack {...ListItem.props} {...props} {...events} {...testId()} ref={useRefObject(ref, setMeasureRef)}>
+    <Stack {...ListItem} {...props} {...events} {...testId()} ref={useRefObject(ref, setMeasureRef)}>
       {before}
-      <Stack column grow {...StackText.props}>
-        {renderSlot(Text, props.label, Label.props)}
-        {renderSlot(Text, props.caption, Caption.props)}
-        {renderSlot(Text, props.link, Link.props)}
+      <Stack column grow {...StackText}>
+        {renderSlot(Text, props.label, Label)}
+        {renderSlot(Text, props.caption, Caption)}
+        {renderSlot(Text, props.link, Link)}
       </Stack>
       {after}
     </Stack>
