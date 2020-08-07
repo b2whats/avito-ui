@@ -1,5 +1,251 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`web theme Alert base 1`] = `
+Object {
+  "Card": Object {
+    "component": null,
+    "props": Object {
+      "block": true,
+      "borderColor": "gray12",
+      "borderWidth": 1,
+      "pb": 22,
+      "pl": 24,
+      "pr": 24,
+      "pt": 20,
+      "rounded": 12,
+    },
+    "style": Object {},
+  },
+  "Close": Object {
+    "component": #IconCross,
+    "props": Object {
+      "bgActive": "black16",
+      "bgHover": "black8",
+      "color": "gray28",
+      "p": 8,
+      "position": "absolute",
+      "right": 4,
+      "rounded": "circle",
+      "size": "s",
+      "top": 4,
+    },
+    "style": Object {},
+  },
+  "Content": Object {
+    "component": null,
+    "props": Object {
+      "p": 0,
+    },
+    "style": Object {},
+  },
+  "Image": Object {
+    "component": null,
+    "props": Object {
+      "mr": 18,
+      "order": 0,
+      "size": 28,
+      "valignSelf": "top",
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: column 1`] = `Object {}`;
+
+exports[`web theme Alert fuzz: column=false 1`] = `Object {}`;
+
+exports[`web theme Alert fuzz: variant="error" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "red100",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "red500",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: variant="primary" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "blue50",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "blue600",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: variant="secondary" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "gray4",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "gray64",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: variant="success" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "green100",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "green600",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert fuzz: variant="warning" 1`] = `
+Object {
+  "Card": Object {
+    "props": Object {
+      "bg": "orange50",
+      "borderColor": "transparent",
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "color": "orange700",
+    },
+  },
+}
+`;
+
+exports[`web theme Alert snap 1`] = `
+Object {
+  "mapProps": [Function],
+  "scheme": Object {
+    "Card": Object {
+      "props": Object {
+        "block": true,
+        "borderColor": "gray12",
+        "borderWidth": 1,
+        "pb": 22,
+        "pl": 24,
+        "pr": 24,
+        "pt": 20,
+        "rounded": 12,
+      },
+      "variant": Object {
+        "error": Object {
+          "props": Object {
+            "bg": "red100",
+            "borderColor": "transparent",
+          },
+        },
+        "primary": Object {
+          "props": Object {
+            "bg": "blue50",
+            "borderColor": "transparent",
+          },
+        },
+        "secondary": Object {
+          "props": Object {
+            "bg": "gray4",
+            "borderColor": "transparent",
+          },
+        },
+        "success": Object {
+          "props": Object {
+            "bg": "green100",
+            "borderColor": "transparent",
+          },
+        },
+        "warning": Object {
+          "props": Object {
+            "bg": "orange50",
+            "borderColor": "transparent",
+          },
+        },
+      },
+    },
+    "Close": Object {
+      "component": #IconCross,
+      "props": Object {
+        "bgActive": "black16",
+        "bgHover": "black8",
+        "color": "gray28",
+        "p": 8,
+        "position": "absolute",
+        "right": 4,
+        "rounded": "circle",
+        "size": "s",
+        "top": 4,
+      },
+    },
+    "Content": Object {
+      "props": Object {
+        "p": 0,
+      },
+    },
+    "Image": Object {
+      "column": Object {
+        "props": Object {
+          "order": 0,
+        },
+      },
+      "props": Object {
+        "mr": 18,
+        "order": 0,
+        "size": 28,
+        "valignSelf": "top",
+      },
+      "variant": Object {
+        "error": Object {
+          "props": Object {
+            "color": "red500",
+          },
+        },
+        "primary": Object {
+          "props": Object {
+            "color": "blue600",
+          },
+        },
+        "secondary": Object {
+          "props": Object {
+            "color": "gray64",
+          },
+        },
+        "success": Object {
+          "props": Object {
+            "color": "green600",
+          },
+        },
+        "warning": Object {
+          "props": Object {
+            "color": "orange700",
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
 exports[`web theme Avatar base 1`] = `
 Object {
   "Badge": Object {
@@ -188,6 +434,129 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {},
+}
+`;
+
+exports[`web theme Banner base 1`] = `
+Object {
+  "Card": Object {
+    "component": null,
+    "props": Object {
+      "block": true,
+      "rounded": 12,
+    },
+    "style": Object {},
+  },
+  "Close": Object {
+    "component": #IconCross,
+    "props": Object {
+      "bgActive": "black16",
+      "bgHover": "black8",
+      "color": "gray28",
+      "p": 8,
+      "position": "absolute",
+      "right": 4,
+      "rounded": "circle",
+      "size": "s",
+      "top": 4,
+    },
+    "style": Object {},
+  },
+  "Content": Object {
+    "component": null,
+    "props": Object {
+      "p": 12,
+      "pb": 32,
+      "pl": 32,
+      "pr": 32,
+      "pt": 28,
+    },
+    "style": Object {},
+  },
+  "Image": Object {
+    "component": null,
+    "props": Object {
+      "order": 1,
+      "p": 4,
+    },
+    "style": Object {},
+  },
+}
+`;
+
+exports[`web theme Banner fuzz: column 1`] = `
+Object {
+  "Content": Object {
+    "props": Object {
+      "pb": 16,
+      "pl": 16,
+      "pr": 16,
+      "pt": 12,
+    },
+  },
+  "Image": Object {
+    "props": Object {
+      "order": 0,
+    },
+  },
+}
+`;
+
+exports[`web theme Banner fuzz: column=false 1`] = `Object {}`;
+
+exports[`web theme Banner snap 1`] = `
+Object {
+  "mapProps": [Function],
+  "scheme": Object {
+    "Card": Object {
+      "props": Object {
+        "block": true,
+        "rounded": 12,
+      },
+    },
+    "Close": Object {
+      "component": #IconCross,
+      "props": Object {
+        "bgActive": "black16",
+        "bgHover": "black8",
+        "color": "gray28",
+        "p": 8,
+        "position": "absolute",
+        "right": 4,
+        "rounded": "circle",
+        "size": "s",
+        "top": 4,
+      },
+    },
+    "Content": Object {
+      "column": Object {
+        "props": Object {
+          "pb": 16,
+          "pl": 16,
+          "pr": 16,
+          "pt": 12,
+        },
+      },
+      "props": Object {
+        "p": 12,
+        "pb": 32,
+        "pl": 32,
+        "pr": 32,
+        "pt": 28,
+      },
+    },
+    "Image": Object {
+      "column": Object {
+        "props": Object {
+          "order": 0,
+        },
+      },
+      "props": Object {
+        "order": 1,
+        "p": 4,
+      },
+    },
+  },
 }
 `;
 
@@ -2111,6 +2480,16 @@ Object {
 }
 `;
 
+exports[`web theme Icon fuzz: size="xl" 1`] = `
+Object {
+  "Icon": Object {
+    "style": Object {
+      "height": 28,
+    },
+  },
+}
+`;
+
 exports[`web theme Icon fuzz: variant="error" 1`] = `
 Object {
   "Icon": Object {
@@ -2180,6 +2559,11 @@ Object {
         "s": Object {
           "style": Object {
             "height": 16,
+          },
+        },
+        "xl": Object {
+          "style": Object {
+            "height": 28,
           },
         },
       },

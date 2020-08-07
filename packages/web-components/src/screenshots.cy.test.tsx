@@ -14,8 +14,11 @@ describe('mobile components', () => {
   descibeNamedComponent('Avatar')
   descibeNamedComponent('Badge')
   descibeNamedComponent('Button')
-  descibeNamedComponent('Card')
   descibeNamedComponent('Image')
+
+  descibeNamedComponent('Card')
+  descibeNamedComponent('Alert')
+  descibeNamedComponent('Banner')
 
   descibeNamedComponent('Icon', UserIcon)
   descibeNamedComponent('Spinner')
