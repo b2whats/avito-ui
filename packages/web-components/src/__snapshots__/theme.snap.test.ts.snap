@@ -22,8 +22,11 @@ Object {
       "bgActive": "black16",
       "bgHover": "black8",
       "color": "gray28",
-      "p": 8,
+      "pb": 8,
+      "pl": 8,
       "position": "absolute",
+      "pr": 8,
+      "pt": 8,
       "right": 4,
       "rounded": "circle",
       "size": "s",
@@ -34,7 +37,10 @@ Object {
   "Content": Object {
     "component": null,
     "props": Object {
-      "p": 0,
+      "pb": 0,
+      "pl": 0,
+      "pr": 0,
+      "pt": 0,
     },
     "style": Object {},
   },
@@ -189,8 +195,11 @@ Object {
         "bgActive": "black16",
         "bgHover": "black8",
         "color": "gray28",
-        "p": 8,
+        "pb": 8,
+        "pl": 8,
         "position": "absolute",
+        "pr": 8,
+        "pt": 8,
         "right": 4,
         "rounded": "circle",
         "size": "s",
@@ -199,7 +208,10 @@ Object {
     },
     "Content": Object {
       "props": Object {
-        "p": 0,
+        "pb": 0,
+        "pl": 0,
+        "pr": 0,
+        "pt": 0,
       },
     },
     "Image": Object {
@@ -453,8 +465,11 @@ Object {
       "bgActive": "black16",
       "bgHover": "black8",
       "color": "gray28",
-      "p": 8,
+      "pb": 8,
+      "pl": 8,
       "position": "absolute",
+      "pr": 8,
+      "pt": 8,
       "right": 4,
       "rounded": "circle",
       "size": "s",
@@ -465,7 +480,6 @@ Object {
   "Content": Object {
     "component": null,
     "props": Object {
-      "p": 12,
       "pb": 32,
       "pl": 32,
       "pr": 32,
@@ -477,7 +491,10 @@ Object {
     "component": null,
     "props": Object {
       "order": 1,
-      "p": 4,
+      "pb": 4,
+      "pl": 4,
+      "pr": 4,
+      "pt": 4,
     },
     "style": Object {},
   },
@@ -520,8 +537,11 @@ Object {
         "bgActive": "black16",
         "bgHover": "black8",
         "color": "gray28",
-        "p": 8,
+        "pb": 8,
+        "pl": 8,
         "position": "absolute",
+        "pr": 8,
+        "pt": 8,
         "right": 4,
         "rounded": "circle",
         "size": "s",
@@ -538,7 +558,6 @@ Object {
         },
       },
       "props": Object {
-        "p": 12,
         "pb": 32,
         "pl": 32,
         "pr": 32,
@@ -553,7 +572,10 @@ Object {
       },
       "props": Object {
         "order": 1,
-        "p": 4,
+        "pb": 4,
+        "pl": 4,
+        "pr": 4,
+        "pt": 4,
       },
     },
   },
@@ -577,8 +599,10 @@ Object {
       "color": "black",
       "focus": "blue100",
       "minHeight": "s",
-      "px": 12,
-      "py": 5,
+      "pb": 5,
+      "pl": 12,
+      "pr": 12,
+      "pt": 5,
     },
   },
   "IconAfter": Object {
@@ -1034,8 +1058,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 18,
-      "py": 9,
+      "pb": 9,
+      "pl": 18,
+      "pr": 18,
+      "pt": 9,
     },
   },
   "IconAfter": Object {
@@ -1066,8 +1092,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "m",
-      "px": 16,
-      "py": 9,
+      "pb": 9,
+      "pl": 16,
+      "pr": 16,
+      "pt": 9,
     },
   },
   "Spinner": Object {
@@ -1087,7 +1115,8 @@ exports[`web theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":n
 Object {
   "Button": Object {
     "style": Object {
-      "py": 9,
+      "pb": 9,
+      "pt": 9,
     },
   },
 }
@@ -1098,8 +1127,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 18,
-      "py": 11,
+      "pb": 11,
+      "pl": 18,
+      "pr": 18,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -1130,8 +1161,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 18,
-      "py": 11,
+      "pb": 11,
+      "pl": 18,
+      "pr": 18,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -1162,8 +1195,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 18,
-      "py": 11,
+      "pb": 11,
+      "pl": 18,
+      "pr": 18,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -1196,9 +1231,9 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "pr": 12,
-      "px": 18,
-      "py": 11,
+      "pb": 11,
+      "pl": 18,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -1231,8 +1266,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 18,
-      "py": 11,
+      "pb": 11,
+      "pl": 18,
+      "pr": 18,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -1265,9 +1302,9 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "pl": 12,
-      "px": 18,
-      "py": 11,
+      "pb": 11,
+      "pr": 18,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -1300,8 +1337,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 18,
-      "py": 11,
+      "pb": 11,
+      "pl": 18,
+      "pr": 18,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -1335,10 +1374,8 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "pl": 12,
-      "pr": 12,
-      "px": 18,
-      "py": 11,
+      "pb": 11,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -1372,8 +1409,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "m",
-      "px": 16,
-      "py": 8,
+      "pb": 8,
+      "pl": 16,
+      "pr": 16,
+      "pt": 8,
     },
   },
   "Spinner": Object {
@@ -1394,8 +1433,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "m",
-      "px": 16,
-      "py": 8,
+      "pb": 8,
+      "pl": 16,
+      "pr": 16,
+      "pt": 8,
     },
   },
   "Spinner": Object {
@@ -1416,8 +1457,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "m",
-      "px": 16,
-      "py": 8,
+      "pb": 8,
+      "pl": 16,
+      "pr": 16,
+      "pt": 8,
     },
   },
   "Spinner": Object {
@@ -1440,9 +1483,9 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "m",
-      "pr": 12,
-      "px": 16,
-      "py": 8,
+      "pb": 8,
+      "pl": 16,
+      "pt": 8,
     },
   },
   "Spinner": Object {
@@ -1465,8 +1508,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "m",
-      "px": 16,
-      "py": 8,
+      "pb": 8,
+      "pl": 16,
+      "pr": 16,
+      "pt": 8,
     },
   },
   "Spinner": Object {
@@ -1489,9 +1534,9 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "m",
-      "pl": 12,
-      "px": 16,
-      "py": 8,
+      "pb": 8,
+      "pr": 16,
+      "pt": 8,
     },
   },
   "Spinner": Object {
@@ -1514,8 +1559,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "m",
-      "px": 16,
-      "py": 8,
+      "pb": 8,
+      "pl": 16,
+      "pr": 16,
+      "pt": 8,
     },
   },
   "Spinner": Object {
@@ -1539,10 +1586,8 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "m",
-      "pl": 12,
-      "pr": 12,
-      "px": 16,
-      "py": 8,
+      "pb": 8,
+      "pt": 8,
     },
   },
   "Spinner": Object {
@@ -1578,11 +1623,6 @@ Object {
 
 exports[`web theme Button fuzz: size="s" iconAfter={jsx} children="text" 1`] = `
 Object {
-  "Button": Object {
-    "style": Object {
-      "pr": 12,
-    },
-  },
   "Text": Object {
     "props": Object {
       "align": "left",
@@ -1605,11 +1645,6 @@ Object {
 
 exports[`web theme Button fuzz: size="s" iconBefore={jsx} children="text" 1`] = `
 Object {
-  "Button": Object {
-    "style": Object {
-      "pl": 12,
-    },
-  },
   "Text": Object {
     "props": Object {
       "align": "left",
@@ -1633,12 +1668,6 @@ Object {
 
 exports[`web theme Button fuzz: size="s" iconBefore={jsx} iconAfter={jsx} children="text" 1`] = `
 Object {
-  "Button": Object {
-    "style": Object {
-      "pl": 12,
-      "pr": 12,
-    },
-  },
   "Text": Object {
     "props": Object {
       "align": "left",
@@ -1681,7 +1710,8 @@ Object {
       },
       "multiline": Object {
         "style": Object {
-          "py": 9,
+          "pb": 9,
+          "pt": 9,
         },
       },
       "preset": Object {
@@ -1751,22 +1781,28 @@ Object {
         "l": Object {
           "style": Object {
             "minHeight": "l",
-            "px": 18,
-            "py": 11,
+            "pb": 11,
+            "pl": 18,
+            "pr": 18,
+            "pt": 11,
           },
         },
         "m": Object {
           "style": Object {
             "minHeight": "m",
-            "px": 16,
-            "py": 8,
+            "pb": 8,
+            "pl": 16,
+            "pr": 16,
+            "pt": 8,
           },
         },
         "s": Object {
           "style": Object {
             "minHeight": "s",
-            "px": 12,
-            "py": 5,
+            "pb": 5,
+            "pl": 12,
+            "pr": 12,
+            "pt": 5,
           },
         },
       },
@@ -1776,7 +1812,8 @@ Object {
         "borderStyle": "solid",
         "borderWidth": 1,
         "focus": false,
-        "px": 16,
+        "pl": 16,
+        "pr": 16,
       },
     },
     "IconAfter": Object {
@@ -1948,8 +1985,11 @@ Object {
       "bgActive": "black16",
       "bgHover": "black8",
       "color": "gray28",
-      "p": 8,
+      "pb": 8,
+      "pl": 8,
       "position": "absolute",
+      "pr": 8,
+      "pt": 8,
       "right": 4,
       "rounded": "circle",
       "size": "s",
@@ -1960,7 +2000,10 @@ Object {
   "Content": Object {
     "component": null,
     "props": Object {
-      "p": 12,
+      "pb": 12,
+      "pl": 12,
+      "pr": 12,
+      "pt": 12,
     },
     "style": Object {},
   },
@@ -2002,8 +2045,11 @@ Object {
         "bgActive": "black16",
         "bgHover": "black8",
         "color": "gray28",
-        "p": 8,
+        "pb": 8,
+        "pl": 8,
         "position": "absolute",
+        "pr": 8,
+        "pt": 8,
         "right": 4,
         "rounded": "circle",
         "size": "s",
@@ -2012,7 +2058,10 @@ Object {
     },
     "Content": Object {
       "props": Object {
-        "p": 12,
+        "pb": 12,
+        "pl": 12,
+        "pr": 12,
+        "pt": 12,
       },
     },
     "Image": Object {
@@ -2654,8 +2703,9 @@ Object {
       "focus": true,
       "fontSize": "s",
       "height": "s",
+      "pl": 7,
       "placeholderColor": "gray40",
-      "px": 7,
+      "pr": 7,
     },
   },
   "InputField": Object {
@@ -2709,7 +2759,8 @@ Object {
     "style": Object {
       "fontSize": "l",
       "height": "l",
-      "px": 12,
+      "pl": 12,
+      "pr": 12,
     },
   },
   "Prefix": Object {
@@ -2738,7 +2789,8 @@ Object {
     "style": Object {
       "fontSize": "l",
       "height": "l",
-      "px": 12,
+      "pl": 12,
+      "pr": 12,
     },
   },
   "Prefix": Object {
@@ -2767,7 +2819,8 @@ Object {
     "style": Object {
       "fontSize": "l",
       "height": "l",
-      "px": 12,
+      "pl": 12,
+      "pr": 12,
     },
   },
   "Prefix": Object {
@@ -2796,7 +2849,8 @@ Object {
     "style": Object {
       "fontSize": "l",
       "height": "l",
-      "px": 12,
+      "pl": 12,
+      "pr": 12,
     },
   },
   "Prefix": Object {
@@ -2823,7 +2877,8 @@ Object {
     "style": Object {
       "fontSize": "m",
       "height": "m",
-      "px": 10,
+      "pl": 10,
+      "pr": 10,
     },
   },
   "Prefix": Object {
@@ -2850,7 +2905,8 @@ Object {
     "style": Object {
       "fontSize": "m",
       "height": "m",
-      "px": 10,
+      "pl": 10,
+      "pr": 10,
     },
   },
   "Prefix": Object {
@@ -2877,7 +2933,8 @@ Object {
     "style": Object {
       "fontSize": "m",
       "height": "m",
-      "px": 10,
+      "pl": 10,
+      "pr": 10,
     },
   },
   "Prefix": Object {
@@ -2904,7 +2961,8 @@ Object {
     "style": Object {
       "fontSize": "m",
       "height": "m",
-      "px": 10,
+      "pl": 10,
+      "pr": 10,
     },
   },
   "Prefix": Object {
@@ -3052,19 +3110,22 @@ Object {
         "l": Object {
           "style": Object {
             "fontSize": "l",
-            "px": 12,
+            "pl": 12,
+            "pr": 12,
           },
         },
         "m": Object {
           "style": Object {
             "fontSize": "m",
-            "px": 10,
+            "pl": 10,
+            "pr": 10,
           },
         },
         "s": Object {
           "style": Object {
             "fontSize": "s",
-            "px": 7,
+            "pl": 7,
+            "pr": 7,
           },
         },
       },
@@ -3652,7 +3713,8 @@ Object {
       "borderRadius": 2,
       "color": "blue500",
       "height": 1,
-      "px": 2,
+      "pl": 2,
+      "pr": 2,
       "width": 14,
     },
     "style": Object {},
@@ -3682,7 +3744,10 @@ Object {
       "colorDisabled": "gray4",
       "focus": true,
       "height": 20,
-      "p": 2,
+      "pb": 2,
+      "pl": 2,
+      "pr": 2,
+      "pt": 2,
       "width": 40,
     },
   },
@@ -4028,7 +4093,8 @@ Object {
         "bg": "white",
         "borderRadius": 2,
         "height": 1,
-        "px": 2,
+        "pl": 2,
+        "pr": 2,
         "width": 0.39,
       },
       "size": Object {
@@ -4177,7 +4243,10 @@ Object {
         "borderWidth": 0,
         "colorDisabled": "gray4",
         "focus": true,
-        "p": 2,
+        "pb": 2,
+        "pl": 2,
+        "pr": 2,
+        "pt": 2,
       },
       "variant": Object {
         "error": Object {
@@ -4449,9 +4518,11 @@ Object {
       "fontSize": "s",
       "lineHeight": "normal",
       "minHeight": "s",
+      "pb": 7,
+      "pl": 4,
       "placeholderColor": "gray40",
-      "px": 4,
-      "py": 7,
+      "pr": 4,
+      "pt": 7,
     },
   },
 }
@@ -4478,8 +4549,10 @@ Object {
     "style": Object {
       "fontSize": "l",
       "minHeight": "l",
-      "px": 12,
-      "py": 8,
+      "pb": 8,
+      "pl": 12,
+      "pr": 12,
+      "pt": 8,
     },
   },
 }
@@ -4496,8 +4569,10 @@ Object {
     "style": Object {
       "fontSize": "m",
       "minHeight": "m",
-      "px": 10,
-      "py": 6,
+      "pb": 6,
+      "pl": 10,
+      "pr": 10,
+      "pt": 6,
     },
   },
 }
@@ -4585,20 +4660,26 @@ Object {
       "size": Object {
         "l": Object {
           "style": Object {
-            "px": 12,
-            "py": 8,
+            "pb": 8,
+            "pl": 12,
+            "pr": 12,
+            "pt": 8,
           },
         },
         "m": Object {
           "style": Object {
-            "px": 10,
-            "py": 6,
+            "pb": 6,
+            "pl": 10,
+            "pr": 10,
+            "pt": 6,
           },
         },
         "s": Object {
           "style": Object {
-            "px": 4,
-            "py": 7,
+            "pb": 7,
+            "pl": 4,
+            "pr": 4,
+            "pt": 7,
           },
         },
       },

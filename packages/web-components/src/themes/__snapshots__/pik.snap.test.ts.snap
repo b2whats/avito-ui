@@ -17,8 +17,10 @@ Object {
       "color": "black",
       "focus": "blue100",
       "minHeight": "m",
-      "px": 24,
-      "py": 8,
+      "pb": 8,
+      "pl": 24,
+      "pr": 24,
+      "pt": 8,
     },
   },
   "IconAfter": Object {
@@ -480,8 +482,10 @@ Object {
       "height": 64,
       "minHeight": "l",
       "minWidth": 290,
-      "px": 48,
-      "py": 9,
+      "pb": 9,
+      "pl": 48,
+      "pr": 48,
+      "pt": 9,
     },
   },
   "IconAfter": Object {
@@ -511,7 +515,8 @@ exports[`pik theme Button fuzz: children=["line 1",{"type":"br","key":"","ref":n
 Object {
   "Button": Object {
     "style": Object {
-      "py": 9,
+      "pb": 9,
+      "pt": 9,
     },
   },
 }
@@ -522,7 +527,8 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
-      "py": 9,
+      "pb": 9,
+      "pt": 9,
     },
   },
   "Spinner": Object {
@@ -543,8 +549,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 36,
-      "py": 11,
+      "pb": 11,
+      "pl": 36,
+      "pr": 36,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -575,8 +583,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 36,
-      "py": 11,
+      "pb": 11,
+      "pl": 36,
+      "pr": 36,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -607,8 +617,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 36,
-      "py": 11,
+      "pb": 11,
+      "pl": 36,
+      "pr": 36,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -641,9 +653,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
+      "pb": 11,
+      "pl": 36,
       "pr": 12,
-      "px": 36,
-      "py": 11,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -676,8 +689,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 36,
-      "py": 11,
+      "pb": 11,
+      "pl": 36,
+      "pr": 36,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -710,9 +725,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
+      "pb": 11,
       "pl": 12,
-      "px": 36,
-      "py": 11,
+      "pr": 36,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -745,8 +761,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
-      "px": 36,
-      "py": 11,
+      "pb": 11,
+      "pl": 36,
+      "pr": 36,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -780,10 +798,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "l",
+      "pb": 11,
       "pl": 12,
       "pr": 12,
-      "px": 36,
-      "py": 11,
+      "pt": 11,
     },
   },
   "IconAfter": Object {
@@ -905,7 +923,8 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
-      "py": 5,
+      "pb": 5,
+      "pt": 5,
     },
   },
   "Spinner": Object {
@@ -926,7 +945,8 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
-      "py": 5,
+      "pb": 5,
+      "pt": 5,
     },
   },
   "Spinner": Object {
@@ -947,7 +967,8 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
-      "py": 5,
+      "pb": 5,
+      "pt": 5,
     },
   },
   "Spinner": Object {
@@ -970,8 +991,9 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
+      "pb": 5,
       "pr": 12,
-      "py": 5,
+      "pt": 5,
     },
   },
   "Spinner": Object {
@@ -994,7 +1016,8 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
-      "py": 5,
+      "pb": 5,
+      "pt": 5,
     },
   },
   "Spinner": Object {
@@ -1017,8 +1040,9 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
+      "pb": 5,
       "pl": 12,
-      "py": 5,
+      "pt": 5,
     },
   },
   "Spinner": Object {
@@ -1041,7 +1065,8 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
-      "py": 5,
+      "pb": 5,
+      "pt": 5,
     },
   },
   "Spinner": Object {
@@ -1065,9 +1090,10 @@ Object {
   "Button": Object {
     "style": Object {
       "minHeight": "s",
+      "pb": 5,
       "pl": 12,
       "pr": 12,
-      "py": 5,
+      "pt": 5,
     },
   },
   "Spinner": Object {
@@ -1118,7 +1144,8 @@ Object {
       },
       "multiline": Object {
         "style": Object {
-          "py": 9,
+          "pb": 9,
+          "pt": 9,
         },
       },
       "preset": Object {
@@ -1190,27 +1217,34 @@ Object {
             "style": Object {
               "height": 64,
               "minWidth": 290,
-              "px": 48,
+              "pl": 48,
+              "pr": 48,
             },
           },
           "style": Object {
             "minHeight": "l",
-            "px": 36,
-            "py": 11,
+            "pb": 11,
+            "pl": 36,
+            "pr": 36,
+            "pt": 11,
           },
         },
         "m": Object {
           "style": Object {
             "minHeight": "m",
-            "px": 24,
-            "py": 8,
+            "pb": 8,
+            "pl": 24,
+            "pr": 24,
+            "pt": 8,
           },
         },
         "s": Object {
           "style": Object {
             "minHeight": "s",
-            "px": 24,
-            "py": 5,
+            "pb": 5,
+            "pl": 24,
+            "pr": 24,
+            "pt": 5,
           },
         },
       },
@@ -1220,7 +1254,8 @@ Object {
         "borderStyle": "solid",
         "borderWidth": 1,
         "focus": false,
-        "px": 16,
+        "pl": 16,
+        "pr": 16,
       },
     },
     "IconAfter": Object {
@@ -1415,8 +1450,9 @@ Object {
       "focus": false,
       "fontSize": "m",
       "height": "m",
+      "pl": 16,
       "placeholderColor": "gray44",
-      "px": 16,
+      "pr": 16,
     },
   },
   "InputField": Object {
@@ -1826,19 +1862,22 @@ Object {
         "l": Object {
           "style": Object {
             "fontSize": "l",
-            "px": 16,
+            "pl": 16,
+            "pr": 16,
           },
         },
         "m": Object {
           "style": Object {
             "fontSize": "m",
-            "px": 16,
+            "pl": 16,
+            "pr": 16,
           },
         },
         "s": Object {
           "style": Object {
             "fontSize": "s",
-            "px": 16,
+            "pl": 16,
+            "pr": 16,
           },
         },
       },
@@ -2275,9 +2314,11 @@ Object {
       "fontSize": "m",
       "lineHeight": "normal",
       "minHeight": "m",
+      "pb": 6,
+      "pl": 16,
       "placeholderColor": "gray44",
-      "px": 16,
-      "py": 6,
+      "pr": 16,
+      "pt": 6,
     },
   },
 }
@@ -2304,7 +2345,8 @@ Object {
     "style": Object {
       "fontSize": "l",
       "minHeight": "l",
-      "py": 8,
+      "pb": 8,
+      "pt": 8,
     },
   },
 }
@@ -2323,7 +2365,8 @@ Object {
     "style": Object {
       "fontSize": "s",
       "minHeight": "s",
-      "py": 7,
+      "pb": 7,
+      "pt": 7,
     },
   },
 }
@@ -2430,20 +2473,26 @@ Object {
       "size": Object {
         "l": Object {
           "style": Object {
-            "px": 16,
-            "py": 8,
+            "pb": 8,
+            "pl": 16,
+            "pr": 16,
+            "pt": 8,
           },
         },
         "m": Object {
           "style": Object {
-            "px": 16,
-            "py": 6,
+            "pb": 6,
+            "pl": 16,
+            "pr": 16,
+            "pt": 6,
           },
         },
         "s": Object {
           "style": Object {
-            "px": 16,
-            "py": 7,
+            "pb": 7,
+            "pl": 16,
+            "pr": 16,
+            "pt": 7,
           },
         },
       },

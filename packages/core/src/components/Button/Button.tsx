@@ -15,7 +15,6 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>(
     shrink: false,
     ...themeStyle,
     ...props,
-    ...(props.shape === 'circle' || props.shape === 'square') && { p: 'none' },
   }),
   // eslint-disable-next-line id-length
   (textRules, { kind, pressedOffset }, { space }, { borderWidth = 0, p = 0, py = p, pt = py, pb = py }) => (`

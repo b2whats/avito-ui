@@ -1,4 +1,5 @@
 import deepmerge from 'deepmerge'
+import { expandShorthandsDeep } from '../styled-system/expandShorthands'
 import { isMergeableObject } from '../utils/'
 import { DeepPartial } from '../utils/types'
 
@@ -23,7 +24,8 @@ export const mergeTheme = <T extends object>(
   cursor = cursor.get(globalOverride)
 
   if (!cursor.has(localOverride)) {
-    cursor.set(localOverride, mergeThemes([defaultTheme, globalOverride, localOverride]))
+    const layers = [defaultTheme, globalOverride, localOverride].map(theme => expandShorthandsDeep(theme))
+    cursor.set(localOverride, mergeThemes(layers))
   }
 
   return cursor.get(localOverride)
@@ -31,8 +33,10 @@ export const mergeTheme = <T extends object>(
 
 function mergeThemes(themes: any[]) {
   const res = deepmerge.all(themes, { isMergeableObject })
-  res['mapProps'] = themes.map(theme => theme ? theme.mapProps : null).reduce((composed, map) => {
-    return map ? (props: any) => ({ ...props, ...map(composed(props)) }) : composed
-  }, (props: any) => props)
+  const propMaps = themes.map(theme => theme ? theme.mapProps : null).filter(map => map != null)
+  res['mapProps'] = function mapProps(props: any) {
+    propMaps.forEach(map => Object.assign(props, map(props)))
+    return props
+  }
   return res
 }
