@@ -163,6 +163,42 @@ function execDimension(size: number | 'auto') {
   return Math.abs(size) > 1 ? `${size}px` : `${size * 100}%`
 }
 
+function getDisplay(params: ExpandedStyleProperties & Display) {
+  if (params.crop || params.truncate) {
+    return 'inline-block'
+  }
+  if (params.inline) {
+    return params.display ? maps.inline[params.display] : 'inline-block'
+  }
+  if (params.block) {
+    return params.display ? maps.block[params.display] : 'block'
+  }
+  return params.display
+}
+
+function getWidth(
+  params: ExpandedStyleProperties & Display,
+  { dimension }: Tokens,
+  [_mt, mr, _mb, ml]: (string| undefined)[]
+) {
+  let width = ''
+
+  if (params.width) {
+    width = execDimension(params.width)
+  } else if (params.shape === 'circle' || params.shape === 'square') {
+    const targetHeight = params.height || params.minHeight
+    if (targetHeight) {
+      width = execDimension(dimension.rowHeight[targetHeight] || targetHeight)
+    }
+  } else if (params.block) {
+    width = '100%'
+  }
+
+  return width.endsWith('%') && (ml || mr)
+    ? `calc(${width} - ${ml || '0'} - ${mr || '0'})`
+    : width
+}
+
 export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tokens) => {
   let css = 'box-sizing: border-box;'
   const { font, dimension, space, palette, focus, shape } = tokens
@@ -180,8 +216,8 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
     disabled: '',
     checked: '',
   }
-  let display = ''
-  let width = ''
+  const width = getWidth(params, tokens, margin)
+  const display = getDisplay(params)
 
   for (const _param in params) {
     const param = _param as keyof typeof params
@@ -249,8 +285,6 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
 
         break
       case 'truncate':
-        display = 'inline-block'
-
         css += `
           max-width: 100%;
           vertical-align: top;
@@ -265,7 +299,6 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
         if (!params.lineHeight) break
 
         const lineHeight = font.lineHeight[params.lineHeight] || params.lineHeight
-        display = 'inline-block'
 
         css += `
           && {
@@ -302,10 +335,6 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
         `
 
         break
-      case 'width':
-        width = execDimension(value)
-
-        break
       case 'minWidth':
       case 'maxWidth':
       case 'height':
@@ -314,21 +343,6 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
         css += `${maps.dimension[param]}: ${execDimension(dimension.rowHeight[value] || value)};`
 
         break
-      case 'display':
-        display = value
-
-        break
-      case 'inline':
-        display = params.display ? maps.inline[params.display] : 'inline-block'
-        width = ''
-
-        break
-      case 'block': {
-        display = params.display ? maps.block[params.display] : 'block'
-        width = '100%'
-
-        break
-      }
       case 'grow':
         css += `flex-grow: ${value ? '1' : '0'};`
 
@@ -448,17 +462,9 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
            * https://jr.avito.ru/browse/MDP-1395
            */
           css += 'border-radius: 50%;'
-        }
-        if (value === 'pill') {
+        } else if (value === 'pill') {
           // не совсем круглые колбаски пусть уж будут
           css += 'border-radius: 100px;'
-        }
-        if (value === 'circle' || value === 'square') {
-          const targetHeight = params.height || params.minHeight
-
-          if (targetHeight) {
-            width = targetHeight === 'auto' ? 'auto' : `${dimension.rowHeight[targetHeight!] || targetHeight}px;`
-          }
         }
 
         break
@@ -477,7 +483,10 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
       }
       default:
         // Exhaustive switch guard
-        assertExhaustive<'variant' | 'adjacentSelector' | 'trancate' | 'scroll' | 'marker' | keyof SpaceProperties>(param)
+        assertExhaustive<
+          'variant' | 'adjacentSelector' | 'trancate' | 'scroll' | 'marker' |
+          'inline' | 'block' | 'width' | 'display' | keyof SpaceProperties
+        >(param)
     }
   }
 
@@ -491,10 +500,6 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
     if (states[state].length) {
       css += `${selector[state]}{${states[state]}}`
     }
-  }
-
-  if (width.endsWith('%') && (margin[1] || margin[3])) {
-    width = `calc(${width} - ${margin[1] || '0px'} - ${margin[3] || '0px'})`
   }
 
   if (width) {
