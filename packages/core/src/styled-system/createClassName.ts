@@ -1,4 +1,5 @@
 import { css, SerializedStyles } from '@emotion/core'
+import { useMemo } from 'react'
 import { Tokens } from '@avito/tokens'
 import { profiler } from '../utils'
 import { ExpandedStyleProperties, expandShorthands } from './expandShorthands'
@@ -540,7 +541,7 @@ export function createClassName<Props, ComponentTheme extends object | null = nu
 
     const resultRules = cssRewrite(textRules, props, theme, schemeStyle as any)
 
-    return typeof resultRules === 'string' ? css`${resultRules}` : resultRules
+    return useMemo(() => css`${resultRules}`, [resultRules])
   })
 }
 
