@@ -11,7 +11,6 @@ const avatarClassName = createClassName<AvatarProps, typeof avatarTheme>({
   display: 'inline-flex',
   mapPropsToStyle: true,
   cssRewrite: (textRules) => (`
-    user-select: none;
     & *:nth-child(2) {
       /* position badge above overlay */
       z-index: 1;

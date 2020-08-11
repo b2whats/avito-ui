@@ -55,6 +55,7 @@ export const buttonTheme: ButtonTheme = dsl.theme<ButtonTheme>()
       focus: false,
       minHeight: props => props.size,
       py: slot.mapped('size', { s: 4, m: 6, l: 8 }),
+      userSelect: false,
     },
     slot.if(props => props.iconBefore && props.children, {
       pl: 12,

@@ -551,6 +551,9 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
         css += `z-index: ${value};`
         break
       }
+      case 'userSelect':
+        css += `user-select: ${value ? 'auto' : 'none'};`
+        break
       default:
         // Exhaustive switch guard
         assertExhaustive<

@@ -197,6 +197,8 @@ interface OtherProperties extends BorderProperties {
   pointerEvents?: boolean
   /* Внешний вид курсора над элементом */
   cursor?: string
+  /* Разрешить выделение */
+  userSelect?: boolean
   /* Тестовый идентификатор */
   marker?: string
   /* Позиция элемента по оси Z */

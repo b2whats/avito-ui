@@ -33,6 +33,7 @@ export const badgeTheme = dsl.theme<BadgeTheme>()
       bg: 'red500',
       color: 'white',
       cursor: 'default',
+      userSelect: false,
       zIndex: 2,
     },
     slot.if(props => !props.children, {

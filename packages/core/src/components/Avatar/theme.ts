@@ -29,6 +29,7 @@ export const avatarTheme = dsl.theme<AvatarTheme>()
       shape: 'circle',
       overlayDisabled: 'rgba(255, 255, 255, 0.5)',
       fontSize: props => 0.6 * props.size,
+      userSelect: false,
     },
     slot.if('isFallback', {
       bg: 'gray4',

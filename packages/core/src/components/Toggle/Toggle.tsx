@@ -15,7 +15,6 @@ const toggleClassName = createClassName<ToggleProps, typeof toggleTheme>({
     position: relative;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-touch-callout: none;
-    -webkit-user-select: none;
 
     & > input {
       clip: rect(0, 0, 0, 0);
@@ -44,7 +43,6 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>({
   display: 'inline-flex',
   cssRewrite: (textRules) => (`
     transition: background-color 0.2s ease 0s;
-    -webkit-user-select: none;
 
     &::before {
       content: 'x';

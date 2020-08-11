@@ -28,6 +28,7 @@ export const segmentButtonTheme = dsl.theme<SegmentButtonTheme>()
     color: 'gray48',
     colorChecked: 'black',
     colorDisabled: 'gray24',
+    userSelect: false,
   })
   .slot('Slide', {
     height: 1,
