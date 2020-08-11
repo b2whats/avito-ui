@@ -1,4 +1,13 @@
-import { ReactNode, FocusEventHandler, FormEventHandler, KeyboardEventHandler, MouseEventHandler, TouchEventHandler, UIEventHandler} from 'react'
+import {
+  ReactNode,
+  FocusEventHandler,
+  FormEventHandler,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  TouchEventHandler,
+  UIEventHandler,
+  TransitionEventHandler
+} from 'react'
 
 // для юниона: true если все функции, false если функций нет, boolean для смешанных
 type IsFunction<T> = T extends Function ? true : false
@@ -48,6 +57,7 @@ export interface EventAttributes<T, Value> {
   onTouchMove?: TouchEventHandler<T>
   onTouchStart?: TouchEventHandler<T>
   onScroll?: UIEventHandler<T>
+  onTransitionEnd?: TransitionEventHandler<T>
 }
 
 export interface CommonAttributes<T = HTMLDivElement, Value = string> extends DOMAttributes, EventAttributes<T, Value>{}
