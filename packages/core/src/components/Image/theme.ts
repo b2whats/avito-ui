@@ -6,4 +6,9 @@ export type ImageTheme = ComponentTheme<ImageProps, {
   Image: Slot
 }>
 
-export const imageTheme = dsl.theme<ImageTheme>().build()
+export const imageTheme = dsl.theme<ImageTheme>()
+  .slot('Image', {
+    maxWidth: 1,
+    height: 'auto',
+  })
+  .build()

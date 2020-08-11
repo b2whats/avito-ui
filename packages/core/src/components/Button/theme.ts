@@ -46,6 +46,7 @@ export const buttonTheme: ButtonTheme = dsl.theme<ButtonTheme>()
   ])
   .slot('Button', slot => [
     {
+      shrink: false,
       borderRadius: 5,
       px: 16,
       borderWidth: 1,

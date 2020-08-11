@@ -6,19 +6,14 @@ import { filterProps, invokeAll } from '../../utils/'
 import { ImageProps } from './contract'
 import { imageTheme } from './theme'
 
-const imageClassName = createClassName<ImageProps, typeof imageTheme>(
-  (themeStyle, props) => ({
-    display: 'inline-block',
-    maxWidth: 1,
-    height: 'auto',
-    ...themeStyle,
-    ...props,
-  }),
-  (textRules, { objectFit }) => `
+const imageClassName = createClassName<ImageProps, typeof imageTheme>({
+  display: 'inline-block',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules, { objectFit }) => `
     ${objectFit ? `object-fit: ${objectFit};` : ''}
     ${textRules}
-  `
-)
+  `,
+})
 
 export const Image = uiComponent('Image', imageTheme)<ImageProps, HTMLImageElement>((props, { theme, tokens, ref }) => {
   const [isFallback, setFallback] = useState(false)

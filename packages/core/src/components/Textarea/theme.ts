@@ -24,6 +24,7 @@ export const textareaTheme = dsl.theme<TextareaTheme>()
   })
   .slot('Textarea', {
     focus: true,
+    valign: 'top',
     lineHeight: 'normal',
     minHeight: props => props.size,
   })

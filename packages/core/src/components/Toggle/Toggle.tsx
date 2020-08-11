@@ -8,15 +8,10 @@ import { Text } from '../Text/'
 import { ToggleProps } from './contract'
 import { toggleTheme } from './theme'
 
-const toggleClassName = createClassName<ToggleProps, typeof toggleTheme>(
-  (themeStyle, props) => ({
-    display: 'inline-flex',
-    valign: 'baseline',
-    ...props,
-    shape: undefined,
-    ...themeStyle,
-  }),
-  (textRules) => (`
+const toggleClassName = createClassName<ToggleProps, typeof toggleTheme>({
+  display: 'inline-flex',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules) => (`
     position: relative;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-touch-callout: none;
@@ -42,19 +37,12 @@ const toggleClassName = createClassName<ToggleProps, typeof toggleTheme>(
     }
 
     ${textRules}
-  `)
-)
+  `),
+})
 
-const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
-  (themeStyle, props) => ({
-    display: 'inline-flex',
-    shrink: false,
-    shape: props.shape,
-    adjacentSelector: 'input',
-    variant: props.variant,
-    ...themeStyle,
-  }),
-  (textRules) => (`
+const switchClassName = createClassName<ToggleProps, typeof toggleTheme>({
+  display: 'inline-flex',
+  cssRewrite: (textRules) => (`
     transition: background-color 0.2s ease 0s;
     -webkit-user-select: none;
 
@@ -67,8 +55,8 @@ const switchClassName = createClassName<ToggleProps, typeof toggleTheme>(
     }
 
     ${textRules}
-  `)
-)
+  `),
+})
 
 export const Toggle = uiComponent('Toggle', toggleTheme)<ToggleProps, HTMLInputElement>((
   { className, children, ...props },

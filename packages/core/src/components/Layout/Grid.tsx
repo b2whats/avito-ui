@@ -5,15 +5,13 @@ import { filterProps } from '../../utils'
 import { GridProps } from './contract'
 
 // &::before хак против выпадания отрицательных margins из родителя для правильного задания высоты
-const gridWrapperClassName = createClassName<GridProps>(
-  (_, props) => ({
-    display: 'block',
+const gridWrapperClassName = createClassName<GridProps>({
+  display: 'block',
+  mapPropsToStyle: ({ align, valign, ...props }) => ({
     width: 1,
-    ...props,
-    align: undefined,
-    valign: undefined,
+    props,
   }),
-  (textRules, { debug }) => (`
+  cssRewrite: (textRules, { debug }) => (`
     &::before {
       content: '';
       display: table;
@@ -24,16 +22,16 @@ const gridWrapperClassName = createClassName<GridProps>(
     ` : ''}
 
     ${textRules}
-  `)
-)
+  `),
+})
 
-const gridClassName = createClassName<GridProps>(
-  (_, props) => ({
-    display: 'flex',
+const gridClassName = createClassName<GridProps>({
+  display: 'flex',
+  mapPropsToStyle: props => ({
     align: props.align,
     valign: props.valign,
   }),
-  (textRules, { spacing, spacingY, debug }, { space, palette }) => (`
+  cssRewrite: (textRules, { spacing, spacingY, debug }, { space, palette }) => (`
     flex-wrap: wrap;
 
     ${spacing ? `
@@ -62,8 +60,8 @@ const gridClassName = createClassName<GridProps>(
     ` : ''}
 
     ${textRules}
-  `)
-)
+  `),
+})
 
 export const Grid = uiComponent('Grid', {}, { memo: false })(({ children, ...props }: GridProps, { tokens }) => {
   const gridWrapperStyle = gridWrapperClassName(props, tokens)
