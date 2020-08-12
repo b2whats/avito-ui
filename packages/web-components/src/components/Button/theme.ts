@@ -43,10 +43,10 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
     }),
     slot.switch('preset', {
       default: {
-        bg: 'transparent',
+        bg: 'white',
         bgHover: 'gray4',
         bgActive: 'gray12',
-        bgDisabled: 'transparent',
+        bgDisabled: 'white',
         borderColor: 'gray20',
         color: 'black',
         focus: 'blue100',
