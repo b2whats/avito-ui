@@ -1,10 +1,9 @@
 import { ComponentTheme, Slot } from '../../styled-system'
 import { dsl } from '../../theme'
-import { BoxProps } from '../Layout'
 import { BadgeProps } from './contract'
 
 export type BadgeTheme = ComponentTheme<BadgeProps, {
-  Badge: Slot<BoxProps>
+  Badge: Slot
 }>
 
 const snapProps: (keyof BadgeProps)[] = ['top', 'right', 'bottom', 'left']
@@ -33,9 +32,7 @@ export const badgeTheme = dsl.theme<BadgeTheme>()
       minWidth: slot.mapped('size', sizes, size => size),
       px: slot.mapped('size', { s: 3.5, m: 6.5, l: 8 }),
 
-      lineHeight: 'none',
       bold: true,
-      valign: 'middle',
       align: 'center',
     }),
     slot.if(props => props.kind === 'fill' && !props.count, {

@@ -1,16 +1,30 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { foldThemeParams, css } from '../../styled-system'
+import { foldThemeParams, css, createClassName } from '../../styled-system'
 import { uiComponent } from '../../theme'
-import { formatCount } from '../../utils'
-import { Box } from '../Layout'
+import { formatCount, filterProps } from '../../utils'
 import { BadgeProps } from './contract'
 import { badgeTheme } from './theme'
 
-const hideOverflow = css`overflow: hidden;`
+const badgeClassName = createClassName<BadgeProps, typeof badgeTheme>({
+  display: 'inline-block',
+  mapPropsToStyle: true,
+  cssRewrite: (textRules, { gapSize, gapColor }, { palette }, { height }) => `
+    overflow: hidden;
+    // the only vertical centering that works
+    vertical-align: middle;
+    line-height: ${height}px;
+
+    ${ gapSize && gapColor ?
+      `box-shadow: 0 0 0 ${gapSize}px ${palette[gapColor] || gapColor};` : ''}
+
+    ${textRules}
+  `,
+})
 
 export const Badge = uiComponent('Badge', badgeTheme)<
-  BadgeProps
->(({ gapSize, gapColor, animateChange, ...props }, { tokens, theme }) => {
+  BadgeProps,
+  HTMLDivElement
+>(({ animateChange, ...props }, { theme, tokens, ref }) => {
   const count = formatCount(props.count as any)
 
   const prevCount = useRef('')
@@ -21,43 +35,43 @@ export const Badge = uiComponent('Badge', badgeTheme)<
     prevCount.current = count
   }, [count])
 
+  const { Badge } = foldThemeParams(props, theme)
+  const badgeStyle = badgeClassName(props, tokens, Badge)
+
   if (!count) return null
 
-
-  const shadow = gapSize && gapColor
-    ? `0 0 0 ${gapSize}px ${tokens.palette[gapColor] || gapColor};` : false
-  const { Badge } = foldThemeParams(props, theme)
-
   return (
-    <Box css={hideOverflow} {...Badge} {...props} shadow={shadow} onTransitionEnd={() => animate(false)}>
+    <div css={badgeStyle} {...filterProps(props)} ref={ref} onTransitionEnd={() => animate(false)}>
       {animateChange === 'wheel'
         ? count.split('').map((digit, index) => (
-          <DigitAnimator key={`${count.length}:${index}`} isAnimating={isAnimating} value={digit} />
+          <DigitAnimator key={count.length - index} isAnimating={isAnimating} value={digit} />
         ))
         : count}
-    </Box>
+    </div>
   )
 })
 
 
 const digits = Array(10).fill('').map((_, index) => index)
 const countSpinCss = css`
-  display: inline-flex;
+  display: inline-block;
   flex-direction: column;
   transition: transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   transform-origin: -2em center;
   & > * {
+    display: inline-block;
     transform-origin: -2em center;
   }
   & > *:not(:first-child) {
     position: absolute;
+    left: 0;
   }
   ${digits.map(digit => `
     &[data-value="${digit}"] {
-      transform: rotate(${36 * digit}deg);
+      transform: translateZ(0) rotate(${36 * digit}deg);
     }
     & > *[data-digit="${digit}"] {
-      transform: rotate(${-36 * digit}deg);
+      transform: translateZ(0) rotate(${-36 * digit}deg);
     }
   `)}
 `
