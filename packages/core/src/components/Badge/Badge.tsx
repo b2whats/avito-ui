@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useLayoutEffect } from 'react'
 import { foldThemeParams, css, createClassName } from '../../styled-system'
 import { uiComponent } from '../../theme'
 import { formatCount, filterProps } from '../../utils'
@@ -21,31 +21,17 @@ const badgeClassName = createClassName<BadgeProps, typeof badgeTheme>({
   `,
 })
 
-export const Badge = uiComponent('Badge', badgeTheme)<
-  BadgeProps,
-  HTMLDivElement
->(({ animateChange, ...props }, { theme, tokens, ref }) => {
+export const Badge = uiComponent('Badge', badgeTheme)<BadgeProps>((props, { theme, tokens }) => {
   const count = formatCount(props.count as any)
-
-  const prevCount = useRef('')
-  const [isAnimating, animate] = useState(false)
-  useEffect(() => {
-    // only animate changes with same digit count
-    animate(count.length > 0 && prevCount.current.length === count.length)
-    prevCount.current = count
-  }, [count])
 
   const { Badge } = foldThemeParams(props, theme)
   const badgeStyle = badgeClassName(props, tokens, Badge)
 
   if (!count) return null
-
   return (
-    <div css={badgeStyle} {...filterProps(props)} ref={ref} onTransitionEnd={() => animate(false)}>
-      {animateChange === 'wheel'
-        ? count.split('').map((digit, index) => (
-          <DigitAnimator key={count.length - index} isAnimating={isAnimating} value={digit} />
-        ))
+    <div css={badgeStyle} {...filterProps(props)}>
+      {props.animateChange === 'wheel'
+        ? count.split('').map((digit, index) => <DigitAnimator key={count.length - index} value={digit} />)
         : count}
     </div>
   )
@@ -55,16 +41,13 @@ export const Badge = uiComponent('Badge', badgeTheme)<
 const digits = Array(10).fill('').map((_, index) => index)
 const countSpinCss = css`
   display: inline-block;
-  flex-direction: column;
-  transition: transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   transform-origin: -2em center;
+  transition: transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   & > * {
     display: inline-block;
     transform-origin: -2em center;
-  }
-  & > *:not(:first-child) {
-    position: absolute;
-    left: 0;
+    width: 0;
+    line-height: 0;
   }
   ${digits.map(digit => `
     &[data-value="${digit}"] {
@@ -75,13 +58,22 @@ const countSpinCss = css`
     }
   `)}
 `
-function DigitAnimator({ value, isAnimating }: any) {
-  // do not attempt animating non-numeric symbols
-  isAnimating = isAnimating && !Number.isNaN(Number(value))
+function DigitAnimator({ value }: { value: string }) {
+  const firstRender = useRef(true)
+  const [isAnimating, animate] = useState(false)
+  useLayoutEffect(() => {
+    !Number.isNaN(Number(value)) && !firstRender.current && animate(true)
+    firstRender.current = false
+  }, [value])
+
   return (
-    <span css={countSpinCss} data-value={value}>
-      <span style={isAnimating ? { visibility: 'hidden' } : undefined} data-digit={value}>{value}</span>
-      {isAnimating && digits.map(digit => <span data-digit={digit} key={digit}>{digit}</span>)}
-    </span>
+    <>
+      <span css={countSpinCss} data-value={value} onTransitionEnd={() => animate(false)}>
+        {isAnimating && digits.map(digit => <span data-digit={digit} key={digit}>{digit}</span>)}
+      </span>
+      { isAnimating
+        ? <span style={{ visibility: 'hidden' }}>{value}</span>
+        : value }
+    </>
   )
 }
