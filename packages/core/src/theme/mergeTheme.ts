@@ -1,6 +1,5 @@
 import deepmerge from 'deepmerge'
 import { expandShorthandsDeep } from '../styled-system/expandShorthands'
-import { isMergeableObject } from '../utils/'
 import { DeepPartial } from '../utils/types'
 
 const cache = new WeakMap()
@@ -32,7 +31,7 @@ export const mergeTheme = <T extends object>(
 }
 
 function mergeThemes(themes: any[]) {
-  const res = deepmerge.all(themes, { isMergeableObject })
+  const res = deepmerge.all(themes)
   const propMaps = themes.map(theme => theme ? theme.mapProps : null).filter(map => map != null)
   res['mapProps'] = function mapProps(props: any) {
     propMaps.forEach(map => Object.assign(props, map(props)))
