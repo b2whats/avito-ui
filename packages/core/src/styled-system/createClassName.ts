@@ -177,13 +177,12 @@ function getDisplay(params: ExpandedStyleProperties & Display) {
   if (params.crop || params.truncate) {
     return 'inline-block'
   }
-  if (params.inline) {
-    return params.display ? maps.inline[params.display] : 'inline-block'
+  const { display } = params
+  switch (params.displayOutside) {
+    case 'inline': return display ? maps.inline[display] : 'inline-block'
+    case 'block': return display ? maps.block[display] : 'block'
+    default: return display
   }
-  if (params.block) {
-    return params.display ? maps.block[params.display] : 'block'
-  }
-  return params.display
 }
 
 function getWidth(
@@ -200,7 +199,7 @@ function getWidth(
     if (targetHeight) {
       width = execDimension(dimension.rowHeight[targetHeight] || targetHeight)
     }
-  } else if (params.block) {
+  } else if (params.displayOutside === 'block') {
     width = '100%'
   }
 
@@ -558,7 +557,7 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
         // Exhaustive switch guard
         assertExhaustive<
           'variant' | 'adjacentSelector' | 'trancate' | 'scroll' | 'marker' |
-          'inline' | 'block' | 'width' | 'display' | keyof SpaceProperties
+          'displayOutside' | 'width' | 'display' | keyof SpaceProperties
         >(param)
     }
   }

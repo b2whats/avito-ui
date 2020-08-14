@@ -4,9 +4,9 @@ exports[`mobile theme Alert base 1`] = `
 Object {
   "Card": Object {
     "bg": undefined,
-    "block": true,
     "borderColor": "gray12",
     "borderWidth": 1,
+    "displayOutside": "block",
     "pb": 12,
     "pl": 16,
     "pr": 16,
@@ -114,7 +114,7 @@ Object {
   "scheme": Object {
     "Card": Array [
       Object {
-        "block": true,
+        "displayOutside": "block",
         "rounded": 12,
       },
       Object {
@@ -499,7 +499,7 @@ Object {
 exports[`mobile theme Banner base 1`] = `
 Object {
   "Card": Object {
-    "block": true,
+    "displayOutside": "block",
     "rounded": 5,
   },
   "Close": Object {
@@ -554,7 +554,7 @@ Object {
   "scheme": Object {
     "Card": Array [
       Object {
-        "block": true,
+        "displayOutside": "block",
         "rounded": 12,
       },
       Object {
@@ -1956,7 +1956,7 @@ Object {
 exports[`mobile theme Card base 1`] = `
 Object {
   "Card": Object {
-    "block": true,
+    "displayOutside": "block",
     "rounded": 5,
   },
   "Close": Object {
@@ -2002,7 +2002,7 @@ Object {
   "scheme": Object {
     "Card": Array [
       Object {
-        "block": true,
+        "displayOutside": "block",
         "rounded": 12,
       },
       Object {

@@ -4,9 +4,9 @@ exports[`web theme Alert base 1`] = `
 Object {
   "Card": Object {
     "bg": undefined,
-    "block": true,
     "borderColor": "gray12",
     "borderWidth": 1,
+    "displayOutside": "block",
     "pb": 22,
     "pl": 24,
     "pr": 24,
@@ -114,7 +114,7 @@ Object {
   "scheme": Object {
     "Card": Array [
       Object {
-        "block": true,
+        "displayOutside": "block",
         "rounded": 12,
       },
       Object {
@@ -456,7 +456,7 @@ Object {
 exports[`web theme Banner base 1`] = `
 Object {
   "Card": Object {
-    "block": true,
+    "displayOutside": "block",
     "rounded": 12,
   },
   "Close": Object {
@@ -512,7 +512,7 @@ Object {
   "scheme": Object {
     "Card": Array [
       Object {
-        "block": true,
+        "displayOutside": "block",
         "rounded": 12,
       },
     ],
@@ -1920,7 +1920,7 @@ Object {
 exports[`web theme Card base 1`] = `
 Object {
   "Card": Object {
-    "block": true,
+    "displayOutside": "block",
     "rounded": 12,
   },
   "Close": Object {
@@ -1966,7 +1966,7 @@ Object {
   "scheme": Object {
     "Card": Array [
       Object {
-        "block": true,
+        "displayOutside": "block",
         "rounded": 12,
       },
     ],
