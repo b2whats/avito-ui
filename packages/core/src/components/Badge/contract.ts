@@ -8,6 +8,8 @@ export interface BadgeProps extends BoxProps, CommonAttributes {
   count?: ReactNode
   animateChange?: 'none' | 'wheel'
 
+  showZero?: boolean
+
   kind?: 'fill' | 'flat'
 
   gapSize?: number

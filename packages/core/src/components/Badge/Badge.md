@@ -31,7 +31,14 @@
       <Badge count={0} />
       <Badge count={-9} />
     </Box>
-    <Text>Ноль или отрицательное значение не показываем</Text>
+    <Text>Ноль или отрицательное значение не показываем...</Text>
+  </Stack>
+  <Stack spacing='s' valign='stretch'>
+    <Box width={40}>
+      <Badge showZero count={0} />
+      <Badge showZero count={-9} />
+    </Box>
+    <Text>Но можно включить через опции</Text>
   </Stack>
 </Stack>
 ```

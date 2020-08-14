@@ -1,7 +1,7 @@
 export { default as isPropValid } from '@emotion/is-prop-valid'
 export * from './collection'
 export { filterProps } from './filterProps'
-export { formatCount } from './formatCount'
+export * from './formatCount'
 export { clearValue } from './clearValue'
 export { isMobileSafari, isIE } from './isBrowser'
 export { isServer } from './isServer'

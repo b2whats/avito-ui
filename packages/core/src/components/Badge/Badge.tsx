@@ -24,7 +24,7 @@ const badgeClassName = createClassName<BadgeProps, typeof badgeTheme>({
 })
 
 export const Badge = uiComponent('Badge', badgeTheme)<BadgeProps>((props, { theme, tokens }) => {
-  const count = formatCount(props.count as any)
+  const count = formatCount(props.count as any, props)
 
   const { Badge } = foldThemeParams(props, theme)
   const badgeStyle = badgeClassName(props, tokens, Badge)
@@ -56,7 +56,7 @@ export const Badge = uiComponent('Badge', badgeTheme)<BadgeProps>((props, { them
 
 const mapSnap = (snap?: boolean | number) => typeof snap === 'number' ? snap : (snap ? 0 : undefined)
 const badgeFilter: TrueMap<BadgeKeys> = trueMap([
-  'size', 'count', 'animateChange', 'kind', 'gapSize', 'gapColor', 'badge',
+  'size', 'count', 'animateChange', 'kind', 'gapSize', 'gapColor', 'badge', 'showZero',
   'snapTop', 'snapBottom', 'snapLeft', 'snapRight'] as const)
 
 const digits = Array(10).fill('').map((_, index) => index)
