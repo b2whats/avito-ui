@@ -70,7 +70,65 @@ const [count, setCount] = useState(98);
 </Stack>
 ```
 
-## Стиль
+## Расположение
+
+Бейдж прицепляют к другим элементам через хелпер `Badge.Over`. Положением управляют через `snapTop (Right / Bottom / Left)`. Остальные пропы передаются обертке.
+
+```js
+import { Button } from '@avito/core';
+import { UserIcon } from '../Icon/icons';
+
+<Stack spacing='s' column width={200} align='left'>
+  <Badge.Over count={14} snapTop={-8} snapRight={-8}>
+    <Button preset='secondary'>Показать объявления</Button>
+  </Badge.Over>
+  <Badge.Over
+    snapTop={-8}
+    snapRight={-8}
+    badge={
+      <Badge
+        count={14}
+        bg='purple500'
+        bgHover='purple600'
+        cursor='pointer'
+        onClick={() => alert('badge click')} />}
+  >
+    <Button preset='secondary'>Нажми на бейдж</Button>
+  </Badge.Over>
+  <Badge.Over
+    size='s'
+    count={7}
+    snapBottom={-2}
+    snapRight={-2}
+  >
+    <UserIcon size='l' />
+  </Badge.Over>
+</Stack>
+```
+
+Также бейдж ставят внутри элемента, рядом с ним или в тексте:
+
+```jsx
+import { BadgeOver } from './Badge';
+import { Button } from '@avito/core';
+
+<Stack spacing='s' column width={200} align='left'>
+  <Button preset='secondary' shape='pill'>
+    Внутри элемента
+    <Badge count={9} gapSize={0} mr={-5} ml={5} />
+  </Button>
+  <Stack spacing='s'>
+    <Button preset='secondary'>Рядом с элементом</Button>
+    <Badge count={9} valignSelf='middle' />
+  </Stack>
+  <Stack spacing='s' valign='baseline'>
+    <Text>Входящие</Text>
+    <Badge count={9}/>
+  </Stack>
+</Stack>
+```
+
+## Текстовый бейдж
 
 `kind='flat'` делает бейдж текстовым — без фона. Такой бейдж наследует стиль окружающего текста:
 

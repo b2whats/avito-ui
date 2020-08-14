@@ -6,7 +6,6 @@ export type BadgeTheme = ComponentTheme<BadgeProps, {
   Badge: Slot
 }>
 
-const snapProps: (keyof BadgeProps)[] = ['top', 'right', 'bottom', 'left']
 const sizes = { s: 14, m: 20, l: 24 }
 export const badgeTheme = dsl.theme<BadgeTheme>()
   .defaultProps({
@@ -37,9 +36,6 @@ export const badgeTheme = dsl.theme<BadgeTheme>()
     }),
     slot.if(props => props.kind === 'fill' && !props.count, {
       shape: 'circle',
-    }),
-    slot.if(props => snapProps.some(prop => prop in props), {
-      position: 'absolute',
     }),
   ])
   .build()

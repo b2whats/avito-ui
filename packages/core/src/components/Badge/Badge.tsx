@@ -1,8 +1,9 @@
-import React, { useRef, useState, useLayoutEffect } from 'react'
+import React, { useRef, useState, useLayoutEffect, cloneElement } from 'react'
 import { foldThemeParams, css, createClassName } from '../../styled-system'
 import { uiComponent } from '../../theme'
-import { formatCount, filterProps } from '../../utils'
-import { BadgeProps } from './contract'
+import { formatCount, filterProps, omit, pick, trueMap, TrueMap } from '../../utils'
+import { Box } from '../Layout'
+import { BadgeProps, BadgeKeys, BadgeOverProps } from './contract'
 import { badgeTheme } from './theme'
 
 const badgeClassName = createClassName<BadgeProps, typeof badgeTheme>({
@@ -10,6 +11,7 @@ const badgeClassName = createClassName<BadgeProps, typeof badgeTheme>({
   mapPropsToStyle: true,
   cssRewrite: (textRules, { gapSize, gapColor }, { palette }, { height }) => `
     overflow: hidden;
+    white-space: nowrap;
     // the only vertical centering that works
     vertical-align: middle;
     line-height: ${height}px;
@@ -35,8 +37,27 @@ export const Badge = uiComponent('Badge', badgeTheme)<BadgeProps>((props, { them
         : count}
     </div>
   )
+}).static({
+  Over: uiComponent('BadgeOver', {}, { memo: false })<BadgeOverProps>((props) => (
+    <Box position='relative' {...omit(props, badgeFilter)}>
+      {props.children}
+      {cloneElement(props.badge || <Badge />, {
+        position: 'absolute',
+        top: mapSnap(props.snapTop),
+        left: mapSnap(props.snapLeft),
+        bottom: mapSnap(props.snapBottom),
+        right: mapSnap(props.snapRight),
+        ...pick(props, badgeFilter),
+        ...(props.badge ? props.badge.props : {}),
+      })}
+    </Box>
+  )),
 })
 
+const mapSnap = (snap?: boolean | number) => typeof snap === 'number' ? snap : (snap ? 0 : undefined)
+const badgeFilter: TrueMap<BadgeKeys> = trueMap([
+  'size', 'count', 'animateChange', 'kind', 'gapSize', 'gapColor', 'badge',
+  'snapTop', 'snapBottom', 'snapLeft', 'snapRight'] as const)
 
 const digits = Array(10).fill('').map((_, index) => index)
 const countSpinCss = css`

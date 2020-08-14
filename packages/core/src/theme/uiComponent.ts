@@ -25,6 +25,10 @@ type Internals<ThemeType, Tokens, Element> = {
   ref: MutableRefObject<Element | null>
 }
 
+type WithUiComponentStatics<Component> = Component & {
+  static<Statics>(statics: Statics): WithUiComponentStatics<Component & Statics>
+}
+
 type InternalProps<Props, RefType> = Props & { marker?: string, ref: MutableRefObject<RefType> }
 type HTMLElementType<Props> = Props extends CommonAttributes<infer T, any> ? T : HTMLElement
 
@@ -70,7 +74,8 @@ export function uiComponent<ThemeType extends object = {}>(
     })))
     WrappedComponent.displayName = name
     WrappedComponent.baseTheme = theme
+    WrappedComponent.static = (extras: any) => Object.assign(WrappedComponent, extras)
     type Component = <T extends object>(props: ExternalProps & (T extends unknown ? {} : T)) => JSX.Element
-    return WrappedComponent as unknown as Component
+    return WrappedComponent as unknown as WithUiComponentStatics<Component>
   }
 }
