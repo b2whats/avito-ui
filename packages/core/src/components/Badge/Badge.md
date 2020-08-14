@@ -1,4 +1,4 @@
-Отображает количество — например, новых объявлений или сообщений. Значения больше 99 отображаются как `99+`, ноль и отрицательные — не показываются:
+Бейдж отображает количество — например, новых объявлений или сообщений. Значение форматируется:
 
 ```js
 <Stack spacing='s' column>
@@ -24,14 +24,15 @@
     <Box width={40}>
       <Badge count='>99' />
     </Box>
-    <Text>не-числовые строки отображаются как есть</Text>
+    <Text>Не-числовые строки отображаются как есть</Text>
   </Stack>
   <Stack spacing='s' valign='stretch'>
     <Box bg='red100' width={40}>
       <Badge count={0} />
       <Badge count={-9} />
+      <Badge />
     </Box>
-    <Text>Ноль или отрицательное значение не показываем...</Text>
+    <Text>Ноль и отрицательные значения не показываем...</Text>
   </Stack>
   <Stack spacing='s' valign='stretch'>
     <Box width={40}>
@@ -48,11 +49,23 @@
 `size` задаёт размер бейджа:
 
 ```js
-<Stack spacing='s' valign='baseline'>
-  <Badge size='s' count={1} />
-  <Badge size='m' count={3} />
-  <Badge size='l' count={8} />
-  <Badge size={30} fontSize={12} count={1} />
+<Stack spacing='s' column align='stretch'>
+  <Stack valign='baseline'>
+    <Text width={50}>s</Text>
+    <Badge size='s' count={7} />
+  </Stack>
+  <Stack valign='baseline'>
+    <Text width={50}>m</Text>
+    <Badge size='m' count={7} />
+  </Stack>
+  <Stack valign='baseline'>
+    <Text width={50}>l</Text>
+    <Badge size='l' count={7} />
+  </Stack>
+  <Stack valign='baseline'>
+    <Text width={50}>30px</Text>
+    <Badge size={30} count={7} />
+  </Stack>
 </Stack>
 ```
 
@@ -154,7 +167,7 @@ import { Group } from '../Layout';
   <Badge.Over gapSize={4} count={14} snapBottom={-10} snapLeft={-10}>
     <Button block preset='secondary' size='m'>Большой вырез</Button>
   </Badge.Over>
-  <Box bg='gray12' p={15} m={-15} mt={0}>
+  <Box bg='gray12' p={16} m={-16} mt={0}>
     <Badge.Over width={1} gapColor='gray12' count={14} snapBottom={-8} snapRight={-8}>
       <Button block preset='secondary' size='m'>Цветной вырез</Button>
     </Badge.Over>
