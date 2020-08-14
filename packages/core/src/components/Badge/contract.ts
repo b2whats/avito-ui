@@ -12,6 +12,7 @@ export interface BadgeProps extends BoxProps, CommonAttributes {
 
   kind?: 'fill' | 'flat'
 
+  gap?: boolean
   gapSize?: number
   gapColor?: Colors
 }

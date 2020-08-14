@@ -9,12 +9,17 @@ export type BadgeTheme = ComponentTheme<BadgeProps, {
 const sizes = { s: 14, m: 20, l: 24 }
 export const badgeTheme = dsl.theme<BadgeTheme>()
   .defaultProps({
-    gapSize: 2,
-    gapColor: 'white',
     kind: 'fill',
     animateChange: 'wheel',
   })
-  .mapProps(props => props.size || props.kind === 'flat' ? {} : { size: 'm' })
+  .mapProps(props => ({
+    // specifying anything gap-related enables gap
+    gapSize: (props.gap || props.gapColor) ? 2 : 0,
+    gapColor: (props.gap || props.gapSize) ? 'white' : undefined,
+    // only filled badge has default size
+    size: props.kind === 'flat' ? undefined : 'm',
+    ...props,
+  }))
   .slot('Badge', slot => [
     {
       cursor: 'inherit',

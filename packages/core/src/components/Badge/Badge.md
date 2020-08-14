@@ -36,7 +36,7 @@
   <Stack spacing='s' valign='stretch'>
     <Box width={40}>
       <Badge showZero count={0} />
-      <Badge showZero count={-9} />
+      <Badge showZero count={-9} ml={-2} gap />
     </Box>
     <Text>Но можно включить через опции</Text>
   </Stack>
@@ -86,7 +86,7 @@ import { Button } from '@avito/core';
 import { UserIcon } from '../Icon/icons';
 
 <Stack spacing='s' column width={200} align='left'>
-  <Badge.Over count={14} snapTop={-8} snapRight={-8}>
+  <Badge.Over gap count={14} snapTop={-8} snapRight={-8}>
     <Button preset='secondary'>Показать объявления</Button>
   </Badge.Over>
   <Badge.Over
@@ -94,6 +94,7 @@ import { UserIcon } from '../Icon/icons';
     snapRight={-8}
     badge={
       <Badge
+        gap
         count={14}
         bg='purple500'
         bgHover='purple600'
@@ -103,6 +104,7 @@ import { UserIcon } from '../Icon/icons';
     <Button preset='secondary'>Нажми на бейдж</Button>
   </Badge.Over>
   <Badge.Over
+    gap
     size='s'
     count={7}
     snapBottom={-2}
@@ -122,16 +124,41 @@ import { Button } from '@avito/core';
 <Stack spacing='s' column width={200} align='left'>
   <Button preset='secondary' shape='pill'>
     Внутри элемента
-    <Badge count={9} gapSize={0} mr={-5} ml={5} />
+    <Badge count={3} gapSize={0} mr={-5} ml={5} />
   </Button>
-  <Stack spacing='s'>
+  <Stack>
     <Button preset='secondary'>Рядом с элементом</Button>
-    <Badge count={9} valignSelf='middle' />
+    <Badge ml={9} count={14} valignSelf='middle' />
   </Stack>
   <Stack spacing='s' valign='baseline'>
-    <Text>Входящие</Text>
-    <Badge count={9}/>
+    <Text>В тексте <Badge count={900}/></Text>
   </Stack>
+</Stack>
+```
+
+## Вырез
+
+`gap` создает вырез под бейдж. `gapSize` изменяет толщину, `gapColor` — цвет. Обратите внимание, что вырез не влияет на бокс бейджа и корректировать `snap` не надо.
+
+```js
+import { Button } from '@avito/core';
+import { Group } from '../Layout';
+
+<Stack spacing='m' column width={200}>
+  <Badge.Over count={14} snapTop={-8} snapLeft={-8}>
+    <Button block preset='secondary' size='m'>Без выреза</Button>
+  </Badge.Over>
+  <Badge.Over gap count={14} snapTop={-8} snapRight={-8}>
+    <Button block preset='secondary' size='m'>Стандартный вырез</Button>
+  </Badge.Over>
+  <Badge.Over gapSize={4} count={14} snapBottom={-10} snapLeft={-10}>
+    <Button block preset='secondary' size='m'>Большой вырез</Button>
+  </Badge.Over>
+  <Box bg='gray12' p={15} m={-15} mt={0}>
+    <Badge.Over width={1} gapColor='gray12' count={14} snapBottom={-8} snapRight={-8}>
+      <Button block preset='secondary' size='m'>Цветной вырез</Button>
+    </Badge.Over>
+  </Box>
 </Stack>
 ```
 

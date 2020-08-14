@@ -56,7 +56,8 @@ export const Badge = uiComponent('Badge', badgeTheme)<BadgeProps>((props, { them
 
 const mapSnap = (snap?: boolean | number) => typeof snap === 'number' ? snap : (snap ? 0 : undefined)
 const badgeFilter: TrueMap<BadgeKeys> = trueMap([
-  'size', 'count', 'animateChange', 'kind', 'gapSize', 'gapColor', 'badge', 'showZero',
+  'size', 'count', 'animateChange', 'kind', 'badge', 'showZero',
+  'gap', 'gapSize', 'gapColor',
   'snapTop', 'snapBottom', 'snapLeft', 'snapRight'] as const)
 
 const digits = Array(10).fill('').map((_, index) => index)
