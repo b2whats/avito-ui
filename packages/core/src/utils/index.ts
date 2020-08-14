@@ -1,6 +1,5 @@
 export { default as isPropValid } from '@emotion/is-prop-valid'
-export { omit } from './omit'
-export { pick } from './pick'
+export * from './collection'
 export { filterProps } from './filterProps'
 export { formatCount } from './formatCount'
 export { clearValue } from './clearValue'
