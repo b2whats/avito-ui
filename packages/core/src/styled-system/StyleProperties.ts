@@ -38,9 +38,9 @@ export interface TextProperties {
   smoothing?: 'auto' | 'antialiased' | 'subpixel'
 }
 
-type Width = number
+type Width = number | string
 
-type Height = 's' | 'm' | 'l' | 'auto' | number
+type Height = 's' | 'm' | 'l' | 'auto' | number | (string & {})
 
 export interface DimensionProperties {
   /* Ширина блока */

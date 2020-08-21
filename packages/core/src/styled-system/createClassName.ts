@@ -57,6 +57,12 @@ const maps = {
     right: 'flex-end',
     justify: 'stretch',
   },
+  valignColumn: {
+    top: 'flex-start',
+    middle: 'center',
+    bottom: 'flex-end',
+    justify: 'space-between',
+  },
   alignFlex: {
     top: 'flex-start',
     middle: 'center',
@@ -159,8 +165,10 @@ const overlayStyle = (borderWidth = 0, color: string) => `
 `
 
 
-function execDimension(size: number | 'auto') {
+function execDimension(size: number | string) {
   if (size === 'auto') return 'auto'
+  if (typeof size === 'string') return size
+
   return Math.abs(size) > 1 ? `${size}px` : `${size * 100}%`
 }
 
@@ -425,7 +433,11 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
         break
       }
       case 'valign':
-        css += `align-items: ${maps.alignFlex[value]};`
+        if (params.column) {
+          css += `justify-content: ${maps.valignColumn[value]};`
+        } else {
+          css += `align-items: ${maps.alignFlex[value]};`
+        }
 
         break
       case 'valignSelf': {

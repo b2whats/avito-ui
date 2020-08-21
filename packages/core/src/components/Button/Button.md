@@ -108,6 +108,7 @@ import { Radio } from '../Radio/'
 import * as icons from '../Icon/icons/'
 
 const [props, setProps] = useState({ position: 'iconBefore' })
+const isObject = obj => obj && obj.constructor && obj.constructor === Object
 
 const onChange = ({ name, value }) => {
   setProps(state => ({
@@ -126,7 +127,7 @@ const onChange = ({ name, value }) => {
       <Radio label='Справа' value='iconAfter' />
     </Group>
     <select value={props.name} name='name' onChange={({ target: { name, value } }) => onChange({ name, value })} >
-      {Object.keys(icons).map((name) => typeof icons[name] === 'function' && (
+      {Object.keys(icons).map((name) => isObject(icons[name]) && (
         <option key={name} value={name}>{name}</option>
       ))}
     </select>
@@ -141,8 +142,7 @@ import { Text } from '../Text/'
 import { Stack } from '../Layout/';
 
 <Stack spacing='m' align='left' column>
-  <Button iconBefore={SearchIcon}>Кнопка</Button>
-  <Button iconAfter={SearchIcon}>Кнопка</Button>
+  <Button iconAfter={<SearchIcon />}>Кнопка</Button>
   <Button iconBefore={(iconProps) => <SearchIcon {...iconProps}/>}>Кнопка</Button>
   <Button iconBefore={<SearchIcon color='black'/>}>Кнопка</Button>
 </Stack>

@@ -7,14 +7,15 @@ const byHue = hue => Object.keys(tokens.palette)
   .filter(k => k.startsWith(hue))
   .sort((a, b) => getLightness(a) - getLightness(b))
 const hues = ['blue', 'green', 'red', 'yellow', 'purple', 'orange']
-const Color = ({ name, fullLabel, isDark }) => {
+const Color = ({ name, fullLabel, isDark, noHex }) => {
   const l = getLightness(name)
   isDark = isDark == null ? (l >= 800 || (l > 50 && l < 100)) : isDark
   return (
-    <Box title={tokens.palette[name]} width={40} height={40} bg={name}>
-      <Text size='s' color={ isDark ? 'white' : 'black' } block align="center" valignSelf="middle">
+    <Box width={80} height={60} bg={name} color={ isDark ? 'white' : 'black' } align="center" valign='middle' column>
+      <Text size='s' >
         { fullLabel ? name : l }
       </Text>
+      {!noHex && <Text size='xs'>{ tokens.palette[name] }</Text>}
     </Box>
   )
 };
@@ -22,15 +23,13 @@ const Color = ({ name, fullLabel, isDark }) => {
 <Stack spacing='m' column>
   <Text>gray# — оттенки серого без прозрачности</Text>
   <Stack wrap>
-    <Color name="white" fullLabel />
     {byHue('gray').map(color => <Color key={color} name={color} />)}
-    <Color name="black" fullLabel isDark/>
   </Stack>
 
   <Text>black# — оттенки серого через прозрачность</Text>
   <Stack wrap>
     <Color name="white" fullLabel />
-    {byHue('black').filter(k => k !== 'black').map(color => <Color key={color} name={color} />)}
+    {byHue('black').filter(k => k !== 'black').map(color => <Color key={color} name={color} noHex />)}
     <Color name="black" fullLabel isDark />
   </Stack>
 
