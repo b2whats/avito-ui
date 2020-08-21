@@ -1,6 +1,6 @@
 {
   "name": "@avito/core",
-  "version": "0.0.25-beta.0",
+  "version": "0.0.25-beta.1",
   "repository": {
     "type": "git",
     "url": "http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components",
