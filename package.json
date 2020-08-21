@@ -20,7 +20,7 @@
     "release": "lerna publish from-git --yes",
     "postrelease": "git push --follow-tags origin",
     "prerelease:beta": "lerna version --no-push --preid beta ",
-    "release:beta": "lerna publish from-git --yes --dist-tag beta-0",
+    "release:beta": "lerna publish from-git --yes --dist-tag dev",
     "postrelease:beta": "git push --follow-tags origin"
   },
   "husky": {
