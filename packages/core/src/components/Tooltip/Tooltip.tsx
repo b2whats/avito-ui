@@ -7,7 +7,7 @@ import { TooltipProps } from './contract'
 import { tooltipTheme } from './theme'
 
 const tooltipClassName = createClassName<TooltipProps, typeof tooltipTheme>({
-  mapPropsToStyle: ({ minWidth, width, maxWidth, ...props }) => props,
+  mapPropsToStyle: ({ minWidth, width, maxWidth, zIndex, ...props }) => props,
   display: 'block',
 })
 

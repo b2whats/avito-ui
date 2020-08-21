@@ -9,7 +9,7 @@ const gridWrapperClassName = createClassName<GridProps>({
   display: 'block',
   mapPropsToStyle: ({ align, valign, ...props }) => ({
     width: 1,
-    props,
+    ...props,
   }),
   cssRewrite: (textRules, { debug }) => (`
     &::before {

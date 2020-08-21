@@ -149,15 +149,33 @@ export interface LayoutProperties extends AlignProperties {
   order?: number
 }
 
+type BorderStyle = 'solid' | 'dotted' | 'dashed' | 'none'
+
 export interface BorderProperties {
   /* Стиль границ */
-  borderStyle?: 'solid' | 'dotted' | 'dashed' | 'none'
+  borderStyle?: BorderStyle
   /* Радиус границ */
   borderRadius?: number | 's' | 'm' | 'l' | 'circle'
   /* Радиус границ */
   rounded?: number | 's' | 'm' | 'l' | 'circle'
   /* Ширина границы */
   borderWidth?: number
+  /* Ширина верхней границы */
+  borderTopWidth?: number
+  /* Ширина правой границы */
+  borderRightWidth?: number
+  /* Ширина нижней границы */
+  borderBottomWidth?: number
+  /* Ширина левой границы */
+  borderLeftWidth?: number
+  /* Стиль верхней границы */
+  borderTopStyle?: BorderStyle
+  /* Стиль правой границы */
+  borderRightStyle?: BorderStyle
+  /* Стиль нижней границы */
+  borderBottomStyle?: BorderStyle
+  /* Стиль левой границы */
+  borderLeftStyle?: BorderStyle
 }
 
 interface OtherProperties extends BorderProperties {
@@ -179,6 +197,8 @@ interface OtherProperties extends BorderProperties {
   cursor?: string
   /* Тестовый идентификатор */
   marker?: string
+  /* Позиция элемента по оси Z */
+  zIndex?: number
 }
 
 export type Colors = keyof Tokens['palette'] | 'transparent' | 'inherit' | (string & {})

@@ -364,6 +364,38 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
         css += 'border-style: solid;'
 
         break
+      case 'borderTopWidth':
+        css += `border-top-width: ${value}px;`
+
+        if (params.borderStyle || params.borderTopStyle) break
+
+        css += 'border-top-style: solid;'
+
+        break
+      case 'borderRightWidth':
+        css += `border-right-width: ${value}px;`
+
+        if (params.borderStyle || params.borderRightStyle) break
+
+        css += 'border-right-style: solid;'
+
+        break
+      case 'borderBottomWidth':
+        css += `border-bottom-width: ${value}px;`
+
+        if (params.borderStyle || params.borderBottomStyle) break
+
+        css += 'border-bottom-style: solid;'
+
+        break
+      case 'borderLeftWidth':
+        css += `border-left-width: ${value}px;`
+
+        if (params.borderStyle || params.borderLeftStyle) break
+
+        css += 'border-left-style: solid;'
+
+        break
       case 'rounded':
       case 'borderRadius':
         if (params.shape === 'circle' || params.shape === 'pill') break
@@ -416,6 +448,22 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
         break
       case 'borderStyle':
         css += `border-style: ${value};`
+
+        break
+      case 'borderTopStyle':
+        css += `border-top-style: ${value};`
+
+        break
+      case 'borderRightStyle':
+        css += `border-right-style: ${value};`
+
+        break
+      case 'borderBottomStyle':
+        css += `border-bottom-style: ${value};`
+
+        break
+      case 'borderLeftStyle':
+        css += `border-left-style: ${value};`
 
         break
       case 'position':
@@ -480,6 +528,10 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
       }
       case 'pointerEvents': {
         css += `pointer-events: ${value ? 'auto' : 'none'};`
+        break
+      }
+      case 'zIndex': {
+        css += `z-index: ${value};`
         break
       }
       default:
