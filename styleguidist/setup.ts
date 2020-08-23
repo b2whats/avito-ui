@@ -28,7 +28,7 @@ global['copyText'] = (text: string) => {
 const is = (value: any) => value != null
 const has = (object: object, prop: string | number) => Object.prototype.hasOwnProperty.call(object, prop)
 const isNumber = (value: any) => {
-  if (typeof value === 'string' && (value.endsWith('.') || value === '')) {
+  if (typeof value === 'string' && (value.endsWith('.') || value.trim() === '')) {
     return false
   }
 
