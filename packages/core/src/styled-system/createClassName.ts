@@ -489,6 +489,10 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
         css += `${param}: ${execDimension(value)};`
 
         break
+      case 'overflow':
+        css += `overflow: ${value};`
+
+        break
       case 'focus': {
         css += 'outline: none;'
 

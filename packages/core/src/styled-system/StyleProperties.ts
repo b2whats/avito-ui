@@ -147,6 +147,8 @@ export interface LayoutProperties extends AlignProperties {
   scroll?: boolean
   /* Порядок элементов */
   order?: number
+  /* Отображение контента за пределами элемента */
+  overflow?: 'hidden' | 'visible' | 'scroll' | 'auto'
 }
 
 type BorderStyle = 'solid' | 'dotted' | 'dashed' | 'none'

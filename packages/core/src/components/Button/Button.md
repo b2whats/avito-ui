@@ -108,7 +108,6 @@ import { Radio } from '../Radio/'
 import * as icons from '../Icon/icons/'
 
 const [props, setProps] = useState({ position: 'iconBefore' })
-const isObject = obj => obj && obj.constructor && obj.constructor === Object
 
 const onChange = ({ name, value }) => {
   setProps(state => ({

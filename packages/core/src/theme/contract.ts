@@ -8,6 +8,7 @@ import { IconTheme } from '../components/Icon/theme'
 import { ImageTheme } from '../components/Image/theme'
 import { InputTheme } from '../components/Input/theme'
 import { LinkTheme } from '../components/Link/theme'
+import { MeterTheme } from '../components/Meter/theme'
 import { PositionerTheme } from '../components/Positioner/theme'
 import { RadioTheme } from '../components/Radio/theme'
 import { SpinnerTheme } from '../components/Spinner/theme'
@@ -28,6 +29,7 @@ export interface Theme extends Tokens {
   Icon: IconTheme
   Image: ImageTheme
   Input: InputTheme
+  Meter: MeterTheme
   Radio: RadioTheme
   Spinner: SpinnerTheme
   Switcher: SwitcherTheme
