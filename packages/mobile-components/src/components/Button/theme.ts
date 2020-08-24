@@ -87,7 +87,7 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
       linkIncreased: {
         color: 'blue500',
         colorDisabled: 'gray40',
-        bg: 'white',
+        bg: 'transparent',
         bgActive: 'gray4',
         bgDisabled: 'white',
       },
