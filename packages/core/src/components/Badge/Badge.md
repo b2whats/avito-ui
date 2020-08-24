@@ -109,8 +109,7 @@ import { UserIcon } from '../Icon/icons';
       <Badge
         gap
         count={14}
-        bg='purple500'
-        bgHover='purple600'
+        bgHover='red600'
         cursor='pointer'
         onClick={() => alert('badge click')} />}
   >
