@@ -849,7 +849,7 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked loading 1`] = `
 Object {
   "Button": Object {
-    "bg": "white",
+    "bg": "transparent",
     "bgActive": "gray4",
     "bgChecked": undefined,
     "bgDisabled": "white",
@@ -862,7 +862,7 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked loading=false 1`] = `
 Object {
   "Button": Object {
-    "bg": "white",
+    "bg": "transparent",
     "bgActive": "gray4",
     "bgChecked": undefined,
     "bgDisabled": "white",
@@ -875,7 +875,7 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked=false loading 1`] = `
 Object {
   "Button": Object {
-    "bg": "white",
+    "bg": "transparent",
     "bgActive": "gray4",
     "bgChecked": undefined,
     "bgDisabled": "white",
@@ -888,7 +888,7 @@ Object {
 exports[`mobile theme Button fuzz: children="text" preset="linkIncreased" checked=false loading=false 1`] = `
 Object {
   "Button": Object {
-    "bg": "white",
+    "bg": "transparent",
     "bgActive": "gray4",
     "bgChecked": undefined,
     "bgDisabled": "white",
@@ -1564,7 +1564,7 @@ Object {
         ],
         "linkIncreased": Array [
           Object {
-            "bg": "white",
+            "bg": "transparent",
             "bgActive": "gray4",
             "bgDisabled": "white",
             "color": "blue500",

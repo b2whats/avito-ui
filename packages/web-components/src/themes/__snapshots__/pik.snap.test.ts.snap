@@ -3,9 +3,9 @@
 exports[`pik theme Button base 1`] = `
 Object {
   "Button": Object {
-    "bg": "transparent",
+    "bg": "white",
     "bgActive": "gray8",
-    "bgDisabled": "transparent",
+    "bgDisabled": "white",
     "bgHover": "gray4",
     "borderColor": "gray16",
     "borderRadius": 4,
@@ -1161,9 +1161,9 @@ Object {
         "$switch": "preset",
         "default": Array [
           Object {
-            "bg": "transparent",
+            "bg": "white",
             "bgActive": "gray12",
-            "bgDisabled": "transparent",
+            "bgDisabled": "white",
             "bgHover": "gray4",
             "borderColor": "gray20",
             "color": "black",

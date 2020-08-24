@@ -477,9 +477,9 @@ Object {
 exports[`web theme Button base 1`] = `
 Object {
   "Button": Object {
-    "bg": "transparent",
+    "bg": "white",
     "bgActive": "gray12",
-    "bgDisabled": "transparent",
+    "bgDisabled": "white",
     "bgHover": "gray4",
     "borderColor": "gray20",
     "borderRadius": 5,
@@ -1647,9 +1647,9 @@ Object {
         "$switch": "preset",
         "default": Array [
           Object {
-            "bg": "transparent",
+            "bg": "white",
             "bgActive": "gray12",
-            "bgDisabled": "transparent",
+            "bgDisabled": "white",
             "bgHover": "gray4",
             "borderColor": "gray20",
             "color": "black",
