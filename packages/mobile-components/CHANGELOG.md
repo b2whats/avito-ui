@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.0.28](http://stash.msk.avito.ru/projects/MDS/repos/ui-web-components/compare/@avito/mobile-components@0.0.28-beta.4...@avito/mobile-components@0.0.28) (2020-08-24)
+
+**Note:** Version bump only for package @avito/mobile-components
+
+
+
+
+
 ## 0.0.27
 - BUGFIX: Prevent button w/href height from expanding due to IE fix
 ## 0.0.26
