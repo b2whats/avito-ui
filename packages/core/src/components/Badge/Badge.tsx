@@ -32,7 +32,7 @@ export const Badge = uiComponent('Badge', badgeTheme)<BadgeProps>((props, { them
   if (!count) return null
   return (
     <div css={badgeStyle} {...filterProps(props)}>
-      {props.animateChange === 'wheel'
+      {props.animateChange === 'slide'
         ? count.split('').map((digit, index) => <DigitAnimator key={count.length - index} value={digit} />)
         : count}
     </div>
@@ -63,20 +63,17 @@ const badgeFilter: TrueMap<BadgeKeys> = trueMap([
 const digits = Array(10).fill('').map((_, index) => index)
 const countSpinCss = css`
   display: inline-block;
-  transform-origin: -2em center;
   transition: transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   & > * {
     display: inline-block;
-    transform-origin: -2em center;
     width: 0;
-    line-height: 0;
   }
   ${digits.map(digit => `
     &[data-value="${digit}"] {
-      transform: translateZ(0) rotate(${36 * digit}deg);
+      transform: translate3d(0, ${2 * digit}em, 0);
     }
     & > *[data-digit="${digit}"] {
-      transform: translateZ(0) rotate(${-36 * digit}deg);
+      transform: translate3d(0, ${-2 * digit}em, 0);
     }
   `)}
 `

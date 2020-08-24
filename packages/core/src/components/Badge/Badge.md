@@ -80,7 +80,7 @@ const [count, setCount] = useState(98);
 <Stack spacing='s' column width={200}>
   <InputNumber value={count} onChange={e => setCount(e.value)} positiveOnly={false} />
   <Stack>
-    <Text grow>Анимация wheel</Text>
+    <Text grow>Анимация slide</Text>
     <Badge count={count} />
   </Stack>
   <Stack>

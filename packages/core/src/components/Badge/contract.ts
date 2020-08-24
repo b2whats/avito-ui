@@ -9,7 +9,7 @@ export interface BadgeProps extends BoxProps, CommonAttributes {
   /* Размер бейджа (не действует на kind='flat') */
   size?: 's' | 'm' | 'l' | number
   /* Анимация изменения счетчика */
-  animateChange?: 'none' | 'wheel'
+  animateChange?: 'none' | 'slide'
 
   /* Не скрывать бейдж даже при count <= 0 */
   showZero?: boolean

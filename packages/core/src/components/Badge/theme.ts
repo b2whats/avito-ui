@@ -10,7 +10,7 @@ const sizes = { s: 14, m: 20, l: 24 }
 export const badgeTheme = dsl.theme<BadgeTheme>()
   .defaultProps({
     kind: 'fill',
-    animateChange: 'wheel',
+    animateChange: 'slide',
   })
   .mapProps(props => ({
     // specifying anything gap-related enables gap
