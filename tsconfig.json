@@ -21,5 +21,15 @@
       "@avito/*": ["../node_modules/@avito/*/src"],
     },
   },
-  "exclude": ["node_modules", "packages/**/build", "packages/**/cjs", "packages/**/es", "packages/**/types", "**/*.test.tsx"]
+  "exclude": [
+    "node_modules",
+    "packages/**/build",
+    "packages/**/cjs",
+    "packages/**/es",
+    "packages/**/types",
+    "packages/**/test",
+    "packages/**/*.test.*",
+    "packages/**/mockProps.*",
+    "packages/**/__snapshots__",
+  ]
 }

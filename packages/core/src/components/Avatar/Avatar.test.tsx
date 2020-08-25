@@ -13,8 +13,8 @@ describe('Avatar', () => {
 
   describe('as-prop', () => {
     it('accepts custom as-component', () => {
-      const Inner = jest.fn(({ children, to }) => <a href={to}>{children}</a>)
-      renderThemed(<Avatar as={Inner} size={20} to='/' />)
+      const Inner = jest.fn(({ children, href }) => <a href={href}>{children}</a>)
+      renderThemed(<Avatar as={Inner} size={20} href='/' />)
       expect(Inner).toBeCalled()
       expect(Inner.mock.calls[0][0].to).toBe('/')
     })

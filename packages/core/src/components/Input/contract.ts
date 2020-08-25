@@ -5,7 +5,7 @@ import { CommonAttributes } from '../../utils/'
 export enum InputPreset {}
 
 export interface InputCoreProps {
-  ref: Ref<HTMLInputElement>
+  ref?: Ref<HTMLInputElement>
   /** Автоматическая ширина поля */
   autoSize?: boolean
   /** Имя */

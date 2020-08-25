@@ -1,4 +1,4 @@
-import { mocks as baseMocks } from '../../core/test/components'
+import { mocks as baseMocks } from '@avito/core/test/components'
 import { listMock } from './components/List/mockProps'
 import { segmentButtonMock } from './components/SegmentButton/mockProps'
 
