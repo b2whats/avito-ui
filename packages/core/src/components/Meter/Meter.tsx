@@ -25,7 +25,7 @@ export const Meter = uiComponent('Meter', meterTheme)<MeterProps>(({ value, labe
         </Stack>
       )}
       <Box {...Progress} marker={marker('progress')}>
-        {value && <Box {...ProgressActive} width={+value} />}
+        {value != null && <Box {...ProgressActive} width={+value} />}
         {children && <Text {...Content}>{children}</Text>}
       </Box>
     </Stack>

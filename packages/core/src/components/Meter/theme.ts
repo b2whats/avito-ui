@@ -18,21 +18,17 @@ export const meterTheme = dsl.theme<MeterTheme>()
     size: 'm',
     value: 0,
   })
-  .mapProps(({ value, dynamic }) => {
-    if (!dynamic || value === undefined) return
+  .mapProps(({ value, dynamicRange }) => {
+    if (!dynamicRange || value === undefined) return
 
-    const range = [...dynamic, 1]
-    const variants = ['success', 'warning', 'error'] as const
+    const result = Object.entries(dynamicRange)
+      .find(([_, rangeValue = 0]) => Number(value) <= rangeValue)
 
-    return {
-      variant: variants[range.findIndex(rangeValue => value <= rangeValue)],
-    }
+    return result ? { variant: result[0] as 'success' | 'warning' | 'error' } : {}
   })
-  .slot('Meter', slot => [
-    {
-      spacing: slot.mapped('size', { s: 6, m: 8 }),
-    },
-  ])
+  .slot('Meter', {
+    spacing: 8,
+  })
   .slot('Progress', slot => [
     {
       shape: 'pill',
@@ -83,17 +79,17 @@ export const meterTheme = dsl.theme<MeterTheme>()
   ])
   .slot('Label', slot => [
     {
-      size: props => props.size,
+      size: 'm',
       ml: slot.mapped('size', { s: 2, m: 4 }),
       color: 'black',
     },
   ])
   .slot('Caption', slot => [
     {
-      size: props => props.size,
+      size: 'm',
       mr: slot.mapped('size', { s: 2, m: 4 }),
       ml: 'auto',
-      color: 'gray44',
+      color: 'gray48',
     },
   ])
   .slot('Content', {

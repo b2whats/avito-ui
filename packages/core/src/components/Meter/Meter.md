@@ -9,7 +9,7 @@ const [state, setState] = useState({
   value: 0.5,
   variant: 'success',
   dynamic: false,
-  dynamicValue: [0.3, 0.6],
+  dynamicValue: { success: 0.3, warning: 0.6, error: 1 },
   size: 'm',
   label: 'Лейбл',
   caption: 'Подсказка',
@@ -31,6 +31,7 @@ const onChange = ({ name, value, checked }) => {
   <Stack valign='middle' spacing={8} height='l'>
     <Text width={100}>Value</Text>
     <Input name='value' value={state.value} onChange={onChange} width={200}/>
+    <Text>Значение от 0 до 1</Text>
   </Stack>
   <Stack valign='middle' spacing={8} height='l'>
     <Text width={100}>Size</Text>
@@ -67,10 +68,7 @@ const onChange = ({ name, value, checked }) => {
     <Text width={100}>Dynamic</Text>
     <Checkbox name='dynamic' onChange={onChange} checked={state.dynamic}/>
     {state.dynamic && (
-      <>
-        <Input name='dynamicValue.0' value={state.dynamicValue[0]} onChange={onChange} width={80}/>
-        <Input name='dynamicValue.1' value={state.dynamicValue[1]} onChange={onChange} width={80}/>
-      </>
+      <Text pre>{JSON.stringify(state.dynamicValue)}</Text>
     )}
   </Stack>
   <Box bg='gray4' p={8}>
@@ -87,5 +85,32 @@ const onChange = ({ name, value, checked }) => {
   value={0.4}
   label={<Text color='red500'>Красный лейбл</Text>}
   caption={<Text color='green500'>Зеленая подсказка</Text>}
+/>
+```
+
+## Изменение цвета в зависимости от значения
+Параметр `dynamicRange` позволяет вам установить автоматическое изменение цвета в зависимости от значения,
+порядок свойств в объекте учитывается
+
+```typescript static
+{
+  success?: number
+  warning?: number
+  error?: number
+}
+```
+
+```jsx
+<Meter
+  size='s'
+  value={0.4}
+  dynamicRange={{ success: 0.3, warning: 0.6, error: 1 }}
+/>
+```
+```jsx
+<Meter
+  size='s'
+  value={0.4}
+  dynamicRange={{ warning: 0.3, error: 0.6, success: 1 }}
 />
 ```
