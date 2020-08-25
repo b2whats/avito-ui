@@ -77,21 +77,15 @@ export const meterTheme = dsl.theme<MeterTheme>()
       bg: 'gray16',
     }),
   ])
-  .slot('Label', slot => [
-    {
-      size: 'm',
-      ml: slot.mapped('size', { s: 2, m: 4 }),
-      color: 'black',
-    },
-  ])
-  .slot('Caption', slot => [
-    {
-      size: 'm',
-      mr: slot.mapped('size', { s: 2, m: 4 }),
-      ml: 'auto',
-      color: 'gray48',
-    },
-  ])
+  .slot('Label', {
+    size: 'm',
+    color: 'black',
+  })
+  .slot('Caption', {
+    size: 'm',
+    ml: 'auto',
+    color: 'gray48',
+  })
   .slot('Content', {
     position: 'relative',
     size: 's',
