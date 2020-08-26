@@ -16,6 +16,7 @@ import { SearchIcon } from '@avito/mobile-components/icons'
 
 ```js static
 import React from 'react'
+// `@avito/(platform)-components` Путь из вашей платформы, так не подключать @avito/core !
 import { makeIcon } from '@avito/core'
 
 export const CircleIcon = makeIcon({ viewBox: '0 0 4 4', name: 'circle' },
@@ -28,7 +29,8 @@ AddNoteIcon.platform = 'mobile'
 Динамические иконки создают через JSX-функцию:
 
 ```js
-import { makeIcon } from '@avito/core'
+// `@avito/(platform)-components` Путь из вашей платформы, так не подключать @avito/core !
+import { makeIcon } from '@avito/core' 
 
 // Для TS используйте makeIcon<{ radius: number }>
 const BlinkIcon = makeIcon({

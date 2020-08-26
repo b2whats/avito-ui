@@ -1,4 +1,4 @@
-import { foldThemeParams } from '../src'
+import { foldThemeParams } from '../src/'
 import { flattenSets, prettyProps } from './helpers'
 
 export function describeTheme(name: string, theme: any, propValues: any = {}) {

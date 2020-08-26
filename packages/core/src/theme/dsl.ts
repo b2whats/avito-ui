@@ -61,7 +61,7 @@ class ThemeBuilder<Theme extends ComponentTheme<any, any>> {
     this.theme.defaultProps = props
     return this
   }
-  mapProps(map: (props: ThemeProps<Theme>) => Partial<ThemeProps<Theme>>) {
+  mapProps(map: (props: ThemeProps<Theme>) => Partial<ThemeProps<Theme>> | void) {
     this.theme.mapProps = map
     return this
   }

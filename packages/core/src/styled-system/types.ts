@@ -15,7 +15,7 @@ export interface Slot<OutProps = StyleProperties> {}
 export interface BoundSlot<InProps, OutProps = StyleProperties> extends Slot<OutProps> {}
 export type ComponentTheme<Props, Scheme = {}> = {
   defaultProps?: Partial<Props>
-  mapProps?: (props: Props) => Partial<Props>
+  mapProps?: (props: Props) => Partial<Props> | void
   scheme: {
     [K in keyof Scheme]: Scheme[K] extends (Slot<infer OutProps> | undefined)
       ? BoundSlot<Props, OutProps>

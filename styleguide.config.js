@@ -148,6 +148,7 @@ module.exports = {
   },
   require: [path.resolve(__dirname, 'styleguidist/setup.ts')],
   context: {
+    Group: path.resolve(__dirname, './packages/core/src/components/Layout/Group'),
     Stack: path.resolve(__dirname, './packages/core/src/components/Layout/Stack'),
     Grid: path.resolve(__dirname, './packages/core/src/components/Layout/Grid'),
     Box: path.resolve(__dirname, './packages/core/src/components/Layout/Box'),

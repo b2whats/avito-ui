@@ -3,7 +3,7 @@ import {
   toggleTheme, checkboxTheme, radioTheme, switcherTheme,
   cardTheme, alertTheme, bannerTheme
 } from '@avito/core'
-import { describeTheme } from '../../core/test'
+import { describeTheme } from '@avito/core/test'
 import * as components from '.'
 import { mocks } from './mockProps'
 import { theme } from './theme'

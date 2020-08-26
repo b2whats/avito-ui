@@ -18,7 +18,8 @@ const spaceValue = (value: string | number | undefined, spaces: {}): string | un
     return value
   }
   if (typeof value === 'number') {
-    return `${value}px`
+    // 0.99 - подумать что с этим делать, чаще нам нужен 1 пиксель чем 100%
+    return Math.abs(value) > 0.99 ? `${value}px` : `${value * 100}%`
   }
   return spaces[value] ? `${spaces[value]}px` : value === 'auto' ? 'auto' : '0px'
 }
@@ -487,6 +488,10 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
       case 'left':
       case 'right':
         css += `${param}: ${execDimension(value)};`
+
+        break
+      case 'overflow':
+        css += `overflow: ${value};`
 
         break
       case 'focus': {

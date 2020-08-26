@@ -1,4 +1,4 @@
-import { maybe, icon, mockProps } from '../../../../core/test'
+import { maybe, icon, mockProps } from '@avito/core/test'
 import { ListItemProps } from './contract'
 
 export const listMock = mockProps<ListItemProps>(() => [{
