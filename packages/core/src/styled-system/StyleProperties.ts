@@ -131,6 +131,8 @@ export interface LayoutProperties extends AlignProperties {
   block?: boolean
   /* Строчное поведение */
   inline?: boolean
+  /* Поведение */
+  displayOutside?: 'inline' | 'block'
   /* Переносить блоки на следующие строки если не хватило места */
   wrap?: boolean
   /* Положение элемента в потоке */

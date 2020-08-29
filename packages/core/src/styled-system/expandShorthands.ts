@@ -1,4 +1,4 @@
-import { SpaceProperties, TextProperties, StyleProperties } from './StyleProperties'
+import { SpaceProperties, TextProperties, StyleProperties, LayoutProperties } from './StyleProperties'
 
 type Unset<Keys extends keyof StyleProperties> =
   (style: StyleProperties, remove: boolean) => Omit<StyleProperties, Keys>
@@ -24,6 +24,15 @@ function makeDimExpander<Short extends keyof SpaceProperties>(
 export const expand = {
   padding: makeDimExpander<'p' | 'px' | 'py'>(['p', 'px', 'py', 'pt', 'pr', 'pb', 'pl']),
   margin: makeDimExpander<'m' | 'mx' | 'my'>(['m', 'mx', 'my', 'mt', 'mr', 'mb', 'ml']),
+  layout: ((style: LayoutProperties, remove) => {
+    if (style.inline) style.displayOutside = 'inline'
+    if (style.block) style.displayOutside = 'block'
+    if (remove) {
+      delete style.inline
+      delete style.block
+    }
+    return style
+  }) as Unset<'inline' | 'block'>,
   text: ((style: TextProperties, remove) => {
     if (style.bold) style.fontWeight = 600
     if (style.light) style.fontWeight = 300
@@ -49,6 +58,7 @@ export function expandShorthands<T extends StyleProperties>(
   }
   expand.margin(style, remove)
   expand.padding(style, remove)
+  expand.layout(style, remove)
   expand.text(style, remove)
   return style
 }
