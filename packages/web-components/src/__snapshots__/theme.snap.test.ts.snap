@@ -176,13 +176,6 @@ Object {
 
 exports[`web theme Avatar base 1`] = `
 Object {
-  "Badge": Object {
-    "bottom": 0,
-    "height": 5,
-    "position": "absolute",
-    "right": 0,
-    "width": 5,
-  },
   "Fallback": Object {
     "component": #IconUser,
     "size": 9.6,
@@ -197,6 +190,7 @@ Object {
     "position": "relative",
     "shape": "circle",
     "shrink": false,
+    "userSelect": false,
     "valignSelf": "middle",
     "width": 20,
   },
@@ -219,10 +213,6 @@ exports[`web theme Avatar fuzz: size=20 1`] = `Object {}`;
 
 exports[`web theme Avatar fuzz: size=45 1`] = `
 Object {
-  "Badge": Object {
-    "height": 11.25,
-    "width": 11.25,
-  },
   "Fallback": Object {
     "size": 21.599999999999998,
   },
@@ -236,10 +226,6 @@ Object {
 
 exports[`web theme Avatar fuzz: size=60 1`] = `
 Object {
-  "Badge": Object {
-    "height": 15,
-    "width": 15,
-  },
   "Fallback": Object {
     "size": 28.799999999999997,
   },
@@ -277,15 +263,6 @@ Object {
   },
   "mapProps": [Function],
   "scheme": Object {
-    "Badge": Array [
-      Object {
-        "bottom": 0,
-        "height": [Function],
-        "position": "absolute",
-        "right": 0,
-        "width": [Function],
-      },
-    ],
     "Fallback": Array [
       Object {
         "component": #IconUser,
@@ -316,6 +293,7 @@ Object {
         "position": "relative",
         "shape": "circle",
         "shrink": false,
+        "userSelect": false,
         "valignSelf": "middle",
         "width": [Function],
       },
@@ -335,22 +313,143 @@ Object {
 }
 `;
 
-exports[`web theme Badge base 1`] = `Object {}`;
+exports[`web theme Badge base 1`] = `
+Object {
+  "Badge": Object {
+    "align": "center",
+    "bg": "red500",
+    "color": "white",
+    "cursor": "inherit",
+    "fontSize": 12,
+    "fontWeight": 600,
+    "height": 20,
+    "minWidth": 20,
+    "pl": 6.5,
+    "pr": 6.5,
+    "shape": "circle",
+    "userSelect": false,
+    "zIndex": 2,
+  },
+}
+`;
 
-exports[`web theme Badge fuzz: gapColor="red500" 1`] = `Object {}`;
+exports[`web theme Badge fuzz: size="l" 1`] = `
+Object {
+  "Badge": Object {
+    "fontSize": 14,
+    "height": 24,
+    "minWidth": 24,
+    "pl": 8,
+    "pr": 8,
+  },
+}
+`;
 
-exports[`web theme Badge fuzz: gapSize=0 1`] = `Object {}`;
+exports[`web theme Badge fuzz: size="l" kind="flat" 1`] = `
+Object {
+  "Badge": Object {
+    "align": undefined,
+    "bg": undefined,
+    "color": undefined,
+    "fontSize": 14,
+    "fontWeight": undefined,
+    "height": undefined,
+    "minWidth": undefined,
+    "pl": undefined,
+    "pr": undefined,
+    "shape": undefined,
+  },
+}
+`;
 
-exports[`web theme Badge fuzz: gapSize=4 1`] = `Object {}`;
+exports[`web theme Badge fuzz: size="m" 1`] = `Object {}`;
+
+exports[`web theme Badge fuzz: size="m" kind="flat" 1`] = `
+Object {
+  "Badge": Object {
+    "align": undefined,
+    "bg": undefined,
+    "color": undefined,
+    "fontWeight": undefined,
+    "height": undefined,
+    "minWidth": undefined,
+    "pl": undefined,
+    "pr": undefined,
+    "shape": undefined,
+  },
+}
+`;
+
+exports[`web theme Badge fuzz: size="s" 1`] = `
+Object {
+  "Badge": Object {
+    "fontSize": 11,
+    "height": 14,
+    "minWidth": 14,
+    "pl": 3.5,
+    "pr": 3.5,
+  },
+}
+`;
+
+exports[`web theme Badge fuzz: size="s" kind="flat" 1`] = `
+Object {
+  "Badge": Object {
+    "align": undefined,
+    "bg": undefined,
+    "color": undefined,
+    "fontSize": 11,
+    "fontWeight": undefined,
+    "height": undefined,
+    "minWidth": undefined,
+    "pl": undefined,
+    "pr": undefined,
+    "shape": undefined,
+  },
+}
+`;
 
 exports[`web theme Badge snap 1`] = `
 Object {
   "defaultProps": Object {
-    "gapColor": "white",
-    "gapSize": 2,
+    "animateChange": "wheel",
+    "kind": "fill",
   },
   "mapProps": [Function],
-  "scheme": Object {},
+  "scheme": Object {
+    "Badge": Array [
+      Object {
+        "cursor": "inherit",
+        "fontSize": [Function],
+        "userSelect": false,
+        "zIndex": 2,
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "align": "center",
+            "bg": "red500",
+            "color": "white",
+            "fontWeight": 600,
+            "height": [Function],
+            "minWidth": [Function],
+            "pl": [Function],
+            "pr": [Function],
+            "shape": "pill",
+          },
+        ],
+      },
+      Object {
+        "$if": [Function],
+        "$then": Array [
+          Object {
+            "shape": "circle",
+          },
+        ],
+      },
+    ],
+  },
 }
 `;
 
@@ -493,6 +592,7 @@ Object {
     "pr": 12,
     "pt": 5,
     "shrink": false,
+    "userSelect": false,
   },
   "IconAfter": Object {
     "size": "s",
@@ -1573,6 +1673,7 @@ Object {
         "pr": 16,
         "pt": [Function],
         "shrink": false,
+        "userSelect": false,
       },
       Object {
         "$if": [Function],
@@ -1927,10 +2028,12 @@ Object {
     "height": 16,
     "shape": undefined,
     "shrink": false,
+    "userSelect": false,
     "variant": "primary",
   },
   "Toggle": Object {
     "cursor": "pointer",
+    "userSelect": false,
     "valign": "baseline",
   },
 }
@@ -2185,6 +2288,7 @@ Object {
         "adjacentSelector": "input",
         "shape": [Function],
         "shrink": false,
+        "userSelect": false,
         "variant": [Function],
       },
       Object {
@@ -2295,6 +2399,7 @@ Object {
     ],
     "Toggle": Array [
       Object {
+        "userSelect": false,
         "valign": "baseline",
       },
       Object {
@@ -2914,10 +3019,12 @@ Object {
     "height": 18,
     "shape": undefined,
     "shrink": false,
+    "userSelect": false,
     "variant": "primary",
   },
   "Toggle": Object {
     "cursor": "pointer",
+    "userSelect": false,
     "valign": "baseline",
   },
 }
@@ -3124,6 +3231,7 @@ Object {
         "adjacentSelector": "input",
         "shape": [Function],
         "shrink": false,
+        "userSelect": false,
         "variant": [Function],
       },
       Object {
@@ -3235,6 +3343,7 @@ Object {
     ],
     "Toggle": Array [
       Object {
+        "userSelect": false,
         "valign": "baseline",
       },
       Object {
@@ -3341,11 +3450,13 @@ Object {
     "pt": 2,
     "shape": "square",
     "shrink": false,
+    "userSelect": false,
     "variant": "primary",
     "width": 40,
   },
   "Toggle": Object {
     "cursor": "pointer",
+    "userSelect": false,
     "valign": "baseline",
   },
 }
@@ -3669,6 +3780,7 @@ Object {
         "adjacentSelector": "input",
         "shape": [Function],
         "shrink": false,
+        "userSelect": false,
         "variant": [Function],
       },
       Object {
@@ -3821,6 +3933,7 @@ Object {
     ],
     "Toggle": Array [
       Object {
+        "userSelect": false,
         "valign": "baseline",
       },
       Object {

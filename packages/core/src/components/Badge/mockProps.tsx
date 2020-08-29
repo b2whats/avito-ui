@@ -1,17 +1,19 @@
-import { mockProps, maybe } from '../../../test'
+import { mockProps, maybe, sml } from '../../../test'
 import { BadgeProps } from './contract'
 
 export const badgeMock = mockProps<BadgeProps>(() => [{
-  gapSize: maybe([0, 4]),
-}, {
-  gapColor: ['red500'],
+  size: sml,
+  kind: maybe('flat'),
 }], {
   browserBase: {
-    width: 10,
-    height: 10,
-    bg: 'green500',
-    gapColor: 'yellow100',
-    shape: 'circle',
-    valignSelf: 'middle',
+    count: 10,
   } as any,
+  browserSets: [{
+    count: [0, 10, 999],
+  }, {
+    gap: [true],
+    // otherwise we won't see the gap
+    gapColor: ['yellow100'],
+    gapSize: maybe(4),
+  }],
 })

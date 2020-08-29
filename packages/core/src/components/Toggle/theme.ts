@@ -22,11 +22,13 @@ export const toggleTheme = dsl.theme<ToggleTheme>()
   })
   .slot('Toggle', {
     valign: 'baseline',
+    userSelect: false,
   })
   .slot('Switch', {
     shrink: false,
     adjacentSelector: 'input',
     shape: props => props.shape,
     variant: props => props.variant,
+    userSelect: false,
   })
   .build()

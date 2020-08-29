@@ -23,7 +23,6 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>({
     white-space: nowrap;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-touch-callout: none;
-    -webkit-user-select: none;
     &::-moz-focus-inner {
       border: 0;
     }

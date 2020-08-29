@@ -21,9 +21,10 @@ interface SlotDSL<Props, OutProps> {
     condition: Prop,
     body: SwitchMap<Props[Prop], MaybeArray<SchemeType<Props, OutProps>>>
   ): BoundSlot<Props, OutProps>
-  mapped<Prop extends keyof Props, Values>(
+  mapped<Prop extends keyof Props, Values, Fallback = never>(
     prop: Prop,
-    body: SwitchMap<Props[Prop], Values>
+    body: SwitchMap<Props[Prop], Values>,
+    fallback?: Fallback | ((value: Props[Prop]) => Fallback),
   ): (props: Props) => Values
 }
 interface SlotBuilder<Theme, Name> {
@@ -42,7 +43,13 @@ const slotDSL: SlotDSL<any, any> = {
     })
     return res
   },
-  mapped: (prop, options) => (props: any) => options[props[prop]] as any,
+  mapped: (prop, options, fallback) => {
+    const fallbackFn: any = typeof fallback === 'function' ? fallback : (() => fallback)
+    return (props: any) => {
+      const value = props[prop]
+      return value in options ? options[value] : fallbackFn(value)
+    }
+  },
 }
 
 class ThemeBuilder<Theme extends ComponentTheme<any, any>> {

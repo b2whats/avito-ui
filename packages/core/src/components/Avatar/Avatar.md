@@ -70,53 +70,19 @@ const sizes = [120, 80, 64, 52, 32, 28, 24, 20];
 ```
 :::
 
-## Badge
+## Бейдж
 
-`badge` — небольшой элемент, прилепленный к краю аватара: онлайн-индикатор или дополнительное действие. По умолчанию в 4 раза меньше самого аватара. _Вырез_ на аватаре настраивается через `badgeGapSize`, а в `badgeGapColor` передают цвет фона. Остальные стили, (в том числе положение через `top` / `right` / `bottom` / я на компоненте значка.
+На аватаре часто размещают [бейдж](/#/Компоненты/Badge):
 
 ```jsx
 import { Badge } from '../Badge'
 import { Text } from '../Text'
 import { CrossIcon } from '../Icon/icons'
-const { src } = document.getElementById;
-<Stack spacing='m' valign='middle'>
-  <Avatar
-    src={src}
-    size={60}
-    badge={<Badge bg='green500' shape='circle' />} />
-  <Box bg='gray12' p={4}>
-    <Avatar
-      src={src}
-      size={60}
-      badge={<Badge gapSize={4} gapColor='gray12' bg='green600' top={0} shape='circle' />} />
-  </Box>
-  <Avatar
-    src={src}
-    size={60}
-    badge={
-      <Badge gapSize={2} width='auto' height='auto' bg='green500' color='white' shape='pill' px={5}>
-        <Text size='s'>20</Text>
-      </Badge>
-    }
-  />
-  <Avatar
-    src={src}
-    size={60}
-    badge={
-      <Badge
-        gapSize={3}
-        shape='circle'
-        width='auto'
-        height='auto'
-        bottom='auto'
-        right={-15}
-        bg='gray12'
-        bgHover='gray28'
-        onClick={() => alert('edit')}
-        valignSelf='middle'
-      ><CrossIcon size={25} p={5} color='white' /></Badge>}
-  />
-</Stack>
+const { src } = document.getElementById('sample-image');
+
+<Badge.Over count={3} gap snapRight snapBottom>
+  <Avatar src={src} size={60}  />
+</Badge.Over>
 ```
 
 ## disabled

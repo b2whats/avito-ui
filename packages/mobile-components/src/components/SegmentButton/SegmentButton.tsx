@@ -23,7 +23,6 @@ const buttonClassName = createClassName<SegmentButtonProps, typeof segmentButton
     font-size: inherit;
     outline: 0;
     cursor: pointer;
-    user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 
     &::-moz-focus-inner {

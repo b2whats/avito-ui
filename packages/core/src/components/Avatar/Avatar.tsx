@@ -10,14 +10,6 @@ import { avatarTheme } from './theme'
 const avatarClassName = createClassName<AvatarProps, typeof avatarTheme>({
   display: 'inline-flex',
   mapPropsToStyle: true,
-  cssRewrite: (textRules) => (`
-    user-select: none;
-    & *:nth-child(2) {
-      /* position badge above overlay */
-      z-index: 1;
-    }
-    ${textRules}
-  `),
 })
 
 const imageClassName = css`
@@ -31,7 +23,7 @@ export const Avatar = uiComponent('Avatar', avatarTheme)<AvatarProps>((props, { 
   const onError = () => setFallback(true)
   useEffect(() => setFallback(props.src == null), [props.src])
 
-  const { Wrapper, Badge, Fallback } = foldThemeParams({ ...props, isFallback }, theme)
+  const { Wrapper, Fallback } = foldThemeParams({ ...props, isFallback }, theme)
 
   const Tag = props.as || 'span'
   const alt = props.alt || 'Пользователь'
@@ -48,14 +40,11 @@ export const Avatar = uiComponent('Avatar', avatarTheme)<AvatarProps>((props, { 
 
   const avatarStyle = avatarClassName(props, tokens, Wrapper)
 
-  // FIXME put onClick on img / fallback for easier badge clicks?
   return (
     <Tag css={avatarStyle} {...aria} {...filterProps(omit(props, 'src'), Tag)} {...testId()}>
       { isFallback
         ? renderFallback(props.children, Fallback)
         : <img css={imageClassName} draggable='false' src={props.src} onError={onError} alt={alt} {...testId('image')} /> }
-      { props.badge &&
-        <props.badge.type {...Badge} {...props.badge.props} {...testId('badge')} />}
     </Tag>
   )
 })

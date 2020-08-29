@@ -19,6 +19,7 @@ Object {
     "pr": 24,
     "pt": 8,
     "shrink": false,
+    "userSelect": false,
   },
   "IconAfter": Object {
     "size": "s",
@@ -1087,6 +1088,7 @@ Object {
         "pr": 16,
         "pt": [Function],
         "shrink": false,
+        "userSelect": false,
       },
       Object {
         "$if": [Function],
