@@ -553,6 +553,11 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
       case 'userSelect':
         css += `user-select: ${value ? 'auto' : 'none'};`
         break
+      case 'transition':
+        if (value) {
+          css += `transition: all ${value};`
+        }
+        break
       default:
         // Exhaustive switch guard
         assertExhaustive<

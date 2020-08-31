@@ -29,6 +29,7 @@ export const cardTheme = dsl.theme<CardTheme>()
     rounded: 'circle',
     top: 4,
     right: 4,
+    transition: '150ms cubic-bezier(0.4, 0, 0.2, 1)',
   })
   .slot('Image', {
     order: props => props.column ? 0 : 1,

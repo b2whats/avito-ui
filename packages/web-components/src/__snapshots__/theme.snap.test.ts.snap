@@ -27,6 +27,7 @@ Object {
     "rounded": "circle",
     "size": "s",
     "top": 4,
+    "transition": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
   },
   "Content": Object {
     "pb": 0,
@@ -142,6 +143,7 @@ Object {
         "rounded": "circle",
         "size": "s",
         "top": 4,
+        "transition": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
       },
     ],
     "Content": Array [
@@ -412,7 +414,7 @@ Object {
 exports[`web theme Badge snap 1`] = `
 Object {
   "defaultProps": Object {
-    "animateChange": "wheel",
+    "animateChange": "slide",
     "kind": "fill",
   },
   "mapProps": [Function],
@@ -473,6 +475,7 @@ Object {
     "rounded": "circle",
     "size": "s",
     "top": 4,
+    "transition": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
   },
   "Content": Object {
     "pb": 32,
@@ -531,6 +534,7 @@ Object {
         "rounded": "circle",
         "size": "s",
         "top": 4,
+        "transition": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
       },
     ],
     "Content": Array [
@@ -1937,6 +1941,7 @@ Object {
     "rounded": "circle",
     "size": "s",
     "top": 4,
+    "transition": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
   },
   "Content": Object {
     "pb": 12,
@@ -1985,6 +1990,7 @@ Object {
         "rounded": "circle",
         "size": "s",
         "top": 4,
+        "transition": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
       },
     ],
     "Content": Array [
