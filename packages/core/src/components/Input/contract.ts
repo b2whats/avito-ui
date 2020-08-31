@@ -64,5 +64,5 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   renderCore?: (props: InputCoreProps) => JSX.Element
 }
 
-export interface InputNumberProps extends Omit<InputProps, 'type' | 'formatter'>, NumberFormatterSettings {}
+export interface InputNumberProps extends Omit<InputProps, 'type' | 'formatter'>, Partial<NumberFormatterSettings> {}
 
