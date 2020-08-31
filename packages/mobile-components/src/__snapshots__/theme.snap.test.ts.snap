@@ -710,7 +710,7 @@ exports[`mobile theme Button fuzz: children="text" preset="accent" checked loadi
 Object {
   "Button": Object {
     "bg": "green500",
-    "bgActive": "green800",
+    "bgActive": "green600",
     "bgChecked": undefined,
     "bgDisabled": "gray4",
     "colorDisabled": "gray48",
@@ -722,7 +722,7 @@ exports[`mobile theme Button fuzz: children="text" preset="accent" checked loadi
 Object {
   "Button": Object {
     "bg": "green500",
-    "bgActive": "green800",
+    "bgActive": "green600",
     "bgChecked": undefined,
     "bgDisabled": "gray4",
     "colorDisabled": "gray48",
@@ -734,7 +734,7 @@ exports[`mobile theme Button fuzz: children="text" preset="accent" checked=false
 Object {
   "Button": Object {
     "bg": "green500",
-    "bgActive": "green800",
+    "bgActive": "green600",
     "bgChecked": undefined,
     "bgDisabled": "gray4",
     "colorDisabled": "gray48",
@@ -746,7 +746,7 @@ exports[`mobile theme Button fuzz: children="text" preset="accent" checked=false
 Object {
   "Button": Object {
     "bg": "green500",
-    "bgActive": "green800",
+    "bgActive": "green600",
     "bgChecked": undefined,
     "bgDisabled": "gray4",
     "colorDisabled": "gray48",
@@ -1613,7 +1613,7 @@ Object {
         "accent": Array [
           Object {
             "bg": "green500",
-            "bgActive": "green800",
+            "bgActive": "green600",
             "bgDisabled": "gray4",
             "color": "white",
             "colorDisabled": "gray48",
