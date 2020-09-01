@@ -1,14 +1,21 @@
-import { ButtonTheme, dsl } from '@avito/core'
+import { ButtonTheme, dsl, StyleProperties } from '@avito/core'
+
+const fillTheme = (hue: string): StyleProperties => ({
+  bg: `${hue}500`,
+  bgHover: `${hue}600`,
+  bgActive: `${hue}700`,
+  bgDisabled: 'gray4',
+  colorDisabled: 'gray48',
+  focus: `${hue}100`,
+})
 
 export const buttonTheme = dsl.theme<ButtonTheme>()
   .defaultProps({
     preset: 'primary',
   })
-  .slot('Text', slot => [{
+  .slot('Text', {
     dense: true,
-  }, slot.if(props => props.kind === 'fill', {
-    uppercase: true,
-  })])
+  })
   .slot('Button', slot => [
     slot.switch('preset', {
       primary: {
@@ -95,53 +102,33 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
     slot.switch('kind', {
       fill: [
         {
-          bg: 'blue50',
-          bgHover: 'blue60',
-          bgActive: 'blue70',
-          bgChecked: 'blue70',
-          bgDisabled: 'blue30',
           color: 'white',
-          colorDisabled: 'gray30',
+          bg: 'blue500',
+          bgActive: 'blue600',
+          bgChecked: 'blue600',
+          bgDisabled: 'blue300',
         },
         slot.switch('variant', {
           primary: {
-            bg: 'blue50',
-            bgHover: 'blue60',
-            bgActive: 'blue70',
-            bgChecked: 'blue70',
-            bgDisabled: 'blue30',
+            ...fillTheme('blue'),
           },
           secondary: {
-            bg: 'gray50',
-            bgHover: 'gray60',
-            bgActive: 'gray70',
-            bgChecked: 'gray70',
-            bgDisabled: 'gray30',
+            bg: 'gray8',
+            bgHover: 'gray12',
+            bgActive: 'gray20',
+            bgDisabled: 'gray8',
             color: 'black',
-            colorDisabled: 'gray70',
+            focus: 'blue100',
           },
           success: {
-            bg: 'green50',
-            bgHover: 'green60',
-            bgActive: 'green70',
-            bgChecked: 'green70',
-            bgDisabled: 'green30',
+            ...fillTheme('green'),
           },
           warning: {
-            bg: 'yellow50',
-            bgHover: 'yellow60',
-            bgActive: 'yellow70',
-            bgChecked: 'yellow70',
-            bgDisabled: 'yellow30',
+            ...fillTheme('orange'),
             color: 'black',
-            colorDisabled: 'gray70',
           },
           error: {
-            bg: 'red50',
-            bgHover: 'red60',
-            bgActive: 'red70',
-            bgChecked: 'red70',
-            bgDisabled: 'red30',
+            ...fillTheme('red'),
           },
         }),
       ],

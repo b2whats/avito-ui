@@ -301,6 +301,44 @@ import { Text } from '../Text/'
 ```
 :::
 
+## Внешний вид кнопки
+
+Параметр `kind` задает свойства которые будут раскрашены цветом  
+Параметр `variant` задает цветовую схему
+
+::: platform mobile
+```js
+import { Stack } from '../Layout/'
+import { SearchIcon } from '../Icon/icons'
+import { Text } from '../Text/'
+;
+
+<Stack column>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} spacingCross={10} valign='middle' wrap>
+    <Text width={120}>success</Text>
+    <Button kind='fill' variant='success'>Кнопка</Button>
+    <Button kind='fill' variant='success' disabled>Кнопка</Button>
+    <Button kind='fill' variant='success' loading>Кнопка</Button>
+    <Button kind='fill' variant='success' shape='pill'>Кнопка</Button>
+  </Stack>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} spacingCross={10} valign='middle' wrap>
+    <Text width={120}>warning</Text>
+    <Button kind='fill' variant='warning'>Кнопка</Button>
+    <Button kind='fill' variant='warning' disabled>Кнопка</Button>
+    <Button kind='fill' variant='warning' loading>Кнопка</Button>
+    <Button kind='fill' variant='warning' shape='pill'>Кнопка</Button>
+  </Stack>
+  <Stack p={10} spacing={10} spacingCross={10} pb={0} spacingCross={10} valign='middle' wrap>
+    <Text width={120}>error</Text>
+    <Button kind='fill' variant='error'>Кнопка</Button>
+    <Button kind='fill' variant='error' disabled>Кнопка</Button>
+    <Button kind='fill' variant='error' loading>Кнопка</Button>
+    <Button kind='fill' variant='error' shape='pill'>Кнопка</Button>
+  </Stack>
+</Stack>
+```
+:::
+
 ::: platform web
 ```tsx
 import { Stack } from '../Layout';

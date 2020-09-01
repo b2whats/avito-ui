@@ -41,6 +41,7 @@ const assoc = (prop: string, value: any, object: {}) => {
   result[prop] = value
   return result
 }
+global['isObject'] = isObject
 global['isNumber'] = isNumber
 global['updateObject'] = (path: string, value: any) => (target: any[] | object) => {
   const stack = Array.isArray(path) ? path : path.split('.')

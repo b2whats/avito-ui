@@ -17,6 +17,10 @@ const textClassName = createClassName<TextProps, typeof textTheme>({
       text-decoration: none;
     }
 
+    p& {
+      margin: 0;
+    }
+
     ${strike ? `
       position: relative;
       white-space: nowrap;

@@ -37,7 +37,7 @@ export interface TextProps extends StyleProperties, CommonAttributes<HTMLDivElem
   /** Цветовые варианты текста */
   variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Текстовая нода */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'strong' | 'em' | 'label' | 'li' | 'a' | 'p' | ComponentType
+  as?: string | ComponentType
   /** Инлайновое поведение */
   inline?: boolean
   /** Блочное поведение */
