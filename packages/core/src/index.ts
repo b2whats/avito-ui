@@ -23,7 +23,6 @@ export * from './components/Toggle'
 export * from './components/Tooltip/'
 
 export * from './hooks/'
-export * from './styled-system/'
 export * from './utils/'
 export * from './styled-system/'
 export * from './theme/'
