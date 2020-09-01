@@ -7,6 +7,7 @@ export type TextTheme = ComponentTheme<TextProps, { Text: Slot }>
 export const textTheme = dsl.theme<TextTheme>()
   .slot('Text', slot => [{
     lineHeight: 'normal',
+    m: 'none',
     fontSize: props => props.size,
     color: slot.mapped('variant', {
       primary: 'blue500',
