@@ -63,6 +63,23 @@ const [count, setCount] = useState(1);
 </Stack>
 ```
 
+## Цвет
+
+`variant` управляет цветом пойнта:
+
+```js
+<Stack spacing='s' column>
+  <Text block>
+    <Point /> по умолчанию
+  </Text>
+  {['primary', 'secondary', 'success', 'warning', 'error'].map(variant => (
+    <Text block>
+      <Point variant={variant} /> {variant}
+    </Text>
+  ))}
+</Stack>
+```
+
 ## Расположение
 
 Бейдж прицепляют к другим элементам через хелпер `Point.Over`. Положением управляют через `snapTop (Right / Bottom / Left)`. Остальные пропы передаются обертке.
@@ -146,25 +163,5 @@ import { Group } from '../Layout';
       <Button block preset='secondary' size='m'>Цветной вырез</Button>
     </Point.Over>
   </Box>
-</Stack>
-```
-
-## Текстовый бейдж
-
-`kind='flat'` делает бейдж текстовым — без фона. Такой бейдж наследует стиль окружающего текста:
-
-```js
-import { InputNumber } from '../Input'
-const [count, setCount] = useState(98);
-
-<Stack spacing='s' column width={200} userSelect={false} cursor='pointer' >
-  <Stack colorHover='red500' onClick={() => setCount(count - 1)}>
-    <Text grow >Входящие</Text>
-    <Point kind='flat' count={count}/>
-  </Stack>
-  <Stack colorHover='red500' onClick={() => setCount(count + 1)}>
-    <Text grow>Отправленные</Text>
-    <Point kind='flat' bold count={100 - count} />
-  </Stack>
 </Stack>
 ```

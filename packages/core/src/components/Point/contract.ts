@@ -1,9 +1,9 @@
 import { ReactElement } from 'react'
-import { Colors } from '../../styled-system'
+import { Colors, Variant } from '../../styled-system'
 import { CommonAttributes } from '../../utils'
 import { BoxProps } from '../Layout'
 
-export interface PointProps extends BoxProps, CommonAttributes {
+export interface PointProps extends BoxProps, Variant, CommonAttributes {
   show?: boolean
   count?: string | number
   /* Размер  */

@@ -1,11 +1,12 @@
 import React from 'react'
-import { StyleProperties } from '../../styled-system/'
+import { Variant, StyleProperties } from '../../styled-system'
+
 import { CommonAttributes } from '../../utils/'
 
 // export enum trick allows per-platform declaration merging
 export enum ButtonPreset { primary, default }
 
-export interface ButtonProps extends StyleProperties, CommonAttributes<HTMLButtonElement | HTMLLinkElement> {
+export interface ButtonProps extends StyleProperties, Variant, CommonAttributes<HTMLButtonElement | HTMLLinkElement> {
   /** Размер кнопки */
   size?: 's' | 'm' | 'l'
   /** Имя кнопки */
@@ -18,8 +19,6 @@ export interface ButtonProps extends StyleProperties, CommonAttributes<HTMLButto
   checked?: boolean
   /** Неактивная кнопка */
   disabled?: boolean
-  /** Цветовые варианты кнопки */
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Действие которое совершает кнопка */
   type?: 'button' | 'submit' | 'reset'
   /** Кнопка со спиннером */

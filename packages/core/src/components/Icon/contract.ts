@@ -1,7 +1,7 @@
-import { StyleProperties } from '../../styled-system/'
+import { StyleProperties, Variant } from '../../styled-system/'
 import { CommonAttributes } from '../../utils/'
 
-export interface BaseIconProps extends StyleProperties, CommonAttributes<SVGElement> {
+export interface BaseIconProps extends StyleProperties, Variant, CommonAttributes<SVGElement> {
   /** Имя */
   name: string
   /** Размеры конейнера с иконкой */
@@ -12,8 +12,6 @@ export interface BaseIconProps extends StyleProperties, CommonAttributes<SVGElem
   rotate?: number
   /** Вращение иконки */
   spin?: number | boolean
-  /** Цветовые варианты иконок */
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Зона областии для клика */
   area?: number
   /** Добавляет тень для иконки */

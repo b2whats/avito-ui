@@ -1,5 +1,6 @@
 import React, { Ref, ChangeEvent } from 'react'
 import type { Formatter, NumberFormatterSettings } from '../../formatters'
+import { Variant } from '../../styled-system'
 import { CommonAttributes } from '../../utils/'
 
 export enum InputPreset {}
@@ -34,7 +35,7 @@ export interface InputCoreProps {
   deletePlaceholderOnFocus?: boolean
 }
 
-export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange' | 'onClick'>, CommonAttributes<HTMLInputElement, string | number> {
+export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange' | 'onClick'>, Variant, CommonAttributes<HTMLInputElement, string | number> {
   /** Размер */
   size?: 's' | 'm' | 'l'
   /** Форматирование и маски */
@@ -45,8 +46,6 @@ export interface InputProps extends Omit<InputCoreProps, 'className' | 'onChange
   loading?: boolean
   /** Внешний вид компонента */
   kind?: 'fill' | 'outline'
-  /** Цветовые варианты */
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Тип текстового поля */
   type?: 'text' | 'number' | 'phone' | 'email' | 'tel'
   /** Иконка в начале */
