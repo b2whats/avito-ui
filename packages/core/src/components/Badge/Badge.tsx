@@ -1,7 +1,8 @@
 import React, { useRef, useState, useLayoutEffect, cloneElement } from 'react'
 import { foldThemeParams, css, createClassName } from '../../styled-system'
 import { uiComponent } from '../../theme'
-import { formatCount, filterProps, omit, pick, trueMap, TrueMap } from '../../utils'
+import { formatCount, omit, pick, trueMap, TrueMap } from '../../utils'
+import { AppearAnimation } from '../Animations'
 import { Box } from '../Layout'
 import { BadgeProps, BadgeKeys, BadgeOverProps } from './contract'
 import { badgeTheme } from './theme'
@@ -29,13 +30,12 @@ export const Badge = uiComponent('Badge', badgeTheme)<BadgeProps>((props, { them
   const { Badge } = foldThemeParams(props, theme)
   const badgeStyle = badgeClassName(props, tokens, Badge)
 
-  if (!count) return null
   return (
-    <div css={badgeStyle} {...filterProps(props)}>
+    <AppearAnimation css={badgeStyle} {...props} show={!!count} cacheChildrenOnExit>
       {props.animateChange === 'slide'
         ? count.split('').map((digit, index) => <DigitAnimator key={count.length - index} value={digit} />)
         : count}
-    </div>
+    </AppearAnimation>
   )
 }).static({
   Over: uiComponent('BadgeOver', {}, { memo: false })<BadgeOverProps>((props) => (
