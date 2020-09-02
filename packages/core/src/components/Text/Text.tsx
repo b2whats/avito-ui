@@ -9,6 +9,8 @@ const textClassName = createClassName<TextProps, typeof textTheme>({
   display: props => props.width || props.height ? 'inline-block' : 'inline',
   mapPropsToStyle: true,
   cssRewrite: (textRules, { strike }, { palette }) => (`
+    margin: 0;
+    
     li& {
       list-style: none;
     }

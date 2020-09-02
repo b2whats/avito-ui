@@ -204,7 +204,7 @@ function getWidth(
   }
 
   return width.endsWith('%') && (ml || mr)
-    ? `calc(${width} - ${ml || '0'} - ${mr || '0'})`
+    ? `calc(${width} - ${ml && ml !== 'auto' ? ml : '0px'} - ${mr && mr !== 'auto' ? mr : '0px'})`
     : width
 }
 
