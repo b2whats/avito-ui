@@ -10,7 +10,8 @@ const textClassName = createClassName<TextProps, typeof textTheme>({
   mapPropsToStyle: true,
   cssRewrite: (textRules, { strike }, { palette }) => (`
     margin: 0;
-    
+    font-weight: normal;
+
     li& {
       list-style: none;
     }
