@@ -26,7 +26,7 @@ type Internals<ThemeType, Tokens, Element> = {
 }
 
 type WithUiComponentStatics<Component> = Component & {
-  static<Statics>(statics: Statics): WithUiComponentStatics<Component & Statics>
+  static<Statics>(statics: Statics | ((base: Component) => Statics)): WithUiComponentStatics<Component & Statics>
 }
 
 type InternalProps<Props, RefType> = Props & { marker?: string, ref: MutableRefObject<RefType> }
@@ -74,7 +74,9 @@ export function uiComponent<ThemeType extends object = {}>(
     })))
     WrappedComponent.displayName = name
     WrappedComponent.baseTheme = theme
-    WrappedComponent.static = (extras: any) => Object.assign(WrappedComponent, extras)
+    WrappedComponent.static = (extras: any) => Object.assign(
+      WrappedComponent,
+      typeof extras === 'function' ? extras(WrappedComponent) : extras)
     type Component = <T extends object>(props: ExternalProps & (T extends unknown ? {} : T)) => JSX.Element
     return WrappedComponent as unknown as WithUiComponentStatics<Component>
   }

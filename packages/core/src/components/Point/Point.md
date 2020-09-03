@@ -89,28 +89,26 @@ import { Button } from '@avito/core';
 import { UserIcon } from '../Icon/icons';
 
 <Stack spacing='s' column width={200} align='left'>
-  <Point.Over gap count={14} snapTop={-8} snapRight={-8}>
+  <Point.Over gap snapTop={-2} snapRight={-2}>
     <Button preset='secondary'>Показать объявления</Button>
   </Point.Over>
   <Point.Over
-    snapTop={-8}
-    snapRight={-8}
-    badge={
+    snapTop={-2}
+    snapRight={-2}
+    point={
       <Point
         gap
-        count={14}
         bgHover='red600'
         cursor='pointer'
-        onClick={() => alert('badge click')} />}
+        onClick={() => alert('point click')} />}
   >
-    <Button preset='secondary'>Нажми на бейдж</Button>
+    <Button preset='secondary'>Нажми на пойнт</Button>
   </Point.Over>
   <Point.Over
     gap
     size='s'
-    count={7}
-    snapBottom={-2}
-    snapRight={-2}
+    snapBottom
+    snapRight
   >
     <UserIcon size='l' />
   </Point.Over>
@@ -119,8 +117,6 @@ import { UserIcon } from '../Icon/icons';
 
 Также бейдж ставят внутри элемента, рядом с ним или в тексте:
 
-XXX: Default margins for pulse?
-
 ```jsx
 import { PointOver } from './Point';
 import { Button } from '@avito/core';
@@ -128,14 +124,14 @@ import { Button } from '@avito/core';
 <Stack spacing='s' column width={200} align='left'>
   <Button preset='secondary' shape='pill'>
     Внутри элемента
-    <Point gap count={3} ml={5} />
+    <Point ml={5} />
   </Button>
   <Stack>
     <Button preset='secondary'>Рядом с элементом</Button>
-    <Point ml={9} count={14} />
+    <Point ml={9} />
   </Stack>
   <Stack spacing='s'>
-    <Text>В тексте <Point ml={5} count={900}/></Text>
+    <Text>В тексте <Point /></Text>
   </Stack>
 </Stack>
 ```
@@ -149,18 +145,18 @@ import { Button } from '@avito/core';
 import { Group } from '../Layout';
 
 <Stack spacing='m' column width={200}>
-  <Point.Over count={14} snapTop={-8} snapLeft={-8}>
-    <Button block preset='secondary' size='m'>Без выреза</Button>
+  <Point.Over count={14} snapTop snapLeft>
+    <Button shape='pill' block preset='secondary' size='m'>Без выреза</Button>
   </Point.Over>
-  <Point.Over gap count={14} snapTop={-8} snapRight={-8}>
-    <Button block preset='secondary' size='m'>Стандартный вырез</Button>
+  <Point.Over gap count={14} snapTop snapRight>
+    <Button shape='pill' block preset='secondary' size='m'>Стандартный вырез</Button>
   </Point.Over>
-  <Point.Over gapSize={4} count={14} snapBottom={-10} snapLeft={-10}>
-    <Button block preset='secondary' size='m'>Большой вырез</Button>
+  <Point.Over gapSize={4} count={14} snapBottom snapLeft>
+    <Button shape='pill' block preset='secondary' size='m'>Большой вырез</Button>
   </Point.Over>
   <Box bg='gray12' p={16} m={-16} mt={0}>
-    <Point.Over width={1} gapColor='gray12' count={14} snapBottom={-8} snapRight={-8}>
-      <Button block preset='secondary' size='m'>Цветной вырез</Button>
+    <Point.Over width={1} gapColor='gray12' count={14} snapBottom snapRight>
+      <Button shape='pill' block preset='secondary' size='m'>Цветной вырез</Button>
     </Point.Over>
   </Box>
 </Stack>

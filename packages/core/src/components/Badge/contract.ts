@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement } from 'react'
+import { ReactNode } from 'react'
 import { Colors } from '../../styled-system/'
 import { CommonAttributes } from '../../utils/'
 import { BoxProps } from '../Layout'
@@ -24,18 +24,3 @@ export interface BadgeProps extends BoxProps, CommonAttributes {
   /* Цвет выреза для маскировки под фон */
   gapColor?: Colors
 }
-
-export interface BadgeOverProps extends BadgeProps {
-  /* Слот для кастомизированного бейджа */
-  badge?: ReactElement
-  /* Прицепить бейдж к верху (или отступ) */
-  snapTop?: boolean | number
-  /* Прицепить бейдж к правому краю (или отступ) */
-  snapRight?: boolean | number
-  /* Прицепить бейдж к низу (или отступ) */
-  snapBottom?: boolean | number
-  /* Прицепить бейдж к левому краю (или отступ) */
-  snapLeft?: boolean | number
-}
-
-export type BadgeKeys = Exclude<keyof BadgeOverProps, keyof BoxProps | keyof CommonAttributes>

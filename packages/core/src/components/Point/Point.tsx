@@ -1,8 +1,9 @@
 import React from 'react'
 import { foldThemeParams, css, createClassName, keyframes } from '../../styled-system'
 import { uiComponent } from '../../theme'
-import { gapStyle } from '../../utils'
+import { gapStyle, trueMap } from '../../utils'
 import { AppearAnimation } from '../Animations'
+import { makeOverlay } from '../Layout/makeOverlay'
 import { PointProps } from './contract'
 import { pointTheme } from './theme'
 
@@ -46,4 +47,9 @@ export const Point = uiComponent('Point', pointTheme)<PointProps>((props, { them
   const { Point } = foldThemeParams(props, theme)
   const pointStyle = pointClassName(props, tokens, Point)
   return <AppearAnimation css={pointStyle} {...props} />
-})
+}).static(Point => ({
+  Over: makeOverlay(Point, {
+    slot: 'point',
+    pickProps: trueMap(['size', 'show', 'pulse', 'count', 'gap', 'gapSize', 'gapColor']),
+  }),
+}))

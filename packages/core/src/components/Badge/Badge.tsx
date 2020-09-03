@@ -1,10 +1,10 @@
-import React, { useRef, useState, useLayoutEffect, cloneElement } from 'react'
+import React, { useRef, useState, useLayoutEffect } from 'react'
 import { foldThemeParams, css, createClassName } from '../../styled-system'
 import { uiComponent } from '../../theme'
-import { formatCount, omit, pick, trueMap, TrueMap, gapStyle } from '../../utils'
+import { formatCount, trueMap, gapStyle } from '../../utils'
 import { AppearAnimation } from '../Animations'
-import { Box } from '../Layout'
-import { BadgeProps, BadgeKeys, BadgeOverProps } from './contract'
+import { makeOverlay } from '../Layout/makeOverlay'
+import { BadgeProps } from './contract'
 import { badgeTheme } from './theme'
 
 const badgeClassName = createClassName<BadgeProps, typeof badgeTheme>({
@@ -36,28 +36,12 @@ export const Badge = uiComponent('Badge', badgeTheme)<BadgeProps>((props, { them
         : count}
     </AppearAnimation>
   )
-}).static({
-  Over: uiComponent('BadgeOver', {}, { memo: false })<BadgeOverProps>((props) => (
-    <Box position='relative' {...omit(props, badgeFilter)}>
-      {props.children}
-      {cloneElement(props.badge || <Badge />, {
-        position: 'absolute',
-        top: mapSnap(props.snapTop),
-        left: mapSnap(props.snapLeft),
-        bottom: mapSnap(props.snapBottom),
-        right: mapSnap(props.snapRight),
-        ...pick(props, badgeFilter),
-        ...(props.badge ? props.badge.props : {}),
-      })}
-    </Box>
-  )),
-})
-
-const mapSnap = (snap?: boolean | number) => typeof snap === 'number' ? snap : (snap ? 0 : undefined)
-const badgeFilter: TrueMap<BadgeKeys> = trueMap([
-  'size', 'count', 'animateChange', 'kind', 'badge', 'showZero',
-  'gap', 'gapSize', 'gapColor',
-  'snapTop', 'snapBottom', 'snapLeft', 'snapRight'] as const)
+}).static(Badge => ({
+  Over: makeOverlay(Badge, {
+    slot: 'badge',
+    pickProps: trueMap(['size', 'count', 'animateChange', 'kind', 'showZero', 'gap', 'gapSize', 'gapColor']),
+  }),
+}))
 
 const digits = Array(10).fill('').map((_, index) => index)
 const countSpinCss = css`
