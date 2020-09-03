@@ -31,7 +31,6 @@ export const pointTheme = dsl.theme<PointTheme>()
         warning: 'orange700',
         error: 'red500',
       }, 'black'),
-      mx: props => props.pulse ? 0.75 * (props.size as number) : 0,
     },
   ])
   .build()

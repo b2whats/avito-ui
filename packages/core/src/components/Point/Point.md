@@ -80,6 +80,18 @@ const [count, setCount] = useState(1);
 </Stack>
 ```
 
+## Анимация
+
+`pulse` добавляет пойнту выскакивающую обводку для привлечения внимания:
+
+```jsx
+<Stack spacing='m'>
+  {['primary', 'secondary', 'success', 'warning', 'error'].map(variant => (
+    <Point key={variant} pulse variant={variant} />
+  ))}
+</Stack>
+```
+
 ## Расположение
 
 Бейдж прицепляют к другим элементам через хелпер `Point.Over`. Положением управляют через `snapTop (Right / Bottom / Left)`. Остальные пропы передаются обертке.
