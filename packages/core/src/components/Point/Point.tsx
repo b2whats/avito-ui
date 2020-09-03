@@ -1,6 +1,7 @@
 import React from 'react'
 import { foldThemeParams, css, createClassName, keyframes } from '../../styled-system'
 import { uiComponent } from '../../theme'
+import { gapStyle } from '../../utils'
 import { AppearAnimation } from '../Animations'
 import { PointProps } from './contract'
 import { pointTheme } from './theme'
@@ -18,13 +19,11 @@ const pulseAnimation = keyframes`
 const pointClassName = createClassName<PointProps, typeof pointTheme>({
   display: 'inline-block',
   mapPropsToStyle: true,
-  cssRewrite: (textRules, { gapSize, gapColor, pulse }, { palette }) => css`
+  cssRewrite: (textRules, props, { palette }) => css`
     position: relative;
+    ${gapStyle(props, palette)}
 
-    ${ gapSize && gapColor ?
-      `box-shadow: 0 0 0 ${gapSize}px ${palette[gapColor] || gapColor};` : ''}
-
-    &::after${ pulse ? ', &::before' : '' } {
+    &::after${ props.pulse ? ', &::before' : '' } {
       content: '';
       position: absolute;
       top: 0;

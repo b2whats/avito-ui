@@ -11,9 +11,6 @@ export const pointTheme = dsl.theme<PointTheme>()
     variant: 'error',
   })
   .mapProps((props) => ({
-    // specifying anything gap-related enables gap
-    gapSize: (props.gap || props.gapColor) ? 2 : 0,
-    gapColor: (props.gap || props.gapSize) ? 'white' : undefined,
     // show by default if count missing or positive
     show: !('count' in props) || Number(props.count) > 0,
     ...props,

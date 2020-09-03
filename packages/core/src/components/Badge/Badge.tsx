@@ -1,7 +1,7 @@
 import React, { useRef, useState, useLayoutEffect, cloneElement } from 'react'
 import { foldThemeParams, css, createClassName } from '../../styled-system'
 import { uiComponent } from '../../theme'
-import { formatCount, omit, pick, trueMap, TrueMap } from '../../utils'
+import { formatCount, omit, pick, trueMap, TrueMap, gapStyle } from '../../utils'
 import { AppearAnimation } from '../Animations'
 import { Box } from '../Layout'
 import { BadgeProps, BadgeKeys, BadgeOverProps } from './contract'
@@ -10,15 +10,14 @@ import { badgeTheme } from './theme'
 const badgeClassName = createClassName<BadgeProps, typeof badgeTheme>({
   display: 'inline-block',
   mapPropsToStyle: true,
-  cssRewrite: (textRules, { gapSize, gapColor }, { palette }, { height }) => `
+  cssRewrite: (textRules, props, { palette }, { height }) => `
     overflow: hidden;
     white-space: nowrap;
     // the only vertical centering that works
     vertical-align: middle;
     line-height: ${height}px;
 
-    ${ gapSize && gapColor ?
-      `box-shadow: 0 0 0 ${gapSize}px ${palette[gapColor] || gapColor};` : ''}
+    ${gapStyle(props, palette)}
 
     ${textRules}
   `,
