@@ -205,6 +205,8 @@ interface OtherProperties extends BorderProperties {
   marker?: string
   /* Позиция элемента по оси Z */
   zIndex?: number
+  // Анимация
+  transition?: string
 }
 
 export type Colors = keyof Tokens['palette'] | 'transparent' | 'inherit' | (string & {})
