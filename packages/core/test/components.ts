@@ -2,6 +2,7 @@
 import { alertMock } from '../src/components/Alert/mockProps'
 import { avatarMock } from '../src/components/Avatar/mockProps'
 import { badgeMock } from '../src/components/Badge/mockProps'
+import { pointMock } from '../src/components/Point/mockProps'
 import { bannerMock } from '../src/components/Banner/mockProps'
 import { buttonMock } from '../src/components/Button/mockProps'
 import { cardMock } from '../src/components/Card/mockProps'
@@ -28,6 +29,7 @@ export const mocks = {
   Image: imageMock,
   Input: inputMock,
   Link: linkMock,
+  Point: pointMock,
   Radio: radioMock,
   Spinner: spinnerMock,
   Switcher: switcherMock,

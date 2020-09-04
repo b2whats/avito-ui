@@ -1,15 +1,14 @@
-import { mockProps, maybe, sml } from '../../../test'
-import { BadgeProps } from './contract'
+import { mockProps, maybe, sml, bool, variant } from '../../../test'
+import { PointProps } from './contract'
 
-export const badgeMock = mockProps<BadgeProps>(() => [{
-  size: sml,
-  kind: maybe('flat'),
+export const pointMock = mockProps<PointProps>(() => [{
+  size: [...sml, 3],
+}, {
+  variant,
 }], {
-  browserBase: {
-    count: 10,
-  } as any,
   browserSets: [{
-    count: [0, 10, 999],
+    show: maybe(bool),
+    count: [0, 2],
   }, {
     gap: [true],
     // otherwise we won't see the gap

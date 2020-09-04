@@ -18,6 +18,7 @@ const describeNamedTheme = (name: keyof Theme, baseTheme?: any, mockOptions?: an
 describe('mobile theme', () => {
   describeNamedTheme('Avatar')
   describeNamedTheme('Badge')
+  describeNamedTheme('Point')
   describeNamedTheme('Button')
   describeNamedTheme('Image')
 

@@ -3012,6 +3012,106 @@ Object {
 }
 `;
 
+exports[`web theme Point base 1`] = `
+Object {
+  "Point": Object {
+    "bg": "red500",
+    "cursor": "inherit",
+    "height": 8,
+    "shape": "circle",
+    "valignSelf": "middle",
+    "width": 8,
+    "zIndex": 2,
+  },
+}
+`;
+
+exports[`web theme Point fuzz: size="l" 1`] = `
+Object {
+  "Point": Object {
+    "height": 12,
+    "width": 12,
+  },
+}
+`;
+
+exports[`web theme Point fuzz: size="m" 1`] = `Object {}`;
+
+exports[`web theme Point fuzz: size="s" 1`] = `
+Object {
+  "Point": Object {
+    "height": 6,
+    "width": 6,
+  },
+}
+`;
+
+exports[`web theme Point fuzz: size=3 1`] = `
+Object {
+  "Point": Object {
+    "height": 3,
+    "width": 3,
+  },
+}
+`;
+
+exports[`web theme Point fuzz: variant="error" 1`] = `Object {}`;
+
+exports[`web theme Point fuzz: variant="primary" 1`] = `
+Object {
+  "Point": Object {
+    "bg": "blue500",
+  },
+}
+`;
+
+exports[`web theme Point fuzz: variant="secondary" 1`] = `
+Object {
+  "Point": Object {
+    "bg": "gray24",
+  },
+}
+`;
+
+exports[`web theme Point fuzz: variant="success" 1`] = `
+Object {
+  "Point": Object {
+    "bg": "green600",
+  },
+}
+`;
+
+exports[`web theme Point fuzz: variant="warning" 1`] = `
+Object {
+  "Point": Object {
+    "bg": "orange700",
+  },
+}
+`;
+
+exports[`web theme Point snap 1`] = `
+Object {
+  "defaultProps": Object {
+    "size": "m",
+    "variant": "error",
+  },
+  "mapProps": [Function],
+  "scheme": Object {
+    "Point": Array [
+      Object {
+        "bg": [Function],
+        "cursor": "inherit",
+        "height": [Function],
+        "shape": "circle",
+        "valignSelf": "middle",
+        "width": [Function],
+        "zIndex": 2,
+      },
+    ],
+  },
+}
+`;
+
 exports[`web theme Radio base 1`] = `
 Object {
   "Icon": Object {},

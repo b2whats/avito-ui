@@ -16,21 +16,19 @@ export const pointTheme = dsl.theme<PointTheme>()
     ...props,
     size: sizes[props.size!] || props.size,
   }))
-  .slot('Point', slot => [
-    {
-      cursor: 'inherit',
-      zIndex: 2,
-      shape: 'circle',
-      valignSelf: 'middle',
-      width: props => props.size,
-      height: props => props.size,
-      bg: slot.mapped('variant', {
-        primary: 'blue500',
-        secondary: 'gray24',
-        success: 'green600',
-        warning: 'orange700',
-        error: 'red500',
-      }, 'black'),
-    },
-  ])
+  .slot('Point', slot => ({
+    cursor: 'inherit',
+    zIndex: 2,
+    shape: 'circle',
+    valignSelf: 'middle',
+    width: props => props.size,
+    height: props => props.size,
+    bg: slot.mapped('variant', {
+      primary: 'blue500',
+      secondary: 'gray24',
+      success: 'green600',
+      warning: 'orange700',
+      error: 'red500',
+    }, 'black'),
+  }))
   .build()
