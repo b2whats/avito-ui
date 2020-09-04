@@ -14,4 +14,13 @@ export const textMock = mockProps<TextProps>(() => [{
   browserBase: {
     children: <>hello<br />i am text</>,
   },
+  browserSets: [{
+    children: ['text'],
+    underline: [true],
+    width: [300],
+  }, {
+    children: ['text'],
+    strike: [true, 'red300'],
+    width: [300],
+  }],
 })

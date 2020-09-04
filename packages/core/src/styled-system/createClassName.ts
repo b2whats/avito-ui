@@ -328,15 +328,6 @@ export const getStyles = (params: ExpandedStyleProperties & Display, tokens: Tok
 
         break
       }
-      case 'underline':
-        css += `
-          cursor: pointer;
-
-          padding-bottom: ${font.underline.offset}px;
-          border-bottom: ${font.underline.height}px ${typeof value === 'string' ? value : 'solid'} currentColor;
-        `
-
-        break
       case 'smoothing':
         css += `
           -webkit-font-smoothing: ${maps.webkitSmoothing[value]};

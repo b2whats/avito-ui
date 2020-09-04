@@ -32,8 +32,6 @@ export interface TextProperties {
   truncate?: boolean
   /* Контейнер текста по высоте строчных букв */
   crop?: boolean
-  /* Подчеркивание текста */
-  underline?: boolean | 'dotted' | 'dashed'
   /* Сглаживание шрифта */
   smoothing?: 'auto' | 'antialiased' | 'subpixel'
 }
