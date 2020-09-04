@@ -40,7 +40,7 @@ export const InputNumber = ({ onChange = () => {}, ...props }: InputNumberProps)
           onChange({ typedValue: value, target, value: String(value) })
           event.preventDefault()
         } else if (event.key === 'ArrowDown') {
-          value -= 1
+          value = Math.max(formatter.settings.positiveOnly ? 0 : -Infinity, value - 1)
           onChange({ typedValue: value, target, value: String(value) })
           event.preventDefault()
         }
