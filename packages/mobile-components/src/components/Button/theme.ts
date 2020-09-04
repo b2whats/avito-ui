@@ -30,7 +30,7 @@ export const buttonTheme = dsl.theme<ButtonTheme>()
         color: 'white',
         colorDisabled: 'gray48',
         bg: 'green500',
-        bgActive: 'green800',
+        bgActive: 'green600',
         bgDisabled: 'gray4',
       },
       secondary: {
