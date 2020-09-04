@@ -5,5 +5,5 @@ export interface AppearAnimationProps extends CommonAttributes {
   show?: boolean
   as?: ComponentType
   cacheChildrenOnExit?: boolean
-  animateFirstRender?: boolean
+  appear?: boolean
 }

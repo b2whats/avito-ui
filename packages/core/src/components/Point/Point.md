@@ -73,7 +73,7 @@ const [count, setCount] = useState(1);
     <Point /> по умолчанию
   </Text>
   {['primary', 'secondary', 'success', 'warning', 'error'].map(variant => (
-    <Text block>
+    <Text key={variant} block>
       <Point variant={variant} /> {variant}
     </Text>
   ))}
