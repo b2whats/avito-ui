@@ -1,5 +1,5 @@
 import React from 'react'
-import { mockProps, sml, maybe, bool, icon } from '../../../test'
+import { mockProps, sml, maybe, bool, icon, variant } from '../../../test'
 import { ButtonProps } from './contract'
 
 export const buttonMock = mockProps<ButtonProps, { buttonPresets: string[] }>(({
@@ -18,6 +18,9 @@ export const buttonMock = mockProps<ButtonProps, { buttonPresets: string[] }>(({
   children: [['line 1', <br key='' />, 'line 2']],
   size: sml,
   multiline: [true],
+}, {
+  kind: ['fill'],
+  variant,
 }], {
   browserSets: [{
     disabled: [true],

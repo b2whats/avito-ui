@@ -1200,6 +1200,71 @@ Object {
 }
 `;
 
+exports[`mobile theme Button fuzz: kind="fill" variant="error" 1`] = `
+Object {
+  "Button": Object {
+    "bg": "red500",
+    "bgActive": "red700",
+    "bgDisabled": "gray4",
+    "bgHover": "red600",
+    "colorDisabled": "gray48",
+    "focus": "red100",
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: kind="fill" variant="primary" 1`] = `
+Object {
+  "Button": Object {
+    "bgActive": "blue700",
+    "bgDisabled": "gray4",
+    "bgHover": "blue600",
+    "colorDisabled": "gray48",
+    "focus": "blue100",
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: kind="fill" variant="secondary" 1`] = `
+Object {
+  "Button": Object {
+    "bg": "gray8",
+    "bgActive": "gray20",
+    "bgDisabled": "gray8",
+    "bgHover": "gray12",
+    "color": "black",
+    "focus": "blue100",
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: kind="fill" variant="success" 1`] = `
+Object {
+  "Button": Object {
+    "bg": "green500",
+    "bgActive": "green700",
+    "bgDisabled": "gray4",
+    "bgHover": "green600",
+    "colorDisabled": "gray48",
+    "focus": "green100",
+  },
+}
+`;
+
+exports[`mobile theme Button fuzz: kind="fill" variant="warning" 1`] = `
+Object {
+  "Button": Object {
+    "bg": "orange500",
+    "bgActive": "orange700",
+    "bgDisabled": "gray4",
+    "bgHover": "orange600",
+    "color": "black",
+    "colorDisabled": "gray48",
+    "focus": "orange100",
+  },
+}
+`;
+
 exports[`mobile theme Button fuzz: size="l" 1`] = `
 Object {
   "Button": Object {
@@ -1718,63 +1783,63 @@ Object {
         "$switch": "kind",
         "fill": Array [
           Object {
-            "bg": "blue50",
-            "bgActive": "blue70",
-            "bgChecked": "blue70",
-            "bgDisabled": "blue30",
-            "bgHover": "blue60",
+            "bg": "blue500",
+            "bgActive": "blue600",
+            "bgChecked": "blue600",
+            "bgDisabled": "blue300",
             "color": "white",
-            "colorDisabled": "gray30",
           },
           Object {
             "$switch": "variant",
             "error": Array [
               Object {
-                "bg": "red50",
-                "bgActive": "red70",
-                "bgChecked": "red70",
-                "bgDisabled": "red30",
-                "bgHover": "red60",
+                "bg": "red500",
+                "bgActive": "red700",
+                "bgDisabled": "gray4",
+                "bgHover": "red600",
+                "colorDisabled": "gray48",
+                "focus": "red100",
               },
             ],
             "primary": Array [
               Object {
-                "bg": "blue50",
-                "bgActive": "blue70",
-                "bgChecked": "blue70",
-                "bgDisabled": "blue30",
-                "bgHover": "blue60",
+                "bg": "blue500",
+                "bgActive": "blue700",
+                "bgDisabled": "gray4",
+                "bgHover": "blue600",
+                "colorDisabled": "gray48",
+                "focus": "blue100",
               },
             ],
             "secondary": Array [
               Object {
-                "bg": "gray50",
-                "bgActive": "gray70",
-                "bgChecked": "gray70",
-                "bgDisabled": "gray30",
-                "bgHover": "gray60",
+                "bg": "gray8",
+                "bgActive": "gray20",
+                "bgDisabled": "gray8",
+                "bgHover": "gray12",
                 "color": "black",
-                "colorDisabled": "gray70",
+                "focus": "blue100",
               },
             ],
             "success": Array [
               Object {
-                "bg": "green50",
-                "bgActive": "green70",
-                "bgChecked": "green70",
-                "bgDisabled": "green30",
-                "bgHover": "green60",
+                "bg": "green500",
+                "bgActive": "green700",
+                "bgDisabled": "gray4",
+                "bgHover": "green600",
+                "colorDisabled": "gray48",
+                "focus": "green100",
               },
             ],
             "warning": Array [
               Object {
-                "bg": "yellow50",
-                "bgActive": "yellow70",
-                "bgChecked": "yellow70",
-                "bgDisabled": "yellow30",
-                "bgHover": "yellow60",
+                "bg": "orange500",
+                "bgActive": "orange700",
+                "bgDisabled": "gray4",
+                "bgHover": "orange600",
                 "color": "black",
-                "colorDisabled": "gray70",
+                "colorDisabled": "gray48",
+                "focus": "orange100",
               },
             ],
           },
@@ -1943,14 +2008,6 @@ Object {
       },
       Object {
         "dense": true,
-      },
-      Object {
-        "$if": [Function],
-        "$then": Array [
-          Object {
-            "uppercase": true,
-          },
-        ],
       },
     ],
   },

@@ -1171,6 +1171,16 @@ Object {
 }
 `;
 
+exports[`web theme Button fuzz: kind="fill" variant="error" 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: kind="fill" variant="primary" 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: kind="fill" variant="secondary" 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: kind="fill" variant="success" 1`] = `Object {}`;
+
+exports[`web theme Button fuzz: kind="fill" variant="warning" 1`] = `Object {}`;
+
 exports[`web theme Button fuzz: size="l" 1`] = `
 Object {
   "Button": Object {
