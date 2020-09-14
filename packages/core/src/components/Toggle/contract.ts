@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleProperties, FoldThemeParamsReturn } from '../../styled-system/'
+import { StyleProperties, FoldThemeParamsReturn, Variant } from '../../styled-system/'
 import { CommonAttributes } from '../../utils/'
 import { ToggleTheme } from './theme'
 
@@ -9,7 +9,7 @@ type ChildrenProps = {
   Icon?: FoldThemeParamsReturn<ToggleTheme>['Icon']
 }
 
-export interface ToggleProps extends StyleProperties, CommonAttributes<HTMLInputElement, string | number> {
+export interface ToggleProps extends StyleProperties, Variant, CommonAttributes<HTMLInputElement, string | number> {
   children?(props: ChildrenProps): React.ReactNode
   /** Размер */
   size?: 's' | 'm' | 'l'
@@ -33,8 +33,6 @@ export interface ToggleProps extends StyleProperties, CommonAttributes<HTMLInput
   description?: string
   /** Позиция лейбла */
   labelPosition?: 'start' | 'end'
-  /** Цветовые варианты */
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Неактивное состояние */
   disabled?: boolean
   /** Класс елемента */

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Variant } from '../../styled-system'
 import { CommonAttributes } from '../../utils/'
 
 export interface TextareaCoreProps {
@@ -29,13 +30,15 @@ export interface TextareaCoreProps {
   onClick?(event: React.MouseEvent<HTMLTextAreaElement>): void
 }
 
-export interface TextareaProps extends Omit<TextareaCoreProps, 'className' | 'onChange' | 'onClick'>, CommonAttributes<HTMLTextAreaElement, string> {
+export interface TextareaProps extends
+  Omit<TextareaCoreProps, 'className' | 'onChange' | 'onClick'>,
+  CommonAttributes<HTMLTextAreaElement, string>,
+  Variant
+{
   /** Размер */
   size?: 's' | 'm' | 'l'
   /** Крестик очистки */
   clearable?: boolean | 'always'
-  /** Цветовые варианты */
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Инлайновое поведение */
   inline?: boolean
 }

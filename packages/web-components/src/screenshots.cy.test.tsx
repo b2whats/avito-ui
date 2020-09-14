@@ -13,6 +13,7 @@ const descibeNamedComponent = (name: keyof Theme, component = components[name]) 
 describe('mobile components', () => {
   descibeNamedComponent('Avatar')
   descibeNamedComponent('Badge')
+  descibeNamedComponent('Point')
   descibeNamedComponent('Button')
   descibeNamedComponent('Image')
 

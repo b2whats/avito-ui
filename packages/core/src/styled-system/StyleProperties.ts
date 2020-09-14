@@ -274,5 +274,10 @@ export interface ColorProperties {
   overlayDisabled?: Colors
 }
 
+export interface Variant {
+  /* Цветовые варианты */
+  variant?: 'primary' | 'secondary' | 'success' | 'error' | 'warning'
+}
+
 export interface StyleProperties extends TextProperties, DimensionProperties, SpaceProperties,
   LayoutProperties, ColorProperties, OtherProperties, VisibilityProperties {}

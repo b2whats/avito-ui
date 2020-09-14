@@ -1,9 +1,9 @@
 import { ComponentType } from 'react'
-import { StyleProperties } from '../../styled-system/'
+import { StyleProperties, Variant } from '../../styled-system/'
 import { Theme } from '../../theme/'
 import { CommonAttributes } from '../../utils/'
 
-export interface TextProps extends StyleProperties, CommonAttributes<HTMLDivElement> {
+export interface TextProps extends StyleProperties, Variant, CommonAttributes<HTMLDivElement> {
   /** Размер текста */
   size?: keyof Theme['font']['fontSize']
   /** Размер текста фолбек */
@@ -34,8 +34,6 @@ export interface TextProps extends StyleProperties, CommonAttributes<HTMLDivElem
   pre?: boolean
   /** Многоточие в конце строки */
   truncate?: boolean
-  /** Цветовые варианты текста */
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
   /** Текстовая нода */
   as?: string | ComponentType
   /** Инлайновое поведение */

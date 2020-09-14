@@ -12,10 +12,7 @@ export const badgeTheme = dsl.theme<BadgeTheme>()
     kind: 'fill',
     animateChange: 'slide',
   })
-  .mapProps(props => ({
-    // specifying anything gap-related enables gap
-    gapSize: (props.gap || props.gapColor) ? 2 : 0,
-    gapColor: (props.gap || props.gapSize) ? 'white' : undefined,
+  .mapProps((props) => ({
     // only filled badge has default size
     size: props.kind === 'flat' ? undefined : 'm',
     ...props,

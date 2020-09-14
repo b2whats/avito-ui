@@ -9,6 +9,7 @@ import { ImageTheme } from '../components/Image/theme'
 import { InputTheme } from '../components/Input/theme'
 import { LinkTheme } from '../components/Link/theme'
 import { MeterTheme } from '../components/Meter/theme'
+import { PointTheme } from '../components/Point/theme'
 import { PositionerTheme } from '../components/Positioner/theme'
 import { RadioTheme } from '../components/Radio/theme'
 import { SpinnerTheme } from '../components/Spinner/theme'
@@ -30,6 +31,7 @@ export interface Theme extends Tokens {
   Image: ImageTheme
   Input: InputTheme
   Meter: MeterTheme
+  Point: PointTheme
   Radio: RadioTheme
   Spinner: SpinnerTheme
   Switcher: SwitcherTheme
