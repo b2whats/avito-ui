@@ -34,6 +34,7 @@ const textControlTheme = dsl.fragment<
 export const pikTheme: DeepPartial<Theme> = {
   font: {
     fontFamily: 'Avito,"Helvetica Neue",Helvetica,sans-serif',
+    defaultLineHeight: 1.5,
     fontSize: {
       xl: 24,
     },

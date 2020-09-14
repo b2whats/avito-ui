@@ -3906,6 +3906,38 @@ Object {
 }
 `;
 
+exports[`mobile theme Text fuzz: size="xl" 1`] = `
+Object {
+  "Text": Object {
+    "fontSize": "xl",
+  },
+}
+`;
+
+exports[`mobile theme Text fuzz: size="xs" 1`] = `
+Object {
+  "Text": Object {
+    "fontSize": "xs",
+  },
+}
+`;
+
+exports[`mobile theme Text fuzz: size="xxl" 1`] = `
+Object {
+  "Text": Object {
+    "fontSize": "xxl",
+  },
+}
+`;
+
+exports[`mobile theme Text fuzz: size="xxxl" 1`] = `
+Object {
+  "Text": Object {
+    "fontSize": "xxxl",
+  },
+}
+`;
+
 exports[`mobile theme Text fuzz: variant="error" 1`] = `
 Object {
   "Text": Object {

@@ -1,9 +1,9 @@
 import React from 'react'
-import { variant, sml, mockProps } from '../../../test'
+import { variant, maybe, mockProps } from '../../../test'
 import { TextProps } from './contract'
 
 export const textMock = mockProps<TextProps>(() => [{
-  size: sml,
+  size: maybe(['xxxl', 'xxl', 'xl', 'l', 'm', 's', 'xs']),
 }, {
   variant,
 }, {
