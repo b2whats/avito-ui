@@ -1,4 +1,4 @@
-## 0.0.37
+## 0.0.38
 ## 0.0.27
 - BUGFIX: Prevent button w/href height from expanding due to IE fix
 ## 0.0.26
