@@ -1,3 +1,4 @@
+import type { Theme } from '@avito/core'
 import { web } from '@avito/tokens'
 import { buttonTheme } from './components/Button/theme'
 import { checkboxTheme } from './components/Checkbox/theme'
@@ -20,7 +21,7 @@ declare module '@avito/core' {
   }
 }
 
-export const theme = {
+export const theme: Partial<Theme> = {
   ...web,
   Button: buttonTheme,
   Checkbox: checkboxTheme,

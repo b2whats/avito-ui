@@ -1,3 +1,4 @@
+import type { Theme } from '@avito/core'
 import { mobile } from '@avito/tokens'
 import { alertTheme } from './components/Alert/theme'
 import { avatarTheme } from './components/Avatar/theme'
@@ -26,7 +27,7 @@ declare module '@avito/core' {
   }
 }
 
-export const theme = {
+export const theme: Partial<Theme> = {
   ...mobile,
   Alert: alertTheme,
   Avatar: avatarTheme,
