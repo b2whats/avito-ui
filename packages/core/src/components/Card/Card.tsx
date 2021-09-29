@@ -16,6 +16,13 @@ export const Card = uiComponent('Card', cardTheme)<CardProps>(({ children, ...pr
     null
   )
 
+  React.useCallback((aaa, bbbb = aaa): string => {
+    if (aaa) return aaa
+    aaa = bbbb
+
+    return aaa
+  }, [])
+
   return (
     <Box position='relative' {...Card} {...props} marker={marker()}>
       { renderImageSlot(props.image, Image) }
@@ -26,3 +33,12 @@ export const Card = uiComponent('Card', cardTheme)<CardProps>(({ children, ...pr
     </Box>
   )
 })
+
+
+interface SomeThing {
+  type: number | string
+}
+
+let someThing: SomeThing = {
+  type: 5 as number,
+}

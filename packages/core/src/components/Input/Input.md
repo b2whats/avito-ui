@@ -14,7 +14,7 @@
 
 ```jsx
 <Stack spacing='m' column>
-  <Input width={200} placeholder='200px' />
+  <Input width={200} placeholder='200px' override={}/>
   <Input width={0.5} placeholder='50%' />
   <Grid spacing='s'>
     <Box width={6/12}><Input placeholder='6 колонок' /></Box>

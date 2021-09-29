@@ -91,7 +91,7 @@ const buttonClassName = createClassName<ButtonProps, typeof buttonTheme>({
     ${textRules}
   `),
 })
-
+type a = React.MutableRefObject<HTMLButtonElement | HTMLLinkElement | null>
 export const Button = uiComponent('Button', buttonTheme)<ButtonProps>((props, { theme, tokens, ref }) => {
   props.type = props.href ? undefined : props.type
   const groupProps = useGroupHook(ref, props)

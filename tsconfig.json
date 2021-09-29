@@ -14,11 +14,6 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "typeRoots": ["node_modules/@types"],
-    "baseUrl": "./packages",
-    "paths": {
-      "@avito/*/icons": ["../node_modules/@avito/*/src/components/Icon/icons"],
-      "@avito/*": ["../node_modules/@avito/*/src"],
-    },
   },
   "exclude": [
     "node_modules",

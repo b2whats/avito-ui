@@ -65,30 +65,12 @@ export const Input = uiComponent('Input', inputTheme)<InputProps, HTMLInputEleme
   const inputStyle = inputClassName(props, tokens, Input)
   const inputFieldStyle = inputFieldClassName(props, tokens, InputField)
 
-  const renderIconSlot = (icon: InputProps['iconBefore'] | InputProps['iconAfter'], iconProps: IconProps) => (
-    typeof icon === 'function' ? icon({ ...props, iconProps, focus, handleClear }) :
-    isValidElement(icon) ? <icon.type {...iconProps} {...icon.props} /> :
-    undefined
-  )
-
-  const textColor = (activeColor?: any) => focus || props.value ? activeColor : Input.placeholderColor
-  const renderTextSlot = (text: InputProps['prefix'] | InputProps['postfix'], textProps: TextProps) => (
-    typeof text === 'string' ? <Text {...textProps} color={textColor()} pre>{text}</Text> :
-    typeof text === 'function' ? text({ ...props, focus }) :
-    React.isValidElement(text) ? <text.type {...textProps} {...text.props} color={textColor(text.props.color)} /> :
-    undefined
-  )
-
-  const iconAfter = renderIconSlot(
-    IconAfter.component ? <IconAfter.component /> : props.iconAfter,
-    clearable ? { ...IconAfter, onClick: handleClear, ...testId('clear') } : { ...IconAfter, ...testId('iconAfter') }
-  )
-
+ 
   const elementState = `${props.disabled ? 'disabled' : ''} ${focus ? 'focus' : ''}`
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <label css={inputStyle} data-state={elementState} onMouseDown={handlePreventBlur} {...testId()}>
+    <Slot name='Input'  data-state={elementState} onMouseDown={handlePreventBlur} {...testId()}>
       {props.iconBefore && renderIconSlot(props.iconBefore, { ...IconBefore, ...testId('iconBefore')})}
       <div css={inputFieldStyle}>
         {props.prefix && renderTextSlot(props.prefix, Prefix)}

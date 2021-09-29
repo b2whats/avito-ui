@@ -44,7 +44,6 @@ const ieLoader = {
             corejs: 3,
             targets: {
               ie: '11',
-              safari: '9',
             },
           },
         ],

@@ -2,6 +2,17 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "outDir": "./types",
+    "rootDir": "./src",
+    "composite": true,
+    "emitDeclarationOnly": true,
   },
+  "references": [
+    {
+      "path": "../core/tsconfig.json"
+    },
+    {
+      "path": "../tokens/tsconfig.json"
+    },
+  ],
   "include": ["./src"],
 }

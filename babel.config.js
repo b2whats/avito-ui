@@ -1,5 +1,9 @@
-/* eslint-disable no-console */
-const path = require('path')
+/*
+eslint-disable
+no-console
+*/
+const
+path = require('path')
 const { DEBUG, BABEL_ENV, NODE_ENV, TARGET } = process.env
 const isProduction = NODE_ENV === 'production'
 const isTest = NODE_ENV === 'test'
@@ -55,3 +59,48 @@ if (DEBUG) {
 }
 
 module.exports = config
+
+
+
+default-src 'self';
+connect-src 'self' blob: https://mb.vtb24.ru  https://vo.vtb.ru wss://vo.vtb.ru wss://vo.vtb.ru/online/WebSocket https://sso-app.vtb.ru www.google-analytics.com https://api-maps.yandex.ru https://suggest-maps.yandex.ru https://*.maps.yandex.net https://yandex.ru https://*.taxi.yandex.net stats.g.doubleclick.net https://async-online.vtb.ru wss://async-online.vtb.ru https://headless-cms.vtb.ru https://cs.cache.api.vtb.ru;
+script-src 'self'
+'unsafe-eval'
+'sha256-CAq7UT05dgnWbpqo7eGhvj2deJGjh0x07G/RGfusuQo='
+www.googletagmanager.com
+https://vo.vtb.ru
+www.google-analytics.com
+https://api-maps.yandex.ru
+https://suggest-maps.yandex.ru
+https://*.maps.yandex.net
+https://yandex.ru
+https://yastatic.net;
+style-src
+'self'
+'unsafe-inline'
+https://vo.vtb.ru;
+font-src 'self' data: https://vo.vtb.ru https://fonts.gstatic.com;
+img-src 'self'
+data:
+https://vo.vtb.ru
+www.google.com/ads/ga-audiences
+www.google.ru/ads/ga-audiences
+stats.g.doubleclick.net
+www.google-analytics.com
+https://*.maps.yandex.net
+api-maps.yandex.ru
+
+https://yandex.ru
+https://headless-cms.vtb.ru;
+frame-src
+blob:
+*;
+object-src 'self'
+blob:
+https://vo.vtb.ru;media-src
+https://vo.vtb.ru;
+frame-ancestors
+https://online.vtb.ru
+https://opefront.vtb24.ru;
+report-uri
+/services/shared/logging/policy-error;
